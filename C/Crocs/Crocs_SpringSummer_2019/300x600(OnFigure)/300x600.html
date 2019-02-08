@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ad</title>
+    <script type="text/javascript" src="js/AMOLibrary.js"></script>
+    <link rel="stylesheet" href="https://assets.everesttech.net/static/css/style.min.css">
+    <script type="text/javascript" src="https://assets.everesttech.net/static/js/script.min.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/eqf5dzf.css">
+    <style media="screen">
+      /* @font-face {
+          font-family: ExpertSans-Regular;
+          src: url('fonts/ExpertSans-Regular.woff') format("woff");
+      }
+      .expertSansRegular { font-family: ExpertSans-Regular; } */
+      .proximaNovaRegular {
+        font-family:"proxima-nova";
+        font-style:normal;
+        font-weight:400;
+      }
+      .proximaNovaExtrabold {
+        font-family:"proxima-nova";
+        font-style:normal;
+        font-weight:800;
+      }
+    </style>
+    <!--
+      Available Classes:-
+        For Images :-
+          .asset        -Image Center Align(Image can shrink according to the container but will expand beyond its original size)
+          .asset-top    -Image Top Center Align(Image can shrink according to the container but will expand beyond its original size)
+          .asset-left
+
+    -->
+    <style media="screen" data-dynamic="style">
+      #ad {
+        width: 300px;
+        height: 600px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #000;
+        background-color: #fff;
+      }
+      #backgroundText span {
+        text-align:!{backgroundTextAlignement};
+      }
+      #headlineText {
+        transform-origin:!{backgroundTextAlignement};
+      }
+      #backgroundText.change unique {
+        opacity:0;
+      }
+      #cta {
+        border:2px solid;
+        color: !{layoutColor};
+      }
+      #cta:hover {
+        color:#fff;
+        background-color: !{layoutColor};
+        border-color:!{layoutColor};
+      }
+      body {}
+    </style>
+  </head>
+  <body>
+    <div class="" id="ad">
+      <div id="backgroundImage" class="asset"
+        data-image="backgroundImage"
+        style="top:0px;
+          left:0px;
+          width:inherit;
+          height:inherit;">
+      </div>
+      <!-- <div id="ref" class="asset"
+        data-image="ref"
+        style="top:0px;
+          left:0px;
+          width:inherit;
+          height:inherit;">
+      </div> -->
+      <div id="backgroundText" class="proximaNovaExtrabold"
+        data-text="backgroundText"
+        data-style="display:block;-webkit-transform:translateY(-75%);transform:translateY(-75%);-webkit-transition:transform ease-out 0.6s;transition:transform ease-out 0.6s;"
+        style="top:3px;
+          right:39px;
+          width:227px;
+          height:290px;
+          overflow:hidden;
+          font-size:32px;
+          color:#fff;
+          opacity:0.2;
+          letter-spacing:0.6px;
+          line-height:1.05;">
+      </div>
+      <div class=""
+        style="top:300px;
+          width:inherit;
+          height:300px;
+          overflow:hidden;
+          background-color:#fff;">
+        <div id="productShadowImage" class="asset-bottom"
+          data-image="productShadowImage"
+          style="position:absolute;
+            top:50px;
+            left:39px;
+            width:222px;
+            height:165px;
+            -webkit-transform:translateX(140%);
+            transform:translateX(140%);
+            -webkit-transition:transform ease-out 0.3s;
+            transition:transform ease-out 0.3s;">
+        </div>
+        <div id="productImage" class="asset-bottom"
+          data-image="productImage"
+          style="position:absolute;
+            top:50px;
+            left:39px;
+            width:222px;
+            height:165px;
+            -webkit-transform:translateX(140%);
+            transform:translateX(140%);
+            -webkit-transition:transform ease-out 0.3s;
+            transition:transform ease-out 0.3s;">
+        </div>
+      </div>
+      <div id="modelImage" class="asset"
+        data-image="modelImage"
+        style="top:0px;
+          left:0px;
+          width:inherit;
+          height:inherit;">
+      </div>
+      <div id="logoImage" class="asset"
+        data-image="logoImage"
+        style="top:552px;
+          left:37px;
+          width:102px;
+          height:33px;">
+      </div>
+      <div id="headlineText" class="text-right proximaNovaExtrabold"
+        data-text="headlineText"
+        style="top:59px;
+          right:28px;
+          width:259px;
+          height:50px;
+          font-size:36px;
+          color:#fff;
+          letter-spacing:0.6px;
+          -webkit-transform:scale(0.85);
+          transform:scale(0.85);
+          -webkit-transition:transform ease-out 0.1s;
+          transition:transform ease-out 0.1s;
+          opacity:0;">
+      </div>
+      <div id="headlineImage" class="asset"
+        data-image="headlineImage"
+        style="top:2px;
+          left:0px;
+          width:inherit;
+          height:inherit;
+          opacity:0;
+          display:none;">
+      </div>
+      <div id="productText" class="text proximaNovaRegular"
+        data-text="productText"
+        style="top:509px;
+          left:10px;
+          width:280px;
+          height:25px;
+          line-height:1.2;
+          font-size:13px;
+          letter-spacing:0.4px;
+          color:#000;
+          -webkit-transform:scale(0);
+          transform:scale(0);
+          -webkit-transition:transform cubic-bezier(.43,-0.25,.32,1.39) 0.3s;
+          transition:transform cubic-bezier(.43,-0.25,.32,1.39) 0.3s;">
+      </div>
+      <div id="cta" class="text proximaNovaExtrabold"
+        data-text="ctaText"
+        style="top:552px;
+          left:160px;
+          width:102px;
+          height:33px;
+          font-size:14px;
+          box-sizing:border-box;">
+      </div>
+      <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
+    </div>
+    <div id="loadFont" style="width:0;height:0;overflow:hidden;">
+      <div class="proximaNovaRegular" style="color:transparent;">proximaNovaRegular</div>
+      <div class="proximaNovaExtrabold" style="color:transparent;">proximaNovaExtrabold</div>
+    </div>
+    <script type="text/javascript">
+      var ad = new Ad({
+        root: document.querySelector('#ad'),
+        width: 300,
+        height: 600,
+        borderWidth: 1,
+        borderColor: '#000'
+      });
+      setTimeout(function() {
+        var iframe = window.frameElement;
+				var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
+				var bannerData = parentWindow.getBannerData1();
+        ad.contentSetup({
+          cam: bannerData,
+          feed: [
+            {
+              name: 'Crocs'
+            }
+          ],
+          staticData: {
+            headlineImage: 'images/1x1.png',
+            // ctaBtn: '#0aabef',
+            // ctaBtnHover: '#0077a9',//'#00aef0',
+            // ref: 'ref2.jpg',
+          },
+          beforeLoad: function(data){
+            data.map(function(content){
+              content.layoutColor = '#F1718B';
+              content.backgroundImage = 'images/background/300x600_ClassicClog_FullBody_BackgroundImage.png';
+              switch(content.layout.toLowerCase()) {
+                case 'classicclog': content.backgroundImage = 'images/background/300x600_ClassicClog_FullBody_BackgroundImage.png';
+                                    content.headlineImage = 'images/300x600_ClassicClog_FullBody_Text_ICROCS.png';
+                                    document.querySelector('#headlineImage').style.display = 'block';
+                                    document.querySelector('#headlineImage').style.left = content.backgroundTextAlignement.toLowerCase() == 'left' ? '-130px' : '0px';
+                                    document.querySelector('#headlineText').style.display = 'none';
+                                    content.layoutColor = '#F1718B';
+                                    break;
+                case 'crocbandclog': content.backgroundImage = 'images/background/300x600_CrocbandClog_FullBody_BackgroundImage.png'; content.layoutColor = '#F69687'; break;
+                case 'crocbandflip': content.backgroundImage = 'images/background/300x600_CrocbandFlip_FullBody_BackgroundImage.png'; content.layoutColor = '#EF4050'; break;
+                case 'crocsserenasandal': content.backgroundImage = 'images/background/300x600_CrocsSerenaSandal_FullBody_BackgroundImage.png'; content.layoutColor = '#DBAF3C'; break;
+                case 'literideclog': content.backgroundImage = 'images/background/300x600_LiteRideClog_FullBody_BackgroundImage.png'; content.layoutColor = '#2F478C'; break;
+                case 'literidesandal': content.backgroundImage = 'images/background/300x600_LiteRideSandal_FullBody_BackgroundImage.png'; content.layoutColor = '#00ACA4'; break;
+                case 'swiftwatersandal': content.backgroundImage = 'images/background/300x600_SwiftwaterSandal_FullBody_BackgroundImage.png'; content.layoutColor = '#F1718B'; break;
+              }
+              // content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
+              // content.ctaBtn = content.ctaBtnColor.split('^')[0];
+              content.backgroundText = content.backgroundText.split(' ').map(function(text, i){ return '<div>' + text + '</div>'; }).join('');
+              content.backgroundText = content.backgroundText+content.backgroundText+content.backgroundText+content.backgroundText;
+            });
+            return data;
+          }
+        }, function(data){
+          var adData = data[0], adClickUrl = adData['clickUrl'];
+          ad.root.addEventListener("click", function(e) {
+            if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
+          });
+          if(adData.backgroundTextAlignement == 'left') {
+            ad.layers.headlineText.classList.remove('text-right');
+            ad.layers.headlineText.classList.add('text-left');
+          }
+          if(navigator.userAgent.toLowerCase().indexOf('firefox') != -1){
+            ad.layers.backgroundText.style.lineHeight = '1.03';
+          }
+          var imagePath = adData.logoImage;
+          var image = new Image();
+          image.crossOrigin = 'Anonymous';
+          image.onload = function() {
+             var canvas = document.createElement('canvas');
+             var ctx = canvas.getContext('2d');
+             canvas.width = this.width;
+             canvas.height = this.height;
+             document.body.appendChild(canvas);
+             ctx.fillStyle = adData.layoutColor;
+             ctx.fillRect(0, 0, this.naturalWidth, this.naturalHeight);
+             ctx.globalCompositeOperation = 'destination-in';
+             ctx.drawImage(this, 0, 0);
+             // imagePath = canvas.toDataURL();
+             var imageURL = canvas.toDataURL();
+             ad.root.querySelector('#logoImage img').src = imageURL;
+             document.body.removeChild(canvas);
+          }
+          image.src = imagePath;
+          setTimeout(function(){
+            var listElement = ad.layers.backgroundText.querySelector('span');
+            listElement.style.webkitTransform = '';
+            listElement.style.transform = '';
+            setTimeout(function(){
+              ad.layers.headlineText.style.opacity = 1;
+              ad.layers.headlineImage.style.opacity = 1;
+              ad.layers.backgroundText.classList.add('change');
+              ad.layers.headlineText.style.webkitTransform = '';
+              ad.layers.headlineText.style.transform = '';
+              setTimeout(function(){
+                ad.layers.productImage.style.webkitTransform = '';
+                ad.layers.productImage.style.transform = '';
+                ad.layers.productShadowImage.style.webkitTransform = '';
+                ad.layers.productShadowImage.style.transform = '';
+                setTimeout(function(){
+                  ad.layers.productText.style.webkitTransform = '';
+                  ad.layers.productText.style.transform = '';
+                },500);
+              },200);
+            },600);
+
+          }, 300);
+        });
+      }, 2000);
+    </script>
+  </body>
+</html>

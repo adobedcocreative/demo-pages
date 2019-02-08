@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ads</title>
+    <style media="screen">
+      body {
+        min-width: 1024px;
+      }
+      .ad-wrapper {
+        /* max-width: 970px; */
+        margin: 0 auto;
+        text-align: center;
+      }
+      #header{
+        text-align: center;
+      }
+      #header .image-container {
+        display: inline-block;
+        position: relative;
+      }
+      #header .image {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 40px;
+      }
+      #header .image:first-child {
+        position: absolute;
+        top:0px;
+        left:0px;
+      }
+      #header .image img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      #header > div {
+        font-family: Arial;
+        display: inline-block;
+        min-height: 65px;
+        vertical-align: top;
+        padding: 10px 10px 0px 10px;
+        margin: 0px 0px 10px 0px;
+        color:#333;
+        text-align: center;
+        -webkit-transition: all ease-out 0.2s;
+        transition: all ease-out 0.2s;
+        cursor: pointer;
+      }
+      #header > div:hover {
+        margin: 0px;
+        padding: 10px;
+      }
+      #header > div.selected {
+        margin: 0px;
+        padding: 10px;
+      }
+      .frame-wrapper {
+        display: inline-block;
+      }
+      .frame-wrapper div {
+        font-family: Arial;
+        text-align: left;
+        margin-left: 10px;
+      }
+      iframe {
+        border: none;
+        margin: 10px 10px 2px 10px;
+      }
+    </style>
+    <script src="content.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div id="header" class=""></div>
+    <div id="adContainer" class="ad-wrapper"></div>
+    <script type="text/javascript">
+      var bannerData = [], bannerData1 = [];
+      var loadContent = function(layout){
+        bannerData = [];
+        bannerData1 = [];
+        var htmlContent = '';
+        feedContent.forEach(function(data, i){
+          var selectedText = '';
+          if(data.TEXT_2.toLowerCase() == layout.toLowerCase()) {
+            selectedText = 'selected';
+            location.hash = data.TEXT_2;
+            bannerData.push({
+              adSize: data.AD_SIZE,
+              layout: data.TEXT_2,
+              logoImage: 'assets/Crocs_CAYA_LOGO.png',
+              oddRowsImage: '../assets/'+ data.TEXT_2 + '/' + data.IMAGE_URL2,
+              evenRowsImage: '../assets/'+ data.TEXT_2 + '/' + data.IMAGE_URL1,
+              modelImage: '../assets/'+ data.TEXT_2 + '/' + data.IMAGE_URL3,
+              celebrityText: data.TEXT_4,
+              headlineText: data.TEXT_3,
+              productImage: '../assets/'+ data.TEXT_2 + '/' + data.IMAGE_URL4,
+              productShadowImage: '../assets/'+ data.TEXT_2 + '/' + data.IMAGE_URL5,
+              productText: data.TEXT_1,
+              ctaText: data.TEXT_5,
+              clickUrl: 'https://adobe.com/#' + data.TEXT_2,
+            });
+          }
+          if(data.AD_SIZE == '300x250') {
+            htmlContent += '<div data-load="'+data.TEXT_2+'" class="'+selectedText+'" style="background-color:' + data.PROVIDER_CATEGORY.split('|')[1] + '99;"><div class="image-container"><div class="image"><img src="'+'assets/'+ data.TEXT_2 + '/' + data.IMAGE_URL5+'"></div><div class="image"><img src="'+'assets/'+ data.TEXT_2 + '/' + data.IMAGE_URL4+'"></div></div><div class="text">' + data.PROVIDER_CATEGORY.split('|')[0] + '</div></div>';
+          }
+        });
+        feedContent1.forEach(function(data, i){
+          if(data.TEXT_2.toLowerCase() == layout.toLowerCase()) {
+            bannerData1.push({
+              adSize: data.AD_SIZE,
+              layout: data.TEXT_2,
+              logoImage: 'assets/Crocs_CAYA_LOGO.png',
+              backgroundText: data.PROMOTIONAL_COPY,
+              backgroundTextAlignement: data.TEXT_4,
+              modelImage: '../assets/'+ data.TEXT_2 + '/' + data.IMAGE_URL3,
+              celebrityText: data.TEXT_4,
+              headlineText: data.TEXT_3,
+              productImage: '../assets/'+ data.TEXT_2 + '/' + data.IMAGE_URL4,
+              productShadowImage: '../assets/'+ data.TEXT_2 + '/' + data.IMAGE_URL5,
+              productText: data.TEXT_1,
+              ctaText: data.TEXT_5,
+              clickUrl: 'https://adobe.com/#' + data.TEXT_2,
+            });
+          }
+
+        });
+        document.querySelector('#header').innerHTML = htmlContent;
+        var headers = document.querySelectorAll('#header > div');
+        if(headers && headers.length) {
+          for(var i=0; i<headers.length; i++) {
+            headers[i].onclick = function(){
+              loadContent(this.dataset.load);
+            }
+          }
+        }
+
+        document.querySelector('#adContainer').innerHTML = '<div class="frame-wrapper"><iframe src="160x600/160x600.html" width="160" height="600" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>160 x 600</div></div>'+
+        '<div class="frame-wrapper"><iframe src="300x600/300x600.html" width="300" height="600" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>300 x 600 Portrait</div></div>'+
+        '<div class="frame-wrapper"><iframe src="300x600(OnFigure)/300x600.html" width="300" height="600" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>300 x 600 Full Body</div></div>'+
+        '<div style="display:inline-block;max-width:800px;text-align:left;">'+
+          '<div class="frame-wrapper"><iframe src="300x250/300x250.html" width="300" height="250" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>300 x 250</div></div>'+
+          '<div></div>'+
+          '<div class="frame-wrapper"><iframe src="320x50/320x50.html" width="320" height="50" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>320 x 50</div></div>'+
+          '<div class="frame-wrapper"><iframe src="728x90/728x90.html" width="728" height="90" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>728 x 90</div></div>'+
+        '</div>'+
+        '<div class="frame-wrapper"><iframe src="970x250/970x250.html" width="970" height="250" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>970 x 250</div></div>';
+      }
+      var searchFlag = false;
+      if(location.hash && location.hash.length) {
+        var selector = location.hash.split('#')[1];
+        feedContent1.forEach(function(data, i){
+          if(data.TEXT_2.toLowerCase() == selector.toLowerCase()){
+            searchFlag = true;
+          }
+        });
+        loadContent(searchFlag ? selector : 'ClassicClog');
+      } else { loadContent('ClassicClog'); }
+      window.getBannerData = function(k){
+        var obj = {};
+        for(var j in bannerData) {
+          if(bannerData[j].adSize == k) { for(var i in bannerData[j]) { obj[i] = bannerData[j][i]; } }
+        }
+        return obj;
+      }
+      window.getBannerData1 = function(){ var obj = {}; for(var i in bannerData1[0]) { obj[i] = bannerData1[0][i]; } return obj; }
+    </script>
+  </body>
+</html>
