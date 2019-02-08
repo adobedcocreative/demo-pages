@@ -378,8 +378,8 @@ var feedContent = [{
         "IMAGE_URL1": "300x600_CrocbandFlip_Portrait_evenRowsImage.png",
         "IMAGE_URL2": "300x600_CrocbandFlip_Portrait_oddRowsImage.png",
         "IMAGE_URL3": "300x600_CrocbandFlip_Portrait_ModelImage_Zooey.png",
-        "IMAGE_URL4": "300x600_CrocbandFlip_ProductImage.png",
-        "IMAGE_URL5": "300x600_CrocbandFlip_ProductImage_Shadow.png",
+        "IMAGE_URL4": "CrocbandFlip_ProductImage.png",
+        "IMAGE_URL5": "CrocbandFlip_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Crocband™ Flip|#EF4050",
         "OFFER_ID": 17
     },
@@ -394,8 +394,8 @@ var feedContent = [{
         "IMAGE_URL1": "300x600_CrocsSerenaSandal_Portrait_evenRowsImage.png",
         "IMAGE_URL2": "300x600_CrocsSerenaSandal_Portrait_oddRowsImage.png",
         "IMAGE_URL3": "300x600_CrocsSerenaSandal_Portrait_ModelImage_Zooey.png",
-        "IMAGE_URL4": "300x600_CrocsSerenaSandal_ProductImage.png",
-        "IMAGE_URL5": "300x600_CrocsSerenaSandal_ProductImage_Shadow.png",
+        "IMAGE_URL4": "CrocsSerenaSandal_ProductImage.png",
+        "IMAGE_URL5": "CrocsSerenaSandal_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Crocs Serena Sandal|#DBAF3C",
         "OFFER_ID": 18
     },
