@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ad</title>
+    <link rel="stylesheet" href="css/style.min.css">
+    <script type="text/javascript" src="js/AMOLibrary.js"></script>
+    <script src="js/script.min.js" charset="utf-8"></script>
+    <style media="screen">
+      @font-face {
+          font-family: ClanProForUBER-Medium;
+          src: url('ClanProForUBER-Medium.woff') format("woff");
+      }
+      @font-face {
+          font-family: ClanProForUBER-News;
+          src: url('ClanProForUBER-News.woff') format("woff");
+      }
+      .uberMedium { font-family: ClanProForUBER-Medium; }
+      .uberNews { font-family: ClanProForUBER-News; }
+    </style>
+    <!--
+      Available Classes:-
+        For Images :-
+          .asset        -Image Center Align(Image can shrink according to the container but will expand beyond its original size)
+          .asset-top    -Image Top Center Align(Image can shrink according to the container but will expand beyond its original size)
+          .asset-left
+
+    -->
+    <style media="screen">
+      #ad {
+        width: 160px;
+        height: 600px;
+        font-family: Arial,Helvetica,sans-serif;
+        color: #fff;
+      }
+      /* #cta { background-color: #1a9bfc; }
+      #cta:hover { background-color: #0d72bd; } */
+    </style>
+  </head>
+  <body>
+    <div class="" id="ad">
+      <div id="productImage" class="asset"
+        data-image="productImage"
+        style="top:0px;
+          left:0px;
+          width:inherit;
+          height:inherit;">
+      </div>
+      <div id="backgroundImage" class="asset"
+        data-image="backgroundImage"
+        style="top:0px;
+          left:0px;
+          width:inherit;
+          height:inherit;">
+      </div>
+      <!-- <div id="ref" class="asset"
+        data-image="ref"
+        style="top:0px;
+          left:0px;
+          width:inherit;
+          height:inherit;">
+      </div> -->
+      <div id="headline" class="uberMedium text"
+        data-text="headline"
+        style="top:32px;
+          left:12px;
+          width:136px;
+          height:100px;
+          font-size:13px;
+          text-align: center;
+          letter-spacing: 0.2px;
+          line-height:1.25;
+          display:inline-grid;
+          color:#FFF;">
+      </div>
+      <div id="cta" class="asset"
+        data-backgroundImage="ctaText"
+        style="top:525px;
+          left:15px;
+          width:130px;
+          height:30px;
+          background-size:100%;
+          background-color:!{ctaBtn};"
+          onmouseover="javascript:this.style.backgroundColor='!{ctaBtnHover}';"
+          onmouseout="javascript:this.style.backgroundColor='!{ctaBtn}';">
+      </div>
+      <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
+    </div>
+    <div id="loadFont" style="width:0;height:0;overflow:hidden;">
+      <div class="uberMedium" style="color:transparent;">ClanProForUBER-Medium</div>
+      <div class="uberNews" style="color:transparent;">ClanProForUBER-News</div>
+    </div>
+    <script type="text/javascript">
+      var ad = new Ad({
+        root: document.querySelector('#ad'),
+        width: 160,
+        height: 600,
+        borderWidth: 1,
+        borderColor: '#000'
+      });
+      setTimeout(function() {
+        var iframe = window.frameElement;
+				var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
+				var bannerData = parentWindow.getBannerData(iframe.dataset.index);
+        ad.contentSetup({
+          cam: bannerData,
+          feed: [
+            {
+              name: 'uber',
+              discount_price: 100
+            }
+          ],
+          staticData: {
+            ctaText: 'images/160x600_cta.png',
+            ctaBtn: '#28dfb6',
+            ctaBtnHover: '#333',
+            // ref: 'assets/ref.png',
+          }
+        }, function(data){
+          var adData = data[0], adClickUrl = adData['clickURL'];
+          ad.root.addEventListener("click", function(e) {
+            if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
+          });
+        });
+      }, 2000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ads</title>
+    <style media="screen">
+      .ad-wrapper {
+        /* max-width: 970px; */
+        margin: 0 auto;
+        text-align: center;
+      }
+      /* .ad-wrapper > iframe {
+        display: inline-block;
+      } */
+      /* .ad-wrapper > iframe:first-child {
+        display: block;
+        margin: 0 auto;
+      } */
+      iframe {
+        border: none;
+        margin: 0 5px;
+      }
+    </style>
+    <script src="../content.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div id="adContainer" class="ad-wrapper">
+      <!-- <iframe src="300x250.html" width="300" height="250" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe> -->
+    </div>
+    <script type="text/javascript">
+      var bannerData = [];
+      feedContent.forEach(function(data, i){
+        bannerData.push({
+          productImage: data.IMAGE_URL2,
+          backgroundImage: 'assets/300x250_backgroundImage.png',
+          headline: data.TEXT_1 + '<br><font style="font-size:86.67%;">' + data.TEXT_2 + '</font>',
+          clickURL: data.LANDING_PAGE_URL,
+        });
+      });
+      // var bannerData = [
+      //   {
+      //     productImage: 'assets/300x250_bill.jpg',
+      //     backgroundImage: 'assets/300x250_backgroundImage.png',
+      //     headline: '1The Uber Visa Card - $100 Offer<br><font style="font-size:13px; vertical">Protect your phone - Pay $0 annual fee</font>',
+      //     clickURL: 'https://www.adobe.com/#uber'
+      //   },
+      //   {
+      //     productImage: 'assets/300x250_bill.jpg',
+      //     backgroundImage: 'assets/300x250_backgroundImage.png',
+      //     headline: '2The Uber Visa Card - $100 Offer<br><font style="font-size:13px; vertical">Protect your phone - Pay $0 annual fee</font>',
+      //     clickURL: 'https://www.adobe.com/#uber'
+      //   }
+      // ];
+      bannerData.forEach(function(data, i){
+        var div = document.createElement('div');
+        div.style.display = 'inline-block';
+        div.style.position = 'relative';
+        var iframe = document.createElement('iframe');
+        iframe.src = '300x250.html';
+        iframe.width = '300';
+        iframe.height = '250';
+        iframe.dataset.index = i;
+        div.innerHTML = '<span style="position:absolute;left:5px;padding:0 3px;font-size:12px;border:1px solid;display:inline-block;background-color:#fff;">' + (i + 1) + '</span>';
+        div.appendChild(iframe);
+        document.querySelector('#adContainer').appendChild(div);
+      });
+
+
+      window.getBannerData = function(k){ var obj = {}; for(var i in bannerData[k]) { obj[i] = bannerData[k][i]; } return obj; }
+    </script>
+  </body>
+</html>
