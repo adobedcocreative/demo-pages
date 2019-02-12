@@ -12,6 +12,7 @@ var feedContent1 = [{
         "IMAGE_URL5": "ClassicClog_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Classic Clog|#F1718B",
         "PRODUCT_NAME": "Classic Clog|#F1718B",
+        "PRODUCT_URL": "https://www.crocs.com/p/classic-clog/10001.html?cid=737",
         "OFFER_ID": "Onfig_1"
     },
     {
@@ -28,6 +29,7 @@ var feedContent1 = [{
         "IMAGE_URL5": "CrocbandClog_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Crocband™ Clog|#F69687",
         "PRODUCT_NAME": "Crocband™ Clog|#F69687",
+        "PRODUCT_URL": "https://www.crocs.com/p/crocband-clog/11016.html?cid=0FL",
         "OFFER_ID": "Onfig_2"
     },
     {
@@ -44,6 +46,7 @@ var feedContent1 = [{
         "IMAGE_URL5": "300x600_CrocbandFlip_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Crocband™ Flip|#EF4050",
         "PRODUCT_NAME": "Crocband™ Flip|#EF4050",
+        "PRODUCT_URL": "https://www.crocs.com/p/kids-crocband-flip-gs/205778.html?cid=40M",
         "OFFER_ID": "Onfig_3"
     },
     {
@@ -60,6 +63,7 @@ var feedContent1 = [{
         "IMAGE_URL5": "300x600_CrocsSerenaSandal_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Crocs Serena Sandal|#DBAF3C",
         "PRODUCT_NAME": "Crocs Serena Sandal|#DBAF3C",
+        "PRODUCT_URL": "https://www.crocs.com/p/womens-crocs-serena-embellished-sandal/205601.html?cgid=womens-new&cid=060",
         "OFFER_ID": "Onfig_4"
     },
     {
@@ -76,6 +80,7 @@ var feedContent1 = [{
         "IMAGE_URL5": "LiteRideClog_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "LiteRide™ Clog|#2F478C",
         "PRODUCT_NAME": "LiteRide™ Clog|#2F478C",
+        "PRODUCT_URL": "https://www.crocs.com/p/literide-clog/204592.html?cid=06J",
         "OFFER_ID": "Onfig_5"
     },
     {
@@ -92,6 +97,7 @@ var feedContent1 = [{
         "IMAGE_URL5": "LiteRideSandal_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "LiteRide™ Sandal|#00ACA4",
         "PRODUCT_NAME": "LiteRide™ Sandal|#00ACA4",
+        "PRODUCT_URL": "https://www.crocs.com/p/womens-literide-sandal/205106.html?cgid=literide&cid=6KP",
         "OFFER_ID": "Onfig_6"
     },
     {
@@ -108,6 +114,7 @@ var feedContent1 = [{
         "IMAGE_URL5": "SwiftwaterSandal_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Swiftwater™ Sandal|#F1718B",
         "PRODUCT_NAME": "Swiftwater™ Sandal|#F1718B",
+        "PRODUCT_URL": "https://www.crocs.com/p/womens-swiftwater-sandal/203998.html?cid=3O2",
         "OFFER_ID": "Onfig_7"
     }
 ];
@@ -125,6 +132,7 @@ var feedContent = [{
         "IMAGE_URL4": "ClassicClog_ProductImage.png",
         "IMAGE_URL5": "ClassicClog_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Classic Clog|#F1718B",
+        "PRODUCT_URL": "https://www.crocs.com/p/classic-clog/10001.html?cid=737",
         "OFFER_ID": 1
     },
     {
@@ -141,6 +149,7 @@ var feedContent = [{
         "IMAGE_URL4": "CrocbandClog_ProductImage.png",
         "IMAGE_URL5": "CrocbandClog_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Crocband™ Clog|#F69687",
+        "PRODUCT_URL": "https://www.crocs.com/p/crocband-clog/11016.html?cid=0FL",
         "OFFER_ID": 2
     },
     {
@@ -157,6 +166,7 @@ var feedContent = [{
         "IMAGE_URL4": "CrocbandFlip_ProductImage.png",
         "IMAGE_URL5": "CrocbandFlip_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Crocband™ Flip|#EF4050",
+        "PRODUCT_URL": "https://www.crocs.com/p/kids-crocband-flip-gs/205778.html?cid=40M",
         "OFFER_ID": 3
     },
     {
@@ -173,6 +183,7 @@ var feedContent = [{
         "IMAGE_URL4": "CrocsSerenaSandal_ProductImage.png",
         "IMAGE_URL5": "CrocsSerenaSandal_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Crocs Serena Sandal|#DBAF3C",
+        "PRODUCT_URL": "https://www.crocs.com/p/womens-crocs-serena-embellished-sandal/205601.html?cgid=womens-new&cid=060",
         "OFFER_ID": 4
     },
     {
@@ -189,6 +200,7 @@ var feedContent = [{
         "IMAGE_URL4": "LiteRideClog_ProductImage.png",
         "IMAGE_URL5": "LiteRideClog_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "LiteRide™ Clog|#2F478C",
+        "PRODUCT_URL": "https://www.crocs.com/p/literide-clog/204592.html?cid=06J",
         "OFFER_ID": 5
     },
     {
@@ -205,6 +217,7 @@ var feedContent = [{
         "IMAGE_URL4": "LiteRideSandal_ProductImage.png",
         "IMAGE_URL5": "LiteRideSandal_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "LiteRide™ Sandal|#00ACA4",
+        "PRODUCT_URL": "https://www.crocs.com/p/womens-literide-sandal/205106.html?cgid=literide&cid=6KP",
         "OFFER_ID": 6
     },
     {
@@ -221,6 +234,7 @@ var feedContent = [{
         "IMAGE_URL4": "SwiftwaterSandal_ProductImage.png",
         "IMAGE_URL5": "SwiftwaterSandal_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Swiftwater™ Sandal|#F1718B",
+        "PRODUCT_URL": "https://www.crocs.com/p/womens-swiftwater-sandal/203998.html?cid=3O2",
         "OFFER_ID": 7
     },
     {
@@ -237,6 +251,7 @@ var feedContent = [{
         "IMAGE_URL4": "ClassicClog_ProductImage.png",
         "IMAGE_URL5": "ClassicClog_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Classic Clog|#F1718B",
+        "PRODUCT_URL": "https://www.crocs.com/p/classic-clog/10001.html?cid=737",
         "OFFER_ID": 8
     },
     {
@@ -253,6 +268,7 @@ var feedContent = [{
         "IMAGE_URL4": "CrocbandClog_ProductImage.png",
         "IMAGE_URL5": "CrocbandClog_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Crocband™ Clog|#F69687",
+        "PRODUCT_URL": "https://www.crocs.com/p/crocband-clog/11016.html?cid=0FL",
         "OFFER_ID": 9
     },
     {
@@ -269,6 +285,7 @@ var feedContent = [{
         "IMAGE_URL4": "CrocbandFlip_ProductImage.png",
         "IMAGE_URL5": "CrocbandFlip_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Crocband™ Flip|#EF4050",
+        "PRODUCT_URL": "https://www.crocs.com/p/kids-crocband-flip-gs/205778.html?cid=40M",
         "OFFER_ID": 10
     },
     {
@@ -285,6 +302,7 @@ var feedContent = [{
         "IMAGE_URL4": "CrocsSerenaSandal_ProductImage.png",
         "IMAGE_URL5": "CrocsSerenaSandal_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Crocs Serena Sandal|#DBAF3C",
+        "PRODUCT_URL": "https://www.crocs.com/p/womens-crocs-serena-embellished-sandal/205601.html?cgid=womens-new&cid=060",
         "OFFER_ID": 11
     },
     {
@@ -301,6 +319,7 @@ var feedContent = [{
         "IMAGE_URL4": "LiteRideClog_ProductImage.png",
         "IMAGE_URL5": "LiteRideClog_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "LiteRide™ Clog|#2F478C",
+        "PRODUCT_URL": "https://www.crocs.com/p/literide-clog/204592.html?cid=06J",
         "OFFER_ID": 12
     },
     {
@@ -317,6 +336,7 @@ var feedContent = [{
         "IMAGE_URL4": "LiteRideSandal_ProductImage.png",
         "IMAGE_URL5": "LiteRideSandal_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "LiteRide™ Sandal|#00ACA4",
+        "PRODUCT_URL": "https://www.crocs.com/p/womens-literide-sandal/205106.html?cgid=literide&cid=6KP",
         "OFFER_ID": 13
     },
     {
@@ -333,6 +353,7 @@ var feedContent = [{
         "IMAGE_URL4": "SwiftwaterSandal_ProductImage.png",
         "IMAGE_URL5": "SwiftwaterSandal_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Swiftwater™ Sandal|#F1718B",
+        "PRODUCT_URL": "https://www.crocs.com/p/womens-swiftwater-sandal/203998.html?cid=3O2",
         "OFFER_ID": 14
     },
     {
@@ -349,6 +370,7 @@ var feedContent = [{
         "IMAGE_URL4": "ClassicClog_ProductImage.png",
         "IMAGE_URL5": "ClassicClog_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Classic Clog|#F1718B",
+        "PRODUCT_URL": "https://www.crocs.com/p/classic-clog/10001.html?cid=737",
         "OFFER_ID": 15
     },
     {
@@ -365,6 +387,7 @@ var feedContent = [{
         "IMAGE_URL4": "CrocbandClog_ProductImage.png",
         "IMAGE_URL5": "CrocbandClog_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Crocband™ Clog|#F69687",
+        "PRODUCT_URL": "https://www.crocs.com/p/crocband-clog/11016.html?cid=0FL",
         "OFFER_ID": 16
     },
     {
@@ -381,6 +404,7 @@ var feedContent = [{
         "IMAGE_URL4": "CrocbandFlip_ProductImage.png",
         "IMAGE_URL5": "CrocbandFlip_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Crocband™ Flip|#EF4050",
+        "PRODUCT_URL": "https://www.crocs.com/p/kids-crocband-flip-gs/205778.html?cid=40M",
         "OFFER_ID": 17
     },
     {
@@ -397,6 +421,7 @@ var feedContent = [{
         "IMAGE_URL4": "CrocsSerenaSandal_ProductImage.png",
         "IMAGE_URL5": "CrocsSerenaSandal_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Crocs Serena Sandal|#DBAF3C",
+        "PRODUCT_URL": "https://www.crocs.com/p/womens-crocs-serena-embellished-sandal/205601.html?cgid=womens-new&cid=060",
         "OFFER_ID": 18
     },
     {
@@ -413,6 +438,7 @@ var feedContent = [{
         "IMAGE_URL4": "LiteRideClog_ProductImage.png",
         "IMAGE_URL5": "LiteRideClog_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "LiteRide™ Clog|#2F478C",
+        "PRODUCT_URL": "https://www.crocs.com/p/literide-clog/204592.html?cid=06J",
         "OFFER_ID": 19
     },
     {
@@ -429,6 +455,7 @@ var feedContent = [{
         "IMAGE_URL4": "LiteRideSandal_ProductImage.png",
         "IMAGE_URL5": "LiteRideSandal_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "LiteRide™ Sandal|#00ACA4",
+        "PRODUCT_URL": "https://www.crocs.com/p/womens-literide-sandal/205106.html?cgid=literide&cid=6KP",
         "OFFER_ID": 20
     },
     {
@@ -445,6 +472,7 @@ var feedContent = [{
         "IMAGE_URL4": "SwiftwaterSandal_ProductImage.png",
         "IMAGE_URL5": "SwiftwaterSandal_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Swiftwater™ Sandal|#F1718B",
+        "PRODUCT_URL": "https://www.crocs.com/p/womens-swiftwater-sandal/203998.html?cid=3O2",
         "OFFER_ID": 21
     },
     {
@@ -461,6 +489,7 @@ var feedContent = [{
         "IMAGE_URL4": "728x90_ClassicClog_ProductImage.png",
         "IMAGE_URL5": "728x90_ClassicClog_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Classic Clog|#F1718B",
+        "PRODUCT_URL": "https://www.crocs.com/p/classic-clog/10001.html?cid=737",
         "OFFER_ID": 22
     },
     {
@@ -477,6 +506,7 @@ var feedContent = [{
         "IMAGE_URL4": "728x90_CrocbandClog_ProductImage.png",
         "IMAGE_URL5": "728x90_CrocbandClog_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Crocband™ Clog|#F69687",
+        "PRODUCT_URL": "https://www.crocs.com/p/crocband-clog/11016.html?cid=0FL",
         "OFFER_ID": 23
     },
     {
@@ -493,6 +523,7 @@ var feedContent = [{
         "IMAGE_URL4": "728x90_CrocbandFlip_ProductImage.png",
         "IMAGE_URL5": "728x90_CrocbandFlip_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Crocband™ Flip|#EF4050",
+        "PRODUCT_URL": "https://www.crocs.com/p/kids-crocband-flip-gs/205778.html?cid=40M",
         "OFFER_ID": 24
     },
     {
@@ -509,6 +540,7 @@ var feedContent = [{
         "IMAGE_URL4": "728x90_CrocsSerenaSandal_ProductImage.png",
         "IMAGE_URL5": "728x90_CrocsSerenaSandal_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Crocs Serena Sandal|#DBAF3C",
+        "PRODUCT_URL": "https://www.crocs.com/p/womens-crocs-serena-embellished-sandal/205601.html?cgid=womens-new&cid=060",
         "OFFER_ID": 25
     },
     {
@@ -525,6 +557,7 @@ var feedContent = [{
         "IMAGE_URL4": "728x90_LiteRideClog_ProductImage.png",
         "IMAGE_URL5": "728x90_LiteRideClog_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "LiteRide™ Clog|#2F478C",
+        "PRODUCT_URL": "https://www.crocs.com/p/literide-clog/204592.html?cid=06J",
         "OFFER_ID": 26
     },
     {
@@ -541,6 +574,7 @@ var feedContent = [{
         "IMAGE_URL4": "728x90_LiteRideSandal_ProductImage.png",
         "IMAGE_URL5": "728x90_LiteRideSandal_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "LiteRide™ Sandal|#00ACA4",
+        "PRODUCT_URL": "https://www.crocs.com/p/womens-literide-sandal/205106.html?cgid=literide&cid=6KP",
         "OFFER_ID": 27
     },
     {
@@ -557,6 +591,7 @@ var feedContent = [{
         "IMAGE_URL4": "728x90_SwiftwaterSandal_ProductImage.png",
         "IMAGE_URL5": "728x90_SwiftwaterSandal_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Swiftwater™ Sandal|#F1718B",
+        "PRODUCT_URL": "https://www.crocs.com/p/womens-swiftwater-sandal/203998.html?cid=3O2",
         "OFFER_ID": 28
     },
     {
@@ -573,6 +608,7 @@ var feedContent = [{
         "IMAGE_URL4": "ClassicClog_ProductImage.png",
         "IMAGE_URL5": "ClassicClog_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Classic Clog|#F1718B",
+        "PRODUCT_URL": "https://www.crocs.com/p/classic-clog/10001.html?cid=737",
         "OFFER_ID": 29
     },
     {
@@ -589,6 +625,7 @@ var feedContent = [{
         "IMAGE_URL4": "CrocbandClog_ProductImage.png",
         "IMAGE_URL5": "CrocbandClog_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Crocband™ Clog|#F69687",
+        "PRODUCT_URL": "https://www.crocs.com/p/crocband-clog/11016.html?cid=0FL",
         "OFFER_ID": 30
     },
     {
@@ -605,6 +642,7 @@ var feedContent = [{
         "IMAGE_URL4": "CrocbandFlip_ProductImage.png",
         "IMAGE_URL5": "CrocbandFlip_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Crocband™ Flip|#EF4050",
+        "PRODUCT_URL": "https://www.crocs.com/p/kids-crocband-flip-gs/205778.html?cid=40M",
         "OFFER_ID": 31
     },
     {
@@ -621,6 +659,7 @@ var feedContent = [{
         "IMAGE_URL4": "CrocsSerenaSandal_ProductImage.png",
         "IMAGE_URL5": "CrocsSerenaSandal_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Crocs Serena Sandal|#DBAF3C",
+        "PRODUCT_URL": "https://www.crocs.com/p/womens-crocs-serena-embellished-sandal/205601.html?cgid=womens-new&cid=060",
         "OFFER_ID": 32
     },
     {
@@ -637,6 +676,7 @@ var feedContent = [{
         "IMAGE_URL4": "LiteRideClog_ProductImage.png",
         "IMAGE_URL5": "LiteRideClog_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "LiteRide™ Clog|#2F478C",
+        "PRODUCT_URL": "https://www.crocs.com/p/literide-clog/204592.html?cid=06J",
         "OFFER_ID": 33
     },
     {
@@ -653,6 +693,7 @@ var feedContent = [{
         "IMAGE_URL4": "LiteRideSandal_ProductImage.png",
         "IMAGE_URL5": "LiteRideSandal_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "LiteRide™ Sandal|#00ACA4",
+        "PRODUCT_URL": "https://www.crocs.com/p/womens-literide-sandal/205106.html?cgid=literide&cid=6KP",
         "OFFER_ID": 34
     },
     {
@@ -669,6 +710,7 @@ var feedContent = [{
         "IMAGE_URL4": "SwiftwaterSandal_ProductImage.png",
         "IMAGE_URL5": "SwiftwaterSandal_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Swiftwater™ Sandal|#F1718B",
+        "PRODUCT_URL": "https://www.crocs.com/p/womens-swiftwater-sandal/203998.html?cid=3O2",
         "OFFER_ID": 35
     },
     {
@@ -685,6 +727,7 @@ var feedContent = [{
         "IMAGE_URL4": "ClassicClog_ProductImage.png",
         "IMAGE_URL5": "ClassicClog_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Classic Clog|#F1718B",
+        "PRODUCT_URL": "https://www.crocs.com/p/classic-clog/10001.html?cid=737",
         "OFFER_ID": 36
     },
     {
@@ -701,6 +744,7 @@ var feedContent = [{
         "IMAGE_URL4": "CrocbandClog_ProductImage.png",
         "IMAGE_URL5": "CrocbandClog_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Crocband™ Clog|#F69687",
+        "PRODUCT_URL": "https://www.crocs.com/p/crocband-clog/11016.html?cid=0FL",
         "OFFER_ID": 37
     },
     {
@@ -717,6 +761,7 @@ var feedContent = [{
         "IMAGE_URL4": "CrocbandFlip_ProductImage.png",
         "IMAGE_URL5": "CrocbandFlip_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Crocband™ Flip|#EF4050",
+        "PRODUCT_URL": "https://www.crocs.com/p/kids-crocband-flip-gs/205778.html?cid=40M",
         "OFFER_ID": 38
     },
     {
@@ -733,6 +778,7 @@ var feedContent = [{
         "IMAGE_URL4": "CrocsSerenaSandal_ProductImage.png",
         "IMAGE_URL5": "CrocsSerenaSandal_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Crocs Serena Sandal|#DBAF3C",
+        "PRODUCT_URL": "https://www.crocs.com/p/womens-crocs-serena-embellished-sandal/205601.html?cgid=womens-new&cid=060",
         "OFFER_ID": 39
     },
     {
@@ -749,6 +795,7 @@ var feedContent = [{
         "IMAGE_URL4": "LiteRideClog_ProductImage.png",
         "IMAGE_URL5": "LiteRideClog_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "LiteRide™ Clog|#2F478C",
+        "PRODUCT_URL": "https://www.crocs.com/p/literide-clog/204592.html?cid=06J",
         "OFFER_ID": 40
     },
     {
@@ -765,6 +812,7 @@ var feedContent = [{
         "IMAGE_URL4": "LiteRideSandal_ProductImage.png",
         "IMAGE_URL5": "LiteRideSandal_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "LiteRide™ Sandal|#00ACA4",
+        "PRODUCT_URL": "https://www.crocs.com/p/womens-literide-sandal/205106.html?cgid=literide&cid=6KP",
         "OFFER_ID": 41
     },
     {
@@ -781,6 +829,7 @@ var feedContent = [{
         "IMAGE_URL4": "SwiftwaterSandal_ProductImage.png",
         "IMAGE_URL5": "SwiftwaterSandal_ProductImage_Shadow.png",
         "PROVIDER_CATEGORY": "Swiftwater™ Sandal|#F1718B",
+        "PRODUCT_URL": "https://www.crocs.com/p/womens-swiftwater-sandal/203998.html?cid=3O2",
         "OFFER_ID": 42
     }
 ];
