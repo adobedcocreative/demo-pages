@@ -109,10 +109,15 @@ function handleComplete(evt,comp) {
 
 	var loadFont = false
 	var loadBody = false
+	var loadImage = false
+	var image = new Image();
+	image.onload = function() { loaded('image'); }
+	image.src = 'images/' + document.title + '_atlas_.png';
 	function loaded(type) {
 		if (type=='font') loadFont=true
 		if (type=='body') loadBody=true
-		if (loadFont && loadBody) init()
+		if (type=='image') loadImage = true;
+		if (loadFont && loadBody && loadImage) init()
 	}
 
 	(function() {
