@@ -1,0 +1,8 @@
+NAME	DATA_TYPE	DESCRIPTION	DEFAULT_VALUE	ALLOWED_VALUES	MAX_LENGTH	
+EndTime	TEXT	text	1	1	0	
+CtaText	TEXT	text	1	1	0	
+ClickURL	TEXT	text	1	1	0	
+Logo	text	TEXT	1	1	1
+Headline	text	TEXT	1	1	1
+SubHeadline	text	TEXT	1	1	1
+BgImage	text	TEXT	1	1	1
