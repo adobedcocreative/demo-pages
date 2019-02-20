@@ -1,0 +1,11 @@
+NAME	DESCRIPTION	DATA_TYPE	MAX_LENGTH	DEFAULT_VALUE	ALLOWED_VALUES
+layout	text	TEXT	1	1	1
+textField1	text	TEXT	1	1	1
+textField2	text	TEXT	1	1	1
+textField3	text	TEXT	1	1	1
+textField4	text	TEXT	1	1	1
+textField5	text	TEXT	1	1	1
+ctaText	text	TEXT	1	1	1
+impressionTracker	text	TEXT	1	1	1
+clickTracker	text	TEXT	1	1	1
+clickUrl	text	TEXT	1	1	1
