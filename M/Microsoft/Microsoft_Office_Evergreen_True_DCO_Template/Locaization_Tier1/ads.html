@@ -185,6 +185,7 @@
         var adContent = getData(queryString);
         var country = adContent.data[0].Country;
         var smartName = adContent.name;
+        location.hash = btoa(country+'|'+smartName).replace('==','');
         htmlContent += adData.map(function(data){ return '<div '+(country == data.name ? 'class="selected"' : '')+' data-id="' + data.name + '">'+data.name + '</div>' }).join('');
         document.querySelector('#header').innerHTML = htmlContent;
         htmlContent = '';
@@ -241,17 +242,12 @@
         });
 
       }
-      // var searchFlag = false;
-      // if(location.hash && location.hash.length) {
-      //   var selector = location.hash.split('#')[1];
-      //   feedContent1.forEach(function(data, i){
-      //     if(data.TEXT_2.toLowerCase() == selector.toLowerCase()){
-      //       searchFlag = true;
-      //     }
-      //   });
-      //   loadContent(searchFlag ? selector : 'ClassicClog');
-      // } else { loadContent('ClassicClog'); }
-      loadContent('Australia|Productivity_O365_Bookings_Simplify');
+      var searchFlag = false;
+      if(location.hash && location.hash.length) {
+        var selector = location.hash.split('#')[1];
+        loadContent(selector ? atob(selector) : 'Australia');
+      } else { loadContent('Australia'); }
+
       window.getBannerData = function(k){
         var obj = {};
         for(var j in bannerData) {
