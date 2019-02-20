@@ -52,11 +52,13 @@
         margin: 0px;
         margin: 0px 5px 0px 5px;
         border-bottom: 2px solid;
+        color:#D83B01;
       }
       #header > div.selected {
         margin: 0px;
         margin: 0px 5px 0px 5px;
         border-bottom: 2px solid;
+        color:#D83B01;
       }
       #subheader {
         display: inline-block;
@@ -78,14 +80,27 @@
         cursor: pointer;
       }
       #subheader > div:hover {
-        margin: 0px;
+        /* margin: 0px;
         margin: 0px 5px 0px 5px;
-        border-bottom: 2px solid;
+        border-bottom: 2px solid; */
+        color:#D83B01;
       }
       #subheader > div.selected {
-        margin: 0px;
+        /* margin: 0px;
         margin: 0px 5px 0px 5px;
-        border-bottom: 2px solid;
+        border-bottom: 2px solid; */
+        color:#D83B01;
+      }
+      #title {
+        font-family: Arial;
+        display: inline-block;
+        vertical-align: top;
+        padding: 10px 5px 2px 5px;
+        margin: 0px 5px 2px 5px;
+        color:#333;
+        font-size: 20px;
+        text-align: center;
+        color:#D83B01;
       }
       .frame-wrapper {
         display: inline-block;
@@ -106,6 +121,7 @@
     <div id="headerContainer">
       <div id="header" class=""></div>
       <div id="subheader" class=""></div>
+      <div id="title" class=""></div>
     </div>
     <div id="adContainer" class="ad-wrapper"></div>
     <script type="text/javascript">
@@ -191,9 +207,12 @@
         htmlContent = '';
         var countryData = adData.find(function(data){ return data.name == country; });
         if(countryData) {
-          htmlContent += countryData.data.map(function(data){ return '<div '+(smartName == data.name ? 'class="selected"' : '')+' data-id="' + countryData.name + '|' + data.name + '">'+data.name + '</div>' }).join('');
+          htmlContent += countryData.data.map(function(data){ return '<div '+(smartName == data.name ? 'class="selected"' : '')+' data-id="' + countryData.name + '|' + data.name + '" title="' + countryData.name + ' > ' + data.data[0].template + ' > ' + data.name + '">'+data.name + '</div>' }).join('');
         }
         document.querySelector('#subheader').innerHTML = htmlContent;
+        htmlContent = '';
+        htmlContent = adContent.data[0].Country + ' | ' + adContent.data[0].Language + ' | ' + adContent.data[0].Segment + ' | ' + adContent.data[0].template + ' | ' + adContent.data[0].Layout + ' | ' + adContent.name;
+        document.querySelector('#title').innerHTML = htmlContent;
         var headers = document.querySelectorAll('#header > div');
         for(var i = 0; i < headers.length; i++) {
             headers[i].onclick = function() {
