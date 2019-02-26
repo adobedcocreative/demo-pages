@@ -14,6 +14,7 @@ var getCelebrityFeed = function(){
           var JSONData = JSON.parse(this.responseText);
           JSONData.feed.entry.map(function(data){
             celebritiesFeedContent.push({
+              "LANGUAGE": data['gsx$language']['$t'],
               "MODEL": data['gsx$model']['$t'],
               "AD_SIZE": data['gsx$adsize']['$t'],
               "TEXT_1": data['gsx$text1']['$t'],
@@ -52,6 +53,7 @@ var getOnFigFeed = function(){
           var JSONData = JSON.parse(this.responseText);
           JSONData.feed.entry.map(function(data){
             onFigFeedContent.push({
+              "LANGUAGE": data['gsx$language']['$t'],
               "MODEL": data['gsx$model']['$t'],
               "AD_SIZE": data['gsx$adsize']['$t'],
               "TEXT_1": data['gsx$text1']['$t'],
