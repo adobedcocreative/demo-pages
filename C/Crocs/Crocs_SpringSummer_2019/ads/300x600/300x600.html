@@ -8,11 +8,16 @@
     <script type="text/javascript" src="https://assets.everesttech.net/static/js/script.min.js"></script>
     <link rel="stylesheet" href="https://use.typekit.net/eqf5dzf.css">
     <style media="screen">
-      /* @font-face {
-          font-family: ExpertSans-Regular;
-          src: url('fonts/ExpertSans-Regular.woff') format("woff");
+      @font-face {
+        font-family: nanumgothicbold;
+        src: url('fonts/nanumgothic-bold.woff') format("woff");
       }
-      .expertSansRegular { font-family: ExpertSans-Regular; } */
+      .nanumgothicbold { font-family: nanumgothicbold }
+      @font-face {
+        font-family: SS18_China_Font;
+        src: url('fonts/SS18_China_Font.woff') format("woff");
+      }
+      .SS18_China_Font { font-family: SS18_China_Font }
       .proximaNovaRegular {
         font-family:"proxima-nova";
         font-style:normal;
@@ -203,6 +208,7 @@
         ad.contentSetup({
           cam: {
             // layout: 'ClassicClog',
+            language: 'Chinese',
             backgroundColor: 'darkblue',
             layoutColor: '#f1718b',
             logoImage: 'assets/Crocs_CAYA_LOGO.png',
@@ -230,6 +236,21 @@
             // ref: 'ref.jpg',
           },
           beforeLoad: function(data){
+            if(data[0].language == 'Korean') {
+              ad.root.querySelector('#cta').classList.remove('proximaNovaExtrabold');
+              ad.root.querySelector('#cta').classList.add('nanumgothicbold');
+              var div = document.createElement('div');
+              div.className = 'nanumgothicbold';
+              div.textContent = 'nanumgothicbold';
+              document.querySelector('#loadFont').appendChild(div);
+            } else if(data[0].language == 'Chinese') {
+              ad.root.querySelector('#cta').classList.remove('proximaNovaExtrabold');
+              ad.root.querySelector('#cta').classList.add('SS18_China_Font');
+              var div = document.createElement('div');
+              div.className = 'SS18_China_Font';
+              div.textContent = 'SS18_China_Font';
+              document.querySelector('#loadFont').appendChild(div);
+            }
             data.map(function(content){
               // content.layoutColor = '#F1718B';
               if(content.headlineText.toLowerCase() == 'i crocs!') {
