@@ -176,7 +176,7 @@
         var model = adContent.data[0].MODEL;
         var productName = adContent.name;
         location.hash = btoa(model+'|'+productName).replace('==','');
-        htmlContent += celebritiesFeedData.map(function(data){ var product = data.data.find(function(product) { return product.name == productName }); var adData = product.data.find(function(obj){ return obj.AD_SIZE == '300x600'; }); return '<div '+(model == data.name ? 'class="selected"' : '')+' data-id="' + data.name + '"><div class="modelImage" style="background-image:url(\'' + 'assets/'+ adData.MODEL + '/' + adData.IMAGE_URL3 + '\')"></div><div class="modelLabel">'+data.name + '</div></div>' }).join('');
+        htmlContent += celebritiesFeedData.map(function(data){ var product = data.data.find(function(product) { return product.name == productName }); if(!product){ var product = data.data[0] } var adData = product.data.find(function(obj){ return obj.AD_SIZE == '300x600'; }); return '<div '+(model == data.name ? 'class="selected"' : '')+' data-id="' + data.name + '"><div class="modelImage" style="background-image:url(\'' + 'assets/'+ adData.MODEL + '/' + adData.IMAGE_URL3 + '\')"></div><div class="modelLabel">'+data.name + '</div></div>' }).join('');
         document.querySelector('#modelHeader').innerHTML = htmlContent;
         htmlContent = '';
         var modelData = celebritiesFeedData.find(function(data){ return data.name == model; });
