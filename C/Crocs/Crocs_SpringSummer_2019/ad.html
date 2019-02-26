@@ -271,11 +271,13 @@
         });
 
       }
-      var searchFlag = false;
-      if(location.hash && location.hash.length) {
-        var selector = location.hash.split('#')[1];
-        loadContent(selector ? atob(selector) : 'Zooey Deschanel');
-      } else { loadContent('Zooey Deschanel'); }
+      var loadPage = function(){
+        var searchFlag = false;
+        if(location.hash && location.hash.length) {
+          var selector = location.hash.split('#')[1];
+          loadContent(selector ? atob(selector) : 'Zooey Deschanel');
+        } else { loadContent('Zooey Deschanel'); }
+      };
     </script>
   </body>
 </html>

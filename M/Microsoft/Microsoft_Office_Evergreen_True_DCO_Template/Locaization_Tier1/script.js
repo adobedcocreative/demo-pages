@@ -44,3 +44,7 @@ var headers = textContent1.shift();
 headers = headers.split(/\t/g)
 textContent1 = textContent1.map(function(text){ var obj = {}; text.split(/\t/g).map(function(value, i){ obj[headers[i]] = value }); return obj; });
 JSON.stringify(textContent1)
+
+
+/************************/
+https://spreadsheets.google.com/feeds/list/1Gjuv15Z_seKapvgi-eocF0TJlwZZPNAdepPNrcNhhYE/od6/public/values?alt=json
