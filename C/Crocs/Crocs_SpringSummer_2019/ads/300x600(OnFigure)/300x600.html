@@ -85,16 +85,19 @@
       <div id="backgroundText" class="proximaNovaExtrabold"
         data-text="backgroundText"
         data-style="display:block;-webkit-transform:translateY(-75%);transform:translateY(-75%);-webkit-transition:transform ease-out 0.6s;transition:transform ease-out 0.6s;"
-        style="top:3px;
+        style="top:1px;
           right:39px;
           width:227px;
-          height:290px;
+          height:296px;
           overflow:hidden;
           font-size:32px;
           color:#fff;
           opacity:0.2;
           letter-spacing:0.6px;
-          line-height:1.03;">
+          line-height:1.03;
+          padding-top:3px;
+          -webkit-transition:height 0s ease-out 0s;
+          transition:height 0s ease-out 0s;">
       </div>
       <div class=""
         style="top:300px;
@@ -118,8 +121,8 @@
           data-image="productImage"
           style="position:absolute;
             top:50px;
-            left:39px;
-            width:222px;
+            left:25px;
+            width:250px;
             height:165px;
             -webkit-transform:translateX(140%);
             transform:translateX(140%);
@@ -174,7 +177,7 @@
           line-height:1.2;
           font-size:13px;
           letter-spacing:0.4px;
-          color:#000;
+          color:#444;
           -webkit-transform:scale(0);
           transform:scale(0);
           -webkit-transition:transform cubic-bezier(.43,-0.25,.32,1.39) 0.3s;
@@ -313,6 +316,7 @@
               ad.layers.headlineText.style.opacity = 1;
               ad.layers.headlineImage.style.opacity = 1;
               ad.layers.backgroundText.classList.add('change');
+              ad.layers.backgroundText.style.height = '292px';
               ad.layers.headlineText.style.webkitTransform = '';
               ad.layers.headlineText.style.transform = '';
               setTimeout(function(){
