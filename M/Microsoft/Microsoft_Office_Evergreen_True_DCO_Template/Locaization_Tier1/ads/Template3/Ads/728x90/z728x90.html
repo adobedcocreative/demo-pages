@@ -36,13 +36,13 @@
         ];
 
         if(contentD && contentD.length) { contentD.forEach(function(data) { amo.registerContent(data); }); }
+        // amo.registerVariation("layout", "Night");
+        amo.registerVariation("layout", "Day");
         // amo.registerVariation("layout", "Renewal");
-        // amo.registerVariation("layout", "Day");
-        amo.registerVariation("layout", "Night");
-        amo.registerVariation("headline1", "[color+'Access your world, virtually anywhere','19px',276,13,'22','350', 'left']");
-        amo.registerVariation("headline2", "[color+'Continue using <#D83B01>Office 365 '+color+'across even more |devices with Home subscription','13.7px',280,39,'16','350', 'left']");
+        amo.registerVariation("headline1", "['<#505050>Renew your <#D83B01>Office 365 <#505050> |subscription today','17.5px',337,5,'19','350', 'left']");
+        amo.registerVariation("headline2", "['<#505050>Keep your digital assets protected |with Outlook + 50 GB mailbox','12.5px',337,45,'14','350', 'left']");
         amo.registerVariation("headline3", "['<#505050> ','10.5px',16,122,'12','350', 'left']");
-        amo.registerVariation("headline4", "['<#505050>Offer valid to employees of eligible companies only','9px',293,75,'12','350', 'left']");
+        amo.registerVariation("headline4", "['<#505050>Offer valid to employees of eligible companies only','9px',337,75,'12','350', 'left']");
         // amo.registerVariation("headline1", "['<#505050>Keep your digital assets protected','17.5px',337,23,'19','350', 'left']");
         // amo.registerVariation("headline2", "['<#505050>Renew your <#D83B01>Office 365 <#505050>subscription today','12.5px',337,47,'14','350', 'left']");
         // amo.registerVariation("costline3", "Starting at");
@@ -113,10 +113,10 @@
         var clickTracker = adData.clickTracker;
         var adUrl = '';
         switch(adData.layout){
-          case 'Beach' : adURL = 'Beach/O365_AccessYourWorld_USA_728x90_BAN_1TBCloud_Access_NA_NA_ANI_BN_T3_1.htm';break;
-          case 'Day' : adURL = 'Day/O365_AccessYourWorld_USA_728x90_BAN_1TBCloud_Access_NA_NA_ANI_BN_T2_1.htm';break;
+          case 'Beach' : adURL = 'Beach/Office365Home_ModernHUPBeach_USA_728x90_DCO_1TB_Access_NA_NA_ANI_LEA_NA_1.htm';break;
+          case 'Day' : adURL = 'Day/Office365Home_ModernHUPHomeF_USA_728x90_DCO_1TB_Access_NA_NA_ANI_LEA_NA_1.htm';break;
           case 'Night' : adURL = 'Night/O365_AccessYourWorld_USA_728x90_BAN_1TBCloud_Access_NA_NA_ANI_BN_T1_1.htm';break;
-          case 'Renewal' : adURL = 'Renewal/O365_RENWL_USA_728x90_BAN_Retargeting_NA_NA_NA_ANI_BN_NA_1.htm';break;
+          case 'Renewal' : adURL = 'Renewal/Office365Home_ModernHUPCouchFAM_USA_728x90_DCO_1TB_Access_NA_NA_ANI_LEA_NA_1.htm';break;
           case 'HUP' : adURL = 'HUP/Office365Home_ModernHUPHomeM_USA_728x90_DCO_1TB_Access_NA_NA_ANI_LEA_NA_1.htm';break;
         }
         var iframe = document.createElement('iframe');

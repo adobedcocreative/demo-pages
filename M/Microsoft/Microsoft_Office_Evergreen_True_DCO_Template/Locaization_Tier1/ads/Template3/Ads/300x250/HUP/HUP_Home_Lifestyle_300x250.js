@@ -175,6 +175,18 @@ p.nominalBounds = new cjs.Rectangle(0,0,0,0);
 
 }).prototype = getMCSymbolPrototype(lib.logo_box, new cjs.Rectangle(-10.8,-10.7,21.6,21.5), null);
 
+(lib.greybox = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// Layer_1
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f("rgba(255,255,255,0.6)").s().p("A3hByIAAjkMAvDAAAIAADkg");
+	this.shape.setTransform(150.6,11.45);
+
+	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
+
+}).prototype = getMCSymbolPrototype(lib.greybox, new cjs.Rectangle(0,0,301.2,22.9), null);
+
 
 (lib.image_3 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
@@ -687,6 +699,14 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 (lib.mainMC = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
+	// grey box
+	this.grey_box = new lib.greybox();
+	this.grey_box.name = "grey_box";
+	this.grey_box.parent = this;
+	this.grey_box.setTransform(150.25,241.5,1,1,0,0,0,150.6,11.5);
+
+	this.timeline.addTween(cjs.Tween.get(this.grey_box).wait(1));
+
 	// MSFT Logo
 	this.logo = new lib.logos();
 	this.logo.name = "logo";
@@ -769,10 +789,13 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 	// timeline functions:
 	this.frame_0 = function() {
 		var mc = exportRoot.mainMC
-		
+		var disclaimer = true;
 		this.initBanner = function (data) {
 		
 			Object.keys = function(obj) {
+				if(data.headline4[0].length <= 12){
+					disclaimer = false;
+				}
 				var keys = [];
 		
 				for (var i in obj) {
@@ -974,6 +997,10 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 			exportRoot.tl1.from(mc.txtCta, 0.7, { alpha: 1,	x: "-=300",	ease:Power4.easeOut}, "+=0.6");
 			exportRoot.tl1.from(mc.cta, 0.7, {	alpha: 1,	x: "-=300",	ease:Power4.easeOut}, "-=0.7");	
 			exportRoot.tl1.from(mc.replay_btn, 0.7, {	alpha: 0,	ease:Power4.easeOut, onStart:function(){exportRoot.isReplay = true;}}, "-=0.5");	
+			mc.grey_box.alpha = 0;
+			if(disclaimer == true){
+				exportRoot.tl1.to(mc.grey_box, 0.7, {	alpha: 1,	 ease:Power1.easeOut}, "-=0.7");
+			}
 			
 		    this.tl1.stop()
 		

@@ -36,8 +36,8 @@
         ];
 
         if(contentD && contentD.length) { contentD.forEach(function(data) { amo.registerContent(data); }); }
-        amo.registerVariation("layout", "Beach");
-        // amo.registerVariation("layout", "HUP");
+        amo.registerVariation("layout", "HUP");
+        // amo.registerVariation("layout", "Day");
         // amo.registerVariation("layout", "Renewal");
         // amo.registerVariation("headline1", "[color+'Access your world, |virtually anywhere |with <#D83B01>Office 365','20px',16,43,'23','350', 'left']");
         amo.registerVariation("headline1", "[color+'Access your world, |virtually anywhere','20px',16,43,'22','350', 'left']");
@@ -61,7 +61,7 @@
         amo.registerVariation("clickTracker", "../../../../1x1.png?clickTracker=" + Math.random());
         amo.registerVariation("clickURL", "!{product_url}");
         amo.registerVariation("headline3", "['<#505050> ','10.5px',16,122,'12','350', 'left']");
-        amo.registerVariation("headline4", "['<#FFFFFF>Offer valid to employees of eligible companies only','9px',16,237,'12','350', 'left']");
+        amo.registerVariation("headline4", "['<#000000> ','10px',16,233,'12','350', 'left']");
         var content = [], cam = {};
         var cam = {
           layout: amo.variation['layout'],
@@ -122,10 +122,10 @@
         var clickTracker = adData.clickTracker;
         var adUrl = '';
         switch(adData.layout){
-          case 'Beach' : adURL = 'Beach/O365_AccessYourWorld_USA_300x250_BAN_1TBCloud_Access_NA_NA_ANI_BN_T3_1.htm';break;
-          case 'Day' : adURL = 'Day/O365_AccessYourWorld_USA_300x250_BAN_1TBCloud_Access_NA_NA_ANI_BN_T2_1.htm';break;
+          case 'Beach' : adURL = 'Beach/Office365Home_ModernHUPBeach_USA_300x250_DCO_1TB_Access_NA_NA_ANI_LEA_NA_1.htm';break;
+          case 'Day' : adURL = 'Day/Office365Home_ModernHUPHomeF_USA_300x250_DCO_1TB_Access_NA_NA_ANI_LEA_NA_1.htm';break;
           case 'Night' : adURL = 'Night/O365_AccessYourWorld_USA_300x250_BAN_1TBCloud_Access_NA_NA_ANI_BN_T1_1.htm';break;
-          case 'Renewal' : adURL = 'Renewal/O365_RENWL_USA_300x250_BAN_Retargeting_NA_NA_NA_ANI_BN_NA_1.htm';break;
+          case 'Renewal' : adURL = 'Renewal/Office365Home_ModernHUPCouchFAM_USA_300x250_DCO_1TB_Access_NA_NA_ANI_LEA_NA_1.htm';break;
           case 'HUP' : adURL = 'HUP/Office365Home_ModernHUPHomeM_USA_300x250_DCO_1TB_Access_NA_NA_ANI_LEA_NA_1.htm';break;
         }
         var iframe = document.createElement('iframe');
