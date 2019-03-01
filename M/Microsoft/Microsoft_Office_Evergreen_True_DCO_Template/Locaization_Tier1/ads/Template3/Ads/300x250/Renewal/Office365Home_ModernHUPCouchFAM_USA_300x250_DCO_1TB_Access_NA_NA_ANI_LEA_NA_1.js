@@ -700,13 +700,13 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 		var mc = exportRoot.mainMC
 		var disclaimer = true;
 		this.initBanner = function (data) {
-		
+
 			Object.keys = function(obj) {
 				if(data.headline4[0].length <= 12){
 					disclaimer = false;
 				}
 				var keys = [];
-		
+
 				for (var i in obj) {
 				  if (obj.hasOwnProperty(i)) {
 					keys.push(i);
@@ -715,7 +715,7 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 				return keys
 			}
 			var keys = Object.keys(data)
-			
+
 				for (var i in keys) {
 					var id = keys[i].substr(0, 4);
 						if (id == "head") {
@@ -736,8 +736,8 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 						}
 				}
 		}
-		
-		
+
+
 		this.fillHead = function (txtDetails, aVar) {
 			var text = txtDetails[0]
 			var size = txtDetails[1]
@@ -746,16 +746,16 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += parseInt(size)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -772,7 +772,7 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 				aVar.push(mc)
 			}
 		}
-		
+
 		this.fillCta = function (txtDetails) {
 			var text = txtDetails[0]
 			var size = txtDetails[1]
@@ -781,17 +781,17 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
-		
+
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += (parseInt(size) * 0.90)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -808,7 +808,7 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 				this.mainMC.txtCta.addChild(mc);
 			}
 		}
-		
+
 		this.getTheSentences = function (text, size, xOffset, yOffset, lineSpacing, lineWidth, align) {
 			var sentences = new Array()
 			var aSentenceLine = new Array()
@@ -816,16 +816,16 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 			sentences = aStr.split("|");
 			var lastColor = "#000000"
 			// Figure out the setence lines
-		
+
 			for (var i = 0; i < sentences.length; i++) {
 				var aS = sentences[i].substr(0);
 				var aSplit = new Array()
 				aSplit = aS.split("<");
 				aSplit = aSplit.filter(Boolean)
 				var wholeSentence = new Array()
-		
+
 				for (var j = 0; j < aSplit.length; j++) {
-		
+
 					var checkColor = aSplit[j].indexOf("#")
 					var color = (checkColor == -1) ? lastColor : aSplit[j].substr(0, 7);
 					lastColor = color
@@ -840,60 +840,60 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 			}
 			return aSentenceLine
 		}
-		
-		
-		
+
+
+
 		var mc = exportRoot.mainMC
-		
+
 		this.runBanner = function() {
-		
-		
+
+
 			exportRoot.tlFH = new TimelineLite();
 			for (var i = 0; i < exportRoot.headline1.length; i++) {
 				if (i==0) exportRoot.tlFH.from(exportRoot.headline1[i], 0.6, { x: "+=300", alpha: 0, ease:Power4.easeOut});
 				if (i!=0) exportRoot.tlFH.from(exportRoot.headline1[i], 0.6, { x: "+=300", alpha: 0, ease:Power4.easeOut}, "-=0.4");
-			
+
 				}
 			exportRoot.tlFH.stop()
-			
+
 			exportRoot.tlSH = new TimelineLite();
 			for (var i = 0; i < exportRoot.headline2.length; i++) {
 				if (i==0) exportRoot.tlSH.from(exportRoot.headline2[i], 0.6, { x: "+=300", alpha: 0, ease:Power4.easeOut});
 				if (i!=0) exportRoot.tlSH.from(exportRoot.headline2[i], 0.6, { x: "+=300", alpha: 0, ease:Power4.easeOut}, "-=0.4");
 				}
 			exportRoot.tlSH.stop()
-				
+
 			exportRoot.tlST = new TimelineLite();
 			for (var i = 0; i < exportRoot.headline4.length; i++) {
 				if (i==0) 	exportRoot.tlST.from(exportRoot.headline4[i], 0.6, {alpha: 0, ease:Power3.easeOut});
 				if (i!=0) 	exportRoot.tlST.from(exportRoot.headline4[i], 0.6, {alpha: 0, ease:Power3.easeOut}, "-=0.4");
-		
+
 				}
 			exportRoot.tlST.stop()
-		
-			exportRoot.isReplay = true;	
-			
+
+			exportRoot.isReplay = true;
+
 		    TweenLite.delayedCall(1.9, function(){exportRoot.tlFH.play()})
 			TweenLite.delayedCall(2.3, function(){exportRoot.tlSH.play()})
 			TweenLite.delayedCall(3.4, function(){exportRoot.tlST.play()})
-		
+
 			this.tl1 = new TimelineLite();
-		
-		    
-		
+
+
+
 			exportRoot.tl1.from(mc.image, 1.3, { x: "+=315", y: "+=0", ease:Power3.easeOut}, "+=0.7")
-			
-			exportRoot.tl1.from(mc.txtCta, 0.7, { alpha: 1,	x: "-=150",	ease:Power4.easeOut}, "-=0.7");
-			exportRoot.tl1.from(mc.cta, 0.7, {	alpha: 1,	x: "-=150",	ease:Power4.easeOut}, "-=0.7");
+
+			exportRoot.tl1.from(mc.txtCta, 0.7, { alpha: 1,	x: "-=300",	ease:Power4.easeOut}, "-=0.7");
+			exportRoot.tl1.from(mc.cta, 0.7, {	alpha: 1,	x: "-=300",	ease:Power4.easeOut}, "-=0.7");
 			mc.grey_box.alpha = 0;
 			if(disclaimer == true){
-				exportRoot.tl1.from(mc.grey_box, 0.7, {	alpha: 0,	 ease:Power1.easeOut}, "-=0.7");
+				exportRoot.tl1.to(mc.grey_box, 0.7, {	alpha: 1,	 ease:Power1.easeOut}, "-=0.7");
 			}
-			
+
 			this.tl1.stop()
-		
+
 			mc.logo.gotoAndPlay(1)
-		
+
 		}
 	}
 

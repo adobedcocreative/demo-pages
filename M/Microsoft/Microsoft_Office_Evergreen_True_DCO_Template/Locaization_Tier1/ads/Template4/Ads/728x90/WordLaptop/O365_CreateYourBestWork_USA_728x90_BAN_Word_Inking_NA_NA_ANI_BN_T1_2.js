@@ -956,12 +956,12 @@ p.nominalBounds = new cjs.Rectangle(54.8,53.8,178.9,134.1);
 	// timeline functions:
 	this.frame_0 = function() {
 		var mc = exportRoot.mainMC
-		
+
 		this.initBanner = function (data) {
-		
+
 			Object.keys = function(obj) {
 				var keys = [];
-		
+
 				for (var i in obj) {
 				  if (obj.hasOwnProperty(i)) {
 					keys.push(i);
@@ -970,7 +970,7 @@ p.nominalBounds = new cjs.Rectangle(54.8,53.8,178.9,134.1);
 				return keys
 			}
 			var keys = Object.keys(data)
-			
+
 				for (var i in keys) {
 					var id = keys[i].substr(0, 4);
 						if (id == "head") {
@@ -993,8 +993,8 @@ p.nominalBounds = new cjs.Rectangle(54.8,53.8,178.9,134.1);
 						}
 				}
 		}
-		
-		
+
+
 		this.fillHead = function (txtDetails, aVar) {
 			var text = txtDetails[0]
 			var size = txtDetails[1]
@@ -1003,16 +1003,16 @@ p.nominalBounds = new cjs.Rectangle(54.8,53.8,178.9,134.1);
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += parseInt(size)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -1029,9 +1029,9 @@ p.nominalBounds = new cjs.Rectangle(54.8,53.8,178.9,134.1);
 				aVar.push(mc)
 			}
 		}
-		
+
 		this.fillPriceMc = function (txtDetails) {
-		
+
 			var text = txtDetails[0]
 			var size = txtDetails[1]
 			var xOffset = txtDetails[2]
@@ -1039,16 +1039,16 @@ p.nominalBounds = new cjs.Rectangle(54.8,53.8,178.9,134.1);
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += (parseInt(size) * 0.90)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -1061,12 +1061,12 @@ p.nominalBounds = new cjs.Rectangle(54.8,53.8,178.9,134.1);
 				if (align == "center") mc.x = mc.x - mc.getTransformedBounds().width / 2
 				if (align == "right") mc.x = mc.x - mc.getTransformedBounds().width
 				if (mc.getTransformedBounds()) mc.cache(mc.getTransformedBounds().width*-1,mc.getTransformedBounds().height*-1,mc.getTransformedBounds().width*2,mc.getTransformedBounds().height*2,1.5)
-		
+
 				this.mainMC.bg_circle.addChild(mc);
 			}
 		}
-		
-		
+
+
 		this.fillCta = function (txtDetails) {
 			var text = txtDetails[0]
 			var size = txtDetails[1]
@@ -1075,17 +1075,17 @@ p.nominalBounds = new cjs.Rectangle(54.8,53.8,178.9,134.1);
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
-		
+
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += (parseInt(size) * 0.90)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -1102,7 +1102,7 @@ p.nominalBounds = new cjs.Rectangle(54.8,53.8,178.9,134.1);
 				this.mainMC.txtCta.addChild(mc);
 			}
 		}
-		
+
 		this.getTheSentences = function (text, size, xOffset, yOffset, lineSpacing, lineWidth, align) {
 			var sentences = new Array()
 			var aSentenceLine = new Array()
@@ -1110,16 +1110,16 @@ p.nominalBounds = new cjs.Rectangle(54.8,53.8,178.9,134.1);
 			sentences = aStr.split("|");
 			var lastColor = "#000000"
 			// Figure out the setence lines
-		
+
 			for (var i = 0; i < sentences.length; i++) {
 				var aS = sentences[i].substr(0);
 				var aSplit = new Array()
 				aSplit = aS.split("<");
 				aSplit = aSplit.filter(Boolean)
 				var wholeSentence = new Array()
-		
+
 				for (var j = 0; j < aSplit.length; j++) {
-		
+
 					var checkColor = aSplit[j].indexOf("#")
 					var color = (checkColor == -1) ? lastColor : aSplit[j].substr(0, 7);
 					lastColor = color
@@ -1134,53 +1134,53 @@ p.nominalBounds = new cjs.Rectangle(54.8,53.8,178.9,134.1);
 			}
 			return aSentenceLine
 		}
-		
-		
+
+
 		this.tlanim = new TimelineLite();
-		
-		
+
+
 		this.tl1 = new TimelineLite();
 		this.tl2 = new TimelineLite();
 		this.tl = new TimelineLite();
 		var mc = exportRoot.mainMC
-		
-		
+
+
 		this.runBanner = function() {
-		
-		
+
+
 			exportRoot.finalHeadline = new TimelineLite();
 			for (var i = 0; i < exportRoot.headline1.length; i++) {
 				exportRoot.finalHeadline.from(exportRoot.headline1[i], 0.6, {x: "+=50",	alpha: 0, ease: Power3.easeOut}, "-=0.4");
 			}
 			exportRoot.finalHeadline.stop()
-			
+
 			exportRoot.subHeadline = new TimelineLite();
 			for (var i = 0; i < exportRoot.headline2.length; i++) {
 				exportRoot.subHeadline.from(exportRoot.headline2[i], 0.6, {x: "+=50",	alpha: 0, ease: Power3.easeOut}, "-=0.4");
 			}
 			exportRoot.subHeadline.stop()
-			
-		
-		
-		
+
+
+
+
 		    exportRoot.tl1.to(mc.anim, 0.7, {alpha: 1,	y: "-=200",ease: Power4.easeOut, onStart:function(){mc.anim.devices.play()}}, "-=0")
-			exportRoot.tl1.to(mc.cta, 0.7, {alpha: 1,	x: "-=120",	ease: Power4.easeOut}, "-=0.7");
-			exportRoot.tl1.to(mc.txtCta, 0.7, {alpha: 1,	x: "-=120", ease: Power4.easeOut}, "-=0.7");
-			
-			
+			exportRoot.tl1.to(mc.cta, 0.7, {alpha: 1,	x: "-=300",	ease: Power4.easeOut}, "-=0.7");
+			exportRoot.tl1.to(mc.txtCta, 0.7, {alpha: 1,	x: "-=300", ease: Power4.easeOut}, "-=0.7");
+
+
 			exportRoot.tl1.stop()
-			
+
 			exportRoot.tl2.to(mc.replay_btn, 0.7, {alpha: 1,	x: "-=300",ease: Power4.easeOut}, "-=0.5")
-			
-		
-				
+
+
+
 			exportRoot.tl2.stop()
-		
+
 			mc.logo.gotoAndPlay(1)
 		}
 		    mc.anim.y += 200
-			mc.txtCta.x += 120;
-			mc.cta.x += 120;
+			mc.txtCta.x += 300;
+			mc.cta.x += 300;
 			mc.replay_btn.x+=300
 	}
 

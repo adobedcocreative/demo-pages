@@ -776,8 +776,8 @@ p.nominalBounds = new cjs.Rectangle(5.3,6.6,11.3,8.4);
 
 
 			exportRoot.tl1.to(mc.image_1, 0.8, { alpha: 1,scaleX:.81, scaleY:.81, x: "-=100", y: "-=0", ease:Power4.easeOut}, "+=.6")
-			exportRoot.tl1.to(mc.txtCta, 0.7, { alpha: 1,	x: "-=50",	 ease:Power4.easeOut}, "+=.3");
-			exportRoot.tl1.to(mc.cta, 0.7, {	alpha: 1,	x: "-=50",	 ease:Power4.easeOut, onStart:function(){exportRoot.tl2.play()}}, "-=0.7");
+			exportRoot.tl1.to(mc.txtCta, 0.7, { alpha: 1,	x: "-=300",	 ease:Power4.easeOut}, "+=.3");
+			exportRoot.tl1.to(mc.cta, 0.7, {	alpha: 1,	x: "-=300",	 ease:Power4.easeOut, onStart:function(){exportRoot.tl2.play()}}, "-=0.7");
 
 			this.tl1.stop()
 
@@ -789,8 +789,8 @@ p.nominalBounds = new cjs.Rectangle(5.3,6.6,11.3,8.4);
 		}
 		mc.image_1.alpha = 0
 		mc.image_1.x +=100
-		mc.txtCta.x += 50; mc.txtCta.alpha = 0
-		mc.cta.x += 50; mc.cta.alpha = 0
+		mc.txtCta.x += 300; mc.txtCta.alpha = 0
+		mc.cta.x += 300; mc.cta.alpha = 0
 		mc.replay_btn.x+=50;
 	}
 
