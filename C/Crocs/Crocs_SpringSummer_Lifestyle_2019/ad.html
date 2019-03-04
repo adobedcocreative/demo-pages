@@ -90,6 +90,34 @@
         margin: 0px;
         padding: 10px;
       }
+      #subHeaderWrapper {
+        font-family: Arial;
+        display: inline-block;
+        vertical-align: top;
+        color:#333;
+        text-align: center;
+        -webkit-transition: all ease-out 0.2s;
+        transition: all ease-out 0.2s;
+        cursor: pointer;
+      }
+      #subHeaderWrapper > div {
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 0px 1px;
+        background-color: #e5e5e5;
+        border: 2px solid #e5e5e5;
+      }
+      #subHeaderWrapper > div > div {
+        font-size: 65%;
+      }
+      #subHeaderWrapper > div:hover {
+        background: none;
+        border: 2px solid #333;
+      }
+      #subHeaderWrapper > div.selected {
+        background: none;
+        border: 2px solid #333;
+      }
       .frame-wrapper {
         display: inline-block;
       }
@@ -110,6 +138,10 @@
       <div id="modelHeader">
       </div>
       <div id="headerWrapper" class="">
+
+      </div>
+      <div></div>
+      <div id="subHeaderWrapper" class="">
 
       </div>
     </div>
@@ -173,8 +205,10 @@
         '<div class="frame-wrapper"><div id="ad970x250"></div><div>970 x 250</div></div>';//<iframe src="970x250/970x250.html" width="970" height="250" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe>
         htmlContent = '';
         // var queryString = 'Japan|Create_O365_Word_Inking';
-        var adContent = getCelebrityData(queryString);
-        var adContent1 = getOnFigData(queryString);
+        var searchString = queryString.split('|').splice(0, 2).join('|');
+        var filterString = queryString.split('|').length > 2 ? queryString.split('|').splice(2).join('|') : '';
+        var adContent = getCelebrityData(searchString);
+        var adContent1 = getOnFigData(searchString);
         var model = adContent.data[0].MODEL;
         var productName = adContent.name;
         location.hash = btoa(model+'|'+productName).replace('==','');
@@ -184,10 +218,34 @@
         var modelData = celebritiesFeedData.find(function(data){ return data.name == model; });
         if(modelData) {
           // htmlContent += modelData.data.map(function(data){ return '<div '+(productName == data.name ? 'class="selected"' : '')+' data-id="' + modelData.name + '|' + data.name + '" title="' + modelData.name + ' > ' + data.data[0].template + ' > ' + data.name + '">'+data.name + '</div>' }).join('');
-          htmlContent += modelData.data.map(function(data){ var adData = data.data.find(function(ad){ return ad.AD_SIZE == '300x250' }); return '<div data-id="' + modelData.name + '|' + data.name + '" title="' + modelData.name + ' > ' + data.name + '" '+(productName == data.name ? 'class="selected"' : '')+' style="background-color:' + adData.TEXT_7 + '99;"><div class="image-container"><div class="image"><img src="'+'assets/'+modelData.name+'/' + adData.IMAGE_URL5+'"></div><div class="image"><img src="'+'assets/'+modelData.name+'/' + adData.IMAGE_URL4+'"></div></div><div class="text">' + adData.TEXT_1 + '</div></div>'; }).join('');
+          //var adData = data.data.find(function(ad){ return ad.AD_SIZE == '300x250' });
+          htmlContent += modelData.data.map(function(data){ var adData = data.data[0]; return '<div data-id="' + modelData.name + '|' + data.name + '" title="' + modelData.name + ' > ' + data.name + '" '+(productName == data.name ? 'class="selected"' : '')+' style="background-color:' + adData.TEXT_7 + '99;"><div class="image-container"><div class="image"><img src="'+'assets/'+modelData.name+'/' + adData.IMAGE_URL5+'"></div><div class="image"><img src="'+'assets/'+modelData.name+'/' + adData.IMAGE_URL4+'"></div></div><div class="text">' + adData.TEXT_1 + '</div></div>'; }).join('');
           //htmlContent += ;
         }
         document.querySelector('#headerWrapper').innerHTML = htmlContent;
+        var headlines = [];
+        adContent.data.forEach(function(data){ headlines.push(data.TEXT_3 + '|' + data.LANGUAGE); });
+        if(adContent && Object.keys(adContent1).length) { adContent1.data.forEach(function(data){ headlines.push(data.TEXT_3 + '|' + data.LANGUAGE); }); }
+        headlines = headlines.filter(function(value, index, self){ return self.indexOf(value) === index; });
+        if(headlines) {
+          filterString = filterString.length ? filterString : headlines[0];
+          if(!headlines.find(function(headline){ return headline.toLowerCase() == filterString.toLowerCase(); })) { filterString = headlines[0]; }
+          var model = adContent.data[0].MODEL;
+          var productName = adContent.name;
+          location.hash = btoa(model+'|'+productName+'|'+filterString).replace('==','').replace('=','');
+          adContent.data = adContent.data.filter(function(data){ return (data.TEXT_3 + '|' + data.LANGUAGE).toLowerCase() == filterString.toLowerCase(); });
+          if(adContent1 && 'data' in adContent1 && adContent1.length) {
+            adContent1.data = adContent1.data.filter(function(data){ return (data.TEXT_3 + '|' + data.LANGUAGE).toLowerCase() == filterString.toLowerCase(); });
+          }
+
+          htmlContent = '';
+          // htmlContent += modelData.data.map(function(data){ return '<div '+(productName == data.name ? 'class="selected"' : '')+' data-id="' + modelData.name + '|' + data.name + '" title="' + modelData.name + ' > ' + data.data[0].template + ' > ' + data.name + '">'+data.name + '</div>' }).join('');
+
+          htmlContent += headlines.map(function(headline){ return '<div '+(headline.toLowerCase() == filterString.toLowerCase()? 'class="selected"': '')+' data-id="'+model+'|'+productName+'|'+headline+'">' + headline.split('|')[0] + '<div>(' + headline.split('|')[1] + ')</div></div>'; }).join('');
+          //htmlContent += ;
+        }
+        document.querySelector('#subHeaderWrapper').innerHTML = htmlContent;
+        // document.querySelector('#subHeaderWrapper').style.backgroundColor = adContent.data[0].TEXT_7;
         // htmlContent = '';
         // htmlContent = adContent.data[0].model + ' | ' + adContent.data[0].Language + ' | ' + adContent.data[0].Segment + ' | ' + adContent.data[0].template + ' | ' + adContent.data[0].Layout + ' | ' + adContent.name;
         // document.querySelector('#title').innerHTML = htmlContent;
@@ -203,74 +261,93 @@
               loadContent(this.dataset.id);
             }
         }
-        adContent.data.map(function(data){
-          var adSize = data['AD_SIZE'];
-          var adWidth = adSize.split('x')[0];
-          var adHeight = adSize.split('x')[1];
-          // var template = data.template.split(' ').join('');
-          var cam = getCAMData(data, 'Celebrity');
-          var adScript = `
-          var cam = ${cam}
-          for(var i in cam) { amo.registerVariation(i, cam[i]); }
-          amo.registerVariation = function(){}`;
-          var amoScript = document.createElement('script');
-          amoScript.type= 'text/javascript';
-          amoScript.src = "js/AMOLibrary.js";
-          var scriptTag = document.createElement('script');
-          scriptTag.type= 'text/javascript';
-          var inlineScript = document.createTextNode(adScript);
-          scriptTag.appendChild(inlineScript);
-          var iframe = document.createElement('iframe');
-          iframe.id = adSize;
-          iframe.style.width = adWidth + 'px';
-          iframe.style.height = adHeight + 'px';
-          iframe.style.border = 'none';
-          document.querySelector('#ad' + adSize).innerHTML = '';
-          document.querySelector('#ad' + adSize).appendChild(iframe);
-          var iframeDoc = iframe.contentWindow ? iframe.contentWindow : iframe.contentDocument && iframe.contentDocument.document ? iframe.contentDocument.document : iframe.contentDocument;
-        	iframeDoc.document.open();
-          iframeDoc.document.write('<iframe src="ads/'+adSize+'/'+adSize+'.html" width="'+adWidth+'" height="'+adHeight+'" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe>');
-        	iframeDoc.document.close();
-          iframeDoc.document.body.style.margin = 0;
-          iframeDoc.document.head.appendChild(amoScript);
-          amoScript.onload = function(){
-            iframeDoc.document.head.appendChild(scriptTag);
+        var subsubheaders = document.querySelectorAll('#subHeaderWrapper > div');
+        for(var i = 0; i < subheaders.length; i++) {
+            subsubheaders[i].onclick = function() {
+              loadContent(this.dataset.id);
+            }
+        }
+        var frames = document.querySelectorAll('.frame-wrapper');
+        if(frames.length) {
+          for(var i = 0; i < frames.length; i++) {
+            frames[i].style.display = 'none';
           }
-        });
-        adContent1.data.map(function(data){
-          var adSize = data['AD_SIZE'];
-          var adWidth = adSize.split('x')[0];
-          var adHeight = adSize.split('x')[1];
-          // var template = data.template.split(' ').join('');
-          var cam = getCAMData(data, 'On Fig');
-          var adScript = `
-          var cam = ${cam}
-          for(var i in cam) { amo.registerVariation(i, cam[i]); }
-          amo.registerVariation = function(){}`;
-          var amoScript = document.createElement('script');
-          amoScript.type= 'text/javascript';
-          amoScript.src = "js/AMOLibrary.js";
-          var scriptTag = document.createElement('script');
-          scriptTag.type= 'text/javascript';
-          var inlineScript = document.createTextNode(adScript);
-          scriptTag.appendChild(inlineScript);
-          var iframe = document.createElement('iframe');
-          iframe.id = adSize;
-          iframe.style.width = adWidth + 'px';
-          iframe.style.height = adHeight + 'px';
-          iframe.style.border = 'none';
-          document.querySelector('#ad' + adSize+'_FullBody').innerHTML = '';
-          document.querySelector('#ad' + adSize+'_FullBody').appendChild(iframe);
-          var iframeDoc = iframe.contentWindow ? iframe.contentWindow : iframe.contentDocument && iframe.contentDocument.document ? iframe.contentDocument.document : iframe.contentDocument;
-        	iframeDoc.document.open();
-          iframeDoc.document.write('<iframe src="ads/'+adSize+'(OnFigure)/'+adSize+'.html" width="'+adWidth+'" height="'+adHeight+'" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe>');
-        	iframeDoc.document.close();
-          iframeDoc.document.body.style.margin = 0;
-          iframeDoc.document.head.appendChild(amoScript);
-          amoScript.onload = function(){
-            iframeDoc.document.head.appendChild(scriptTag);
-          }
-        });
+        }
+        if(adContent.data.length) {
+          adContent.data.map(function(data){
+            var adSize = data['AD_SIZE'];
+            var adWidth = adSize.split('x')[0];
+            var adHeight = adSize.split('x')[1];
+            // var template = data.template.split(' ').join('');
+            var cam = getCAMData(data, 'Celebrity');
+            var adScript = `
+            var cam = ${cam}
+            for(var i in cam) { amo.registerVariation(i, cam[i]); }
+            amo.registerVariation = function(){}`;
+            var amoScript = document.createElement('script');
+            amoScript.type= 'text/javascript';
+            amoScript.src = "js/AMOLibrary.js";
+            var scriptTag = document.createElement('script');
+            scriptTag.type= 'text/javascript';
+            var inlineScript = document.createTextNode(adScript);
+            scriptTag.appendChild(inlineScript);
+            var iframe = document.createElement('iframe');
+            iframe.id = adSize;
+            iframe.style.width = adWidth + 'px';
+            iframe.style.height = adHeight + 'px';
+            iframe.style.border = 'none';
+            document.querySelector('#ad' + adSize).innerHTML = '';
+            document.querySelector('#ad' + adSize).parentNode.style.display = 'inline-block';
+            document.querySelector('#ad' + adSize).appendChild(iframe);
+            var iframeDoc = iframe.contentWindow ? iframe.contentWindow : iframe.contentDocument && iframe.contentDocument.document ? iframe.contentDocument.document : iframe.contentDocument;
+          	iframeDoc.document.open();
+            iframeDoc.document.write('<iframe src="ads/'+adSize+'/'+adSize+'.html" width="'+adWidth+'" height="'+adHeight+'" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe>');
+          	iframeDoc.document.close();
+            iframeDoc.document.body.style.margin = 0;
+            iframeDoc.document.head.appendChild(amoScript);
+            amoScript.onload = function(){
+              iframeDoc.document.head.appendChild(scriptTag);
+            }
+          });
+        }
+        if(adContent1 && Object.keys(adContent1).length && 'data' in adContent1 && adContent1.data.length) {
+          adContent1.data.map(function(data){
+            var adSize = data['AD_SIZE'];
+            var adWidth = adSize.split('x')[0];
+            var adHeight = adSize.split('x')[1];
+            // var template = data.template.split(' ').join('');
+            var cam = getCAMData(data, 'On Fig');
+            var adScript = `
+            var cam = ${cam}
+            for(var i in cam) { amo.registerVariation(i, cam[i]); }
+            amo.registerVariation = function(){}`;
+            var amoScript = document.createElement('script');
+            amoScript.type= 'text/javascript';
+            amoScript.src = "js/AMOLibrary.js";
+            var scriptTag = document.createElement('script');
+            scriptTag.type= 'text/javascript';
+            var inlineScript = document.createTextNode(adScript);
+            scriptTag.appendChild(inlineScript);
+            var iframe = document.createElement('iframe');
+            iframe.id = adSize;
+            iframe.style.width = adWidth + 'px';
+            iframe.style.height = adHeight + 'px';
+            iframe.style.border = 'none';
+            document.querySelector('#ad' + adSize+'_FullBody').innerHTML = '';
+            document.querySelector('#ad' + adSize+'_FullBody').parentNode.style.display = 'inline-block';
+            document.querySelector('#ad' + adSize+'_FullBody').appendChild(iframe);
+            var iframeDoc = iframe.contentWindow ? iframe.contentWindow : iframe.contentDocument && iframe.contentDocument.document ? iframe.contentDocument.document : iframe.contentDocument;
+          	iframeDoc.document.open();
+            iframeDoc.document.write('<iframe src="ads/'+adSize+'(OnFigure)/'+adSize+'.html" width="'+adWidth+'" height="'+adHeight+'" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe>');
+          	iframeDoc.document.close();
+            iframeDoc.document.body.style.margin = 0;
+            iframeDoc.document.head.appendChild(amoScript);
+            amoScript.onload = function(){
+              iframeDoc.document.head.appendChild(scriptTag);
+            }
+          });
+        } else { document.querySelector('#ad300x600_FullBody').innerHTML = ''; document.querySelector('#ad300x600_FullBody').parentNode.style.display = 'none'; }
+
 
       }
       var loadPage = function(){

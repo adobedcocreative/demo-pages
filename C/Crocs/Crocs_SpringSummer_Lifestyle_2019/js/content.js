@@ -154,10 +154,12 @@ var loadData = function(){
           }
         } else {
           var data = onFigFeedData.find(function(data){ return data.name == queryString});
-          if(data) { searchData = data.data[0] } else { searchData = onFigFeedData[0].data[0] }
+          // if(data) { searchData = data.data[0] } else { searchData = onFigFeedData[0].data[0] }
+          if(data) { searchData = data.data[0] } else { searchData = {} }
         }
       }
-      return searchData ? searchData : onFigFeedData[0].data[0];
+      // return searchData ? searchData : onFigFeedData[0].data[0];
+      return searchData ? searchData : {};
     }
     loadPage();
   }
