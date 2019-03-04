@@ -207,8 +207,8 @@
         // var queryString = 'Japan|Create_O365_Word_Inking';
         var searchString = queryString.split('|').splice(0, 2).join('|');
         var filterString = queryString.split('|').length > 2 ? queryString.split('|').splice(2).join('|') : '';
-        var adContent = getCelebrityData(searchString);
-        var adContent1 = getOnFigData(searchString);
+        var adContent = getCelebrityData(searchString),adContents = {};
+        var adContent1 = getOnFigData(searchString), adContents1 = {};
         var model = adContent.data[0].MODEL;
         var productName = adContent.name;
         location.hash = btoa(model+'|'+productName).replace('==','');
@@ -233,9 +233,11 @@
           var model = adContent.data[0].MODEL;
           var productName = adContent.name;
           location.hash = btoa(model+'|'+productName+'|'+filterString).replace('==','').replace('=','');
-          adContent.data = adContent.data.filter(function(data){ return (data.TEXT_3 + '|' + data.LANGUAGE).toLowerCase() == filterString.toLowerCase(); });
+          adContents.name = adContent.name;
+          adContents.data = adContent.data.filter(function(data){ return (data.TEXT_3 + '|' + data.LANGUAGE).toLowerCase() == filterString.toLowerCase(); });
           if(adContent1 && 'data' in adContent1 && adContent1.length) {
-            adContent1.data = adContent1.data.filter(function(data){ return (data.TEXT_3 + '|' + data.LANGUAGE).toLowerCase() == filterString.toLowerCase(); });
+            adContents1.name = adContent1.name;
+            adContents1.data = adContent1.data.filter(function(data){ return (data.TEXT_3 + '|' + data.LANGUAGE).toLowerCase() == filterString.toLowerCase(); });
           }
 
           htmlContent = '';
@@ -273,8 +275,8 @@
             frames[i].style.display = 'none';
           }
         }
-        if(adContent.data.length) {
-          adContent.data.map(function(data){
+        if(adContents.data.length) {
+          adContents.data.map(function(data){
             var adSize = data['AD_SIZE'];
             var adWidth = adSize.split('x')[0];
             var adHeight = adSize.split('x')[1];
@@ -310,8 +312,8 @@
             }
           });
         }
-        if(adContent1 && Object.keys(adContent1).length && 'data' in adContent1 && adContent1.data.length) {
-          adContent1.data.map(function(data){
+        if(adContents1 && Object.keys(adContents1).length && 'data' in adContents1 && adContents1.data.length) {
+          adContents1.data.map(function(data){
             var adSize = data['AD_SIZE'];
             var adWidth = adSize.split('x')[0];
             var adHeight = adSize.split('x')[1];
