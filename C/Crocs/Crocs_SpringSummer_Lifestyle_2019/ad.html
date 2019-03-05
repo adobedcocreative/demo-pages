@@ -235,7 +235,7 @@
           location.hash = btoa(model+'|'+productName+'|'+filterString).replace('==','').replace('=','');
           adContents.name = adContent.name;
           adContents.data = adContent.data.filter(function(data){ return (data.TEXT_3 + '|' + data.LANGUAGE).toLowerCase() == filterString.toLowerCase(); });
-          if(adContent1 && 'data' in adContent1 && adContent1.length) {
+          if(adContent1 && 'data' in adContent1 && adContent1.data.length) {
             adContents1.name = adContent1.name;
             adContents1.data = adContent1.data.filter(function(data){ return (data.TEXT_3 + '|' + data.LANGUAGE).toLowerCase() == filterString.toLowerCase(); });
           }
@@ -356,8 +356,8 @@
         var searchFlag = false;
         if(location.hash && location.hash.length) {
           var selector = location.hash.split('#')[1];
-          loadContent(selector ? atob(selector) : 'Zooey Deschanel');
-        } else { loadContent('Zooey Deschanel'); }
+          loadContent(selector ? atob(selector) : 'Jasmyne');
+        } else { loadContent('Jasmyne'); }
       };
     </script>
   </body>
