@@ -1164,14 +1164,14 @@ p.nominalBounds = new cjs.Rectangle(71,58.5,145.4,130.1);
 
 
 		    exportRoot.tl1.to(mc.anim, 0.7, {alpha: 1,	y: "-=200",ease: Power4.easeOut, onStart:function(){mc.anim.devices.play()}}, "-=0")
-			exportRoot.tl1.to(mc.cta, 0.7, {alpha: 1,	x: "-=300",	ease: Power4.easeOut}, "-=0.7");
-			exportRoot.tl1.to(mc.txtCta, 0.7, {alpha: 1,	x: "-=300", ease: Power4.easeOut}, "-=0.7");
+
 
 
 			exportRoot.tl1.stop()
 
 			exportRoot.tl2.to(mc.replay_btn, 0.7, {alpha: 1,	x: "-=300",ease: Power4.easeOut}, "-=0.5")
-
+			exportRoot.tl2.to(mc.cta, 0.7, {alpha: 1,	x: "-=300",	ease: Power4.easeOut}, "-=0.7");
+			exportRoot.tl2.to(mc.txtCta, 0.7, {alpha: 1,	x: "-=300", ease: Power4.easeOut}, "-=0.7");
 
 
 			exportRoot.tl2.stop()

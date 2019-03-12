@@ -1559,8 +1559,7 @@ p.nominalBounds = null;
 
 
 		    exportRoot.tl1.to(mc.anim.devices, 0.7, {alpha: 1,	y: "-=100",ease: Power4.easeOut, onComplete:function(){mc.anim.devices.play()}}, "-=0")
-			exportRoot.tl1.to(mc.txtCta, 0.7, {alpha: 1,	x: "-=300", ease: Power4.easeOut}, "-=0.5");
-			exportRoot.tl1.to(mc.cta, 0.7, {alpha: 1,	x: "-=300",	ease: Power4.easeOut}, "-=0.7");
+
 
 			exportRoot.tl1.stop()
 
@@ -1568,6 +1567,8 @@ p.nominalBounds = null;
 			exportRoot.tl2.to(mc.anim.devices, 0.2, {alpha: 1,  onComplete:function(){exportRoot.subHead.play()}},"+=0.2")
 			exportRoot.tl2.to(mc.replay_btn, 0.7, {alpha: 1,	x: "-=300",ease: Power4.easeOut}, "-=0.5")
 			exportRoot.tl2.to(mc.bg_circle, 0.7, {alpha: 1,	x: "-=300",	ease: Power4.easeOut}, "-=0.3")
+			exportRoot.tl2.to(mc.txtCta, 0.7, {alpha: 1,	x: "-=300", ease: Power4.easeOut}, "-=0.5");
+			exportRoot.tl2.to(mc.cta, 0.7, {alpha: 1,	x: "-=300",	ease: Power4.easeOut}, "-=0.7");
 
 
 

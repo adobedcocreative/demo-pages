@@ -775,13 +775,14 @@ p.nominalBounds = new cjs.Rectangle(5.3,6.6,11.3,8.4);
 			TweenLite.delayedCall(1.8, function(){exportRoot.tlFH.play()})
 
 
-			exportRoot.tl1.to(mc.image_1, 0.8, { alpha: 1,scaleX:.81, scaleY:.81, x: "-=100", y: "-=0", ease:Power4.easeOut}, "+=.6")
-			exportRoot.tl1.to(mc.txtCta, 0.7, { alpha: 1,	x: "-=300",	 ease:Power4.easeOut}, "+=.3");
-			exportRoot.tl1.to(mc.cta, 0.7, {	alpha: 1,	x: "-=300",	 ease:Power4.easeOut, onStart:function(){exportRoot.tl2.play()}}, "-=0.7");
+			exportRoot.tl1.to(mc.image_1, 0.8, { alpha: 1,scaleX:.81, scaleY:.81, x: "-=100", y: "-=0", ease:Power4.easeOut, onStart:function(){exportRoot.tl2.play()}}, "+=.6")
+
 
 			this.tl1.stop()
 
 			exportRoot.tl2.to(mc.replay_btn, 0.7, {alpha: 1,	x: "-=50",ease: Power4.easeOut}, "-=0.5")
+			exportRoot.tl2.to(mc.txtCta, 0.7, { alpha: 1,	x: "-=300",	 ease:Power4.easeOut}, "+=.3");
+			exportRoot.tl2.to(mc.cta, 0.7, {	alpha: 1,	x: "-=300",	 ease:Power4.easeOut}, "-=0.7");
 
 			exportRoot.tl2.stop()
 

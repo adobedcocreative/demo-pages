@@ -299,12 +299,12 @@ var startBanner = function(){
 							layers.cta.children[0].graphics.beginFill(ctaBackgroundColor).drawRect(0, -15, ctaWidth, 30);
 							layers.cta.arrow.y = 0;
 							if(position == 'right') {
-								layers.cta.x = adWidth - ctaWidth;
-								layers.txtCta.x = adWidth - ctaWidth + 15;
+								layers.cta.x = adWidth - ctaWidth + 300;
+								layers.txtCta.x = adWidth - ctaWidth + 15 + 300;
 								layers.cta.arrow.x = ctaWidth - 20;
 							} else {
-								layers.cta.x = 0;
-								layers.txtCta.x = 15;
+								layers.cta.x = 0 + 300;
+								layers.txtCta.x = 15 + 300;
 								layers.cta.arrow.x = ctaWidth - 20;
 							}
 						}
