@@ -167,8 +167,8 @@
         '<div class="frame-wrapper"><div id="ad970x250"></div><div>970 x 250</div></div>';//<iframe src="970x250/970x250.html" width="970" height="250" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe>
         htmlContent = '';
         // var queryString = 'Japan|Create_O365_Word_Inking';
-        var searchString = queryString.split('|').splice(0, 2).join('|');
-        var filterString = queryString.split('|').length > 2 ? queryString.split('|').splice(2).join('|') : '';
+        var searchString = queryString.split('|').splice(0, 1).join('|');
+        var filterString = queryString.split('|').length > 1 ? queryString.split('|').splice(1).join('|') : '';
         var adContent = getNormalData(searchString),adContents = {};
         var adContent1 = getScrollingTextData(searchString), adContents1 = {};
         var productName = adContent.name;
