@@ -258,7 +258,7 @@ amo.registerAttribute("frameText53","TEXT","<div style='top:153px;left:20px;line
           var playOtherFrames = function(){};
                       (function(){
                       ad.layers.cta.style.opacity = 1;
-                      ad.layers.frame1.remove();
+                      if('frame1' in ad.layers) ad.layers.frame1.remove();
                       }())
                     var playOtherFrames1 = function(){
             setTimeout(function(){

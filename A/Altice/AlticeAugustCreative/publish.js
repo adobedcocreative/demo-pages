@@ -67,7 +67,7 @@ files.forEach(function(file){
                     `var playOtherFrames = function(){};
                       (function(){
                       ad.layers.cta.style.opacity = 1;
-                      ad.layers.frame1.remove();
+                      if('frame1' in ad.layers) ad.layers.frame1.remove();
                       `+
                       (i>2?`ad.layers.frameImage2.style.opacity = 0;
                       ad.layers.frameText21.style.opacity = 0;

@@ -256,7 +256,7 @@ amo.registerAttribute("frameVideo1","IMAGE","320x50_OPT_AO_64_video.mp4");
           var playOtherFrames = function(){};
                       (function(){
                       ad.layers.cta.style.opacity = 1;
-                      ad.layers.frame1.remove();
+                      if('frame1' in ad.layers) ad.layers.frame1.remove();
                       }())
                     var playOtherFrames1 = function(){
             setTimeout(function(){
