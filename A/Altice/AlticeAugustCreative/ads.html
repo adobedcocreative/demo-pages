@@ -272,12 +272,12 @@
         var group = adContent.data[0].Group;
         var smartName = adContent.name;
         location.hash = btoa(group+'|'+smartName+'|'+adSize).replace('==','');
-        htmlContent += adData.map(function(data){ return '<div '+(group == data.name ? 'class="selected"' : '')+' data-id="' + data.name + '">'+data.name + '</div>' }).join('');
+        htmlContent += adData.map(function(data){ return '<div '+(group == data.name ? 'class="selected"' : '')+' data-id="' + data.name + '">' + data.name.split(' ')[0] + '<div style="font-size:14px;">' + data.name.split(' ')[1] + '</div></div>' }).join('');
         document.querySelector('#header').innerHTML = htmlContent;
         htmlContent = '';
         var groupData = adData.find(function(data){ return data.name == group; });
         if(groupData) {
-          htmlContent += groupData.data.map(function(data){ return '<div '+(smartName == data.name ? 'class="selected"' : '')+' data-id="' + groupData.name + '|' + data.name + '" title="' + groupData.name + ' > ' + data.name + '">'+data.name + '</div>' }).join('');
+          htmlContent += groupData.data.map(function(data){ return '<div '+(smartName == data.name ? 'class="selected"' : '')+' data-id="' + groupData.name + '|' + data.name + '" title="' + groupData.name + ' > ' + data.name + '">'+ data.name + '</div>' }).join('');
         }
         document.querySelector('#subheader').innerHTML = htmlContent;
         htmlContent = '';
