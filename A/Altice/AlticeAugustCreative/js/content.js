@@ -15,8 +15,18 @@ var getFeed1 = function(){
               "Language": data['gsx$language']['$t'],
               "Group": data['gsx$group']['$t'],
               "Smart Names": data['gsx$smartnames']['$t'],
+              "Visibility": data['gsx$visibility']['$t'],
             });
           });
+          if(location.hostname && location.hostname != 'localhost') {
+            var tempFeed = [];
+            feedTemplate1.forEach(function(data){
+              if(!Boolean('Visibility' in data) || ('Visibility' in data && data.Visibility.toLowerCase() == 'true')) {
+                tempFeed.push(data);
+              }
+            });
+            feedTemplate1 = tempFeed;
+          }
           loadTemplateFlag1 = true;
           loadData();
       }
