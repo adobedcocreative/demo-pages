@@ -98,7 +98,7 @@ files.forEach(function(file){
                 }
                 frames[creativePath] = obj;
                 // console.log(frames);
-                fs.writeFile(masterPath + 'frames.js', 'var frames='+JSON.stringify(frames), 'utf8',  function (err) {
+                fs.writeFile(masterPath + 'frames.js', 'var publishVersion = ' + (new Date()).getTime() + ', frames='+JSON.stringify(frames), 'utf8',  function (err) {
                   if (err) throw err;
                 });
             });
