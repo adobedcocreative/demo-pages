@@ -81,7 +81,7 @@ amo.registerAttribute("frameText22","TEXT","<div style='top: 90px;left: 21px;lin
 amo.registerAttribute("frameText23","TEXT","&nbsp;");
 amo.registerAttribute("frameText31","TEXT","<div style='top: 55px;left: 20px;line-height: 1.6;font-size: 22px;'><div><span style='color:#0084d6;padding-right:4px;'>+</span>1 Gig Internet</div><div><span style='color:#0084d6;padding-right:4px;'>+</span>Unlimited Data</div></div>");
 amo.registerAttribute("frameText32","TEXT","<div style='top: 125px;left: 20px;line-height: 1.6;font-size: 22px;'><div><span style='color:#0084d6;padding-right:4px;'>+</span>Over 200 Channels</div></div>");
-amo.registerAttribute("frameText33","TEXT","<div style='top: 160px;left: 20px;line-height: 1.6;font-size: 22px;'><div><span style='color:#0084d6;padding-right:4px;'>+</span>Free Installation</div></div></div>");
+amo.registerAttribute("frameText33","TEXT","<div style='top: 160px;left: 20px;line-height: 1.6;font-size: 22px;'><div style='color:#0084d6;'><span style='color:#0084d6;padding-right:4px;'>+</span>No Annual Contract</div></div></div>");
 amo.registerAttribute("frameText41","TEXT","<div style='top: 27px;left: 17px;line-height: 1.6;font-size: 16px;letter-spacing: -2px;'><div style='color: #0084d6;font-size: 84px;'><sup style='font-size:60%;vertical-align: 31%;margin-right: -3px;'>$</sup>100</div></div>");
 amo.registerAttribute("frameText42","TEXT","<div style='top: 135px;left: 20px;line-height: 1.1;font-size: 32px;'>Amazon.com<br>Gift Card</div>");
 amo.registerAttribute("frameText43","TEXT","<div class='AlticeRegular' style='top: 212px;left: 20px;line-height: 1.2;letter-spacing: -0.25px;font-size: 9pt;'>Restrictions apply, see<br>amazon.com/gc-legal</div>");
@@ -281,20 +281,15 @@ amo.registerAttribute("frameVideo1", "TEXT", "https://ct.tubemogul.com/web/altic
                       ad.layers.frameText22.style.opacity = 0;
                       ad.layers.frameText23.style.opacity = 0;
                       setTimeout(function(){
-                        ad.layers.frameImage5.style.webkitTransform = '';
-                        ad.layers.frameImage5.style.transform = '';
-                        ad.layers.frameText51.style.webkitTransform = '';
-                        ad.layers.frameText51.style.transform = '';
-                        ad.layers.frameText52.style.webkitTransform = '';
-                        ad.layers.frameText52.style.transform = '';
-                        ad.layers.frameText53.style.webkitTransform = '';
-                        ad.layers.frameText53.style.transform = '';
+                        ad.layers.frameImage4.style.webkitTransform = '';
+                        ad.layers.frameImage4.style.transform = '';
+                        ad.layers.frameText41.style.webkitTransform = '';
+                        ad.layers.frameText41.style.transform = '';
+                        ad.layers.frameText42.style.webkitTransform = '';
+                        ad.layers.frameText42.style.transform = '';
+                        ad.layers.frameText43.style.webkitTransform = '';
+                        ad.layers.frameText43.style.transform = '';
                         
-                          if('priceLabel' in ad.layers) {
-                            ad.layers.priceLabel.style.webkitTransform = '';
-                            ad.layers.priceLabel.style.transform = '';
-                          }
-                          
                       },1000);}())
                     var playOtherFrames1 = function(){
             setTimeout(function(){
