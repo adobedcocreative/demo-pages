@@ -84,7 +84,7 @@ var loadData = function(){
       selectedAd = selectedAd ? selectedAd : '300x250';
       var obj = {};
       for(var i in selectedData) { obj[i] = selectedData[i]; }
-      obj.selectedAd = obj.data[0].ads.find(function(ad){ return ad == selectedAd }) ? selectedAd : '300x250';
+      obj.selectedAd = obj.data[0].ads.find(function(ad){ return ad == selectedAd }) ? selectedAd : obj.data[0].ads[0];
       return obj;
     }
     loadPage();
