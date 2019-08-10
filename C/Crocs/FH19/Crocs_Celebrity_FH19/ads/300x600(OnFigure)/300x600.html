@@ -218,7 +218,7 @@
             logoImage: 'assets/Crocs_CAYA_LOGO.png',
             // backgroundImage: 'assets/300x600_backgroundImage.png',
             backgroundText: 'trend rebel <unique>elevate</unique> style rock rise slide play lift',
-            backgroundTextAlignement: 'left',
+            backgroundTextAlignement: 'left|left',
             modelImage: 'assets/300x600_modelImage.png',
             celebrityText: "na",
             headlineText: 'I elevate.',
@@ -286,6 +286,24 @@
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });
+          var productAnimationChange = adData.backgroundTextAlignement.split('|')[1];
+          adData.backgroundTextAlignement = adData.backgroundTextAlignement.split('|')[0];
+          if(productAnimationChange && productAnimationChange.toLowerCase() == 'left') {
+            ad.layers.productImage.style.webkitTransition = '';
+            ad.layers.productImage.style.transition = '';
+            ad.layers.productShadowImage.style.webkitTransition = '';
+            ad.layers.productShadowImage.style.transition = '';
+            ad.layers.productImage.style.webkitTransform = 'translateX(-140%)';
+            ad.layers.productImage.style.transform = 'translateX(-140%)';
+            ad.layers.productShadowImage.style.webkitTransform = 'translateX(-140%)';
+            ad.layers.productShadowImage.style.transform = 'translateX(-140%)';
+            setTimeout(function(){
+              ad.layers.productImage.style.webkitTransition = 'transform ease-out 0.3s';
+              ad.layers.productImage.style.transition = 'transform ease-out 0.3s';
+              ad.layers.productShadowImage.style.webkitTransition = 'transform ease-out 0.3s';
+              ad.layers.productShadowImage.style.transition = 'transform ease-out 0.3s';
+            },10);
+          }
           if(adData.backgroundTextAlignement == 'left') {
             ad.layers.headlineText.classList.remove('text-right');
             ad.layers.headlineText.classList.add('text-left');
