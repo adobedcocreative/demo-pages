@@ -78,17 +78,16 @@ amo.registerAttribute("frameImage5","IMAGE","1x1.png");
 amo.registerAttribute("frameText1","TEXT","PRICE FOR LIFE");
 amo.registerAttribute("frameText21","TEXT","<div style='top: 2px;left: 12px;font-size: 13.2px;'>Altice One with Phone</div>");
 amo.registerAttribute("frameText22","TEXT","<div style='top: 20px;left: 12px;font-size:14px;letter-spacing: -0.2px;line-height: 1;color:#0084d6;'>$69.99/mo. for life</div>");
-amo.registerAttribute("frameText23","TEXT","<div style='top: 33px;left: 12px;font-size: 10px;letter-spacing: -0.1px;' class='AlticeRegular'>Plus taxes, fees & charges</div>");
-amo.registerAttribute("frameText31","TEXT","<div style='top: 6px;left: 12px;line-height: 1.6;font-size: 14px;'><div style='color:#0084d6;'><span style='color:#0084d6;padding-right: 0px;'>+</span>Over 220 Channels</div></div>");
-amo.registerAttribute("frameText32","TEXT","<div style='top: 24px;left: 12px;line-height: 1.6;font-size: 14px;'><div><span style='color:#0084d6;padding-right:0px;'>+</span>Up to 200 Mbps Internet</div></div>");
+amo.registerAttribute("frameText23","TEXT","<div style='top: 33px;left: 12px;font-size: 10px;letter-spacing: -0.1px;' class='AlticeRegular'>plus taxes, fees & charges</div>");
+amo.registerAttribute("frameText31","TEXT","<div style='top: 6px;left: 12px;line-height: 1.6;font-size: 14px;'><div style='color:#0084d6;'><span style='color:#0084d6;padding-right:3px;'>+</span>Up to 200 Mbps Internet</div></div>");
+amo.registerAttribute("frameText32","TEXT","<div style='top: 24px;left: 12px;line-height: 1.6;font-size: 14px;'><div><span style='color:#0084d6;padding-right:3px;'>+</span>Over 220 Channels</div></div>");
 amo.registerAttribute("frameText33","TEXT","&nbsp;");
 amo.registerAttribute("frameText41","TEXT","<div style='top: 5px;left: 12px;font-size: 15px;letter-spacing: -0.2px;'><div>Plus, get a <font style='color: #0084d6;'>$100</font> Amazon.com</div></div>&nbsp;");
 amo.registerAttribute("frameText42","TEXT","<div style='top: 23px;left: 12px;font-size: 15px;letter-spacing: -0.2px;'><div>Gift Card. <font class='AlticeRegular' style='font-size: 9.3px;margin-left: 1px;'>Restrictions apply.</font></div></div>");
 amo.registerAttribute("frameText43","TEXT","&nbsp;");
 amo.registerAttribute("frameText51","TEXT","<div style='top: 2px;left: 12px;font-size: 13.2px;'>Altice One with Phone</div>");
 amo.registerAttribute("frameText52","TEXT","<div style='top: 20px;left: 12px;font-size:14px;letter-spacing: -0.2px;line-height: 1;color:#0084d6;'>$69.99/mo. for life</div>");
-amo.registerAttribute("frameText53","TEXT","<div style='top: 33px;left: 12px;font-size: 10px;letter-spacing: -0.1px;' class='AlticeRegular'>Plus taxes, fees & charges<div style='color:#0084d6;position: absolute;top: -10px;left: 140px;width: 60px;line-height: 1.1;' class='AlticeBold'>No Annual<br>Contract</div></div>");
-amo.registerAttribute("frameVideo1", "TEXT", "https://ct.tubemogul.com/web/altice/august/300x50_AO.mp4");
+amo.registerAttribute("frameText53","TEXT","<div style='top: 33px;left: 12px;font-size: 10px;letter-spacing: -0.1px;' class='AlticeRegular'>plus taxes, fees & charges<div style='color:#0084d6;position: absolute;top: -10px;left: 140px;width: 60px;line-height: 1.1;' class='AlticeBold'>No Annual<br>Contract</div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -134,13 +133,22 @@ amo.registerAttribute("frameVideo1", "TEXT", "https://ct.tubemogul.com/web/altic
         transition:opacity ease-out 0.3s, transform ease-out 0.3s;
         background-color:#e2e3e4;
         opacity:1;">
-        <div id="frameVideo1"
+        <!-- <div id="frameImage1" class="asset"
+          data-image="frameImage1"
+          style="top:-17px;
+            left:361px;
+            width:100px;
+            height:100px;
+            -webkit-transition:opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s;
+            transition:opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s;">
+        </div> -->
+        <!-- <div id="frameVideo1"
           style="top:0px;
             left:0px;
             width:inherit;
             height:inherit;">
             <video muted playsinline autoplay style="height:100%;"></video>
-        </div>
+        </div> -->
         <!-- <div id="ref" class="asset"
           data-image="ref"
           style="top:0px;
@@ -159,7 +167,7 @@ amo.registerAttribute("frameVideo1", "TEXT", "https://ct.tubemogul.com/web/altic
             -webkit-transition:opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s;
             transition:opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s;">
         </div> -->
-        <div id="frameText1" class="text AlticeBold"
+        <!-- <div id="frameText1" class="text AlticeBold"
           data-text="frameText1"
           style="top:6px;
             left:5px;
@@ -173,6 +181,17 @@ amo.registerAttribute("frameVideo1", "TEXT", "https://ct.tubemogul.com/web/altic
             opacity:0;
             -webkit-transition:transform ease-out 0.5s;
             transition:transform ease-out 0.5s;">
+        </div> -->
+        <div id="PFL" class="AlticeBold" style="top:-10px;left:-100px;width:408px;height:71px;overflow:hidden;-webkit-transition:opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s;transition:opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s;-webkit-transform:translateX(-150%) scale(0.47);transform:translateX(-150%) scale(0.47);opacity:0;">
+          <svg height="71" width="408"><polygon points="0,0 396,0 408,35.5 396,71 0,71" style="fill:#0084d6;" /></svg>
+          <div id="PFLPrice" style="position:absolute;top:3px;left:11px;font-size:49px;color:#fff;transform-origin:center;-webkit-transition:transform cubic-bezier(.65,.02,.51,1.46) 0.5s;transition:transform cubic-bezier(.65,.02,.51,1.46) 0.5s;-webkit-transform:scale(0);transform:scale(0);">PRICE FOR LIFE</div>
+          <!-- <div style="position:absolute;top:59px;left:23px;color:#fff;">
+            <div id="PFLLineLeft" style="display:inline-block;width:29px;border:2px solid;transform-origin:right;-webkit-transition:transform 0.3s cubic-bezier(.65,.02,.51,1.46) 0.5s;transition:transform 0.3s cubic-bezier(.65,.02,.51,1.46) 0.5s;-webkit-transform:scaleX(0);transform:scaleX(0);"></div>
+            <div style="display:inline-block;width:70px"></div>
+            <div id="PFLLineRight" style="display:inline-block;width:29px;border:2px solid;transform-origin:left;-webkit-transition:transform 0.3s cubic-bezier(.65,.02,.51,1.46) 0.5s;transition:transform 0.3s cubic-bezier(.65,.02,.51,1.46) 0.5s;-webkit-transform:scaleX(0);transform:scaleX(0);"></div>
+          </div>
+          <div id="PFLFor" style="position:absolute;top:56px;left:65px;font-size:26px;color:#fff;transform-origin:center;-webkit-transition:transform 0.5s cubic-bezier(.65,.02,.51,1.46) 0.3s;transition:transform 0.5s cubic-bezier(.65,.02,.51,1.46) 0.3s;-webkit-transform:scale(0);transform:scale(0);">FOR</div>
+          <div id="PFLLife" style="position:absolute;top:69px;left:18px;font-size:73px;color:#fff;transform-origin:center;-webkit-transition:transform 0.5s cubic-bezier(.65,.02,.51,1.46) 0.7s;transition:transform 0.5s cubic-bezier(.65,.02,.51,1.46) 0.7s;-webkit-transform:scale(0);transform:scale(0);">LIFE</div> -->
         </div>
         <!-- <div id="frameText12" class="text-left AlticeBold"
           data-text="frameText12"
@@ -215,8 +234,8 @@ amo.registerAttribute("frameVideo1", "TEXT", "https://ct.tubemogul.com/web/altic
       <div class="AlticeBold" style="color:transparent;">AlticeBold</div>
     </div>
     <script type="text/javascript">
-      
-      
+
+
       var ad = new Ad({
         root: document.querySelector('#ad'),
         width: 300,
@@ -234,7 +253,7 @@ amo.registerAttribute("frameVideo1", "TEXT", "https://ct.tubemogul.com/web/altic
             // starImage: 'images/star.svg',
             ctaBtn: '#0084d6',
             ctaBtnHover: '#005990',
-            // ref: 'ref1.jpg',
+            // ref: 'ref1.png',
           },
           beforeLoad: function(data){
             data.map(function(content){
@@ -252,7 +271,28 @@ amo.registerAttribute("frameVideo1", "TEXT", "https://ct.tubemogul.com/web/altic
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });
-          setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; },800);
+          // setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; },800);
+          var animatePFL = function(callbackFunction){
+            var pfl = ad.layers.PFL;
+            pfl.style.opacity = 1;
+            pfl.style.webkitTransform = 'scale(0.47)';
+            pfl.style.transform = 'scale(0.47)';
+            setTimeout(function(){
+              pfl.querySelector('#PFLPrice').style.webkitTransform = '';
+              pfl.querySelector('#PFLPrice').style.transform = '';
+              // pfl.querySelector('#PFLFor').style.webkitTransform = '';
+              // pfl.querySelector('#PFLFor').style.transform = '';
+              // pfl.querySelector('#PFLLineLeft').style.webkitTransform = '';
+              // pfl.querySelector('#PFLLineLeft').style.transform = '';
+              // pfl.querySelector('#PFLLineRight').style.webkitTransform = '';
+              // pfl.querySelector('#PFLLineRight').style.transform = '';
+              // pfl.querySelector('#PFLLife').style.webkitTransform = '';
+              // pfl.querySelector('#PFLLife').style.transform = '';
+              setTimeout(function(){
+                  if(callbackFunction && typeof callbackFunction == 'function') { callbackFunction(); }
+              }, 3000);
+            }, 800);
+          }
           var playOtherFrames = function(){
             setTimeout(function(){
               ad.layers.frame1.style.webkitTransform = 'rotate(10deg) translate(0%,100%)';
@@ -311,26 +351,25 @@ amo.registerAttribute("frameVideo1", "TEXT", "https://ct.tubemogul.com/web/altic
               }, 3000);
             }, 10);
           }
-          ad.layers.frameVideo1.querySelector('video').onplay = function(){
+          // ad.layers.frameVideo1.querySelector('video').onplay = function(){
+          //   ad.layers.cta.style.opacity = 1;
+          //   setTimeout(function(){
+          //       ad.layers.frameImage1.style.opacity = 1;
+          //       ad.layers.frameImage1.style.webkitTransform = '';
+          //       ad.layers.frameImage1.style.transform = '';
+          //   }, 2000);
+          // }
+          // ad.layers.frameVideo1.querySelector('video').onended = function(){
+          //   setTimeout(function(){
+          //       playOtherFrames();
+          //   },500);
+          // }
+          setTimeout(function(){
             ad.layers.cta.style.opacity = 1;
-            setTimeout(function(){
-                ad.layers.frameText1.style.opacity = 1;
-                typingAnimation(ad.layers.frameText1.querySelector('span'), 100, function(){
-                  // setTimeout(function(){
-                  //   ad.layers.frameText1.style.opacity = 0;
-                  //   ad.layers.frameText12.style.opacity = 1;
-                  //   typingAnimation(ad.layers.frameText12.querySelector('span'), 35, function(){
-                  //
-                  //   });
-                  // }, 1500);
-                });
-            }, 2000);
-          }
-          ad.layers.frameVideo1.querySelector('video').onended = function(){
-            setTimeout(function(){
-                playOtherFrames();
-            },500);
-          }
+              setTimeout(function(){
+                animatePFL(function(){ playOtherFrames(); });
+              }, 500);
+          }, 1300);
           // playOtherFrames();
         });
       }, 2000);
