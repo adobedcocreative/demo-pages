@@ -90,7 +90,7 @@ amo.registerAttribute("frameText43","TEXT","<div class='AlticeRegular' style='to
 amo.registerAttribute("frameText51","TEXT","<div style='top: 34px;left:20px;line-height:1.1;'><div style='font-size: 20px;letter-spacing: -0.1px;'>Altice One + Internet</div></div>");
 amo.registerAttribute("frameText52","TEXT","<div style='top: 61px;left: 109px;line-height:1.1;'><div style='color: #0084d6;font-size: 61px;'><sup style='font-size: 55%;vertical-align: 53%;margin-right: 0px;'>$</sup>69<sup style='font-size: 55%;vertical-align: 58%;margin-left: 0px;'>99</sup></div><div style='font-size: 13.5px;letter-spacing:-0.1px;position: absolute;top: 41px;left: 98px;width: 100px;'>mo. <font style='color:#0084d6;'>for life</font><div class='AlticeRegular' style='font-size: 10px;margin-top: 1px;position: absolute;top: 21px;left: -97px;'>plus taxes, fees &amp; charges</div></div></div>");
 amo.registerAttribute("frameText53","TEXT","<div style='top:153px;left:20px;line-height:1.3;font-size:14px;letter-spacing:-0.1px;'><div><span style='color:#0084d6;padding-right:5px;'>+</span>$100 Amazon.com Gift Card</div><div style='color:#0084d6;'><span style='color:#0084d6;padding-right:5px;'>+</span>No Annual Contract</div></div>");
-amo.registerAttribute("frameImage1", "TEXT", "firstIntroAnimation.gif");
+amo.registerAttribute("frameImage1", "TEXT", "firstIntroAnimationV2.gif");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -113,10 +113,10 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroAnimation.gif");
           height:inherit;">
       </div> -->
 
-      <div id="frameImage2" class="asset" data-image="frameImage2" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transition:opacity ease-out 0.3s,transform ease-out 0.3s;transition:opacity ease-out 0.3s,transform ease-out 0.3s;"></div>
-      <div id="frameText21" class="frameText" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transition:opacity ease-out 0.3s,transform ease-out 0.3s;transition:opacity ease-out 0.3s,transform ease-out 0.3s;">!{frameText21}</div>
-      <div id="frameText22" class="frameText" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transition:opacity ease-out 0.3s,transform ease-out 0.3s;transition:opacity ease-out 0.3s,transform ease-out 0.3s;">!{frameText22}</div>
-      <div id="frameText23" class="frameText" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transition:opacity ease-out 0.3s,transform ease-out 0.3s;transition:opacity ease-out 0.3s,transform ease-out 0.3s;">!{frameText23}</div>
+      <div id="frameImage2" class="asset" data-image="frameImage2" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(100%);transform:translateX(100%);-webkit-transition:opacity ease-out 0.3s,transform ease-out 0.3s;transition:opacity ease-out 0.3s,transform ease-out 0.3s;"></div>
+      <div id="frameText21" class="frameText" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(-100%);transform:translateX(-100%);-webkit-transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.0s;transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.0s;">!{frameText21}</div>
+      <div id="frameText22" class="frameText" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(-100%);transform:translateX(-100%);-webkit-transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.1s;transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.1s;">!{frameText22}</div>
+      <div id="frameText23" class="frameText" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(-100%);transform:translateX(-100%);-webkit-transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.2s;transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.2s;">!{frameText23}</div>
       <div id="frameImage3" class="asset" data-image="frameImage3" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(100%);transform:translateX(100%);-webkit-transition:opacity ease-out 0.3s,transform ease-out 0.3s;transition:opacity ease-out 0.3s,transform ease-out 0.3s;"></div>
       <div id="frameText31" class="frameText" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(-100%);transform:translateX(-100%);-webkit-transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.0s;transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.0s;">!{frameText31}</div>
       <div id="frameText32" class="frameText" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(-100%);transform:translateX(-100%);-webkit-transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.7s;transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.7s;">!{frameText32}</div>
@@ -145,52 +145,12 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroAnimation.gif");
             -webkit-transition:opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s;
             transition:opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s;">
         </div>
-        <!-- <div id="frameVideo1"
-          style="top:0px;
-            left:0px;
-            width:inherit;
-            height:inherit;">
-            <video muted playsinline autoplay style="width:100%;"></video>
-        </div>
-        <div id="videoOverlay"
-          style="top:0px;
-            left:0px;
-            width:inherit;
-            height:inherit;
-            background-color:rgba(0,0,0,0.3)">
-        </div> -->
         <!-- <div id="ref" class="asset"
           data-image="ref"
           style="top:0px;
             left:0px;
             width:inherit;
             height:inherit;">
-        </div> -->
-        <!-- <div id="frameImage12" class="asset"
-          data-image="frameImage12"
-          style="top:0px;
-            left:0px;
-            width:inherit;
-            height:inherit;
-            transform-origin: 60% 45% 0px;
-            -webkit-transform:scale(0);
-            transform:scale(0);
-            -webkit-transition:opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s;
-            transition:opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s;
-            opacity:0;">
-        </div> -->
-        <!-- <div id="frameImage1" class="asset"
-          data-image="frameImage1"
-          style="top:0px;
-            left:0px;
-            width:inherit;
-            height:inherit;
-            transform-origin: center;
-            -webkit-transform:scale(0.5);
-            transform:scale(0.5);
-            -webkit-transition:opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s;
-            transition:opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s;
-            opacity:0;">
         </div> -->
         <div id="frameText1" class="text AlticeBold"
           data-text="frameText1"
@@ -202,50 +162,19 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroAnimation.gif");
             font-size:24px;
             line-height:1.1;
             letter-spacing:-0.5px;
-            font-weight: bold;
-            opacity:0;">
+            font-weight: bold;">
         </div>
         <div id="PFL" class="AlticeBold" style="top:24.5px;left:47.5px;width:205px;height:160px;overflow:hidden;-webkit-transition:opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s;transition:opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s;-webkit-transform:translateX(-150%);transform:translateX(-150%);opacity:0;">
           <svg height="160" width="205"><polygon points="0,0 177.5,0 205,80 177.5,160 0,160" style="fill:#0084d6;" /></svg>
-          <div id="PFLPrice" style="position:absolute;top:5px;left:19px;font-size:50px;color:#fff;transform-origin:center;-webkit-transition:transform cubic-bezier(.65,.02,.51,1.46) 0.5s;transition:transform cubic-bezier(.65,.02,.51,1.46) 0.5s;-webkit-transform:scale(0);transform:scale(0);">PRICE</div>
+          <div id="PFLPrice" style="position:absolute;top:5px;left:19px;font-size:50px;color:#fff;transform-origin:center;-webkit-transition:transform ease-out 0.5s;transition:transform ease-out 0.5s;-webkit-transform:scale(0);transform:scale(0);">PRICE</div>
           <div style="position:absolute;top:59px;left:23px;color:#fff;">
-            <div id="PFLLineLeft" style="display:inline-block;width:29px;border:2px solid;transform-origin:right;-webkit-transition:transform 0.3s cubic-bezier(.65,.02,.51,1.46) 0.5s;transition:transform 0.3s cubic-bezier(.65,.02,.51,1.46) 0.5s;-webkit-transform:scaleX(0);transform:scaleX(0);"></div>
+            <div id="PFLLineLeft" style="display:inline-block;width:29px;border:2px solid;transform-origin:right;-webkit-transition:transform 0.3s ease-out 0.5s;transition:transform 0.3s ease-out 0.5s;-webkit-transform:scaleX(0);transform:scaleX(0);"></div>
             <div style="display:inline-block;width:70px"></div>
-            <div id="PFLLineRight" style="display:inline-block;width:29px;border:2px solid;transform-origin:left;-webkit-transition:transform 0.3s cubic-bezier(.65,.02,.51,1.46) 0.5s;transition:transform 0.3s cubic-bezier(.65,.02,.51,1.46) 0.5s;-webkit-transform:scaleX(0);transform:scaleX(0);"></div>
+            <div id="PFLLineRight" style="display:inline-block;width:29px;border:2px solid;transform-origin:left;-webkit-transition:transform 0.3s ease-out 0.5s;transition:transform 0.3s ease-out 0.5s;-webkit-transform:scaleX(0);transform:scaleX(0);"></div>
           </div>
-          <div id="PFLFor" style="position:absolute;top:56px;left:65px;font-size:26px;color:#fff;transform-origin:center;-webkit-transition:transform 0.5s cubic-bezier(.65,.02,.51,1.46) 0.3s;transition:transform 0.5s cubic-bezier(.65,.02,.51,1.46) 0.3s;-webkit-transform:scale(0);transform:scale(0);">FOR</div>
-          <div id="PFLLife" style="position:absolute;top:69px;left:18px;font-size:73px;color:#fff;transform-origin:center;-webkit-transition:transform 0.5s cubic-bezier(.65,.02,.51,1.46) 0.7s;transition:transform 0.5s cubic-bezier(.65,.02,.51,1.46) 0.7s;-webkit-transform:scale(0);transform:scale(0);">LIFE</div>
+          <div id="PFLFor" style="position:absolute;top:56px;left:65px;font-size:26px;color:#fff;transform-origin:center;-webkit-transition:transform 0.5s ease-out 0.3s;transition:transform 0.5s ease-out 0.3s;-webkit-transform:scale(0);transform:scale(0);">FOR</div>
+          <div id="PFLLife" style="position:absolute;top:69px;left:18px;font-size:73px;color:#fff;transform-origin:center;-webkit-transition:transform 0.5s ease-out 0.7s;transition:transform 0.5s ease-out 0.7s;-webkit-transform:scale(0);transform:scale(0);">LIFE</div>
         </div>
-        <!-- <div id="frameText12" class="text AlticeBold"
-          data-text="frameText12"
-          data-style="text-align:center;"
-          style="top:75px;
-            left:10px;
-            width:280px;
-            height:100px;
-            font-size:24px;
-            line-height:1;
-            font-weight: bold;
-            color:#fff;
-            opacity:0;">
-        </div> -->
-        <!-- <div id="introLogoImage" class="asset"
-          data-image="introLogoImage"
-          style="top:0px;
-            left:0px;
-            width:inherit;
-            height:inherit;">
-        </div>
-        <div id="introCta" class="text AlticeBold"
-          data-text="ctaText"
-          style="top:206px;
-            left:19px;
-            width:80px;
-            height:22px;
-            font-size:12px;
-            color:#fff;
-            border:1px solid;">
-        </div> -->
       </div>
       <div id="logoImage" class="asset"
         data-image="logoImage"
@@ -303,7 +232,6 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroAnimation.gif");
             if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });
           extraFrameFlag = false;
-          // setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; },800);
           var animatePFL = function(callbackFunction){
             var pfl = ad.layers.PFL;
             pfl.style.opacity = 1;
@@ -322,21 +250,40 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroAnimation.gif");
               pfl.querySelector('#PFLLife').style.transform = '';
               setTimeout(function(){
                   if(callbackFunction && typeof callbackFunction == 'function') { callbackFunction(); }
-              }, 3000);
+              }, 2000);
             }, 800);
           }
           var playOtherFrames = function(){};
                       (function(){
                       ad.layers.cta.style.opacity = 1;
                       if('frame1' in ad.layers) ad.layers.frame1.remove();
-                      }())
+                      
+                      setTimeout(function(){
+                        ad.layers.frameImage2.style.webkitTransform = '';
+                        ad.layers.frameImage2.style.transform = '';
+                        ad.layers.frameText21.style.webkitTransform = '';
+                        ad.layers.frameText21.style.transform = '';
+                        ad.layers.frameText22.style.webkitTransform = '';
+                        ad.layers.frameText22.style.transform = '';
+                        ad.layers.frameText23.style.webkitTransform = '';
+                        ad.layers.frameText23.style.transform = '';
+                        
+                      },1000);}())
                     var playOtherFrames1 = function(){
             setTimeout(function(){
-              ad.layers.frame1.style.webkitTransform = 'rotate(30deg) translate(50%,-50%)';
-              ad.layers.frame1.style.transform = 'rotate(30deg) translate(50%,-50%)';
+              // ad.layers.frame1.style.webkitTransform = 'rotate(30deg) translate(50%,-50%)';
+              // ad.layers.frame1.style.transform = 'rotate(30deg) translate(50%,-50%)';
               ad.layers.frame1.style.opacity = 0;
+              setTimeout(function(){ ad.layers.frame1.style.visibility = 'hidden'; }, 500);
               setTimeout(function(){
-                ad.layers.frame1.style.visibility = 'hidden';
+                ad.layers.frameImage2.style.webkitTransform = '';
+                ad.layers.frameImage2.style.transform = '';
+                ad.layers.frameText21.style.webkitTransform = '';
+                ad.layers.frameText21.style.transform = '';
+                ad.layers.frameText22.style.webkitTransform = '';
+                ad.layers.frameText22.style.transform = '';
+                ad.layers.frameText23.style.webkitTransform = '';
+                ad.layers.frameText23.style.transform = '';
               }, 500);
                 setTimeout(function(){
                   ad.layers.frameImage2.style.opacity = 0;
@@ -390,43 +337,24 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroAnimation.gif");
                 }, 3000);
             }, 10);
           }
-          // ad.layers.frameVideo1.querySelector('video').onplay = function(){
-          //   ad.layers.cta.style.opacity = 1;
-          //   setTimeout(function(){
-          //       ad.layers.frameImage1.style.opacity = 1;
-          //       ad.layers.frameImage1.style.webkitTransform = '';
-          //       ad.layers.frameImage1.style.transform = '';
-          //   }, 2000);
-          // }
-          // ad.layers.frameVideo1.querySelector('video').onended = function(){
-          //   setTimeout(function(){
-          //       playOtherFrames();
-          //   },500);
-          // }
           setTimeout(function(){
-            ad.layers.cta.style.opacity = 1;
+            ad.layers.frameImage1.querySelector('img').src = ad.layers.frameImage1.querySelector('img').src + '?v='+ Math.random();
             setTimeout(function(){
-              ad.layers.frameText1.style.opacity = 1;
-              typingAnimation(ad.layers.frameText1.querySelector('span'), 50, function(){
+              ad.layers.frameText1.style.webkitTransition = 'opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s';
+              ad.layers.frameText1.style.transition = 'opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s';
+              setTimeout(function(){
+                ad.layers.frameImage1.style.opacity = 0;
+                ad.layers.frameImage1.style.webkitTransform = 'translateX(50%)';
+                ad.layers.frameImage1.style.transform = 'translateX(50%)';
+                ad.layers.frameText1.style.opacity = 0;
+                ad.layers.frameText1.style.webkitTransform = 'translateX(50%)';
+                ad.layers.frameText1.style.transform = 'translateX(50%)';
                 setTimeout(function(){
-                  ad.layers.frameText1.style.webkitTransition = 'opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s';
-                  ad.layers.frameText1.style.transition = 'opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s';
-                  setTimeout(function(){
-                    ad.layers.frameImage1.style.opacity = 0;
-                    ad.layers.frameImage1.style.webkitTransform = 'translateX(50%)';
-                    ad.layers.frameImage1.style.transform = 'translateX(50%)';
-                    ad.layers.frameText1.style.opacity = 0;
-                    ad.layers.frameText1.style.webkitTransform = 'translateX(50%)';
-                    ad.layers.frameText1.style.transform = 'translateX(50%)';
-                    setTimeout(function(){
-                      animatePFL(function(){ playOtherFrames(); });
-                    }, 500);
-                  },100);
-                },1500);
-              });
-            }, 500);
-          }, 1300);
-          // playOtherFrames();
+                  animatePFL(function(){ playOtherFrames(); });
+                }, 200);
+              },100);
+            },2600);
+          }, 800);
         });
       }, 2000);
     </script>

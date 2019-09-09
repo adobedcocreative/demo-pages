@@ -69,10 +69,7 @@ files.forEach(function(file){
                       ad.layers.cta.style.opacity = 1;
                       if('frame1' in ad.layers) ad.layers.frame1.remove();
                       `+
-                      (i>2?`ad.layers.frameImage2.style.opacity = 0;
-                      ad.layers.frameText21.style.opacity = 0;
-                      ad.layers.frameText22.style.opacity = 0;
-                      ad.layers.frameText23.style.opacity = 0;
+                      (i>1?`
                       setTimeout(function(){
                         ad.layers.frameImage${i}.style.webkitTransform = '';
                         ad.layers.frameImage${i}.style.transform = '';
