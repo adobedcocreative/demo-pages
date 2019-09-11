@@ -75,7 +75,7 @@ amo.registerAttribute("frameImage2","IMAGE","728x90_OPT_AugPFL_ACQ_AO_Amz_64PFL_
 amo.registerAttribute("frameImage3","IMAGE","1x1.png");
 amo.registerAttribute("frameImage4","IMAGE","728x90_OPT_AugPFL_ACQ_AO_Amz_64PFL_NonSub_NY_DCO_NY_Img_AmzCard100_Frame04.png");
 amo.registerAttribute("frameImage5","IMAGE","1x1.png");
-amo.registerAttribute("frameText1", "TEXT", "Everything in life<br>changes except...");
+amo.registerAttribute("frameText1", "TEXT", "PRICE FOR LIFE");
 amo.registerAttribute("frameText21","TEXT","<div style='top: 8px;left: 20px;line-height:1.1;'><div style='font-size: 18px;letter-spacing: -0.2px;'>Altice One + Internet with Phone</div></div>");
 amo.registerAttribute("frameText22","TEXT","<div style='top: 20px;left: 20px;line-height:1.1;'><div style='color: #0084d6;font-size: 56px;'><sup style='font-size: 52%;vertical-align: 58%;margin-right: 0px;'>$</sup>74<sup style='font-size: 52%;vertical-align: 58%;/* margin-left: -2px; */'>99</sup></div><div style='font-size: 13px;letter-spacing: -0.3px;position: absolute;top: 37px;left: 88px;width: 100px;'>mo. <font style='color:#0084d6;'>for life</font><div class='AlticeRegular' style='font-size: 10.5px;margin-top: 0px;margin-left: -87px;'>plus taxes, fees &amp; charges</div></div></div>");
 amo.registerAttribute("frameText23","TEXT","&nbsp;");
@@ -88,7 +88,6 @@ amo.registerAttribute("frameText43","TEXT","<div class='AlticeRegular' style='to
 amo.registerAttribute("frameText51","TEXT","<div style='top: 8px;left: 116px;line-height:1.1;'><div style='font-size: 18px;letter-spacing: -0.2px;'>Altice One + Internet with Phone</div></div>");
 amo.registerAttribute("frameText52","TEXT","<div style='top: 20px;left: 113px;line-height:1.1;'><div style='color: #0084d6;font-size: 56px;'><sup style='font-size: 52%;vertical-align: 58%;margin-right: 0px;'>$</sup>74<sup style='font-size: 52%;vertical-align: 58%;/* margin-left: -2px; */'>99</sup></div><div style='font-size: 13px;letter-spacing: -0.3px;position: absolute;top: 37px;left: 88px;width: 100px;'>mo. <font style='color:#0084d6;'>for life</font><div class='AlticeRegular' style='font-size: 10.5px;margin-top: 0px;margin-left: -87px;'>plus taxes, fees &amp; charges</div></div></div>");
 amo.registerAttribute("frameText53","TEXT","<div style='top:29px;left:320px;line-height:1.3;font-size:16px;letter-spacing:-0.1px;'><div><span style='color:#0084d6;padding-right:5px;'>+</span>$100 Amazon.com Gift Card</div><div style='color:#0084d6;'><span style='color:#0084d6;padding-right:5px;'>+</span>No Annual Contract</div></div>");
-amo.registerAttribute("frameImage1", "TEXT", "firstIntroAnimationV2.gif");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -133,9 +132,9 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroAnimationV2.gif");
         style="transform-origin:bottom center;
         -webkit-transition:opacity ease-out 0.3s, transform ease-out 0.3s;
         transition:opacity ease-out 0.3s, transform ease-out 0.3s;
-        background-color:#ddd;
+        background-color:#e2e3e4;
         opacity:1;">
-        <div id="frameImage1" class="asset"
+        <!-- <div id="frameImage1" class="asset"
           data-image="frameImage1"
           style="top:-17px;
             left:361px;
@@ -143,7 +142,7 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroAnimationV2.gif");
             height:100px;
             -webkit-transition:opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s;
             transition:opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s;">
-        </div>
+        </div> -->
         <!-- <div id="ref" class="asset"
           data-image="ref"
           style="top:0px;
@@ -151,7 +150,7 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroAnimationV2.gif");
             width:inherit;
             height:inherit;">
         </div> -->
-        <div id="frameText1" class="text-left AlticeBold"
+        <!-- <div id="frameText1" class="text-left AlticeBold"
           data-text="frameText1"
           style="top:4px;
             left:21px;
@@ -163,7 +162,7 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroAnimationV2.gif");
             letter-spacing: -0.3px;
             -webkit-transition:transform ease-out 1.2s;
             transition:transform ease-out 1.2s;">
-        </div>
+        </div> -->
         <div id="PFL" class="AlticeBold" style="top:9.5px;left:12px;width:408px;height:71px;overflow:hidden;-webkit-transition:opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s;transition:opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s;-webkit-transform:translateX(-150%);transform:translateX(-150%);opacity:0;">
           <svg height="71" width="408"><polygon points="0,0 396,0 408,35.5 396,71 0,71" style="fill:#0084d6;" /></svg>
           <div id="PFLPrice" style="position:absolute;top:3px;left:11px;font-size:49px;color:#fff;transform-origin:center;-webkit-transition:transform ease-out 0.5s;transition:transform ease-out 0.5s;-webkit-transform:scale(0);transform:scale(0);">PRICE FOR LIFE</div>
@@ -320,26 +319,29 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroAnimationV2.gif");
                 }, 3000);
             }, 10);
           }
-          var gifImagePath = ad.layers.frameImage1.querySelector('img').src;
-          ad.layers.frameImage1.querySelector('img').src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII=';
           setTimeout(function(){
-            ad.layers.frameImage1.querySelector('img').src = gifImagePath;
-            setTimeout(function(){
-              ad.layers.frameText1.style.webkitTransition = 'opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s';
-              ad.layers.frameText1.style.transition = 'opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s';
-              setTimeout(function(){
-                ad.layers.frameImage1.style.opacity = 0;
-                ad.layers.frameImage1.style.webkitTransform = 'translateX(50%)';
-                ad.layers.frameImage1.style.transform = 'translateX(50%)';
-                ad.layers.frameText1.style.opacity = 0;
-                ad.layers.frameText1.style.webkitTransform = 'translateX(50%)';
-                ad.layers.frameText1.style.transform = 'translateX(50%)';
-                setTimeout(function(){
-                  animatePFL(function(){ playOtherFrames(); });
-                }, 200);
-              },100);
-            },2600);
+            animatePFL(function(){ playOtherFrames(); });
           }, 800);
+          // var gifImagePath = ad.layers.frameImage1.querySelector('img').src;
+          // ad.layers.frameImage1.querySelector('img').src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII=';
+          // setTimeout(function(){
+          //   ad.layers.frameImage1.querySelector('img').src = gifImagePath;
+          //   setTimeout(function(){
+          //     ad.layers.frameText1.style.webkitTransition = 'opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s';
+          //     ad.layers.frameText1.style.transition = 'opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s';
+          //     setTimeout(function(){
+          //       ad.layers.frameImage1.style.opacity = 0;
+          //       ad.layers.frameImage1.style.webkitTransform = 'translateX(50%)';
+          //       ad.layers.frameImage1.style.transform = 'translateX(50%)';
+          //       ad.layers.frameText1.style.opacity = 0;
+          //       ad.layers.frameText1.style.webkitTransform = 'translateX(50%)';
+          //       ad.layers.frameText1.style.transform = 'translateX(50%)';
+          //       setTimeout(function(){
+          //         animatePFL(function(){ playOtherFrames(); });
+          //       }, 200);
+          //     },100);
+          //   },2600);
+          // }, 800);
         });
       }, 2000);
     </script>
