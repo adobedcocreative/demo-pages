@@ -294,8 +294,10 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroAnimationV2.gif");
                 }, 3000);
             }, 10);
           }
+          var gifImagePath = ad.layers.frameImage1.querySelector('img').src;
+          ad.layers.frameImage1.querySelector('img').src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII=';
           setTimeout(function(){
-            ad.layers.frameImage1.querySelector('img').src = ad.layers.frameImage1.querySelector('img').src + '?v='+ Math.random();
+            ad.layers.frameImage1.querySelector('img').src = gifImagePath;
             setTimeout(function(){
               ad.layers.frameText1.style.webkitTransition = 'opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s';
               ad.layers.frameText1.style.transition = 'opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s';
