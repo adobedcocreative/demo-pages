@@ -79,11 +79,11 @@ amo.registerAttribute("frameText1","TEXT","PRICE FOR LIFE");
 amo.registerAttribute("frameText21","TEXT","<div style='top: 2px;left: 12px;font-size: 13.2px;'>1 Gig Fiber Internet</div>");
 amo.registerAttribute("frameText22","TEXT","<div style='top: 20px;left: 12px;font-size:14px;letter-spacing: -0.2px;line-height: 1;color:#0084d6;'>$59.99 mo. for life</div>");
 amo.registerAttribute("frameText23","TEXT","<div style='top: 33px;left: 12px;font-size: 10px;letter-spacing: -0.1px;' class='AlticeRegular'>plus taxes, fees & charges</div>");
-amo.registerAttribute("frameText31","TEXT","<div style='top: 5px;left: 12px;font-size: 15px;letter-spacing: -0.2px;'><div>FREE <font style='color: #0084d6;'>Altice Fiber Gateway</font></div></div>");
-amo.registerAttribute("frameText32","TEXT","<div style='top: 23px;left: 12px;font-size: 15px;letter-spacing: -0.2px;'><div>all-in-one modem & router</div></div>");
+amo.registerAttribute("frameText31","TEXT","<div style='top: 6px;left: 12px;line-height: 1.6;font-size: 14px;'><div><span style='color:#0084d6;padding-right:3px;'>+</span>Up to 1 Gig Internet</div></div>");
+amo.registerAttribute("frameText32","TEXT","<div style='top: 24px;left: 12px;line-height: 1.6;font-size: 14px;'><div style='color:#0084d6;'><span style='color:#0084d6;padding-right:3px;'>+</span>HBO NOW<sup style='font-size: 60%;vertical-align: 42%;margin-left:1px'>®</sup> for 1 Yr.</div></div>");
 amo.registerAttribute("frameText33","TEXT","&nbsp;");
-amo.registerAttribute("frameText41","TEXT","<div style='top: 6px;left: 12px;line-height: 1.6;font-size: 14px;'><div><span style='color:#0084d6;padding-right:3px;'>+</span>Up to 1 Gig Internet</div></div>");
-amo.registerAttribute("frameText42","TEXT","<div style='top: 24px;left: 12px;line-height: 1.6;font-size: 14px;'><div style='color:#0084d6;'><span style='color:#0084d6;padding-right:3px;'>+</span>Altice Fiber Network</div></div>");
+amo.registerAttribute("frameText41","TEXT","<div style='top: 6px;left: 12px;font-size: 13px;letter-spacing: -0.2px;'><div><font style='color: #0084d6;'>$100</font> Amazon.com Gift Card with</div></div>&nbsp;");
+amo.registerAttribute("frameText42","TEXT","<div style='top: 24px;left: 12px;font-size: 13px;letter-spacing: -0.2px;'><div>Online Orders. <font class='AlticeRegular' style='font-size: 9.3px;margin-left: 1px;'>Restrictions apply.</font></div></div>");
 amo.registerAttribute("frameText43","TEXT","&nbsp;");
 amo.registerAttribute("frameText51","TEXT","<div style='top: 2px;left: 12px;font-size: 13.2px;'>1 Gig Fiber Internet</div>");
 amo.registerAttribute("frameText52","TEXT","<div style='top: 20px;left: 12px;font-size:14px;letter-spacing: -0.2px;line-height: 1;color:#0084d6;'>$59.99 mo. for life</div>");
@@ -109,7 +109,13 @@ amo.registerAttribute("frameText53","TEXT","<div style='top: 33px;left: 12px;fon
           width:inherit;
           height:inherit;">
       </div> -->
-
+      <div id="logoImage" class="asset"
+        data-image="logoImage"
+        style="top:0px;
+          left:0px;
+          width:inherit;
+          height:inherit;">
+      </div>
 
       <div id="frameImage2" class="asset" data-image="frameImage2" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateY(100%);transform:translateY(100%);-webkit-transition:opacity ease-out 0.3s,transform ease-out 0.3s;transition:opacity ease-out 0.3s,transform ease-out 0.3s;"></div>
       <div id="frameText21" class="frameText" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(-100%);transform:translateX(-100%);-webkit-transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.0s;transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.0s;">!{frameText21}</div>
@@ -151,13 +157,13 @@ amo.registerAttribute("frameText53","TEXT","<div style='top: 33px;left: 12px;fon
           <div id="PFLFor" style="position:absolute;top:56px;left:65px;font-size:26px;color:#fff;transform-origin:center;-webkit-transition:transform 0.5s cubic-bezier(.43,-0.25,.32,1.39) 0.3s;transition:transform 0.5s cubic-bezier(.43,-0.25,.32,1.39) 0.3s;-webkit-transform:scale(0);transform:scale(0);">FOR</div>
           <div id="PFLLife" style="position:absolute;top:69px;left:18px;font-size:73px;color:#fff;transform-origin:center;-webkit-transition:transform 0.5s cubic-bezier(.43,-0.25,.32,1.39) 0.7s;transition:transform 0.5s cubic-bezier(.43,-0.25,.32,1.39) 0.7s;-webkit-transform:scale(0);transform:scale(0);">LIFE</div> -->
         </div>
-      </div>
-      <div id="logoImage" class="asset"
-        data-image="logoImage"
-        style="top:0px;
-          left:0px;
-          width:inherit;
-          height:inherit;">
+        <div id="introLogoImage" class="asset"
+          data-image="introLogoImage"
+          style="top:0px;
+            left:0px;
+            width:inherit;
+            height:inherit;">
+        </div>
       </div>
       <div id="cta" class="text AlticeBold"
         data-text="ctaText"
@@ -190,7 +196,7 @@ amo.registerAttribute("frameText53","TEXT","<div style='top: 33px;left: 12px;fon
           feed: [],
           staticData: {
             logoImage: 'images/300x50_Logo_Optimum.png',
-            // introLogoImage: 'images/300x50_Logo_Optimum.png',
+            introLogoImage: 'images/300x50_Logo_Optimum_White.png',
             // starImage: 'images/star.svg',
             ctaBtn: '#0084d6',
             ctaBtnHover: '#005990',
