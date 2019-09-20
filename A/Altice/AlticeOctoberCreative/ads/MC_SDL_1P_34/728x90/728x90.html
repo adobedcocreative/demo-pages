@@ -74,7 +74,7 @@ amo.registerAttribute("ctaText","TEXT","Ver más");
 amo.registerAttribute("frameImage2","IMAGE","728x90_OPT_Oct_ACQ_INT_Starting_24Yr1_NonSub_NY_Img_Frame02.png");
 amo.registerAttribute("frameImage3","IMAGE","1x1.png");
 amo.registerAttribute("frameImage4","IMAGE","1x1.png");
-amo.registerAttribute("frameText1", "TEXT", "¿Quieres Internet a un<br>precio increíblemente bajo?");
+amo.registerAttribute("frameText1","TEXT","PRECIO PARA SIEMPRE");
 amo.registerAttribute("frameText21", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText22", "TEXT", "<div style='top: 6px;left:20px;line-height: 1.05;width: 300px;'><div style='font-size: 25px;letter-spacing:-0.1px;display: inline-block;'>Internet desde</div><div style='position: absolute;color: #0084d6;font-size:60px;top: 21px;left: 0px;letter-spacing: -3.5px;'><sup style='font-size:60%;vertical-align: 50%;margin-right:2px;'>$</sup>34<sup style='font-size:60%;vertical-align: 50%;letter-spacing: -1px;margin-left:1px;'>99</sup></div></div>");
 amo.registerAttribute("frameText23", "TEXT", "<div style='top: 42px;left: 148px;font-size: 18px;letter-spacing: -0.3px;'>mes/1 año<div class='AlticeRegular' style='font-size: 12px;margin-top: 0px;margin-left: -40px;letter-spacing: -0.55px;'>mas imptos. tarifas y cargos</div></div>");
@@ -84,7 +84,6 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top: 58px;left: 20px;l
 amo.registerAttribute("frameText41", "TEXT", "<div style='top: 6px;left:20px;line-height:1.1;'><span style='font-size: 24px;letter-spacing: 0.2px;'>Internet desde</span></div>");
 amo.registerAttribute("frameText42", "TEXT", "<div style='top: 28px;left: 22px;line-height:1.1;'><div style='color: #0084d6;font-size:60px;margin-top:-4px;margin-left: -3px;letter-spacing:-2.5px;'><sup style='font-size:60%;vertical-align:43%;margin-right:2px;'>$</sup>34<sup style='font-size:60%;vertical-align:43%;letter-spacing: -1px;margin-left:1px;'>99</sup></div><div style='position: relative;font-size: 18px;letter-spacing:-0.1px;top: -45px;left: 125px;'>mes/1 año<div class='AlticeRegular' style='font-size: 11px;margin-top: 4px;margin-left: -39px;'>mas imptos. tarifas y cargos</div></div></div>");
 amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
-amo.registerAttribute("frameImage1", "TEXT", "firstIntroInternet.gif");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -124,9 +123,9 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroInternet.gif");
         style="transform-origin:bottom center;
         -webkit-transition:opacity ease-out 0.3s, transform ease-out 0.3s;
         transition:opacity ease-out 0.3s, transform ease-out 0.3s;
-        background-color:#ddd;
+        background-color:#fff;
         opacity:1;">
-        <div id="frameImage1" class="asset"
+        <!-- <div id="frameImage1" class="asset"
           data-image="frameImage1"
           style="top:-15px;
             left:380px;
@@ -134,7 +133,7 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroInternet.gif");
             height:120px;
             -webkit-transition:opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s;
             transition:opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s;">
-        </div>
+        </div> -->
         <!-- <div id="ref" class="asset"
           data-image="ref"
           style="top:0px;
@@ -142,7 +141,7 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroInternet.gif");
             width:inherit;
             height:inherit;">
         </div> -->
-        <div id="frameText1" class="text-left AlticeBold"
+        <!-- <div id="frameText1" class="text-left AlticeBold"
           data-text="frameText1"
           style="top:4px;
             left:21px;
@@ -154,10 +153,10 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroInternet.gif");
             letter-spacing: -0.3px;
             -webkit-transition:transform ease-out 1.2s;
             transition:transform ease-out 1.2s;">
-        </div>
+        </div> -->
         <div id="PFL" class="AlticeBold" style="top:9.5px;left:12px;width:408px;height:71px;overflow:hidden;-webkit-transition:opacity ease-out 0.3s, transform ease-out 0.5s;transition:opacity ease-out 0.3s, transform ease-out 0.5s;-webkit-transform:translateX(-150%);transform:translateX(-150%);opacity:0;">
           <svg height="71" width="408"><polygon points="0,0 396,0 408,35.5 396,71 0,71" style="fill:#0084d6;" /></svg>
-          <div id="PFLPrice" style="position:absolute;top:3px;left:11px;font-size:49px;color:#fff;transform-origin:center;-webkit-transition:transform ease-out 0.5s;transition:transform ease-out 0.5s;-webkit-transform:scale(0);transform:scale(0);">PRICE FOR LIFE</div>
+          <div id="PFLPrice" style="position:absolute;top:13px;left:11px;font-size:34.3px;color:#fff;transform-origin:center;-webkit-transition:transform ease-out 0.5s;transition:transform ease-out 0.5s;-webkit-transform:scale(0);transform:scale(0);">PRECIO PARA SIEMPRE</div>
           <!-- <div style="position:absolute;top:59px;left:23px;color:#fff;">
             <div id="PFLLineLeft" style="display:inline-block;width:29px;border:2px solid;transform-origin:right;-webkit-transition:transform 0.3s ease-out 0.5s;transition:transform 0.3s ease-out 0.5s;-webkit-transform:scaleX(0);transform:scaleX(0);"></div>
             <div style="display:inline-block;width:70px"></div>
@@ -291,27 +290,30 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroInternet.gif");
                 }, 3000);
             }, 10);
           }
-          var gifImagePath = ad.layers.frameImage1.querySelector('img').src;
-          ad.layers.frameImage1.querySelector('img').src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII=';
           setTimeout(function(){
-            ad.layers.frameImage1.querySelector('img').src = gifImagePath;
-            setTimeout(function(){
-              ad.layers.frameText1.style.webkitTransition = 'opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s';
-              ad.layers.frameText1.style.transition = 'opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s';
-              setTimeout(function(){
-                // ad.layers.frameImage1.style.opacity = 0;
-                // ad.layers.frameImage1.style.webkitTransform = 'translateX(50%)';
-                // ad.layers.frameImage1.style.transform = 'translateX(50%)';
-                // ad.layers.frameText1.style.opacity = 0;
-                // ad.layers.frameText1.style.webkitTransform = 'translateX(50%)';
-                // ad.layers.frameText1.style.transform = 'translateX(50%)';
-                setTimeout(function(){
-                  // animatePFL(function(){ playOtherFrames(); });
-                  playOtherFrames();
-                }, 1000);
-              },100);
-            },2600);
-          }, 1000);
+            animatePFL(function(){ playOtherFrames(); });
+          }, 800);
+          // var gifImagePath = ad.layers.frameImage1.querySelector('img').src;
+          // ad.layers.frameImage1.querySelector('img').src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII=';
+          // setTimeout(function(){
+          //   ad.layers.frameImage1.querySelector('img').src = gifImagePath;
+          //   setTimeout(function(){
+          //     ad.layers.frameText1.style.webkitTransition = 'opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s';
+          //     ad.layers.frameText1.style.transition = 'opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s';
+          //     setTimeout(function(){
+          //       // ad.layers.frameImage1.style.opacity = 0;
+          //       // ad.layers.frameImage1.style.webkitTransform = 'translateX(50%)';
+          //       // ad.layers.frameImage1.style.transform = 'translateX(50%)';
+          //       // ad.layers.frameText1.style.opacity = 0;
+          //       // ad.layers.frameText1.style.webkitTransform = 'translateX(50%)';
+          //       // ad.layers.frameText1.style.transform = 'translateX(50%)';
+          //       setTimeout(function(){
+          //         // animatePFL(function(){ playOtherFrames(); });
+          //         playOtherFrames();
+          //       }, 1000);
+          //     },100);
+          //   },2600);
+          // }, 1000);
         });
       }, 2000);
     </script>
