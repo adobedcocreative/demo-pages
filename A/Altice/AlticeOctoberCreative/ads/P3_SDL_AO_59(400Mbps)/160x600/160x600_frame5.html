@@ -254,14 +254,22 @@ amo.registerAttribute("frameText53","TEXT","<div style='top: 290px;left: 16px;li
                       if('frame1' in ad.layers) ad.layers.frame1.remove();
                       
                       setTimeout(function(){
-                        ad.layers.frameImage5.style.webkitTransform = '';
-                        ad.layers.frameImage5.style.transform = '';
-                        ad.layers.frameText51.style.webkitTransform = '';
-                        ad.layers.frameText51.style.transform = '';
-                        ad.layers.frameText52.style.webkitTransform = '';
-                        ad.layers.frameText52.style.transform = '';
-                        ad.layers.frameText53.style.webkitTransform = '';
-                        ad.layers.frameText53.style.transform = '';
+                        if('frameImage5' in ad.layers) {
+                          ad.layers.frameImage5.style.webkitTransform = '';
+                          ad.layers.frameImage5.style.transform = '';
+                        }
+                        if('frameText51' in ad.layers) {
+                          ad.layers.frameText51.style.webkitTransform = '';
+                          ad.layers.frameText51.style.transform = '';
+                        }
+                        if('frameText52' in ad.layers) {
+                          ad.layers.frameText52.style.webkitTransform = '';
+                          ad.layers.frameText52.style.transform = '';
+                        }
+                        if('frameText53' in ad.layers) {
+                          ad.layers.frameText53.style.webkitTransform = '';
+                          ad.layers.frameText53.style.transform = '';
+                        }
                         
                           if('priceLabel' in ad.layers) {
                             ad.layers.priceLabel.style.webkitTransform = '';

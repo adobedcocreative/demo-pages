@@ -257,14 +257,22 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroTVInternet.gif");
                       if('frame1' in ad.layers) ad.layers.frame1.remove();
                       
                       setTimeout(function(){
-                        ad.layers.frameImage3.style.webkitTransform = '';
-                        ad.layers.frameImage3.style.transform = '';
-                        ad.layers.frameText31.style.webkitTransform = '';
-                        ad.layers.frameText31.style.transform = '';
-                        ad.layers.frameText32.style.webkitTransform = '';
-                        ad.layers.frameText32.style.transform = '';
-                        ad.layers.frameText33.style.webkitTransform = '';
-                        ad.layers.frameText33.style.transform = '';
+                        if('frameImage3' in ad.layers) {
+                          ad.layers.frameImage3.style.webkitTransform = '';
+                          ad.layers.frameImage3.style.transform = '';
+                        }
+                        if('frameText31' in ad.layers) {
+                          ad.layers.frameText31.style.webkitTransform = '';
+                          ad.layers.frameText31.style.transform = '';
+                        }
+                        if('frameText32' in ad.layers) {
+                          ad.layers.frameText32.style.webkitTransform = '';
+                          ad.layers.frameText32.style.transform = '';
+                        }
+                        if('frameText33' in ad.layers) {
+                          ad.layers.frameText33.style.webkitTransform = '';
+                          ad.layers.frameText33.style.transform = '';
+                        }
                         
                       },1000);}())
                     var playOtherFrames1 = function(){

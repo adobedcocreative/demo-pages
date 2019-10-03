@@ -254,14 +254,22 @@ amo.registerAttribute("frameText53","TEXT","<div style='top: 316px;left: 21px;li
                       if('frame1' in ad.layers) ad.layers.frame1.remove();
                       
                       setTimeout(function(){
-                        ad.layers.frameImage2.style.webkitTransform = '';
-                        ad.layers.frameImage2.style.transform = '';
-                        ad.layers.frameText21.style.webkitTransform = '';
-                        ad.layers.frameText21.style.transform = '';
-                        ad.layers.frameText22.style.webkitTransform = '';
-                        ad.layers.frameText22.style.transform = '';
-                        ad.layers.frameText23.style.webkitTransform = '';
-                        ad.layers.frameText23.style.transform = '';
+                        if('frameImage2' in ad.layers) {
+                          ad.layers.frameImage2.style.webkitTransform = '';
+                          ad.layers.frameImage2.style.transform = '';
+                        }
+                        if('frameText21' in ad.layers) {
+                          ad.layers.frameText21.style.webkitTransform = '';
+                          ad.layers.frameText21.style.transform = '';
+                        }
+                        if('frameText22' in ad.layers) {
+                          ad.layers.frameText22.style.webkitTransform = '';
+                          ad.layers.frameText22.style.transform = '';
+                        }
+                        if('frameText23' in ad.layers) {
+                          ad.layers.frameText23.style.webkitTransform = '';
+                          ad.layers.frameText23.style.transform = '';
+                        }
                         
                       },1000);}())
                     var playOtherFrames1 = function(){

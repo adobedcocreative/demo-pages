@@ -71,14 +71,22 @@ files.forEach(function(file){
                       `+
                       (i>1?`
                       setTimeout(function(){
-                        ad.layers.frameImage${i}.style.webkitTransform = '';
-                        ad.layers.frameImage${i}.style.transform = '';
-                        ad.layers.frameText${i}1.style.webkitTransform = '';
-                        ad.layers.frameText${i}1.style.transform = '';
-                        ad.layers.frameText${i}2.style.webkitTransform = '';
-                        ad.layers.frameText${i}2.style.transform = '';
-                        ad.layers.frameText${i}3.style.webkitTransform = '';
-                        ad.layers.frameText${i}3.style.transform = '';
+                        if('frameImage${i}' in ad.layers) {
+                          ad.layers.frameImage${i}.style.webkitTransform = '';
+                          ad.layers.frameImage${i}.style.transform = '';
+                        }
+                        if('frameText${i}1' in ad.layers) {
+                          ad.layers.frameText${i}1.style.webkitTransform = '';
+                          ad.layers.frameText${i}1.style.transform = '';
+                        }
+                        if('frameText${i}2' in ad.layers) {
+                          ad.layers.frameText${i}2.style.webkitTransform = '';
+                          ad.layers.frameText${i}2.style.transform = '';
+                        }
+                        if('frameText${i}3' in ad.layers) {
+                          ad.layers.frameText${i}3.style.webkitTransform = '';
+                          ad.layers.frameText${i}3.style.transform = '';
+                        }
                         `+(i==frameCount? `
                           if('priceLabel' in ad.layers) {
                             ad.layers.priceLabel.style.webkitTransform = '';
