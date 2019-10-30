@@ -129,7 +129,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 33px;left: 12px;f
         style="transform-origin:bottom center;
         -webkit-transition:opacity ease-out 0.3s, transform ease-out 0.3s;
         transition:opacity ease-out 0.3s, transform ease-out 0.3s;
-        background-color:#e2e3e4;
+        background-color:#000;
         opacity:1;">
         <!-- <div id="ref" class="asset"
           data-image="ref"
@@ -137,6 +137,13 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 33px;left: 12px;f
             left:0px;
             width:inherit;
             height:inherit;">
+        </div> -->
+        <!-- <div id="frameVideo1"
+          style="top: 2px;
+            left: 0px;
+            width: 470px;
+            height: 85px;">
+            <video muted playsinline autoplay style="width:100%;"></video>
         </div> -->
         <div id="frameText1" class="text-top-left AlticeBold"
           data-text="frameText1"
@@ -208,6 +215,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 33px;left: 12px;f
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });
+          // setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; },800);
           var playOtherFrames = function(){};
                       (function(){
                       ad.layers.cta.style.opacity = 1;
@@ -282,6 +290,25 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 33px;left: 12px;f
               }, 3000);
             }, 10);
           }
+          // ad.layers.frameVideo1.querySelector('video').onplay = function(){
+          //   setTimeout(function(){
+          //       ad.layers.frameText1.style.opacity = 1;
+          //   },2500);
+          // }
+          // // ad.layers.frameVideo1.querySelector('video').onended = function(){
+          // //   setTimeout(function(){
+          // //       playOtherFrames();
+          // //   },500);
+          // // }
+          // ad.layers.frameVideo1.querySelector('video').onpause = function(){
+          //   setTimeout(function(){
+          //       playOtherFrames();
+          //   },1500);
+          // }
+          // ad.layers.frameVideo1.querySelector('video').ontimeupdate = function(e){
+          //   if(e.target.currentTime >= 2.5) { ad.layers.frameVideo1.querySelector('video').pause(); }
+          //   // ad.layers.cta.style.opacity = 1;
+          // }
           setTimeout(function(){
             playOtherFrames();
           }, 3200);
