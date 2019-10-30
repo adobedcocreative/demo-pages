@@ -88,7 +88,7 @@
   amo.registerAttribute("frameText51", "TEXT", "<div style='top: 110px;left: 15px;line-height: 1.15;'><div style='font-size: 22px;'>1 Gig Fiber Internet</div></div>");
   amo.registerAttribute("frameText52","TEXT","<div style='top: 155px;left: 16px;line-height:1.1;'><div style='color: #0084d6;font-size: 62px;'><sup style='font-size: 49%;vertical-align: 63%;margin-right: -1px;'>$</sup>59<sup style='font-size: 49%;vertical-align: 67%;margin-left: 2px;'>99</sup></div><div style='font-size: 14px;letter-spacing: -0.3px;margin-top: -9px;'>mo. <font style='color:#0084d6;'>for life</font><div class='AlticeRegular' style='font-size: 10px;margin-top: 1px;letter-spacing: -0.1px;'>plus taxes, fees &amp; charges</div></div></div>");
   amo.registerAttribute("frameText53","TEXT","<div style='top: 279px;left: 16px;line-height: 1.5;font-size: 14px;letter-spacing:-0.1px;'><div><span style='color:#0084d6;padding-right:5px;'>+</span>$100 Amazon.com</div><div style='margin-top: -5px;margin-left: 14px;'>Gift Card with</div><div style='margin-top: -5px;margin-left: 14px;'>online orders. </div><div style='margin-top: -5px;margin-left: 14px;'><div class='AlticeRegular' style='font-size: 70%;margin-top:2px;display:inline-block;'>Restrictions apply.</div></div><div style='position: absolute;top: -20px;left: -1px;width: 128px;border: 1px solid #aaabac;'></div></div>");
-  amo.registerAttribute("frameImage1", "TEXT", "firstIntroInternet.gif");
+  amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Grey.mp4");
   </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -139,9 +139,9 @@
       style="transform-origin:bottom center;
       -webkit-transition:opacity ease-out 0.3s, transform ease-out 0.3s;
       transition:opacity ease-out 0.3s, transform ease-out 0.3s;
-      background-color:#ddd;
+      background-color:#e8e7e7;
       opacity:1;">
-      <div id="frameImage1" class="asset"
+      <!-- <div id="frameImage1" class="asset"
         data-image="frameImage1"
         style="top:315px;
           left:-10px;
@@ -149,6 +149,13 @@
           height:180px;
           -webkit-transition:opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s;
           transition:opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s;">
+      </div> -->
+      <div id="frameVideo1"
+        style="top: 328px;
+          left: -50px;
+          width: 660px;
+          height: 124px;">
+          <video muted playsinline autoplay style="width:100%;"></video>
       </div>
       <!-- <div id="ref" class="asset"
         data-image="ref"
@@ -224,6 +231,7 @@
         ad.root.addEventListener("click", function(e) {
           if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
         });
+        setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; },800);
         var playOtherFrames = function(){};
                   var playOtherFrames1 = function(){
           setTimeout(function(){
@@ -293,26 +301,34 @@
               }, 3000);
           }, 10);
         }
-        var gifImagePath = ad.layers.frameImage1.querySelector('img').src;
-        ad.layers.frameImage1.querySelector('img').src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII=';
-        setTimeout(function(){
-          ad.layers.frameImage1.querySelector('img').src = gifImagePath;
+        ad.layers.frameVideo1.querySelector('video').onplay = function(){
+          // ad.layers.cta.style.opacity = 1;
+        }
+        ad.layers.frameVideo1.querySelector('video').onended = function(){
           setTimeout(function(){
-            ad.layers.frameText1.style.webkitTransition = 'opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s';
-            ad.layers.frameText1.style.transition = 'opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s';
-            setTimeout(function(){
-              // ad.layers.frameImage1.style.opacity = 0;
-              // ad.layers.frameImage1.style.webkitTransform = 'translateX(50%)';
-              // ad.layers.frameImage1.style.transform = 'translateX(50%)';
-              // ad.layers.frameText1.style.opacity = 0;
-              // ad.layers.frameText1.style.webkitTransform = 'translateX(50%)';
-              // ad.layers.frameText1.style.transform = 'translateX(50%)';
-              setTimeout(function(){
-                playOtherFrames();
-              }, 1000);
-            },100);
-          },2600);
-        }, 1000);
+              playOtherFrames();
+          },500);
+        }
+        // var gifImagePath = ad.layers.frameImage1.querySelector('img').src;
+        // ad.layers.frameImage1.querySelector('img').src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII=';
+        // setTimeout(function(){
+        //   ad.layers.frameImage1.querySelector('img').src = gifImagePath;
+        //   setTimeout(function(){
+        //     ad.layers.frameText1.style.webkitTransition = 'opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s';
+        //     ad.layers.frameText1.style.transition = 'opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s';
+        //     setTimeout(function(){
+        //       // ad.layers.frameImage1.style.opacity = 0;
+        //       // ad.layers.frameImage1.style.webkitTransform = 'translateX(50%)';
+        //       // ad.layers.frameImage1.style.transform = 'translateX(50%)';
+        //       // ad.layers.frameText1.style.opacity = 0;
+        //       // ad.layers.frameText1.style.webkitTransform = 'translateX(50%)';
+        //       // ad.layers.frameText1.style.transform = 'translateX(50%)';
+        //       setTimeout(function(){
+        //         playOtherFrames();
+        //       }, 1000);
+        //     },100);
+        //   },2600);
+        // }, 1000);
       });
     }, 2000);
   </script>

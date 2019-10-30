@@ -88,7 +88,7 @@ amo.registerAttribute("frameText43","TEXT","&nbsp;");
 amo.registerAttribute("frameText51","TEXT","<div style='top: 2px;left: 12px;font-size: 13.2px;'>1 Gig Fiber Internet</div>");
 amo.registerAttribute("frameText52","TEXT","<div style='top: 20px;left: 12px;font-size:14px;letter-spacing: -0.2px;line-height: 1;color:#0084d6;'>$59.99 mo. for life</div>");
 amo.registerAttribute("frameText53","TEXT","<div style='top: 33px;left: 12px;font-size: 10px;letter-spacing: -0.1px;' class='AlticeRegular'>plus taxes, fees & charges<div style='color:#0084d6;position: absolute;top: -10px;left: 150px;width: 60px;line-height: 1.1;' class='AlticeBold'>No Annual<br>Contract</div></div>");
-amo.registerAttribute("frameImage1", "TEXT", "firstIntroInternet.gif");
+amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Grey.mp4");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -118,7 +118,7 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroInternet.gif");
         height:inherit;">
     </div>
 
-    <div id="frameImage2" class="asset" data-image="frameImage2" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateY(100%);transform:translateY(100%);-webkit-transition:opacity ease-out 0.3s,transform ease-out 0.3s;transition:opacity ease-out 0.3s,transform ease-out 0.3s;"></div>
+    <div id="frameImage2" class="asset" data-image="frameImage2" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(-100%);transform:translateX(-100%);-webkit-transition:opacity ease-out 0.3s,transform ease-out 0.3s;transition:opacity ease-out 0.3s,transform ease-out 0.3s;"></div>
     <div id="frameText21" class="frameText" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(-100%);transform:translateX(-100%);-webkit-transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.0s;transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.0s;">!{frameText21}</div>
     <div id="frameText22" class="frameText" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateY(100%);transform:translateY(100%);-webkit-transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.1s;transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.1s;">!{frameText22}</div>
     <div id="frameText23" class="frameText" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateY(100%);transform:translateY(100%);-webkit-transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.2s;transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.2s;">!{frameText23}</div>
@@ -138,7 +138,7 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroInternet.gif");
       style="transform-origin:bottom center;
       -webkit-transition:opacity ease-out 0.3s, transform ease-out 0.3s;
       transition:opacity ease-out 0.3s, transform ease-out 0.3s;
-      background-color:#e2e3e4;
+      background-color:#e8e7e7;
       opacity:1;">
       <!-- <div id="ref" class="asset"
         data-image="ref"
@@ -147,6 +147,13 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroInternet.gif");
           width:inherit;
           height:inherit;">
       </div> -->
+      <div id="frameVideo1"
+        style="top: 4px;
+          left: 0px;
+          width: 230px;
+          height: 46px;">
+          <video muted playsinline autoplay style="width:100%;"></video>
+      </div>
       <div id="frameText1" class="text-top-left AlticeBold"
         data-text="frameText1"
         style="top: 7px;
@@ -158,8 +165,9 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroInternet.gif");
           letter-spacing: -0.2px;
           font-weight: bold;
           color: #fff;
-          -webkit-transition:transform ease-out 0.5s;
-          transition:transform ease-out 0.5s;">
+          -webkit-transition:opacity ease-out 0.5s, transform ease-out 1.2s;
+          transition:opacity ease-out 0.5s, transform ease-out 1.2s;
+          opacity:0;">
       </div>
       <div id="introLogoImage" class="asset"
         data-image="introLogoImage"
@@ -217,6 +225,7 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroInternet.gif");
         ad.root.addEventListener("click", function(e) {
           if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
         });
+        setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; },800);
         var playOtherFrames = function(){};
                       (function(){
                       ad.layers.cta.style.opacity = 1;
@@ -307,9 +316,28 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroInternet.gif");
             }, 3000);
           }, 10);
         }
-        setTimeout(function(){
-          playOtherFrames();
-        }, 3200);
+        ad.layers.frameVideo1.querySelector('video').onplay = function(){
+          setTimeout(function(){
+              ad.layers.frameText1.style.opacity = 1;
+          },2500);
+        }
+        // ad.layers.frameVideo1.querySelector('video').onended = function(){
+        //   setTimeout(function(){
+        //       playOtherFrames();
+        //   },500);
+        // }
+        ad.layers.frameVideo1.querySelector('video').onpause = function(){
+          setTimeout(function(){
+              playOtherFrames();
+          },1500);
+        }
+        ad.layers.frameVideo1.querySelector('video').ontimeupdate = function(e){
+          if(e.target.currentTime >= 2.2) { ad.layers.frameVideo1.querySelector('video').pause(); }
+          // ad.layers.cta.style.opacity = 1;
+        }
+        // setTimeout(function(){
+        //   playOtherFrames();
+        // }, 3200);
       });
     }, 2000);
   </script>

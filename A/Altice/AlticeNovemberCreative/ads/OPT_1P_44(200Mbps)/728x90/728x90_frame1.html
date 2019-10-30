@@ -89,7 +89,7 @@ amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText51", "TEXT", "<div style='top: 8px;left: 120px;line-height:1.1;letter-spacing: -0.1px;'><div style='font-size: 18px;'>200 Mbps Internet</div></div>");
 amo.registerAttribute("frameText52","TEXT","<div style='top: 20px;left: 117px;line-height:1.1;'><div style='color: #0084d6;font-size: 56px;'><sup style='font-size: 52%;vertical-align: 58%;margin-right: 0px;'>$</sup>44<sup style='font-size: 52%;vertical-align: 58%;/* margin-left: -2px; */'>99</sup></div><div style='font-size: 13px;letter-spacing: -0.3px;position: absolute;top: 37px;left: 92px;width: 100px;'>mo. <font style='color:#0084d6;'>for life</font><div class='AlticeRegular' style='font-size: 10.5px;margin-top: 0px;margin-left: -91px;'>plus taxes, fees &amp; charges</div></div></div>");
 amo.registerAttribute("frameText53","TEXT","<div style='top:55px;left:345px;line-height:1.1;font-size:16px;letter-spacing:-0.1px;'><div><span style='color:#0084d6;padding-right:5px;'>+</span>No Annual Contract</div></div>");
-amo.registerAttribute("frameImage1", "TEXT", "firstIntroInternet.gif");
+amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Black.mp4");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -140,9 +140,9 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroInternet.gif");
       style="transform-origin:bottom center;
       -webkit-transition:opacity ease-out 0.3s, transform ease-out 0.3s;
       transition:opacity ease-out 0.3s, transform ease-out 0.3s;
-      background-color:#ddd;
+      background-color:#000;
       opacity:1;">
-      <div id="frameImage1" class="asset"
+      <!-- <div id="frameImage1" class="asset"
         data-image="frameImage1"
         style="top:-15px;
           left:380px;
@@ -150,6 +150,13 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroInternet.gif");
           height:120px;
           -webkit-transition:opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s;
           transition:opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s;">
+      </div> -->
+      <div id="frameVideo1"
+        style="top: 2px;
+          left: 0px;
+          width: 470px;
+          height: 85px;">
+          <video muted playsinline autoplay style="width:100%;"></video>
       </div>
       <!-- <div id="ref" class="asset"
         data-image="ref"
@@ -169,8 +176,9 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroInternet.gif");
           line-height: 0.85;
           letter-spacing: -0.1px;
           color: #fff;
-          -webkit-transition:transform ease-out 1.2s;
-          transition:transform ease-out 1.2s;">
+          -webkit-transition:opacity ease-out 0.5s, transform ease-out 1.2s;
+          transition:opacity ease-out 0.5s, transform ease-out 1.2s;
+          opacity:0;">
       </div>
       <div id="introLogoImage" class="asset"
         data-image="introLogoImage"
@@ -227,6 +235,7 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroInternet.gif");
         ad.root.addEventListener("click", function(e) {
           if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
         });
+        setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; },800);
         var playOtherFrames = function(){};
                   var playOtherFrames1 = function(){
           setTimeout(function(){
@@ -296,26 +305,45 @@ amo.registerAttribute("frameImage1", "TEXT", "firstIntroInternet.gif");
               }, 3000);
           }, 10);
         }
-        var gifImagePath = ad.layers.frameImage1.querySelector('img').src;
-        ad.layers.frameImage1.querySelector('img').src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII=';
-        setTimeout(function(){
-          ad.layers.frameImage1.querySelector('img').src = gifImagePath;
+        ad.layers.frameVideo1.querySelector('video').onplay = function(){
           setTimeout(function(){
-            ad.layers.frameText1.style.webkitTransition = 'opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s';
-            ad.layers.frameText1.style.transition = 'opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s';
-            setTimeout(function(){
-              // ad.layers.frameImage1.style.opacity = 0;
-              // ad.layers.frameImage1.style.webkitTransform = 'translateX(50%)';
-              // ad.layers.frameImage1.style.transform = 'translateX(50%)';
-              // ad.layers.frameText1.style.opacity = 0;
-              // ad.layers.frameText1.style.webkitTransform = 'translateX(50%)';
-              // ad.layers.frameText1.style.transform = 'translateX(50%)';
-              setTimeout(function(){
-                playOtherFrames();
-              }, 1000);
-            },100);
-          },2600);
-        }, 1000);
+              ad.layers.frameText1.style.opacity = 1;
+          },2500);
+        }
+        // ad.layers.frameVideo1.querySelector('video').onended = function(){
+        //   setTimeout(function(){
+        //       playOtherFrames();
+        //   },500);
+        // }
+        ad.layers.frameVideo1.querySelector('video').onpause = function(){
+          setTimeout(function(){
+              playOtherFrames();
+          },1500);
+        }
+        ad.layers.frameVideo1.querySelector('video').ontimeupdate = function(e){
+          if(e.target.currentTime >= 2.5) { ad.layers.frameVideo1.querySelector('video').pause(); }
+          // ad.layers.cta.style.opacity = 1;
+        }
+        // var gifImagePath = ad.layers.frameImage1.querySelector('img').src;
+        // ad.layers.frameImage1.querySelector('img').src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII=';
+        // setTimeout(function(){
+        //   ad.layers.frameImage1.querySelector('img').src = gifImagePath;
+        //   setTimeout(function(){
+        //     ad.layers.frameText1.style.webkitTransition = 'opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s';
+        //     ad.layers.frameText1.style.transition = 'opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s';
+        //     setTimeout(function(){
+        //       // ad.layers.frameImage1.style.opacity = 0;
+        //       // ad.layers.frameImage1.style.webkitTransform = 'translateX(50%)';
+        //       // ad.layers.frameImage1.style.transform = 'translateX(50%)';
+        //       // ad.layers.frameText1.style.opacity = 0;
+        //       // ad.layers.frameText1.style.webkitTransform = 'translateX(50%)';
+        //       // ad.layers.frameText1.style.transform = 'translateX(50%)';
+        //       setTimeout(function(){
+        //         playOtherFrames();
+        //       }, 1000);
+        //     },100);
+        //   },2600);
+        // }, 1000);
       });
     }, 2000);
   </script>
