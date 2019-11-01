@@ -64,6 +64,13 @@
         width: 11px;
         height: 11px;
       }
+      .raise {
+        overflow: hidden;
+      }
+      .raise_txt {
+        transition: all 0.3s ease-out;
+        -webkit-transition: all 0.3s ease-out;
+      }
       #cta { background-color: !{ctaBtn}; }
       #cta:hover { background-color: !{ctaBtnHover}; }
     </style>
@@ -75,7 +82,7 @@ amo.registerAttribute("frameImage2","IMAGE","728x90_OPT_BF_ACQ_INT_Starting_24Yr
 amo.registerAttribute("frameImage3","IMAGE","1x1.png");
 amo.registerAttribute("frameImage4","IMAGE","728x90_OPT_BF_ACQ_INT_Starting_24Yr1_NonSub_NY_Img_Frame04.png");
 amo.registerAttribute("frameImage5","IMAGE","728x90_OPT_BF_ACQ_INT_Starting_24Yr1_NonSub_NY_Img_Frame05.png");
-amo.registerAttribute("frameText1","TEXT","<font style='color:#fff;'>BLACK FRIDAY<div style='padding-top: 1px;padding-left: 2px;font-size: 50%;color: #0084d6;letter-spacing: 0px;'>Now - Dec 1<sup style='font-size: 70%;'>st</sup></div></font>");
+amo.registerAttribute("frameText1","TEXT","<font style='color:#fff;'><div class='raise'><div class='raise_txt'>BL<span style='left:2px;top:16px;'>A</span>CK FRIDAY</div></div><div class='raise'><div class='raise_txt'  style='padding-top: 1px;padding-left: 2px;font-size: 50%;color: #0084d6;letter-spacing: 0px;'>Now - Dec 1<sup style='font-size: 70%;'>st</sup></div></font>");
 amo.registerAttribute("frameText21", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText22", "TEXT", "<div style='top: 6px;left:20px;line-height: 1.05;width: 300px;'><div style='font-size: 25px;letter-spacing:-0.1px;display: inline-block;'>Internet Starting at</div><div style='position: absolute;color: #0084d6;font-size:60px;top: 21px;left: 0px;letter-spacing: -3.5px;'><sup style='font-size:60%;vertical-align: 50%;'>$</sup>24<sup style='font-size:60%;vertical-align: 50%;letter-spacing: -1px;'>99</sup></div></div>");
 amo.registerAttribute("frameText23", "TEXT", "<div style='top: 42px;left: 148px;font-size: 18px;letter-spacing: -0.3px;'>mo./1 yr.<div class='AlticeRegular' style='font-size: 12px;margin-top: 0px;margin-left: -40px;letter-spacing: -0.55px;'>plus taxes, fees &amp; charges</div></div>");
@@ -175,8 +182,7 @@ amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Black.mp4");
             letter-spacing: -0.1px;
             color: #fff;
             -webkit-transition:opacity ease-out 0.5s, transform ease-out 1.2s;
-            transition:opacity ease-out 0.5s, transform ease-out 1.2s;
-            opacity:0;">
+            transition:opacity ease-out 0.5s, transform ease-out 1.2s;">
         </div>
         <div id="introLogoImage" class="asset"
           data-image="introLogoImage"
@@ -328,11 +334,29 @@ amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Black.mp4");
                 }, 3000);
             }, 10);
           }
-          ad.layers.frameVideo1.querySelector('video').onplay = function(){
-            setTimeout(function(){
-                ad.layers.frameText1.style.opacity = 1;
-            },2500);
-          }
+          
+          var raiseDivs = ad.layers.frameText1.getElementsByClassName('raise_txt');
+        var delay = 0;
+        for (var a = 0; a < raiseDivs.length; a++) {
+          raiseDivs[a].style.webkitTransform = 'translateY(100%)';
+          raiseDivs[a].style.transform = 'translateY(100%)';
+          raiseDivs[a].style.webkitTransitionDelay = delay+'ms';
+          raiseDivs[a].style.transitionDelay = delay+'ms';
+          delay+=100;
+        }
+
+        ad.layers.frameVideo1.querySelector('video').onplay = function(){
+          setTimeout(function(){
+              //ad.layers.frameText1.style.opacity = 1;
+
+              var raiseDivs = ad.layers.frameText1.getElementsByClassName('raise_txt');
+              for (var a = 0; a < raiseDivs.length; a++) {
+                raiseDivs[a].style.webkitTransform = '';
+                raiseDivs[a].style.transform = '';
+              }
+          },2250);
+        }
+
           // ad.layers.frameVideo1.querySelector('video').onended = function(){
           //   setTimeout(function(){
           //       playOtherFrames();

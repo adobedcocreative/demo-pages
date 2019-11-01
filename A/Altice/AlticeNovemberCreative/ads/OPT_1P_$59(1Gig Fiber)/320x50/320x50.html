@@ -64,6 +64,13 @@
         width: 7px;
         height: 7px;
       }
+      .raise {
+        overflow: hidden;
+      }
+      .raise_txt {
+        transition: all 0.3s ease-out;
+        -webkit-transition: all 0.3s ease-out;
+      }
       #cta { background-color: !{ctaBtn}; }
       #cta:hover { background-color: !{ctaBtnHover}; }
     </style>
@@ -75,7 +82,7 @@ amo.registerAttribute("frameImage2","IMAGE","320x50_OPT_AugPFL_ACQ_AO_Amz_64PFL_
 amo.registerAttribute("frameImage3","IMAGE","1x1.png");
 amo.registerAttribute("frameImage4","IMAGE","1x1.png");
 amo.registerAttribute("frameImage5","IMAGE","1x1.png");
-amo.registerAttribute("frameText1","TEXT","<font style='color:#0084d6;'>BLACK FRIDAY<div style='padding-top: 1px;padding-left: 0px;font-size: 65%;color:#000;letter-spacing: 0px;'>Now - Dec 1<sup style='font-size: 60%;'>st</sup></div></font>");
+amo.registerAttribute("frameText1","TEXT","<font style='color:#0084d6;'><div class='raise'><div class='raise_txt'>BL<span style='left:1px;'>A</span>CK FRIDAY</div></div><div class='raise'><div class='raise_txt' style='padding-top: 1px;padding-left: 0px;font-size: 65%;color:#000;letter-spacing: 0px;'>Now - Dec 1<sup style='font-size: 60%;'>st</sup></div></div></font>");
 amo.registerAttribute("frameText21","TEXT","<div style='top: 2px;left: 68px;font-size: 13.2px;'>1 Gig Fiber Internet</div>");
 amo.registerAttribute("frameText22","TEXT","<div style='top: 20px;left: 68px;font-size:14px;letter-spacing: -0.2px;line-height: 1;color:#0084d6;'>$59.99 mo. for life</div>");
 amo.registerAttribute("frameText23","TEXT","<div style='top: 33px;left: 68px;font-size: 10px;letter-spacing: -0.1px;' class='AlticeRegular'>plus taxes, fees & charges</div>");
@@ -166,8 +173,7 @@ amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Grey.mp4");
           font-weight: bold;
           color: #fff;
           -webkit-transition:opacity ease-out 0.5s, transform ease-out 1.2s;
-          transition:opacity ease-out 0.5s, transform ease-out 1.2s;
-          opacity:0;">
+          transition:opacity ease-out 0.5s, transform ease-out 1.2s;">
       </div>
       <div id="introLogoImage" class="asset"
         data-image="introLogoImage"
@@ -292,10 +298,27 @@ amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Grey.mp4");
             }, 3000);
           }, 10);
         }
+
+        var raiseDivs = ad.layers.frameText1.getElementsByClassName('raise_txt');
+        var delay = 0;
+        for (var a = 0; a < raiseDivs.length; a++) {
+          raiseDivs[a].style.webkitTransform = 'translateY(100%)';
+          raiseDivs[a].style.transform = 'translateY(100%)';
+          raiseDivs[a].style.webkitTransitionDelay = delay+'ms';
+          raiseDivs[a].style.transitionDelay = delay+'ms';
+          delay+=100;
+        }
+
         ad.layers.frameVideo1.querySelector('video').onplay = function(){
           setTimeout(function(){
-              ad.layers.frameText1.style.opacity = 1;
-          },2500);
+              //ad.layers.frameText1.style.opacity = 1;
+
+              var raiseDivs = ad.layers.frameText1.getElementsByClassName('raise_txt');
+              for (var a = 0; a < raiseDivs.length; a++) {
+                raiseDivs[a].style.webkitTransform = '';
+                raiseDivs[a].style.transform = '';
+              }
+          },2250);
         }
         // ad.layers.frameVideo1.querySelector('video').onended = function(){
         //   setTimeout(function(){
@@ -305,7 +328,7 @@ amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Grey.mp4");
         ad.layers.frameVideo1.querySelector('video').onpause = function(){
           setTimeout(function(){
               playOtherFrames();
-          },1500);
+          },2000);
         }
         ad.layers.frameVideo1.querySelector('video').ontimeupdate = function(e){
           if(e.target.currentTime >= 2.2) { ad.layers.frameVideo1.querySelector('video').pause(); }

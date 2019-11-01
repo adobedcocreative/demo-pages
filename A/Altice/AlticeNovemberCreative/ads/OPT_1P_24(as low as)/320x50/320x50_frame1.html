@@ -64,6 +64,13 @@
         width: 7px;
         height: 7px;
       }
+      .raise {
+        overflow: hidden;
+      }
+      .raise_txt {
+        transition: all 0.3s ease-out;
+        -webkit-transition: all 0.3s ease-out;
+      }
       #cta { background-color: !{ctaBtn}; }
       #cta:hover { background-color: !{ctaBtnHover}; }
     </style>
@@ -74,7 +81,7 @@ amo.registerAttribute("ctaText","TEXT","Learn more");
 amo.registerAttribute("frameImage2","IMAGE","1x1.png");
 amo.registerAttribute("frameImage3","IMAGE","1x1.png");
 amo.registerAttribute("frameImage4","IMAGE","1x1.png");
-amo.registerAttribute("frameText1","TEXT","<font style='color:#fff;'>BLACK FRIDAY<div style='padding-top: 1px;padding-left: 0px;font-size: 65%;color:#0084d6;letter-spacing: 0px;'>Now - Dec 1<sup style='font-size: 60%;'>st</sup></div></font>");
+amo.registerAttribute("frameText1","TEXT","<font style='color:#fff;'><div class='raise'><div class='raise_txt'>BL<span style='left:1px;'>A</span>CK FRIDAY</div></div><div class='raise'><div class='raise_txt'style='padding-top: 1px;padding-left: 0px;font-size: 65%;color:#0084d6;letter-spacing: 0px;'>Now - Dec 1<sup style='font-size: 60%;'>st</sup></div></font>");
 amo.registerAttribute("frameText21","TEXT","<div style='top: 2px;left: 12px;font-size: 13.2px;'>Internet Starting at</div>");
 amo.registerAttribute("frameText22","TEXT","<div style='top: 20px;left: 12px;font-size:14px;letter-spacing: -0.2px;line-height: 1;color:#0084d6;'>$24.99 mo./1 yr.</div>");
 amo.registerAttribute("frameText23","TEXT","<div style='top: 33px;left: 12px;font-size: 10px;letter-spacing: -0.1px;' class='AlticeRegular'>plus taxes, fees & charges</div>");
@@ -129,7 +136,7 @@ amo.registerAttribute("frameText43","TEXT","<div style='top: 33px;left: 12px;fon
         style="transform-origin:bottom center;
         -webkit-transition:opacity ease-out 0.3s, transform ease-out 0.3s;
         transition:opacity ease-out 0.3s, transform ease-out 0.3s;
-        background-color:#e2e3e4;
+        background-color:#000;
         opacity:1;">
         <!-- <div id="ref" class="asset"
           data-image="ref"
@@ -259,6 +266,25 @@ amo.registerAttribute("frameText43","TEXT","<div style='top: 33px;left: 12px;fon
               }, 3000);
             }, 10);
           }
+
+          var raiseDivs = ad.layers.frameText1.getElementsByClassName('raise_txt');
+        var delay = 0;
+        for (var a = 0; a < raiseDivs.length; a++) {
+          raiseDivs[a].style.webkitTransform = 'translateY(100%)';
+          raiseDivs[a].style.transform = 'translateY(100%)';
+          raiseDivs[a].style.webkitTransitionDelay = delay+'ms';
+          raiseDivs[a].style.transitionDelay = delay+'ms';
+          delay+=100;
+        }
+
+        setTimeout(function(){
+            var raiseDivs = ad.layers.frameText1.getElementsByClassName('raise_txt');
+            for (var a = 0; a < raiseDivs.length; a++) {
+              raiseDivs[a].style.webkitTransform = '';
+              raiseDivs[a].style.transform = '';
+            }
+        },1250);
+
           setTimeout(function(){
             playOtherFrames();
           }, 3200);

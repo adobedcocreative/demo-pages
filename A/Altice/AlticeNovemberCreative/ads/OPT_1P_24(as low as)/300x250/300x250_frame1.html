@@ -64,6 +64,13 @@
         width: 15px;
         height: 15px;
       }
+      .raise {
+        overflow: hidden;
+      }
+      .raise_txt {
+        transition: all 0.3s ease-out;
+        -webkit-transition: all 0.3s ease-out;
+      }
       #cta { background-color: !{ctaBtn}; }
       #cta:hover { background-color: !{ctaBtnHover}; }
       #introCta { background: none; }
@@ -77,7 +84,7 @@ amo.registerAttribute("frameImage2","IMAGE","300x250_OPT_BF_ACQ_INT_Starting_24Y
 amo.registerAttribute("frameImage3","IMAGE","1x1.png");
 amo.registerAttribute("frameImage4","IMAGE","300x250_OPT_BF_ACQ_INT_Starting_24Yr1_NonSub_NY_Img_Frame04.png");
 amo.registerAttribute("frameImage5","IMAGE","300x250_OPT_BF_ACQ_INT_Starting_24Yr1_NonSub_NY_Img_Frame05.png");
-amo.registerAttribute("frameText1","TEXT","<font style='color:#fff;'>BLACK FRIDAY<div style='padding-top: 3px;padding-left: 3px;font-size: 35%;color:#0084d6;letter-spacing: 0px;'>Now - Dec 1<sup style='font-size: 60%;'>st</sup></div></font>");
+amo.registerAttribute("frameText1","TEXT","<font style='color:#fff;'><div class='raise'><div class='raise_txt'>BL<span style='left:1px;'>A</span>CK</div></div> <div class='raise'><div class='raise_txt'>FRIDAY</div></div><div class='raise'><div class='raise_txt' style='padding-top: 3px;padding-left: 3px;font-size: 35%;color:#0084d6;letter-spacing: 0px;'>Now - Dec 1<sup style='font-size: 60%;'>st</sup></div></font>");
 amo.registerAttribute("frameText21", "TEXT", "&nbsp;");//<div style='top:27px;left:20px;font-size:20px;letter-spacing:-0.1px;'>You\'ll want to keep this.</div>
 amo.registerAttribute("frameText22", "TEXT", "<div style='top:23px;left:20px;line-height:1.1;'><div style='font-size:20px;letter-spacing:-0.1px;'>Internet Starting at</div><div style='color:#0084d6;font-size:60px;margin-top:2px;margin-left: -2px;letter-spacing:-2.5px;'><sup style='font-size:60%;vertical-align:43%;'>$</sup>24<sup style='font-size:60%;vertical-align:43%;'>99</sup></div></div>");
 amo.registerAttribute("frameText23", "TEXT", "<div style='top: 103px;left:20px;font-size: 16px;letter-spacing: -0.5px;'>mo./1 yr.<div class='AlticeRegular' style='font-size: 10px;margin-top: -1px;letter-spacing: -0.1px;'>plus taxes, fees &amp; charges</div></div>");
@@ -223,7 +230,6 @@ amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Black.mp4");
           },
           beforeLoad: function(data){
             data.map(function(content){
-
             });
             return data;
           }
@@ -304,10 +310,29 @@ amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Black.mp4");
             // ad.layers.cta.style.opacity = 1;
           }
           ad.layers.frameVideo1.querySelector('video').onended = function(){
-            setTimeout(function(){
+            //setTimeout(function(){
                 playOtherFrames();
-            },500);
+            //},500);
           }
+
+          var raiseDivs = ad.layers.frameText1.getElementsByClassName('raise_txt');
+        var delay = 0;
+        for (var a = 0; a < raiseDivs.length; a++) {
+          raiseDivs[a].style.webkitTransform = 'translateY(100%)';
+          raiseDivs[a].style.transform = 'translateY(100%)';
+          raiseDivs[a].style.webkitTransitionDelay = delay+'ms';
+          raiseDivs[a].style.transitionDelay = delay+'ms';
+          delay+=100;
+        }
+
+        setTimeout(function() {
+          var raiseDivs = ad.layers.frameText1.getElementsByClassName('raise_txt');
+          for (var a = 0; a < raiseDivs.length; a++) {
+            raiseDivs[a].style.webkitTransform = '';
+            raiseDivs[a].style.transform = '';
+          }
+        }, 1500);
+
           // var gifImagePath = ad.layers.frameImage1.querySelector('img').src;
           // ad.layers.frameImage1.querySelector('img').src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII=';
           // setTimeout(function(){

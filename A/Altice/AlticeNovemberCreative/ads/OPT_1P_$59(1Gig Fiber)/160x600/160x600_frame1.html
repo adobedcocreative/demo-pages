@@ -64,6 +64,13 @@
         width: 12px;
         height: 12px;
       }
+      .raise {
+        overflow: hidden;
+      }
+      .raise_txt {
+        transition: all 0.3s ease-out;
+        -webkit-transition: all 0.3s ease-out;
+      }
       #cta { background-color: !{ctaBtn}; }
       #cta:hover { background-color: !{ctaBtnHover}; }
     </style>
@@ -75,7 +82,7 @@
   amo.registerAttribute("frameImage3","IMAGE","160x600_OPT_BFPFL_ACQ_INT_1GigFiber_59PFL_NonSub_Fiber_Img_Frame03.png");
   amo.registerAttribute("frameImage4","IMAGE","160x600_OPT_AugPFL_ACQ_AO_Amz_64PFL_NonSub_NY_Img_AmzCard100_Frame04.png");
   amo.registerAttribute("frameImage5","IMAGE","1x1.png");
-  amo.registerAttribute("frameText1","TEXT","<font style='color:#0084d6;'>BLACK FRIDAY<div style='padding-top: 1px;padding-left: 3px;font-size: 40%;color:#000;letter-spacing: 0px;'>Now - Dec 1<sup style='font-size: 67%;'>st</sup></div></font>");
+  amo.registerAttribute("frameText1","TEXT","<font style='color:#0084d6;'><div class='raise'><div class='raise_txt'>BL<span style='left:1px;'>A</span>CK</div></div> <div class='raise'><div class='raise_txt'>FRIDAY</div></div><div class='raise'><div class='raise_txt' style='padding-top: 1px;padding-left: 3px;font-size: 40%;color:#000;letter-spacing: 0px;'>Now - Dec 1<sup style='font-size: 67%;'>st</sup></div></div></font>");
   amo.registerAttribute("frameText21", "TEXT", "<div style='top: 35px;left: 16px;line-height: 1.15;font-size: 22px;'><div style='color: #0084d6;font-size: 75%;'>Price for Life</div><div>Up to<br>1 Gig Fiber<br>Internet</div></div>");
   amo.registerAttribute("frameText22", "TEXT", "<div style='top: 124px;left: 16px;line-height:1.1;'><div style='color: #0084d6;font-size: 62px;'><sup style='font-size: 49%;vertical-align: 63%;margin-right: -1px;'>$</sup>59<sup style='font-size: 49%;vertical-align: 67%;margin-left: 2px;'>99</sup></div><div style='font-size: 14px;letter-spacing: -0.3px;margin-top: -9px;'>mo. <font style='color:#0084d6;'>for life</font><div class='AlticeRegular' style='font-size: 10px;margin-top: 1px;letter-spacing: -0.1px;'>plus taxes, fees &amp; charges</div></div></div>");
   amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
@@ -309,13 +316,32 @@
               playOtherFrames();
           },500);
         }
+
+        var raiseDivs = ad.layers.frameText1.getElementsByClassName('raise_txt');
+        var delay = 0;
+        for (var a = 0; a < raiseDivs.length; a++) {
+          raiseDivs[a].style.webkitTransform = 'translateY(100%)';
+          raiseDivs[a].style.transform = 'translateY(100%)';
+          raiseDivs[a].style.webkitTransitionDelay = delay+'ms';
+          raiseDivs[a].style.transitionDelay = delay+'ms';
+          delay+=100;
+        }
+
+        setTimeout(function() {
+          var raiseDivs = ad.layers.frameText1.getElementsByClassName('raise_txt');
+          for (var a = 0; a < raiseDivs.length; a++) {
+            raiseDivs[a].style.webkitTransform = '';
+            raiseDivs[a].style.transform = '';
+          }
+        }, 1500);
+        
         // var gifImagePath = ad.layers.frameImage1.querySelector('img').src;
         // ad.layers.frameImage1.querySelector('img').src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII=';
-        // setTimeout(function(){
+        //setTimeout(function() {
         //   ad.layers.frameImage1.querySelector('img').src = gifImagePath;
         //   setTimeout(function(){
-        //     ad.layers.frameText1.style.webkitTransition = 'opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s';
-        //     ad.layers.frameText1.style.transition = 'opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s';
+             //ad.layers.frameText1.style.webkitTransition = 'opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s';
+             //ad.layers.frameText1.style.transition = 'opacity ease-out 0.3s, transform cubic-bezier(.43,-0.25,.32,1.39) 0.5s';
         //     setTimeout(function(){
         //       // ad.layers.frameImage1.style.opacity = 0;
         //       // ad.layers.frameImage1.style.webkitTransform = 'translateX(50%)';
@@ -328,7 +354,7 @@
         //       }, 1000);
         //     },100);
         //   },2600);
-        // }, 1000);
+        // }, 1500);
       });
     }, 2000);
   </script>

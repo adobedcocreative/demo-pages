@@ -64,6 +64,13 @@
         width: 20px;
         height: 20px;
       }
+      .raise {
+        overflow: hidden;
+      }
+      .raise_txt {
+        transition: all 0.3s ease-out;
+        -webkit-transition: all 0.3s ease-out;
+      }
       #cta { background-color: !{ctaBtn}; }
       #cta:hover { background-color: !{ctaBtnHover}; }
     </style>
@@ -75,7 +82,7 @@ amo.registerAttribute("frameImage2","IMAGE","300x600_OPT_BFPFL_ACQ_INT_200Mb_44P
 amo.registerAttribute("frameImage3","IMAGE","1x1.png");
 amo.registerAttribute("frameImage4","IMAGE","300x600_OPT_BFPFL_ACQ_INT_200Mb_44PFL_NonSub_NY_Img_Frame04.png");
 amo.registerAttribute("frameImage5","IMAGE","1x1.png");
-amo.registerAttribute("frameText1","TEXT","<font style='color:#0084d6;'>BLACK FRIDAY<div style='padding-top: 4px;padding-left: 3px;font-size: 41.5%;color:#fff;letter-spacing: 0px;'>Now - Dec 1<sup style='font-size: 60%;'>st</sup></div></font>");
+amo.registerAttribute("frameText1","TEXT","<font style='color:#0084d6;'><div class='raise'><div class='raise_txt'>BL<span style='margin-left:4px;'>A</span>CK</div></div> <div class='raise'><div class='raise_txt'>FRIDAY</div></div><div class='raise'><div class='raise_txt' style='padding-top: 4px;padding-left: 3px;font-size: 41.5%;color:#fff;letter-spacing: 0px;'>Now - Dec 1<sup style='font-size: 60%;'>st</sup></div></font>");
 amo.registerAttribute("frameText21", "TEXT", "<div style='top: 47px;left: 20px;line-height:1.1;font-size: 30px;'><div style='color: #0084d6;font-size: 75%;'>Price for Life</div><div>200 Mbps Internet</div></div>");
 amo.registerAttribute("frameText22","TEXT","<div style='top: 93px;left: 21px;line-height:1.1;'><div style='color: #0084d6;font-size: 92px;'><sup style='font-size: 49%;vertical-align: 63%;margin-right: -1px;'>$</sup>44<sup style='font-size: 49%;vertical-align: 67%;margin-left: 2px;'>99</sup></div><div style='font-size: 20px;margin-top: -14px;'>mo. <font style='color:#0084d6;'>for life</font><div class='AlticeRegular' style='font-size: 15px;margin-top: 2px;letter-spacing: -0.2px;'>plus taxes, fees &amp; charges</div></div></div>");
 amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
@@ -308,6 +315,25 @@ amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Black.mp4");
               playOtherFrames();
           },500);
         }
+
+        var raiseDivs = ad.layers.frameText1.getElementsByClassName('raise_txt');
+        var delay = 0;
+        for (var a = 0; a < raiseDivs.length; a++) {
+          raiseDivs[a].style.webkitTransform = 'translateY(100%)';
+          raiseDivs[a].style.transform = 'translateY(100%)';
+          raiseDivs[a].style.webkitTransitionDelay = delay+'ms';
+          raiseDivs[a].style.transitionDelay = delay+'ms';
+          delay+=100;
+        }
+
+        setTimeout(function() {
+          var raiseDivs = ad.layers.frameText1.getElementsByClassName('raise_txt');
+          for (var a = 0; a < raiseDivs.length; a++) {
+            raiseDivs[a].style.webkitTransform = '';
+            raiseDivs[a].style.transform = '';
+          }
+        }, 1500);
+
         // var gifImagePath = ad.layers.frameImage1.querySelector('img').src;
         // ad.layers.frameImage1.querySelector('img').src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII=';
         // setTimeout(function(){
