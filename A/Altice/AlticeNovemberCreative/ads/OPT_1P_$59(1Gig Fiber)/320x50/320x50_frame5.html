@@ -161,6 +161,14 @@ amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Grey.mp4");
           height: 46px;">
           <video muted playsinline autoplay style="width:100%;"></video>
       </div>
+      <div id="videoPatch"
+        style="top:0px;
+          left:0px;
+          width:55px;
+          height:inherit;
+          background-color:#e8e7e7;
+          opacity:0;">
+      </div>
       <div id="frameText1" class="text-top-left AlticeBold"
         data-text="frameText1"
         style="top: 7px;
@@ -231,7 +239,7 @@ amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Grey.mp4");
         ad.root.addEventListener("click", function(e) {
           if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
         });
-        setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; },800);
+        setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; ad.layers.frameVideo1.querySelector('video').playbackRate = 1.5; },800);
         var playOtherFrames = function(){};
                       (function(){
                       ad.layers.cta.style.opacity = 1;
@@ -347,7 +355,7 @@ amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Grey.mp4");
                 raiseDivs[a].style.webkitTransform = '';
                 raiseDivs[a].style.transform = '';
               }
-          },2250);
+          },1200);
         }
         // ad.layers.frameVideo1.querySelector('video').onended = function(){
         //   setTimeout(function(){
@@ -360,9 +368,10 @@ amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Grey.mp4");
           },2000);
         }
         ad.layers.frameVideo1.querySelector('video').ontimeupdate = function(e){
-          if(e.target.currentTime >= 2.2) { ad.layers.frameVideo1.querySelector('video').pause(); }
-          // ad.layers.cta.style.opacity = 1;
-        }
+            if(e.target.currentTime >= 1) { ad.layers.videoPatch.style.opacity = 1; }
+            if(e.target.currentTime >= 2.1) { ad.layers.frameVideo1.querySelector('video').pause(); }
+            // ad.layers.cta.style.opacity = 1;
+          }
         // setTimeout(function(){
         //   playOtherFrames();
         // }, 3200);

@@ -165,6 +165,14 @@ amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Black.mp4");
           height: 85px;">
           <video muted playsinline autoplay style="width:100%;"></video>
       </div>
+      <div id="videoPatch"
+        style="top:0px;
+          left:0px;
+          width:130px;
+          height:inherit;
+          background-color:#000;
+          opacity:0;">
+      </div>
       <!-- <div id="ref" class="asset"
         data-image="ref"
         style="top:0px;
@@ -241,7 +249,7 @@ amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Black.mp4");
         ad.root.addEventListener("click", function(e) {
           if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
         });
-        setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; },800);
+        setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; ad.layers.frameVideo1.querySelector('video').playbackRate = 1.3; },800);
         var playOtherFrames = function(){};
                       (function(){
                       ad.layers.cta.style.opacity = 1;
@@ -339,7 +347,7 @@ amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Black.mp4");
               }, 3000);
           }, 10);
         }
-        
+
         var raiseDivs = ad.layers.frameText1.getElementsByClassName('raise_txt');
         var delay = 0;
         for (var a = 0; a < raiseDivs.length; a++) {
@@ -359,31 +367,9 @@ amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Black.mp4");
                 raiseDivs[a].style.webkitTransform = '';
                 raiseDivs[a].style.transform = '';
               }
-          },2250);
-        }
-        
-        var raiseDivs = ad.layers.frameText1.getElementsByClassName('raise_txt');
-        var delay = 0;
-        for (var a = 0; a < raiseDivs.length; a++) {
-          raiseDivs[a].style.webkitTransform = 'translateY(100%)';
-          raiseDivs[a].style.transform = 'translateY(100%)';
-          raiseDivs[a].style.webkitTransitionDelay = delay+'ms';
-          raiseDivs[a].style.transitionDelay = delay+'ms';
-          delay+=100;
+          },1500);
         }
 
-        ad.layers.frameVideo1.querySelector('video').onplay = function(){
-          setTimeout(function(){
-              //ad.layers.frameText1.style.opacity = 1;
-
-              var raiseDivs = ad.layers.frameText1.getElementsByClassName('raise_txt');
-              for (var a = 0; a < raiseDivs.length; a++) {
-                raiseDivs[a].style.webkitTransform = '';
-                raiseDivs[a].style.transform = '';
-              }
-          },2250);
-        }
-        
         // ad.layers.frameVideo1.querySelector('video').onended = function(){
         //   setTimeout(function(){
         //       playOtherFrames();
@@ -395,6 +381,7 @@ amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Black.mp4");
           },1500);
         }
         ad.layers.frameVideo1.querySelector('video').ontimeupdate = function(e){
+          if(e.target.currentTime >= 1.1) { ad.layers.videoPatch.style.opacity = 1; }
           if(e.target.currentTime >= 2.5) { ad.layers.frameVideo1.querySelector('video').pause(); }
           // ad.layers.cta.style.opacity = 1;
         }
