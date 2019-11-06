@@ -73,6 +73,8 @@
       }
       #cta { background-color: !{ctaBtn}; }
       #cta:hover { background-color: !{ctaBtnHover}; }
+      #introCta { background: !{ctaBtn}; }
+      #introCta:hover { background-color: !{ctaBtnHover}; }
     </style>
   <!-- Start of overrode asset attributes values -->
 <script type="text/javascript">
@@ -142,6 +144,15 @@ amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Blue.mp4");
     <div id="frameText52" class="frameText" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateY(100%);transform:translateY(100%);-webkit-transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.1s;transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.1s;">!{frameText52}</div>
     <div id="frameText53" class="frameText" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateY(100%);transform:translateY(100%);-webkit-transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.2s;transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.2s;">!{frameText53}</div>
     <div id="priceLabel" class="asset" data-image="priceLabel" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(-100%);transform:translateX(-100%);-webkit-transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.3s;transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.3s;"></div>
+    <div id="cta" class="text AlticeBold"
+      data-text="ctaText"
+      style="top:58px;
+        right:72px;
+        width:76px;
+        height:22px;
+        font-size:12px;
+        color:#fff;">
+    </div>
     <div id="frame1" class="frame"
       style="transform-origin:bottom center;
       -webkit-transition:opacity ease-out 0.3s, transform ease-out 0.3s;
@@ -200,16 +211,16 @@ amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Blue.mp4");
           width:inherit;
           height:inherit;">
       </div>
-    </div>
-    <div id="cta" class="text AlticeBold"
-      data-text="ctaText"
-      style="top:58px;
-        right:72px;
-        width:76px;
-        height:22px;
-        font-size:12px;
-        border: 1px solid;
-        color:#fff;">
+      <div id="introCta" class="text AlticeBold"
+        data-text="ctaText"
+        style="top:58px;
+          right:72px;
+          width:76px;
+          height:22px;
+          font-size:12px;
+          border: 1px solid;
+          color:#fff;">
+      </div>
     </div>
     <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all 0.5s ease 1s;transition:all 0.5s ease 1s;"></div>
   </div>
