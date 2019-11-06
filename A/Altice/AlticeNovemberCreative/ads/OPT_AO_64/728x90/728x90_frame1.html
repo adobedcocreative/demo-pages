@@ -339,8 +339,32 @@ amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Blue.mp4");
           raiseDivs[a].style.transitionDelay = delay+'ms';
           delay+=100;
         }
-
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+        var video = ad.layers.frameVideo1.querySelector('video');
+        canvas.style.position = 'absolute';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        // canvas.style.top = '50%';
+        // canvas.style.left = '50%';
+        // canvas.style.transform = 'translate(-50%, -50%)';
+        video.addEventListener('loadedmetadata', function() {
+          canvas.width = video.videoWidth;
+          canvas.height = video.videoHeight;
+        });
+        video.parentNode.appendChild(canvas);
         ad.layers.frameVideo1.querySelector('video').onplay = function(){
+          canvas.style.width = video.offsetWidth+'px';
+          canvas.style.height = video.offsetHeight+'px';
+          var $this = this; //cache
+          (function loop() {
+              if (!$this.paused && !$this.ended) {
+                  ctx.drawImage($this, 0, 0);
+                  ad.layers.frame1.style.backgroundColor = 'rgba(' + ctx.getImageData(5, 2, 1, 1).data.join(',') + ')';
+                  ad.layers.videoPatch.style.backgroundColor = 'rgba(' + ctx.getImageData(5, 2, 1, 1).data.join(',') + ')';
+                  setTimeout(loop, 1000 / 120); // drawing at 30fps
+              }
+          })();
           setTimeout(function(){
               //ad.layers.frameText1.style.opacity = 1;
 
@@ -351,6 +375,17 @@ amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Blue.mp4");
               }
           },1300);
         }
+        // ad.layers.frameVideo1.querySelector('video').onplay = function(){
+        //   setTimeout(function(){
+        //       //ad.layers.frameText1.style.opacity = 1;
+        //
+        //       var raiseDivs = ad.layers.frameText1.getElementsByClassName('raise_txt');
+        //       for (var a = 0; a < raiseDivs.length; a++) {
+        //         raiseDivs[a].style.webkitTransform = '';
+        //         raiseDivs[a].style.transform = '';
+        //       }
+        //   },1300);
+        // }
 
         // ad.layers.frameVideo1.querySelector('video').onended = function(){
         //   setTimeout(function(){
