@@ -371,7 +371,7 @@ amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Grey.mp4");
                   ctx.drawImage($this, 0, 0);
                   ad.layers.frame1.style.backgroundColor = 'rgba(' + ctx.getImageData(5, 2, 1, 1).data.join(',') + ')';
                   ad.layers.videoPatch.style.backgroundColor = 'rgba(' + ctx.getImageData(5, 2, 1, 1).data.join(',') + ')';
-                  setTimeout(loop, 1000 / 120); // drawing at 30fps
+                  setTimeout(loop, 1000 / 50); // drawing at 30fps
               }
           })();
           setTimeout(function(){
