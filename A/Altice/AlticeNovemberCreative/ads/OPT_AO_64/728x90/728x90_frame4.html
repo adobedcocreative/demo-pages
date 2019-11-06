@@ -362,6 +362,7 @@ amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Blue.mp4");
           raiseDivs[a].style.transitionDelay = delay+'ms';
           delay+=100;
         }
+
         var canvas = document.createElement('canvas');
         var ctx = canvas.getContext('2d');
         var video = ad.layers.frameVideo1.querySelector('video');
@@ -398,17 +399,6 @@ amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Blue.mp4");
               }
           },1300);
         }
-        // ad.layers.frameVideo1.querySelector('video').onplay = function(){
-        //   setTimeout(function(){
-        //       //ad.layers.frameText1.style.opacity = 1;
-        //
-        //       var raiseDivs = ad.layers.frameText1.getElementsByClassName('raise_txt');
-        //       for (var a = 0; a < raiseDivs.length; a++) {
-        //         raiseDivs[a].style.webkitTransform = '';
-        //         raiseDivs[a].style.transform = '';
-        //       }
-        //   },1300);
-        // }
 
         // ad.layers.frameVideo1.querySelector('video').onended = function(){
         //   setTimeout(function(){
