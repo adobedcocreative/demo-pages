@@ -91,6 +91,7 @@ amo.registerAttribute("frameText33","TEXT","&nbsp;");
 amo.registerAttribute("frameText41","TEXT","<div style='top: 2px;left: 12px;font-size: 13.2px;'>Internet Starting at</div>");
 amo.registerAttribute("frameText42","TEXT","<div style='top: 20px;left: 12px;font-size:14px;letter-spacing: -0.2px;line-height: 1;color:#0084d6;'>$24.99 mo./1 yr.</div>");
 amo.registerAttribute("frameText43","TEXT","<div style='top: 33px;left: 12px;font-size: 10px;letter-spacing: -0.1px;' class='AlticeRegular'>plus taxes, fees & charges<div style='color:#0084d6;position: absolute;top: -10px;left: 150px;width: 60px;line-height: 1.1;' class='AlticeBold'>No Annual<br>Contract</div></div>");
+amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Black.mp4");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -145,6 +146,21 @@ amo.registerAttribute("frameText43","TEXT","<div style='top: 33px;left: 12px;fon
             width:inherit;
             height:inherit;">
         </div> -->
+        <div id="frameVideo1"
+          style="top: 4px;
+            left: 0px;
+            width: 230px;
+            height: 46px;">
+            <video muted playsinline autoplay style="width:100%;"></video>
+        </div>
+        <div id="videoPatch"
+          style="top:0px;
+            left:0px;
+            width:55px;
+            height:inherit;
+            background-color:#000;
+            opacity:0;">
+        </div>
         <div id="frameText1" class="text-top-left AlticeBold"
           data-text="frameText1"
           style="top: 7px;
@@ -215,6 +231,7 @@ amo.registerAttribute("frameText43","TEXT","<div style='top: 33px;left: 12px;fon
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });
+          setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; ad.layers.frameVideo1.querySelector('video').playbackRate = 1.4; },800);
           var playOtherFrames = function(){};
                   var playOtherFrames1 = function(){
             setTimeout(function(){
@@ -268,26 +285,45 @@ amo.registerAttribute("frameText43","TEXT","<div style='top: 33px;left: 12px;fon
           }
 
           var raiseDivs = ad.layers.frameText1.getElementsByClassName('raise_txt');
-        var delay = 0;
-        for (var a = 0; a < raiseDivs.length; a++) {
-          raiseDivs[a].style.webkitTransform = 'translateY(100%)';
-          raiseDivs[a].style.transform = 'translateY(100%)';
-          raiseDivs[a].style.webkitTransitionDelay = delay+'ms';
-          raiseDivs[a].style.transitionDelay = delay+'ms';
-          delay+=100;
-        }
+          var delay = 0;
+          for (var a = 0; a < raiseDivs.length; a++) {
+            raiseDivs[a].style.webkitTransform = 'translateY(100%)';
+            raiseDivs[a].style.transform = 'translateY(100%)';
+            raiseDivs[a].style.webkitTransitionDelay = delay+'ms';
+            raiseDivs[a].style.transitionDelay = delay+'ms';
+            delay+=100;
+          }
 
-        setTimeout(function(){
-            var raiseDivs = ad.layers.frameText1.getElementsByClassName('raise_txt');
-            for (var a = 0; a < raiseDivs.length; a++) {
-              raiseDivs[a].style.webkitTransform = '';
-              raiseDivs[a].style.transform = '';
-            }
-        },1250);
+          ad.layers.frameVideo1.querySelector('video').onplay = function(){
+            setTimeout(function(){
+                //ad.layers.frameText1.style.opacity = 1;
 
-          setTimeout(function(){
-            playOtherFrames();
-          }, 3200);
+                var raiseDivs = ad.layers.frameText1.getElementsByClassName('raise_txt');
+                for (var a = 0; a < raiseDivs.length; a++) {
+                  raiseDivs[a].style.webkitTransform = '';
+                  raiseDivs[a].style.transform = '';
+                }
+            },1500);
+          }
+
+          // ad.layers.frameVideo1.querySelector('video').onended = function(){
+          //   setTimeout(function(){
+          //       playOtherFrames();
+          //   },500);
+          // }
+          ad.layers.frameVideo1.querySelector('video').onpause = function(){
+            setTimeout(function(){
+                playOtherFrames();
+            },2000);
+          }
+          ad.layers.frameVideo1.querySelector('video').ontimeupdate = function(e){
+            if(e.target.currentTime >= 1) { ad.layers.videoPatch.style.opacity = 1; }
+            if(e.target.currentTime >= 2.3) { ad.layers.frameVideo1.querySelector('video').pause(); }
+            // ad.layers.cta.style.opacity = 1;
+          }
+          // setTimeout(function(){
+          //   playOtherFrames();
+          // }, 3200);
         });
       }, 2000);
     </script>
