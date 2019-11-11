@@ -275,6 +275,11 @@ amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Blue.mp4");
                           ad.layers.frameText43.style.transform = '';
                         }
                         
+                          if('frameBackground' in ad.layers) {
+                            ad.layers.frameBackground.style.display = 'block';
+                          }
+                          
+                        
                       },1000);}())
                     var playOtherFrames1 = function(){
           setTimeout(function(){

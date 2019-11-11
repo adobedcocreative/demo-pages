@@ -87,6 +87,11 @@ files.forEach(function(file){
                           ad.layers.frameText${i}3.style.webkitTransform = '';
                           ad.layers.frameText${i}3.style.transform = '';
                         }
+                        `+(i==4? `
+                          if('frameBackground' in ad.layers) {
+                            ad.layers.frameBackground.style.display = 'block';
+                          }
+                          ` :'')+`
                         `+(i==frameCount? `
                           if('priceLabel' in ad.layers) {
                             ad.layers.priceLabel.style.webkitTransform = '';
