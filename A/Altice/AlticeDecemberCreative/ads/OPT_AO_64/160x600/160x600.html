@@ -324,18 +324,16 @@ amo.registerAttribute("frameText53","TEXT","<div style='top: 279px;left: 16px;li
           }, 10);
         }
         setTimeout(function(){
+          ad.layers.introImage1.style.display = 'none';
+          ad.layers.introText1.style.display = 'none';
           setTimeout(function(){
-              ad.layers.introImage1.style.display = 'none';
-              ad.layers.introText1.style.display = 'none';
+              ad.layers.introImage2.style.display = 'none';
+              ad.layers.introLogoImage.querySelector('img').src = adData.logoImage;
               setTimeout(function(){
-                  ad.layers.introImage2.style.display = 'none';
-                  ad.layers.introLogoImage.querySelector('img').src = adData.logoImage;
-                  setTimeout(function(){
-                      playOtherFrames();
-                  },1500);
-              },500);
-          },1500);
-        },800);
+                  playOtherFrames();
+              },1200);
+          },1000);
+        },2000);
       });
     }, 2000);
   </script>
