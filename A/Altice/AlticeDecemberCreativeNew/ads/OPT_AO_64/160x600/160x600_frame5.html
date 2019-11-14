@@ -6,6 +6,7 @@
     <title>Ad</title>
     <link rel="stylesheet" href="https://ct.tubemogul.com/web/static/css/style.min.css">
     <script type="text/javascript" src="https://ads.everesttech.net/ads/static/local/AMOLibrary.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
     <script src="https://ct.tubemogul.com/web/static/js/script.min.js" charset="utf-8"></script>
     <script type="text/javascript">var addTypingContent=function(d){if(d){var a=d.innerHTML;a&&a.length&&(a=a.split("&amp;").join("&").split("&lt;").join("<").split("&gt;").join(">"));var b=a.match(/<.*?>/g);b=b&&b.length?b:[];a=a.split(/<.*?>/g);a=a.map(function(a){return a.split("").map(function(a){return'<type class="transparent">'+a+"</type>"}).join("")});var c=b;a.length<c&&(b=a,a=c,c=b);c.push("");d.innerHTML=a.map(function(a,b){return a+c[b]}).join("")}};</script>
     <style media="screen">
@@ -39,9 +40,25 @@
       }
       .frameText {
         font-family: Altice-Bold;
+        top:0px;
+        left:0px;
+        width:inherit;
+        height:inherit;
       }
       .frameText > div {
         position: absolute;
+      }
+      .frameImage {
+        top:0px;
+        left:0px;
+        width:inherit;
+        height:inherit;
+      }
+      .adSizeContainer {
+        top:0px;
+        left:0px;
+        width:inherit;
+        height:inherit;
       }
       .transparent { color:transparent; }
       .verticalBar {
@@ -92,38 +109,26 @@ amo.registerAttribute("frameText53","TEXT","<div style='top: 279px;left: 16px;li
         height:inherit;
         background-color:#e2e3e4;">
     </div>
-    <!-- <div id="ref" class="asset"
-      data-image="ref"
-      style="top:0px;
-        left:0px;
-        width:inherit;
-        height:inherit;">
-    </div> -->
-    <div id="logoImage" class="asset"
-      data-image="logoImage"
-      style="top:0px;
-        left:0px;
-        width:inherit;
-        height:inherit;">
-    </div>
-    <div id="frameBackground" class="asset" data-image="frameBackground" style="top:0px;left:0px;width:inherit;height:inherit;display:none;"></div>
-    <div id="frameImage2" class="asset" data-image="frameImage2" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(100%);transform:translateX(100%);-webkit-transition:opacity ease-out 0.3s,transform ease-out 0.3s;transition:opacity ease-out 0.3s,transform ease-out 0.3s;"></div>
-    <div id="frameText21" class="frameText" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(-100%);transform:translateX(-100%);-webkit-transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.0s;transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.0s;">!{frameText21}</div>
-    <div id="frameText22" class="frameText" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(-100%);transform:translateX(-100%);-webkit-transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.1s;transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.1s;">!{frameText22}</div>
-    <div id="frameText23" class="frameText" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(-100%);transform:translateX(-100%);-webkit-transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.2s;transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.2s;">!{frameText23}</div>
-    <div id="frameImage3" class="asset" data-image="frameImage3" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(100%);transform:translateX(100%);-webkit-transition:opacity ease-out 0.3s,transform ease-out 0.3s;transition:opacity ease-out 0.3s,transform ease-out 0.3s;"></div>
-    <div id="frameText31" class="frameText" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(-100%);transform:translateX(-100%);-webkit-transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.0s;transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.0s;">!{frameText31}</div>
-    <div id="frameText32" class="frameText" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(-100%);transform:translateX(-100%);-webkit-transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.7s;transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.7s;">!{frameText32}</div>
-    <div id="frameText33" class="frameText" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(-100%);transform:translateX(-100%);-webkit-transition:opacity ease-out 0.3s,transform 0.3s ease-out 1.4s;transition:opacity ease-out 0.3s,transform 0.3s ease-out 1.4s;">!{frameText33}</div>
-    <div id="frameImage4" class="asset" data-image="frameImage4" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(100%);transform:translateX(100%);-webkit-transition:opacity ease-out 0.3s,transform ease-out 0.3s;transition:opacity ease-out 0.3s,transform ease-out 0.3s;"></div>
-    <div id="frameText41" class="frameText" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(-100%);transform:translateX(-100%);-webkit-transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.0s;transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.0s;">!{frameText41}</div>
-    <div id="frameText42" class="frameText" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(-100%);transform:translateX(-100%);-webkit-transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.1s;transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.1s;">!{frameText42}</div>
-    <div id="frameText43" class="frameText" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(-100%);transform:translateX(-100%);-webkit-transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.2s;transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.2s;">!{frameText43}</div>
-    <div id="frameImage5" class="asset" data-image="frameImage5" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(100%);transform:translateX(100%);-webkit-transition:opacity ease-out 0.3s,transform ease-out 0.3s;transition:opacity ease-out 0.3s,transform ease-out 0.3s;"></div>
-    <div id="frameText51" class="frameText" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(-100%);transform:translateX(-100%);-webkit-transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.0s;transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.0s;">!{frameText51}</div>
-    <div id="frameText52" class="frameText" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(-100%);transform:translateX(-100%);-webkit-transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.1s;transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.1s;">!{frameText52}</div>
-    <div id="frameText53" class="frameText" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateX(-100%);transform:translateX(-100%);-webkit-transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.2s;transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.2s;">!{frameText53}</div>
-    <div id="priceLabel" class="asset" data-image="priceLabel" style="top:0px;left:0px;width:inherit;height:inherit;-webkit-transform:translateY(-100%);transform:translateY(-100%);-webkit-transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.3s;transition:opacity ease-out 0.3s,transform 0.3s ease-out 0.3s;"></div>
+    <!-- <div id="ref" class="asset adSizeContainer" data-image="ref"></div> -->
+    <div id="logoImage" class="asset adSizeContainer" data-image="logoImage"></div>
+    <div id="frameBackground" class="asset adSizeContainer" data-image="frameBackground" style="display:none;"></div>
+    <div id="frameImage2" class="asset frameImage" data-image="frameImage2"></div>
+    <div id="frameText21" class="frameText">!{frameText21}</div>
+    <div id="frameText22" class="frameText">!{frameText22}</div>
+    <div id="frameText23" class="frameText">!{frameText23}</div>
+    <div id="frameImage3" class="asset frameImage" data-image="frameImage3"></div>
+    <div id="frameText31" class="frameText">!{frameText31}</div>
+    <div id="frameText32" class="frameText">!{frameText32}</div>
+    <div id="frameText33" class="frameText">!{frameText33}</div>
+    <div id="frameImage4" class="asset frameImage" data-image="frameImage4"></div>
+    <div id="frameText41" class="frameText">!{frameText41}</div>
+    <div id="frameText42" class="frameText">!{frameText42}</div>
+    <div id="frameText43" class="frameText">!{frameText43}</div>
+    <div id="frameImage5" class="asset frameImage" data-image="frameImage5"></div>
+    <div id="frameText51" class="frameText">!{frameText51}</div>
+    <div id="frameText52" class="frameText">!{frameText52}</div>
+    <div id="frameText53" class="frameText">!{frameText53}</div>
+    <div id="priceLabel" class="asset adSizeContainer" data-image="priceLabel"></div>
     <div id="cta" class="text AlticeBold"
       data-text="ctaText"
       style="top:551px;
@@ -139,13 +144,7 @@ amo.registerAttribute("frameText53","TEXT","<div style='top: 279px;left: 16px;li
       transition:opacity ease-out 0.3s, transform ease-out 0.3s;
       background-color:#e2e3e4;
       opacity:1;">
-      <div id="introImage3" class="asset"
-        data-image="introImage3"
-        style="top:0px;
-          left:0px;
-          width:inherit;
-          height:inherit;">
-      </div>
+      <div id="introImage3" class="asset adSizeContainer" data-image="introImage3"></div>
       <!-- <div id="ref" class="asset"
         data-image="ref"
         style="top:0px;
@@ -165,20 +164,8 @@ amo.registerAttribute("frameText53","TEXT","<div style='top: 279px;left: 16px;li
           font-weight: bold;
           color:#292562;">
       </div>
-      <div id="introImage2" class="asset"
-        data-image="introImage2"
-        style="top:0px;
-          left:0px;
-          width:inherit;
-          height:inherit;">
-      </div>
-      <div id="introImage1" class="asset"
-        data-image="introImage1"
-        style="top:0px;
-          left:0px;
-          width:inherit;
-          height:inherit;">
-      </div>
+      <div id="introImage2" class="asset adSizeContainer" data-image="introImage2"></div>
+      <div id="introImage1" class="asset adSizeContainer" data-image="introImage1"></div>
       <div id="introText1" class="text-left AlticeBold"
         data-text="introText1"
         style="top: 96px;
@@ -191,13 +178,7 @@ amo.registerAttribute("frameText53","TEXT","<div style='top: 279px;left: 16px;li
           font-weight: bold;
           color:#fff;">
       </div>
-      <div id="introLogoImage" class="asset"
-        data-image="introLogoImage"
-        style="top:0px;
-          left:0px;
-          width:inherit;
-          height:inherit;">
-      </div>
+      <div id="introLogoImage" class="asset adSizeContainer" data-image="introLogoImage"></div>
       <div id="introCta" class="text AlticeBold"
         data-text="ctaText"
         style="top:551px;
@@ -255,85 +236,65 @@ amo.registerAttribute("frameText53","TEXT","<div style='top: 279px;left: 16px;li
         });
         ad.layers.introText1.querySelector('span').innerHTML = introText1;
         ad.layers.introText2.querySelector('span').innerHTML = introText2;
-        var playOtherFrames = function(){
-          setTimeout(function(){
-            // ad.layers.frame1.style.webkitTransform = 'rotate(30deg) translate(50%,-50%)';
-            // ad.layers.frame1.style.transform = 'rotate(30deg) translate(50%,-50%)';
-            ad.layers.frame1.style.opacity = 0;
-            setTimeout(function(){ ad.layers.frame1.style.visibility = 'hidden'; }, 500);
-            setTimeout(function(){
-              ad.layers.frameImage2.style.webkitTransform = '';
-              ad.layers.frameImage2.style.transform = '';
-              ad.layers.frameText21.style.webkitTransform = '';
-              ad.layers.frameText21.style.transform = '';
-              ad.layers.frameText22.style.webkitTransform = '';
-              ad.layers.frameText22.style.transform = '';
-              ad.layers.frameText23.style.webkitTransform = '';
-              ad.layers.frameText23.style.transform = '';
-            }, 500);
-              setTimeout(function(){
-                ad.layers.frameImage2.style.opacity = 0;
-                ad.layers.frameText21.style.opacity = 0;
-                ad.layers.frameText22.style.opacity = 0;
-                ad.layers.frameText23.style.opacity = 0;
-                setTimeout(function(){
-                  ad.layers.frameImage3.style.webkitTransform = '';
-                  ad.layers.frameImage3.style.transform = '';
-                  ad.layers.frameText31.style.webkitTransform = '';
-                  ad.layers.frameText31.style.transform = '';
-                  ad.layers.frameText32.style.webkitTransform = '';
-                  ad.layers.frameText32.style.transform = '';
-                  ad.layers.frameText33.style.webkitTransform = '';
-                  ad.layers.frameText33.style.transform = '';
-                  setTimeout(function(){
-                    ad.layers.frameImage3.style.opacity = 0;
-                    ad.layers.frameText31.style.opacity = 0;
-                    ad.layers.frameText32.style.opacity = 0;
-                    ad.layers.frameText33.style.opacity = 0;
-                    setTimeout(function(){
-                      ad.layers.frameImage4.style.webkitTransform = '';
-                      ad.layers.frameImage4.style.transform = '';
-                      ad.layers.frameText41.style.webkitTransform = '';
-                      ad.layers.frameText41.style.transform = '';
-                      ad.layers.frameText42.style.webkitTransform = '';
-                      ad.layers.frameText42.style.transform = '';
-                      ad.layers.frameText43.style.webkitTransform = '';
-                      ad.layers.frameText43.style.transform = '';
-                      setTimeout(function(){
-                        ad.layers.frameImage4.style.opacity = 0;
-                        ad.layers.frameText41.style.opacity = 0;
-                        ad.layers.frameText42.style.opacity = 0;
-                        ad.layers.frameText43.style.opacity = 0;
-                        setTimeout(function(){
-                          ad.layers.frameImage5.style.webkitTransform = '';
-                          ad.layers.frameImage5.style.transform = '';
-                          ad.layers.frameText51.style.webkitTransform = '';
-                          ad.layers.frameText51.style.transform = '';
-                          ad.layers.frameText52.style.webkitTransform = '';
-                          ad.layers.frameText52.style.transform = '';
-                          ad.layers.frameText53.style.webkitTransform = '';
-                          ad.layers.frameText53.style.transform = '';
-                          ad.layers.priceLabel.style.webkitTransform = '';
-                          ad.layers.priceLabel.style.transform = '';
-                        }, 200);
-                      }, 3000);
-                    }, 200);
-                  }, 3600);
-                }, 200);
-              }, 3000);
-          }, 10);
+        textUpdate();
+        gsap.set('.frameImage', {x:'100%'});
+        gsap.set('.frameText', {x:'-100%'});
+        gsap.set('#priceLabel', {y:'-100%'});
+        var priceFrameAnimation = function(frame){
+          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+          .to('#frameText'+frame+'1, #frameImage'+frame, {x:0})
+          .to('#frameText'+frame+'2', {delay:-0.2, x:0})
+          .to('#frameText'+frame+'3', {delay:-0.2, x:0})
+          .to('#priceLabel', {delay:-0.2, y:0});
         }
-        setTimeout(function(){
-          ad.layers.introImage1.style.display = 'none';
-          ad.layers.introText1.style.display = 'none';
-          setTimeout(function(){
-              ad.layers.introImage2.style.display = 'none';
-              ad.layers.introLogoImage.querySelector('img').src = adData.logoImage;
-              setTimeout(function(){
-                  playOtherFrames();
-              },1200);
-          },1000);
-        },2000);
+        var bulletFrameAnimation = function(frame){
+          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+          .to('#frameImage'+frame, {x:0})
+          .to('#frameText'+frame+'1', {delay:-0.3, x:0})
+          .to('#frameText'+frame+'2', {delay:0.4, x:0})
+          .to('#frameText'+frame+'3', {delay:0.4, x:0});
+        }
+        var generalFrameAnimation = function(frame){
+          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+          .to('#frameText'+frame+'1, #frameImage'+frame, {x:0})
+          .to('#frameText'+frame+'2', {delay:-0.2, x:0})
+          .to('#frameText'+frame+'3', {delay:-0.2, x:0});
+        }
+        var animateFrame5 = function(flag){
+          var frameId = 5;
+          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+          .to('#frameImage'+frameId, {duration:0, onComplete: priceFrameAnimation, onCompleteParams:[5]})
+          // .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', {delay: 2.2, opacity:0});
+        }
+        var animateFrame4 = function(flag){
+          var frameId = 4;
+          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[4]})
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.2, opacity:0, onComplete: animateFrame5}));
+        }
+        var animateFrame3 = function(flag){
+          var frameId = 3;
+          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+          .to('#frameImage'+frameId, {duration:0, onComplete: bulletFrameAnimation, onCompleteParams:[3]})
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame4}));
+        }
+        var animateFrame2 = function(flag){
+          var frameId = 2;
+          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.2, opacity:0, onComplete: animateFrame3}));
+        }
+        var animateFrame1 = function(flag){
+          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+          .to('#introImage1, #introText1', {duration:1.2, display:'none'})
+          .to('#introImage2', {duration:1, display:'none'})
+          .to('#introLogoImage img', {duration:0, attr:{src: adData.logoImage}})
+          .to('#frame1', (flag==true?{}:{delay:1.2, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+        }
+        if('frame1' in ad.layers) ad.layers.frame1.remove();
+                    setTimeout(function(){
+                      animateFrame5(true);
+                    }, 1200)
       });
     }, 2000);
   </script>

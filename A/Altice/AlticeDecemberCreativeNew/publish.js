@@ -45,7 +45,7 @@ files.forEach(function(file){
                   // console.log('frame1 exist');
                   obj['frame1'] = creativeFolder + creative.split('.').join('_frame1.');
                   var htmlContent = data;
-                  htmlContent = htmlContent.replace('animateFrame1();',`animateFrame1(true);`)
+                  htmlContent = htmlContent.replace('setTimeout(function(){ animateFrame1(); }, 800);',`setTimeout(function(){ animateFrame1(true); }, 800);`)
                   fs.writeFile(obj['frame1'], htmlContent, 'utf8',  function (err) {
                     if (err) throw err;
                   });
@@ -62,8 +62,11 @@ files.forEach(function(file){
                     // console.log('frame' + i + ' exist');
                     obj['frame'+i] = creativeFolder + creative.split('.').join('_frame'+i+'.');
                     var htmlContent = data;
-                    htmlContent = htmlContent.replace('animateFrame1();',
-                    `if('frame1' in ad.layers) ad.layers.frame1.remove();\nanimateFrame${i}(true);`);
+                    htmlContent = htmlContent.replace('setTimeout(function(){ animateFrame1(); }, 800);',
+                    `if('frame1' in ad.layers) ad.layers.frame1.remove();
+                    setTimeout(function(){
+                      animateFrame${i}(true);
+                    }, 1200)`);
                     fs.writeFile(obj['frame'+i], htmlContent, 'utf8',  function (err) {
                       if (err) throw err;
                     });
