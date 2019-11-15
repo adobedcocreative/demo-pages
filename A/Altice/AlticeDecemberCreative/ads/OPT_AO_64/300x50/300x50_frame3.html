@@ -252,32 +252,7 @@ amo.registerAttribute("frameVideo1", "TEXT", "cartIntroAnimation_Blue.mp4");
           if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
         });
         setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; ad.layers.frameVideo1.querySelector('video').playbackRate = 1.3; },800);
-        var playOtherFrames = function(){};
-                      (function(){
-                      ad.layers.cta.style.opacity = 1;
-                      if('frame1' in ad.layers) ad.layers.frame1.remove();
-                      
-                      setTimeout(function(){
-                        if('frameImage3' in ad.layers) {
-                          ad.layers.frameImage3.style.webkitTransform = '';
-                          ad.layers.frameImage3.style.transform = '';
-                        }
-                        if('frameText31' in ad.layers) {
-                          ad.layers.frameText31.style.webkitTransform = '';
-                          ad.layers.frameText31.style.transform = '';
-                        }
-                        if('frameText32' in ad.layers) {
-                          ad.layers.frameText32.style.webkitTransform = '';
-                          ad.layers.frameText32.style.transform = '';
-                        }
-                        if('frameText33' in ad.layers) {
-                          ad.layers.frameText33.style.webkitTransform = '';
-                          ad.layers.frameText33.style.transform = '';
-                        }
-                        
-                        
-                      },1000);}())
-                    var playOtherFrames1 = function(){
+        var playOtherFrames = function(){
           setTimeout(function(){
             // ad.layers.frame1.style.webkitTransform = 'rotate(10deg) translate(0%,100%)';
             // ad.layers.frame1.style.transform = 'rotate(10deg) translate(0%,100%)';

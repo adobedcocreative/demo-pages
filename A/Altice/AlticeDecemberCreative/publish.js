@@ -45,8 +45,7 @@ files.forEach(function(file){
                   // console.log('frame1 exist');
                   obj['frame1'] = creativeFolder + creative.split('.').join('_frame1.');
                   var htmlContent = data;
-                  htmlContent = htmlContent.replace('var playOtherFrames = function()',`var playOtherFrames = function(){};
-                  var playOtherFrames1 = function()`)
+                  htmlContent = htmlContent.replace('setTimeout(function(){ animateFrame1(); }, 800);',`setTimeout(function(){ animateFrame1(true); }, 800);`)
                   fs.writeFile(obj['frame1'], htmlContent, 'utf8',  function (err) {
                     if (err) throw err;
                   });
@@ -63,44 +62,11 @@ files.forEach(function(file){
                     // console.log('frame' + i + ' exist');
                     obj['frame'+i] = creativeFolder + creative.split('.').join('_frame'+i+'.');
                     var htmlContent = data;
-                    htmlContent = htmlContent.replace('var playOtherFrames = function()',
-                    `var playOtherFrames = function(){};
-                      (function(){
-                      ad.layers.cta.style.opacity = 1;
-                      if('frame1' in ad.layers) ad.layers.frame1.remove();
-                      `+
-                      (i>1?`
-                      setTimeout(function(){
-                        if('frameImage${i}' in ad.layers) {
-                          ad.layers.frameImage${i}.style.webkitTransform = '';
-                          ad.layers.frameImage${i}.style.transform = '';
-                        }
-                        if('frameText${i}1' in ad.layers) {
-                          ad.layers.frameText${i}1.style.webkitTransform = '';
-                          ad.layers.frameText${i}1.style.transform = '';
-                        }
-                        if('frameText${i}2' in ad.layers) {
-                          ad.layers.frameText${i}2.style.webkitTransform = '';
-                          ad.layers.frameText${i}2.style.transform = '';
-                        }
-                        if('frameText${i}3' in ad.layers) {
-                          ad.layers.frameText${i}3.style.webkitTransform = '';
-                          ad.layers.frameText${i}3.style.transform = '';
-                        }
-                        `+(i==4? `
-                          if('frameBackground' in ad.layers) {
-                            ad.layers.frameBackground.style.display = 'block';
-                          }
-                          ` :'')+`
-                        `+(i==frameCount? `
-                          if('priceLabel' in ad.layers) {
-                            ad.layers.priceLabel.style.webkitTransform = '';
-                            ad.layers.priceLabel.style.transform = '';
-                          }
-                          ` :'')+`
-                      },1000);`:'')+
-                    `}())
-                    var playOtherFrames1 = function()`);
+                    htmlContent = htmlContent.replace('setTimeout(function(){ animateFrame1(); }, 800);',
+                    `if('frame1' in ad.layers) ad.layers.frame1.remove();
+                    setTimeout(function(){
+                      animateFrame${i}(true);
+                    }, 1200)`);
                     fs.writeFile(obj['frame'+i], htmlContent, 'utf8',  function (err) {
                       if (err) throw err;
                     });
