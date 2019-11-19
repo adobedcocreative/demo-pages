@@ -87,7 +87,7 @@ amo.registerAttribute("frameText22","TEXT","<div style='top: 56px;left:20px;line
 amo.registerAttribute("frameText23","TEXT","<div style='top: 113px;left:20px;font-size: 16px;letter-spacing: -0.5px;'>mo. <font style='color:#0084d6;'>for life</font><div class='AlticeRegular' style='font-size: 10px;margin-top: -1px;letter-spacing: -0.1px;'>plus taxes, fees &amp; charges</div></div>");
 amo.registerAttribute("frameText31","TEXT","<div style='top: 43px;left: 20px;line-height: 1.6;font-size: 18px;'><div><span style='color:#0084d6;padding-right:4px;'>+</span>Up to <font style='color:#0084d6;'>400 Mbps Internet</font></div></div>");
 amo.registerAttribute("frameText32","TEXT","<div style='top: 70px;left: 20px;line-height: 1.4;font-size: 18px;'><div><span style='color:#0084d6;padding-right:4px;'>+</span>Over 200 Channels</div></div>");
-amo.registerAttribute("frameText33","TEXT","<div style='top: 93px;left: 20px;line-height: 1.6;font-size: 18px;'><div><span style='color:#0084d6;padding-right:4px;'>+</span>Voice Activated Remote</div></div><div class='AlticeRegular' style='position: absolute;top: 182px;left: 20px;font-size: 9px;line-height:1.25;'>Wired connection.<br>WiFi speeds may vary.</div></div>");
+amo.registerAttribute("frameText33","TEXT","<div style='top: 93px;left: 20px;line-height: 1.6;font-size: 18px;'><div><span style='color:#0084d6;padding-right:4px;'>+</span>Voice Activated Remote</div></div></div>");
 amo.registerAttribute("frameText41","TEXT","<div style='top: 31px;left: 19px;line-height: 1.6;font-size: 16px;'><div style='color: #0084d6;font-size: 58px;'><sup style='font-size: 46%;vertical-align: 53%;margin-right: 0px;'>$</sup>100</div></div>");
 amo.registerAttribute("frameText42","TEXT","<div style='top: 106px;left: 20px;line-height: 1;font-size: 20px;'>Amazon.com<br>Gift Card</div>");
 amo.registerAttribute("frameText43","TEXT","<div class='AlticeRegular' style='top: 183px;left: 19px;line-height: 1.1;letter-spacing: -0.25px;font-size:9.5px;'>Restrictions apply, see<br>amazon.com/gc-legal</div>");
@@ -226,7 +226,7 @@ amo.registerAttribute("frameText53","TEXT","<div style='top:153px;left:20px;line
         });
         ad.layers.introText1.querySelector('span').innerHTML = introText1;
         ad.layers.introText2.querySelector('span').innerHTML = introText2;
-        
+
         gsap.set('.frameImage', {x:'100%'});
         gsap.set('.frameText, #priceLabel', {x:'-100%'});
         var priceFrameAnimation = function(frame){
@@ -251,17 +251,17 @@ amo.registerAttribute("frameText53","TEXT","<div style='top:153px;left:20px;line
         }
         var animateFrame5 = function(flag){
           var frameId = 5;
-          gsap.set('#frameBackground', {autoAlpha:0});
+          gsap.set('#frameBackground', {display: 'none'});
           gsap.timeline({defaults:{ease: Power2.easeOut, duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: priceFrameAnimation, onCompleteParams:[5]})
           // .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', {delay: 2.2, opacity:0});
         }
         var animateFrame4 = function(flag){
           var frameId = 4;
-           gsap.to('#frameBackground', {duration:.3, autoAlpha:1});
+          gsap.set('#frameBackground', {display: 'block'});
           gsap.timeline({defaults:{ease: Power2.easeOut, duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[4]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"], #frameBackground', (flag==true?{}:{delay: 2.2, autoAlpha:0, onComplete: animateFrame5}));
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.2, autoAlpha:0, onComplete: animateFrame5}));
         }
         var animateFrame3 = function(flag){
           var frameId = 3;
