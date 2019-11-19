@@ -277,7 +277,8 @@ amo.registerAttribute("frameText43","TEXT","<div style='top:54px;left:320px;line
           .to('#frame1', (flag==true?{}:{delay:1.2, duration:0.3, ease: Power2.easeOut, autoAlpha:0, onComplete: animateFrame2}));
         }
 
-        gsap.delayedCall(.8, animateFrame1);
+        if('frame1' in ad.layers) ad.layers.frame1.remove();
+                    gsap.delayedCall(1.2, animateFrame4, [true]);
       });
     }, 2000);
   </script>
