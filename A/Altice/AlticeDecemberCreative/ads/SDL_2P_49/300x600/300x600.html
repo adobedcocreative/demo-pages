@@ -288,10 +288,10 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 230px;left: 21px;
         }
         var animateFrame1 = function(flag){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#introImage1, #introText1', {duration:1.2, display:'none'})
+          .to('#introImage1, #introText1', {duration:1.8, display:'none'})
           .to('#introImage2', {duration:1, display:'none'})
           .to('#introLogoImage img', {duration:0, attr:{src: adData.introLogoImage}})
-          .to('#frame1', (flag==true?{}:{delay:1.2, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          .to('#frame1', (flag==true?{}:{delay:0.5, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
         gsap.delayedCall(.8, animateFrame1);
       });
