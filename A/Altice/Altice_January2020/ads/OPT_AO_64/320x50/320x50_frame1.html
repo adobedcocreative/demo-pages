@@ -237,10 +237,9 @@ amo.registerAttribute("frameImage1", "IMAGE", "320x50_OPT_HOL_ACQ_iStart_TV&Int_
         }
         var animateFrame1 = function(flag){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#introLogoImage img', {duration:0, attr:{src: adData.introLogoImage}})
-          .to('#introImage1', {opacity:1, duration:0.7})
-          .to('#introImage2', {opacity:1, duration:0.7})
-          .to('#frame1', (flag==true?{}:{delay:0.5, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          .to('#introImage1', {delay: 0.7, opacity:1, duration:0.5})
+          .to('#introImage2', {opacity:1, duration:0.5})
+          .to('#frame1', (flag==true?{}:{delay:1, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
         gsap.delayedCall(.8, animateFrame1, [true]);
       });

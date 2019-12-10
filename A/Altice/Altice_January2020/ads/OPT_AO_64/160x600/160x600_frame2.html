@@ -178,7 +178,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 210px;left: 16px;
           font-weight: bold;
           color:#292562;">
       </div>
-      <div id="introLogoImage" class="asset adSizeContainer" data-image="logoImage"></div>
+      <div id="introLogoImage" class="asset adSizeContainer" data-image="introLogoImage"></div>
       <div id="introCta" class="text AlticeBold"
         data-text="ctaText"
         style="top:551px;
@@ -287,10 +287,9 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 210px;left: 16px;
         }
         var animateFrame1 = function(flag){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#introLogoImage img', {duration:0, attr:{src: adData.introLogoImage}})
-          .to('#introImage1', {opacity:1, duration:0.7})
-          .to('#introImage2', {opacity:1, duration:0.7})
-          .to('#frame1', (flag==true?{}:{delay:0.5, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          .to('#introImage1', {delay: 0.7, opacity:1, duration:0.5})
+          .to('#introImage2', {opacity:1, duration:0.5})
+          .to('#frame1', (flag==true?{}:{delay:1, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
         if('frame1' in ad.layers) ad.layers.frame1.remove();
                     gsap.delayedCall(1.2, animateFrame2, [true]);

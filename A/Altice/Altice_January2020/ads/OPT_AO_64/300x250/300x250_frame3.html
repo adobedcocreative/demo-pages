@@ -172,7 +172,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top:148px;left:20px;li
           font-weight: bold;
           color:#292562;">
       </div>
-      <div id="introLogoImage" class="asset adSizeContainer" data-image="logoImage"></div>
+      <div id="introLogoImage" class="asset adSizeContainer" data-image="introLogoImage"></div>
       <div id="introCta" class="text AlticeBold"
         data-text="ctaText"
         style="top:207px;
@@ -208,8 +208,8 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top:148px;left:20px;li
           introLogoImage: 'images/300x250_Logo_Optimum_White.png',
           frameBackground: '1x1.png',
           // priceLabel: '300x250_OPT_AugPFL_ACQ_AO_Amz_64PFL_NonSub_NY_Img_Frame05.png',
-          introImage1: 'frame1.png',
-          introImage2: 'frame2.png',
+          introImage1: '300x250_OPT_JAN_ACQ_AO_Amz_64Yr2_NonSub_NonCP_Img_IntroText_BEST_Frame01.png',
+          introImage2: '300x250_OPT_JAN_ACQ_AO_Amz_64Yr2_NonSub_NonCP_Img_IntroText_DEALYET_Frame01.png',
           introImage3: '1x1.png',
           // starImage: 'images/star.svg',
           ctaBtn: '#0084d6',
@@ -281,10 +281,9 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top:148px;left:20px;li
         }
         var animateFrame1 = function(flag){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#introLogoImage img', {duration:0, attr:{src: adData.introLogoImage}})
-          .to('#introImage1', {opacity:1, duration:0.7})
-          .to('#introImage2', {opacity:1, duration:0.7})
-          .to('#frame1', (flag==true?{}:{delay:0.5, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          .to('#introImage1', {delay: 0.7, opacity:1, duration:0.5})
+          .to('#introImage2', {opacity:1, duration:0.5})
+          .to('#frame1', (flag==true?{}:{delay:1, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
         if('frame1' in ad.layers) ad.layers.frame1.remove();
                     gsap.delayedCall(1.2, animateFrame3, [true]);
