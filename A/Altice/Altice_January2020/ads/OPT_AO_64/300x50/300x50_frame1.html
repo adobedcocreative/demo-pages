@@ -68,6 +68,7 @@
   <!-- Start of overrode asset attributes values -->
 <script type="text/javascript">
 amo.registerClick("clickUrl","http://www.altice.com");
+amo.registerAttribute("frameVideo1", "IMAGE", "OutlinedHZT_300x50.mp4");
 amo.registerAttribute("ctaText","TEXT","Learn more");
 amo.registerAttribute("frameImage2","IMAGE","1x1.png");
 amo.registerAttribute("frameImage3","IMAGE","1x1.png");
@@ -115,7 +116,7 @@ amo.registerAttribute("frameImage1", "IMAGE", "1x1.png");
     <div id="cta" class="text AlticeBold"
       data-text="ctaText"
       style="top:33px;
-        right:35px;
+        right:41px;
         width:40px;
         height:12px;
         font-size:6px;
@@ -128,26 +129,13 @@ amo.registerAttribute("frameImage1", "IMAGE", "1x1.png");
       background-color:#000;
       opacity:1;">
       <!-- <div id="ref" class="asset adSizeContainer" data-image="ref"></div> -->
-      <div id="frameImage1" class="asset adSizeContainer" data-image="frameImage1"></div>
-      <div id="introImage2" class="asset adSizeContainer" data-image="introImage2" style="opacity: 0;"></div>
-      <div id="introImage1" class="asset adSizeContainer" data-image="introImage1" style="opacity: 0;"></div>
-      <div id="frameText1" class="text-left AlticeBold"
-        data-text="frameText1"
-        style="top: 5px;
-          left: 35px;
-          width: 170px;
-          height: 40px;
-          font-size: 17px;
-          line-height: 1;
-          letter-spacing: -0.3px;
-          font-weight: bold;
-          color: #292562;">
-      </div>
+      <div id="frameVideo1" style="top:0px;left:0px;width:inherit;height:inherit;"><video muted playsinline autoplay style="width:100%;"></video></div>
+      <div id="frameText1" class="frameText">!{frameText1}</div>
       <div id="introLogoImage" class="asset adSizeContainer" data-image="introLogoImage"></div>
       <div id="introCta" class="text AlticeBold"
         data-text="ctaText"
         style="top:33px;
-          right:35px;
+          right:41px;
           width:40px;
           height:12px;
           font-size:6px;
@@ -180,8 +168,6 @@ amo.registerAttribute("frameImage1", "IMAGE", "1x1.png");
           // starImage: 'images/star.svg',
           ctaBtn: '#0084d6',
           ctaBtnHover: '#005990',
-          introImage1: '300x50_OPT_JAN_ACQ_AO_Amz_64Yr2_NonSub_NonCP_Img_IntroText_BEST_Frame01.png',
-          introImage2: '300x50_OPT_JAN_ACQ_AO_Amz_64Yr2_NonSub_NonCP_Img_IntroText_DEALYET_Frame01.png',
           // ref: 'ref1.png',
         },
         beforeLoad: function(data){
@@ -195,10 +181,11 @@ amo.registerAttribute("frameImage1", "IMAGE", "1x1.png");
         ad.root.addEventListener("click", function(e) {
           if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
         });
+        setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; },800);
+
         gsap.set('.frameImage', {x:'-100%'});
         gsap.set('.frameText', {y:'100%'});
         gsap.set('div[id^="frameText"][id$="1"], #priceLabel', {x:'-100%',y:0});
-        gsap.set('#frameText1', {x:0,y:0});
         var priceFrameAnimation = function(frame){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frame, {x:0,y:0})
@@ -242,9 +229,7 @@ amo.registerAttribute("frameImage1", "IMAGE", "1x1.png");
         }
         var animateFrame1 = function(flag){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#introImage1', {delay: 0.7, opacity:1, duration:0.5})
-          .to('#introImage2', {opacity:1, duration:0.5})
-          .to('#frame1', (flag==true?{}:{delay:1, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          .to('#frame1', (flag==true?{}:{delay:5, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
         gsap.delayedCall(.8, animateFrame1, [true]);
       });

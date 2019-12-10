@@ -77,12 +77,13 @@
   <!-- Start of overrode asset attributes values -->
 <script type="text/javascript">
 amo.registerClick("clickUrl","http://www.altice.com");
+amo.registerAttribute("frameVideo1", "IMAGE", "OutlinedHZT_300x600.mp4");
 amo.registerAttribute("ctaText","TEXT","Learn more");
 amo.registerAttribute("frameImage2","IMAGE","300x600_OPT_JAN_ACQ_AO_Amz_64Yr2_NonSub_NonCP_Img_Frame02.png");
 amo.registerAttribute("frameImage3","IMAGE","1x1.png");
 amo.registerAttribute("frameImage4","IMAGE","300x600_OPT_JAN_ACQ_AO_Amz_64Yr2_NonSub_NonCP_Img_AmzCard100_Frame04.png");
 amo.registerAttribute("frameImage5","IMAGE","300x600_OPT_JAN_ACQ_AO_Amz_64Yr2_NonSub_NonCP_Img_Frame05.png");
-amo.registerAttribute("frameText1","TEXT","&nbsp;|&nbsp;");
+amo.registerAttribute("frameText1","TEXT","&nbsp;");
 amo.registerAttribute("frameText21", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText22", "TEXT", "<div style='top: 69px;left: 21px;line-height:1.2;'><div style='font-size: 23px;letter-spacing: 0.1px;'>Altice One + Internet</div><div style='color: #0084d6;font-size: 80px;margin-top: -7px;margin-left: -4px;letter-spacing: -4.5px;'><sup style='font-size:60%;vertical-align: 46%;'>$</sup>64<sup style='font-size: 60%;vertical-align: 46%;letter-spacing: -2px;'>99</sup></div></div>");
 amo.registerAttribute("frameText23", "TEXT", "<div style='top: 165px;left: 20px;font-size: 20px;letter-spacing:-0.1px;'>mo./2 yrs.<div class='AlticeRegular' style='font-size: 12px;letter-spacing: -0.2px;'>plus taxes, fees &amp; charges</div></div>");
@@ -144,7 +145,6 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 230px;left: 21px;
       transition:opacity ease-out 0.3s, transform ease-out 0.3s;
       background-color:#000;
       opacity:1;">
-      <div id="introImage3" class="asset adSizeContainer" data-image="introImage3"></div>
       <!-- <div id="ref" class="asset"
         data-image="ref"
         style="top:0px;
@@ -152,34 +152,9 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 230px;left: 21px;
           width:inherit;
           height:inherit;">
       </div> -->
-      <div id="introText2" class="text AlticeBold"
-        data-text="introText2"
-        data-style="text-align:center;"
-        style="top: 138px;
-          left: 20px;
-          width: 260px;
-          height: 200px;
-          font-size: 43px;
-          line-height: 1.2;
-          letter-spacing: -0.3px;
-          font-weight: bold;
-          color:#fff;">
-      </div>
-      <div id="introImage2" class="asset adSizeContainer" data-image="introImage2" style="opacity: 0;"></div>
-      <div id="introImage1" class="asset adSizeContainer" data-image="introImage1" style="opacity: 0;"></div>
-      <div id="introText1" class="text AlticeBold"
-        data-text="introText1"
-        data-style="text-align:center;"
-        style="top: 138px;
-          left: 20px;
-          width: 260px;
-          height: 200px;
-          font-size: 43px;
-          line-height: 1.2;
-          letter-spacing: -0.3px;
-          font-weight: bold;
-          color:#292562;">
-      </div>
+      
+      <div id="frameVideo1" style="top:0px;left:0px;width:inherit;height:inherit;"><video muted playsinline autoplay style="width:100%;"></video></div>
+      <div id="frameText1" class="frameText">!{frameText1}</div>
       <div id="introLogoImage" class="asset adSizeContainer" data-image="introLogoImage"></div>
       <div id="introCta" class="text AlticeBold"
         data-text="ctaText"
@@ -198,7 +173,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 230px;left: 21px;
     <div class="AlticeBold" style="color:transparent;">AlticeBold</div>
   </div>
   <script type="text/javascript">
-    var introText1 = '', introText2 = '';
+    
     var ad = new Ad({
       root: document.querySelector('#ad'),
       width: 300,
@@ -215,9 +190,6 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 230px;left: 21px;
           introLogoImage: 'images/300x600_Logo_Optimum_White.png',
           // priceLabel: '300x600_OPT_AugPFL_ACQ_AO_Amz_64PFL_NonSub_NY_Img_Frame05.png',
           frameBackground: '1x1.png',
-          introImage1: '300x600_OPT_JAN_ACQ_AO_Amz_64Yr2_NonSub_NonCP_Img_IntroText_BEST_Frame01.png',
-          introImage2: '300x600_OPT_JAN_ACQ_AO_Amz_64Yr2_NonSub_NonCP_Img_IntroText_DEALYET_Frame01.png',
-          introImage3: '1x1.png',
           // starImage: 'images/star.svg',
           ctaBtn: '#0084d6',
           ctaBtnHover: '#005990',
@@ -225,8 +197,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 230px;left: 21px;
         },
         beforeLoad: function(data){
           data.map(function(content){
-            introText2 = content.frameText1.split('|')[1];
-            introText1 = content.frameText1.split('|')[0];
+            
           });
           return data;
         }
@@ -235,8 +206,8 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 230px;left: 21px;
         ad.root.addEventListener("click", function(e) {
           if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
         });
-        ad.layers.introText1.querySelector('span').innerHTML = introText1;
-        ad.layers.introText2.querySelector('span').innerHTML = introText2;
+        setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; },800);
+
         textUpdate();
         gsap.set('.frameImage', {x:'100%'});
         gsap.set('.frameText, #priceLabel', {x:'-100%'});
@@ -288,9 +259,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 230px;left: 21px;
         }
         var animateFrame1 = function(flag){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#introImage1', {delay: 0.7, opacity:1, duration:0.5})
-          .to('#introImage2', {opacity:1, duration:0.5})
-          .to('#frame1', (flag==true?{}:{delay:1, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          .to('#frame1', (flag==true?{}:{delay:5, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
         if('frame1' in ad.layers) ad.layers.frame1.remove();
                     gsap.delayedCall(1.2, animateFrame2, [true]);
