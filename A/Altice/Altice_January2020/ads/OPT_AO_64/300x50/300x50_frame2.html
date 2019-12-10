@@ -74,18 +74,15 @@ amo.registerAttribute("frameImage3","IMAGE","1x1.png");
 amo.registerAttribute("frameImage4","IMAGE","1x1.png");
 amo.registerAttribute("frameImage5","IMAGE","1x1.png");
 amo.registerAttribute("frameText1","TEXT","Get the gift that<br>keeps on giving");
-amo.registerAttribute("frameText21", "TEXT", "<div style='top: 2px;left: 12px;font-size: 13.2px;'>TV + Fast Internet</div>");
-amo.registerAttribute("frameText22", "TEXT", "<div style='top: 20px;left: 12px;font-size:14px;letter-spacing: -0.2px;line-height: 1;color:#0084d6;'>$54.99 mo./3 years</div>");
-amo.registerAttribute("frameText23", "TEXT", "<div style='top: 33px;left: 12px;font-size: 10px;letter-spacing: -0.1px;' class='AlticeRegular'>plus taxes, fees & charges</div>");
-amo.registerAttribute("frameText31","TEXT","<div style='top: 6px;left: 12px;line-height: 1.6;font-size: 14px;'><div><span style='color:#0084d6;padding-right:3px;'>+</span>Up to <font style='color:#0084d6;'>200 Mbps Internet</font></div></div>");
-amo.registerAttribute("frameText32","TEXT","<div style='top: 24px;left: 12px;line-height: 1.6;font-size: 14px;'><div><span style='color:#0084d6;padding-right:3px;'>+</span>Over 220 Channels</div></div>");
+amo.registerAttribute("frameText21","TEXT","<div style='top: 6px;left: 12px;line-height: 1.6;font-size: 14px;'><div><span style='color:#0084d6;padding-right:3px;'>+</span>Up to <font style='color:#0084d6;'>200 Mbps Internet</font></div></div>");
+amo.registerAttribute("frameText22","TEXT","<div style='top: 24px;left: 12px;line-height: 1.6;font-size: 14px;'><div><span style='color:#0084d6;padding-right:3px;'>+</span>Over 220 Channels</div></div>");
+amo.registerAttribute("frameText23","TEXT","&nbsp;");
+amo.registerAttribute("frameText31","TEXT","<div style='top: 5px;left: 12px;font-size: 15px;letter-spacing: -0.2px;'><font style='color: #0084d6;'>$100</font> Amazon.com Gift Card.</div>&nbsp;");
+amo.registerAttribute("frameText32","TEXT","<div style='top: 23px;left: 12px;font-size: 15px;letter-spacing: -0.2px;'><font class='AlticeRegular' style='font-size: 9.3px;'>Restrictions apply.</font></div>");
 amo.registerAttribute("frameText33","TEXT","&nbsp;");
-amo.registerAttribute("frameText41","TEXT","<div style='top: 5px;left: 12px;font-size: 15px;letter-spacing: -0.2px;'><div>Plus, get a <font style='color: #0084d6;'>$100</font> Amazon.com</div></div>&nbsp;");
-amo.registerAttribute("frameText42","TEXT","<div style='top: 23px;left: 12px;font-size: 15px;letter-spacing: -0.2px;'><div>Gift Card. <font class='AlticeRegular' style='font-size: 9.3px;margin-left: 1px;'>Restrictions apply.</font></div></div>");
-amo.registerAttribute("frameText43","TEXT","&nbsp;");
-amo.registerAttribute("frameText51", "TEXT", "<div style='top: 2px;left: 12px;font-size: 13.2px;'>TV + Fast Internet</div>");
-amo.registerAttribute("frameText52", "TEXT", "<div style='top: 20px;left: 12px;font-size:14px;letter-spacing: -0.2px;line-height: 1;color:#0084d6;'>$54.99 mo./3 years</div>");
-amo.registerAttribute("frameText53", "TEXT", "<div style='top: 33px;left: 12px;font-size: 10px;letter-spacing: -0.1px;' class='AlticeRegular'>plus taxes, fees & charges</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div style='top: 2px;left: 12px;font-size: 13.2px;'>Altice One + Internet</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div style='top: 20px;left: 12px;font-size:14px;letter-spacing: -0.2px;line-height: 1;color:#0084d6;'>$64.99 mo./2 yrs.</div>");
+amo.registerAttribute("frameText43", "TEXT", "<div style='top: 33px;left: 12px;font-size: 10px;letter-spacing: -0.1px;' class='AlticeRegular'>plus taxes, fees & charges</div>");
 amo.registerAttribute("frameImage1", "IMAGE", "300x50_OPT_HOL_ACQ_iStart_TV&Int_49Yr1_NonSub_NY_WrappingPaper_Full_Img_Frame01.png");
 </script>
 <!-- End of overrode asset attributes values -->
@@ -115,10 +112,6 @@ amo.registerAttribute("frameImage1", "IMAGE", "300x50_OPT_HOL_ACQ_iStart_TV&Int_
     <div id="frameText41" class="frameText">!{frameText41}</div>
     <div id="frameText42" class="frameText">!{frameText42}</div>
     <div id="frameText43" class="frameText">!{frameText43}</div>
-    <div id="frameImage5" class="asset frameImage" data-image="frameImage5"></div>
-    <div id="frameText51" class="frameText">!{frameText51}</div>
-    <div id="frameText52" class="frameText">!{frameText52}</div>
-    <div id="frameText53" class="frameText">!{frameText53}</div>
     <div id="cta" class="text AlticeBold"
       data-text="ctaText"
       style="top:33px;
@@ -132,7 +125,7 @@ amo.registerAttribute("frameImage1", "IMAGE", "300x50_OPT_HOL_ACQ_iStart_TV&Int_
       style="transform-origin:bottom center;
       -webkit-transition:opacity ease-out 0.3s, transform ease-out 0.3s;
       transition:opacity ease-out 0.3s, transform ease-out 0.3s;
-      background-color:#e2e3e4;
+      background-color:#000;
       opacity:1;">
       <!-- <div id="ref" class="asset adSizeContainer" data-image="ref"></div> -->
       <div id="frameImage1" class="asset adSizeContainer" data-image="frameImage1"></div>
@@ -224,17 +217,12 @@ amo.registerAttribute("frameImage1", "IMAGE", "300x50_OPT_HOL_ACQ_iStart_TV&Int_
           .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
           .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
         }
-        var animateFrame5 = function(flag){
-          var frameId = 5;
-          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: priceFrameAnimation, onCompleteParams:[5]})
-          // .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', {delay: 2.2, opacity:0});
-        }
+        
         var animateFrame4 = function(flag){
           var frameId = 4;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[4]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.2, opacity:0, onComplete: animateFrame5}));
+          // .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.2, opacity:0, onComplete: animateFrame5}));
         }
         var animateFrame3 = function(flag){
           var frameId = 3;
@@ -250,7 +238,10 @@ amo.registerAttribute("frameImage1", "IMAGE", "300x50_OPT_HOL_ACQ_iStart_TV&Int_
         }
         var animateFrame1 = function(flag){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frame1', (flag==true?{}:{delay:2, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          .to('#introLogoImage img', {duration:0, attr:{src: adData.introLogoImage}})
+          .to('#introImage1', {opacity:1, duration:0.7})
+          .to('#introImage2', {opacity:1, duration:0.7})
+          .to('#frame1', (flag==true?{}:{delay:0.5, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
         if('frame1' in ad.layers) ad.layers.frame1.remove();
                     gsap.delayedCall(1.2, animateFrame2, [true]);
