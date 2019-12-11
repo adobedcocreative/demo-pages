@@ -77,7 +77,7 @@
   <!-- Start of overrode asset attributes values -->
 <script type="text/javascript">
 amo.registerClick("clickUrl","http://www.altice.com");
-amo.registerAttribute("frameVideo1", "IMAGE", "OutlinedHZT_160x600.mp4");
+amo.registerAttribute("frameVideo1", "IMAGE", "BDY_300x200.mp4");
 amo.registerAttribute("ctaText","TEXT","Learn more");
 amo.registerAttribute("frameImage2","IMAGE","160x600_OPT_JAN_ACQ_AO_Amz_64Yr2_NonSub_NonCP_Img_Frame02.png");
 amo.registerAttribute("frameImage3","IMAGE","1x1.png");
@@ -145,15 +145,8 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 210px;left: 16px;
       transition:opacity ease-out 0.3s, transform ease-out 0.3s;
       background-color:#000;
       opacity:1;">
-      <!-- <div id="ref" class="asset"
-        data-image="ref"
-        style="top:0px;
-          left:0px;
-          width:inherit;
-          height:inherit;">
-      </div> -->
-      
-      <div id="frameVideo1" style="top:0px;left:0px;width:inherit;height:inherit;"><video muted playsinline autoplay style="width:100%;"></video></div>
+      <!-- <div id="ref" class="asset adSizeContainer"data-image="ref"></div> -->
+      <div id="frameVideo1" style="top:194px;left:11px;width:inherit;height:inherit;"><video muted playsinline autoplay style="width:87%;"></video></div>
       <div id="frameText1" class="frameText">!{frameText1}</div>
       <div id="introLogoImage" class="asset adSizeContainer" data-image="introLogoImage"></div>
       <div id="introCta" class="text AlticeBold"
@@ -193,7 +186,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 210px;left: 16px;
           // starImage: 'images/star.svg',
           ctaBtn: '#0084d6',
           ctaBtnHover: '#005990',
-          // ref: 'ref2.png',
+          // ref: 'ref.png',
         },
         beforeLoad: function(data){
           data.map(function(content){
@@ -260,7 +253,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 210px;left: 16px;
         }
         var animateFrame1 = function(flag){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frame1', (flag==true?{}:{delay:5, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          .to('#frame1', (flag==true?{}:{delay:3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
         if('frame1' in ad.layers) ad.layers.frame1.remove();
                     gsap.delayedCall(1.2, animateFrame5, [true]);
