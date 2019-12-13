@@ -204,7 +204,7 @@
         textUpdate();
         gsap.set('.frameImage', {x:'100%'});
         gsap.set('.frameText', {x:'-100%'});
-        ////gsap.set('#priceLabel', {y:'-100%'});
+        gsap.set('#priceLabel', {y:'-100%'});
         var priceFrameAnimation = function(frame){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0})
