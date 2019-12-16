@@ -74,7 +74,7 @@
       #introCta { background: !{ctaBtn}; }
       #introCta:hover { background-color: !{ctaBtnHover}; }
     </style>
-<!-- Start of overrode asset attributes values -->
+  <!-- Start of overrode asset attributes values -->
 <script type="text/javascript">
 amo.registerClick("clickUrl","https://www.altice.com");
 amo.registerAttribute("frameVideo1","TEXT","https://ct.tubemogul.com/web/altice/2020-01/BDY_300x200.mp4");
@@ -204,13 +204,13 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 230px;left: 16px;
         textUpdate();
         gsap.set('.frameImage', {x:'100%'});
         gsap.set('.frameText', {x:'-100%'});
-        gsap.set('#priceLabel', {y:'-100%'});
+        //gsap.set('#priceLabel', {y:'-100%'});
         var priceFrameAnimation = function(frame){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0})
           .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
           .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0})
-          .to('#priceLabel', {delay:-0.2, x:0,y:0});
+          //.to('#priceLabel', {delay:-0.2, x:0,y:0});
         }
         var bulletFrameAnimation = function(frame){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
