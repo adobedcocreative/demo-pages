@@ -52,19 +52,19 @@ files.forEach(function(file){
                   frameCount++;
                 }
                 var frameCount = 1;
-                for(var i=2; i<=6; i++) {
+                for(var i=1; i<=6; i++) {
                   if(data.indexOf('amo.registerAttribute("frameText' + i + '1"') != -1) {
                     frameCount++
                   }
                 }
-                for(var i=2; i<=frameCount; i++) {
+                for(var i=1; i<=frameCount; i++) {
                   if(data.indexOf('amo.registerAttribute("frameText' + i + '1"') != -1) {
                     // console.log('frame' + i + ' exist');
                     obj['frame'+i] = creativeFolder + creative.split('.').join('_frame'+i+'.');
                     var htmlContent = data;
                     htmlContent = htmlContent.replace('gsap.delayedCall(.8, animateFrame1);',
                     `if('frame1' in ad.layers) ad.layers.frame1.remove();
-                    gsap.delayedCall(1.2, animateFrame${i}, [true]);`);
+                    gsap.delayedCall(1.2, animateFrame${i+1}, [true]);`);
                     fs.writeFile(obj['frame'+i], htmlContent, 'utf8',  function (err) {
                       if (err) throw err;
                     });
