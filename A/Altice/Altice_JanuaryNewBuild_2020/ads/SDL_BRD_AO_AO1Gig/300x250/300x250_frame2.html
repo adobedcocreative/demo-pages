@@ -195,7 +195,7 @@ amo.registerAttribute("frameText33", "TEXT", "<div class='AlticeBold' style='top
 
         textUpdate();
         gsap.set('#frameImage2', {scale:1.5});
-        gsap.set('#frameImage3', {scale:1.5});
+        // gsap.set('#frameImage3', {scale:1.5});
         gsap.set('#frameImage4', {x:'100%'});
         // gsap.set('.frameImage', {x:'100%'});
         gsap.set('.frameText', {x:'-100%'});
@@ -225,7 +225,7 @@ amo.registerAttribute("frameText33", "TEXT", "<div class='AlticeBold' style='top
         var animateFrame2 = function(flag){
           var frameId = 2;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:1, scale:1, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
+          // .to('#frameImage'+frameId, {duration:1, scale:1, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.2, opacity:0, onComplete: animateFrame3}));
         }
