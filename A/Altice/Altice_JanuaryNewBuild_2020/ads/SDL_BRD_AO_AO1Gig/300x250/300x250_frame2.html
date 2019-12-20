@@ -89,7 +89,7 @@ amo.registerAttribute("frameText21","TEXT","<div style='top:26px;left:15px;line-
 amo.registerAttribute("frameText22","TEXT","<div style='top:47px;left:15px;line-height:1.6;font-size:18px;'>new home</div>");
 amo.registerAttribute("frameText23","TEXT","&nbsp;");
 amo.registerAttribute("frameText31", "TEXT", "<div style='top:30px;left:15px;line-height:1.6;font-size:18px;line-height:1;letter-spacing:-0.4px;'>Get our next<br>generation<br>technology.</div>");
-amo.registerAttribute("frameText32", "TEXT", "<div class='AlticeBold' style='top:84px;left:18px;line-height:1.6;font-size:18px;'>altice one +</div>");
+amo.registerAttribute("frameText32", "TEXT", "<div style='top:84px;left:18px;line-height:1.6;font-size:18px;'><span class='AlticeBold'>altice</span> one +</div>");
 amo.registerAttribute("frameText33", "TEXT", "<div class='AlticeBold' style='top:107px;left:18px;line-height:1.6;font-size:18px;letter-spacing:-0.4px;'>1 Gig Internet</div>");
 
 </script>
@@ -224,9 +224,8 @@ amo.registerAttribute("frameText33", "TEXT", "<div class='AlticeBold' style='top
         }
         var animateFrame2 = function(flag){
           var frameId = 2;
-          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          // .to('#frameImage'+frameId, {duration:1, scale:1, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
-          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
+          gsap.timeline({defaults:{ease: "power2.Out", duration:0.1}})
+          .to('#frameImage'+frameId, {delay:1, duration:1, opacity:1, scale:1, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.2, opacity:0, onComplete: animateFrame3}));
         }
         var animateFrame1 = function(flag){
