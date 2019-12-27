@@ -132,7 +132,7 @@
         };
         window.getBannerData = function(){ var obj = {}; for(var i in bannerData) { obj[i] = bannerData[i]; } return obj; }
       }
-      loadData();
+      window.onload = loadData;
     </script>
   </body>
 </html>
