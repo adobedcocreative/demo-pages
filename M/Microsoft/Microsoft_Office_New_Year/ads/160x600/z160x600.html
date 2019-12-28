@@ -31,13 +31,27 @@
         ];
 
         if(contentD && contentD.length) { contentD.forEach(function(data) { amo.registerContent(data); }); }
-        amo.registerVariation("layout", "WordResume");
-        amo.registerVariation("textField1", "['<#2f2f2f>Rock','20.2px',59,130,'28.5','350', 'left']^['<#2f2f2f>your','20.2px',24,130,'28.5','350', 'left']");
-        amo.registerVariation("textField2", "['<#2f2f2f>with','20.2px',60.5,130,'28.5','350', 'left']^['<#2f2f2f>AI','20.2px',28,130,'28.5','350', 'left']");
-        amo.registerVariation("textField3", "['<#2f2f2f>-powered','20.2px',47.5,130,'28.5','350', 'left']^['<#2f2f2f>in','20.2px',45,130,'28.5','350', 'left']");
-        amo.registerVariation("textField4", "['<#2f2f2f>Word','20.2px',66,130,'28.5','350', 'left']");
-        amo.registerVariation("textField5", "['<#2f2f2f>resume','20.2px',70,130,'28.5','350', 'left']^['<#2f2f2f>features','20.2px',43,130,'28.5','350', 'left']");
-        amo.registerVariation("textField6", "['<#2f2f2f>New Year, |New You','18.8px',17,77,'21.5','350', 'left']^['<#2f2f2f>Rock your resume |with AI-powered |features, plus 1 TB of |cloud storage','13px',17,139,'16','350', 'left']");
+        amo.registerVariation("layout", "ExcelBudgeting");
+        // amo.registerVariation("textField1", "['<#2f2f2f>Rock','20.2px',59,130,'28.5','350', 'left']^['<#2f2f2f>your','20.2px',24,130,'28.5','350', 'left']");
+        // amo.registerVariation("textField2", "['<#2f2f2f>with','20.2px',60.5,130,'28.5','350', 'left']^['<#2f2f2f>AI','20.2px',28,130,'28.5','350', 'left']");
+        // amo.registerVariation("textField3", "['<#2f2f2f>-powered','20.2px',47.5,130,'28.5','350', 'left']^['<#2f2f2f>in','20.2px',45,130,'28.5','350', 'left']");
+        // amo.registerVariation("textField4", "['<#2f2f2f>Word','20.2px',66,130,'28.5','350', 'left']");
+        // amo.registerVariation("textField5", "['<#2f2f2f>resume','20.2px',70,130,'28.5','350', 'left']^['<#2f2f2f>features','20.2px',43,130,'28.5','350', 'left']");
+        // amo.registerVariation("textField6", "['<#2f2f2f>New Year, |New You','18.8px',17,77,'21.5','350', 'left']^['<#2f2f2f>Rock your resume |with AI-powered |features, plus 1 TB of |cloud storage','13px',17,139,'16','350', 'left']");
+        /*
+        ['<#2f2f2f>Manage','19px',80,130,'50','350', 'center']^['<#2f2f2f>your','19px',42,130,'28.5','350', 'center']
+        ['<#2f2f2f>finances','19px',102,130,'28.5','350', 'center']^['<#2f2f2f>all-year','19px',50,130,'50','350', 'center']
+        ['<#2f2f2f>-round','19px',110,130,'28.5','350', 'center']^['<#2f2f2f>with','19px',80,130,'28.5','350', 'center']
+        ['<#2f2f2f>budget','19px',42,130,'28.5','350', 'center']^['<#2f2f2f>-tracking','19px',111,130,'28.5','350', 'center']
+        ['<#2f2f2f>templates','19px',80,130,'50','350', 'center']^['<#2f2f2f>in','19px',55,130,'28.5','350', 'center']
+        ['<#2f2f2f>Excel','19px',91,130,'28.5','350', 'center']^['<#2f2f2f>New Year, |New You','19px',17,75,'22','350', 'left']^['<#2f2f2f>Manage your budget |all-year-round with |Excel templates, |plus 1 TB of |cloud storage','13px',17,140,'16','350', 'left']
+        */
+        amo.registerVariation("textField1", "['<#2f2f2f>Manage^ your finances^all-year-round^with^budget-tracking^templates^in Excel','19px',150,130,'28.5','350', 'center']");
+        amo.registerVariation("textField2", "['<#2f2f2f>New Year, |New You','19px',17,75,'22','350', 'left']");
+        amo.registerVariation("textField3", "['<#2f2f2f>Manage your budget |all-year-round with |Excel templates, |plus 1 TB of |cloud storage','13px',17,140,'16','350', 'left']");
+        amo.registerVariation("textField4", "na");
+        amo.registerVariation("textField5", "na");
+        amo.registerVariation("textField6", "na");
         amo.registerVariation("ctaText", "TRY FOR FREE");
         // amo.registerVariation("ctaArrowVisibleFlag", "!{passthroughfield2}");
         amo.registerVariation("impressionTracker", "../../../../1x1.png?impressionTracker=" + Math.random());
