@@ -48,8 +48,8 @@ function init() {
 	loader.loadManifest(lib.properties.manifest);
 }
 function handleFileLoad(evt, comp) {
-	var images=comp.getImages();	
-	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+	var images=comp.getImages();
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }
 }
 function handleComplete(evt,comp) {
 	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
@@ -62,50 +62,50 @@ function handleComplete(evt,comp) {
 	}
 	exportRoot = new lib.O365_SMBSimplified_USA_728x90_BAN_Excel_English_NA_NA_ANI_NA_NA_1();
 	stage = new lib.Stage(canvas);
-	stage.addChild(exportRoot);	
+	stage.addChild(exportRoot);
 	//Registers the "tick" event listener.
 	fnStartAnimation = function() {
 		createjs.Ticker.setFPS(lib.properties.fps);
 		createjs.Ticker.addEventListener("tick", stage);
-	}	    
+	}
 	//Code to support hidpi screens and responsive scaling.
-	function makeResponsive(isResp, respDim, isScale, scaleType) {		
-		var lastW, lastH, lastS=1;		
-		window.addEventListener('resize', resizeCanvas);		
-		resizeCanvas();		
-		function resizeCanvas() {			
-			var w = lib.properties.width, h = lib.properties.height;			
-			var iw = window.innerWidth, ih=window.innerHeight;			
-			var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;			
-			if(isResp) {                
-				if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
-					sRatio = lastS;                
-				}				
-				else if(!isScale) {					
-					if(iw<w || ih<h)						
-						sRatio = Math.min(xRatio, yRatio);				
-				}				
-				else if(scaleType==1) {					
-					sRatio = Math.min(xRatio, yRatio);				
-				}				
-				else if(scaleType==2) {					
-					sRatio = Math.max(xRatio, yRatio);				
-				}			
-			}			
-			canvas.width = w*pRatio*sRatio;			
+	function makeResponsive(isResp, respDim, isScale, scaleType) {
+		var lastW, lastH, lastS=1;
+		window.addEventListener('resize', resizeCanvas);
+		resizeCanvas();
+		function resizeCanvas() {
+			var w = lib.properties.width, h = lib.properties.height;
+			var iw = window.innerWidth, ih=window.innerHeight;
+			var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;
+			if(isResp) {
+				if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {
+					sRatio = lastS;
+				}
+				else if(!isScale) {
+					if(iw<w || ih<h)
+						sRatio = Math.min(xRatio, yRatio);
+				}
+				else if(scaleType==1) {
+					sRatio = Math.min(xRatio, yRatio);
+				}
+				else if(scaleType==2) {
+					sRatio = Math.max(xRatio, yRatio);
+				}
+			}
+			canvas.width = w*pRatio*sRatio;
 			canvas.height = h*pRatio*sRatio;
-			canvas.style.width = dom_overlay_container.style.width = anim_container.style.width =  w*sRatio+'px';				
+			canvas.style.width = dom_overlay_container.style.width = anim_container.style.width =  w*sRatio+'px';
 			canvas.style.height = anim_container.style.height = dom_overlay_container.style.height = h*sRatio+'px';
 
-			stage.scaleX = pRatio*sRatio;			
-			stage.scaleY = pRatio*sRatio;			
-			lastW = iw; lastH = ih; lastS = sRatio;		
+			stage.scaleX = pRatio*sRatio;
+			stage.scaleY = pRatio*sRatio;
+			lastW = iw; lastH = ih; lastS = sRatio;
 		}
 	}
-	makeResponsive(false,'both',false,2);	
+	makeResponsive(false,'both',false,2);
 	AdobeAn.compositionLoaded(lib.properties.id);
 	fnStartAnimation();
-	
+
     if (!initReady) {
         startBanner()
     }
@@ -146,18 +146,35 @@ function handleComplete(evt,comp) {
         var iframe = window.frameElement;
 		var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
 		var bannerData = parentWindow.getBannerData();
-		bannerData.headline1 = eval(bannerData.textField1.split('^')[0]);
-		bannerData.headline2 = eval(bannerData.textField1.split('^')[1]);
-		bannerData.headline3 = eval(bannerData.textField2.split('^')[0]);
-		bannerData.headline4 = eval(bannerData.textField2.split('^')[1]);
-		bannerData.headline5 = eval(bannerData.textField3.split('^')[0]);
-		bannerData.headline6 = eval(bannerData.textField3.split('^')[1]);
-		bannerData.headline7 = eval(bannerData.textField4.split('^')[0]);
-		bannerData.headline8 = eval(bannerData.textField4.split('^')[1]);
-		bannerData.headline9 = eval(bannerData.textField5.split('^')[0]);
-		bannerData.headline10 = eval(bannerData.textField5.split('^')[1]);
-		bannerData.headline11 = eval(bannerData.textField6.split('^')[0]);
-		bannerData.headline12 = eval(bannerData.textField6.split('^')[1]);
+		// bannerData.headline1 = eval(bannerData.textField1.split('^')[0]);
+		// bannerData.headline2 = eval(bannerData.textField1.split('^')[1]);
+		// bannerData.headline3 = eval(bannerData.textField2.split('^')[0]);
+		// bannerData.headline4 = eval(bannerData.textField2.split('^')[1]);
+		// bannerData.headline5 = eval(bannerData.textField3.split('^')[0]);
+		// bannerData.headline6 = eval(bannerData.textField3.split('^')[1]);
+		// bannerData.headline7 = eval(bannerData.textField4.split('^')[0]);
+		// bannerData.headline8 = eval(bannerData.textField4.split('^')[1]);
+		// bannerData.headline9 = eval(bannerData.textField5.split('^')[0]);
+		// bannerData.headline10 = eval(bannerData.textField5.split('^')[1]);
+		// bannerData.headline11 = eval(bannerData.textField6.split('^')[0]);
+		// bannerData.headline12 = eval(bannerData.textField6.split('^')[1]);
+		var introText = eval(bannerData.textField1)[0];
+		var introColor = introText.match(/\<(.*?)\>/g)[0];
+		var introContent = introText.split(introColor)[1];
+		var introValues = introContent.split('^');
+		var getValue = function(index) { return eval(bannerData.textField1.split(introContent).join((typeof index != 'undefined' && index in introValues ? introValues[index] : ' '))); }
+		bannerData.headline1 = getValue(0);
+		bannerData.headline2 = getValue();
+		bannerData.headline3 = getValue();
+		bannerData.headline4 = getValue(1);
+		bannerData.headline5 = getValue();
+		bannerData.headline6 = getValue(2);
+		bannerData.headline7 = getValue();
+		bannerData.headline8 = getValue(3);
+		bannerData.headline9 = getValue();
+		bannerData.headline10 = getValue();;
+		bannerData.headline11 = eval(bannerData.textField2);
+		bannerData.headline12 = eval(bannerData.textField3);
 		bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,"12px",3,1,"50","300", "center"] : '';
 		animation_container.addEventListener("click", function(){
 			parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl);
@@ -180,11 +197,11 @@ function handleComplete(evt,comp) {
 		}
         exportRoot.initBanner(bannerData)
 		ctaAlignment('right')
-        exportRoot.runBanner()	
+        exportRoot.runBanner()
     })
 	initReady=true
 }
-	
+
 var loadFont = false
 	var loadBody = false
 	function loaded(type) {
@@ -192,7 +209,7 @@ var loadFont = false
 		if (type=='body') loadBody=true
 		if (loadFont && loadBody) init()
 	}
-	
+
 	(function() {
 		// Optimization for Repeat Views
 
@@ -234,33 +251,33 @@ var loadFont = false
 <script>
 var startBanner = function(){
 				var varInt
-								
-				var rHit = document.getElementById("rHit");
-				rHit.addEventListener("mouseover", rHitOver.bind(this));  
-				function rHitOver()  {  exportRoot.mainMC.replay_btn.gotoAndStop(1)	}  
 
-				rHit.addEventListener("mouseout", rHitOut.bind(this));  
-				function rHitOut()   {  exportRoot.mainMC.replay_btn.gotoAndStop(0)	}  
+				var rHit = document.getElementById("rHit");
+				rHit.addEventListener("mouseover", rHitOver.bind(this));
+				function rHitOver()  {  exportRoot.mainMC.replay_btn.gotoAndStop(1)	}
+
+				rHit.addEventListener("mouseout", rHitOut.bind(this));
+				function rHitOut()   {  exportRoot.mainMC.replay_btn.gotoAndStop(0)	}
 
 				var animation_container = document.getElementById("animation_container");
-				animation_container.addEventListener("mouseover", over.bind(this));  
+				animation_container.addEventListener("mouseover", over.bind(this));
 				function over() {
 				exportRoot.mainMC.cta.arrow.gotoAndStop(1);
 					if (exportRoot.shadowReplay == true){
 									 	exportRoot.mainMC.anim_1.finalman.shadow.gotoAndPlay("loop");
 									 	}
-				}  
+				}
 
-				animation_container.addEventListener("mouseout", out.bind(this));  
+				animation_container.addEventListener("mouseout", out.bind(this));
 				function out() {
 						exportRoot.mainMC.cta.arrow.gotoAndStop(0);
-				}  
-				// animation_container.addEventListener("click", exitHandler.bind(this));  
+				}
+				// animation_container.addEventListener("click", exitHandler.bind(this));
 				// function exitHandler() {
 				//   window.open(clickTag);
 				// }
 				rHit.addEventListener("click", replay.bind(this));
-				
+
 				function replay() {
 					if (exportRoot.isReplay == true){
 
@@ -279,14 +296,14 @@ var startBanner = function(){
 
                         // Restore the transform
                         context.restore(); //CLEARS THE SPECIFIC CANVAS COMPLETELY FOR NEW DRAWING
-                        
+
 						TweenMax.delayedCall(0.1,init)
 					}
 				}
-				
+
 
 
 		}
 </script>
-</body>	
+</body>
 </html>
