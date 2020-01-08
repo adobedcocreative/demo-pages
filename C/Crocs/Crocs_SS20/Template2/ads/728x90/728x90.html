@@ -22,10 +22,11 @@
     </style>
     <style media="screen" data-dynamic="style">
       #ad {
-        width: 300px;
-        height: 250px;
+        width: 728px;
+        height: 90px;
         font-family: SegoeUI, Arial, sans-serif;
         color: #fff;
+        background-color: #000;
       }
       .frame {
         position: absolute;
@@ -36,22 +37,25 @@
       }
       /* #cta { background-color: !{ctaBtnColor}; } */
       /* #cta:hover { background-color: !{ctaBtnHover}; } */
+      #cta:hover { opacity: 0.8; }
     </style>
   </head>
   <body>
     <div class="" id="ad">
       <div id="backgroundImage1" class="asset frame" data-image="backgroundImage1"></div>
       <div id="backgroundImage2" class="asset frame" data-image="backgroundImage2"></div>
-      <div class="" style="width:180px;height:inherit;overflow:hidden;">
-        <div class="" style="position:absolute;top:0px;left:0px;width:300px;height: inherit;">
-          <div id="headlineImage1" class="asset frame" data-image="headlineImage1"></div>
-          <div id="headlineImage2" class="asset frame" data-image="headlineImage2"></div>
-        </div>
-      </div>
-      <div id="headlineImage3" class="asset frame" data-image="headlineImage3"></div>
+      <div id="backgroundImage3" class="asset frame" data-image="backgroundImage3"></div>
+      <div id="headlineImage1" class="asset frame" data-image="headlineImage1"></div>
+      <div id="headlineImage2" class="asset frame" data-image="headlineImage2"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
-      <div id="cta" class="asset frame" data-image="ctaImage"></div>
+      <div id="cta" class="asset"
+        data-image="ctaImage"
+        style="top: 44px;
+          left: 621px;
+          width: 90px;
+          height: 30px;">
+      </div>
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
     <div id="loadFont" style="width:0;height:0;overflow:hidden;">
@@ -61,20 +65,20 @@
     <script type="text/javascript">
       var ad = new Ad({
         root: document.querySelector('#ad'),
-        width: 300,
-        height: 250,
+        width: 728,
+        height: 90,
         borderWidth: 1,
         borderColor: '#000'
       });
       setTimeout(function() {
         ad.contentSetup({
           cam: {
-            backgroundImage1: 'assets/300x250_SS20_Crocs_DCO_ClassicPillar-Clogs_PriyankaChopraJonas_Background.png',
-            backgroundImage2: 'assets/1x1.png',
-            headlineImage1: 'assets/300x250_SS20_Crocs_DCO_ClassicPillar-Clogs_PriyankaChopraJonas_Headline_Make_It_A_Classic1.png',
-            headlineImage2: 'assets/300x250_SS20_Crocs_DCO_ClassicPillar-Clogs_PriyankaChopraJonas_Headline_Make_It_A_Classic2.png',
-            headlineImage3: 'assets/300x250_SS20_Crocs_DCO_ClassicPillar-Clogs_PriyankaChopraJonas_Headline_Make_It_A_Classic3.png',
-            ctaImage: 'images/300x250_CTA_Icon.png',
+            backgroundImage1: 'assets/728x90_SS20_Crocs_DCO_LiteRidePillar-Clogs_SuzuHirose_Background_01.png',
+            backgroundImage2: 'assets/728x90_SS20_Crocs_DCO_LiteRidePillar-Clogs_SuzuHirose_Background_02.png',
+            backgroundImage3: 'assets/728x90_SS20_Crocs_DCO_LiteRidePillar-Clogs_SuzuHirose_Background_03.png',
+            headlineImage1: 'assets/728x90_SS20_Crocs_DCO_LiteRidePillar-Clogs_SuzuHirose_Headline_STYLE_AT_THE_SPEED_OF_LITE1.png',
+            headlineImage2: 'assets/728x90_SS20_Crocs_DCO_LiteRidePillar-Clogs_SuzuHirose_Headline_STYLE_AT_THE_SPEED_OF_LITE2.png',
+            ctaImage: 'images/CTA.png',
             clickURL: 'https://www.adobe.com/#Crocs',
             impressionTracker: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII='
           },
@@ -86,7 +90,7 @@
           staticData: {
             // ref: 'ref.png'
             ctaBtnColor: '#fff',
-            logoImage: 'images/300x250_Crocs_Logo.png',
+            logoImage: 'images/728x90_Crocs_Logo.png',
 
           },
           beforeLoad: function(data){
@@ -102,13 +106,12 @@
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });
           if(adData.impressionTracker.toLowerCase() != 'na'){ ad.loadAssets(adData.impressionTracker, function(assets){ }); }
-          var adWidth = 300;
-          gsap.timeline({defaults:{ease: Power1.easeOut, duration: 0.3}})
-          .from('#backgroundImage1', { scale: 1.14, duration: 8})
-          gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.7}})
-          .from('#headlineImage1', { x: -adWidth,delay:0.5})
-          .from('#headlineImage2', { x: adWidth}, '-=0.6')
-          .from('#headlineImage3', { autoAlpha: 0, delay:0.5})
+          var adWidth = 728, adHeight = 90;
+          gsap.timeline({defaults:{ease: Power1.easeOut, duration: 0.5}})
+          .from('#backgroundImage1', { x:-25,y:adHeight, delay:0.5 })
+          .from('#backgroundImage2,#logoImage,#cta', { x:26,y:-adHeight }, '-=0.5')
+          .from('#headlineImage1', { autoAlpha: 0, duration: 0.3, delay:0.3})
+          .from('#headlineImage2', { autoAlpha: 0, duration: 0.3, delay:1})
         });
       }, 2000);
     </script>
