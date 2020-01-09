@@ -111,7 +111,7 @@
           gsap.timeline({defaults:{ease: Power1.easeOut, duration: 0.5}})
           .from('#backgroundImage1, #logoImage, #cta', { x:'100%', y:'-50%', delay:0.5})
           .from('#headlineImage1', { autoAlpha: 0, duration: 0.3, delay:0.3, oncomplete:shine})
-          .from('#headlineImage2', { autoAlpha: 0, duration: 0.3, delay:1})
+          .from('#headlineImage2', { y:10, autoAlpha: 0, duration: 0.3, delay:1})
         });
       }, 2000);
     </script>
