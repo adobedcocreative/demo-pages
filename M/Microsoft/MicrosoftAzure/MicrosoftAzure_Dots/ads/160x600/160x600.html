@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ad</title>
+    <link rel="stylesheet" href="css/style.min.css">
+    <script type="text/javascript" src="https://ads.everesttech.net/ads/static/local/AMOLibrary.js"></script>
+    <script src="js/script.min.js" charset="utf-8"></script>
+    <style media="screen">
+      @font-face {
+          font-family: SegoeUI;
+          src: url('fonts/SegoeUI.woff') format("woff");
+      }
+      .segoeUI { font-family: SegoeUI; }
+    </style>
+    <!--
+      Available Classes:-
+        For Images :-
+          .asset        -Image Center Align(Image can shrink according to the container but will expand beyond its original size)
+          .asset-top    -Image Top Center Align(Image can shrink according to the container but will expand beyond its original size)
+          .asset-left
+
+    -->
+    <style media="screen">
+      #ad {
+        width: 160px;
+        height: 600px;
+        font-family: Arial,Helvetica,sans-serif;
+        background-color: #000;
+      }
+      #cta { background-color: #59e6fd; }
+      #cta:hover { background-color: #109ab1; }
+    </style>
+  </head>
+  <body>
+    <div class="" id="ad">
+      <!-- <div id="bg" class="asset"
+        data-image="bg"
+        style="top:0px;
+          left:0px;
+          width:inherit;
+          height:inherit;">
+      </div> -->
+      <!-- <div id="ref" class="asset"
+        data-image="ref"
+        style="top:0px;
+          left:0px;
+          width:inherit;
+          height:inherit;">
+      </div> -->
+      <div id="logoImage" class="asset"
+        data-image="logoImage"
+        style="top:35px;
+          left:22px;
+          width:85px;
+          height:auto">
+      </div>
+      <div id="dotImage" class="asset"
+        data-image="dotImage"
+        style="top:60px;
+          left:-12px;
+          width:180px;
+          height:80px;">
+      </div>
+      <div id="headline" dir="auto" class="text-top-left segoeUI"
+        data-text="headline"
+        style="top:137px;
+          left:16px;
+          width:128px;
+          height:380px;
+          font-size:22px;
+          line-height:1.2;
+          letter-spacing:0.1px;
+          color:#FFF;">
+      </div>
+      <!-- <div id="subHeadline" class="text-left segoeUI"
+        data-text="subHeadline"
+        style="top:361px;
+          left:22px;
+          width:125px;
+          height:160px;
+          font-size:22px;
+          line-height:1.2;
+          font-weight:bold;
+          color:#FFF;">
+      </div> -->
+      <div id="cta" dir="auto" class="text segoeUI"
+      data-style="text-align:center;padding:5px 10px 7px;"
+      data-text="ctaText"
+        style="top:537px;
+          left:10px;
+          width:140px;
+          min-height: 23px;
+          height:50px;
+          max-height: 50px;
+          font-size:13px;
+          letter-spacing:0.2px;
+          line-height:1.2;
+          color:#000;">
+      </div>
+
+      <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
+    </div>
+    <div id="loadFont" style="width:0;height:0;overflow:hidden;">
+      <div class="segoeUI" style="color:transparent;">segoeUI</div>
+    </div>
+    <script type="text/javascript">
+      var dotAnimationFlag = true;
+      var ad = new Ad({
+        root: document.querySelector('#ad'),
+        width: 160,
+        height: 600,
+        borderWidth: 1,
+        borderColor: '#000'
+      });
+      setTimeout(function() {
+        ad.contentSetup({
+          cam: {
+            headline: "Use your favorite Python environment and machine learning frameworks in <font style='color:#59e6fd;'>Azure</font>",
+            // subHeadline: "Anmeldung für Azure abschließen",
+            ctaText: 'Try Azure free',//"Your $200 credit awaits",
+            clickURL: 'https://www.adobe.com/#MS',
+            impressionTracker: 'images/1x1.png'
+          },
+          feed: [
+            {
+              name: 'uber',
+              discount_price: 100
+            }
+          ],
+          staticData: {
+            logoImage: 'images/logo.png',
+            dotImage: 'images/dot-animation.gif',
+            // ref:'ref.jpg',
+          },
+          beforeLoad: function(data){
+            var replaceMacro = function(text, data) {
+              var macros = text.match(/\!\{(.*?)\}/g);
+              if(macros) {
+                macros.forEach(function(macro){
+                  var macroText = macro.split('!{').join('').split('}').join('');
+                  for(var key in data) { if(key == macroText) { macroText = data[key]; } }
+                  text = text.split(macro).join(macroText);
+                });
+              }
+              return text;
+            }
+            data.map(function(content){
+              content.ctaText +='&nbsp;&nbsp;&nbsp;&#x276F;';
+            });
+            return data;
+          }
+        }, function(data){
+          var adData = data[0], adClickUrl = adData['clickUrl'];
+          ad.root.addEventListener("click", function(e) {
+            if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
+          });
+          var dotAnimation = function(callbackFunction) {
+            if(dotAnimationFlag) {
+              dotAnimationFlag = false;
+              var image = new Image();
+              var imageElement = ad.layers.dotImage.querySelector('img');
+              var imagePath = imageElement.src;
+              // if(imagePath.indexOf('?v')) { imagePath = imagePath.split('?v')[0]; }
+              image.onload = function(){
+                imageElement.src = this.src;
+                setTimeout(function() {
+                  dotAnimationFlag = true;
+                  if(callbackFunction && typeof callbackFunction == 'function') callbackFunction();
+                }, 8130);
+              }
+              image.src = imagePath //+ '?v=' + Math.random();
+            }
+          }
+          ad.root.addEventListener("mouseover", function(e) { dotAnimation(); });
+          dotAnimation(function(){dotAnimation();});
+          if(adData.impressionTracker.toLowerCase() != 'na'){
+            var impressionTracker = adData.impressionTracker;
+            var isn = 'data' in amo && 'isn' in amo.data ? amo.data.isn : '';
+            var trackingCode = 'data' in amo && 'data' in amo.data && 'atsParams' in amo.data.data && 'x2_tracking_code_5' in amo.data.data.atsParams ? amo.data.data.atsParams.x2_tracking_code_5 : '';
+            if(isn.length) { impressionTracker = impressionTracker.replace('(t_td_isn)', isn); }
+            if(trackingCode.length){ impressionTracker = impressionTracker.replace('$(t_qp_TC_5)', trackingCode); }
+            ad.loadAssets(impressionTracker, function(assets){ });
+          }
+          ad.layers.cta.style.webkitTransform = '';
+          ad.layers.cta.style.transform = '';
+          if(ad.layers.cta.querySelector('span').offsetHeight < 50) {
+            ad.layers.cta.style.height = ad.layers.cta.querySelector('span').offsetHeight + 'px';
+          }
+        });
+      }, 2000);
+    </script>
+  </body>
+</html>
