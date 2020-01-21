@@ -130,9 +130,9 @@
               headlineImage1: '../../assets/'+ data.MODEL + '/' + data.IMAGE_URL3,
               headlineImage2: '../../assets/'+ data.MODEL + '/' + data.IMAGE_URL4,
               headlineImage3: '../../assets/'+ data.MODEL + '/' + data.IMAGE_URL5,
-              title: data.TEXT_1,
-              styleProperties: data.TEXT_2,
-              ctaSelect: data.TEXT_3,
+              title: data.TEXT_1 + data.TEXT_2,
+              styleProperties: data.TEXT_3,
+              ctaSelect: data.TEXT_4,
               clickUrl: data.PRODUCT_URL,
               impressionTracker: 'na',
             }`,
@@ -176,7 +176,6 @@
           // htmlContent += modelData.data.map(function(data){ return '<div '+(productName == data.name ? 'class="selected"' : '')+' data-id="' + modelData.name + '|' + data.name + '" title="' + modelData.name + ' > ' + data.data[0].template + ' > ' + data.name + '">'+data.name + '</div>' }).join('');
           // htmlContent += modelData.data.map(function(data){ var adData = data.data.find(function(ad){ return ad.AD_SIZE == '300x250' }); return '<div data-id="' + modelData.name + '|' + data.name + '" title="' + modelData.name + ' > ' + data.name + '" '+(productName == data.name ? 'class="selected"' : '')+' style="background-color:#e5e5e5;"><div class="image-container"><div class="image"><img src="'+'assets/'+modelData.name+'/' + adData.IMAGE_URL5+'"></div><div class="image"><img src="'+'assets/'+modelData.name+'/' + adData.IMAGE_URL4+'"></div></div><div class="text">' + adData.TEXT_1 + '</div></div>'; }).join('');
           htmlContent += modelData.data.map(function(data){ var adData = data.data.find(function(ad){ return ad.AD_SIZE == '300x250' }); return '<div data-id="' + modelData.name + '|' + data.name + '" title="' + modelData.name + ' > ' + data.name + '" '+(productName == data.name ? 'class="selected"' : '')+' style="background-color:#e5e5e5;"><div class="text">' + adData.TEXT_1 + '</div></div>'; }).join('');
-          //htmlContent += ;
         }
         document.querySelector('#headerWrapper').innerHTML = htmlContent;
         // htmlContent = '';
