@@ -156,7 +156,9 @@
         '<div class="frame-wrapper"><div id="ad970x250"></div><div>970 x 250</div></div>';
         htmlContent = '';
         // var queryString = 'Japan|Create_O365_Word_Inking';
-        var adContent = getCelebrityData(queryString);
+        var searchString = queryString.split('|').splice(0, 2).join('|');
+        var filterString = queryString.split('|').length > 2 ? queryString.split('|').splice(2).join('|') : '';
+        var adContent = getCelebrityData(searchString);
         var model = adContent.data[0].MODEL;
         var productName = adContent.name;
         location.hash = btoa(model+'|'+productName).replace('==','');
