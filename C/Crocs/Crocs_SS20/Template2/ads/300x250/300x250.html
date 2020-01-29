@@ -113,7 +113,7 @@
           canvas.style.webkitTransform = 'scale(0.5)';
           canvas.style.transform = 'scale(0.5)';
           canvas.style.transformOrigin = 'top left';
-          var duration = 600, frames = 16;
+          var duration = 500, frames = 16;
           window.reqAnimFrame = (function(){ return function(callback, element){ window.setTimeout(callback, duration / frames); }; })();
           var shineAnimation = function(){
             if(ad.layers.headlineImage1.style.opacity == 1) {
@@ -157,11 +157,11 @@
           gsap.set('#headlineImage2', {y:-20});
           gsap.timeline({defaults:{ease: Power1.easeOut, duration: 0.5}})
           .from('#backgroundImage1, #logoImage, #cta', { x:'100%', y:'-50%', delay:0.5})
-          .from('#headlineImage1', { autoAlpha: 0, duration: 0.3, delay:0.3})//, oncomplete:shineAnimation})
-          .from('#headlineImage2', { autoAlpha: 0, duration: 0.1, delay:1})
-          .to('#headlineImage2', { y:0, duration: 0.3},'-=0.2')//, oncomplete:reverseShineAnimation})
+          .from('#headlineImage1', { autoAlpha: 0, duration: 0.1, delay:0.5})//, oncomplete:shineAnimation})
+          .from('#headlineImage2', { autoAlpha: 0, duration: 0.1, delay:0.5})
+          .to('#headlineImage2', { y:0, duration: 0.2},'-=0.2')//, oncomplete:reverseShineAnimation})
           gsap.delayedCall(1.6, shineAnimation);
-          gsap.delayedCall(3.2, reverseShineAnimation);
+          gsap.delayedCall(3.8, reverseShineAnimation);
         });
       }, 2000);
     </script>
