@@ -79,7 +79,8 @@
             backgroundImage3: 'assets/728x90_SS20_Crocs_DCO_LiteRidePillar-Clogs_SuzuHirose_Background_03.png',
             headlineImage1: 'assets/728x90_SS20_Crocs_DCO_LiteRidePillar-Clogs_SuzuHirose_Headline_STYLE_AT_THE_SPEED_OF_LITE1.png',
             headlineImage2: 'assets/728x90_SS20_Crocs_DCO_LiteRidePillar-Clogs_SuzuHirose_Headline_STYLE_AT_THE_SPEED_OF_LITE2.png',
-            ctaImage: 'images/CTA.png',
+            styleProperties: "na",
+            ctaSelect: 'en_text',
             clickURL: 'https://www.adobe.com/#Crocs',
             impressionTracker: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII='
           },
@@ -99,6 +100,13 @@
               // content.ctaBtn = content.ctaBtnColor.split('^')[0];
               // content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
               for(var i = 0; i<16; i++) { content['shineImage'+i] = 'images/shine/shine_'+(i<10?0:'')+i+'.png'; }
+              switch(content.ctaSelect){
+                case 'en_text': content.ctaImage = 'images/cta/CTA_EN_Show_Now.png'; break;
+                case 'jp_text': content.ctaImage = 'images/cta/CTA_JP_Show_Now.png'; break;
+                case 'de_text': content.ctaImage = 'images/cta/CTA_DE_Show_Now.png'; break;
+                case 'kr_text': content.ctaImage = 'images/cta/CTA_KR_Show_Now.png'; break;
+                default: content.ctaImage = 'images/cta/CTA_EN_Show_Now.png';
+              }
             });
             return data;
           }
@@ -108,6 +116,15 @@
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });
           if(adData.impressionTracker.toLowerCase() != 'na'){ ad.loadAssets(adData.impressionTracker, function(assets){ }); }
+          if(adData.styleProperties && adData.styleProperties.toLowerCase() != 'na') {
+            try {
+              eval('var styleProperties = ' + adData.styleProperties);
+              if(styleProperties && typeof styleProperties == 'object')
+              for(var i in styleProperties) {
+                gsap.set(i, styleProperties[i]);
+              }
+            } catch(e) {  }
+          }
           var canvas = document.createElement('canvas');
           ad.layers.shine.appendChild(canvas);
           var ctx = canvas.getContext('2d')
