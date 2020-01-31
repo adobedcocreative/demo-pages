@@ -22,7 +22,7 @@
     </style>
     <style media="screen" data-dynamic="style">
       #ad {
-        width: 300px;
+        width: 970px;
         height: 250px;
         font-family: SegoeUI, Arial, sans-serif;
         color: #fff;
@@ -37,6 +37,7 @@
       }
       /* #cta { background-color: !{ctaBtnColor}; } */
       /* #cta:hover { background-color: !{ctaBtnHover}; } */
+      #cta:hover { opacity: 0.8; }
     </style>
   </head>
   <body>
@@ -46,15 +47,16 @@
       <div id="backgroundImage3" class="asset frame" data-image="backgroundImage3"></div>
       <div id="headlineImage1" class="asset frame" data-image="headlineImage1"></div>
       <div id="headlineImage2" class="asset frame" data-image="headlineImage2"></div>
-      <div id="shine" class="frame"></div>
-      <!-- <div id="shineVideo" style="top:0px;left:0px;width:inherit;height:inherit;">
-        <video muted playsinline autoplay style="width:100%;height:100%;">
-          <source  type="video/mp4">
-        </video>
-      </div> -->
+      <div id="shine" class="frame" style="top:-41px;left:697px;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
-      <div id="cta" class="asset frame" data-image="ctaImage"></div>
+      <div id="cta" class="asset"
+        data-image="ctaImage"
+        style="top: 188px;
+          left: 817px;
+          width: 128px;
+          height: 41px;">
+      </div>
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
     <div id="loadFont" style="width:0;height:0;overflow:hidden;">
@@ -64,7 +66,7 @@
     <script type="text/javascript">
       var ad = new Ad({
         root: document.querySelector('#ad'),
-        width: 300,
+        width: 970,
         height: 250,
         borderWidth: 1,
         borderColor: '#000'
@@ -72,13 +74,13 @@
       setTimeout(function() {
         ad.contentSetup({
           cam: {
-            backgroundImage1: 'assets/300x250_SS20_Crocs_DCO_LiteRidePillar-Clogs_SuzuHirose_Background_01.png',
-            backgroundImage2: 'assets/1x1.png',
-            backgroundImage3: 'assets/1x1.png',
-            headlineImage1: 'assets/300x250_SS20_Crocs_DCO_LiteRidePillar-Clogs_SuzuHirose_Headline_STYLE_AT_THE_SPEED_OF_LITE1.png',
-            headlineImage2: 'assets/300x250_SS20_Crocs_DCO_LiteRidePillar-Clogs_SuzuHirose_Headline_STYLE_AT_THE_SPEED_OF_LITE2.png',
+            backgroundImage1: 'assets/970x250_SS20_Crocs_DCO_LiteRidePillar-Clogs_SuzuHirose_Background_01.png',
+            backgroundImage2: 'assets/970x250_SS20_Crocs_DCO_LiteRidePillar-Clogs_SuzuHirose_Background_02.png',
+            backgroundImage3: 'assets/970x250_SS20_Crocs_DCO_LiteRidePillar-Clogs_SuzuHirose_Background_03.png',
+            headlineImage1: 'assets/970x250_SS20_Crocs_DCO_LiteRidePillar-Clogs_SuzuHirose_Headline_STYLE_AT_THE_SPEED_OF_LITE1.png',
+            headlineImage2: 'assets/970x250_SS20_Crocs_DCO_LiteRidePillar-Clogs_SuzuHirose_Headline_STYLE_AT_THE_SPEED_OF_LITE2.png',
             styleProperties: "na",
-            ctaSelect: 'icon_white',
+            ctaSelect: 'en_text',
             clickURL: 'https://www.adobe.com/#Crocs',
             impressionTracker: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII='
           },
@@ -90,25 +92,20 @@
           staticData: {
             // ref: 'ref.png'
             ctaBtnColor: '#fff',
-            logoImage: 'images/300x250_Crocs_Logo.png',
+            logoImage: 'images/970x250_Crocs_Logo.png',
+
           },
           beforeLoad: function(data){
             data.map(function(content){
               // content.ctaBtn = content.ctaBtnColor.split('^')[0];
               // content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
               for(var i = 0; i<16; i++) { content['shineImage'+i] = 'images/shine/shine_'+(i<10?0:'')+i+'.png'; }
-              var changePosition = function(){
-                gsap.set('#cta', {x:176, y:197, width: 102, height:34});
-                content.logoImage = 'images/300x250_Crocs_Logo_NoShadow.png';
-              }
               switch(content.ctaSelect){
-                case 'en_text': content.ctaImage = 'images/cta/CTA_EN_Show_Now.png'; changePosition(); break;
-                case 'jp_text': content.ctaImage = 'images/cta/CTA_JP_Show_Now.png'; changePosition(); break;
-                case 'de_text': content.ctaImage = 'images/cta/CTA_DE_Show_Now.png'; changePosition(); break;
-                case 'kr_text': content.ctaImage = 'images/cta/CTA_KR_Show_Now.png'; changePosition(); break;
-                case 'icon_white': content.ctaImage = 'images/cta/300x250_CTA_Icon.png'; break;
-                case 'icon_gray': case 'icon_grey': content.ctaImage = 'images/cta/300x250_CTA_Icon_Gray.png'; content.logoImage = 'images/300x250_Crocs_Logo_Gray.png'; break;
-                default: content.ctaImage = 'images/cta/300x250_CTA_Icon.png';
+                case 'en_text': content.ctaImage = 'images/cta/CTA_EN_Show_Now.png'; break;
+                case 'jp_text': content.ctaImage = 'images/cta/CTA_JP_Show_Now.png'; break;
+                case 'de_text': content.ctaImage = 'images/cta/CTA_DE_Show_Now.png'; break;
+                case 'kr_text': content.ctaImage = 'images/cta/CTA_KR_Show_Now.png'; break;
+                default: content.ctaImage = 'images/cta/CTA_EN_Show_Now.png';
               }
             });
             return data;
@@ -133,8 +130,8 @@
           var ctx = canvas.getContext('2d')
           canvas.width = 600;
           canvas.height = 500;
-          canvas.style.webkitTransform = 'scale(0.5)';
-          canvas.style.transform = 'scale(0.5)';
+          canvas.style.webkitTransform = 'scale(0.6)';
+          canvas.style.transform = 'scale(0.6)';
           canvas.style.transformOrigin = 'top left';
           var duration = 500, frames = 16;
           window.reqAnimFrame = (function(){ return function(callback, element){ window.setTimeout(callback, duration / frames); }; })();
@@ -176,11 +173,12 @@
               animate();
             }
           }
-          var adWidth = 300;
+          var adWidth = 970, adHeight = 250;
           gsap.set('#headlineImage2', {y:-20});
           gsap.timeline({defaults:{ease: Power1.easeOut, duration: 0.5}})
-          .from('#backgroundImage1, #logoImage, #cta', { x:'100%', y:'-50%', delay:0.5})
-          .from('#headlineImage1', { autoAlpha: 0, duration: 0.1, delay:0.5})//, oncomplete:shineAnimation})
+          .from('#backgroundImage1', { x:-71,y:adHeight, delay:0.5 })
+          .from('#backgroundImage2,#logoImage,#cta', { x:72,y:-adHeight }, '-=0.5')
+          .from('#headlineImage1', { autoAlpha: 0, duration: 0.1, delay:0.5})
           .from('#headlineImage2', { autoAlpha: 0, duration: 0.1, delay:0.5})
           .to('#headlineImage2', { y:0, duration: 0.2},'-=0.2')//, oncomplete:reverseShineAnimation})
           gsap.delayedCall(1.6, shineAnimation);
