@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <title>Ad</title>
     <script type="text/javascript" src="../../AMOLibrary.js"></script>
-    <link rel="stylesheet" href="https://assets.everesttech.net/static/css/style.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
     <!-- <link rel="stylesheet" href="https://use.typekit.net/tag1rnw.css"> -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="https://assets.everesttech.net/static/js/script.min.js"></script>
+    <script type="text/javascript" src="js/script.min.js"></script>
     <style media="screen">
       /* @font-face {
           font-family: SegoeUISemibold;
@@ -136,7 +136,7 @@
           var duration = 500, frames = 16;
           window.reqAnimFrame = (function(){ return function(callback, element){ window.setTimeout(callback, duration / frames); }; })();
           var shineAnimation = function(){
-            if(ad.layers.headlineImage1.style.opacity == 1) {
+            // if(ad.layers.headlineImage1.style.opacity == 1) {
               var count = 0;
               function animate() {
                 var image = new Image();
@@ -152,7 +152,7 @@
                 }
               }
               animate();
-            }
+            // }
           }
           var reverseShineAnimation = function(){
             if(ad.layers.headlineImage2.style.opacity == 1) {
@@ -178,10 +178,10 @@
           gsap.timeline({defaults:{ease: Power1.easeOut, duration: 0.5}})
           .from('#backgroundImage1', { x:-25,y:adHeight, delay:0.5 })
           .from('#backgroundImage2,#logoImage,#cta', { x:26,y:-adHeight }, '-=0.5')
-          .from('#headlineImage1', { autoAlpha: 0, duration: 0.1, delay:0.5})
+          .from('#headlineImage1', { autoAlpha: 0, duration: 0.1, delay:0.7})
           .from('#headlineImage2', { autoAlpha: 0, duration: 0.1, delay:0.5})
           .to('#headlineImage2', { y:0, duration: 0.2},'-=0.2')//, oncomplete:reverseShineAnimation})
-          gsap.delayedCall(1.6, shineAnimation);
+          gsap.delayedCall(1.5, shineAnimation);
           gsap.delayedCall(3.8, reverseShineAnimation);
         });
       }, 2000);
