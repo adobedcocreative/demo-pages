@@ -224,6 +224,9 @@
           // htmlContent += modelData.data.map(function(data){ var adData = data.data.find(function(ad){ return ad.AD_SIZE == '300x250' }); return '<div data-id="' + modelData.name + '|' + data.name + '" title="' + modelData.name + ' > ' + data.name + '" '+(productName == data.name ? 'class="selected"' : '')+' style="background-color:#e5e5e5;"><div class="text">' + adData.TEXT_1 + '</div></div>'; }).join('');
         }
         document.querySelector('#headerWrapper').innerHTML = htmlContent;
+        document.querySelector('#modelHeader').style.display = 'inline-block';
+        document.querySelector('#headerWrapper').style.minWidth = document.querySelector('#modelHeader').offsetWidth + 'px';
+        document.querySelector('#modelHeader').style.display = '';
         var headlines = [];
         adContent.data.forEach(function(data){ headlines.push(data.TEXT_2 + '|' + data.LANGUAGE); });
         headlines = headlines.filter(function(value, index, self){ return self.indexOf(value) === index; });
