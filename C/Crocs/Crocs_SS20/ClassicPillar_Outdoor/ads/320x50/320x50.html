@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <title>Ad</title>
     <script type="text/javascript" src="https://ads.everesttech.net/ads/static/local/AMOLibrary.js"></script>
-    <link rel="stylesheet" href="https://assets.everesttech.net/static/css/style.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
     <!-- <link rel="stylesheet" href="https://use.typekit.net/tag1rnw.css"> -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="https://assets.everesttech.net/static/js/script.min.js"></script>
+    <script type="text/javascript" src="js/script.min.js"></script>
     <style media="screen">
       /* @font-face {
           font-family: SegoeUISemibold;
@@ -40,9 +40,9 @@
   </head>
   <body>
     <div class="" id="ad">
-      <div id="backgroundImage" class="asset frame" data-image="backgroundImage"></div>
       <div id="backgroundImage1" class="asset frame" data-image="backgroundImage1"></div>
       <div id="backgroundImage2" class="asset frame" data-image="backgroundImage2"></div>
+      <div id="backgroundImage" class="asset frame" data-image="backgroundImage"></div>
       <div class="maskHeadlines" style="width:180px;height:inherit;overflow:hidden;">
         <div class="" style="position:absolute;top:0px;left:0px;width:320px;height: inherit;">
           <div id="headlineImage1" class="asset frame" data-image="headlineImage1"></div>
@@ -97,7 +97,8 @@
               // content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
               switch(content.ctaSelect){
                 case 'icon_white': content.ctaImage = 'images/cta/320x50_CTA_Icon.png'; break;
-                // case 'icon_gray': case 'icon_grey': content.ctaImage = 'images/cta/320x50_CTA_Icon_Gray.png'; content.logoImage = 'images/320x50_Crocs_Logo.png'; break;
+                case 'icon_gray': case 'icon_grey': content.ctaImage = 'images/cta/320x50_CTA_Icon_Gray.png'; content.logoImage = 'images/320x50_Crocs_Logo.png'; break;
+                case 'icon_green': content.ctaImage = 'images/cta/320x50_CTA_Icon_Green.png'; content.logoImage = 'images/320x50_Crocs_Logo_Green.png'; break;
                 default: content.ctaImage = 'images/cta/320x50_CTA_Icon.png';
               }
             });
