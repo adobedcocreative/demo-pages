@@ -263,9 +263,9 @@ amo.registerAttribute("frameText33","TEXT","&nbsp;");
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
             .from('#frameText1', {delay:0.5, autoAlpha:0, y:10})
-            .to('#frameText1', {delay:2.5, autoAlpha:0})
+            .to('#frameText1', {delay:1.8, autoAlpha:0})
             .from('#frameText12', {autoAlpha:0, y:10})
-            .from('#frameText13', {delay:1, autoAlpha:0, y:10})
+            .from('#frameText13', {delay:0.5, autoAlpha:0, y:10})
           }
           ad.layers.frameVideo1.querySelector('video').onended = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
