@@ -87,10 +87,7 @@ amo.registerAttribute("frameText12","TEXT","Bring every room to life");
 amo.registerAttribute("frameText13","TEXT","<br>with 1 Gig Internet");
 amo.registerAttribute("frameText21", "TEXT", "<div style='top: 15px;left: 23px;line-height:1.1;'><div style='font-size: 25px;letter-spacing: 0.1px;'>1 Gig Internet</div></div>");
 amo.registerAttribute("frameText22", "TEXT", "<div style='top: 40px;left: 101px;line-height:1.1;'><div style='color: #0084d6;font-size: 62px;'><sup style='font-size: 53%;vertical-align: 50%;margin-right: 3px;'>$</sup>69<sup style='font-size: 53%;vertical-align: 50%;margin-left: 3px;'>99</sup></div><div style='font-size: 14px;letter-spacing:-0.1px;position: absolute;top: 40px;left: 93px;width: 100px;'>mo. <font style='color:#0084d6;'>for life</font><div class='AlticeRegular' style='font-size: 9.8px;margin-top: 1px;position: absolute;top: 22px;left: -91px;'>plus taxes, fees &amp; charges</div></div></div>");
-amo.registerAttribute("frameText23", "TEXT", "<div style='top: 129px;left: 25px;line-height: 1.05;font-size: 14px;letter-spacing: -0.1px;' class='AlticeRegular'><div><span style='color:#0084d6;padding-right:5px;'>+</span>Up to 940 Mbps</div><div><span style='color:#0084d6;padding-right:5px;'>+</span>$100 Amazon.com Gift Card<div style='font-size: 8.3px;margin-top: 2px;margin-left: 11px;'>Restrictions apply</div></div></div><div class='AlticeRegular' style='position: absolute;top: 183px;left: 24px;font-size: 8.5px;line-height: 1.2;letter-spacing: -0.1px;'>Wired connections.<br>WiFi speeds may vary.</div>");
-amo.registerAttribute("frameText31","TEXT","&nbsp;");
-amo.registerAttribute("frameText32","TEXT","&nbsp;");
-amo.registerAttribute("frameText33","TEXT","&nbsp;");
+amo.registerAttribute("frameText23", "TEXT", "<div style='top: 127px;left: 25px;line-height: 1.3;font-size: 14px;letter-spacing: -0.1px;' class='AlticeRegular'><div><span style='color:#0084d6;padding-right:5px;'>+</span>Up to 940 Mbps</div><div><span style='color:#0084d6;padding-right:5px;'>+</span>$100 Amazon.com Gift Card<div style='font-size: 8.3px;margin-top: 2px;margin-left: 11px;'>Restrictions apply</div></div></div><div class='AlticeRegular' style='position: absolute;top: 183px;left: 24px;font-size: 8.5px;line-height: 1.2;letter-spacing: -0.1px;'>Wired connection.<br>WiFi speeds may vary.</div>");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -112,11 +109,6 @@ amo.registerAttribute("frameText33","TEXT","&nbsp;");
     <div id="frameText21" class="frameText">!{frameText21}</div>
     <div id="frameText22" class="frameText">!{frameText22}</div>
     <div id="frameText23" class="frameText">!{frameText23}</div>
-    <div id="frameImage3" class="asset frameImage" data-image="frameImage3"></div>
-    <div id="frameImage31" class="asset frameImage" data-image="frameImage31"></div>
-    <div id="frameText31" class="frameText">!{frameText31}</div>
-    <div id="frameText32" class="frameText">!{frameText32}</div>
-    <div id="frameText33" class="frameText">!{frameText33}</div>
     <div id="priceLabel" class="asset adSizeContainer" data-image="priceLabel"></div>
     <div id="cta" class="text AlticeBold"
       data-text="ctaText"
@@ -211,13 +203,14 @@ amo.registerAttribute("frameText33","TEXT","&nbsp;");
           return data;
         }
       }, function(data){
-        var adData = data[0], adClickUrl = adData['clickURL'];
+        var adData = data[0], adClickUrl = adData['clickURL'],frameChangeFlag = false;
         ad.root.addEventListener("click", function(e) {
           if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
         });
         setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; },800);
 
         textUpdate();
+        gsap.set('#frameText1,#frameText12,#frameText13', {autoAlpha:0,y:10});
         gsap.set('.frameImage', {x:'100%'});
         gsap.set('.frameText, #priceLabel', {x:'-100%'});
         var priceFrameAnimation = function(frame){
@@ -247,30 +240,37 @@ amo.registerAttribute("frameText33","TEXT","&nbsp;");
           .to('#cta', {delay:-0.3,top: 182,left: 101,width: 94,height: 22,fontSize: 13})
           .from('#frameImage'+frame+'1', {autoAlpha:0,y:'10%'})
         }
-        var animateFrame3 = function(flag){
-          var frameId = 3;
-          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: endFrameAnimation, onCompleteParams:[3]})
-          // .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame4}));
-        }
+        // var animateFrame3 = function(flag){
+        //   var frameId = 3;
+        //   gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+        //   .to('#frameImage'+frameId, {duration:0, onComplete: endFrameAnimation, onCompleteParams:[3]})
+        //   // .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame4}));
+        // }
         var animateFrame2 = function(flag){
           var frameId = 2;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: priceFrameAnimation, onCompleteParams:[frameId]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"],#priceLabel', (flag==true?{}:{delay: 2.2, opacity:0, onComplete: animateFrame3}));
+          // .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"],#priceLabel', (flag==true?{}:{delay: 2.2, opacity:0, onComplete: animateFrame3}));
         }
         var animateFrame1 = function(flag){
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .from('#frameText1', {delay:0.5, autoAlpha:0, y:10})
-            .to('#frameText1', {delay:1.8, autoAlpha:0})
-            .from('#frameText12', {autoAlpha:0, y:10})
-            .from('#frameText13', {delay:0.5, autoAlpha:0, y:10})
+            .to('#frameText1', {delay:0, autoAlpha:1, y:0})
+            .to('#frameText1', {delay:1.7, autoAlpha:0})
+            .to('#frameText12', {autoAlpha:1, y:0})
+            .to('#frameText13', {delay:0.5, autoAlpha:1, y:0})
           }
-          ad.layers.frameVideo1.querySelector('video').onended = function(){
-            gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frame1', (flag==true?{}:{delay:0.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          ad.layers.frameVideo1.querySelector('video').ontimeupdate = function(e){
+            if((e.target.duration - e.target.currentTime) <= 0.5 && !frameChangeFlag) {
+              frameChangeFlag = true;
+              gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+              .to('#frame1', (flag==true?{}:{autoAlpha:0, onComplete: animateFrame2}));
+            }
           }
+          // ad.layers.frameVideo1.querySelector('video').onended = function(){
+          //   gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+          //   .to('#frame1', (flag==true?{}:{delay:0.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          // }
         }
         gsap.delayedCall(.8, animateFrame1);
       });
