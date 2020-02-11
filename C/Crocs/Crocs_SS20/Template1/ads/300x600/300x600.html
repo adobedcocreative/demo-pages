@@ -36,7 +36,8 @@
       }
       /* #cta { background-color: !{ctaBtnColor}; } */
       /* #cta:hover { background-color: !{ctaBtnHover}; } */
-      #cta:hover { opacity: 0.8; }
+      #cta img { transition: all ease-out 0.2s; -webkit-transition: all ease-out 0.2s; }
+      #cta img:hover { transform: translate(-50%,-50%) scale(1.1); }
     </style>
   </head>
   <body>
@@ -102,6 +103,9 @@
                 case 'jp_text': content.ctaImage = 'images/cta/CTA_JP_Show_Now.png'; break;
                 case 'de_text': content.ctaImage = 'images/cta/CTA_DE_Show_Now.png'; break;
                 case 'kr_text': content.ctaImage = 'images/cta/CTA_KR_Show_Now.png'; break;
+                case 'en_text_green': content.ctaImage = 'images/cta/CTA_Green_EN_Shop_Now.png'; break;
+                case 'de_text_green': content.ctaImage = 'images/cta/CTA_Green_DE_Shop_Now.png'; break;
+                case 'kr_text_green': content.ctaImage = 'images/cta/CTA_Green_KO_Shop_Now.png'; break;
                 default: content.ctaImage = 'images/cta/CTA_EN_Show_Now.png';
               }
             });
