@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Ad</title>
-    <script type="text/javascript" src="../../AMOLibrary.js"></script>
+    <script type="text/javascript" src="https://ads.everesttech.net/ads/static/local/AMOLibrary.js"></script>
     <link rel="stylesheet" href="css/style.min.css">
     <!-- <link rel="stylesheet" href="https://use.typekit.net/tag1rnw.css"> -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
@@ -37,7 +37,8 @@
       }
       /* #cta { background-color: !{ctaBtnColor}; } */
       /* #cta:hover { background-color: !{ctaBtnHover}; } */
-      #cta:hover { opacity: 0.8; }
+      #cta img { transition: all ease-out 0.2s; -webkit-transition: all ease-out 0.2s; }
+      #cta img:hover { transform: translate(-50%,-50%) scale(1.1); }
     </style>
   </head>
   <body>
