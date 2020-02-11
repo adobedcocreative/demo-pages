@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Ad</title>
-    <script type="text/javascript" src="../../AMOLibrary.js"></script>
+    <script type="text/javascript" src="https://ads.everesttech.net/ads/static/local/AMOLibrary.js"></script>
     <link rel="stylesheet" href="css/style.min.css">
     <!-- <link rel="stylesheet" href="https://use.typekit.net/tag1rnw.css"> -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
@@ -36,6 +36,8 @@
       }
       /* #cta { background-color: !{ctaBtnColor}; } */
       /* #cta:hover { background-color: !{ctaBtnHover}; } */
+      #cta svg { transition: all ease-out 0.2s; -webkit-transition: all ease-out 0.2s; }
+      #cta svg:hover { transform: scale(1.2); }
     </style>
   </head>
   <body>
@@ -52,7 +54,13 @@
       <div id="headlineImage3" class="asset frame" data-image="headlineImage3"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
-      <div id="cta" class="asset frame" data-image="ctaImage"></div>
+      <div id="cta" class="asset frame"
+        data-image="ctaImage"
+        style="top: 13px;
+          left: 290px;
+          width: 20px;
+          height: 25px;">
+      </div>
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
     <div id="loadFont" style="width:0;height:0;overflow:hidden;">
@@ -95,10 +103,19 @@
             data.map(function(content){
               // content.ctaBtn = content.ctaBtnColor.split('^')[0];
               // content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
+              var addIcon = function(color){
+                color = color ? color : '#fff';
+                var ctaElement = ad.root.querySelector('#cta');
+                if(ctaElement) {
+                  ctaElement.removeAttribute('data-image')
+                  ctaElement.innerHTML = `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 369.69" style="width:100%;height:100%;enable-background:new 0 0 300 369.69;" xml:space="preserve"><style type="text/css">.st0{fill-rule:evenodd;clip-rule:evenodd;fill:${color};}</style><path class="st0" d="M253.85,0H46.16C20.67,0,0,20.69,0,46.21v277.27c0,25.52,20.67,46.21,46.16,46.21h207.69 c25.49,0,46.15-20.69,46.15-46.21V46.21C300,20.69,279.34,0,253.85,0z M117.2,326.8l-54.98-55.05l80.8-87.74L62.3,97.39l54.65-54.5 l129.91,141.12L117.2,326.8z"/></svg>`;
+                }
+              }
               switch(content.ctaSelect){
-                case 'icon_white': content.ctaImage = 'images/cta/320x50_CTA_Icon.png'; break;
-                // case 'icon_gray': case 'icon_grey': content.ctaImage = 'images/cta/320x50_CTA_Icon_Gray.png'; content.logoImage = 'images/320x50_Crocs_Logo.png'; break;
-                default: content.ctaImage = 'images/cta/320x50_CTA_Icon.png';
+                case 'icon_white': addIcon('#fff'); break;//content.ctaImage = 'images/cta/320x50_CTA_Icon.png'; break;
+                case 'icon_gray': case 'icon_grey': addIcon('#444'); break; //content.ctaImage = 'images/cta/320x50_CTA_Icon_Gray.png'; content.logoImage = 'images/320x50_Crocs_Logo.png'; break;
+                case 'icon_green': addIcon('#4f660b'); break; //content.ctaImage = 'images/cta/320x50_CTA_Icon_Green.png'; content.logoImage = 'images/320x50_Crocs_Logo_Green.png'; break;
+                default: addIcon('#fff'); //content.ctaImage = 'images/cta/320x50_CTA_Icon.png';
               }
             });
             return data;
@@ -119,9 +136,11 @@
             } catch(e) {  }
           }
           var adWidth = 320;
-          gsap.timeline({defaults:{ease: Power1.ease, duration: 0.9}})
-          .from('#backgroundImage1', { x: adWidth})
-          .from('#backgroundImage2', { x: -adWidth}, '-=0.9')
+          // gsap.timeline({defaults:{ease: Power1.ease, duration: 0.9}})
+          // .from('#backgroundImage1', { x: adWidth})
+          // .from('#backgroundImage2', { x: -adWidth}, '-=0.9')
+          gsap.timeline({defaults:{ease: Power1.easeOut, duration: 0.3}})
+          .from('#backgroundImage1', { x:-5, scale: 1.14, duration: 8})
           // gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.7}})
           // .from('#headlineImage1', { x: -180,delay:0.5})
           // .from('#headlineImage2', { x: 180}, '-=0.7')

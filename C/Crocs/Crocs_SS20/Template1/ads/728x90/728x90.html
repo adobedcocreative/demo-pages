@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Ad</title>
-    <script type="text/javascript" src="../../AMOLibrary.js"></script>
+    <script type="text/javascript" src="https://ads.everesttech.net/ads/static/local/AMOLibrary.js"></script>
     <link rel="stylesheet" href="css/style.min.css">
     <!-- <link rel="stylesheet" href="https://use.typekit.net/tag1rnw.css"> -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
@@ -36,7 +36,8 @@
       }
       /* #cta { background-color: !{ctaBtnColor}; } */
       /* #cta:hover { background-color: !{ctaBtnHover}; } */
-      #cta:hover { opacity: 0.8; }
+      #cta img { transition: all ease-out 0.2s; -webkit-transition: all ease-out 0.2s; }
+      #cta img:hover { transform: translate(-50%,-50%) scale(1.1); }
     </style>
   </head>
   <body>
@@ -106,6 +107,9 @@
                 case 'jp_text': content.ctaImage = 'images/cta/CTA_JP_Show_Now.png'; break;
                 case 'de_text': content.ctaImage = 'images/cta/CTA_DE_Show_Now.png'; break;
                 case 'kr_text': content.ctaImage = 'images/cta/CTA_KR_Show_Now.png'; break;
+                case 'en_text_green': content.ctaImage = 'images/cta/CTA_Green_EN_Shop_Now.png'; content.logoImage = 'images/728x90_Crocs_Logo_Green.png'; break;
+                case 'de_text_green': content.ctaImage = 'images/cta/CTA_Green_DE_Shop_Now.png'; content.logoImage = 'images/728x90_Crocs_Logo_Green.png'; break;
+                case 'kr_text_green': content.ctaImage = 'images/cta/CTA_Green_KO_Shop_Now.png'; content.logoImage = 'images/728x90_Crocs_Logo_Green.png'; break;
                 default: content.ctaImage = 'images/cta/CTA_EN_Show_Now.png';
               }
             });
@@ -130,8 +134,8 @@
           gsap.timeline({defaults:{ease: Power1.easeOut, duration: 0.3}})
           .from('#backgroundImage1', { x:-5, scale: 1.14, duration: 8})
           gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.7}})
-          .from('#headlineImage1', { x: -200,delay:0.5})
-          .from('#headlineImage2', { x: 200}, '-=0.7')
+          .from('#headlineImage1', { x: -300,delay:0.5})
+          .from('#headlineImage2', { x: 300}, '-=0.7')
           .from('#headlineImage3', { autoAlpha: 0, delay:0.5})
         });
       }, 2000);
