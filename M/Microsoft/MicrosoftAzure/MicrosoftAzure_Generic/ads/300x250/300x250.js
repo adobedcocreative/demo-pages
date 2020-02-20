@@ -3765,7 +3765,7 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 					if(data['headlineText'].split('|')[1]){
 						ad.root.headlineText.font = data['headlineText'].split('|')[1] + 'px Segoe Pro Semibold';
 					}
-					ad.setText(ad.root.headlineText, data['headlineText'], 'top');
+					ad.setText(ad.root.headlineText, data['headlineText'].split('|')[0], 'top');
 					if(ad.root.headlineText.getMeasuredHeight() > 60) {
 						ad.root.txtCta.y += 20;
 						ad.root.cta.y += 20;

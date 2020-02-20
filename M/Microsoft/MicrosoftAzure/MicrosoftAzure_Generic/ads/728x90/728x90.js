@@ -3322,14 +3322,14 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 					var path = list;
 					list = [];
 					list.push(path);
-				}  
+				}
 				if(list && typeof list == 'object' && list.length) {
 					var loadCounter = [];
 					var head = document.querySelector('head');
-					function loadCheck(e) { 
+					function loadCheck(e) {
 						loadCounter.push(this);
 						if(loadCounter.length == list.length) {
-							loadCounter.forEach(function(asset) { 
+							loadCounter.forEach(function(asset) {
 								if(asset) {
 									var isExistFlag = false;
 									if(loadedAssets.length) {
@@ -3340,7 +3340,7 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 												break;
 											}
 										}
-									} 
+									}
 									if(!isExistFlag) {
 										loadedAssets.push(asset);
 										if(asset.dataset.type == 'image') { cachedImages.push(asset); }
@@ -3349,7 +3349,7 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 							});
 							if(callbackFunction) {
 								callbackFunction(loadCounter, callbackData); //This function is called when all the provided assets are loaded properly.
-							}					
+							}
 						}
 					}
 					list.forEach(function(path) {
@@ -3362,11 +3362,11 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 									break;
 								}
 							}
-						} 
+						}
 						if(isExistFlag) {
 							loadCheck(loadedAssets[i]);
 						}
-						else if(path && typeof path == 'string' && path.length && !isExistFlag) {					
+						else if(path && typeof path == 'string' && path.length && !isExistFlag) {
 							if(path.indexOf('.js') > 0) { //For loading JS file
 								var script = document.createElement('script');
 								script.type = 'text/javascript';
@@ -3402,11 +3402,11 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 					instance.y -= instance.regY;
 					instance.regX = 0;
 					instance.regY = 0;
-				}	
+				}
 			}
 			var setText = function(selector, text, type) { //setText(selector or element, dynamic text, specify type - 'resize' or 'clip' text)
 				var extraSpace = 0;
-				type = type && typeof type == 'string' &&  type.length ? type : 'resize'; 
+				type = type && typeof type == 'string' &&  type.length ? type : 'resize';
 				var instance = typeof selector == 'string' && selector && selector.length && root[selector] ? root[selector] : selector;
 				if(text && text.length && instance && typeof instance == 'object') {
 					text = text.split('<br>').join('\n');
@@ -3437,9 +3437,9 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 						flag = true;
 					} else if(initialTextHeight > instance.getMeasuredHeight()) { //Center align text
 						//instance.regY = -(initialTextHeight - instance.getMeasuredHeight())/2;
-						extraSpace = (type == 'center' ? (initialLineHeight - initialFontSize)/2 : 0)			
+						extraSpace = (type == 'center' ? (initialLineHeight - initialFontSize)/2 : 0)
 						if(type == 'resize' || type == 'clip') {}
-					}	
+					}
 					instance.regY = extraSpace - (initialTextHeight - instance.getMeasuredHeight())/2;
 					return flag;
 				}
@@ -3455,7 +3455,7 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 						var outerWidth = bounds.width, outerHeight = bounds.height;
 						if(image.width > bounds.width || image.height > bounds.height) {
 							var ratio = bounds.width/image.width;
-							ratio = image.height*ratio > bounds.height ? bounds.height/image.height : ratio;				
+							ratio = image.height*ratio > bounds.height ? bounds.height/image.height : ratio;
 							bitmap.scaleX = bitmap.scaleY = ratio; //scale image to fit the image container
 							imageWidth = image.width*ratio, imageHeight = image.height*ratio;
 						}
@@ -3464,54 +3464,54 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 						var xRight = (outerWidth - imageWidth);
 						var yBottom = (outerHeight - imageHeight);
 						switch(alignment) {	//align image
-							case 'center': 
+							case 'center':
 							case 'center center':	bitmap.x = xCenter;
 													bitmap.y = yCenter;
-													break;						
-							case 'top': 
-							case 'top center': 
+													break;
+							case 'top':
+							case 'top center':
 							case 'center top': 		bitmap.x = xCenter;
 													bitmap.y = 0;
 													break;
-							case 'left': 
-							case 'left center': 
+							case 'left':
+							case 'left center':
 							case 'center left': 	bitmap.x = 0;
 													bitmap.y = yCenter;
-													break;					
-							case 'bottom': 
-							case 'bottom center': 
+													break;
+							case 'bottom':
+							case 'bottom center':
 							case 'center bottom': 	bitmap.x = xCenter;
 													bitmap.y = yBottom;
-													break;					
-							case 'right': 
-							case 'right center': 
+													break;
+							case 'right':
+							case 'right center':
 							case 'center right': 	bitmap.x = xRight;
 													bitmap.y = yCenter;
-													break;					
-							case 'top left': 
+													break;
+							case 'top left':
 							case 'left top': 		bitmap.x = bitmap.y = 0;
-													break;						
-							case 'top right': 
+													break;
+							case 'top right':
 							case 'right top': 		bitmap.x = xRight;
 													bitmap.y = 0;
-													break;						
-							case 'bottom left': 
+													break;
+							case 'bottom left':
 							case 'left bottom': 	bitmap.x = 0;
 													bitmap.y = yBottom;
-													break;							
-							case 'bottom right': 
+													break;
+							case 'bottom right':
 							case 'right bottom': 	bitmap.x = xRight;
 													bitmap.y = yBottom;
-													break;							
+													break;
 							default: 				bitmap.x = xCenter;
 													bitmap.y = yCenter;
 						}
-						
+
 						instance.removeAllChildren();
 						instance.setBounds(bounds.x, bounds.y, bounds.width, bounds.height);
 						instance.addChild(bitmap);
 					}
-				} 
+				}
 				var bitmap = imagePath && imagePath.length ? new createjs.Bitmap(imagePath) : 0;
 				var instance = typeof selector == 'string' && selector && selector.length && root[selector] ? root[selector] : selector;
 				if(bitmap && instance && typeof instance == 'object') {
@@ -3558,10 +3558,10 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 		// OR
 		createjs.Ticker.on("tick", tick);
 		function tick(event) { stage.update(event); }
-		
+
 		var canvasContainer = document.querySelector('#animation_container');
 		if(canvasContainer) { canvasContainer.style.cursor = 'pointer'; }
-		
+
 		function cubeAnimation() {
 			var rotationFlag = true;
 			var cubes = [];
@@ -3581,7 +3581,7 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 			document.querySelector('#canvas').addEventListener('mouseenter', startAnimation);
 			ad.root.Cube.visible = true;
 		}
-		
+
 		function barAnimation() {
 			var animationFlag = true;
 			function startAnimation () {
@@ -3595,7 +3595,7 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 							createjs.Tween.get(ad.root.Bar.barAnimation['bar' + ((i > 9 ? '' : '0') + i)], {override:true}).wait(i*50).to({scaleY: 1}, 500, createjs.Ease.getPowOut(4));
 						}
 					},1000);
-					
+
 					animationFlag = false;
 					setTimeout(function(){ animationFlag = true;}, 2000);
 				}
@@ -3603,7 +3603,7 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 			document.querySelector('#canvas').addEventListener('mouseenter', startAnimation);
 			ad.root.Bar.visible = true;
 		}
-		
+
 		function waveAnimation() {
 			var animationFlag = true;
 			function startAnimation () {
@@ -3617,7 +3617,7 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 			document.querySelector('#canvas').addEventListener('mouseenter', startAnimation);
 			ad.root.Wave.visible = true;
 		}
-		
+
 		function triangleAnimation() {
 			var animationFlag = true;
 			function startAnimation () {
@@ -3631,7 +3631,7 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 			document.querySelector('#canvas').addEventListener('mouseenter', startAnimation);
 			ad.root.Triangle.visible = true;
 		}
-		
+
 		function arrowsAnimation() {
 			var animationFlag = true;
 			function startAnimation () {
@@ -3645,7 +3645,7 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 			document.querySelector('#canvas').addEventListener('mouseenter', startAnimation);
 			ad.root.Arrows.visible = true;
 		}
-		
+
 		function codeAnimation() {
 			var animationFlag = true;
 			function startAnimation () {
@@ -3659,7 +3659,7 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 			document.querySelector('#canvas').addEventListener('mouseenter', startAnimation);
 			ad.root.Code.visible = true;
 		}
-		
+
 		function chatAnimation() {
 			var animationFlag = true;
 			function startAnimation () {
@@ -3673,15 +3673,15 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 			document.querySelector('#canvas').addEventListener('mouseenter', startAnimation);
 			ad.root.Chat.visible = true;
 		}
-		
+
 		function squareAnimation() {
 			var animationFlag = true;
 			startAnimation ()
-			function startAnimation () {	
-				if(animationFlag) {	
+			function startAnimation () {
+				if(animationFlag) {
 					animationFlag = false;
-					exportRoot.tl1 = new TimelineLite();	
-					
+					exportRoot.tl1 = new TimelineLite();
+
 					//exportRoot.tl1.from(exportRoot.Square.square_2,  2.1, { scaleX:0.6, scaleY:0.6, ease:Power3.easeInOut},"=0")
 					//exportRoot.tl1.from(exportRoot.Square.square_3,  2.1, { scaleX:0.42, scaleY:0.42, ease:Power3.easeInOut},"-=2")
 					//exportRoot.tl1.from(exportRoot.Square.square_4,  2.1, { scaleX:0.12, scaleY:0.12, ease:Power3.easeInOut},"-=1.85")
@@ -3689,7 +3689,7 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 					exportRoot.tl1.from(exportRoot.Square.square_6,  2.05, { scaleX:0, scaleY:0, ease:Power2.easeInOut},"-=1.75")
 					exportRoot.tl1.from(exportRoot.Square.square_7,  2.05, { scaleX:0, scaleY:0, ease:Power2.easeInOut},"-=1.75")
 					exportRoot.tl1.from(exportRoot.Square.square_8,  2, { scaleX:0, scaleY:0, ease:Power2.easeInOut,onComplete:function(){animationFlag = true;}},"-=1.75")
-		
+
 				}
 			}
 			function restartAnimation(){
@@ -3698,16 +3698,16 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 			document.querySelector('#canvas').addEventListener('mouseenter', restartAnimation);
 			ad.root.Square.visible = true;
 		}
-		
-		
+
+
 		function databrickAnimation(){
 			var animationFlag = true;
-			startAnimation ()	
-			function startAnimation () {	
-				if(animationFlag) {	
+			startAnimation ()
+			function startAnimation () {
+				if(animationFlag) {
 					animationFlag = false;
 					exportRoot.tl1 = new TimelineLite();
-					
+
 					exportRoot.tl1.from(exportRoot.DataBrick.outline_12,  .34, {alpha:0, ease:Power2.easeInOut},"=0")
 					exportRoot.tl1.from(exportRoot.DataBrick.outline_7,  .34, {alpha:0, ease:Power2.easeInOut},"-=.285")
 					exportRoot.tl1.from(exportRoot.DataBrick.outline_15,  .34, {alpha:0, ease:Power2.easeInOut},"-=.285")
@@ -3724,7 +3724,7 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 					exportRoot.tl1.from(exportRoot.DataBrick.outline_2,  .34, {alpha:0, ease:Power2.easeInOut},"-=.285")
 					exportRoot.tl1.from(exportRoot.DataBrick.outline_6,  .34, {alpha:0, ease:Power2.easeInOut},"-=.285")
 					exportRoot.tl1.from(exportRoot.DataBrick.outline_3,  .34, {alpha:0, ease:Power2.easeInOut},"-=.285")
-		
+
 					exportRoot.tl1.from(exportRoot.DataBrick.square_9,  .34, {alpha:0, ease:Power2.easeInOut},"-=.265")
 					exportRoot.tl1.from(exportRoot.DataBrick.square_1,  .34, {alpha:0, ease:Power2.easeInOut},"-=.265")
 					exportRoot.tl1.from(exportRoot.DataBrick.square_3,  .34, {alpha:0, ease:Power2.easeInOut},"-=.265")
@@ -3734,7 +3734,7 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 					exportRoot.tl1.from(exportRoot.DataBrick.square_4,  .34, {alpha:0, ease:Power2.easeInOut},"-=.265")
 					exportRoot.tl1.from(exportRoot.DataBrick.square_6,  .34, {alpha:0, ease:Power2.easeInOut},"-=.265")
 					exportRoot.tl1.from(exportRoot.DataBrick.square_2,  .34, {alpha:0, ease:Power2.easeInOut},"-=.265")
-		
+
 					exportRoot.tl1.to(exportRoot.DataBrick.square_8,  .34, {y:"551", ease:Power3.easeInOut},"-=.2")
 					exportRoot.tl1.to(exportRoot.DataBrick.square_4,  .34, {x:"303", ease:Power3.easeInOut},"-=.2")
 					exportRoot.tl1.to(exportRoot.DataBrick.square_7,  .34, {y:"346", ease:Power3.easeInOut},"-=.2")
@@ -3747,7 +3747,7 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 					exportRoot.tl1.to(exportRoot.DataBrick.square_3,  .34, {x:"508", ease:Power3.easeInOut},"-=.2")
 					exportRoot.tl1.to(exportRoot.DataBrick.square_7,  .34, {y:"141", ease:Power3.easeInOut},"-=.2")
 					exportRoot.tl1.to(exportRoot.DataBrick.square_5,  .34, {x:"713", ease:Power3.easeInOut},"-=.2")
-		
+
 					exportRoot.tl1.to(exportRoot.DataBrick.outline_12,  .34, {alpha:1, ease:Power2.easeInOut},"+=.5")
 					exportRoot.tl1.to(exportRoot.DataBrick.outline_7,  .34, {alpha:1, ease:Power2.easeInOut},"-=.285")
 					exportRoot.tl1.to(exportRoot.DataBrick.outline_15,  .34, {alpha:1, ease:Power2.easeInOut},"-=.285")
@@ -3755,7 +3755,7 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 					exportRoot.tl1.to(exportRoot.DataBrick.outline_4,  .34, {alpha:1, ease:Power2.easeInOut},"-=.285")
 					exportRoot.tl1.to(exportRoot.DataBrick.outline_8,  .34, {alpha:1, ease:Power2.easeInOut},"-=.285")
 					exportRoot.tl1.to(exportRoot.DataBrick.outline_16,  .34, {alpha:1, ease:Power2.easeInOut},"-=.285")
-		
+
 					exportRoot.tl1.to(exportRoot.DataBrick.square_9,  .34, {alpha:1, ease:Power3.easeInOut},"-=.1")
 					exportRoot.tl1.to(exportRoot.DataBrick.square_1,  .34, {alpha:1, ease:Power3.easeInOut},"-=.285")
 					exportRoot.tl1.to(exportRoot.DataBrick.square_2,  .34, {alpha:1, ease:Power3.easeInOut},"-=.285")
@@ -3765,7 +3765,7 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 					exportRoot.tl1.to(exportRoot.DataBrick.square_7,  .34, {alpha:1, ease:Power3.easeInOut},"-=.285")
 					exportRoot.tl1.to(exportRoot.DataBrick.square_4,  .34, {alpha:1, ease:Power3.easeInOut},"-=.285")
 					exportRoot.tl1.to(exportRoot.DataBrick.square_6,  .34, {alpha:1, ease:Power3.easeInOut},"-=.285")
-		
+
 					exportRoot.tl1.to(exportRoot.DataBrick.outline_11,  .34, {alpha:1, ease:Power2.easeInOut},"-=.285")
 					exportRoot.tl1.to(exportRoot.DataBrick.outline_1,  .34, {alpha:1, ease:Power2.easeInOut},"-=.285")
 					exportRoot.tl1.to(exportRoot.DataBrick.outline_10,  .34, {alpha:1, ease:Power2.easeInOut},"-=.285")
@@ -3775,7 +3775,7 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 					exportRoot.tl1.to(exportRoot.DataBrick.outline_2,  .34, {alpha:1, ease:Power2.easeInOut},"-=.285")
 					exportRoot.tl1.to(exportRoot.DataBrick.outline_6,  .34, {alpha:1, ease:Power2.easeInOut},"-=.285")
 					exportRoot.tl1.to(exportRoot.DataBrick.outline_3,  .34, {alpha:1, ease:Power2.easeInOut,onComplete:function(){animationFlag = true;}},"-=.285");
-		
+
 				}
 			}
 			function restartAnimation(){
@@ -3786,82 +3786,82 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 			document.querySelector('#canvas').addEventListener('mouseenter', restartAnimation);
 			ad.root.StaticDataBrick.visible = true;
 		}
-		
+
 		function serverlessAnimation(){
 			var animationFlag = true;
 			var pathStart
 			var pathEnd
 			var mc = exportRoot.Serverless
 			var color = 0xff6600;
-		
-		
+
+
 			var line = new createjs.Shape();
 			mc.addChild(line);
-		
+
 			var coords1
 			var serverlessCount = 0;
 			var totalcount = 10
 			var tl;
-			
+
 			exportRoot.updatePath = function() {
-					
+
 					serverlessCount++;
 					if(serverlessCount > totalcount){
 						tl.pause();
 						return;
 					}
 					coords1 = 	[
-					mc.c01.x, mc.c01.y,   mc.c06.x, mc.c06.y,   mc.c01.x, mc.c01.y,   mc.c07.x, mc.c07.y,   mc.c01.x, mc.c01.y,   mc.c10.x, mc.c10.y,   mc.c01.x, mc.c01.y,   mc.c14.x, mc.c14.y,   
+					mc.c01.x, mc.c01.y,   mc.c06.x, mc.c06.y,   mc.c01.x, mc.c01.y,   mc.c07.x, mc.c07.y,   mc.c01.x, mc.c01.y,   mc.c10.x, mc.c10.y,   mc.c01.x, mc.c01.y,   mc.c14.x, mc.c14.y,
 					]
-		
+
 					coords2 = 	[
 					mc.c06.x, mc.c06.y,   mc.c07.x, mc.c07.y,   mc.c06.x, mc.c06.y,   mc.c09.x, mc.c09.y,   mc.c06.x, mc.c06.y,   mc.c13.x, mc.c13.y,   mc.c06.x, mc.c06.y,   mc.c10.x, mc.c10.y,   mc.c06.x, mc.c06.y,   mc.c15.x, mc.c15.y,   mc.c06.x, mc.c06.y,   mc.c11.x, mc.c11.y,   mc.c06.x, mc.c06.y,   mc.c12.x, mc.c12.y,
 					]
-					
+
 					coords3 = 	[
-					mc.c10.x, mc.c10.y,   mc.c13.x, mc.c13.y,   mc.c10.x, mc.c10.y,   mc.c14.x, mc.c14.y,   mc.c10.x, mc.c10.y,   mc.c15.x, mc.c15.y,   mc.c10.x, mc.c10.y,   mc.c16.x, mc.c16.y,   mc.c10.x, mc.c10.y,   mc.c11.x, mc.c11.y,   
+					mc.c10.x, mc.c10.y,   mc.c13.x, mc.c13.y,   mc.c10.x, mc.c10.y,   mc.c14.x, mc.c14.y,   mc.c10.x, mc.c10.y,   mc.c15.x, mc.c15.y,   mc.c10.x, mc.c10.y,   mc.c16.x, mc.c16.y,   mc.c10.x, mc.c10.y,   mc.c11.x, mc.c11.y,
 					]
-					
+
 					coords4 = 	[
-					mc.c07.x, mc.c07.y,   mc.c08.x, mc.c08.y,   mc.c07.x, mc.c07.y,   mc.c09.x, mc.c09.y,   mc.c07.x, mc.c07.y,   mc.c10.x, mc.c10.y,   mc.c07.x, mc.c07.y,   mc.c14.x, mc.c14.y,   mc.c07.x, mc.c07.y,   mc.c11.x, mc.c11.y,   mc.c07.x, mc.c07.y,   mc.c16.x, mc.c16.y,   mc.c07.x, mc.c07.y,   mc.c12.x, mc.c12.y,   
+					mc.c07.x, mc.c07.y,   mc.c08.x, mc.c08.y,   mc.c07.x, mc.c07.y,   mc.c09.x, mc.c09.y,   mc.c07.x, mc.c07.y,   mc.c10.x, mc.c10.y,   mc.c07.x, mc.c07.y,   mc.c14.x, mc.c14.y,   mc.c07.x, mc.c07.y,   mc.c11.x, mc.c11.y,   mc.c07.x, mc.c07.y,   mc.c16.x, mc.c16.y,   mc.c07.x, mc.c07.y,   mc.c12.x, mc.c12.y,
 					]
-					
+
 					coords5 = 	[
-					mc.c05.x, mc.c05.y,   mc.c06.x, mc.c06.y,   mc.c05.x, mc.c05.y,   mc.c10.x, mc.c10.y,   mc.c05.x, mc.c05.y,   mc.c14.x, mc.c14.y,   
+					mc.c05.x, mc.c05.y,   mc.c06.x, mc.c06.y,   mc.c05.x, mc.c05.y,   mc.c10.x, mc.c10.y,   mc.c05.x, mc.c05.y,   mc.c14.x, mc.c14.y,
 					]
-					
+
 					coords6 = 	[
-					mc.c08.x, mc.c08.y,   mc.c10.x, mc.c10.y,   mc.c08.x, mc.c08.y,   mc.c11.x, mc.c11.y,   mc.c08.x, mc.c08.y,   mc.c15.x, mc.c15.y,   
+					mc.c08.x, mc.c08.y,   mc.c10.x, mc.c10.y,   mc.c08.x, mc.c08.y,   mc.c11.x, mc.c11.y,   mc.c08.x, mc.c08.y,   mc.c15.x, mc.c15.y,
 					]
-					
+
 					coords7 = 	[
-					mc.c11.x, mc.c11.y,   mc.c13.x, mc.c13.y,   mc.c11.x, mc.c11.y,   mc.c14.x, mc.c14.y,   mc.c11.x, mc.c11.y,   mc.c15.x, mc.c15.y,   mc.c11.x, mc.c11.y,   mc.c16.x, mc.c16.y,   mc.c11.x, mc.c11.y,   mc.c12.x, mc.c12.y   
+					mc.c11.x, mc.c11.y,   mc.c13.x, mc.c13.y,   mc.c11.x, mc.c11.y,   mc.c14.x, mc.c14.y,   mc.c11.x, mc.c11.y,   mc.c15.x, mc.c15.y,   mc.c11.x, mc.c11.y,   mc.c16.x, mc.c16.y,   mc.c11.x, mc.c11.y,   mc.c12.x, mc.c12.y
 					]
-		
+
 					coords8 = 	[
 					mc.c12.x, mc.c12.y,   mc.c13.x, mc.c13.y,   mc.c12.x, mc.c12.y,   mc.c14.x, mc.c14.y,   mc.c12.x, mc.c12.y,   mc.c15.x, mc.c15.y
 					]
-					
+
 					coords9 = 	[
-					mc.c04.x, mc.c04.y,   mc.c06.x, mc.c06.y,   mc.c04.x, mc.c04.y,   mc.c09.x, mc.c09.y,   mc.c04.x, mc.c04.y,   mc.c07.x, mc.c07.y,   mc.c04.x, mc.c04.y,   mc.c11.x, mc.c11.y,   mc.c04.x, mc.c04.y,   mc.c15.x, mc.c15.y,      
+					mc.c04.x, mc.c04.y,   mc.c06.x, mc.c06.y,   mc.c04.x, mc.c04.y,   mc.c09.x, mc.c09.y,   mc.c04.x, mc.c04.y,   mc.c07.x, mc.c07.y,   mc.c04.x, mc.c04.y,   mc.c11.x, mc.c11.y,   mc.c04.x, mc.c04.y,   mc.c15.x, mc.c15.y,
 					]
-					
+
 					coords10 = 	[
-					mc.c09.x, mc.c09.y,   mc.c10.x, mc.c10.y,   mc.c09.x, mc.c09.y,   mc.c14.x, mc.c14.y,   mc.c09.x, mc.c09.y,   mc.c15.x, mc.c15.y,   
+					mc.c09.x, mc.c09.y,   mc.c10.x, mc.c10.y,   mc.c09.x, mc.c09.y,   mc.c14.x, mc.c14.y,   mc.c09.x, mc.c09.y,   mc.c15.x, mc.c15.y,
 					]
-					
+
 					coords11 = 	[
 					mc.c02.x, mc.c02.y,   mc.c05.x, mc.c05.y,   mc.c02.x, mc.c02.y,   mc.c09.x, mc.c09.y,   mc.c02.x, mc.c02.y,   mc.c13.x, mc.c13.y,   mc.c02.x, mc.c02.y,   mc.c06.x, mc.c06.y,   mc.c02.x, mc.c02.y,   mc.c11.x, mc.c11.y,   mc.c02.x, mc.c02.y,   mc.c07.x, mc.c07.y,   mc.c02.x, mc.c02.y,   mc.c08.x, mc.c08.y,
 					]
-					
+
 					coords12 = 	[
 					mc.c03.x, mc.c03.y,   mc.c05.x, mc.c05.y,   mc.c03.x, mc.c03.y,   mc.c06.x, mc.c06.y,   mc.c03.x, mc.c03.y,   mc.c10.x, mc.c10.y,   mc.c03.x, mc.c03.y,   mc.c07.x, mc.c07.y,   mc.c03.x, mc.c03.y,   mc.c16.x, mc.c16.y,   mc.c03.x, mc.c03.y,   mc.c12.x, mc.c12.y,   mc.c03.x, mc.c03.y,   mc.c08.x, mc.c08.y,
 					]
-					
+
 					line.graphics.clear()
 					line.graphics.setStrokeStyle(1.5);
 					line.graphics.beginStroke('#0675CA');
-		
+
 					for (var i = 2; i< coords1.length; i+=2) {
 						line.graphics.moveTo(coords1[i-2], coords1[i-1]);
 						line.graphics.lineTo(coords1[i], coords1[i+1]);
@@ -3912,50 +3912,50 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 						line.graphics.lineTo(coords12[i], coords12[i+1]);
 					}
 			}
-			
+
 			TweenMax.delayedCall(0.2,function(){exportRoot.runBanner()})
-			
+
 			ad.root.runBanner = function() {
-		
+
 				tl = new TimelineMax({onUpdate:function(){exportRoot.updatePath()}})
 				tl.fromTo(mc.c01, 2, {  x:"+=50", y:"+=20", ease:Power1.easeInOut}, {  x:"-=50", y:"-=20", ease:Power1.easeInOut,  yoyo:true,  repeat:-1})
 				tl.fromTo(mc.c05, 2, {  x:"+=50", y:"+=8", ease:Power1.easeInOut}, {  x:"-=50", y:"-=8", ease:Power1.easeInOut,  yoyo:true,  repeat:-1},"-=1.9")
 				tl.fromTo(mc.c09, 2, {  x:"+=50", y:"-=8", ease:Power1.easeInOut}, {  x:"-=50", y:"+=8", ease:Power1.easeInOut,  yoyo:true,  repeat:-1},"-=1.9")
 				tl.fromTo(mc.c13, 2, {  x:"+=50", y:"-=20", ease:Power1.easeInOut}, {  x:"-=50", y:"+=20", ease:Power1.easeInOut,  yoyo:true,  repeat:-1},"-=1.9")
-				
+
 				tl.fromTo(mc.c02, 2, {  x:"+=50", y:"+=20", ease:Power1.easeInOut}, {  x:"-=50", y:"-=20", ease:Power1.easeInOut,  yoyo:true,  repeat:-1},"-=1.9")
 				tl.fromTo(mc.c06, 2, {  x:"+=50", y:"+=8", ease:Power1.easeInOut}, {  x:"-=35", y:"+=6", ease:Power1.easeInOut,  yoyo:true,  repeat:-1},"-=1.9")
 				tl.fromTo(mc.c10, 2, {  x:"+=50", y:"-=8", ease:Power1.easeInOut}, {  x:"-=35", y:"-=6", ease:Power1.easeInOut,  yoyo:true,  repeat:-1},"-=1.9")
 				tl.fromTo(mc.c14, 2, {  x:"+=50", y:"-=20", ease:Power1.easeInOut}, {  x:"-=50", y:"+=20", ease:Power1.easeInOut,  yoyo:true,  repeat:-1},"-=1.9")
-				
+
 				tl.fromTo(mc.c03, 2, {  x:"+=50", y:"+=20", ease:Power1.easeInOut}, {  x:"-=50", y:"-=20", ease:Power1.easeInOut,  yoyo:true,  repeat:-1},"-=1.9")
 				tl.fromTo(mc.c07, 2, {  x:"+=50", y:"+=8", ease:Power1.easeInOut}, {  x:"-=55", y:"+=6", ease:Power1.easeInOut,  yoyo:true,  repeat:-1},"-=1.9")
 				tl.fromTo(mc.c11, 2, {  x:"+=50", y:"-=8", ease:Power1.easeInOut}, {  x:"-=55", y:"-=6", ease:Power1.easeInOut,  yoyo:true,  repeat:-1},"-=1.9")
 				tl.fromTo(mc.c15, 2, {  x:"+=50", y:"-=20", ease:Power1.easeInOut}, {  x:"-=50", y:"+=20", ease:Power1.easeInOut,  yoyo:true,  repeat:-1},"-=1.9")
-		
+
 				tl.fromTo(mc.c04, 2, {  x:"+=50", y:"+=20", ease:Power1.easeInOut}, {  x:"-=50", y:"-=20", ease:Power1.easeInOut,  yoyo:true,  repeat:-1},"-=1.9")
 				tl.fromTo(mc.c08, 2, {  x:"+=50", y:"+=8", ease:Power1.easeInOut}, {  x:"-=50", y:"-=8", ease:Power1.easeInOut,  yoyo:true,  repeat:-1},"-=1.9")
 				tl.fromTo(mc.c12, 2, {  x:"+=50", y:"-=8", ease:Power1.easeInOut}, {  x:"-=50", y:"+=8", ease:Power1.easeInOut,  yoyo:true,  repeat:-1},"-=1.9")
-				tl.fromTo(mc.c16, 2, {  x:"+=50", y:"-=20", ease:Power1.easeInOut}, {  x:"-=50", y:"+=20", ease:Power1.easeInOut,  yoyo:true,  repeat:-1},"-=1.9")	
-				
+				tl.fromTo(mc.c16, 2, {  x:"+=50", y:"-=20", ease:Power1.easeInOut}, {  x:"-=50", y:"+=20", ease:Power1.easeInOut,  yoyo:true,  repeat:-1},"-=1.9")
+
 			}
-		
-			function startAnimation () {	
+
+			function startAnimation () {
 				serverlessCount = 0;
 				totalcount = 200;
 				tl.play();
 			}
-			
+
 			document.querySelector('#canvas').addEventListener('mouseenter', startAnimation);
 			ad.root.Serverless.visible = true;
 		}
-		
+
 		function setData(data, cam) {
 			data = data && data.length ? data: 0, assets = [];
 			if(cam) {
 				//ad.setText(ad.root.content.footerText, 'footer' in cam && cam.footer && cam.footer.length ? cam.footer: '');
 			}
-			if(data) {						
+			if(data) {
 				if(data[0].impressionTracker.toLowerCase() != 'na'){
 					var impressionTracker = data[0].impressionTracker;
 					var isn = 'data' in amo && 'isn' in amo.data ? amo.data.isn : '';
@@ -3969,11 +3969,11 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 					data = data[0];
 					//ad.root.headlineText.setBounds(0, 0, 284, 70);
 					ad.root.headlineText.containerWidth = 284;
-					ad.root.headlineText.containerHeight = 70;	
+					ad.root.headlineText.containerHeight = 70;
 					if(data['headlineText'].split('|')[1]){
 						ad.root.headlineText.font = data['headlineText'].split('|')[1] + 'px Segoe Pro Semibold';
 					}
-					ad.setText(ad.root.headlineText, data['headlineText'], 'center');
+					ad.setText(ad.root.headlineText, data['headlineText'].split('|')[0], 'center');
 					/*if(ad.root.headlineText.getMeasuredHeight() > 60) {
 						ad.root.txtCta.y += 20;
 						ad.root.cta.y += 20;
@@ -4000,7 +4000,7 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 								amo.onDynAdClick(data.feedData, "CLICK", data.url, data.dataId, (new Date()).getTime());
 							} else {
 							/*if(e.target.parent.name == 'next' || e.target.parent.name == 'prev') {
-								
+
 							}  else {*/
 								//amo.onDynAdClick(data.feedData, "CLICK", data.url);
 								//amo.onDynAdClick(data.feedData, data.dataId, data.url);
@@ -4008,14 +4008,14 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 							}
 						});
 					}
-					
+
 					ad.root.Cube.visible = false;
 					ad.root.Bar.visible = false;
 					ad.root.Wave.visible = false;
 					ad.root.Triangle.visible = false;
 					ad.root.Arrows.visible = false;
 					ad.root.Code.visible = false;
-					ad.root.Chat.visible = false;			
+					ad.root.Chat.visible = false;
 					ad.root.Square.visible = false;
 					ad.root.DataBrick.visible = false;
 					ad.root.StaticDataBrick.visible = false;
@@ -4026,7 +4026,7 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 						case 'wave': waveAnimation(); break;
 						case 'triangle': triangleAnimation(); break;
 						case 'arrows': arrowsAnimation(); break;
-						case 'code': codeAnimation(); break;				
+						case 'code': codeAnimation(); break;
 						case 'chat': chatAnimation(); break;
 						case 'square': squareAnimation(); break;
 						case 'databrick': databrickAnimation(); break;
@@ -4036,9 +4036,9 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 					ad.root.gotoAndPlay(1);
 				}
 				if(assets && assets.length) { ad.loadAssets(assets, addContent); } else { addContent(); }
-				
-				
-			}	
+
+
+			}
 		}
 		function loadData() {
 			var replaceMacro = function(text, data) {
@@ -4347,41 +4347,41 @@ an.getComposition = function(id) {
 }
 
 
-an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {		
-	var lastW, lastH, lastS=1;		
-	window.addEventListener('resize', resizeCanvas);		
-	resizeCanvas();		
-	function resizeCanvas() {			
-		var w = lib.properties.width, h = lib.properties.height;			
-		var iw = window.innerWidth, ih=window.innerHeight;			
-		var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;			
-		if(isResp) {                
-			if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
-				sRatio = lastS;                
-			}				
-			else if(!isScale) {					
-				if(iw<w || ih<h)						
-					sRatio = Math.min(xRatio, yRatio);				
-			}				
-			else if(scaleType==1) {					
-				sRatio = Math.min(xRatio, yRatio);				
-			}				
-			else if(scaleType==2) {					
-				sRatio = Math.max(xRatio, yRatio);				
-			}			
-		}			
-		domContainers[0].width = w * pRatio * sRatio;			
-		domContainers[0].height = h * pRatio * sRatio;			
-		domContainers.forEach(function(container) {				
-			container.style.width = w * sRatio + 'px';				
-			container.style.height = h * sRatio + 'px';			
-		});			
-		stage.scaleX = pRatio*sRatio;			
-		stage.scaleY = pRatio*sRatio;			
-		lastW = iw; lastH = ih; lastS = sRatio;            
-		stage.tickOnUpdate = false;            
-		stage.update();            
-		stage.tickOnUpdate = true;		
+an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {
+	var lastW, lastH, lastS=1;
+	window.addEventListener('resize', resizeCanvas);
+	resizeCanvas();
+	function resizeCanvas() {
+		var w = lib.properties.width, h = lib.properties.height;
+		var iw = window.innerWidth, ih=window.innerHeight;
+		var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;
+		if(isResp) {
+			if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {
+				sRatio = lastS;
+			}
+			else if(!isScale) {
+				if(iw<w || ih<h)
+					sRatio = Math.min(xRatio, yRatio);
+			}
+			else if(scaleType==1) {
+				sRatio = Math.min(xRatio, yRatio);
+			}
+			else if(scaleType==2) {
+				sRatio = Math.max(xRatio, yRatio);
+			}
+		}
+		domContainers[0].width = w * pRatio * sRatio;
+		domContainers[0].height = h * pRatio * sRatio;
+		domContainers.forEach(function(container) {
+			container.style.width = w * sRatio + 'px';
+			container.style.height = h * sRatio + 'px';
+		});
+		stage.scaleX = pRatio*sRatio;
+		stage.scaleY = pRatio*sRatio;
+		lastW = iw; lastH = ih; lastS = sRatio;
+		stage.tickOnUpdate = false;
+		stage.update();
+		stage.tickOnUpdate = true;
 	}
 }
 

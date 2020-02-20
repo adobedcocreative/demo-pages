@@ -147,6 +147,11 @@
             }
             data.map(function(content){
               content.ctaText +='&nbsp;&nbsp;&nbsp;&#x276F;';
+              if(content.headline.split('|').length > 1) {
+                  var fontSize = content.headline.split('|')[1];
+                  content.headline = content.headline.split('|')[0];
+                  if(fontSize)ad.root.querySelector('#headline').style.fontSize = fontSize + 'px';
+              }
             });
             return data;
           }

@@ -3973,7 +3973,7 @@ p.nominalBounds = new cjs.Rectangle(156.2,154.5,145.7,92.4);
 						ad.root.headlineText.font = data['headlineText'].split('|')[1] + 'px Segoe Pro Semibold';
 					}
 					//ad.root.headlineText.maxWidth = 136
-					ad.setText(ad.root.headlineText, data['headlineText'], 'top');
+					ad.setText(ad.root.headlineText, data['headlineText'].split('|')[0], 'top');
 					if(ad.root.headlineText.getMeasuredHeight() > 60) {
 						ad.root.txtCta.y += 20;
 						ad.root.cta.y += 20;

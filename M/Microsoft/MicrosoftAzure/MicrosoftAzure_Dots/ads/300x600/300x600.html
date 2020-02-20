@@ -150,6 +150,11 @@
             }
             data.map(function(content){
               content.ctaText +='&nbsp;&nbsp;&nbsp;&#x276F;';
+              if(content.headline.split('|').length > 1) {
+                  var fontSize = content.headline.split('|')[1];
+                  content.headline = content.headline.split('|')[0];
+                  if(fontSize)ad.root.querySelector('#headline').style.fontSize = fontSize + 'px';
+              }
             });
             return data;
           }
@@ -188,7 +193,7 @@
           ad.layers.cta.style.webkitTransform = '';
           ad.layers.cta.style.transform = '';
           ad.layers.cta.style.left = (document.getElementById('ad').offsetWidth - document.getElementById('cta').offsetWidth)/2 + 'px';
-          
+
           if(ad.layers.cta.querySelector('span').offsetHeight < 50) {
             ad.layers.cta.style.height = ad.layers.cta.querySelector('span').offsetHeight + 'px';
           }
