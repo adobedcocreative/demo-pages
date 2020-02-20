@@ -136,11 +136,20 @@
             } catch(e) {  }
           }
           var adWidth = 320;
-          gsap.set('#backgroundImage1', { scale: 1.14 });
-          gsap.timeline({defaults:{ease: Power1.ease, duration: 0.9}})
-          .from('#backgroundImage1', { x: adWidth})
-          .from('#backgroundImage2', { x: -adWidth}, '-=0.9')
-          .to('#backgroundImage1', { scale: 1, duration: 8})
+          if(ad.layers.overlay.style.color == 'transparent') {
+            gsap.set('#backgroundImage2', { scale: 1.14 });
+            gsap.set('#backgroundImage2', { css:{transformOrigin:'20% 50%', zIndex:-1} });
+            gsap.timeline({defaults:{ease: Power1.ease, duration: 0.9}})
+            .from('#backgroundImage1', { x: adWidth})
+            .from('#backgroundImage2', { x: -adWidth}, '-=0.9')
+            .to('#backgroundImage2', { scale: 1, duration: 8})
+          } else {
+            gsap.set('#backgroundImage1', { scale: 1.14 });
+            gsap.timeline({defaults:{ease: Power1.ease, duration: 0.9}})
+            .from('#backgroundImage1', { x: adWidth})
+            .from('#backgroundImage2', { x: -adWidth}, '-=0.9')
+            .to('#backgroundImage1', { scale: 1, duration: 8})
+          }
           // gsap.timeline({defaults:{ease: Power1.easeOut, duration: 0.3}})
           // .from('#backgroundImage1', { x:-5, scale: 1.14, duration: 8})
           // gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.7}})
