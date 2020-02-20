@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ads</title>
+    <style media="screen">
+      body {
+        min-width: 1024px;
+      }
+      .ad-wrapper {
+        /* max-width: 970px; */
+        margin: 0 auto;
+        text-align: center;
+      }
+      #header{
+        text-align: center;
+      }
+      #header .image-container {
+        display: inline-block;
+        position: relative;
+      }
+      #header .image {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 40px;
+      }
+      #header .image:first-child {
+        position: absolute;
+        top:0px;
+        left:0px;
+      }
+      #header .image img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+      #modelHeader > div {
+        font-family: Arial;
+        display: inline-block;
+        vertical-align: top;
+        padding: 0 8px;
+        color:#333;
+        text-align: center;
+        cursor: pointer;
+      }
+      #modelHeader > div.selected .model{
+
+      }
+      .modelImage {
+        width: 160px;
+        height: 120px;
+        background-size: 100%;
+      }
+      .modelLabel {
+        /* padding: 5px 0px; */
+        padding: 5px;
+        border: 2px solid transparent;
+        border-bottom: none;
+        /* background-color: #e5e5e5; */
+      }
+      #modelHeader > div:hover .modelLabel {
+        border-color: #333;
+        /* color: #ccc; */
+      }
+      #modelHeader > div.selected .modelLabel {
+        border-color: #333;
+        /* color: #ccc; */
+      }
+      #headerWrapper {
+        display: inline-block;
+        border: 1px solid #333;
+        border-top: 4px solid #333;
+      }
+      #headerWrapper > div {
+        font-family: Arial;
+        display: inline-block;
+        /* min-height: 65px; */
+        vertical-align: top;
+        padding: 5px 10px;
+        color:#333;
+        text-align: center;
+        -webkit-transition: all ease-out 0.2s;
+        transition: all ease-out 0.2s;
+        cursor: pointer;
+        border: 1px solid transparent;
+        border-right: 2px solid transparent;
+        border-left: 2px solid transparent;
+      }
+      #headerWrapper > div:hover {
+        border: 1px solid #333;
+        border-right: 2px solid #333;
+        border-left: 2px solid #333;
+      }
+      #headerWrapper > div.selected {
+        border: 1px solid #333;
+        border-right: 2px solid #333;
+        border-left: 2px solid #333;
+      }
+      #subHeaderWrapper {
+        font-family: Arial;
+        /* display: inline-block; */
+        margin-top: 5px;
+        vertical-align: top;
+        color:#333;
+        text-align: center;
+        -webkit-transition: all ease-out 0.2s;
+        transition: all ease-out 0.2s;
+        cursor: pointer;
+      }
+      #subHeaderWrapper > div {
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 1px 1px;
+        background-color: #e5e5e5;
+        border: 2px solid #e5e5e5;
+      }
+      #subHeaderWrapper > div > div {
+        font-size: 65%;
+      }
+      #subHeaderWrapper > div:hover {
+        background: none;
+        border: 2px solid #333;
+      }
+      #subHeaderWrapper > div.selected {
+        background: none;
+        border: 2px solid #333;
+      }
+      #title{
+        font-family: Arial;
+        margin-top: 10px;
+        font-style: 24px;
+      }
+      .frame-wrapper {
+        /* display: inline-block; */
+        display: none;
+      }
+      .frame-wrapper > div:last-child {
+        font-family: Arial;
+        text-align: left;
+        margin-left: 10px;
+      }
+      iframe {
+        border: none;
+        margin: 10px 10px 2px 10px;
+      }
+    </style>
+    <script src="js/content.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div id="header" class="">
+      <div id="modelHeader">
+      </div>
+      <div id="headerWrapper" class="">
+
+      </div>
+      <div id="subHeaderWrapper" class="">
+
+      </div>
+      <div id="title">
+
+      </div>
+    </div>
+    <div id="adContainer" class="ad-wrapper"></div>
+    <script type="text/javascript">
+      var bannerData = [], bannerData1 = [];
+      var getCAMData = function(data, selector) {
+          var templates = {
+            'Celebrity': `var cam = {
+              adSize: data.AD_SIZE,
+              language: data.LANGUAGE,
+              backgroundImage1: '../../assets/'+ data.MODEL + '/' + data.IMAGE_URL1,
+              backgroundImage2: '../../assets/'+ data.MODEL + '/' + data.IMAGE_URL2,
+              backgroundImage3: '../../assets/'+ data.MODEL + '/' + data.IMAGE_URL3,
+              headlineImage1: '../../assets/'+ data.MODEL + '/' + data.IMAGE_URL4,
+              headlineImage2: '../../assets/'+ data.MODEL + '/' + data.IMAGE_URL5,
+              title: data.TEXT_1 + data.TEXT_2,
+              styleProperties: data.TEXT_3,
+              ctaSelect: data.TEXT_4,
+              clickUrl: data.PRODUCT_URL,
+              impressionTracker: 'na',
+            }`,
+          }
+          eval(templates[selector]);
+          return JSON.stringify(cam);
+      }
+      var loadContent = function(queryString){
+        bannerData = [];
+        bannerData1 = [];
+        var htmlContent = '';
+
+        document.querySelector('#adContainer').innerHTML = '<div class="frame-wrapper"><div id="ad160x600"></div><div>160 x 600</div></div>'+
+        '<div class="frame-wrapper"><div id="ad300x600"></div><div>300 x 600</div></div>'+
+        '<div style="display:inline-block;max-width:800px;text-align:left;">'+
+          '<div class="frame-wrapper"><div id="ad300x250"></div><div>300 x 250</div></div>'+
+          '<div></div>'+
+          '<div class="frame-wrapper"><div id="ad320x50"></div><div>320 x 50</div></div>'+
+          '<div class="frame-wrapper"><div id="ad728x90"></div><div>728 x 90</div></div>'+
+        '</div>'+
+        '<div class="frame-wrapper"><div id="ad970x250"></div><div>970 x 250</div></div>';
+        htmlContent = '';
+        // var queryString = 'Japan|Create_O365_Word_Inking';
+        var searchString = queryString.split('|').splice(0, 2).join('|');
+        var filterString = queryString.split('|').length > 2 ? queryString.split('|').splice(2).join('|') : '';
+        var adContent = getCelebrityData(searchString),adContents = {};
+        var model = adContent.data[0].MODEL;
+        var productName = adContent.name;
+        location.hash = btoa(model+'|'+productName).replace('==','');
+        // htmlContent += celebritiesFeedData.map(function(data){ var product = data.data.find(function(product) { return product.name == productName }); if(!product){ var product = data.data[0] } var adData = product.data.find(function(obj){ return obj.AD_SIZE == '300x600'; }); return '<div '+(model == data.name ? 'class="selected"' : '')+' data-id="' + data.name + '"><div class="modelImage" style="background-image:url(\'' + 'assets/'+ adData.MODEL + '/' + adData.IMAGE_URL3 + '\')"></div><div class="modelLabel">'+data.name + '</div></div>' }).join('');
+        htmlContent += celebritiesFeedData.map(function(data){
+          var product = data.data.find(function(product) {
+            return product.name == productName
+          });
+          if(!product){ var product = data.data[0] }
+          var adData = product.data.find(function(obj){ return obj.AD_SIZE == '300x600'; });
+          return '<div '+(model == data.name ? 'class="selected"' : '')+' data-id="' + data.name + '"><div class="modelLabel">'+data.name + '</div></div>'
+        }).join('');
+        document.querySelector('#modelHeader').innerHTML = htmlContent;
+        htmlContent = '';
+        var modelData = celebritiesFeedData.find(function(data){ return data.name == model; });
+        if(modelData) {
+          // htmlContent += modelData.data.map(function(data){ return '<div '+(productName == data.name ? 'class="selected"' : '')+' data-id="' + modelData.name + '|' + data.name + '" title="' + modelData.name + ' > ' + data.data[0].template + ' > ' + data.name + '">'+data.name + '</div>' }).join('');
+          // htmlContent += modelData.data.map(function(data){ var adData = data.data.find(function(ad){ return ad.AD_SIZE == '300x250' }); return '<div data-id="' + modelData.name + '|' + data.name + '" title="' + modelData.name + ' > ' + data.name + '" '+(productName == data.name ? 'class="selected"' : '')+' style="background-color:#e5e5e5;"><div class="image-container"><div class="image"><img src="'+'assets/'+modelData.name+'/' + adData.IMAGE_URL5+'"></div><div class="image"><img src="'+'assets/'+modelData.name+'/' + adData.IMAGE_URL4+'"></div></div><div class="text">' + adData.TEXT_1 + '</div></div>'; }).join('');
+          htmlContent += modelData.data.map(function(data){ var adData = data.data[0]; return '<div data-id="' + modelData.name + '|' + data.name + '" title="' + modelData.name + ' > ' + data.name + '" '+(productName == data.name ? 'class="selected"' : '')+' style=""><div class="text">' + adData.TEXT_1 + '</div></div>'; }).join('');
+          // htmlContent += modelData.data.map(function(data){ var adData = data.data.find(function(ad){ return ad.AD_SIZE == '300x250' }); return '<div data-id="' + modelData.name + '|' + data.name + '" title="' + modelData.name + ' > ' + data.name + '" '+(productName == data.name ? 'class="selected"' : '')+' style="background-color:#e5e5e5;"><div class="text">' + adData.TEXT_1 + '</div></div>'; }).join('');
+        }
+        document.querySelector('#headerWrapper').innerHTML = htmlContent;
+        document.querySelector('#modelHeader').style.display = 'inline-block';
+        document.querySelector('#headerWrapper').style.minWidth = document.querySelector('#modelHeader').offsetWidth + 'px';
+        document.querySelector('#modelHeader').style.display = '';
+        var headlines = [];
+        adContent.data.forEach(function(data){ headlines.push(data.TEXT_2 + '|' + data.LANGUAGE); });
+        headlines = headlines.filter(function(value, index, self){ return self.indexOf(value) === index; });
+        if(headlines) {
+          filterString = filterString.length ? filterString : headlines[0];
+          if(!headlines.find(function(headline){ return headline.toLowerCase() == filterString.toLowerCase(); })) { filterString = headlines[0]; }
+          var model = adContent.data[0].MODEL;
+          var productName = adContent.name;
+          location.hash = btoa(model+'|'+productName+'|'+filterString).replace('==','').replace('=','');
+          adContents.name = adContent.name;
+          adContents.data = adContent.data.filter(function(data){ return (data.TEXT_2 + '|' + data.LANGUAGE).toLowerCase() == filterString.toLowerCase(); });
+          htmlContent = '';
+          htmlContent += headlines.map(function(headline){ return '<div '+(headline.toLowerCase() == filterString.toLowerCase()? 'class="selected"': '')+' data-id="'+model+'|'+productName+'|'+headline+'">' + headline.split('|')[0] + '<div>(' + headline.split('|')[1] + ')</div></div>'; }).join('');
+        }
+        document.querySelector('#subHeaderWrapper').innerHTML = htmlContent;
+        // htmlContent = '';
+        htmlContent = model + ' | ' + adContent.name + ' | ' + filterString.split('|').join(' | ');
+        document.querySelector('#title').innerHTML = htmlContent;
+        var headers = document.querySelectorAll('#modelHeader > div');
+        for(var i = 0; i < headers.length; i++) {
+            headers[i].onclick = function() {
+              loadContent(this.dataset.id);
+            }
+        }
+        var subheaders = document.querySelectorAll('#headerWrapper > div');
+        for(var i = 0; i < subheaders.length; i++) {
+            subheaders[i].onclick = function() {
+              loadContent(this.dataset.id);
+            }
+        }
+        var subsubheaders = document.querySelectorAll('#subHeaderWrapper > div');
+        for(var i = 0; i < subsubheaders.length; i++) {
+            subsubheaders[i].onclick = function() {
+              loadContent(this.dataset.id);
+            }
+        }
+        adContents.data.map(function(data){
+          var adSize = data['AD_SIZE'];
+          var adWidth = adSize.split('x')[0];
+          var adHeight = adSize.split('x')[1];
+          // var template = data.template.split(' ').join('');
+          var cam = getCAMData(data, 'Celebrity');
+          var adScript = `
+          -1==navigator.userAgent.indexOf("MSIE")&&-1==navigator.userAgent.indexOf("Trident")||Object.keys||(Object.keys=function(d){var f=[],e;for(e in d)d.hasOwnProperty(e)&&f.push(e);return f});var amo;
+amo=new function(){var d={};this.variation={};this.attributes={};this.content=[];var f={name:"1",description:"1",provider:"1",brand:"1",display_advertiser_category_name:"1",price:"1",discount_price:"1",picture_url:"1",product_url:"1",passthroughfield1:"1",passthroughfield2:"1",passthroughfield3:"1",passthroughfield4:"1",passthroughfield5:"1",image_url1:"1",image_url2:"1",image_url3:"1",image_url4:"1",image_url5:"1"},e=0;this.registerClick=function(a,c){d[a]=c};this.registerVariation=function(a,c){a&&
+c?"string"!==typeof a||"string"!==typeof c?alert("ERROR: key and value needs to be string"):this.variation[a]=c:alert("ERROR: key or/and value is not passed")};this.registerAttribute=function(a,c,b){a&&b&&c?"TEXT"!=c&&"IMAGE"!=c?alert("ERROR: type needs to be TEXT/IMAGE"):"string"!==typeof a||"string"!==typeof b?alert("ERROR: name and value needs to be string"):this.attributes[a]=b:alert("ERROR: name or/and type or/and value is not passed")};this.registerContent=function(a){if(a)if(validHeader=!0,
+void 0==a.length){for(var c=Object.keys(a),b=0;b<c.length;b++){var d=c[b],g=0;if(1==f[d])g=1;else{alert("Invalid Header in Content: "+d);break}}0!=g&&(a.gid=++e,this.content.push(a))}else alert("Content Data needs to be a JSON Object. Passed in Content Data seems to be an Array");else alert("ERROR: Content Data is not passed")};this.onDynAdClick=function(a,c,b,d,e){a=b?b:a?a.product_url:"";0<a.length&&(0==a.indexOf("http://")||0==a.indexOf("https://")||0==a.indexOf("//"))?window.open(a):alert("ERROR: Click URL is not available or is not valid.")};
+this.onAdClick=function(a,c){var b;a?(0==a.indexOf("http://")||0==a.indexOf("https://")||0==a.indexOf("//")?b=a:d[a]&&(b=d[a]),b?window.open(b):alert("ERROR: Click Parameter "+a+" not registered. Register landing page using amo.registerClick")):alert("ERROR: null or undefined Click Parameter passed")}};
+          var cam = ${cam}
+          for(var i in cam) { amo.registerVariation(i, cam[i]); }
+          amo.registerVariation = function(){}`;
+          // var amoScript = document.createElement('script');
+          // amoScript.type= 'text/javascript';
+          // amoScript.src = "js/AMOLibrary.js";
+          var scriptTag = document.createElement('script');
+          scriptTag.type= 'text/javascript';
+          var inlineScript = document.createTextNode(adScript);
+          scriptTag.appendChild(inlineScript);
+          var iframe = document.createElement('iframe');
+          iframe.id = adSize;
+          iframe.style.width = adWidth + 'px';
+          iframe.style.height = adHeight + 'px';
+          iframe.style.border = 'none';
+          document.querySelector('#ad' + adSize).innerHTML = '';
+          document.querySelector('#ad' + adSize).appendChild(iframe);
+          document.querySelector('#ad' + adSize).parentNode.style.display = 'inline-block';
+          var iframeDoc = iframe.contentWindow ? iframe.contentWindow : iframe.contentDocument && iframe.contentDocument.document ? iframe.contentDocument.document : iframe.contentDocument;
+        	iframeDoc.document.open();
+          iframeDoc.document.write('<iframe src="ads/'+adSize+'/'+adSize+'.html" width="'+adWidth+'" height="'+adHeight+'" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe>');
+        	iframeDoc.document.close();
+          iframeDoc.document.body.style.margin = 0;
+          iframeDoc.document.head.appendChild(scriptTag);
+          // iframeDoc.document.head.appendChild(amoScript);
+          // amoScript.onload = function(){
+          //   iframeDoc.document.head.appendChild(scriptTag);
+          // }
+        });
+      }
+      var loadPage = function(){
+        var searchFlag = false;
+        if(location.hash && location.hash.length) {
+          var selector = location.hash.split('#')[1];
+          loadContent(selector ? atob(selector) : 'Priyanka Chopra Jonas');
+        } else { loadContent('Priyanka Chopra Jonas'); }
+      };
+    </script>
+  </body>
+</html>
