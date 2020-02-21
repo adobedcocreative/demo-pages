@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ad</title>
+    <script type="text/javascript" src="https://ads.everesttech.net/ads/static/local/AMOLibrary.js"></script>
+    <link rel="stylesheet" href="css/style.min.css">
+    <!-- <link rel="stylesheet" href="https://use.typekit.net/tag1rnw.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/script.min.js"></script>
+    <style media="screen">
+      /* @font-face {
+          font-family: SegoeUISemibold;
+          src: url('fonts/SegoeUI_Semibold.woff') format("woff");
+      }
+      @font-face {
+          font-family: SegoeUI;
+          src: url('fonts/SegoeUI.woff') format("woff");
+      }
+      .SegoeUISemibold { font-family: SegoeUISemibold; }
+      .SegoeUI { font-family: SegoeUI; } */
+    </style>
+    <style media="screen" data-dynamic="style">
+      #ad {
+        width: 728px;
+        height: 90px;
+        font-family: SegoeUI, Arial, sans-serif;
+        color: #fff;
+      }
+      .frame {
+        position: absolute;
+        top:0px;
+        left:0px;
+        width:inherit;
+        height:inherit;
+      }
+      /* #cta { background-color: !{ctaBtnColor}; } */
+      /* #cta:hover { background-color: !{ctaBtnHover}; } */
+      #cta img { transition: all ease-out 0.2s; -webkit-transition: all ease-out 0.2s; }
+      #cta img:hover { transform: translate(-50%,-50%) scale(1.1); }
+    </style>
+  </head>
+  <body>
+    <div class="" id="ad">
+      <div id="backgroundImage1" class="asset frame" data-image="backgroundImage1"></div>
+      <div id="backgroundImage2" class="asset frame" data-image="backgroundImage2"></div>
+      <div class="maskHeadlines" style="width:180px;height:inherit;overflow:hidden;">
+        <div class="" style="position:absolute;top:0px;left:0px;width:728px;height: inherit;">
+          <div id="headlineImage1" class="asset frame" data-image="headlineImage1"></div>
+          <div id="headlineImage2" class="asset frame" data-image="headlineImage2"></div>
+        </div>
+      </div>
+      <div id="headlineImage3" class="asset frame" data-image="headlineImage3"></div>
+      <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
+      <div id="logoImage" class="asset frame"
+        data-image="logoImage"
+        style="top: 14px;
+          left: 620px;
+          width: 96px;
+          height: 23px;">
+      </div>
+      <div id="cta" class="asset"
+        data-image="ctaImage"
+        style="top: 44px;
+          left: 621px;
+          width: 90px;
+          height: 30px;">
+      </div>
+      <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
+    </div>
+    <div id="loadFont" style="width:0;height:0;overflow:hidden;">
+      <!-- <div class="SegoeUI">SegoeUI</div>
+      <div class="SegoeUISemibold">SegoeUISemibold</div> -->
+    </div>
+    <script type="text/javascript">
+      var ad = new Ad({
+        root: document.querySelector('#ad'),
+        width: 728,
+        height: 90,
+        borderWidth: 1,
+        borderColor: '#000'
+      });
+      setTimeout(function() {
+        ad.contentSetup({
+          cam: {
+            backgroundImage1: 'assets/728x90_Crocs_DCO_PersonalizationPillar_KimSejeong_Background_01.png',
+            backgroundImage2: 'assets/728x90_Crocs_DCO_PersonalizationPillar_KimSejeong_Background_02.png',
+            headlineImage1: 'assets/728x90_Crocs_DCO_PersonalizationPillar_KimSejeong_Headline_UNIQUELY_YOU_01.png',
+            headlineImage2: 'assets/728x90_Crocs_DCO_PersonalizationPillar_KimSejeong_Headline_UNIQUELY_YOU_02.png',
+            headlineImage3: 'assets/728x90_Crocs_DCO_PersonalizationPillar_KimSejeong_Headline_UNIQUELY_YOU_03.png',
+            styleProperties: "na",
+            ctaSelect: 'en_text',
+            clickURL: 'https://www.adobe.com/#Crocs',
+            impressionTracker: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII='
+          },
+          feed: [
+            {
+              name: 'Crocs',
+            }
+          ],
+          staticData: {
+            // ref: 'ref.png'
+            ctaBtnColor: '#fff',
+            logoImage: 'images/CROCS_Logo_Animated_White.gif',
+
+          },
+          beforeLoad: function(data){
+            data.map(function(content){
+              // content.ctaBtn = content.ctaBtnColor.split('^')[0];
+              // content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
+              switch(content.ctaSelect){
+                case 'en_text': content.ctaImage = 'images/cta/CTA_EN_Show_Now.png'; break;
+                case 'jp_text': content.ctaImage = 'images/cta/CTA_JP_Show_Now.png'; break;
+                case 'de_text': content.ctaImage = 'images/cta/CTA_DE_Show_Now.png'; break;
+                case 'kr_text': content.ctaImage = 'images/cta/CTA_KR_Show_Now.png'; break;
+                case 'en_text_green': content.ctaImage = 'images/cta/CTA_Green_EN_Shop_Now.png'; content.logoImage = 'images/728x90_Crocs_Logo_Green.png'; break;
+                case 'de_text_green': content.ctaImage = 'images/cta/CTA_Green_DE_Shop_Now.png'; content.logoImage = 'images/728x90_Crocs_Logo_Green.png'; break;
+                case 'kr_text_green': content.ctaImage = 'images/cta/CTA_Green_KO_Shop_Now.png'; content.logoImage = 'images/728x90_Crocs_Logo_Green.png'; break;
+                case 'en_text_gray': case 'en_text_grey': content.ctaImage = 'images/cta/CTA_Grey_EN_Shop_Now.png'; break;
+                case 'jp_text_gray': case 'jp_text_grey': content.ctaImage = 'images/cta/CTA_Grey_JP_Shop_Now.png'; break;
+                case 'de_text_gray': case 'de_text_grey': content.ctaImage = 'images/cta/CTA_Grey_DE_Shop_Now.png'; break;
+                case 'kr_text_gray': case 'kr_text_grey': content.ctaImage = 'images/cta/CTA_Grey_KO_Shop_Now.png'; break;
+                default: content.ctaImage = 'images/cta/CTA_EN_Show_Now.png';
+              }
+            });
+            return data;
+          }
+        }, function(data){
+          var adData = data[0], adClickUrl = adData['clickURL'];
+          ad.root.addEventListener("click", function(e) {
+            if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
+          });
+          if(adData.impressionTracker.toLowerCase() != 'na'){ ad.loadAssets(adData.impressionTracker, function(assets){ }); }
+          if(adData.styleProperties && adData.styleProperties.toLowerCase() != 'na') {
+            try {
+              eval('var styleProperties = ' + adData.styleProperties);
+              if(styleProperties && typeof styleProperties == 'object')
+              for(var i in styleProperties) {
+                gsap.set(i, styleProperties[i]);
+              }
+            } catch(e) {  }
+          }
+          var loadLogo = function(){
+            var image = new Image();
+            image.onload = function(){
+              ad.layers.logoImage.querySelector('img').src = this.src;
+            }
+            image.src = ad.layers.logoImage.querySelector('img').src;
+          }
+          gsap.delayedCall(0.5, loadLogo);
+          var adWidth = 728;
+          gsap.timeline({defaults:{ease: Power1.easeOut, duration: 0.3}})
+          .from('#backgroundImage1', { x:-5, scale: 1.14, duration: 8})
+          gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.7}})
+          .from('#headlineImage1', { x: -300,delay:0.5})
+          .from('#headlineImage2', { x: 300}, '-=0.7')
+          .from('#headlineImage3', { autoAlpha: 0, delay:0.5})
+        });
+      }, 2000);
+    </script>
+  </body>
+</html>
