@@ -22,8 +22,8 @@
     </style>
     <style media="screen" data-dynamic="style">
       #ad {
-        width: 300px;
-        height: 250px;
+        width: 320px;
+        height: 50px;
         font-family: SegoeUI, Arial, sans-serif;
         color: #fff;
       }
@@ -36,9 +36,6 @@
       }
       /* #cta { background-color: !{ctaBtnColor}; } */
       /* #cta:hover { background-color: !{ctaBtnHover}; } */
-      /* #cta:hover { opacity: 0.8; } */
-      #cta img { transition: all ease-out 0.2s; -webkit-transition: all ease-out 0.2s; }
-      #cta img:hover { transform: translate(-50%,-50%) scale(1.1); }
       #cta svg { transition: all ease-out 0.2s; -webkit-transition: all ease-out 0.2s; }
       #cta svg:hover { transform: scale(1.2); }
     </style>
@@ -47,24 +44,26 @@
     <div class="" id="ad">
       <div id="backgroundImage1" class="asset frame" data-image="backgroundImage1"></div>
       <div id="backgroundImage2" class="asset frame" data-image="backgroundImage2"></div>
-      <div class="" style="width:180px;height:inherit;overflow:hidden;">
-        <div class="" style="position:absolute;top:0px;left:0px;width:300px;height: inherit;">
+      <!-- <div id="backgroundImage" class="asset frame" data-image="backgroundImage"></div> -->
+      <div class="maskHeadlines" style="width:180px;height:inherit;overflow:hidden;">
+        <div class="" style="position:absolute;top:0px;left:0px;width:320px;height: inherit;">
           <div id="headlineImage1" class="asset frame" data-image="headlineImage1"></div>
           <div id="headlineImage2" class="asset frame" data-image="headlineImage2"></div>
         </div>
       </div>
       <div id="headlineImage3" class="asset frame" data-image="headlineImage3"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
-      <div id="logoImage" class="asset frame" data-image="logoImage"
-        style="top: 166px;
-          left: 42px;
+      <div id="logoImage" class="asset frame"
+        data-image="logoImage"
+        style="top: 17px;
+          left: 206px;
           width: 78px;
           height: 17px;">
       </div>
       <div id="cta" class="asset frame"
         data-image="ctaImage"
-        style="top: 162px;
-          left: 128px;
+        style="top: 13px;
+          left: 290px;
           width: 20px;
           height: 25px;">
       </div>
@@ -77,21 +76,21 @@
     <script type="text/javascript">
       var ad = new Ad({
         root: document.querySelector('#ad'),
-        width: 300,
-        height: 250,
+        width: 320,
+        height: 50,
         borderWidth: 1,
         borderColor: '#000'
       });
       setTimeout(function() {
         ad.contentSetup({
           cam: {
-            backgroundImage1: 'assets/300x250_Crocs_DCO_PersonalizationPillar_KimSejeong_Background_01.png',
-            backgroundImage2: 'assets/300x250_Crocs_DCO_PersonalizationPillar_KimSejeong_Background_02.png',
-            headlineImage1: 'assets/300x250_Crocs_DCO_PersonalizationPillar_KimSejeong_Headline_UNIQUELY_YOU_01.png',
-            headlineImage2: 'assets/300x250_Crocs_DCO_PersonalizationPillar_KimSejeong_Headline_UNIQUELY_YOU_02.png',
-            headlineImage3: 'assets/300x250_Crocs_DCO_PersonalizationPillar_KimSejeong_Headline_UNIQUELY_YOU_03.png',
-            styleProperties: "na",//"{'#cta': {y:10},'#logoImage': {y:10}}",
-            ctaSelect: 'icon_grey',
+            backgroundImage1: 'assets/320x50_Crocs_DCO_PersonalizationPillar_KimSejeong_Background_02.png',
+            backgroundImage2: 'assets/320x50_Crocs_DCO_PersonalizationPillar_KimSejeong_Background_01.png',
+            headlineImage1: 'assets/1x1.png',
+            headlineImage2: 'assets/1x1.png',
+            headlineImage3: 'assets/1x1.png',
+            styleProperties: "na",
+            ctaSelect: 'icon_white',
             clickURL: 'https://www.adobe.com/#Crocs',
             impressionTracker: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII='
           },
@@ -103,16 +102,13 @@
           staticData: {
             // ref: 'ref.png'
             ctaBtnColor: '#fff',
-            logoImage: 'images/CROCS_Logo_Animated.gif',
+            logoImage: 'images/CROCS_Logo_Animated_White.gif',
+            // backgroundImage: 'images/320x50_Crocs_ClassicPillar_Vertical_Line_Background_03.png',
           },
           beforeLoad: function(data){
             data.map(function(content){
               // content.ctaBtn = content.ctaBtnColor.split('^')[0];
               // content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
-              var changePosition = function(){
-                gsap.set('#cta', {x:176, y:197, width: 102, height:34});
-                content.logoImage = 'images/300x250_Crocs_Logo_NoShadow.png';
-              }
               var addIcon = function(color){
                 color = color ? color : '#fff';
                 var ctaElement = ad.root.querySelector('#cta');
@@ -122,21 +118,10 @@
                 }
               }
               switch(content.ctaSelect){
-                case 'en_text': content.ctaImage = 'images/cta/CTA_EN_Show_Now.png'; changePosition(); break;
-                case 'jp_text': content.ctaImage = 'images/cta/CTA_JP_Show_Now.png'; changePosition(); break;
-                case 'de_text': content.ctaImage = 'images/cta/CTA_DE_Show_Now.png'; changePosition(); break;
-                case 'kr_text': content.ctaImage = 'images/cta/CTA_KR_Show_Now.png'; changePosition(); break;
-                case 'en_text_green': content.ctaImage = 'images/cta/CTA_Green_EN_Shop_Now.png'; changePosition(); break;
-                case 'de_text_green': content.ctaImage = 'images/cta/CTA_Green_DE_Shop_Now.png'; changePosition(); break;
-                case 'kr_text_green': content.ctaImage = 'images/cta/CTA_Green_KO_Shop_Now.png'; changePosition(); break;
-                case 'en_text_gray': case 'en_text_grey': content.ctaImage = 'images/cta/CTA_Grey_EN_Shop_Now.png'; changePosition(); break;
-                case 'jp_text_gray': case 'jp_text_grey': content.ctaImage = 'images/cta/CTA_Grey_JP_Shop_Now.png'; changePosition(); break;
-                case 'de_text_gray': case 'de_text_grey': content.ctaImage = 'images/cta/CTA_Grey_DE_Shop_Now.png'; changePosition(); break;
-                case 'kr_text_gray': case 'kr_text_grey': content.ctaImage = 'images/cta/CTA_Grey_KO_Shop_Now.png'; changePosition(); break;
-                case 'icon_white': addIcon('#fff'); break;//content.ctaImage = 'images/cta/300x250_CTA_Icon.png'; break;
-                case 'icon_gray': case 'icon_grey': addIcon('#444');  break; //content.ctaImage = 'images/cta/300x250_CTA_Icon_Gray.png'; content.logoImage = 'images/300x250_Crocs_Logo_Gray.png'; break;
-                case 'icon_green': addIcon('#4f660b'); gsap.set('#cta', {left:236, top:184}); content.logoImage = 'images/300x250_Crocs_Logo_Green.png'; break; //content.ctaImage = 'images/cta/300x250_CTA_Icon_Green.png'; content.logoImage = 'images/300x250_Crocs_Logo_Green.png'; break;
-                default: addIcon('#fff'); //content.ctaImage = 'images/cta/300x250_CTA_Icon.png';
+                case 'icon_white': addIcon('#fff'); break;//content.ctaImage = 'images/cta/320x50_CTA_Icon.png'; break;
+                case 'icon_gray': case 'icon_grey': addIcon('#444'); content.logoImage = 'images/CROCS_Logo_Animated.gif'; break; //content.ctaImage = 'images/cta/320x50_CTA_Icon_Gray.png'; content.logoImage = 'images/320x50_Crocs_Logo.png'; break;
+                case 'icon_green': addIcon('#4f660b'); content.logoImage = 'images/320x50_Crocs_Logo_Green.png'; break; //content.ctaImage = 'images/cta/320x50_CTA_Icon_Green.png'; content.logoImage = 'images/320x50_Crocs_Logo_Green.png'; break;
+                default: addIcon('#fff'); //content.ctaImage = 'images/cta/320x50_CTA_Icon.png';
               }
             });
             return data;
@@ -164,13 +149,27 @@
             image.src = ad.layers.logoImage.querySelector('img').src;
           }
           gsap.delayedCall(0.5, loadLogo);
-          var adWidth = 300;
-          gsap.timeline({defaults:{ease: Power1.easeOut, duration: 0.3}})
-          .from('#backgroundImage1', { scale: 1.14, duration: 8})
-          gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.5}})
-          .from('#headlineImage1', { x: -180,delay:0.5})
-          .from('#headlineImage2', { x: 180}, '-=0.5')
-          .from('#headlineImage3', { autoAlpha: 0, delay:0.2})
+          var adWidth = 320;
+          if(ad.layers.overlay.style.color == 'transparent') {
+            gsap.set('#backgroundImage2', { scale: 1.14 });
+            gsap.set('#backgroundImage2', { css:{transformOrigin:'20% 50%', zIndex:-1} });
+            gsap.timeline({defaults:{ease: Power1.ease, duration: 0.9}})
+            .from('#backgroundImage1', { x: adWidth})
+            .from('#backgroundImage2', { x: -adWidth}, '-=0.9')
+            .to('#backgroundImage2', { scale: 1, duration: 8})
+          } else {
+            gsap.set('#backgroundImage1', { scale: 1.14 });
+            gsap.timeline({defaults:{ease: Power1.ease, duration: 0.9}})
+            .from('#backgroundImage1', { x: adWidth})
+            .from('#backgroundImage2', { x: -adWidth}, '-=0.9')
+            .to('#backgroundImage1', { scale: 1, duration: 8})
+          }
+          // gsap.timeline({defaults:{ease: Power1.easeOut, duration: 0.3}})
+          // .from('#backgroundImage1', { x:-5, scale: 1.14, duration: 8})
+          // gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.7}})
+          // .from('#headlineImage1', { x: -180,delay:0.5})
+          // .from('#headlineImage2', { x: 180}, '-=0.7')
+          // .from('#headlineImage3', { autoAlpha: 0, delay:0.5})
         });
       }, 2000);
     </script>
