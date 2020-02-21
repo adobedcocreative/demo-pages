@@ -201,6 +201,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top:255px;left:21px;li
         ad.root.addEventListener("click", function(e) {
           if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
         });
+        gsap.set("#frameVideo1", {transformOrigin:"50% 50%", scale:0.75});
         setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; },800);
 
         textUpdate();
