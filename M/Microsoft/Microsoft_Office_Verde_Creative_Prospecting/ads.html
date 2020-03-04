@@ -135,11 +135,10 @@
               textField3: data.textField3,
               textField4: data.textField4,
               textField5: data.textField5,
-              textField6: data.textField6,
               ctaText: data.CTA,
               impressionTracker: "../../../../1x1.png?impressionTracker=" + Math.random(),
               clickTracker: "../../../../1x1.png?clickTracker=" + Math.random(),
-              clickUrl: "https://office.com/",
+              clickURL: "https://office.com/",
             }`,
           }
           eval(templates[data['template']]);
@@ -200,12 +199,17 @@
           var adHeight = adSize.split('x')[1];
           var cam = getCAMData(data);
           var adScript = `
+          -1==navigator.userAgent.indexOf("MSIE")&&-1==navigator.userAgent.indexOf("Trident")||Object.keys||(Object.keys=function(d){var f=[],e;for(e in d)d.hasOwnProperty(e)&&f.push(e);return f});var amo;
+amo=new function(){var d={};this.variation={};this.attributes={};this.content=[];var f={name:"1",description:"1",provider:"1",brand:"1",display_advertiser_category_name:"1",price:"1",discount_price:"1",picture_url:"1",product_url:"1",passthroughfield1:"1",passthroughfield2:"1",passthroughfield3:"1",passthroughfield4:"1",passthroughfield5:"1",image_url1:"1",image_url2:"1",image_url3:"1",image_url4:"1",image_url5:"1"},e=0;this.registerClick=function(a,c){d[a]=c};this.registerVariation=function(a,c){a&&
+c?"string"!==typeof a||"string"!==typeof c?alert("ERROR: key and value needs to be string"):this.variation[a]=c:alert("ERROR: key or/and value is not passed")};this.registerAttribute=function(a,c,b){a&&b&&c?"TEXT"!=c&&"IMAGE"!=c?alert("ERROR: type needs to be TEXT/IMAGE"):"string"!==typeof a||"string"!==typeof b?alert("ERROR: name and value needs to be string"):this.attributes[a]=b:alert("ERROR: name or/and type or/and value is not passed")};this.registerContent=function(a){if(a)if(validHeader=!0,
+void 0==a.length){for(var c=Object.keys(a),b=0;b<c.length;b++){var d=c[b],g=0;if(1==f[d])g=1;else{alert("Invalid Header in Content: "+d);break}}0!=g&&(a.gid=++e,this.content.push(a))}else alert("Content Data needs to be a JSON Object. Passed in Content Data seems to be an Array");else alert("ERROR: Content Data is not passed")};this.onDynAdClick=function(a,c,b,d,e){a=b?b:a?a.product_url:"";0<a.length&&(0==a.indexOf("http://")||0==a.indexOf("https://")||0==a.indexOf("//"))?window.open(a):alert("ERROR: Click URL is not available or is not valid.")};
+this.onAdClick=function(a,c){var b;a?(0==a.indexOf("http://")||0==a.indexOf("https://")||0==a.indexOf("//")?b=a:d[a]&&(b=d[a]),b?window.open(b):alert("ERROR: Click Parameter "+a+" not registered. Register landing page using amo.registerClick")):alert("ERROR: null or undefined Click Parameter passed")}};
           var cam = ${cam}
           for(var i in cam) { amo.registerVariation(i, cam[i]); }
           amo.registerVariation = function(){}`;
-          var amoScript = document.createElement('script');
-          amoScript.type= 'text/javascript';
-          amoScript.src = "js/AMOLibrary.js";
+          // var amoScript = document.createElement('script');
+          // amoScript.type= 'text/javascript';
+          // amoScript.src = "js/AMOLibrary.js";
           var scriptTag = document.createElement('script');
           scriptTag.type= 'text/javascript';
           var inlineScript = document.createTextNode(adScript);
@@ -222,10 +226,11 @@
           iframeDoc.document.write('<iframe src="ads/'+adSize+'/z'+adSize+'.html" width="'+adWidth+'" height="'+adHeight+'" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe>');
         	iframeDoc.document.close();
           iframeDoc.document.body.style.margin = 0;
-          iframeDoc.document.head.appendChild(amoScript);
-          amoScript.onload = function(){
-            iframeDoc.document.head.appendChild(scriptTag);
-          }
+          iframeDoc.document.head.appendChild(scriptTag);
+          // iframeDoc.document.head.appendChild(amoScript);
+          // amoScript.onload = function(){
+          //   iframeDoc.document.head.appendChild(scriptTag);
+          // }
         });
 
       }
