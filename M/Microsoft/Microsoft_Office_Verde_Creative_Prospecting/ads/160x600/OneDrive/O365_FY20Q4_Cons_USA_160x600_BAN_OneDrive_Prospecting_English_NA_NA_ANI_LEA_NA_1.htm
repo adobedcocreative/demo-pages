@@ -116,7 +116,7 @@ function handleComplete(evt,comp) {
 		bannerData.headline1 = eval(bannerData.textField1);
 		bannerData.headline2 = eval(bannerData.textField2);
 		bannerData.headline3 = eval(bannerData.textField3);
-		bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,"12px",1,0,"50","300", "center"] : '';
+		bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "9.5px" : "12px"),1,0,"50","300", "center"] : '';
 		animation_container.addEventListener("click", function(){
 			parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl);
 			if(bannerData.clickTracker) {
