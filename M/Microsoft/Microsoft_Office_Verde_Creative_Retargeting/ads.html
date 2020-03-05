@@ -139,6 +139,7 @@
               impressionTracker: "../../../../1x1.png?impressionTracker=" + Math.random(),
               clickTracker: "../../../../1x1.png?clickTracker=" + Math.random(),
               clickURL: "https://office.com/",
+              dropdownClickURLs: "https://adobe.com/#Microsoft1^https://adobe.com/#Microsoft2^https://adobe.com/#Microsoft3",
             }`,
           }
           eval(templates[data['template']]);
@@ -179,7 +180,7 @@
         }
         document.querySelector('#subheader').innerHTML = htmlContent;
         htmlContent = '';
-        htmlContent = 'Prospecting Template - ' + adContent.data[0].Country + ' | ' + adContent.data[0].Language + ' | ' + adContent.data[0].Layout;
+        htmlContent = 'Retargeting Template - ' + adContent.data[0].Country + ' | ' + adContent.data[0].Language + ' | ' + adContent.data[0].Layout;
         document.querySelector('#title').innerHTML = htmlContent;
         var headers = document.querySelectorAll('#header > div');
         for(var i = 0; i < headers.length; i++) {
