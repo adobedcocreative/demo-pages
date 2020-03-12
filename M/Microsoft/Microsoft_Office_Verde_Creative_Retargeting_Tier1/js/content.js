@@ -12,7 +12,7 @@ var getFeed1 = function(){
           JSONData.feed.entry.map(function(data){
             feedTemplate1.push({
               "Ad Size": data['gsx$adsize']['$t'],
-              // "CTA": data['gsx$cta']['$t'],
+              "CTA": data['gsx$cta']['$t'],
               "Country": data['gsx$country']['$t'],
               "Language": data['gsx$language']['$t'],
               "Layout": data['gsx$layout']['$t'],
@@ -21,8 +21,8 @@ var getFeed1 = function(){
               "textField1": data['gsx$textfield1']['$t'],
               "textField2": data['gsx$textfield2']['$t'],
               "textField3": data['gsx$textfield3']['$t'],
-              // "textField4": data['gsx$textfield4']['$t'],
-              // "textField5": data['gsx$textfield5']['$t'],
+              "textField4": data['gsx$textfield4']['$t'],
+              "textField5": data['gsx$textfield5']['$t'],
             });
           });
           loadTemplateFlag1 = true;

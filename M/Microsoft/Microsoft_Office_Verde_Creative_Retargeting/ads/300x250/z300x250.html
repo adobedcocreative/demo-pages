@@ -35,7 +35,9 @@
         amo.registerVariation("textField1", "['<#2F2F2F>Powerful features |to unleash your |best work','19px',15,46,'20','350', 'left']");
         amo.registerVariation("textField2", "['<#737373>Plus 1 TB of OneDrive |cloud storage','11px',15.8,117,'13','350','left']");
         amo.registerVariation("textField3", "na");
-        // amo.registerVariation("ctaText", "LEARN MORE");
+        amo.registerVariation("textField4", "na");
+        amo.registerVariation("textField5", "na");
+        amo.registerVariation("ctaText", "LEARN MORE");
         // amo.registerVariation("ctaArrowVisibleFlag", "!{passthroughfield2}");
         amo.registerVariation("impressionTracker", "../../../../1x1.png?impressionTracker=" + Math.random());
         amo.registerVariation("clickTracker", "../../../../1x1.png?clickTracker=" + Math.random());
@@ -47,7 +49,9 @@
           textField1: amo.variation['textField1'],
           textField2: amo.variation['textField2'],
           textField3: amo.variation['textField3'],
-          // cta: amo.variation['ctaText'],
+          textField4: amo.variation['textField4'],
+          textField5: amo.variation['textField5'],
+          cta: amo.variation['ctaText'],
           // ctaArrowVisibleFlag: amo.variation['ctaArrowVisibleFlag'],
           impressionTracker: amo.variation['impressionTracker'],
           clickTracker: amo.variation['clickTracker'],
@@ -62,6 +66,8 @@
               textField1: cam.textField1,
               textField2: cam.textField2,
               textField3: cam.textField3,
+              textField4: cam.textField4,
+              textField5: cam.textField5,
               ctaText: cam.cta,
               // ctaArrowVisibleFlag: cam.ctaArrowVisibleFlag.toString().toLowerCase() == 'false' ? false : true,
               ctaArrowVisibleFlag: true,
@@ -89,7 +95,9 @@
         var textField1 = adData.textField1 && adData.textField1.toLowerCase() != 'na' ? adData.textField1 : ' ';
         var textField2 = adData.textField2 && adData.textField2.toLowerCase() != 'na' ? adData.textField2 : ' ';
         var textField3 = adData.textField3 && adData.textField3.toLowerCase() != 'na' ? adData.textField3 : ' ';
-        textField1=textField1.replace('-_-','—');textField2=textField2.replace('-_-','—');textField3=textField3.replace('-_-','—');
+        var textField4 = adData.textField4 && adData.textField4.toLowerCase() != 'na' ? adData.textField4 : ' ';
+        var textField5 = adData.textField5 && adData.textField5.toLowerCase() != 'na' ? adData.textField5 : ' ';
+        textField1=textField1.replace('-_-','—');textField2=textField2.replace('-_-','—');textField3=textField3.replace('-_-','—');textField4=textField4.replace('-_-','—');textField5=textField5.replace('-_-','—');
         var ctaText = adData.ctaText && adData.ctaText.toLowerCase() != 'na' ? adData.ctaText : '';
         var impressionTracker = adData.impressionTracker && adData.impressionTracker.toLowerCase() != 'na' ? adData.impressionTracker : '';
         var clickTracker = adData.clickTracker && adData.clickTracker.toLowerCase() != 'na' ? adData.clickTracker : '';
@@ -108,7 +116,10 @@
           case 'AllUpAIIcons' : adURL = 'AllUpAIIcons/Office_FY20Q4_Cons_USA_300x250_BAN_AllUp_AI_Icons_Retargeting_English_NA_NA_ANI_BN_NA_1.htm';break;
           case 'AllUpAIScreens' : adURL = 'AllUpAIScreens/Office_FY20Q4_Cons_USA_300x250_BAN_AllUp_AI_Screens_Retargeting_English_NA_NA_ANI_BN_NA_1.htm';break;
           case 'ExcelBudgeting' : adURL = 'ExcelBudgeting/O365_FY20Q4_Cons_USA_300x250_BAN_Excel_Budgeting_Retargeting_English_NA_NA_ANI_BN_NA_1.htm';break;
+          case 'HeroAchieve' : adURL = 'HeroAchieve/O365_FY20Q4_Cons_USA_300x250_BAN_Hero_Achieve_Prospecting_English_NA_NA_ANI_LEA_NA_1.htm';break;
+          case 'HeroFamily' : adURL = 'HeroFamily/O365_FY20Q4_Cons_USA_300x250_BAN_Hero_Family_Prospecting_English_NA_NA_ANI_LEA_NA_1.htm';break;
           case 'MoneyInExcel' : adURL = 'MoneyInExcel/O365_FY20Q4_Cons_USA_300x250_BAN_MoneyInExcel_Retargeting_English_NA_NA_ANI_BN_NA_1.htm';break;
+          case 'OneDrive' : adURL = 'OneDrive/O365_FY20Q4_Cons_USA_300x250_BAN_OneDrive_Prospecting_English_NA_NA_ANI_LEA_NA_1.htm';break;
           case 'PPT' : adURL = 'PPT/O365_FY20Q4_Cons_USA_300x250_BAN_PPT_Retargeting_English_NA_NA_ANI_BN_NA_1.htm';break;
           case 'Word' : adURL = 'Word/O365_FY20Q4_Cons_USA_300x250_BAN_Word_Retargeting_English_NA_NA_ANI_BN_NA_1.htm';break;
         }
@@ -121,7 +132,9 @@
           textField1: textField1,
           textField2: textField2,
           textField3: textField3,
-          // ctaText: ctaText,
+          textField4: textField4,
+          textField5: textField5,
+          ctaText: ctaText,
           // CTAarrowVisible: [adData.ctaArrowVisibleFlag, 0, 0],
           impressionTracker: impressionTracker,
           clickTracker: clickTracker,
