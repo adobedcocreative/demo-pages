@@ -68,13 +68,13 @@ var loadData = function(){
       var obj = {};
       obj.name = i;
       obj.data = [];
-      var smartNames = [];
-      feedData[i].map(function(data){smartNames.push(data['Smart Names']);});
-      smartNames = smartNames.filter(function(value, index, self){ return self.indexOf(value) === index; })
-      smartNames.map(function(smartName){
+      var layoutNames = [];
+      feedData[i].map(function(data){layoutNames.push(data['Layout']);});
+      layoutNames = layoutNames.filter(function(value, index, self){ return self.indexOf(value) === index; })
+      layoutNames.map(function(layoutName){
         var smartObject = {};
-        smartObject.name = smartName;
-        smartObject.data = feedData[i].filter(function(data){ return data['Smart Names'] == smartName });
+        smartObject.name = layoutName;
+        smartObject.data = feedData[i].filter(function(data){ return data['Layout'] == layoutName });
         obj.data.push(smartObject);
       });
       adData.push(obj);
@@ -84,10 +84,10 @@ var loadData = function(){
       if(queryString) {
         if(queryString.indexOf('|') != -1) {
           var country = queryString.split('|')[0];
-          var smartName = queryString.split('|')[1];
+          var layoutName = queryString.split('|')[1];
           var data = adData.find(function(data){ return data.name == country })
           if(data) {
-            data = data.data.find(function(data){ return data.name == smartName })
+            data = data.data.find(function(data){ return data.name == layoutName })
             if(data) { searchData = data }
           }
         } else {

@@ -91,6 +91,35 @@
         border-bottom: 2px solid; */
         color:#D83B01;
       }
+      #subsubheader {
+        font-family: Arial;
+        /* display: inline-block; */
+        margin-top: 5px;
+        vertical-align: top;
+        color:#333;
+        text-align: center;
+        -webkit-transition: all ease-out 0.2s;
+        transition: all ease-out 0.2s;
+        cursor: pointer;
+      }
+      #subsubheader > div {
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 1px 1px;
+        background-color: #e5e5e5;
+        border: 2px solid #e5e5e5;
+      }
+      #subsubheader > div > div {
+        font-size: 65%;
+      }
+      #subsubheader > div:hover {
+        background: none;
+        border: 2px solid #333;
+      }
+      #subsubheader > div.selected {
+        background: none;
+        border: 2px solid #333;
+      }
       #title {
         font-family: Arial;
         /* display: inline-block; */
@@ -121,6 +150,7 @@
     <div id="headerContainer">
       <div id="header" class=""></div>
       <div id="subheader" class=""></div>
+      <div id="subsubheader" class=""></div>
       <div id="title" class=""></div>
     </div>
     <div id="adContainer" class="ad-wrapper"></div>
@@ -167,20 +197,37 @@
         '';
         htmlContent = '';
         // var queryString = 'Japan|Create_O365_Word_Inking';
-        var adContent = getData(queryString);
+        var searchString = queryString.split('|').splice(0, 2).join('|');
+        var filterString = queryString.split('|').length > 2 ? queryString.split('|').splice(2).join('|') : '';
+        var adContent = getData(queryString),adContents = {};
         var country = adContent.data[0].Country;
-        var smartName = adContent.name;
-        location.hash = btoa(country+'|'+smartName).replace('==','');
+        var layoutName = adContent.name;
+        location.hash = btoa(country+'|'+layoutName).replace('==','');
         htmlContent += adData.map(function(data){ return '<div '+(country == data.name ? 'class="selected"' : '')+' data-id="' + data.name + '">'+data.name + '</div>' }).join('');
         document.querySelector('#header').innerHTML = htmlContent;
         htmlContent = '';
         var countryData = adData.find(function(data){ return data.name == country; });
         if(countryData) {
-          htmlContent += countryData.data.map(function(data){ return '<div '+(smartName == data.name ? 'class="selected"' : '')+' data-id="' + countryData.name + '|' + data.name + '" title="' + countryData.name + ' > ' + data.name + '">'+data.name + '</div>' }).join('');
+          htmlContent += countryData.data.map(function(data){ return '<div '+(layoutName == data.name ? 'class="selected"' : '')+' data-id="' + countryData.name + '|' + data.name + '" title="' + countryData.name + ' > ' + data.name + '">'+data.name + '</div>' }).join('');
         }
         document.querySelector('#subheader').innerHTML = htmlContent;
+        var headlines = [];
+        adContent.data.forEach(function(data){ headlines.push(data["Smart Names"] + '|' + data.Language); });
+        headlines = headlines.filter(function(value, index, self){ return self.indexOf(value) === index; });
+        if(headlines) {
+          filterString = filterString.length ? filterString : headlines[0];
+          if(!headlines.find(function(headline){ return headline.toLowerCase() == filterString.toLowerCase(); })) { filterString = headlines[0]; }
+          var country = adContent.data[0].Country;
+          var layoutName = adContent.name;
+          location.hash = btoa(country+'|'+layoutName+'|'+filterString).replace('==','').replace('=','');
+          adContents.name = adContent.name;
+          adContents.data = adContent.data.filter(function(data){ return (data["Smart Names"] + '|' + data.Language).toLowerCase() == filterString.toLowerCase(); });
+          htmlContent = '';
+          htmlContent += headlines.map(function(headline){ return '<div '+(headline.toLowerCase() == filterString.toLowerCase()? 'class="selected"': '')+' data-id="'+country+'|'+layoutName+'|'+headline+'">' + headline.split('|')[0] + '<div>(' + headline.split('|')[1] + ')</div></div>'; }).join('');
+        }
+        document.querySelector('#subsubheader').innerHTML = htmlContent;
         htmlContent = '';
-        htmlContent = 'Retargeting Template - ' + adContent.data[0].Country + ' | ' + adContent.data[0].Language + ' | ' + adContent.data[0].Layout;
+        htmlContent = 'Prospecting Template - ' + adContent.data[0].Country + ' | ' + adContent.data[0].Layout + ' | ' + filterString.split('|').join(' | ');
         document.querySelector('#title').innerHTML = htmlContent;
         var headers = document.querySelectorAll('#header > div');
         for(var i = 0; i < headers.length; i++) {
@@ -194,7 +241,13 @@
               loadContent(this.dataset.id);
             }
         }
-        adContent.data.map(function(data){
+        var subsubheaders = document.querySelectorAll('#subsubheader > div');
+        for(var i = 0; i < subsubheaders.length; i++) {
+            subsubheaders[i].onclick = function() {
+              loadContent(this.dataset.id);
+            }
+        }
+        adContents.data.map(function(data){
           var adSize = data['Ad Size'];
           var adWidth = adSize.split('x')[0];
           var adHeight = adSize.split('x')[1];
