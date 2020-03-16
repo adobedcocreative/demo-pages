@@ -322,7 +322,7 @@ p.nominalBounds = new cjs.Rectangle(-386,-1426.4,769.5,2853);
 	this.txt2.lineHeight = 12;
 	this.txt2.lineWidth = 137;
 	this.txt2.parent = this;
-	this.txt2.setTransform(2,32);
+	this.txt2.setTransform(2, (this.txt2.text.indexOf('\n') == -1 ? 32 : 25));
 
 	// this.txt3 = new cjs.Text("SAVE 16%\nAnnual subscription", "12px 'Segoe Pro'", "#0078D3");
 	this.txt3 = new cjs.Text((dynamicData.dropdownText3 ? dynamicData.dropdownText3 : "SAVE 16%\nAnnual subscription"), (dynamicData.dropdownTextFont3 ? dynamicData.dropdownTextFont3 : 12) + "px 'Segoe Pro'", "#0078D3");
@@ -330,7 +330,7 @@ p.nominalBounds = new cjs.Rectangle(-386,-1426.4,769.5,2853);
 	this.txt3.lineHeight = 12;
 	this.txt3.lineWidth = 137;
 	this.txt3.parent = this;
-	this.txt3.setTransform(2,54.5);
+	this.txt3.setTransform(2, (this.txt3.text.indexOf('\n') == -1 ? 61.5 : 54.5));
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.txt3},{t:this.txt2},{t:this.txt1}]}).wait(1));
 
