@@ -37,6 +37,29 @@
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation, initReady
 initReady=false
 function init() {
+	var iframe = window.frameElement;
+	var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
+	dynamicData = parentWindow.getBannerData();
+	dynamicData.dropdownText = dynamicData.ctaText.indexOf('^') != -1 ? dynamicData.ctaText.split('^')[3] : dynamicData.ctaText;
+	dynamicData.dropdownText = dynamicData.dropdownText.toLowerCase() == 'na' ? '' : dynamicData.dropdownText;
+	dynamicData.dropdownTextFont = dynamicData.dropdownText && dynamicData.dropdownText.indexOf('|') != -1 ? dynamicData.dropdownText.split('|')[1] : '';
+	dynamicData.dropdownText = dynamicData.dropdownText.split('|')[0];
+	if(dynamicData.ctaText.indexOf('^') != -1 && dynamicData.ctaText.split('^').length == 4) {
+		dynamicData.dropdownText1 = dynamicData.ctaText.split('^')[0];
+		dynamicData.dropdownText1 = dynamicData.dropdownText1.toLowerCase() == 'na' ? '' : dynamicData.dropdownText1;
+		dynamicData.dropdownTextFont1 = dynamicData.dropdownText1 && dynamicData.dropdownText1.indexOf('|') != -1 ? dynamicData.dropdownText1.split('|')[1] : '';
+		dynamicData.dropdownText1 = dynamicData.dropdownText1.split('|')[0];
+
+		dynamicData.dropdownText2 = dynamicData.ctaText.split('^')[1];
+		dynamicData.dropdownText2 = dynamicData.dropdownText2.toLowerCase() == 'na' ? '' : dynamicData.dropdownText2;
+		dynamicData.dropdownTextFont2 = dynamicData.dropdownText2 && dynamicData.dropdownText2.indexOf('|') != -1 ? dynamicData.dropdownText2.split('|')[1] : '';
+		dynamicData.dropdownText2 = dynamicData.dropdownText2.split('|')[0];
+
+		dynamicData.dropdownText3 = dynamicData.ctaText.split('^')[2];
+		dynamicData.dropdownText3 = dynamicData.dropdownText3.toLowerCase() == 'na' ? '' : dynamicData.dropdownText3;
+		dynamicData.dropdownTextFont3 = dynamicData.dropdownText3 && dynamicData.dropdownText3.indexOf('|') != -1 ? dynamicData.dropdownText3.split('|')[1] : '';
+		dynamicData.dropdownText3 = dynamicData.dropdownText3.split('|')[0];
+	}
 	canvas = document.getElementById("canvas");
 	anim_container = document.getElementById("animation_container");
 	dom_overlay_container = document.getElementById("dom_overlay_container");
@@ -116,7 +139,7 @@ function handleComplete(evt,comp) {
 	var bannerData = parentWindow.getBannerData();
 	bannerData.headline1 = eval(bannerData.textField1);
 	bannerData.headline2 = eval(bannerData.textField2);
-	bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,"12px",0,0,"50","300", "center"] : '';
+	// bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,"12px",0,0,"50","300", "center"] : '';
 	animation_container.addEventListener("click", function(){
 		if(bannerData.clickTracker) {
 			var clickTrackers = bannerData.clickTracker.split('^');

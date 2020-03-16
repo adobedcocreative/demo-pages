@@ -139,7 +139,7 @@ function handleComplete(evt,comp) {
 		var bannerData = parentWindow.getBannerData();
 		bannerData.headline1 = eval(bannerData.textField1);
 		bannerData.headline2 = eval(bannerData.textField2);
-		bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,"12px",1,0,"50","300", "center"] : '';
+		// bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,"12px",1,0,"50","300", "center"] : '';
 		animation_container.addEventListener("click", function(){
 			if(bannerData.clickTracker) {
 				var clickTrackers = bannerData.clickTracker.split('^');
