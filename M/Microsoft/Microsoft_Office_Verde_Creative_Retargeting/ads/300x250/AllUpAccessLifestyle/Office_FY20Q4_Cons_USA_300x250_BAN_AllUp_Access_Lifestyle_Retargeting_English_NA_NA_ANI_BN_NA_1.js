@@ -335,26 +335,31 @@ p.nominalBounds = new cjs.Rectangle(-9.2,-7.8,18.4,15.8);
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
 
 	// Layer_1
-	this.txt1 = new cjs.Text("Learn more", "12px 'Segoe Pro'");
+	// this.txt1 = new cjs.Text("Learn more", "12px 'Segoe Pro'");
+	this.txt1 = new cjs.Text((dynamicData.dropdownText1 ? dynamicData.dropdownText1 : "Learn more"), (dynamicData.dropdownTextFont1 ? dynamicData.dropdownTextFont1 : 12) + "px 'Segoe Pro'");
 	this.txt1.name = "txt1";
 	this.txt1.lineHeight = 12;
 	this.txt1.lineWidth = 137;
 	this.txt1.parent = this;
-	this.txt1.setTransform(2,1.2);
+	this.txt1.setTransform(2, 2.2);
 
-	this.txt2 = new cjs.Text("Monthly subscription", "12px 'Segoe Pro'");
+	// this.txt2 = new cjs.Text("Monthly subscription", "12px 'Segoe Pro'");
+	this.txt2 = new cjs.Text((dynamicData.dropdownText2 ? dynamicData.dropdownText2 : "Monthly subscription"), (dynamicData.dropdownTextFont2 ? dynamicData.dropdownTextFont2 : 12) + "px 'Segoe Pro'");
 	this.txt2.name = "txt2";
 	this.txt2.lineHeight = 12;
 	this.txt2.lineWidth = 137;
 	this.txt2.parent = this;
-	this.txt2.setTransform(2,30.6);
+	this.txt2.setTransform(2, (this.txt2.text.indexOf('\n') == -1 ? 31.6 : 24.6));
 
-	this.txt3 = new cjs.Text("SAVE 16%\nAnnual subscription", "12px 'Segoe Pro'", "#0078D3");
+	// this.txt3 = new cjs.Text("SAVE 16%\nAnnual subscription", "12px 'Segoe Pro'", "#0078D3");
+	this.txt3 = new cjs.Text((dynamicData.dropdownText3 ? dynamicData.dropdownText3 : "SAVE 16%\nAnnual subscription"), (dynamicData.dropdownTextFont3 ? dynamicData.dropdownTextFont3 : 12) + "px 'Segoe Pro'", "#0078D3");
 	this.txt3.name = "txt3";
 	this.txt3.lineHeight = 12;
 	this.txt3.lineWidth = 137;
 	this.txt3.parent = this;
-	this.txt3.setTransform(2.4,54.1);
+
+	// this.txt3.setTransform(2.4,54.1);
+	this.txt3.setTransform(2.4, (this.txt3.text.indexOf('\n') == -1 ? 61.1 : 54.1));
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.txt3},{t:this.txt2},{t:this.txt1}]}).wait(1));
 
@@ -571,7 +576,8 @@ p.nominalBounds = new cjs.Rectangle(0,0,151,30);
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
 
 	// Layer_1
-	this.txt = new cjs.Text("BUY NOW", "12px 'Segoe Pro'", "#0078D3");
+	// this.txt = new cjs.Text("BUY NOW", "12px 'Segoe Pro'", "#0078D3");
+	this.txt = new cjs.Text((dynamicData.dropdownText ? dynamicData.dropdownText : "BUY NOW"), (dynamicData.dropdownTextFont ? dynamicData.dropdownTextFont : 12) + "px 'Segoe Pro'", "#0078D3");
 	this.txt.name = "txt";
 	this.txt.lineHeight = 18;
 	this.txt.lineWidth = 216;
@@ -1287,15 +1293,15 @@ p.nominalBounds = new cjs.Rectangle(-0.5,-0.8,153.6,102.3);
 		}
 		var mc = exportRoot.mainMC
 		exportRoot.replayAnim = "inProgress"
-		
+
 		this.initBanner = function (data) {
-			
+
 			exportRoot.isReplay = false;
 			exportRoot.shadowReplay = false;
-			
+
 			Object.keys = function(obj) {
 				var keys = [];
-		
+
 				for (var i in obj) {
 				  if (obj.hasOwnProperty(i)) {
 					keys.push(i);
@@ -1304,7 +1310,7 @@ p.nominalBounds = new cjs.Rectangle(-0.5,-0.8,153.6,102.3);
 				return keys
 			}
 			var keys = Object.keys(data)
-			
+
 				for (var i in keys) {
 					var id = keys[i].substr(0, 4);
 						if (id == "head") {
@@ -1313,7 +1319,7 @@ p.nominalBounds = new cjs.Rectangle(-0.5,-0.8,153.6,102.3);
 						}
 				}
 		}
-		
+
 		this.fillHead = function (txtDetails, aVar) {
 			var text = txtDetails[0]
 			var size = txtDetails[1]
@@ -1322,16 +1328,16 @@ p.nominalBounds = new cjs.Rectangle(-0.5,-0.8,153.6,102.3);
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += parseInt(size)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -1348,7 +1354,7 @@ p.nominalBounds = new cjs.Rectangle(-0.5,-0.8,153.6,102.3);
 				aVar.push(mc)
 			}
 		}
-		
+
 		this.getTheSentences = function (text, size, xOffset, yOffset, lineSpacing, lineWidth, align) {
 			var sentences = new Array()
 			var aSentenceLine = new Array()
@@ -1356,16 +1362,16 @@ p.nominalBounds = new cjs.Rectangle(-0.5,-0.8,153.6,102.3);
 			sentences = aStr.split("|");
 			var lastColor = "#000000"
 			// Figure out the setence lines
-		
+
 			for (var i = 0; i < sentences.length; i++) {
 				var aS = sentences[i].substr(0);
 				var aSplit = new Array()
 				aSplit = aS.split("<");
 				aSplit = aSplit.filter(Boolean)
 				var wholeSentence = new Array()
-		
+
 				for (var j = 0; j < aSplit.length; j++) {
-		
+
 					var checkColor = aSplit[j].indexOf("#")
 					var color = (checkColor == -1) ? lastColor : aSplit[j].substr(0, 7);
 					lastColor = color
@@ -1380,75 +1386,75 @@ p.nominalBounds = new cjs.Rectangle(-0.5,-0.8,153.6,102.3);
 			}
 			return aSentenceLine
 		}
-		
-		
+
+
 		var mc = exportRoot.mainMC
 		var icons = mc.icons
 		var screen = mc.screen
 		var phone = mc.phone
-		
+
 		this.runBanner = function() {
-			
+
 			mc.replay_btn.alpha=1
-			
+
 			this.tl1 = new TimelineLite();
 				exportRoot.tl1.from(mc.people.bg, 1.8, { x: "+=10",	ease:Power4.easeOut}, "-=0");
 				exportRoot.tl1.from(mc.people.l1, 1.8, { x: "+=100", ease:Power4.easeOut}, "-=1.8");
 				exportRoot.tl1.from(mc.people.l2, 1.8, { x: "+=100", ease:Power4.easeOut}, "-=1.8");
 				exportRoot.tl1.from(mc.people.m1, 1.8, { x: "+=80",	ease:Power4.easeOut}, "-=1.8");
 				exportRoot.tl1.from(mc.people.m2, 1.8, { x: "+=15",	ease:Power4.easeOut}, "-=1.8");
-				
+
 				exportRoot.tl1.to(mc.people.bg, 1.4, { x: "-=80",	ease:Power4.easeInOut}, "-=0.5");
 				exportRoot.tl1.to(mc.people.l1, 1.4, { x: "-=120", ease:Power4.easeInOut}, "-=1.4");
 				exportRoot.tl1.to(mc.people.l2, 1.4, { x: "-=120", ease:Power4.easeInOut}, "-=1.4");
 				exportRoot.tl1.to(mc.people.m1, 1.4, { x: "-=105",	ease:Power4.easeInOut}, "-=1.4");
 				exportRoot.tl1.to(mc.people.m2, 1.4, { x: "-=80",	ease:Power4.easeInOut}, "-=1.4");
-				
+
 				exportRoot.tl1.from(mc.whiteBg, 1.4, { x: "+=200",	ease:Power4.easeInOut}, "-=1.4");
-				
+
 				exportRoot.tl1.from(mc.logo_1, 0.7, { x: "+=200",	ease:Power4.easeOut}, "-=0.5");
-				
+
 				for (var i = 0; i < exportRoot.headline1.length; i++) {
 				if (i==0) exportRoot.tl1.from(exportRoot.headline1[i], 0.8, { x: "+=100", alpha: 0, ease:Power4.easeOut}, "-=0.2");
 				if (i!=0) exportRoot.tl1.from(exportRoot.headline1[i], 0.8, { x: "+=100", alpha: 0, ease:Power4.easeOut}, "-=0.7");
 				}
-				
+
 				for (var i = 0; i < exportRoot.headline2.length; i++) {
 				if (i==0) exportRoot.tl1.from(exportRoot.headline2[i], 0.8, { x: "+=100", alpha: 0, ease:Power4.easeOut}, "-=0.6");
 				if (i!=0) exportRoot.tl1.from(exportRoot.headline2[i], 0.8, { x: "+=100", alpha: 0, ease:Power4.easeOut}, "-=0.7");
 				}
-		
+
 			exportRoot.tl1.from(mc.dropdown, 0.8, {alpha: 0, x: "+=100", ease:Power4.easeOut}, "-=0.7");
 			exportRoot.tl1.from(mc.replay_btn, 0.8, {alpha: 0, onStart:function(){exportRoot.isReplay = true;}}, "+=0.5");
-				
+
 			exportRoot.tl1.from(mc.dropdown.pointer, 1, {x: "+=50", y: "+=200", ease:Power4.easeOut}, "-=0.8");
 			exportRoot.tl1.to(mc.dropdown.pointer, 1, {alpha:1, onStart:function(){mc.dropdown.pointer.gotoAndPlay(1);exportRoot.menuClick()}}, "+=0");
 			exportRoot.tl1.to(mc.dropdown.pointer, 1, {x: "+=50", y: "+=200", ease:Power3.easeIn}, "+=0.5");
-				
-			exportRoot.tl1.stop();	
-		
+
+			exportRoot.tl1.stop();
+
 			mc.logo_intro.gotoAndPlay(1);
 		}
 		exportRoot.myTimer = function() {
 			exportRoot.hideMenu()
 		}
-		
+
 		exportRoot.TimerVar = setInterval(exportRoot.myTimer, 4500);
-		
-		
+
+
 		var theMenu = exportRoot.mainMC.dropdown.menu
 		var theMenuBtn = exportRoot.mainMC.dropDownMenuBtn
 		var menuClosed = true
-		
+
 		exportRoot.btn1 = theMenu.btn1; var ro1 = theMenu.ro1;
 		exportRoot.btn2 = theMenu.btn2; var ro2 = theMenu.ro2;
 		exportRoot.btn3 = theMenu.btn3; var ro3 = theMenu.ro3;
 		exportRoot.btn1.enabled = false
 		exportRoot.btn2.enabled = false
 		exportRoot.btn3.enabled = false
-		
+
 		theMenuBtn.addEventListener("click", function(event) { exportRoot.menuClick() })
-		
+
 		this.menuClick = function() {
 			TweenMax.killTweensOf(theMenu);
 			if (menuClosed) exportRoot.showMenu()
@@ -1456,13 +1462,13 @@ p.nominalBounds = new cjs.Rectangle(-0.5,-0.8,153.6,102.3);
 			window.clearInterval(exportRoot.TimerVar)
 			exportRoot.TimerVar = setInterval(exportRoot.myTimer, 4500);
 		}
-		
+
 		this.showMenu = function() {
 			TweenMax.to(theMenu, 0.4, {y:98, ease:Power4.easeOut, onComplete:function(){menuClosed = false}});
 			exportRoot.btn1.enabled = true
 			exportRoot.btn2.enabled = true
 			exportRoot.btn3.enabled = true
-			
+
 		}
 		this.hideMenu = function() {
 			TweenMax.to(theMenu, 0.4, {y:206.3, ease:Power4.easeOut, onComplete:function(){menuClosed = true}});
@@ -1470,16 +1476,16 @@ p.nominalBounds = new cjs.Rectangle(-0.5,-0.8,153.6,102.3);
 			exportRoot.btn2.enabled = false
 			exportRoot.btn3.enabled = false
 		}
-		
+
 		exportRoot.btn1.addEventListener("mouseover", function(event) { exportRoot.rollOverAnim(1) })
 		exportRoot.btn2.addEventListener("mouseover", function(event) { exportRoot.rollOverAnim(2) })
 		exportRoot.btn3.addEventListener("mouseover", function(event) { exportRoot.rollOverAnim(3) })
-		
-		
+
+
 		exportRoot.btn1.addEventListener("mouseout", function(event) { exportRoot.rollOutAnim(1) })
 		exportRoot.btn2.addEventListener("mouseout", function(event) { exportRoot.rollOutAnim(2) })
 		exportRoot.btn3.addEventListener("mouseout", function(event) { exportRoot.rollOutAnim(3) })
-		
+
 		exportRoot.rollOverAnim = function(id) {
 			TweenMax.killTweensOf(theMenu["ro"+id]);
 			TweenMax.to(theMenu["ro"+id], 0.2, {alpha:1});
@@ -1582,41 +1588,41 @@ an.getComposition = function(id) {
 }
 
 
-an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {		
-	var lastW, lastH, lastS=1;		
-	window.addEventListener('resize', resizeCanvas);		
-	resizeCanvas();		
-	function resizeCanvas() {			
-		var w = lib.properties.width, h = lib.properties.height;			
-		var iw = window.innerWidth, ih=window.innerHeight;			
-		var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;			
-		if(isResp) {                
-			if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
-				sRatio = lastS;                
-			}				
-			else if(!isScale) {					
-				if(iw<w || ih<h)						
-					sRatio = Math.min(xRatio, yRatio);				
-			}				
-			else if(scaleType==1) {					
-				sRatio = Math.min(xRatio, yRatio);				
-			}				
-			else if(scaleType==2) {					
-				sRatio = Math.max(xRatio, yRatio);				
-			}			
-		}			
-		domContainers[0].width = w * pRatio * sRatio;			
-		domContainers[0].height = h * pRatio * sRatio;			
-		domContainers.forEach(function(container) {				
-			container.style.width = w * sRatio + 'px';				
-			container.style.height = h * sRatio + 'px';			
-		});			
-		stage.scaleX = pRatio*sRatio;			
-		stage.scaleY = pRatio*sRatio;			
-		lastW = iw; lastH = ih; lastS = sRatio;            
-		stage.tickOnUpdate = false;            
-		stage.update();            
-		stage.tickOnUpdate = true;		
+an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {
+	var lastW, lastH, lastS=1;
+	window.addEventListener('resize', resizeCanvas);
+	resizeCanvas();
+	function resizeCanvas() {
+		var w = lib.properties.width, h = lib.properties.height;
+		var iw = window.innerWidth, ih=window.innerHeight;
+		var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;
+		if(isResp) {
+			if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {
+				sRatio = lastS;
+			}
+			else if(!isScale) {
+				if(iw<w || ih<h)
+					sRatio = Math.min(xRatio, yRatio);
+			}
+			else if(scaleType==1) {
+				sRatio = Math.min(xRatio, yRatio);
+			}
+			else if(scaleType==2) {
+				sRatio = Math.max(xRatio, yRatio);
+			}
+		}
+		domContainers[0].width = w * pRatio * sRatio;
+		domContainers[0].height = h * pRatio * sRatio;
+		domContainers.forEach(function(container) {
+			container.style.width = w * sRatio + 'px';
+			container.style.height = h * sRatio + 'px';
+		});
+		stage.scaleX = pRatio*sRatio;
+		stage.scaleY = pRatio*sRatio;
+		lastW = iw; lastH = ih; lastS = sRatio;
+		stage.tickOnUpdate = false;
+		stage.update();
+		stage.tickOnUpdate = true;
 	}
 }
 

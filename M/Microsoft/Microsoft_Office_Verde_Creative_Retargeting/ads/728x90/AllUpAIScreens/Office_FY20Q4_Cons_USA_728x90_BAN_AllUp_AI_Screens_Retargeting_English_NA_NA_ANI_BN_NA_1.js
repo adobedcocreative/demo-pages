@@ -228,21 +228,24 @@ p.nominalBounds = new cjs.Rectangle(-1179.1,-145.7,2358.3,291.5);
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
 
 	// Layer_1
-	this.txt1 = new cjs.Text("Learn more", "12px 'Segoe Pro'");
+	// this.txt1 = new cjs.Text("Learn more", "12px 'Segoe Pro'");
+	this.txt1 = new cjs.Text((dynamicData.dropdownText1 ? dynamicData.dropdownText1 : "Learn more"), (dynamicData.dropdownTextFont1 ? dynamicData.dropdownTextFont1 : 12) + "px 'Segoe Pro'");
 	this.txt1.name = "txt1";
 	this.txt1.lineHeight = 12;
 	this.txt1.lineWidth = 137;
 	this.txt1.parent = this;
 	this.txt1.setTransform(2,2);
 
-	this.txt2 = new cjs.Text("Monthly subscription", "12px 'Segoe Pro'");
+	// this.txt2 = new cjs.Text("Monthly subscription", "12px 'Segoe Pro'");
+	this.txt2 = new cjs.Text((dynamicData.dropdownText2 ? dynamicData.dropdownText2 : "Monthly subscription"), (dynamicData.dropdownTextFont2 ? dynamicData.dropdownTextFont2 : 12) + "px 'Segoe Pro'");
 	this.txt2.name = "txt2";
 	this.txt2.lineHeight = 12;
 	this.txt2.lineWidth = 137;
 	this.txt2.parent = this;
 	this.txt2.setTransform(2,32);
 
-	this.txt3 = new cjs.Text("SAVE 16%\nAnnual subscription", "12px 'Segoe Pro'", "#0078D3");
+	// this.txt3 = new cjs.Text("SAVE 16%\nAnnual subscription", "12px 'Segoe Pro'", "#0078D3");
+	this.txt3 = new cjs.Text((dynamicData.dropdownText3 ? dynamicData.dropdownText3 : "SAVE 16%\nAnnual subscription"), (dynamicData.dropdownTextFont3 ? dynamicData.dropdownTextFont3 : 12) + "px 'Segoe Pro'", "#0078D3");
 	this.txt3.name = "txt3";
 	this.txt3.lineHeight = 12;
 	this.txt3.lineWidth = 137;
