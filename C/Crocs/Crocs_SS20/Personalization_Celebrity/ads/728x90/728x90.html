@@ -88,6 +88,7 @@
             headlineImage1: 'assets/728x90_Crocs_DCO_PersonalizationPillar_KimSejeong_Headline_UNIQUELY_YOU_01.png',
             headlineImage2: 'assets/728x90_Crocs_DCO_PersonalizationPillar_KimSejeong_Headline_UNIQUELY_YOU_02.png',
             headlineImage3: 'assets/728x90_Crocs_DCO_PersonalizationPillar_KimSejeong_Headline_UNIQUELY_YOU_03.png',
+            logoImage: 'assets/CROCS_Logo_Animated_White.gif',
             styleProperties: "na",
             ctaSelect: 'en_text',
             clickURL: 'https://www.adobe.com/#Crocs',
@@ -101,7 +102,6 @@
           staticData: {
             // ref: 'ref.png'
             ctaBtnColor: '#fff',
-            logoImage: 'images/CROCS_Logo_Animated_White.gif',
 
           },
           beforeLoad: function(data){
@@ -113,9 +113,9 @@
                 case 'jp_text': content.ctaImage = 'images/cta/CTA_JP_Show_Now.png'; break;
                 case 'de_text': content.ctaImage = 'images/cta/CTA_DE_Show_Now.png'; break;
                 case 'kr_text': content.ctaImage = 'images/cta/CTA_KR_Show_Now.png'; break;
-                case 'en_text_green': content.ctaImage = 'images/cta/CTA_Green_EN_Shop_Now.png'; content.logoImage = 'images/728x90_Crocs_Logo_Green.png'; break;
-                case 'de_text_green': content.ctaImage = 'images/cta/CTA_Green_DE_Shop_Now.png'; content.logoImage = 'images/728x90_Crocs_Logo_Green.png'; break;
-                case 'kr_text_green': content.ctaImage = 'images/cta/CTA_Green_KO_Shop_Now.png'; content.logoImage = 'images/728x90_Crocs_Logo_Green.png'; break;
+                case 'en_text_green': content.ctaImage = 'images/cta/CTA_Green_EN_Shop_Now.png'; break; //content.logoImage = 'images/728x90_Crocs_Logo_Green.png';
+                case 'de_text_green': content.ctaImage = 'images/cta/CTA_Green_DE_Shop_Now.png'; break; //content.logoImage = 'images/728x90_Crocs_Logo_Green.png';
+                case 'kr_text_green': content.ctaImage = 'images/cta/CTA_Green_KO_Shop_Now.png'; break; //content.logoImage = 'images/728x90_Crocs_Logo_Green.png';
                 case 'en_text_gray': case 'en_text_grey': content.ctaImage = 'images/cta/CTA_Grey_EN_Shop_Now.png'; break;
                 case 'jp_text_gray': case 'jp_text_grey': content.ctaImage = 'images/cta/CTA_Grey_JP_Shop_Now.png'; break;
                 case 'de_text_gray': case 'de_text_grey': content.ctaImage = 'images/cta/CTA_Grey_DE_Shop_Now.png'; break;
