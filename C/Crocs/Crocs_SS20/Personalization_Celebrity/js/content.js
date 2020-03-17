@@ -27,6 +27,7 @@ var getCelebrityFeed = function(){
               "IMAGE_URL3": data['gsx$imageurl3']['$t'],
               "IMAGE_URL4": data['gsx$imageurl4']['$t'],
               "IMAGE_URL5": data['gsx$imageurl5']['$t'],
+              "LOGOIMAGE": data['gsx$logoimage']['$t'],
               "PROVIDER_CATEGORY": data['gsx$providercategory']['$t'],
               "PRODUCT_NAME": data['gsx$productname']['$t'],
               "PRODUCT_URL": data['gsx$producturl']['$t'],
