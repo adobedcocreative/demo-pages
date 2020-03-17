@@ -76,7 +76,7 @@ function handleComplete(evt,comp) {
         startBanner()
     }
     TweenMax.delayedCall(0.2,function(){
-    	var ctaAlignment = function(position){
+        var ctaAlignment = function(position){
 			position = position ? position : 'left';
 			var layers = exportRoot.mainMC;
 			var adWidth = document.querySelector('#animation_container').offsetWidth;
@@ -116,6 +116,8 @@ function handleComplete(evt,comp) {
 		bannerData.headline1 = eval(bannerData.textField1);
 		bannerData.headline2 = eval(bannerData.textField2);
 		bannerData.headline3 = eval(bannerData.textField3);
+		bannerData.headline4 = eval(bannerData.textField4);
+		bannerData.headline5 = eval(bannerData.textField5);
 		bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,"12px",1,0,"50","300", "center"] : '';
 		animation_container.addEventListener("click", function(){
 			parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl);
@@ -137,7 +139,7 @@ function handleComplete(evt,comp) {
 			});
 		}
         exportRoot.initBanner(bannerData)
-        ctaAlignment('left')
+        ctaAlignment('right')
         exportRoot.runBanner()	
     })
 	initReady=true
@@ -182,7 +184,7 @@ var loadFont = false
 <body onload="init();" style="margin:0px;">
 <div id="rHit" style="display:block; position:absolute; top:0px; left:278px; width:22px; height:22px; z-index:100000 !important; cursor:pointer; "></div>
 <div id="animation_container" style="background-color:#0078D4; width:300px; height:250px">
-  <canvas id="canvas" width="300" height="250" style="position: absolute; display: block; background-color:#FFFFFF; cursor:pointer;" aria-label="Introducing Microsoft 3 6 5. Make moments last. Your favorite memories organized and accessible with 1 TB of OneDrive cloud storage. Learn more" role="img"></canvas>
+  <canvas id="canvas" width="300" height="250" style="position: absolute; display: block; background-color:#FFFFFF; cursor:pointer;" aria-label="Introducing Microsoft 3 6 5. Make moments last. Your favorite memories organized and accessible with 1 terabyte of OneDrive cloud storage. Learn more" role="img"></canvas>
 		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:300px; height:250px; position: absolute; left: 0px; top: 0px; display: block;">
 		<div style="position: absolute; border: 1px solid black; box-sizing: border-box; background-color:transparent; top: 0; left: 0; width: 100%; bottom: 0;"></div>
 		</div>
