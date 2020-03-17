@@ -443,7 +443,8 @@ p.nominalBounds = new cjs.Rectangle(0,0,154,30);
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
 
 	// Layer_1
-	this.txt = new cjs.Text("BUY NOW", "12px 'Segoe Pro'", "#0078D3");
+	// this.txt = new cjs.Text("BUY NOW", "12px 'Segoe Pro'", "#0078D3");
+	this.txt = new cjs.Text((dynamicData.dropdownText ? dynamicData.dropdownText : "BUY NOW"), (dynamicData.dropdownTextFont ? dynamicData.dropdownTextFont : 12) + "px 'Segoe Pro'", "#0078D3");
 	this.txt.name = "txt";
 	this.txt.lineHeight = 18;
 	this.txt.lineWidth = 216;
