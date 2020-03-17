@@ -89,6 +89,7 @@
             headlineImage1: 'assets/1x1.png',
             headlineImage2: 'assets/1x1.png',
             headlineImage3: 'assets/1x1.png',
+            logoImage: 'assets/CROCS_Logo_Animated_White.gif',
             styleProperties: "na",
             ctaSelect: 'icon_white',
             clickURL: 'https://www.adobe.com/#Crocs',
@@ -102,7 +103,6 @@
           staticData: {
             // ref: 'ref.png'
             ctaBtnColor: '#fff',
-            logoImage: 'images/CROCS_Logo_Animated_White.gif',
             // backgroundImage: 'images/320x50_Crocs_ClassicPillar_Vertical_Line_Background_03.png',
           },
           beforeLoad: function(data){
@@ -119,8 +119,8 @@
               }
               switch(content.ctaSelect){
                 case 'icon_white': addIcon('#fff'); break;//content.ctaImage = 'images/cta/320x50_CTA_Icon.png'; break;
-                case 'icon_gray': case 'icon_grey': addIcon('#444'); content.logoImage = 'images/CROCS_Logo_Animated.gif'; break; //content.ctaImage = 'images/cta/320x50_CTA_Icon_Gray.png'; content.logoImage = 'images/320x50_Crocs_Logo.png'; break;
-                case 'icon_green': addIcon('#4f660b'); content.logoImage = 'images/320x50_Crocs_Logo_Green.png'; break; //content.ctaImage = 'images/cta/320x50_CTA_Icon_Green.png'; content.logoImage = 'images/320x50_Crocs_Logo_Green.png'; break;
+                case 'icon_gray': case 'icon_grey': addIcon('#444'); break; //content.logoImage = 'images/CROCS_Logo_Animated.gif'; //content.ctaImage = 'images/cta/320x50_CTA_Icon_Gray.png'; content.logoImage = 'images/320x50_Crocs_Logo.png'; break;
+                case 'icon_green': addIcon('#4f660b'); break; // content.logoImage = 'images/320x50_Crocs_Logo_Green.png';//content.ctaImage = 'images/cta/320x50_CTA_Icon_Green.png'; content.logoImage = 'images/320x50_Crocs_Logo_Green.png'; break;
                 default: addIcon('#fff'); //content.ctaImage = 'images/cta/320x50_CTA_Icon.png';
               }
             });
