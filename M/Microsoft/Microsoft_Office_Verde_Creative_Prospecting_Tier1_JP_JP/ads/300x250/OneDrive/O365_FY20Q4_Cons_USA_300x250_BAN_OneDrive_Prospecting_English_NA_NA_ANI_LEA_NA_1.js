@@ -1405,13 +1405,33 @@ p.nominalBounds = new cjs.Rectangle(-476.9,-1010,1296.6,1756.5);
 				}
 		
 				for (var i = 0; i < exportRoot.headline2.length; i++) {
-				if (i==0) exportRoot.tl1.from(exportRoot.headline2[i], 0.8, { x: "-=100", alpha: 0, ease:Power4.easeOut}, "+=1.2");
+				if (i==0) exportRoot.tl1.from(exportRoot.headline2[i], 0.8, { x: "-=100", alpha: 0, ease:Power4.easeOut}, "+=1.7");
 				if (i!=0) exportRoot.tl1.from(exportRoot.headline2[i], 0.8, { x: "-=100", alpha: 0, ease:Power4.easeOut}, "-=0.7");
 				}
 				
+				for (var i = 0; i < exportRoot.headline2.length; i++) {
+				if (i==0) exportRoot.tl1.to(exportRoot.headline2[i], 0.8, { y: "-=15", alpha: 0, ease:Power4.easeIn}, "+=0.4");
+				if (i!=0) exportRoot.tl1.to(exportRoot.headline2[i], 0.8, { y: "-=15", alpha: 0, ease:Power4.easeIn}, "-=0.8");
+				}		
+				
+						for (var i = 0; i < exportRoot.headline3.length; i++) {
+				if (i==0) exportRoot.tl1.from(exportRoot.headline3[i], 0.8, { y: "+=15", alpha: 0, ease:Power4.easeOut}, "-=0");
+				if (i!=0) exportRoot.tl1.from(exportRoot.headline3[i], 0.8, { y: "+=15", alpha: 0, ease:Power4.easeOut}, "-=0.7");
+				}
+				
 				for (var i = 0; i < exportRoot.headline3.length; i++) {
-				if (i==0) exportRoot.tl1.from(exportRoot.headline3[i], 0.8, { x: "-=100", alpha: 0, ease:Power4.easeOut}, "-=0.6");
-				if (i!=0) exportRoot.tl1.from(exportRoot.headline3[i], 0.8, { x: "-=100", alpha: 0, ease:Power4.easeOut}, "-=0.7");
+				if (i==0) exportRoot.tl1.to(exportRoot.headline3[i], 0.8, { y: "-=15", alpha: 0, ease:Power4.easeIn}, "-=0.2");
+				if (i!=0) exportRoot.tl1.to(exportRoot.headline3[i], 0.8, { y: "-=15", alpha: 0, ease:Power4.easeIn}, "-=0.8");
+				}		
+				
+						for (var i = 0; i < exportRoot.headline4.length; i++) {
+				if (i==0) exportRoot.tl1.from(exportRoot.headline4[i], 0.8, { y: "+=15", alpha: 0, ease:Power4.easeOut}, "-=0");
+				if (i!=0) exportRoot.tl1.from(exportRoot.headline4[i], 0.8, { y: "+=15", alpha: 0, ease:Power4.easeOut}, "-=0.7");
+				}
+		
+				for (var i = 0; i < exportRoot.headline5.length; i++) {
+				if (i==0) exportRoot.tl1.from(exportRoot.headline5[i], 0.8, { x: "-=100", alpha: 0, ease:Power4.easeOut}, "+=0.5");
+				if (i!=0) exportRoot.tl1.from(exportRoot.headline5[i], 0.8, { x: "-=100", alpha: 0, ease:Power4.easeOut}, "-=0.7");
 				}
 				
 				exportRoot.tl1.from(mc.txtCta, 0.7, { alpha: 0, x: "-=100",	ease:Power4.easeOut}, "-=0.5");
@@ -1448,7 +1468,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/O365_FY20Q4_Cons_USA_300x250_BAN_OneDrive_Prospecting_English_NA_NA_ANI_LEA_NA_1_atlas_.png?1582635165332", id:"O365_FY20Q4_Cons_USA_300x250_BAN_OneDrive_Prospecting_English_NA_NA_ANI_LEA_NA_1_atlas_"}
+		{src:"images/O365_FY20Q4_Cons_USA_300x250_BAN_OneDrive_Prospecting_English_NA_NA_ANI_LEA_NA_1_atlas_.png?1583318603263", id:"O365_FY20Q4_Cons_USA_300x250_BAN_OneDrive_Prospecting_English_NA_NA_ANI_LEA_NA_1_atlas_"}
 	],
 	preloads: []
 };
