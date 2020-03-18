@@ -110,8 +110,8 @@
               // content.ctaBtn = content.ctaBtnColor.split('^')[0];
               // content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
               var changePosition = function(){
-                gsap.set('#cta', {x:176, y:197, width: 102, height:34});
-                content.logoImage = 'images/300x250_Crocs_Logo_NoShadow.png';
+                gsap.set('#cta', {left:176, top:197, width: 102, height:34});
+                gsap.set('#logoImage', {left:175, top:153, width: 108, height:38});
               }
               var addIcon = function(color){
                 color = color ? color : '#fff';
