@@ -81,7 +81,7 @@
             headlineImage1: 'assets/1x1.png',
             headlineImage2: 'assets/1x1.png',
             styleProperties: "na",
-            ctaSelect: 'icon_white',
+            ctaSelect: 'icon_black',
             clickURL: 'https://www.adobe.com/#Crocs',
             impressionTracker: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII='
           },
@@ -111,8 +111,9 @@
               }
               switch(content.ctaSelect){
                 case 'icon_white': addIcon('#fff'); break;//content.ctaImage = 'images/cta/320x50_CTA_Icon.png'; break;
-                case 'icon_gray': case 'icon_grey': addIcon('#444'); content.logoImage = 'images/320x50_Crocs_Logo.png'; break; //content.ctaImage = 'images/cta/320x50_CTA_Icon_Gray.png'; content.logoImage = 'images/320x50_Crocs_Logo.png'; break;
-                case 'icon_green': addIcon('#4f660b'); content.logoImage = 'images/320x50_Crocs_Logo_Green.png'; break; //content.ctaImage = 'images/cta/320x50_CTA_Icon_Green.png'; content.logoImage = 'images/320x50_Crocs_Logo_Green.png'; break;
+                case 'icon_gray': case 'icon_grey': addIcon('#444'); content.logoImage = 'images/320x50_Crocs_LiteRide_Logo.png'; break; //content.ctaImage = 'images/cta/320x50_CTA_Icon_Gray.png'; content.logoImage = 'images/320x50_Crocs_Logo.png'; break;
+                case 'icon_black': addIcon('#000'); content.logoImage = 'images/320x50_Crocs_LiteRide_Logo_Black.png'; break;
+                case 'icon_green': addIcon('#4f660b'); content.logoImage = 'images/320x50_Crocs_LiteRide_Logo.png'; break; //content.ctaImage = 'images/cta/320x50_CTA_Icon_Green.png'; content.logoImage = 'images/320x50_Crocs_Logo_Green.png'; break;
                 default: addIcon('#fff'); //content.ctaImage = 'images/cta/320x50_CTA_Icon.png';
               }
             });
