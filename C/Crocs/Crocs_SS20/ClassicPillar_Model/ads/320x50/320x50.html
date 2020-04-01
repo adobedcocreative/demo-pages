@@ -44,7 +44,8 @@
     <div class="" id="ad">
       <div id="backgroundImage1" class="asset frame" data-image="backgroundImage1"></div>
       <div id="backgroundImage2" class="asset frame" data-image="backgroundImage2"></div>
-      <div id="backgroundImage" class="asset frame" data-image="backgroundImage"></div>
+      <!-- <div id="backgroundImage" class="asset frame" data-image="backgroundImage"></div> -->
+      <div id="dividerLine" style="top: 0;left: 105px;width: 3px;height: inherit;background-color: #444;"></div>
       <div class="maskHeadlines" style="width:180px;height:inherit;overflow:hidden;">
         <div class="" style="position:absolute;top:0px;left:0px;width:320px;height: inherit;">
           <div id="headlineImage1" class="asset frame" data-image="headlineImage1"></div>
@@ -83,7 +84,7 @@
             headlineImage1: 'assets/1x1.png',
             headlineImage2: 'assets/1x1.png',
             headlineImage3: 'assets/1x1.png',
-            styleProperties: "na",
+            styleProperties: "na",//{'#dividerLine':{backgroundColor:'#fff'}}
             ctaSelect: 'icon_white',
             clickURL: 'https://www.adobe.com/#Crocs',
             impressionTracker: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII='
@@ -97,7 +98,7 @@
             // ref: 'ref.png'
             ctaBtnColor: '#fff',
             logoImage: 'images/320x50_Crocs_Logo.png',
-            backgroundImage: 'images/320x50_Crocs_ClassicPillar_Vertical_Line_Background_03.png',
+            // backgroundImage: 'images/320x50_Crocs_ClassicPillar_Vertical_Line_Background_03.png',
           },
           beforeLoad: function(data){
             data.map(function(content){
