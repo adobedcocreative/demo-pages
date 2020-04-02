@@ -89,7 +89,7 @@
             backgroundImage3: 'assets/1x1.png',
             headlineImage1: 'assets/300x250_SS20_Crocs_DCO_LiteRidePillar-Clogs_SuzuHirose_Headline_STYLE_AT_THE_SPEED_OF_LITE1.png',
             headlineImage2: 'assets/300x250_SS20_Crocs_DCO_LiteRidePillar-Clogs_SuzuHirose_Headline_STYLE_AT_THE_SPEED_OF_LITE2.png',
-            styleProperties: "na",
+            styleProperties: "na", //{'#overlay':{'color':'transparent'}}
             ctaSelect: 'icon_white',
             clickURL: 'https://www.adobe.com/#Crocs',
             impressionTracker: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII='
@@ -208,12 +208,21 @@
             var adWidth = 300, adHeight = 250;
             gsap.set('#headlineImage2', {y:-20});
             if(twoImageAnimationFlag) {
-              gsap.timeline({defaults:{ease: Power1.easeOut, duration: 0.5}})
-              .from('#backgroundImage1', { x:56,y:-adHeight, delay:0.5 })
-              .from('#backgroundImage2,#logoImage,#cta', { x:-56,y:adHeight }, '-=0.5')
-              .from('#headlineImage1', { autoAlpha: 0, duration: 0.1, delay:0.7})
-              .from('#headlineImage2', { autoAlpha: 0, duration: 0.1, delay:0.5})
-              .to('#headlineImage2', { y:0, duration: 0.2},'-=0.2')//, oncomplete:reverseShineAnimation})
+              if(ad.layers.overlay.style.color == 'transparent') {
+                gsap.timeline({defaults:{ease: Power1.easeOut, duration: 0.5}})
+                .from('#backgroundImage1', { x:-31,y:adHeight, delay:0.5 })
+                .from('#backgroundImage2', { x:18,y:-adHeight }, '-=0.5')
+                .from('#headlineImage1', { autoAlpha: 0, duration: 0.1, delay:0.7})
+                .from('#headlineImage2', { autoAlpha: 0, duration: 0.1, delay:0.5})
+                .to('#headlineImage2', { y:0, duration: 0.2},'-=0.2')//, oncomplete:reverseShineAnimation})
+              } else {
+                gsap.timeline({defaults:{ease: Power1.easeOut, duration: 0.5}})
+                .from('#backgroundImage1', { x:56,y:-adHeight, delay:0.5 })
+                .from('#backgroundImage2,#logoImage,#cta', { x:-56,y:adHeight }, '-=0.5')
+                .from('#headlineImage1', { autoAlpha: 0, duration: 0.1, delay:0.7})
+                .from('#headlineImage2', { autoAlpha: 0, duration: 0.1, delay:0.5})
+                .to('#headlineImage2', { y:0, duration: 0.2},'-=0.2')//, oncomplete:reverseShineAnimation})
+              }
             } else {
               gsap.timeline({defaults:{ease: Power1.easeOut, duration: 0.5}})
               .from('#backgroundImage1, #logoImage, #cta', { x:adWidth, y:-adHeight/2, delay:0.5})
