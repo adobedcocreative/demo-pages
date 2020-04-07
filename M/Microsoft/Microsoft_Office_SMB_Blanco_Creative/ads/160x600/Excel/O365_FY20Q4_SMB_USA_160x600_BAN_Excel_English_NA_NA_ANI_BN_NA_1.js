@@ -674,16 +674,16 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 		}
 		var mc = exportRoot.mainMC
 		exportRoot.replayAnim = "inProgress"
-		
-		
+
+
 		this.initBanner = function (data) {
-			
+
 			exportRoot.isReplay = false;
 			exportRoot.shadowReplay = false;
-			
+
 			Object.keys = function(obj) {
 				var keys = [];
-		
+
 				for (var i in obj) {
 				  if (obj.hasOwnProperty(i)) {
 					keys.push(i);
@@ -692,7 +692,7 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 				return keys
 			}
 			var keys = Object.keys(data)
-			
+
 				for (var i in keys) {
 					var id = keys[i].substr(0, 4);
 						if (id == "head") {
@@ -710,8 +710,8 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 						}
 				}
 		}
-		
-		
+
+
 		this.fillHead = function (txtDetails, aVar) {
 			var text = txtDetails[0]
 			var size = txtDetails[1]
@@ -720,16 +720,16 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += parseInt(size)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -754,16 +754,16 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += parseInt(size)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -780,9 +780,9 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 				aVar.push(mc)
 			}
 		}
-		
-		
-		
+
+
+
 		this.fillCta = function (txtDetails) {
 			var text = txtDetails[0]
 			var size = txtDetails[1]
@@ -791,17 +791,17 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
-		
+
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += (parseInt(size) * 0.90)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -818,7 +818,7 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 				this.mainMC.txtCta.addChild(mc);
 			}
 		}
-		
+
 		this.getTheSentences = function (text, size, xOffset, yOffset, lineSpacing, lineWidth, align) {
 			var sentences = new Array()
 			var aSentenceLine = new Array()
@@ -826,16 +826,16 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 			sentences = aStr.split("|");
 			var lastColor = "#000000"
 			// Figure out the setence lines
-		
+
 			for (var i = 0; i < sentences.length; i++) {
 				var aS = sentences[i].substr(0);
 				var aSplit = new Array()
 				aSplit = aS.split("<");
 				aSplit = aSplit.filter(Boolean)
 				var wholeSentence = new Array()
-		
+
 				for (var j = 0; j < aSplit.length; j++) {
-		
+
 					var checkColor = aSplit[j].indexOf("#")
 					var color = (checkColor == -1) ? lastColor : aSplit[j].substr(0, 7);
 					lastColor = color
@@ -850,150 +850,151 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 			}
 			return aSentenceLine
 		}
-		
-		
+
+
 		var mc = exportRoot.mainMC
 		var screen = mc.screen
 		var phone = mc.phone
-		
+
 		mc.cta.alpha=0
 		mc.replay_btn.alpha=0
-		
-		
-		
-		
-		
+
+
+
+
+
 		this.runBanner = function() {
-			
+
 			mc.cta.alpha=1
 			mc.replay_btn.alpha=1
-			
+
 		var stage3D = new depthjs.Stage3D();
 		stage.addChild(stage3D);
-		
+
 		var cont3D = new depthjs.Container3D();
 		var logo_mc = new lib.logo_mc();
 		cont3D.x = 140;
 		cont3D.y = 238;
 		cont3D.addChild(logo_mc);
-		
+
 		stage3D.addChild(cont3D);
-		
+
 		var s = new createjs.Shape().set({y:0,x:0});
-		s.graphics.f("blue").dr(0,0,250,50);
-		s.x = 8; s.y=290
+		s.graphics.f("blue").dr(0,0,250,100);
+		s.x = 6; s.y=270
 		s.alpha=0
 			//aMask.visible=false
 			stage.addChild(s);
-		
+
 			exportRoot.mainMC.txt.getChildAt(8).mask = s
 			exportRoot.mainMC.txt.getChildAt(9).mask = s
-		
+			exportRoot.mainMC.txt.getChildAt(10).mask = s
+
 			this.tl1 = new TimelineLite();
-					
-			
-		
-		
-		
+
+
+
+
+
 				//Discover					headline1
 				exportRoot.tl1.from(exportRoot.headline1, 0.1, { x:"+=5", y:"-=2.5",scaleX:.85, scaleY:.85, alpha: 0, ease:Back.easeOut}, "+=0.5");
 				exportRoot.tl1.to(exportRoot.headline1, 0.01, {alpha: 0, ease:Power4.easeIn}, "+=0.5");
-		
-				
+
+
 				// the						headline2
 				exportRoot.tl1.from(exportRoot.headline2, 0.1, { x:"+=7", y:"-=2.5",scaleX:.85, scaleY:.85, alpha: 0, ease:Back.easeOut}, "-=0.0");
-				
-		
+
+
 				// power					headline3
 				exportRoot.tl1.from(exportRoot.headline3, 0.1, { x:"+=7", y:"-=2.5",scaleX:.85, scaleY:.85, alpha: 0, ease:Back.easeOut}, "-=0.0");
-				
+
 				//of						headline4
 				exportRoot.tl1.from(exportRoot.headline4, 0.1, { x:"+=5", y:"-=2.5",scaleX:.85, scaleY:.85, alpha: 0, ease:Back.easeOut}, "-=0.02");
-		
-				
+
+
 				// TEXT OUT
 				exportRoot.tl1.to(exportRoot.headline2, 0.01, {alpha: 0, ease:Power4.easeIn}, "+=0.5");
 				exportRoot.tl1.to(exportRoot.headline3, 0.01, {alpha: 0, ease:Power4.easeIn}, "-=0.01");
 				exportRoot.tl1.to(exportRoot.headline4, 0.01, {alpha: 0, ease:Power4.easeIn}, "-=0.01");
-		
-		
-				
-				
+
+
+
+
 				//Excel						headline5
 				exportRoot.tl1.from(exportRoot.headline5, 0.1, { x:"+=7", y:"-=2.5",scaleX:.85, scaleY:.85, alpha: 0, ease:Back.easeOut}, "-=0.02");
 				exportRoot.tl1.to(exportRoot.headline5, 0.01, {alpha: 0, ease:Power4.easeIn}, "+=0.3");
-		
+
 				//to help					headline6
 				exportRoot.tl1.from(exportRoot.headline6, 0.1, { x:"+=7", y:"-=2.5",scaleX:.85, scaleY:.85, alpha: 0, ease:Back.easeOut}, "-=0.02");
 				exportRoot.tl1.from(exportRoot.headline7, 0.1, { x:"+=5", y:"-=2.5",scaleX:.85, scaleY:.85, alpha: 0, ease:Back.easeOut}, "-=0.01");
-				
+
 				exportRoot.tl1.to(exportRoot.headline6, 0.01, {alpha: 0, ease:Power4.easeIn}, "+=0.6");
 				exportRoot.tl1.to(exportRoot.headline7, 0.01, {alpha: 0, ease:Power4.easeInOut}, "-=0.01");
-		
-				
-				
+
+
+
 				//manage					headline7
 				exportRoot.tl1.from(exportRoot.headline8, 0.1, { x:"+=7", y:"-=2.5",scaleX:.85, scaleY:.85, alpha: 0, ease:Back.easeOut}, "-=0.0");
-				
+
 				exportRoot.tl1.to(exportRoot.headline8, 0.01, {alpha: 0, ease:Power4.easeIn}, "+=0.4");
-		
-				
+
+
 				//manage cash				headline8
 				exportRoot.tl1.from(exportRoot.headline9, 0.1, { x:"+=7", y:"-=2.5",scaleX:.85, scaleY:.85, alpha: 0, ease:Back.easeOut}, "-=0.0");
 				exportRoot.tl1.from(exportRoot.headline10, 0.1, { x:"+=7", y:"-=2.5",scaleX:.85, scaleY:.85, alpha: 0, ease:Back.easeOut}, "-=0.0");
-		
-		
+
+
 				//manage cash flow			headline9
 				exportRoot.tl1.to(exportRoot.headline10, 0.01, {alpha: 1, ease:Power4.easeIn}, "+=0.4");
 				exportRoot.tl1.to(exportRoot.headline9, 0.01, {alpha: 1, ease:Power4.easeIn}, "-=0.01");
-		
-				
-		
-				
+
+
+
+
 				exportRoot.tl1.from(cont3D, 1.6, {rotY: "+=60",x:"+=120", ease:Power4.easeInOut},"+=0.5");
 				exportRoot.tl1.to(s, 1.6, {x: "-=160", ease:Power4.easeInOut}, "-=1.6");
 				exportRoot.tl1.to(exportRoot.headline9, 1.6, {x: "+=150", ease:Power4.easeInOut}, "-=1.3");
 				exportRoot.tl1.to(exportRoot.headline10, 1.6, {x: "+=150", ease:Power4.easeInOut}, "-=1.6");
-		
+
 				exportRoot.tl1.to(cont3D, 1, {x:80, y:"+=49", z:-400, ease:Power4.easeInOut}, "+=0.5");
 				//exportRoot.tl1.to(cont3D, 1, {x:86, y:"+=25", z:-250 ,rotX: "+=35",rotY: "+=20",rotZ: "-=17", ease:Power4.easeInOut}, "+=0.5");
 				exportRoot.tl1.from(screen, 0.8, {x: "+=400",y: "+=400", ease:Power3.easeInOut}, "-=1");
-		
-		
+
+
 		/*		exportRoot.tl1.from(phone, 1.2, {x: "+=300", ease:Power3.easeOut}, "-=1");
 				exportRoot.tl1.from(laptop, 1.2, {x: "+=300", ease:Power4.easeOut, onStart:function(){laptop.play();}}, "-=1.2");
 		*/
-		
-			
+
+
 				for (var i = 0; i < exportRoot.headline11.length; i++) {
 				if (i==0) exportRoot.tl1.from(exportRoot.headline11[i], 0.8, { x: "+=300", alpha: 0, ease:Power4.easeOut}, "-=1");
 				if (i!=0) exportRoot.tl1.from(exportRoot.headline11[i], 0.8, { x: "+=300", alpha: 0, ease:Power4.easeOut}, "-=0.7");
 				}
-				
+
 				for (var i = 0; i < exportRoot.headline12.length; i++) {
 				if (i==0) exportRoot.tl1.from(exportRoot.headline12[i], 0.8, { x: "+=300", alpha: 0, ease:Power4.easeOut}, "-=0.6");
 				if (i!=0) exportRoot.tl1.from(exportRoot.headline12[i], 0.8, { x: "+=300", alpha: 0, ease:Power4.easeOut}, "-=0.7");
 				}
-		
+
 		/*		exportRoot.tl1.from(phone.keyboard, .6, {y: "+=55", ease:Power3.easeOut, onStart:function(){phone.keyboard.play();}}, "-=1");
-		
+
 				exportRoot.tl1.to(phone.keyboard, .4, {y: "+=55", ease:Power3.easeIn}, "+=2");
 				exportRoot.tl1.to(phone.mobilePage, .4, {y: "-=27", ease:Power3.easeInOut}, "-=.4");
 				exportRoot.tl1.to(laptop.Screen.Chat.MainChat, .4, {y: "-=20", ease:Power3.easeInOut}, "-=.2");
 		*/
-				
-				
-				
+
+
+
 				exportRoot.tl1.from(mc.txtCta, 0.7, { alpha: 0, x: "+=150",	ease:Power4.easeOut}, "-=0.4");
 				exportRoot.tl1.from(mc.cta, 0.7, {	alpha: 0, x: "+=150", ease:Power4.easeOut}, "-=0.7");
-				exportRoot.tl1.from(mc.replay_btn, 0.7, { alpha: 0,ease:Power4.easeOut, onStart:function(){exportRoot.isReplay = true;}}, "-=.6");	
-		
-				exportRoot.tl1.stop();	
-		
-			mc.logo_intro.gotoAndPlay(1)	
-				
-				
-		
+				exportRoot.tl1.from(mc.replay_btn, 0.7, { alpha: 0,ease:Power4.easeOut, onStart:function(){exportRoot.isReplay = true;}}, "-=.6");
+
+				exportRoot.tl1.stop();
+
+			mc.logo_intro.gotoAndPlay(1)
+
+
+
 		}
 	}
 
@@ -1077,41 +1078,41 @@ an.getComposition = function(id) {
 }
 
 
-an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {		
-	var lastW, lastH, lastS=1;		
-	window.addEventListener('resize', resizeCanvas);		
-	resizeCanvas();		
-	function resizeCanvas() {			
-		var w = lib.properties.width, h = lib.properties.height;			
-		var iw = window.innerWidth, ih=window.innerHeight;			
-		var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;			
-		if(isResp) {                
-			if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
-				sRatio = lastS;                
-			}				
-			else if(!isScale) {					
-				if(iw<w || ih<h)						
-					sRatio = Math.min(xRatio, yRatio);				
-			}				
-			else if(scaleType==1) {					
-				sRatio = Math.min(xRatio, yRatio);				
-			}				
-			else if(scaleType==2) {					
-				sRatio = Math.max(xRatio, yRatio);				
-			}			
-		}			
-		domContainers[0].width = w * pRatio * sRatio;			
-		domContainers[0].height = h * pRatio * sRatio;			
-		domContainers.forEach(function(container) {				
-			container.style.width = w * sRatio + 'px';				
-			container.style.height = h * sRatio + 'px';			
-		});			
-		stage.scaleX = pRatio*sRatio;			
-		stage.scaleY = pRatio*sRatio;			
-		lastW = iw; lastH = ih; lastS = sRatio;            
-		stage.tickOnUpdate = false;            
-		stage.update();            
-		stage.tickOnUpdate = true;		
+an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {
+	var lastW, lastH, lastS=1;
+	window.addEventListener('resize', resizeCanvas);
+	resizeCanvas();
+	function resizeCanvas() {
+		var w = lib.properties.width, h = lib.properties.height;
+		var iw = window.innerWidth, ih=window.innerHeight;
+		var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;
+		if(isResp) {
+			if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {
+				sRatio = lastS;
+			}
+			else if(!isScale) {
+				if(iw<w || ih<h)
+					sRatio = Math.min(xRatio, yRatio);
+			}
+			else if(scaleType==1) {
+				sRatio = Math.min(xRatio, yRatio);
+			}
+			else if(scaleType==2) {
+				sRatio = Math.max(xRatio, yRatio);
+			}
+		}
+		domContainers[0].width = w * pRatio * sRatio;
+		domContainers[0].height = h * pRatio * sRatio;
+		domContainers.forEach(function(container) {
+			container.style.width = w * sRatio + 'px';
+			container.style.height = h * sRatio + 'px';
+		});
+		stage.scaleX = pRatio*sRatio;
+		stage.scaleY = pRatio*sRatio;
+		lastW = iw; lastH = ih; lastS = sRatio;
+		stage.tickOnUpdate = false;
+		stage.update();
+		stage.tickOnUpdate = true;
 	}
 }
 
