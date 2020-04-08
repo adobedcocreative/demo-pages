@@ -887,8 +887,8 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 		stage3D.addChild(cont3D);
 
 		var s = new createjs.Shape().set({y:0,x:0});
-		s.graphics.f("blue").dr(0,0,250,50);
-		s.x = 40; s.y=285
+		s.graphics.f("blue").dr(0,0,250,100);
+		s.x = 36; s.y=285
 		s.alpha=0
 			stage.addChild(s);
 			// exportRoot.mainMC.txt.getChildAt(5).mask = s

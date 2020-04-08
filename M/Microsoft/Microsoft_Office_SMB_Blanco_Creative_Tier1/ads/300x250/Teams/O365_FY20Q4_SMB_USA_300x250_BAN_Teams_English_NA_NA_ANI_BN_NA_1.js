@@ -869,7 +869,7 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 
 		var s = new createjs.Shape().set({y:0,x:0});
 		s.graphics.f("blue").dr(0,0,250,50);
-		s.x = 50; s.y=116
+		s.x = 36; s.y=116
 		s.alpha=0
 			stage.addChild(s);
 			// exportRoot.mainMC.txt.getChildAt(7).mask = s
