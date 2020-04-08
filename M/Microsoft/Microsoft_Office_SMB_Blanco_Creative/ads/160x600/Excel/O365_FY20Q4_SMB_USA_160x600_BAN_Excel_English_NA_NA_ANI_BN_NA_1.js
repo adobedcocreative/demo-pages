@@ -886,9 +886,12 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 			//aMask.visible=false
 			stage.addChild(s);
 
-			exportRoot.mainMC.txt.getChildAt(8).mask = s
-			exportRoot.mainMC.txt.getChildAt(9).mask = s
-			exportRoot.mainMC.txt.getChildAt(10).mask = s
+			// exportRoot.mainMC.txt.getChildAt(8).mask = s
+			// exportRoot.mainMC.txt.getChildAt(9).mask = s
+			// exportRoot.mainMC.txt.getChildAt(10).mask = s
+			for (var i = 0; i < exportRoot.headline9.length; i++) {
+				exportRoot.headline9[i].mask = s
+			}
 
 			this.tl1 = new TimelineLite();
 
