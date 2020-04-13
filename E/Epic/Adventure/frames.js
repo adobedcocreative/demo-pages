@@ -1,0 +1,1 @@
+var publishVersion = 1586756941559, frames={"ads/Variation1/300x250/300x250.html":{"frame1":"ads/Variation1/300x250/300x250_frame1.html","frame2":"ads/Variation1/300x250/300x250_frame2.html","frame3":"ads/Variation1/300x250/300x250_frame3.html"}}
