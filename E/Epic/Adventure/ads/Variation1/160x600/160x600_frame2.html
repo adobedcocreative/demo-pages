@@ -1,8 +1,8 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>300x250</title>
-      <meta name="ad.size" content="width=300,height=250" />
+      <title>160x600</title>
+      <meta name="ad.size" content="width=160,height=600" />
       <meta name="format-detection" content="telephone=no" />
       <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
       <meta http-equiv="X-UA-Compatible" content="IE=10" />
@@ -18,7 +18,7 @@
       <script>
          var ad, adData, adClickUrl;
 
-         var gotoNextFrame = true;
+         var gotoNextFrame = false;
 
          window.onload = function () {
             //console.log("window.onload()");
@@ -40,10 +40,11 @@
                {
                   cam: {
                      f1Bkgrnd: "adventure.jpg",
-                     f2Text: "<div style='top:34px;left:26px;font-size:22px;line-height:27px;letter-spacing:0.24em;'>KEEP YOUR<br />STOKE GOING.</div>",
-                     f2List: "<div style='top:100px;left:26px;font-size:18px;line-height:21px;'><ul><li>VAIL</li><li>WHISTLER</li><li>BLACKCOMB</li><li>BRECKENRIDGE</li><li>PARK CITY</li></ul></div>",
-                     f3Price: " ",
-                     f3Text: "<div style='width:100%;top:95px;font-size:23px;line-height:28px;letter-spacing:0.24em;'>SKI 1-7 DAYS.<br />SAVE UP TO 50%</div>",
+                     f2Text1: "<div style='top:168px;left:16px;width:135px;font-size:16px;line-height:20px;'>THE DAYS YOU WANT. THE RESORTS YOU LOVE. THE VALUE YOU NEED.</div>",
+                     f2Text2:
+                        "<div style='top:300px;left:16px;font-size:13.2px;line-height:18px;'>VAIL<br /><span class='yellow'>WHISTLER<br />BLACKCOMB</span><br />BRECKENRIDGE<br /><span class='yellow'>PARK CITY</span><br />AND MORE</div>",
+                     f3Text1: "<div style='top:235px;left:12px;font-size:16px;line-height:20px;letter-spacing:0.17em;text-align:left;'>SKI 1-7 DAYS<br />AND SAVE<br />UP TO 50%</div>",
+                     f3Text2: " ",
                      ctaText: "RENEW BY 4/19",
                      clickUrl: "https://www.epicpass.com/",
                   },
@@ -78,7 +79,7 @@
 
             gsap.to("#banner", 0.25, { autoAlpha: 1 });
 
-            showFrame1();
+            showFrame2();
          }
 
          //------------------------------------------
@@ -97,6 +98,7 @@
 
          function onBannerClick(e) {
             //console.log("onBannerClick(e)");
+
             amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl);
          }
 
@@ -137,7 +139,7 @@
             applyBlur({ el: "#f1_bkgrnd", a: 2 });
 
             gsap.set("#f1_bkgrnd", { scale: 1.5 });
-            gsap.set("#f1_epic", { scale: 3, autoAlpha: 0, transformOrigin: "50% 0%" });
+            gsap.set("#f1_epic", { scale: 3, autoAlpha: 0, transformOrigin: "50% 50%" });
 
             gsap.set("#cover", { x: "0%", y: "100%", backgroundColor: "#9abbd5" });
 
@@ -325,8 +327,8 @@
          }
 
          .adsize {
-            width: 300px;
-            height: 250px;
+            width: 160px;
+            height: 600px;
             left: 0px;
             top: 0px;
          }
@@ -357,7 +359,7 @@
          #f2 {
             color: #fff;
             text-align: left;
-            letter-spacing: 0.21em;
+            letter-spacing: 0.15em;
             border-top: 7px solid #9abbd5;
             background-color: #20285d;
          }
@@ -373,16 +375,6 @@
          #f1_bkgrnd {
             background-image: url("adventure.jpg");
             transform-origin: 50% 50%;
-         }
-
-         ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-         }
-
-         li:nth-child(even) {
-            color: #f79620;
          }
 
          .price {
@@ -402,30 +394,22 @@
          /* EPIC LOGO */
 
          .epic {
-            width: 290px;
-            left: 5px;
-            top: 10px;
-            height: 0;
-            padding-bottom: 42%;
-         }
-
-         .epic_img {
-            width: 100%;
-            height: 100%;
-            left: 0px;
-            top: 0px;
-            background-image: url("images/epic.svg");
+            width: 194px;
+            height: 440px;
+            left: -45px;
+            top: 76px;
+            background-image: url("images/epic_vert.svg");
             background-size: contain;
          }
 
          /* EPIC DAY PASS LOGO */
 
          .epicdaypass {
-            width: 232px;
+            width: 140px;
             height: 0;
             left: 50%;
-            top: 30px;
-            margin-left: -116px;
+            top: 200px;
+            margin-left: -70px;
             padding-bottom: 13.8%;
          }
 
@@ -442,7 +426,7 @@
 
          #f3_cta {
             width: 100%;
-            height: 44px;
+            height: 52px;
             left: 0px;
             top: auto;
             bottom: 0px;
@@ -451,8 +435,8 @@
             background-color: #20285d;
             color: #f79620;
             text-align: center;
-            line-height: 40px;
-            letter-spacing: 3px;
+            line-height: 48px;
+            letter-spacing: 2px;
             font-size: 15px;
             font-weight: 900;
             font-style: normal;
@@ -475,18 +459,18 @@
       <div id="banner" class="adsize">
          <div id="f1" class="adsize frame">
             <div id="f1_bkgrnd" class="adsize"></div>
-            <div id="f1_epic" class="epic"><div class="epic_img"></div></div>
+            <div id="f1_epic" class="epic"></div>
          </div>
 
          <div id="f2" class="adsize frame">
-            <div class="adsize text">!{f2Text}</div>
-            <div class="adsize text">!{f2List}</div>
+            <div class="adsize text">!{f2Text1}</div>
+            <div class="adsize text">!{f2Text2}</div>
          </div>
 
          <div id="f3" class="adsize frame">
             <div class="epicdaypass"><div class="epicdaypass_img"></div></div>
-            <div class="adsize text price">!{f3Price}</div>
-            <div class="adsize text">!{f3Text}</div>
+            <div class="adsize text">!{f3Text1}</div>
+            <div class="adsize text">!{f3Text2}</div>
 
             <div id="f3_cta" class="cta">
                <span id="cta-text">!{ctaText}</span>

@@ -18,7 +18,7 @@
       <script>
          var ad, adData, adClickUrl;
 
-         var gotoNextFrame = true;
+         var gotoNextFrame = false;
 
          window.onload = function () {
             //console.log("window.onload()");
@@ -43,7 +43,8 @@
                      f2Text: "<div style='top:34px;left:26px;font-size:22px;line-height:27px;letter-spacing:0.24em;'>KEEP YOUR<br />STOKE GOING.</div>",
                      f2List: "<div style='top:100px;left:26px;font-size:18px;line-height:21px;'><ul><li>VAIL</li><li>WHISTLER</li><li>BLACKCOMB</li><li>BRECKENRIDGE</li><li>PARK CITY</li></ul></div>",
                      f3Price: " ",
-                     f3Text: "<div style='width:100%;top:95px;font-size:23px;line-height:28px;letter-spacing:0.24em;'>SKI 1-7 DAYS.<br />SAVE UP TO 50%</div>",
+                     f3Text:
+                        "<div style='width:100%;height:90px;top:80px;font-size:16px;letter-spacing:0.24em;line-height:90px;'><span class='middle'>JUST</span><span class='price usd middle' style='font-size:90px;'>49</span><span class='middle'>DOWN</span></div>",
                      ctaText: "RENEW BY 4/19",
                      clickUrl: "https://www.epicpass.com/",
                   },
@@ -78,6 +79,7 @@
 
             gsap.to("#banner", 0.25, { autoAlpha: 1 });
 
+            window.showFrame2 = function () {};
             showFrame1();
          }
 
