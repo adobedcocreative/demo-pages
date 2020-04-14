@@ -1,8 +1,8 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>728x90</title>
-      <meta name="ad.size" content="width=728,height=90" />
+      <title>320x50</title>
+      <meta name="ad.size" content="width=320,height=50" />
       <meta name="format-detection" content="telephone=no" />
       <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
       <meta http-equiv="X-UA-Compatible" content="IE=10" />
@@ -40,11 +40,10 @@
                {
                   cam: {
                      f1Bkgrnd: "adventure.jpg",
-                     f2Text1: "<div style='top:21px;width:100%;font-size:18px;line-height:18px;'>THE DAYS YOU WANT. THE RESORTS YOU LOVE. THE VALUE YOU NEED.</div>",
-                     f2Text2:
-                        "<div style='top:47px;width:100%;font-size:16px;line-height:16px;letter-spacing:0.14em;'>VAIL <span class='yellow'>WHISTLER BLACKCOMB</span> BRECKENRIDGE <span class='yellow'>PARK CITY</span> AND MORE</div>",
-                     f3Text1:
-                        "<div style='width:300px;height:66px;left:208px;top:8px;font-size:20px;letter-spacing:0.24em;line-height:66px;'><span class='middle'>JUST</span><span class='price usd middle' style='font-size:66px;'>49</span><span class='middle'>DOWN</span></div>",
+                     f2Text1:
+                        "<div style='top:8px;width:100%;font-size:12px;line-height:14px;'>VAIL <span class='yellow'>WHISTLER BLACKCOMB</span><br />BRECKENRIDGE <span class='yellow'>PARK CITY</span> AND MORE</div>",
+                     f2Text2: " ",
+                     f3Text1: "<div class='text' style='width:204px;top:10px;font-size:12px;line-height:13px;letter-spacing:0.11em;'>SKI 1-7 DAYS AND<br />SAVE UP TO 50%</div>",
                      f3Text2: " ",
                      ctaText: "RENEW BY 4/19",
                      clickUrl: "https://www.epicpass.com/",
@@ -144,7 +143,7 @@
 
             gsap.set("#cover", { x: "0%", y: "100%", backgroundColor: "#9abbd5" });
 
-            gsap.set("#f3_cta", { x: 178 });
+            gsap.set("#f3_cta", { x: 94 });
          }
 
          function showFrame1() {
@@ -325,8 +324,8 @@
          }
 
          .adsize {
-            width: 728px;
-            height: 90px;
+            width: 320px;
+            height: 50px;
             left: 0px;
             top: 0px;
          }
@@ -357,7 +356,7 @@
          #f2 {
             color: #fff;
             text-align: center;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.15em;
             box-sizing: border-box;
             border-top: 6px solid #9abbd5;
             background-color: #20285d;
@@ -396,9 +395,9 @@
          /* EPIC LOGO */
 
          .epic {
-            width: 216px;
-            left: 244px;
-            top: 6px;
+            width: 136px;
+            left: 90px;
+            top: 5px;
             height: 0;
             padding-bottom: 42%;
          }
@@ -415,10 +414,11 @@
          /* EPIC DAY PASS LOGO */
 
          .epicdaypass {
-            width: 158px;
+            width: 112px;
             height: 0;
-            left: 12px;
-            top: 34px;
+            left: auto;
+            right: 6px;
+            top: 6px;
             padding-bottom: 13.8%;
          }
 
@@ -434,18 +434,19 @@
          /* CTA */
 
          #f3_cta {
-            width: 162px;
-            height: 32px;
-            left: 550px;
-            top: 25px;
+            width: 88px;
+            height: 18px;
+            left: auto;
+            right: 6px;
+            top: 22px;
             box-sizing: border-box;
             background-color: #20285d;
             border-radius: 50px;
             color: #f79620;
             text-align: center;
-            line-height: 32px;
-            letter-spacing: 2px;
-            font-size: 13px;
+            line-height: 18px;
+            letter-spacing: 0.05em;
+            font-size: 9px;
             font-weight: 900;
             font-style: normal;
          }
