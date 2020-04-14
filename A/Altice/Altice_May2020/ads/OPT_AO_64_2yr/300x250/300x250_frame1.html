@@ -100,6 +100,14 @@
         box-sizing: content-box;
         background: #f5f4f7;
       }
+      #cta.ctaWhite {
+        background: none !important;
+        border: 2px solid #fff;
+        padding: 0 !important;
+      }
+      #cta.ctaWhite::before {
+        background: none;
+      }
       #cta:hover {
         opacity: 0.7 !important;
       }
@@ -110,7 +118,7 @@
   <!-- Start of overrode asset attributes values -->
 <script type="text/javascript">
 amo.registerClick("clickUrl","https://www.altice.com");
-amo.registerAttribute("frameVideo1", "TEXT", "AlticeIntroVideo_May2020.mp4");
+amo.registerAttribute("frameVideo1", "TEXT", "https://ct.tubemogul.com/web/altice/2020-04/AlticeIntroVideo_May2020.mp4");
 amo.registerAttribute("ctaText","TEXT","Shop now");
 amo.registerAttribute("frameImage2","IMAGE","300x250_OPT_SPRING_ACQ_AO_Amz_64Yr2_Img_Frame02.png");
 amo.registerAttribute("frameImage3","IMAGE","1x1.png");
@@ -121,9 +129,9 @@ amo.registerAttribute("frameText12","TEXT","and school day");
 amo.registerAttribute("frameText21", "TEXT", "<div style='top: 56px;left: 56px;font-size: 18px;line-height:1.1;color: #fff;'>Internet & TV</div>");
 amo.registerAttribute("frameText22", "TEXT", "<div style='top: 72px;left: 51px;width: 160px;color: #fff;line-height: 1;'><font style='font-size: 59px;'>$64</font><font style='margin-left: 2px;font-size: 10px;display: inline-block;vertical-align: 24px;'>99/<br>mo.</font><div style='display:inline-block;font-size: 10.5px;padding: 3px 6px 3px 8px;margin: 0px 0px 0px 6px;border-top-right-radius: 10px;border-bottom-right-radius: 10px;color: #0084d6;background: #fff;'>Guaranteed for 2 yrs.</div><div class='AlticeRegular' style='margin: 7px 0 0 6px;font-size: 10px;'>Plus taxes, fees<br>& charges</div></div>");
 amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText31","TEXT","<div style='top:44px;left:21px;'><div class='bulletedText'>Up to 200 Mbps Internet</div></div>");
+amo.registerAttribute("frameText31","TEXT","<div style='top:44px;left:21px;'><div class='bulletedText'>200 Mbps Internet</div></div>");
 amo.registerAttribute("frameText32","TEXT","<div style='top:66px;left:21px;'><div class='bulletedText'>Altice One with<br>220+ channels</div></div>");
-amo.registerAttribute("frameText33","TEXT","<div style='top:105px;left:21px;'><div class='bulletedText'>Contract buyout up to $500</div></div><div class='AlticeRegular' style='top:183px;left:22px;font-size:10px;line-height:1.15;'>Wired connection.<br>WiFi speeds may vary.</div>");
+amo.registerAttribute("frameText33","TEXT","<div style='top:105px;left:21px;'><div class='bulletedText'>Contract buyout up to $500</div></div><div class='AlticeRegular' style='top:183px;left:22px;font-size:10px;line-height:1.15;'>Wired connection up to 200 Mbps.<br>WiFi speeds may vary.</div>");
 amo.registerAttribute("frameText41","TEXT","<div style='top: 42px;left: 18px;font-size: 54px;line-height: 1;' class='coloredText'>$100</div>");
 amo.registerAttribute("frameText42","TEXT","<div style='top: 94px;left: 22px;font-size: 18px;line-height: 1;'>Amazon.com<br>Gift Card</div>");
 amo.registerAttribute("frameText43","TEXT","<div class='AlticeRegular' style='position: absolute;top: 183px;left: 22px;font-size: 10px;line-height: 1.15;'>Restrictions apply,<br>see amazon.com/gc-legal</div>");
@@ -303,12 +311,14 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 167px;left: 22px;
         }
         var animateFrame3 = function(flag){
           var frameId = 3;
+          ad.layers.cta.classList.remove('ctaWhite')
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: bulletFrameAnimation, onCompleteParams:[3]})
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame4}));
         }
         var animateFrame2 = function(flag){
           var frameId = 2;
+          ad.layers.cta.classList.add('ctaWhite');
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalLeftFrameAnimation, onCompleteParams:[frameId]})
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.2, opacity:0, onComplete: animateFrame3}));
@@ -322,7 +332,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 167px;left: 22px;
           }
           ad.layers.frameVideo1.querySelector('video').onended = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frame1', (flag==true?{}:{delay:0.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+            .to('#frame1', (flag==true?{}:{delay:0.8, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
           }
         }
         gsap.delayedCall(.8, animateFrame1, [true]);
