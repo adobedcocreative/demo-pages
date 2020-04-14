@@ -1,8 +1,8 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>300x600</title>
-      <meta name="ad.size" content="width=300,height=600" />
+      <title>970x250</title>
+      <meta name="ad.size" content="width=970,height=250" />
       <meta name="format-detection" content="telephone=no" />
       <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
       <meta http-equiv="X-UA-Compatible" content="IE=10" />
@@ -40,11 +40,12 @@
                {
                   cam: {
                      f1Bkgrnd: "adventure.jpg",
-                     f2Text1: "<div style='top:96px;left:28px;width:230px;font-size:27px;line-height:30px;letter-spacing:0.15em;'>THE DAYS YOU WANT. THE RESORTS YOU LOVE. THE VALUE YOU NEED.</div>",
+                     f2Text1: "<div style='top:56px;width:100%;font-size:38px;line-height:42px;'>THE DAYS YOU WANT. THE RESORTS<br>YOU LOVE. THE VALUE YOU NEED.</div>",
                      f2Text2:
-                        "<div style='top:292px;left:28px;font-size:24px;line-height:33px;'>VAIL<br /><span class='yellow'>WHISTLER<br />BLACKCOMB</span><br />BRECKENRIDGE<br /><span class='yellow'>PARK CITY</span><br />AND MORE</div>",
-                     f3Text1: "<div class='price usd' style='width:100%;top:200px;font-size:170px;line-height:170px;margin-left:1px;letter-spacing:0.03em;'>949</div>",
-                     f3Text2: "<div style='width:100%;top:368px;font-size:24px;letter-spacing:0.24em;'>UNTIL APRIL 14</div>",
+                        "<div style='top:154px;width:100%;font-size:20px;line-height:20px;'>VAIL <span class='yellow'>WHISTLER BLACKCOMB</span> BRECKENRIDGE <span class='yellow'>PARK CITY</span> AND MORE</div>",
+                     f3Text1: "<div class='text' style='top:70px;left:372px;font-size:24px;line-height:27px;letter-spacing:0.11em;text-align:left;'>SKI 1-7 DAYS AND<br />SAVE UP TO 50%</div>",
+                     f3Text2:
+                        "<div class='price usd' style='left:675px;top:54px;font-size:82px;line-height:82px;'>949</div><div class='text' style='top:72px;left:805px;font-size:22px;line-height:24px;letter-spacing:0.15em;text-align:left;'>UNTIL<br />APRIL 14</div>",
                      ctaText: "RENEW BY 4/19",
                      clickUrl: "https://www.epicpass.com/",
                   },
@@ -98,7 +99,6 @@
 
          function onBannerClick(e) {
             //console.log("onBannerClick(e)");
-
             amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl);
          }
 
@@ -327,8 +327,8 @@
          }
 
          .adsize {
-            width: 300px;
-            height: 600px;
+            width: 970px;
+            height: 250px;
             left: 0px;
             top: 0px;
          }
@@ -339,7 +339,7 @@
             font-weight: 900;
             font-style: normal;
             line-height: 0.8em;
-            background-color: rgba(255, 0, 0, 0.2);
+            /* background-color: rgba(255, 0, 0, 0.2); */
          }
 
          .yellow {
@@ -358,9 +358,9 @@
 
          #f2 {
             color: #fff;
-            text-align: left;
-            letter-spacing: 0.17em;
-            border-top: 11px solid #9abbd5;
+            text-align: center;
+            letter-spacing: 0.24em;
+            border-top: 12px solid #9abbd5;
             background-color: #20285d;
          }
 
@@ -377,11 +377,15 @@
             transform-origin: 50% 50%;
          }
 
+         li:nth-child(even) {
+            color: #f79620;
+         }
+
          .price {
             color: #fff;
             font-family: "Bison-DemiBold", sans-serif;
             font-weight: 400;
-            margin: 0 0.6rem;
+            margin: 0 0.4rem;
          }
 
          .usd::before {
@@ -394,22 +398,29 @@
          /* EPIC LOGO */
 
          .epic {
-            width: 194px;
-            height: 440px;
-            left: 32px;
-            top: 76px;
-            background-image: url("images/epic_vert.svg");
+            width: 488px;
+            left: 218px;
+            top: 20px;
+            height: 0;
+            padding-bottom: 42%;
+         }
+
+         .epic_img {
+            width: 100%;
+            height: 100%;
+            left: 0px;
+            top: 0px;
+            background-image: url("images/epic.svg");
             background-size: contain;
          }
 
          /* EPIC DAY PASS LOGO */
 
          .epicdaypass {
-            width: 246px;
+            width: 272px;
             height: 0;
-            left: 50%;
-            top: 160px;
-            margin-left: -123px;
+            left: 50px;
+            top: 82px;
             padding-bottom: 13.8%;
          }
 
@@ -426,7 +437,7 @@
 
          #f3_cta {
             width: 100%;
-            height: 52px;
+            height: 55px;
             left: 0px;
             top: auto;
             bottom: 0px;
@@ -435,9 +446,9 @@
             background-color: #20285d;
             color: #f79620;
             text-align: center;
-            line-height: 48px;
-            letter-spacing: 3px;
-            font-size: 18px;
+            line-height: 51px;
+            letter-spacing: 5px;
+            font-size: 23px;
             font-weight: 900;
             font-style: normal;
          }
@@ -459,7 +470,7 @@
       <div id="banner" class="adsize">
          <div id="f1" class="adsize frame">
             <div id="f1_bkgrnd" class="adsize"></div>
-            <div id="f1_epic" class="epic"></div>
+            <div id="f1_epic" class="epic"><div class="epic_img"></div></div>
          </div>
 
          <div id="f2" class="adsize frame">
