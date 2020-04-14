@@ -122,8 +122,7 @@ amo.registerAttribute("frameVideo1", "TEXT", "https://ct.tubemogul.com/web/altic
 amo.registerAttribute("ctaText","TEXT","Shop now");
 amo.registerAttribute("frameImage2","IMAGE","300x250_OPT_SPRING_ACQ_AO_Amz_64Yr2_Img_Frame02.png");
 amo.registerAttribute("frameImage3","IMAGE","1x1.png");
-amo.registerAttribute("frameImage4","IMAGE","300x250_OPT_SPRING_ACQ_AO_Amz_64Yr2_Img_Frame04.png");
-amo.registerAttribute("frameImage5","IMAGE","300x250_OPT_SPRING_ACQ_AO_Amz_64Yr2_Img_Frame05.png");
+amo.registerAttribute("frameImage4","IMAGE","300x250_OPT_SPRING_ACQ_AO_Amz_64Yr2_Img_Frame05.png");
 amo.registerAttribute("frameText1","TEXT","Stay connected<br>on your work day");
 amo.registerAttribute("frameText12","TEXT","and school day");
 amo.registerAttribute("frameText21", "TEXT", "<div style='top: 56px;left: 56px;font-size: 18px;line-height:1.1;color: #fff;'>Internet & TV</div>");
@@ -132,12 +131,9 @@ amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText31","TEXT","<div style='top:44px;left:21px;'><div class='bulletedText'>200 Mbps Internet</div></div>");
 amo.registerAttribute("frameText32","TEXT","<div style='top:66px;left:21px;'><div class='bulletedText'>Altice One with<br>220+ channels</div></div>");
 amo.registerAttribute("frameText33","TEXT","<div style='top:105px;left:21px;'><div class='bulletedText'>Contract buyout up to $500</div></div><div class='AlticeRegular' style='top:183px;left:22px;font-size:10px;line-height:1.15;'>Wired connection up to 200 Mbps.<br>WiFi speeds may vary.</div>");
-amo.registerAttribute("frameText41","TEXT","<div style='top: 42px;left: 18px;font-size: 54px;line-height: 1;' class='coloredText'>$100</div>");
-amo.registerAttribute("frameText42","TEXT","<div style='top: 94px;left: 22px;font-size: 18px;line-height: 1;'>Amazon.com<br>Gift Card</div>");
-amo.registerAttribute("frameText43","TEXT","<div class='AlticeRegular' style='position: absolute;top: 183px;left: 22px;font-size: 10px;line-height: 1.15;'>Restrictions apply,<br>see amazon.com/gc-legal</div>");
-amo.registerAttribute("frameText51", "TEXT", "<div style='top: 44px;left: 21px;font-size: 18px;line-height:1.1;'>Internet & TV</div>");
-amo.registerAttribute("frameText52", "TEXT", "<div style='top: 61px;left: 17px;width: 160px;line-height: 1;'><font style='font-size: 59px;' class='coloredText'>$64</font><font style='margin-left: 2px;font-size: 10px;display: inline-block;vertical-align: 24px;'>99/<br>mo.</font><div style='display:inline-block;font-size: 10px;padding: 4px 14px 3px 9px;margin: 2px 0px 0px 5px;border-top-right-radius: 10px;border-bottom-right-radius: 10px;color: #fff;background: #0084d6;'>Guaranteed for 2 yrs.</div><div class='AlticeRegular' style='margin: 4px 0 0 5px;font-size: 10px;'>Plus taxes, fees & charges</div></div>");
-amo.registerAttribute("frameText53", "TEXT", "<div style='top: 167px;left: 22px;transform: scale(0.78);transform-origin: top left;'><div class='bulletedText'>No annual contract</div><div class='bulletedText' style='margin-top: -3px;'>$100 gift card</div></div>");
+amo.registerAttribute("frameText41", "TEXT", "<div style='top: 44px;left: 21px;font-size: 18px;line-height:1.1;'>Internet & TV</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div style='top: 61px;left: 17px;width: 160px;line-height: 1;'><font style='font-size: 59px;' class='coloredText'>$64</font><font style='margin-left: 2px;font-size: 10px;display: inline-block;vertical-align: 24px;'>99/<br>mo.</font><div style='display:inline-block;font-size: 10px;padding: 4px 14px 3px 9px;margin: 2px 0px 0px 5px;border-top-right-radius: 10px;border-bottom-right-radius: 10px;color: #fff;background: #0084d6;'>Guaranteed for 2 yrs.</div><div class='AlticeRegular' style='margin: 4px 0 0 5px;font-size: 10px;'>Plus taxes, fees & charges</div></div>");
+amo.registerAttribute("frameText43", "TEXT", "<div style='top: 167px;left: 22px;transform: scale(0.78);transform-origin: top left;'><div class='bulletedText'>No annual contract</div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -167,10 +163,6 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 167px;left: 22px;
     <div id="frameText41" class="frameText">!{frameText41}</div>
     <div id="frameText42" class="frameText">!{frameText42}</div>
     <div id="frameText43" class="frameText">!{frameText43}</div>
-    <div id="frameImage5" class="asset frameImage" data-image="frameImage5"></div>
-    <div id="frameText51" class="frameText">!{frameText51}</div>
-    <div id="frameText52" class="frameText">!{frameText52}</div>
-    <div id="frameText53" class="frameText">!{frameText53}</div>
     <!-- <div id="priceLabel" class="asset adSizeContainer" data-image="priceLabel"></div> -->
     <div id="cta" class="text AlticeBold"
       data-text="ctaText"
@@ -307,7 +299,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 167px;left: 22px;
           gsap.set('#frameBackground', {display: 'block'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[4]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.2, opacity:0, onComplete: animateFrame5}));
+          // .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.2, opacity:0, onComplete: animateFrame5}));
         }
         var animateFrame3 = function(flag){
           var frameId = 3;
