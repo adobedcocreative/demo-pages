@@ -40,10 +40,11 @@
                {
                   cam: {
                      f1Bkgrnd: "adventure.jpg",
-                     f2Text: "<div style='top:34px;left:26px;font-size:22px;line-height:27px;letter-spacing:0.24em;'>KEEP YOUR<br />STOKE GOING.</div>",
-                     f2List: "<div style='top:100px;left:26px;font-size:18px;line-height:21px;'><ul><li>VAIL</li><li>WHISTLER</li><li>BLACKCOMB</li><li>BRECKENRIDGE</li><li>PARK CITY</li></ul></div>",
-                     f3Price: "<div class='usd' style='width:100%;top:62px;font-size:110px;line-height:110px;margin-left:-5px;'>949</div>",
-                     f3Text: "<div style='width:100%;top:170px;font-size:14px;letter-spacing:0.24em;'>UNTIL APRIL 14</div>",
+                     f2Text1: "<div style='top:24px;left:26px;font-size:22px;line-height:27px;letter-spacing:0.24em;'>THE RESORTS<br />YOU LOVE.</div>",
+                     f2Text2:
+                        "<div style='top:90px;left:26px;font-size:18px;line-height:21px;'>VAIL<br /><span class='yellow'>WHISTLER<br />BLACKCOMB</span><br />BRECKENRIDGE<br /><span class='yellow'>PARK CITY</span><br />AND MORE</div>",
+                     f3Text1: "<div class='price usd' style='width:100%;top:60px;font-size:114px;line-height:114px;margin-left:-1px;'>949</div>",
+                     f3Text2: "<div style='width:100%;top:170px;font-size:15px;letter-spacing:0.24em;'>UNTIL APRIL 14</div>",
                      ctaText: "RENEW BY 4/19",
                      clickUrl: "https://www.epicpass.com/",
                   },
@@ -375,12 +376,6 @@
             transform-origin: 50% 50%;
          }
 
-         ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-         }
-
          li:nth-child(even) {
             color: #f79620;
          }
@@ -479,14 +474,14 @@
          </div>
 
          <div id="f2" class="adsize frame">
-            <div class="adsize text">!{f2Text}</div>
-            <div class="adsize text">!{f2List}</div>
+            <div class="adsize text">!{f2Text1}</div>
+            <div class="adsize text">!{f2Text2}</div>
          </div>
 
          <div id="f3" class="adsize frame">
             <div class="epicdaypass"><div class="epicdaypass_img"></div></div>
-            <div class="adsize text price">!{f3Price}</div>
-            <div class="adsize text">!{f3Text}</div>
+            <div class="adsize text">!{f3Text1}</div>
+            <div class="adsize text">!{f3Text2}</div>
 
             <div id="f3_cta" class="cta">
                <span id="cta-text">!{ctaText}</span>
