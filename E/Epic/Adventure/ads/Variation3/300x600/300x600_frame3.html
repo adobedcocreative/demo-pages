@@ -1,8 +1,8 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>300x250</title>
-      <meta name="ad.size" content="width=300,height=250" />
+      <title>300x600</title>
+      <meta name="ad.size" content="width=300,height=600" />
       <meta name="format-detection" content="telephone=no" />
       <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
       <meta http-equiv="X-UA-Compatible" content="IE=10" />
@@ -40,11 +40,11 @@
                {
                   cam: {
                      f1Bkgrnd: "adventure.jpg",
-                     f2Text: "<div style='top:34px;left:26px;font-size:22px;line-height:27px;letter-spacing:0.24em;'>KEEP YOUR<br />STOKE GOING.</div>",
-                     f2List: "<div style='top:100px;left:26px;font-size:18px;line-height:21px;'><ul><li>VAIL</li><li>WHISTLER</li><li>BLACKCOMB</li><li>BRECKENRIDGE</li><li>PARK CITY</li></ul></div>",
-                     f3Price: " ",
-                     f3Text:
-                        "<div style='width:100%;height:90px;top:80px;font-size:16px;letter-spacing:0.24em;line-height:90px;'><span class='middle'>JUST</span><span class='price usd middle' style='font-size:90px;'>49</span><span class='middle'>DOWN</span></div>",
+                     f2Text: "<div style='top:102px;left:28px;width:230px;font-size:27px;line-height:30px;letter-spacing:0.15em;'>THE DAYS YOU WANT. THE RESORTS YOU LOVE. THE VALUE YOU NEED.</div>",
+                     f2List:
+                        "<div style='top:298px;left:28px;font-size:24px;line-height:33px;'><ul><li>VAIL</li><li class='yellow'>WHISTLER</li><li class='yellow'>BLACKCOMB</li><li>BRECKENRIDGE</li><li class='yellow'>PARK CITY</li><li>AND MORE</li></ul></div>",
+                     f3Price: "<div class='usd' style='width:100%;top:200px;font-size:170px;line-height:170px;margin-left:-8px;letter-spacing:0.03em;'>949</div>",
+                     f3Text: "<div style='width:100%;top:368px;font-size:24px;letter-spacing:0.24em;'>UNTIL APRIL 14</div>",
                      ctaText: "RENEW BY 4/19",
                      clickUrl: "https://www.epicpass.com/",
                   },
@@ -98,6 +98,7 @@
 
          function onBannerClick(e) {
             //console.log("onBannerClick(e)");
+
             amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl);
          }
 
@@ -138,7 +139,7 @@
             applyBlur({ el: "#f1_bkgrnd", a: 2 });
 
             gsap.set("#f1_bkgrnd", { scale: 1.5 });
-            gsap.set("#f1_epic", { scale: 3, autoAlpha: 0, transformOrigin: "50% 0%" });
+            gsap.set("#f1_epic", { scale: 3, autoAlpha: 0, transformOrigin: "50% 50%" });
 
             gsap.set("#cover", { x: "0%", y: "100%", backgroundColor: "#9abbd5" });
 
@@ -327,7 +328,7 @@
 
          .adsize {
             width: 300px;
-            height: 250px;
+            height: 600px;
             left: 0px;
             top: 0px;
          }
@@ -358,8 +359,8 @@
          #f2 {
             color: #fff;
             text-align: left;
-            letter-spacing: 0.21em;
-            border-top: 7px solid #9abbd5;
+            letter-spacing: 0.17em;
+            border-top: 11px solid #9abbd5;
             background-color: #20285d;
          }
 
@@ -382,15 +383,15 @@
             margin: 0;
          }
 
-         li:nth-child(even) {
+         /* li:nth-child(even) {
             color: #f79620;
-         }
+         } */
 
          .price {
             color: #fff;
             font-family: "Bison-DemiBold", sans-serif;
             font-weight: 400;
-            margin: 0 0.25rem;
+            margin: 0 0.6rem;
          }
 
          .usd::before {
@@ -403,30 +404,22 @@
          /* EPIC LOGO */
 
          .epic {
-            width: 290px;
-            left: 5px;
-            top: 10px;
-            height: 0;
-            padding-bottom: 42%;
-         }
-
-         .epic_img {
-            width: 100%;
-            height: 100%;
-            left: 0px;
-            top: 0px;
-            background-image: url("images/epic.svg");
+            width: 194px;
+            height: 440px;
+            left: 32px;
+            top: 76px;
+            background-image: url("images/epic_vert.svg");
             background-size: contain;
          }
 
          /* EPIC DAY PASS LOGO */
 
          .epicdaypass {
-            width: 232px;
+            width: 246px;
             height: 0;
             left: 50%;
-            top: 30px;
-            margin-left: -116px;
+            top: 160px;
+            margin-left: -123px;
             padding-bottom: 13.8%;
          }
 
@@ -443,7 +436,7 @@
 
          #f3_cta {
             width: 100%;
-            height: 44px;
+            height: 52px;
             left: 0px;
             top: auto;
             bottom: 0px;
@@ -452,9 +445,9 @@
             background-color: #20285d;
             color: #f79620;
             text-align: center;
-            line-height: 40px;
+            line-height: 48px;
             letter-spacing: 3px;
-            font-size: 15px;
+            font-size: 18px;
             font-weight: 900;
             font-style: normal;
          }
@@ -476,7 +469,7 @@
       <div id="banner" class="adsize">
          <div id="f1" class="adsize frame">
             <div id="f1_bkgrnd" class="adsize"></div>
-            <div id="f1_epic" class="epic"><div class="epic_img"></div></div>
+            <div id="f1_epic" class="epic"></div>
          </div>
 
          <div id="f2" class="adsize frame">
@@ -486,8 +479,8 @@
 
          <div id="f3" class="adsize frame">
             <div class="epicdaypass"><div class="epicdaypass_img"></div></div>
-            <div class="text price">!{f3Price}</div>
-            <div class="text">!{f3Text}</div>
+            <div class="adsize text price">!{f3Price}</div>
+            <div class="adsize text">!{f3Text}</div>
 
             <div id="f3_cta" class="cta">
                <span id="cta-text">!{ctaText}</span>
