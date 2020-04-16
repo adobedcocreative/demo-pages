@@ -107,10 +107,10 @@ amo.registerAttribute("frameImage3","IMAGE","1x1.png");
 amo.registerAttribute("frameText1","TEXT","Stay connected on<br>your <font class='coloredText'>work day</font>");
 amo.registerAttribute("frameText12","TEXT","and <font class='coloredText'>school day</font>");
 amo.registerAttribute("frameText21","TEXT","<div style='top:11px;left:9px;'><div class='bulletedText'>Up to 200 Mbps Internet</div></div>");
-amo.registerAttribute("frameText22","TEXT","<div style='top:28px;left:8px;'><div class='bulletedText'>Over 220 channels</div></div>");
+amo.registerAttribute("frameText22","TEXT","<div style='top:28px;left:8px;'><div class='bulletedText'>Free HD cable box</div></div>");
 amo.registerAttribute("frameText23","TEXT","&nbsp;");
 amo.registerAttribute("frameText31", "TEXT", "<div style='top:3px;left:8px;font-size:14px;'>Internet & TV</div>");
-amo.registerAttribute("frameText32", "TEXT", "<div style='top:18px;left:8px;font-size:13.5px;'><font style='color:#0084d6;'>$64.99</font> mo./2 yrs. guaranteed</div>");
+amo.registerAttribute("frameText32", "TEXT", "<div style='top:18px;left:8px;font-size:13.5px;'><font style='color:#0084d6;'>$59.99</font> mo./1 yr.</div>");
 amo.registerAttribute("frameText33", "TEXT", "<div style='top:35px;left:8px;font-size:10px;' class='AlticeRegular'>Plus taxes, fees & charges</div>");
 amo.registerAttribute("frameImage1", "IMAGE", "1x1.png");
 </script>
@@ -262,14 +262,14 @@ amo.registerAttribute("frameImage1", "IMAGE", "1x1.png");
         var animateFrame3 = function(flag){
           var frameId = 3;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: bulletFrameAnimation, onCompleteParams:[3]})
+          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[3]})
           // .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame4}));
         }
         var animateFrame2 = function(flag){
           var frameId = 2;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.2, opacity:0, onComplete: animateFrame3}));
+          .to('#frameImage'+frameId, {duration:0, onComplete: bulletFrameAnimation, onCompleteParams:[frameId]})
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame3}));
         }
         var animateFrame1 = function(flag){
           gsap.set('#frameText1', {x: '0'});
