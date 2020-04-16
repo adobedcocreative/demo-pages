@@ -108,9 +108,11 @@
       }
       #cta:hover {
         opacity: 0.7 !important;
-      }
-      #introCta:hover {
+      }      #introCta:hover {
         opacity: 0.7 !important;
+      }
+      .white {
+        color:#fff;
       }
     </style>
   <!-- Start of overrode asset attributes values -->
@@ -125,7 +127,7 @@ amo.registerAttribute("frameImage5","IMAGE","160x600_Image05.png");
 amo.registerAttribute("frameText1","TEXT","Seguimos<br>conectándote<br>con tu<br>trabajo");
 amo.registerAttribute("frameText12","TEXT","con el<br>día escolar<br>y más");
 amo.registerAttribute("frameText21","TEXT","<div style='top:130px;left:19px;font-size:18px;line-height:1;color:#fff;'>Internet de<br>300 megas</div>");
-amo.registerAttribute("frameText22","TEXT","<div style='top:170px;left:14px;width:140px;color:#fff;line-height:1;'><font style='font-size:59px;'>$39</font><font style='margin-left:8px;font-size:10px;display:inline-block;vertical-align:14px;'>99/<br>mes<br>1 año</font><div class='AlticeRegular' style='margin: 6px 0 0 6px;font-size:10px;'>más tarifas, imptos.<br>y cargos</div></div>");
+amo.registerAttribute("frameText22","TEXT","<div style='top:170px;left:14px;width:140px;line-height:1;'><font style='font-size:59px;'>$39</font><font style='margin-left:8px;font-size:10px;display:inline-block;vertical-align:14px;'>99/<br>mes<br>1 año</font><div class='AlticeRegular' style='margin: 6px 0 0 6px;font-size:10px;'>más tarifas, imptos.<br>y cargos</div></div>");
 amo.registerAttribute("frameText23","TEXT","&nbsp;");
 amo.registerAttribute("frameText31","TEXT","<div style='top:75px;left:12px;font-size:18px;line-height:1.1;'><div class='coloredText' style='font-size:62px;line-height:.9'>50%</div>más capacidad de velocidad que Fios<sup>®</sup> y<br>por $10 menos<br>al mes</div>");
 amo.registerAttribute("frameText32","TEXT","<div class='AlticeRegular' style='top:427px;left:18px;width:130px;font-size:10px;line-height:1.1;'>Basado en Internet de 200 megas de Verizon Fios®<br>en línea, con oferta de factura mensual estándar, del 4 de marzo de 2020.</div>");
@@ -153,10 +155,9 @@ amo.registerAttribute("frameText53","TEXT","<div style='top:218px;left:20px;tran
     <!-- <div id="ref" class="asset adSizeContainer" data-image="ref"></div> -->
     <div id="logoImage" class="asset adSizeContainer" data-image="logoImage"></div>
     <div id="frameBackground" class="asset adSizeContainer" data-image="frameBackground" style="display:none;"></div>
-    <div id="frameImage2" class="asset frameImage" data-image="frameImage2"></div>
-    <div id="frameText21" class="frameText">!{frameText21}</div>
-    <div id="frameText22" class="frameText">!{frameText22}</div>
-    <div id="frameText23" class="frameText">!{frameText23}</div>
+    <div id="frameImage2" class="asset frameImage" data-image="frameImage2"></div>    <div id="frameText21" class="frameText white">!{frameText21}</div>
+    <div id="frameText22" class="frameText white">!{frameText22}</div>
+    <div id="frameText23" class="frameText white">!{frameText23}</div>
     <div id="frameImage3" class="asset frameImage" data-image="frameImage3"></div>
     <div id="frameText31" class="frameText">!{frameText31}</div>
     <div id="frameText32" class="frameText">!{frameText32}</div>
