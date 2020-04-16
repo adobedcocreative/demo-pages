@@ -137,7 +137,7 @@ amo.registerAttribute("frameText41","TEXT","<div style='top:88px;left:21px;' cla
 amo.registerAttribute("frameText42","TEXT","<div style='top:152px;left:21px;' class='bulletedText'>Gratis instalación</div>");
 amo.registerAttribute("frameText43","TEXT","<div style='top:188px;left:21px;' class='bulletedText'>Te ayudamos a<br>deshacerte de tu<br>contrato, con<br>hasta $100</div><div class='AlticeRegular' style='top:494px;left:22px;font-size:14px;line-height:1.1;'>Conexión por cable.<br>Velocidades WiFi podrían variar.</div>");
 amo.registerAttribute("frameText51","TEXT","<div style='top:88px;left:24px;font-size:28px;line-height:1.1;'>Internet de<br>300 megas</div>");
-amo.registerAttribute("frameText52","TEXT","<div style='top:144px;left:17px;font-size:114px;line-height:114px;letter-spacing:-4px;' class='coloredText'>$39</div><div style='top:156px;left:212px;font-size:19px;'>99/<br>mes<br>1 año</div><div class='AlticeRegular' style='top:268px;left:24px;font-size:14px;'>más tarifas, imptos. y cargos</div>");
+amo.registerAttribute("frameText52","TEXT","<div style='top:144px;left:17px;font-size:114px;line-height:114px;letter-spacing:-4px;' class='coloredText'>$39</div><div style='top:160px;left:208px;font-size:19px;'>99/<br>mes<br>1 año</div><div class='AlticeRegular' style='top:260px;left:24px;font-size:14px;'>más tarifas, imptos. y cargos</div>");
 amo.registerAttribute("frameText53","TEXT","<div style='top:292px;left:24px;transform:scale(0.655);transform-origin: top left;'><div class='bulletedText'>Sin contratos</div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
@@ -235,7 +235,7 @@ amo.registerAttribute("frameText53","TEXT","<div style='top:292px;left:24px;tran
     <div class="AlticeBold" style="color:transparent;">AlticeBold</div>
   </div>
   <script type="text/javascript">
-    gsap.set('#frameText1 #frameText12', {autoAlpha:0});
+    gsap.set('#frameText1, #frameText12', {autoAlpha:0});
 
     var ad = new Ad({
       root: document.querySelector('#ad'),
@@ -327,9 +327,9 @@ amo.registerAttribute("frameText53","TEXT","<div style='top:292px;left:24px;tran
         var animateFrame1 = function(flag){
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .from('#frameText1', {autoAlpha:0})
+            .to('#frameText1', {autoAlpha:1})
             .to('#frameText1', {autoAlpha:0,delay:1.5})
-            .from('#frameText12', {autoAlpha:0})
+            .to('#frameText12', {autoAlpha:1})
           }
           ad.layers.frameVideo1.querySelector('video').onended = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})

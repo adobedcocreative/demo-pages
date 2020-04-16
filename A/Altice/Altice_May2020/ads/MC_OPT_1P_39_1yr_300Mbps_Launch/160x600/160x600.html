@@ -234,7 +234,7 @@ amo.registerAttribute("frameText53","TEXT","<div style='top:218px;left:20px;tran
     <div class="AlticeBold" style="color:transparent;">AlticeBold</div>
   </div>
   <script type="text/javascript">
-    gsap.set('#frameText1 #frameText12', {autoAlpha:0});
+    gsap.set('#frameText1, #frameText12', {autoAlpha:0});
 
     var ad = new Ad({
       root: document.querySelector('#ad'),
@@ -326,9 +326,9 @@ amo.registerAttribute("frameText53","TEXT","<div style='top:218px;left:20px;tran
         var animateFrame1 = function(flag){
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .from('#frameText1', {autoAlpha:0})
+            .to('#frameText1', {autoAlpha:1})
             .to('#frameText1', {autoAlpha:0,delay:1.5})
-            .from('#frameText12', {autoAlpha:0})
+            .to('#frameText12', {autoAlpha:1})
           }
           ad.layers.frameVideo1.querySelector('video').onended = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})

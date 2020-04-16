@@ -113,17 +113,17 @@ amo.registerAttribute("ctaText","TEXT","Compra");
 amo.registerAttribute("frameImage2","IMAGE","1x1.png");
 amo.registerAttribute("frameImage3","IMAGE","1x1.png");
 amo.registerAttribute("frameImage4","IMAGE","1x1.png");
-amo.registerAttribute("frameText1","TEXT","Stay connected on<br>your <font class='coloredText'>work day</font>");
-amo.registerAttribute("frameText12","TEXT","and <font class='coloredText'>school day</font>");
-amo.registerAttribute("frameText21","TEXT","<div style='top:11px;left:9px;'><div class='bulletedText'>Up to Internet de hasta 300 megas</div></div>");
-amo.registerAttribute("frameText22","TEXT","<div style='top:28px;left:8px;'><div class='bulletedText'>Over 220 channels</div></div>");
+amo.registerAttribute("frameText1","TEXT","Seguimos conectándote<br>con <font class='coloredText'>tu trabajo</font>");
+amo.registerAttribute("frameText12","TEXT","con el <font class='coloredText'>día escolar</font> y más");
+amo.registerAttribute("frameText21","TEXT","<div style='top:11px;left:9px;'><div class='bulletedText'>Internet de hasta 300 megas</div></div>");
+amo.registerAttribute("frameText22","TEXT","<div style='top:28px;left:8px;'><div class='bulletedText'>Gratis instalación</div></div>");
 amo.registerAttribute("frameText23","TEXT","&nbsp;");
 amo.registerAttribute("frameText31","TEXT","<div style='top:12px;left:11px;font-size:14.1px;'><font style='color:#0084d6;'>$100</font> Amazon.com Gift Card</div>");
 amo.registerAttribute("frameText32","TEXT","<div style='top:27px;left:12px;font-size:10px;' class='AlticeRegular'>Restrictions apply.</div>");
     amo.registerAttribute("frameText33","TEXT","&nbsp;");
-amo.registerAttribute("frameText41","TEXT","<div style='top:3px;left:8px;font-size:14px;'>Internet & TV</div>");
-amo.registerAttribute("frameText42","TEXT","<div style='top:18px;left:8px;font-size:13.5px;'><font style='color:#0084d6;'>$39.99</font> mes<br>1 año/3 yrs. guaranteed</div>");
-amo.registerAttribute("frameText43","TEXT","<div style='top:35px;left:8px;font-size:10px;' class='AlticeRegular'>más tarifas, imptos. y cargos</div>");
+amo.registerAttribute("frameText41","TEXT","<div style='top:3px;left:8px;font-size:14px;'>Internet de 300 megas</div>");
+amo.registerAttribute("frameText42","TEXT","<div style='top:18px;left:8px;font-size:13.5px;'><font style='color:#0084d6;'>$39.99</font> mes 1 año</div>");
+amo.registerAttribute("frameText43","TEXT","<div style='top:34px;left:8px;font-size:10px;' class='AlticeRegular'>más tarifas, imptos. y cargos</div>");
 amo.registerAttribute("frameImage1", "IMAGE", "1x1.png");
 </script>
 <!-- End of overrode asset attributes values -->
@@ -142,9 +142,9 @@ amo.registerAttribute("frameImage1", "IMAGE", "1x1.png");
     <!-- <div id="ref" class="asset adSizeContainer" data-image="ref"></div> -->
     <div id="logoImage" class="asset adSizeContainer" data-image="logoImage"></div>
     <div id="frameImage2" class="asset frameImage" data-image="frameImage2"></div>
-    <div id="frameText21" class="frameText white">!{frameText21}</div>
-    <div id="frameText22" class="frameText white">!{frameText22}</div>
-    <div id="frameText23" class="frameText white">!{frameText23}</div>
+    <div id="frameText21" class="frameText">!{frameText21}</div>
+    <div id="frameText22" class="frameText">!{frameText22}</div>
+    <div id="frameText23" class="frameText">!{frameText23}</div>
     <div id="frameImage3" class="asset frameImage" data-image="frameImage3"></div>
     <div id="frameText31" class="frameText">!{frameText31}</div>
     <div id="frameText32" class="frameText">!{frameText32}</div>
@@ -213,7 +213,7 @@ amo.registerAttribute("frameImage1", "IMAGE", "1x1.png");
     <div class="AlticeBold" style="color:transparent;">AlticeBold</div>
   </div>
   <script type="text/javascript">
-    gsap.set('#frameText1 #frameText12', {autoAlpha:0});
+    gsap.set('#frameText1, #frameText12', {autoAlpha:0});
 
     var ad = new Ad({
       root: document.querySelector('#ad'),
