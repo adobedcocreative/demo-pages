@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ad</title>
+    <script type="text/javascript" src="https://ads.everesttech.net/ads/static/local/AMOLibrary.js"></script>
+    <link rel="stylesheet" href="css/style.min.css">
+    <!-- <link rel="stylesheet" href="https://use.typekit.net/tag1rnw.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/script.min.js"></script>
+    <style media="screen">
+      /* @font-face {
+          font-family: SegoeUISemibold;
+          src: url('fonts/SegoeUI_Semibold.woff') format("woff");
+      }
+      @font-face {
+          font-family: SegoeUI;
+          src: url('fonts/SegoeUI.woff') format("woff");
+      }
+      .SegoeUISemibold { font-family: SegoeUISemibold; }
+      .SegoeUI { font-family: SegoeUI; } */
+    </style>
+    <style media="screen" data-dynamic="style">
+      #ad {
+        width: 320px;
+        height: 50px;
+        font-family: SegoeUI, Arial, sans-serif;
+        color: #fff;
+      }
+      .frame {
+        position: absolute;
+        top:0px;
+        left:0px;
+        width:inherit;
+        height:inherit;
+      }
+      /* #cta { background-color: !{ctaBtnColor}; } */
+      /* #cta:hover { background-color: !{ctaBtnHover}; } */
+      #cta svg { transition: all ease-out 0.2s; -webkit-transition: all ease-out 0.2s; }
+      #cta svg:hover { transform: scale(1.2); }
+    </style>
+  </head>
+  <body>
+    <div class="" id="ad">
+      <div id="backgroundImage1" class="asset frame" data-image="backgroundImage1"></div>
+      <div id="backgroundImage2" class="asset frame" data-image="backgroundImage2"></div>
+      <!-- <div id="backgroundImage" class="asset frame" data-image="backgroundImage"></div> -->
+      <div id="dividerLine" style="top: 0;left: 105px;width: 3px;height: inherit;background-color: #444;"></div>
+      <div class="maskHeadlines" style="width:180px;height:inherit;overflow:hidden;">
+        <div class="" style="position:absolute;top:0px;left:0px;width:320px;height: inherit;">
+          <div id="headlineImage1" class="asset frame" data-image="headlineImage1"></div>
+          <div id="headlineImage2" class="asset frame" data-image="headlineImage2"></div>
+        </div>
+      </div>
+      <div id="headlineImage3" class="asset frame" data-image="headlineImage3"></div>
+      <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
+      <div id="logoImage" class="asset frame"
+        data-image="logoImage"
+        style="top: 11px;
+          left: 206px;
+          width: 78px;
+          height: 25.5px;">
+      </div>
+      <div id="cta" class="asset frame"
+        data-image="ctaImage"
+        style="top: 13px;
+          left: 290px;
+          width: 20px;
+          height: 25px;">
+      </div>
+      <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
+    </div>
+    <div id="loadFont" style="width:0;height:0;overflow:hidden;">
+      <!-- <div class="SegoeUI">SegoeUI</div>
+      <div class="SegoeUISemibold">SegoeUISemibold</div> -->
+    </div>
+    <script type="text/javascript">
+      var ad = new Ad({
+        root: document.querySelector('#ad'),
+        width: 320,
+        height: 50,
+        borderWidth: 1,
+        borderColor: '#000'
+      });
+      setTimeout(function() {
+        ad.contentSetup({
+          cam: {
+            backgroundImage1: 'assets/320x50_Crocs_DCO_PersonalizationPillar_KimSejeong_Background_02.png',
+            backgroundImage2: 'assets/320x50_Crocs_DCO_PersonalizationPillar_KimSejeong_Background_01.png',
+            headlineImage1: 'assets/1x1.png',
+            headlineImage2: 'assets/1x1.png',
+            headlineImage3: 'assets/1x1.png',
+            logoImage: 'assets/Personalization_Logo_Animation_Sloth-White.gif',
+            styleProperties: "na",//{'#dividerLine':{backgroundColor:'#fff'}}
+            ctaSelect: 'icon_white',
+            clickURL: 'https://www.adobe.com/#Crocs',
+            impressionTracker: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII='
+          },
+          feed: [
+            {
+              name: 'Crocs',
+            }
+          ],
+          staticData: {
+            // ref: 'ref.png'
+            ctaBtnColor: '#fff',
+            // backgroundImage: 'images/320x50_Crocs_ClassicPillar_Vertical_Line_Background_03.png',
+          },
+          beforeLoad: function(data){
+            data.map(function(content){
+              // content.ctaBtn = content.ctaBtnColor.split('^')[0];
+              // content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
+              var addIcon = function(color){
+                color = color ? color : '#fff';
+                var ctaElement = ad.root.querySelector('#cta');
+                if(ctaElement) {
+                  ctaElement.removeAttribute('data-image')
+                  ctaElement.innerHTML = `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 369.69" style="width:100%;height:100%;enable-background:new 0 0 300 369.69;" xml:space="preserve"><style type="text/css">.st0{fill-rule:evenodd;clip-rule:evenodd;fill:${color};}</style><path class="st0" d="M253.85,0H46.16C20.67,0,0,20.69,0,46.21v277.27c0,25.52,20.67,46.21,46.16,46.21h207.69 c25.49,0,46.15-20.69,46.15-46.21V46.21C300,20.69,279.34,0,253.85,0z M117.2,326.8l-54.98-55.05l80.8-87.74L62.3,97.39l54.65-54.5 l129.91,141.12L117.2,326.8z"/></svg>`;
+                }
+              }
+              switch(content.ctaSelect){
+                case 'icon_white': addIcon('#fff'); break;//content.ctaImage = 'images/cta/320x50_CTA_Icon.png'; break;
+                case 'icon_gray': case 'icon_grey': addIcon('#444'); break; //content.logoImage = 'images/CROCS_Logo_Animated.gif'; //content.ctaImage = 'images/cta/320x50_CTA_Icon_Gray.png'; content.logoImage = 'images/320x50_Crocs_Logo.png'; break;
+                case 'icon_green': addIcon('#4f660b'); break; // content.logoImage = 'images/320x50_Crocs_Logo_Green.png';//content.ctaImage = 'images/cta/320x50_CTA_Icon_Green.png'; content.logoImage = 'images/320x50_Crocs_Logo_Green.png'; break;
+                default: addIcon('#fff'); //content.ctaImage = 'images/cta/320x50_CTA_Icon.png';
+              }
+            });
+            return data;
+          }
+        }, function(data){
+          var adData = data[0], adClickUrl = adData['clickURL'];
+          ad.root.addEventListener("click", function(e) {
+            if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
+          });
+          if(adData.impressionTracker.toLowerCase() != 'na'){ ad.loadAssets(adData.impressionTracker, function(assets){ }); }
+          if(adData.styleProperties && adData.styleProperties.toLowerCase() != 'na') {
+            try {
+              eval('var styleProperties = ' + adData.styleProperties);
+              if(styleProperties && typeof styleProperties == 'object')
+              for(var i in styleProperties) {
+                gsap.set(i, styleProperties[i]);
+              }
+            } catch(e) {  }
+          }
+          var loadLogo = function(){
+            var image = new Image();
+            image.onload = function(){
+              ad.layers.logoImage.querySelector('img').src = this.src;
+            }
+            image.src = ad.layers.logoImage.querySelector('img').src;
+          }
+          gsap.delayedCall(0.5, loadLogo);
+          var adWidth = 320;
+          if(ad.layers.overlay.style.color == 'transparent') {
+            gsap.set('#backgroundImage2', { scale: 1.14 });
+            gsap.set('#backgroundImage2', { css:{transformOrigin:'20% 50%', zIndex:-1} });
+            gsap.timeline({defaults:{ease: Power1.ease, duration: 0.9}})
+            .from('#backgroundImage1', { x: adWidth})
+            .from('#backgroundImage2', { x: -adWidth}, '-=0.9')
+            .to('#backgroundImage2', { scale: 1, duration: 8})
+          } else {
+            gsap.set('#backgroundImage1', { scale: 1.14 });
+            gsap.timeline({defaults:{ease: Power1.ease, duration: 0.9}})
+            .from('#backgroundImage1', { x: adWidth})
+            .from('#backgroundImage2', { x: -adWidth}, '-=0.9')
+            .to('#backgroundImage1', { scale: 1, duration: 8})
+          }
+          // gsap.timeline({defaults:{ease: Power1.easeOut, duration: 0.3}})
+          // .from('#backgroundImage1', { x:-5, scale: 1.14, duration: 8})
+          // gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.7}})
+          // .from('#headlineImage1', { x: -180,delay:0.5})
+          // .from('#headlineImage2', { x: 180}, '-=0.7')
+          // .from('#headlineImage3', { autoAlpha: 0, delay:0.5})
+        });
+      }, 2000);
+    </script>
+  </body>
+</html>
