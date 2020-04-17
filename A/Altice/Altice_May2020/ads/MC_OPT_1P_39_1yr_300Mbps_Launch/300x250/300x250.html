@@ -244,8 +244,6 @@ amo.registerAttribute("frameText53","TEXT","<div style='top:167px;left:22px;tran
     <div class="AlticeBold" style="color:transparent;">AlticeBold</div>
   </div>
   <script type="text/javascript">
-    gsap.set('#frameText1, #frameText12', {autoAlpha:0});
-
     var ad = new Ad({
       root: document.querySelector('#ad'),
       width: 300,
@@ -279,6 +277,7 @@ amo.registerAttribute("frameText53","TEXT","<div style='top:167px;left:22px;tran
         textUpdate();
         gsap.set('.frameImage', {x:'100%'});
         gsap.set('.frameText, #priceLabel', {x:'-100%'});
+        gsap.set('#frameText1, #frameText12', {autoAlpha:0,x:"0%",y:"0%"});
         var priceFrameAnimation = function(frame){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0})
