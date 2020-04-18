@@ -10,7 +10,7 @@
 <html><head>
 <meta charset="UTF-8">
 <meta name="authoring-tool" content="Adobe_Animate_CC">
-<title>Office_FY20Q4_Cons_USA_160x600_BAN_AllUp_AI_Icons_Retargeting_English_NA_NA_ANI_BN_NA_1</title>
+<title>O365_FY20Q4_Cons_USA_300x600_BAN_OneDrive_Retargeting_English_NA_NA_ANI_BN_NA_1</title>
 <style>
 	@font-face {
 		font-family: 'Segoe Pro';
@@ -31,8 +31,8 @@
 <script src="copy.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
-<script src="Office_FY20Q4_Cons_USA_160x600_BAN_AllUp_AI_Icons_Retargeting_English_NA_NA_ANI_BN_NA_1.js?1501171107836"></script>
-<meta name="ad.size" content="width=160,height=600">
+<script src="O365_FY20Q4_Cons_USA_300x600_BAN_OneDrive_Retargeting_English_NA_NA_ANI_BN_NA_1.js?1501171107836"></script>
+<meta name="ad.size" content="width=300,height=600">
 <script>
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation, initReady
 initReady=false
@@ -84,7 +84,7 @@ function handleComplete(evt,comp) {
 	for(i=0; i<ssMetadata.length; i++) {
 		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
 	}
-	exportRoot = new lib.Office_FY20Q4_Cons_USA_160x600_BAN_AllUp_AI_Icons_Retargeting_English_NA_NA_ANI_BN_NA_1();
+	exportRoot = new lib.O365_FY20Q4_Cons_USA_300x600_BAN_OneDrive_Retargeting_English_NA_NA_ANI_BN_NA_1();
 	stage = new lib.Stage(canvas);
 	stage.addChild(exportRoot);	
 	//Registers the "tick" event listener.
@@ -139,6 +139,7 @@ function handleComplete(evt,comp) {
 		var bannerData = parentWindow.getBannerData();
 		bannerData.headline1 = eval(bannerData.textField1);
 		bannerData.headline2 = eval(bannerData.textField2);
+		bannerData.headline3 = eval(bannerData.textField3);
 		// bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,"12px",1,0,"50","300", "center"] : '';
 		animation_container.addEventListener("click", function(){
 			if(bannerData.clickTracker) {
@@ -202,13 +203,13 @@ var loadFont = false
 <!-- write your code here -->
 </head>
 <body onload="init();" style="margin:0px;">
-<div id="rHit" style="display:block; position:absolute; top:0px; left:138px; width:22px; height:22px; z-index:100002 !important; cursor:pointer; "></div>
-<div id="animation_container" style="background-color:#FFFFFF; width:160px; height:600px">
-  <canvas id="canvas" width="160" height="600" style="position: absolute; display: block; background-color:#FFFFFF; cursor:pointer; z-index:100001 !important; background:transparent; " aria-label="Microsoft 3 6 5. Powerful features to unleash your best work. Plus 1 terabyte of OneDrive cloud storage."></canvas>
-		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:160px; height:600px; position: absolute; left: 0px; top: 0px; display: block;">
+<div id="rHit" style="display:block; position:absolute; top:0px; left:278px; width:22px; height:22px; z-index:100002 !important; cursor:pointer; "></div>
+<div id="animation_container" style="background-color:#FFFFFF; width:300px; height:600px">
+  <canvas id="canvas" width="300" height="600" style="position: absolute; display: block; background-color:#FFFFFF; cursor:pointer; z-index:100001 !important; background:transparent;" aria-label="Introducing Microsoft 3 6 5. Recover your one drive files for up to thirty days. With 1 terabyte of one drive cloud storage across all your devices" role="img"></canvas>
+		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:300px; height:600px; position: absolute; left: 0px; top: 0px; display: block;">
 		<div style="cursor:pointer; position: absolute; border: 1px solid black; box-sizing: border-box; background-color:transparent; z-index:100003 !important; top: 0; left: 0; width: 100%; bottom: 0;"></div>
 		</div>
-	<div id="clickHit" style="display:block; position:absolute; top:0px; left:0px; width:160px; height:600px; cursor:pointer; z-index:1 !important"></div>
+	<div id="clickHit" style="display:block; position:absolute; top:0px; left:0px; width:300px; height:600px; cursor:pointer; z-index:1 !important"></div>
 	</div>
 
 

@@ -37,7 +37,7 @@
         amo.registerVariation("textField3", "na");
         amo.registerVariation("textField4", "na");
         amo.registerVariation("textField5", "na");
-        amo.registerVariation("ctaText", "LEARN\nMORE1^LEARN\nMORE2^LEARN\nMORE3^LEARN MORE"); //LEARN MORE1^LEARN MORE2^LEARN MORE3^LEARN MORE
+        amo.registerVariation("ctaText", "LEARN MORE1^LEARN<br>MORE2^LEARN\nMORE3^LEARN MORE"); //LEARN MORE1^LEARN MORE2^LEARN MORE3^LEARN MORE
         // amo.registerVariation("ctaArrowVisibleFlag", "!{passthroughfield2}");
         amo.registerVariation("impressionTracker", "../../../../1x1.png?impressionTracker=" + Math.random());
         amo.registerVariation("clickTracker", "../../../../1x1.png?clickTracker=" + Math.random());
@@ -99,6 +99,7 @@
         var textField5 = adData.textField5 && adData.textField5.toLowerCase() != 'na' ? adData.textField5 : ' ';
         textField1=textField1.replace('-_-','—');textField2=textField2.replace('-_-','—');textField3=textField3.replace('-_-','—');textField4=textField4.replace('-_-','—');textField5=textField5.replace('-_-','—');
         var ctaText = adData.ctaText && adData.ctaText.toLowerCase() != 'na' ? adData.ctaText : '';
+        ctaText = ctaText.length && ctaText.indexOf('<br>') != -1 ? ctaText.split('<br>').join('\n') : ctaText;
         var impressionTracker = adData.impressionTracker && adData.impressionTracker.toLowerCase() != 'na' ? adData.impressionTracker : '';
         var clickTracker = adData.clickTracker && adData.clickTracker.toLowerCase() != 'na' ? adData.clickTracker : '';
         if(impressionTracker) {

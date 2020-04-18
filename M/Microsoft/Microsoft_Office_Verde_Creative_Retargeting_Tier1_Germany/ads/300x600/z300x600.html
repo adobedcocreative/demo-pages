@@ -99,6 +99,7 @@
         var textField5 = adData.textField5 && adData.textField5.toLowerCase() != 'na' ? adData.textField5 : ' ';
         textField1=textField1.replace('-_-','—');textField2=textField2.replace('-_-','—');textField3=textField3.replace('-_-','—');textField4=textField4.replace('-_-','—');textField5=textField5.replace('-_-','—');
         var ctaText = adData.ctaText && adData.ctaText.toLowerCase() != 'na' ? adData.ctaText : '';
+        ctaText = ctaText.length && ctaText.indexOf('<br>') != -1 ? ctaText.split('<br>').join('\n') : ctaText;
         var impressionTracker = adData.impressionTracker && adData.impressionTracker.toLowerCase() != 'na' ? adData.impressionTracker : '';
         var clickTracker = adData.clickTracker && adData.clickTracker.toLowerCase() != 'na' ? adData.clickTracker : '';
         if(impressionTracker) {
@@ -119,7 +120,7 @@
           case 'HeroAchieve' : adURL = 'HeroAchieve/O365_FY20Q4_Cons_USA_300x600_BAN_Hero_Achieve_Prospecting_English_NA_NA_ANI_LEA_NA_1.htm';break;
           case 'HeroFamily' : adURL = 'HeroFamily/O365_FY20Q4_Cons_USA_300x600_BAN_Hero_Family_Prospecting_English_NA_NA_ANI_LEA_NA_1.htm';break;
           case 'MoneyInExcel' : adURL = 'MoneyInExcel/O365_FY20Q4_Cons_USA_300x600_BAN_MoneyInExcel_Retargeting_English_NA_NA_ANI_BN_NA_1.htm';break;
-          case 'OneDrive' : adURL = 'OneDrive/O365_FY20Q4_Cons_USA_300x600_BAN_OneDrive_Prospecting_English_NA_NA_ANI_LEA_NA_1.htm';break;
+          case 'OneDrive' : adURL = 'OneDrive/O365_FY20Q4_Cons_USA_300x600_BAN_OneDrive_Retargeting_English_NA_NA_ANI_BN_NA_1.htm';break;
           case 'PPT' : adURL = 'PPT/O365_FY20Q4_Cons_USA_300x600_BAN_PPT_Retargeting_English_NA_NA_ANI_BN_NA_1.htm';break;
           case 'Word' : adURL = 'Word/O365_FY20Q4_Cons_USA_300x600_BAN_Word_Retargeting_English_NA_NA_ANI_BN_NA_1.htm';break;
         }
