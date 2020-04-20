@@ -18,7 +18,7 @@
       <script>
          var ad, adData, adClickUrl;
 
-         var gotoNextFrame = false;
+         var gotoNextFrame = true;
 
          window.onload = function () {
             //console.log("window.onload()");
@@ -80,7 +80,7 @@
 
             gsap.to("#banner", 0.25, { autoAlpha: 1 });
 
-            showFrame2();
+            window.showFrame3 = function(){};showFrame2();
          }
 
          //------------------------------------------
