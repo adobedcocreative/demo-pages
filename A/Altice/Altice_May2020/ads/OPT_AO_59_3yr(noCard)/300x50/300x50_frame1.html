@@ -275,9 +275,9 @@ amo.registerAttribute("frameImage1", "IMAGE", "1x1.png");
         var animateFrame1 = function(flag){
           gsap.set('#frameText1', {x: '0'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .from('#frameText1', {autoAlpha:0})
+          .to('#frameText1', {autoAlpha:1})
           .to('#frameText1', {autoAlpha:0,delay:1.5})
-          .from('#frameText12', {autoAlpha:0})
+          .to('#frameText12', {autoAlpha:1})
           .to('#frame1', (flag==true?{}:{delay:1.5, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
         gsap.delayedCall(.8, animateFrame1, [true]);

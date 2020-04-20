@@ -309,9 +309,9 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 312px;left: 26px;
         var animateFrame1 = function(flag){
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .from('#frameText1', {autoAlpha:0})
+            .to('#frameText1', {autoAlpha:1})
             .to('#frameText1', {autoAlpha:0,delay:1.5})
-            .from('#frameText12', {autoAlpha:0})
+            .to('#frameText12', {autoAlpha:1})
           }
           ad.layers.frameVideo1.querySelector('video').onended = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
