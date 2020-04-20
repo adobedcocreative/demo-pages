@@ -227,6 +227,7 @@ amo.registerAttribute("frameImage1", "IMAGE", "1x1.png");
           if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
         });
 
+        gsap.set('#frameText1,#frameText12', {autoAlpha:0});
         gsap.set('.frameImage', {x:'-100%'});
         gsap.set('.frameText', {y:'100%'});
         gsap.set('div[id^="frameText"][id$="1"], #priceLabel', {x:'-100%',y:0});

@@ -255,6 +255,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 11px;left: 376px;
         setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; },800);
 
         textUpdate();
+        gsap.set('#frameText1,#frameText12', {autoAlpha:0});
         gsap.set('.frameImage', {y:'100%'});
         gsap.set('.frameText', {y:'100%'});
         gsap.set('div[id^="frameText"][id$="1"], #priceLabel', {x:'-100%',y:0});
