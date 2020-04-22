@@ -129,9 +129,9 @@ amo.registerAttribute("frameText12","TEXT","and school day");
 amo.registerAttribute("frameText21", "TEXT", "<div style='top: 45px;left: 56px;font-size: 18px;line-height:1.1;color: #fff;'>Fiber Internet<br>& TV</div>");
 amo.registerAttribute("frameText22", "TEXT", "<div style='top: 80px;left: 51px;width: 160px;color: #fff;line-height: 1;'><font style='font-size: 59px;'>$64</font><font style='margin-left: 2px;font-size: 10px;display: inline-block;vertical-align: 24px;'>99/<br>mo.</font><div style='display:inline-block;font-size: 10.5px;padding: 3px 6px 3px 8px;margin: 0px 0px 0px 6px;border-top-right-radius: 10px;border-bottom-right-radius: 10px;color: #0084d6;background: #fff;'>Guaranteed for 2 yrs.</div><div class='AlticeRegular' style='margin: 7px 0 0 6px;font-size: 10px;'>Plus taxes, fees<br>& charges</div></div>");
 amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText31","TEXT","<div style='top:44px;left:21px;'><div class='bulletedText'>200 Mbps Internet</div></div>");
-amo.registerAttribute("frameText32","TEXT","<div style='top:66px;left:21px;'><div class='bulletedText'>Altice One with<br>220+ channels</div></div>");
-amo.registerAttribute("frameText33","TEXT","<div style='top:105px;left:21px;'><div class='bulletedText'>Contract buyout up to $500</div></div><div class='AlticeRegular' style='top:183px;left:22px;font-size:10px;line-height:1.15;'>Wired connection up to 200 Mbps.<br>WiFi speeds may vary.</div>");
+amo.registerAttribute("frameText31","TEXT","<div style='top:44px;left:21px;'><div class='bulletedText'>200 Mbps upload and download speeds</div></div>");
+amo.registerAttribute("frameText32","TEXT","<div style='top:83px;left:21px;'><div class='bulletedText'>Altice One with<br>220+ channels</div></div>");
+amo.registerAttribute("frameText33","TEXT","<div style='top:122px;left:21px;'><div class='bulletedText'>Contract buyout up to $500</div></div><div class='AlticeRegular' style='top:183px;left:22px;font-size:10px;line-height:1.15;'>Wired connection up to 200 Mbps.<br>WiFi speeds may vary.</div>");
 amo.registerAttribute("frameText41", "TEXT", "<div style='top: 44px;left: 21px;font-size: 18px;line-height:1.1;'>Fiber Internet & TV</div>");
 amo.registerAttribute("frameText42", "TEXT", "<div style='top: 61px;left: 17px;width: 160px;line-height: 1;'><font style='font-size: 59px;' class='coloredText'>$64</font><font style='margin-left: 2px;font-size: 10px;display: inline-block;vertical-align: 24px;'>99/<br>mo.</font><div style='display:inline-block;font-size: 10px;padding: 4px 14px 3px 9px;margin: 2px 0px 0px 5px;border-top-right-radius: 10px;border-bottom-right-radius: 10px;color: #fff;background: #0084d6;'>Guaranteed for 2 yrs.</div><div class='AlticeRegular' style='margin: 4px 0 0 5px;font-size: 10px;'>Plus taxes, fees & charges</div></div>");
 amo.registerAttribute("frameText43", "TEXT", "<div style='top: 167px;left: 22px;transform: scale(0.78);transform-origin: top left;'><div class='bulletedText'>No annual contract</div></div>");
@@ -308,7 +308,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 167px;left: 22px;
           ad.layers.cta.classList.remove('ctaWhite')
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: bulletFrameAnimation, onCompleteParams:[3]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame4}));
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 3.3, opacity:0, onComplete: animateFrame4}));
         }
         var animateFrame2 = function(flag){
           var frameId = 2;
@@ -321,12 +321,12 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 167px;left: 22px;
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
             .to('#frameText1', {autoAlpha:1})
-            .to('#frameText1', {autoAlpha:0,delay:1.5})
+            .to('#frameText1', {autoAlpha:0,delay:2})
             .to('#frameText12', {autoAlpha:1})
           }
           ad.layers.frameVideo1.querySelector('video').onended = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frame1', (flag==true?{}:{delay:0.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+            .to('#frame1', (flag==true?{}:{delay:1.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
           }
         }
         gsap.delayedCall(.8, animateFrame1);
