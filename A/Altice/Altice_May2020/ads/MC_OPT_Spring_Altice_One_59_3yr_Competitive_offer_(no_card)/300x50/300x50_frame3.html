@@ -119,7 +119,7 @@ amo.registerAttribute("frameText33","TEXT","<div style='top:35px;left:8px;font-s
 
 
 <body>
-  <div class="" id="ad">
+  <div class="" id="ad">å
     <div id="backgroundColor"
       style="top:0px;
         left:0px;
@@ -252,17 +252,17 @@ amo.registerAttribute("frameText33","TEXT","<div style='top:35px;left:8px;font-s
           .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
         }
 
-        var animateFrame4 = function(flag){
-          var frameId = 4;
-          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[4]})
-          // .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.2, opacity:0, onComplete: animateFrame5}));
-        }
+        //var animateFrame4 = function(flag){
+          //var frameId = 4;
+          //gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+          //.to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[4]})
+          ////.to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.2, opacity:0, onComplete: animateFrame5}));
+        //}
         var animateFrame3 = function(flag){
           var frameId = 3;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[3]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame4}));
+          //.to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame4}));
         }
         var animateFrame2 = function(flag){
           var frameId = 2;
@@ -279,8 +279,8 @@ amo.registerAttribute("frameText33","TEXT","<div style='top:35px;left:8px;font-s
           .to('#frame1', (flag==true?{}:{delay:1.5, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
         if('frame1' in ad.layers) ad.layers.frame1.remove();
-          gsap.delayedCall(1.2, animateFrame3, [true]);
-        });
+                    gsap.delayedCall(1.2, animateFrame3, [true]);
+      });
     }, 2000);
   </script>
 </body>
