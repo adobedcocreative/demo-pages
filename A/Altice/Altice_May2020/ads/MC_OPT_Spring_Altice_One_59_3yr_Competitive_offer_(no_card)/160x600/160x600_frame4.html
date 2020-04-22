@@ -285,7 +285,7 @@ amo.registerAttribute("frameText43","TEXT","<div style='top: 230px;left: 20px;tr
           //gsap.set('#frameBackground', {display: 'none'});
           //gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           //.to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[5]})
-          //// .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', {delay: 2.2, opacity:0});
+          ////.to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', {delay: 2.2, opacity:0});
         //}
         var animateFrame4 = function(flag){
           var frameId = 4;
@@ -319,8 +319,8 @@ amo.registerAttribute("frameText43","TEXT","<div style='top: 230px;left: 20px;tr
           }
         }
         if('frame1' in ad.layers) ad.layers.frame1.remove();
-                    gsap.delayedCall(1.2, animateFrame4, [true]);
-      });
+          gsap.delayedCall(1.2, animateFrame4, [true]);
+        });
     }, 2000);
   </script>
 </body>
