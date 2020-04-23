@@ -120,21 +120,21 @@
 <script type="text/javascript">
 amo.registerClick("clickUrl","https://www.altice.com");
 amo.registerAttribute("frameVideo1", "TEXT", "https://ct.tubemogul.com/web/altice/2020-04/AlticeIntroVideo_May2020.mp4");
-amo.registerAttribute("ctaText","TEXT","Shop now");
+amo.registerAttribute("ctaText","TEXT","Compra");
 amo.registerAttribute("frameImage2","IMAGE","300x250_OPT_1P_39_1yr_Frame02.png");
 amo.registerAttribute("frameImage3","IMAGE","1x1.png");
 amo.registerAttribute("frameImage4","IMAGE","300x250_OPT_1P_39_1yr_Frame05.png");
-amo.registerAttribute("frameText1","TEXT","Stay connected<br>on your work day");
-amo.registerAttribute("frameText12","TEXT","and school day");
-amo.registerAttribute("frameText21", "TEXT", "<div style='top: 56px;left: 56px;font-size: 18px;line-height:1.1;color: #fff;'>100 Mbps<br>Internet</div>");
-amo.registerAttribute("frameText22", "TEXT", "<div style='top: 91px;left: 51px;width: 160px;color: #fff;line-height: 1;'><font style='font-size: 59px;'>$34</font><font style='margin-left: 2px;font-size: 10px;display: inline-block;vertical-align: 14px;'>99/<br>mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 3px 0 0 6px;font-size: 10px;'>Plus taxes, fees<br>& charges</div></div>");
+amo.registerAttribute("frameText1","TEXT","Seguimos conectándote<br>con tu trabajo");
+amo.registerAttribute("frameText12","TEXT","con el día escolar y más");
+amo.registerAttribute("frameText21", "TEXT", "<div style='top: 56px;left: 56px;font-size: 18px;line-height:1.1;color: #fff;'>Internet de<br>100 megas</div>");
+amo.registerAttribute("frameText22", "TEXT", "<div style='top: 91px;left: 51px;width: 160px;color: #fff;line-height: 1;'><font style='font-size: 59px;'>$34</font><font style='margin-left: 2px;font-size: 10px;display: inline-block;vertical-align: 14px;'>99/<br>mes<br>1 año</font><div class='AlticeRegular' style='margin: 3px 0 0 6px;font-size: 10px;'>más tarifas, imptos.<br>y cargos</div></div>");
 amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText31","TEXT","<div style='top:44px;left:21px;'><div class='bulletedText'>100 Mbps Internet</div></div>");
-amo.registerAttribute("frameText32","TEXT","<div style='top:66px;left:21px;'><div class='bulletedText'>Contract buyout up to $100</div></div>");
-amo.registerAttribute("frameText33","TEXT","<div style='top:88px;left:21px;'><div class='bulletedText'>30-day money-back guarantee</div></div><div class='AlticeRegular' style='top:183px;left:22px;font-size:10px;line-height:1.15;'>Wired connection<br>up to 100 Mbps.</div>");
-amo.registerAttribute("frameText41", "TEXT", "<div style='top: 44px;left: 21px;font-size: 18px;line-height:1.1;'>100 Mbps<br>Internet</div>");
-amo.registerAttribute("frameText42", "TEXT", "<div style='top: 80px;left: 17px;width: 160px;line-height: 1;'><font style='font-size: 59px;' class='coloredText'>$34</font><font style='margin-left: 2px;font-size: 10px;display: inline-block;vertical-align: 14px;'>99/<br>mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 2px 0 0 5px;font-size: 10px;'>Plus taxes, fees & charges</div></div>");
-amo.registerAttribute("frameText43", "TEXT", "<div style='top: 167px;left: 22px;transform: scale(0.78);transform-origin: top left;'><div class='bulletedText'>No annual contract</div></div>");
+amo.registerAttribute("frameText31","TEXT","<div style='top:44px;left:21px;'><div class='bulletedText'>Internet de 100 megas</div></div>");
+amo.registerAttribute("frameText32","TEXT","<div style='top:66px;left:21px;'><div class='bulletedText'>Te ayudamos a<br>deshacerte de tu contrato,<br>con hasta $100</div></div>");
+amo.registerAttribute("frameText33","TEXT","<div class='AlticeRegular' style='top:183px;left:22px;font-size:10px;line-height:1.15;'>Conexión por cable<br>de hasta 100 megas.</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div style='top: 44px;left: 21px;font-size: 18px;line-height:1.1;'>Internet de<br>100 megas</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div style='top: 80px;left: 17px;width: 160px;line-height: 1;'><font style='font-size: 59px;' class='coloredText'>$34</font><font style='margin-left: 2px;font-size: 10px;display: inline-block;vertical-align: 14px;'>99/<br>mes<br>1 año</font><div class='AlticeRegular' style='margin: 2px 0 0 5px;font-size: 10px;'>más tarifas, imptos. y cargos</div></div>");
+amo.registerAttribute("frameText43", "TEXT", "<div style='top: 167px;left: 22px;transform: scale(0.78);transform-origin: top left;'><div class='bulletedText'>Sin contratos</div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -308,7 +308,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 167px;left: 22px;
           ad.layers.cta.classList.remove('ctaWhite')
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: bulletFrameAnimation, onCompleteParams:[3]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame4}));
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 3.3, opacity:0, onComplete: animateFrame4}));
         }
         var animateFrame2 = function(flag){
           var frameId = 2;
@@ -321,12 +321,12 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 167px;left: 22px;
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
             .to('#frameText1', {autoAlpha:1})
-            .to('#frameText1', {autoAlpha:0,delay:1.5})
+            .to('#frameText1', {autoAlpha:0,delay:2})
             .to('#frameText12', {autoAlpha:1})
           }
           ad.layers.frameVideo1.querySelector('video').onended = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frame1', (flag==true?{}:{delay:0.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+            .to('#frame1', (flag==true?{}:{delay:1.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
           }
         }
         if('frame1' in ad.layers) ad.layers.frame1.remove();

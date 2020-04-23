@@ -1,0 +1,485 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>320x50</title>
+      <meta name="ad.size" content="width=320,height=50" />
+      <meta name="format-detection" content="telephone=no" />
+      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+      <meta http-equiv="X-UA-Compatible" content="IE=10" />
+      <meta charset="UTF-8" />
+
+      <link rel="stylesheet" href="https://ct.tubemogul.com/web/fonts/Bison/font.css" />
+      <link rel="stylesheet" href="https://use.typekit.net/prx1wfa.css" />
+
+      <script src="https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.2.4_min.js"></script>
+      <script src="https://ads.everesttech.net/ads/static/local/AMOLibrary.js"></script>
+      <script src="https://ct.tubemogul.com/web/static/js/script.min.js" charset="utf-8"></script>
+
+      <script>
+         var ad, adData, adClickUrl;
+
+         var gotoNextFrame = true;
+
+         window.onload = function () {
+            //console.log("window.onload()");
+
+            initMouseEvents();
+
+            resetBanner();
+
+            initBanner();
+         };
+
+         function initBanner() {
+            //console.log("initBanner()");
+
+            ad = new Ad({
+               root: document.querySelector("#banner"),
+            });
+            ad.contentSetup(
+               {
+                  cam: {
+                     f1Bkgrnd: "adventure.jpg",
+                     f2Text1:
+                        "<div style='width:204px;height:66px;top:5px;font-size:13px;letter-spacing:0.15em;line-height:32px;'><span class='middle'>JUST</span><span class='price usd middle' style='font-size:32px;'>49</span><span class='middle'>DOWN</span></div>",
+                     f2Text2:"<div></div>",
+                     f3Text1: "<div class='text' style='width:204px;top:10px;font-size:12px;line-height:13px;letter-spacing:0.11em;'>SKI 1-7 DAYS AND<br />SAVE UP TO 50%</div>",
+                     f3Text2: " ",
+                     ctaText: "RENEW BY 4/19",
+                     clickUrl: "https://www.epicpass.com/",
+                  },
+                  feed: [
+                     {
+                        name: "EPIC",
+                     },
+                  ],
+                  staticData: {},
+                  beforeLoad: function (data) {
+                     data.map(function (content) {});
+                     return data;
+                  },
+               },
+               function (data) {
+                  adData = data[0];
+                  adClickUrl = adData["clickUrl"];
+
+                  for (var a in adData) {
+                     // console.log(a + ": '" + adData[a] + "'");
+                  }
+               }
+            );
+
+            gsap.set("#f1_bkgrnd", { backgroundImage: adData.f1Bkgrnd });
+
+            adVisible();
+         }
+
+         function adVisible() {
+            //console.log("adVisible()");
+
+            gsap.to("#banner", 0.25, { autoAlpha: 1 });
+
+            window.showFrame2 = function(){};showFrame1();
+         }
+
+         //------------------------------------------
+         //      Mouse Events
+         //------------------------------------------
+
+         var userDidEngage = false;
+
+         function initMouseEvents() {
+            //console.log("initMouseEvents()");
+
+            bindEvent(gEL("#banner"), "click", onBannerClick);
+            bindEvent(gEL("#banner"), "mouseover", onCTAOver);
+            bindEvent(gEL("#banner"), "mouseout", onCTAOut);
+         }
+
+         function onBannerClick(e) {
+            //console.log("onBannerClick(e)");
+
+            amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl);
+         }
+
+         function onCTAOver(e) {
+            //console.log("onCTAOver(e)");
+
+            userEngage();
+
+            ctaOn();
+         }
+
+         function onCTAOut(e) {
+            //console.log("onCTAOut(e)");
+
+            ctaOff();
+         }
+
+         function userEngage() {
+            //console.log("userEngage()");
+
+            if (!userDidEngage) {
+               gsap.killTweensOf(ctaOn);
+               gsap.killTweensOf(ctaOff);
+            }
+
+            userDidEngage = true;
+         }
+
+         //------------------------------------------
+         //      Animation
+         //------------------------------------------
+
+         function resetBanner() {
+            //console.log("resetBanner()");
+
+            gsap.set(".frame", { autoAlpha: 0 });
+
+            applyBlur({ el: "#f1_bkgrnd", a: 2 });
+
+            gsap.set("#f1_bkgrnd", { scale: 1.5 });
+            gsap.set("#f1_epic", { scale: 3, autoAlpha: 0, transformOrigin: "50% 10%" });
+
+            gsap.set("#cover", { x: "0%", y: "100%", backgroundColor: "#9abbd5" });
+
+            gsap.set("#f3_cta", { x: 94 });
+         }
+
+         function showFrame1() {
+            //console.log("showFrame1()");
+
+            var delay = 0;
+
+            gsap.set("#f1", { autoAlpha: 1, delay: delay });
+
+            /* FRAME 1 */
+
+            delay += 0.5;
+            var blurOb = { el: "#f1_bkgrnd", a: 2 };
+            gsap.to(blurOb, 0.5, { a: 0, delay: delay, ease: Power4.easeInOut, onUpdate: applyBlur, onUpdateParams: [blurOb] });
+            gsap.to("#f1_bkgrnd", 0.5, { scale: 1, blur: 0, delay: delay, ease: Power4.easeInOut });
+
+            gsap.to("#f1_epic", 1, { scale: 1, autoAlpha: 1, delay: delay, ease: Power3.easeInOut });
+
+            delay += 1;
+            gsap.delayedCall(delay, pulseLogo);
+
+            delay += 1.5;
+            gsap.delayedCall(delay, pulseLogo);
+
+            if (gotoNextFrame) {
+               delay += 1.5;
+               gsap.to("#cover", 1, { y: "-100%", delay: delay, ease: Power3.easeInOut });
+
+               delay += 0.5;
+               gsap.delayedCall(delay, showFrame2);
+            }
+         }
+
+         function showFrame2() {
+            //console.log("showFrame2()");
+
+            var delay = 0;
+
+            gsap.set("#f1", { autoAlpha: 0, delay: delay });
+            gsap.set("#f2", { autoAlpha: 1, delay: delay });
+
+            if (gotoNextFrame) {
+               delay += 4.5;
+               gsap.to("#cover", 1, { y: "100%", backgroundColor: "#20285d", delay: delay, ease: Power3.easeInOut });
+
+               delay += 0.5;
+               gsap.delayedCall(delay, showFrame3);
+            }
+         }
+
+         function showFrame3() {
+            //console.log("showFrame3()");
+
+            var delay = 0;
+
+            gsap.set("#f2", { autoAlpha: 0, delay: delay });
+            gsap.set("#f3", { autoAlpha: 1, delay: delay });
+
+            delay += 0.25;
+            gsap.to("#f3_cta", 0.5, { x: 0, delay: delay, ease: Power2.easeOut });
+
+            delay += 0.5;
+            gsap.delayedCall(delay, ctaOn);
+            gsap.delayedCall(delay + 0.75, ctaOff);
+
+            delay += 2;
+            gsap.delayedCall(delay, ctaOn);
+            gsap.delayedCall(delay + 0.75, ctaOff);
+
+            delay += 2;
+            gsap.delayedCall(delay, ctaOn);
+            gsap.delayedCall(delay + 0.75, ctaOff);
+         }
+
+         function pulseLogo() {
+            //console.log("pulseLogo()");
+
+            var duration = 0.5;
+            gsap.to("#f1_epic", duration, { scale: 1.05, autoAlpha: 1, ease: Power2.easeOut });
+            gsap.to("#f1_epic", duration, { scale: 1, autoAlpha: 1, delay: duration, ease: Power2.easeOut });
+         }
+
+         function ctaOn() {
+            //console.log("ctaOn()");
+
+            gsap.to(".cta", 0.3, { borderBottomColor: "#20285d", backgroundColor: "#f79620", color: "#20285d", ease: Quad.easeInOut });
+         }
+
+         function ctaOff() {
+            //console.log("ctaOff()");
+
+            gsap.to(".cta", 0.3, { borderBottomColor: "#f79620", backgroundColor: "#20285d", color: "#f79620", ease: Quad.easeInOut });
+         }
+
+         //------------------------------------------
+         //      Helpers
+         //------------------------------------------
+
+         function gEL(id) {
+            return document.querySelector(id);
+         }
+
+         function bindEvent(el, eventName, eventHandler) {
+            if (el.addEventListener) {
+               el.addEventListener(eventName, eventHandler, false);
+            } else if (el.attachEvent) {
+               el.attachEvent("on" + eventName, eventHandler);
+            }
+         }
+
+         function applyBlur(blurOb) {
+            var blurAmt = Math.round(blurOb.a);
+            gsap.set(blurOb.el, { webkitFilter: "blur(" + blurAmt + "px)", filter: "blur(" + blurAmt + "px)" });
+         }
+      </script>
+      <style>
+         html,
+         body {
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+            background-color: #fff;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-tap-highlight-color: transparent;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+            text-decoration: none !important;
+            font-family: brandon-grotesque, sans-serif;
+         }
+
+         div,
+         canvas,
+         svg,
+         ul {
+            position: absolute;
+            transform: translatez(0);
+            backface-visibility: hidden;
+            background-position: 0px 0px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            user-select: none;
+            transform-origin: 0px 0px;
+         }
+
+         sup {
+            vertical-align: super;
+            font-size: 0.6em;
+            line-height: 0;
+         }
+
+         a[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+         }
+
+         #banner {
+            background-color: #9abbd5;
+            overflow: hidden;
+            visibility: hidden;
+            pointer-events: all;
+            cursor: pointer;
+         }
+
+         #border {
+            box-sizing: border-box;
+            border: 1px solid #aaa;
+         }
+
+         #overlay {
+            pointer-events: all;
+            cursor: pointer;
+         }
+
+         .adsize {
+            width: 320px;
+            height: 50px;
+            left: 0px;
+            top: 0px;
+         }
+
+         .text {
+            width: 100%;
+            height: fit-content;
+            font-weight: 900;
+            font-style: normal;
+            line-height: 0.8em;
+            /* background-color: rgba(255, 0, 0, 0.2); */
+         }
+
+         .yellow {
+            color: #f79620;
+         }
+
+         .middle {
+            vertical-align: middle;
+         }
+
+         /* FRAMES */
+
+         #f1 {
+            background-color: #fff;
+         }
+
+         #f2 {
+            color: #20285d;
+            text-align: center;
+            letter-spacing: 0.15em;
+            box-sizing: border-box;
+            border-top: 6px solid #9abbd5;
+            background-color: #9abbd5;
+         }
+
+         #f3 {
+            color: #20285d;
+            text-align: center;
+            box-sizing: border-box;
+            border-bottom: 6px solid #20285d;
+            background-color: #9abbd5;
+         }
+
+         /* ELEMENTS */
+
+         #f1_bkgrnd {
+            background-image: url("adventure.jpg");
+            transform-origin: 50% 50%;
+         }
+
+         .price {
+            color: #fff;
+            font-family: "Bison-DemiBold", sans-serif;
+            font-weight: 400;
+            margin: 0 0.4rem;
+         }
+
+         .usd::before {
+            content: "$";
+            color: #20285d;
+            font-size: 50%;
+            margin: 0 0.1rem;
+            vertical-align: middle;
+         }
+
+         /* EPIC LOGO */
+
+         .epic {
+            width: 136px;
+            left: 90px;
+            top: 5px;
+            height: 0;
+            padding-bottom: 42%;
+         }
+
+         .epic_img {
+            width: 100%;
+            height: 100%;
+            left: 0px;
+            top: 0px;
+            background-image: url("images/epic.svg");
+            background-size: contain;
+         }
+
+         /* EPIC DAY PASS LOGO */
+
+         .epicdaypass {
+            width: 112px;
+            height: 0;
+            left: auto;
+            right: 6px;
+            top: 6px;
+            padding-bottom: 13.8%;
+         }
+
+         .epicdaypass_img {
+            width: 100%;
+            height: 100%;
+            left: 0px;
+            top: 0px;
+            background-image: url("images/epicdaypass.svg");
+            background-size: contain;
+         }
+
+         /* CTA */
+
+         #f3_cta {
+            width: 88px;
+            height: 18px;
+            left: auto;
+            right: 6px;
+            top: 22px;
+            box-sizing: border-box;
+            background-color: #20285d;
+            border-radius: 50px;
+            color: #f79620;
+            text-align: center;
+            line-height: 18px;
+            letter-spacing: 0.05em;
+            font-size: 9px;
+            font-weight: 900;
+            font-style: normal;
+         }
+      </style>
+   </head>
+
+   <body>
+      <div id="banner" class="adsize">
+         <div id="f1" class="adsize frame">
+            <div id="f1_bkgrnd" class="adsize"></div>
+            <div id="f1_epic" class="epic"><div class="epic_img"></div></div>
+         </div>
+
+         <div id="f2" class="adsize frame">
+            <div class="epicdaypass"><div class="epicdaypass_img"></div></div>
+            <div class="adsize text">!{f2Text1}</div>
+            <div class="adsize text">!{f2Text2}</div>
+         </div>
+
+         <div id="f3" class="adsize frame">
+            <div class="epicdaypass"><div class="epicdaypass_img"></div></div>
+            <div class="adsize text">!{f3Text1}</div>
+            <div class="adsize text">!{f3Text2}</div>
+
+            <div id="f3_cta" class="cta">
+               <span id="cta-text">!{ctaText}</span>
+            </div>
+         </div>
+
+         <div id="cover" class="adsize"></div>
+         <div id="overlay" class="adsize"></div>
+      </div>
+
+      <div id="border" class="adsize"></div>
+   </body>
+</html>
