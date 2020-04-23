@@ -276,8 +276,8 @@ amo.registerAttribute("frameText33","TEXT","<div style='top:35px;left:8px;font-s
           gsap.set('#frameText1', {x: '0'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameText1', {autoAlpha:1})
-            .to('#frameText1', {autoAlpha:0,delay:1.5})
-            .to('#frameText12', {autoAlpha:1})
+          .to('#frameText1', {autoAlpha:0,delay:1.5})
+          .to('#frameText12', {autoAlpha:1})
           .to('#frame1', (flag==true?{}:{delay:1.5, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
         if('frame1' in ad.layers) ad.layers.frame1.remove();
