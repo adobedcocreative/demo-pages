@@ -39,13 +39,15 @@
             ad.contentSetup(
                {
                   cam: {
-                     f1Bkgrnd: "adventure.jpg",
-                     f2Text1: "<div style='top:21px;width:100%;font-size:18px;line-height:18px;'>THE DAYS YOU WANT. THE RESORTS YOU LOVE. THE VALUE YOU NEED.</div>",
-                     f2Text2:
-                        "<div style='top:47px;width:100%;font-size:16px;line-height:16px;letter-spacing:0.14em;'>VAIL <span class='yellow'>WHISTLER BLACKCOMB</span> BRECKENRIDGE <span class='yellow'>PARK CITY</span> AND MORE</div>",
-                     f3Text1: "<div class='text' style='width:300px;top:22px;left:204px;font-size:18px;line-height:20px;letter-spacing:0.11em;'>SKI 1-7 DAYS AND<br />SAVE UP TO 50%</div>",
-                     f3Text2: " ",
-
+                     frame1_BackgroundImage: 'assets/728x90_Vail_Adventure.jpg',
+                     frame1_Logo: 'assets/728x90_VailDCO_Frame1_EpicLogo.png',
+                     frame2_BackgroundnBorder:'#20285d|#9abbd5',
+                     frame2_Logo: 'assets/1x1.png',
+                     frame2_HeadlineText: "<div style='top:21px;width:100%;font-size:18px;line-height:18px;'>THE DAYS YOU WANT. THE RESORTS YOU LOVE. THE VALUE YOU NEED.</div>",
+                     frame2_SubheadlineText: "<div style='top:47px;width:100%;font-size:16px;line-height:16px;letter-spacing:0.14em;'>VAIL <span class='yellow'>WHISTLER BLACKCOMB</span> BRECKENRIDGE <span class='yellow'>PARK CITY</span> AND MORE</div>",
+                     frame3_Logo: 'assets/728x90_VailDCO_Frame3_EpicDayPassLogo.png',
+                     frame3_HeadlineText: "<div class='text' style='width:300px;top:22px;left:204px;font-size:18px;line-height:20px;letter-spacing:0.11em;'>SKI 1-7 DAYS AND<br />SAVE UP TO 50%</div>",
+                     frame3_SubheadlineText: "&nbsp;",
                      ctaText: "RENEW BY 4/19",
                      clickUrl: "https://www.epicpass.com/",
                   },
@@ -67,12 +69,20 @@
                   for (var a in adData) {
                      // console.log(a + ": '" + adData[a] + "'");
                   }
+                  if(adData.frame2_BackgroundnBorder.toLowerCase() != 'na') {
+                    var backgroundColor =  adData.frame2_BackgroundnBorder.split('|')[0];
+                    var borderColor = adData.frame2_BackgroundnBorder.split('|').length > 1 ? adData.frame2_BackgroundnBorder.split('|')[1] : '';
+                    gsap.set("#f2", { css:{backgroundColor:backgroundColor} });
+                    if(borderColor.length) gsap.set("#f2", { css:{borderColor:borderColor} });
+                  }
+
+                  gsap.set("#f1_bkgrnd", { backgroundImage: 'url("' + adData.frame1_BackgroundImage + '")' });
+                  gsap.set("#f1_epic", { backgroundImage: 'url("' + adData.frame1_Logo + '")' });
+                  gsap.set("#f2 .epicdaypass_img", { backgroundImage: 'url("' + adData.frame2_Logo + '")' });
+                  gsap.set("#f3 .epicdaypass_img", { backgroundImage: 'url("' + adData.frame3_Logo + '")' });
+                  adVisible();
                }
             );
-
-            gsap.set("#f1_bkgrnd", { backgroundImage: adData.f1Bkgrnd });
-
-            adVisible();
          }
 
          function adVisible() {
@@ -374,7 +384,7 @@
          /* ELEMENTS */
 
          #f1_bkgrnd {
-            background-image: url("adventure.jpg");
+            /* background-image: url("adventure.jpg"); */
             transform-origin: 50% 50%;
          }
 
@@ -396,11 +406,16 @@
          /* EPIC LOGO */
 
          .epic {
-            width: 216px;
+            /* width: 216px;
             left: 244px;
             top: 6px;
             height: 0;
-            padding-bottom: 42%;
+            padding-bottom: 42%; */
+
+            top: 0;
+            left: 0;
+            width: inherit;
+            height: inherit;
          }
 
          .epic_img {
@@ -408,18 +423,27 @@
             height: 100%;
             left: 0px;
             top: 0px;
-            background-image: url("images/epic.svg");
+            /* background-image: url("images/epic.svg"); */
             background-size: contain;
          }
 
          /* EPIC DAY PASS LOGO */
 
          .epicdaypass {
-            width: 158px;
+            /* width: 158px;
             height: 0;
             left: 12px;
             top: 34px;
-            padding-bottom: 13.8%;
+            padding-bottom: 13.8%; */
+
+            top: 0;
+            left: 0;
+            width: inherit;
+            height: inherit;
+         }
+
+         #f2 .epicdaypass {
+           top: -6px;
          }
 
          .epicdaypass_img {
@@ -427,7 +451,7 @@
             height: 100%;
             left: 0px;
             top: 0px;
-            background-image: url("images/epicdaypass.svg");
+            /* background-image: url("images/epicdaypass.svg"); */
             background-size: contain;
          }
 
@@ -460,14 +484,15 @@
          </div>
 
          <div id="f2" class="adsize frame">
-            <div class="adsize text">!{f2Text1}</div>
-            <div class="adsize text">!{f2Text2}</div>
+            <div class="epicdaypass"><div class="epicdaypass_img"></div></div>
+            <div class="adsize text">!{frame2_HeadlineText}</div>
+            <div class="adsize text">!{frame2_SubheadlineText}</div>
          </div>
 
          <div id="f3" class="adsize frame">
             <div class="epicdaypass"><div class="epicdaypass_img"></div></div>
-            <div class="adsize text">!{f3Text1}</div>
-            <div class="adsize text">!{f3Text2}</div>
+            <div class="adsize text">!{frame3_HeadlineText}</div>
+            <div class="adsize text">!{frame3_SubheadlineText}</div>
 
             <div id="f3_cta" class="cta">
                <span id="cta-text">!{ctaText}</span>
