@@ -1,0 +1,11 @@
+NAME	DESCRIPTION	DATA_TYPE	MAX_LENGTH	DEFAULT_VALUE	ALLOWED_VALUES
+backgroundImage1	text	TEXT	1	1	1
+backgroundImage2	text	TEXT	1	1	1
+headlineImage1	text	TEXT	1	1	1
+headlineImage2	text	TEXT	1	1	1
+headlineImage3	text	TEXT	1	1	1
+logoImage	text	TEXT	1	1	1
+styleProperties	text	TEXT	1	1	1
+ctaSelect	text	TEXT	1	1	1
+clickURL	text	TEXT	1	1	1
+impressionTracker	text	TEXT	1	1	1
