@@ -130,7 +130,7 @@ amo.registerAttribute("frameText22","TEXT","<div style='top:100px;left:30px;font
 amo.registerAttribute("frameText23","TEXT","<div class='AlticeRegular' style='top:148px;left:30px;font-size:10px;line-height:1.1;'>Restrictions apply, see amazon.com/gc-legal</div>");
 amo.registerAttribute("frameText31","TEXT","<div style='top:30px;left:30px;font-size:26px;line-height:1;'>Internet & TV</div>");
 amo.registerAttribute("frameText32","TEXT","<div style='top:58px;left:26px;font-size:76px;line-height:76px;letter-spacing:-2px;' class='coloredText'>$49</div><div style='top:66px;left:164px;font-size:13px;'>99/<br>mo.<br>1 yr.</div><div class='AlticeRegular' style='top:134px;left:30px;font-size:10px;'>Plus taxes, fees & charges</div>");
-amo.registerAttribute("frameText33","TEXT","<div style='top:30px;left:275px;' class='bulletedText'>100 Mbps Internet</div><div style='top:56px;left:275px;' class='bulletedText'>Altice One with 200+ channels</div><div style='top:82px;left:275px;' class='bulletedText'>Contract buyout up to $500</div><div style='top:108px;left:275px;' class='bulletedText'>No annual contract</div><div class='AlticeRegular' style='top:140px;left:276px;font-size:10px;'>Wired connection up to 100 Mbps.</div>");
+amo.registerAttribute("frameText33","TEXT","<div style='top:30px;left:275px;' class='bulletedText'>Fast & reliable Internet</div><div style='top:56px;left:275px;' class='bulletedText'>Over 200 channels</div><div style='top:82px;left:275px;' class='bulletedText'>Contract buyout up to $500</div><div style='top:108px;left:275px;' class='bulletedText'>No annual contract</div>");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -315,7 +315,8 @@ amo.registerAttribute("frameText33","TEXT","<div style='top:30px;left:275px;' cl
             .to('#frame1', (flag==true?{}:{delay:1.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
           }
         }
-        gsap.delayedCall(.8, animateFrame1);
+        if('frame1' in ad.layers) ad.layers.frame1.remove();
+                    gsap.delayedCall(1.2, animateFrame3, [true]);
       });
     }, 2000);
   </script>

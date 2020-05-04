@@ -121,16 +121,12 @@
 amo.registerClick("clickUrl","https://www.altice.com");
 amo.registerAttribute("frameVideo1","TEXT","https://ct.tubemogul.com/web/altice/2020-04/AlticeIntroVideo_May2020.mp4");
 amo.registerAttribute("ctaText","TEXT","Shop now");
-amo.registerAttribute("frameImage2","IMAGE","970x250_giftCard_Suddenlink.png");
-amo.registerAttribute("frameImage3","IMAGE","970x250_Image03.png");
+amo.registerAttribute("frameImage2","IMAGE","970x250_Image02.png");
 amo.registerAttribute("frameText1","TEXT","Stay connected<br>on your work day");
 amo.registerAttribute("frameText12","TEXT","and school day");
-amo.registerAttribute("frameText21","TEXT","<div style='top:30px;left:30px;font-size:72px;line-height:1;' class='coloredText'>$100</div>");
-amo.registerAttribute("frameText22","TEXT","<div style='top:100px;left:30px;font-size:44px;line-height:1;'>Amazon.com Gift Card</div>");
-amo.registerAttribute("frameText23","TEXT","<div class='AlticeRegular' style='top:148px;left:30px;font-size:10px;line-height:1.1;'>Restrictions apply, see amazon.com/gc-legal</div>");
-amo.registerAttribute("frameText31","TEXT","<div style='top:30px;left:30px;font-size:26px;line-height:1;'>Internet & TV</div>");
-amo.registerAttribute("frameText32","TEXT","<div style='top:58px;left:26px;font-size:76px;line-height:76px;letter-spacing:-2px;' class='coloredText'>$49</div><div style='top:66px;left:164px;font-size:13px;'>99/<br>mo.<br>1 yr.</div><div class='AlticeRegular' style='top:134px;left:30px;font-size:10px;'>Plus taxes, fees & charges</div>");
-amo.registerAttribute("frameText33","TEXT","<div style='top:30px;left:275px;' class='bulletedText'>100 Mbps Internet</div><div style='top:56px;left:275px;' class='bulletedText'>Altice One with 200+ channels</div><div style='top:82px;left:275px;' class='bulletedText'>Contract buyout up to $500</div><div style='top:108px;left:275px;' class='bulletedText'>No annual contract</div><div class='AlticeRegular' style='top:140px;left:276px;font-size:10px;'>Wired connection up to 100 Mbps.</div>");
+amo.registerAttribute("frameText21","TEXT","<div style='top:30px;left:30px;font-size:26px;line-height:1.1;'>Internet<br>starting at</div>");
+amo.registerAttribute("frameText22","TEXT","<div style='top:84px;left:26px;font-size:76px;line-height:76px;letter-spacing:-2px;' class='coloredText'>$19</div><div style='top:94px;left:146px;font-size:13px;'>99/<br>mo.<br>1 yr.</div><div class='AlticeRegular' style='top:160px;left:30px;font-size:10px;'>Plus taxes, fees & charges</div>");
+amo.registerAttribute("frameText23","TEXT","<div style='top:30px;left:275px;' class='bulletedText'>Fast & reliable Internet</div><div style='top:58px;left:275px;' class='bulletedText'>Contract buyout up to $100</div><div style='top:86px;left:275px;' class='bulletedText'>30-day money-back guarantee</div><div style='top:113px;left:275px;' class='bulletedText'>No annual contract</div>");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -152,10 +148,6 @@ amo.registerAttribute("frameText33","TEXT","<div style='top:30px;left:275px;' cl
     <div id="frameText21" class="frameText">!{frameText21}</div>
     <div id="frameText22" class="frameText">!{frameText22}</div>
     <div id="frameText23" class="frameText">!{frameText23}</div>
-    <div id="frameImage3" class="asset frameImage" data-image="frameImage3"></div>
-    <div id="frameText31" class="frameText">!{frameText31}</div>
-    <div id="frameText32" class="frameText">!{frameText32}</div>
-    <div id="frameText33" class="frameText">!{frameText33}</div>
     <!-- <div id="priceLabel" class="asset adSizeContainer" data-image="priceLabel"></div> -->
     <div id="cta" class="text AlticeBold"
       data-text="ctaText"
@@ -277,42 +269,23 @@ amo.registerAttribute("frameText33","TEXT","<div style='top:30px;left:275px;' cl
           .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
           .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
         }
-        /*var animateFrame5 = function(flag){
-          var frameId = 5;
-          gsap.set('#frameBackground', {display: 'none'});
-          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[5]})
-          // .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', {delay: 2.2, opacity:0});
-        }
-        var animateFrame4 = function(flag){
-          var frameId = 4;
-          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: bulletFrameAnimation, onCompleteParams:[4]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame5}));
-        }*/
-        var animateFrame3 = function(flag){
-          var frameId = 3;
-          gsap.set('#frameBackground', {display: 'block'});
-          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[3]})
-          //.to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.2, opacity:0}));
-        }
         var animateFrame2 = function(flag){
           var frameId = 2;
+          gsap.set('#frameBackground', {display: 'block'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: generalLeftFrameAnimation, onCompleteParams:[frameId]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame3}));
+          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[2]})
+          //.to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.2, opacity:0}));
         }
         var animateFrame1 = function(flag){
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
             .to('#frameText1', {autoAlpha:1})
-            .to('#frameText1', {autoAlpha:0,delay:2})
+            .to('#frameText1', {autoAlpha:0,delay:1.5})
             .to('#frameText12', {autoAlpha:1})
           }
           ad.layers.frameVideo1.querySelector('video').onended = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frame1', (flag==true?{}:{delay:1.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+            .to('#frame1', (flag==true?{}:{delay:0.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
           }
         }
         gsap.delayedCall(.8, animateFrame1);
