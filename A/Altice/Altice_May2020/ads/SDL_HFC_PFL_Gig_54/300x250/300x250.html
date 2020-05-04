@@ -83,7 +83,7 @@
 amo.registerClick("clickUrl","https://www.altice.com");
 amo.registerAttribute("frameVideo1", "TEXT", "https://ct.tubemogul.com/web/altice/2020-03/Brand-HFC-Gig/300x250_Brand-HFC-Gig.mp4");
 amo.registerAttribute("ctaText","TEXT","Learn more");
-amo.registerAttribute("frameText11", "TEXT", "<div style='top:114px;width:300px;font-size:19px;text-align:center;line-height:1.1;'>More speed for more<br>devices with 1 Gig Internet</div>");
+amo.registerAttribute("frameText1", "TEXT", "<div style='top:114px;width:300px;font-size:19px;text-align:center;line-height:1.1;'>More speed for more<br>devices with 1 Gig Internet</div>");
 amo.registerAttribute("frameText21", "TEXT", "<div style='top:80px;width:300px;font-size:30px;text-align:center;line-height:1.1;'>The <span class='gradColor'>fastest</span><br>Internet provider</div>");
 amo.registerAttribute("frameImage3", "IMAGE", "300x250_Amazon.png");
 amo.registerAttribute("frameText31", "TEXT", "<div style='top:65px;left:132px;font-size:36px;' class='gradColor'>$100</div>");
@@ -128,7 +128,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top:158px;left:24px;fo
   <div id="frameText32" class="frameText">!{frameText32}</div>
 
   <div id="frameText21" class="frameText">!{frameText21}</div>
-   
+
     <div id="frame1" class="frame"
       style="transform-origin:bottom center;
       -webkit-transition:opacity ease-out 0.3s, transform ease-out 0.3s;
@@ -137,7 +137,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top:158px;left:24px;fo
       opacity:1;">
       <!-- <div id="ref" class="asset adSizeContainer"data-image="ref"></div> -->
       <div id="frameVideo1" style="top:0px;left:0px;width:300px;height:250px;"><video muted playsinline autoplay style="width:100%;"></video></div>
-      <div id="frameText11" class="frameText">!{frameText11}</div>
+      <div id="frameText1" class="frameText">!{frameText1}</div>
 
       <div id="introLogoImage" class="asset adSizeContainer" data-image="introLogoImage"></div>
       <div id="introCta" class="text AlticeBold"
@@ -225,7 +225,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top:158px;left:24px;fo
         var animateFrame1 = function(flag){
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frameText11', {delay:.25, autoAlpha:1, x:0,y:0})
+            .to('#frameText1', {delay:.25, autoAlpha:1, x:0,y:0})
           }
           ad.layers.frameVideo1.querySelector('video').ontimeupdate = function(e){
             if((e.target.duration - e.target.currentTime) <= 0.5 && !frameChangeFlag) {
