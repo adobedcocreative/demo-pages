@@ -83,7 +83,7 @@
 amo.registerClick("clickUrl","https://www.altice.com");
 amo.registerAttribute("frameVideo1", "TEXT", "https://ct.tubemogul.com/web/altice/2020-03/Brand-HFC-Gig/160x600_Brand-HFC-Gig.mp4");
 amo.registerAttribute("ctaText","TEXT", "Learn more");
-amo.registerAttribute("frameText11", "TEXT", "<div style='top:36px;width:160px;font-size:20px;text-align:center;line-height:1.1;'>More speed<br>for more<br>devices with<br>1 Gig Internet</div>");
+amo.registerAttribute("frameText1", "TEXT", "<div style='top:36px;width:160px;font-size:20px;text-align:center;line-height:1.1;'>More speed<br>for more<br>devices with<br>1 Gig Internet</div>");
 amo.registerAttribute("frameText21", "TEXT", "<div style='top:160px;width:160px;font-size:28px;text-align:center;line-height:1.1;'>The<br><span class='gradColor'>fastest</span><br>Internet<br>provider</div>");
 amo.registerAttribute("frameText31", "TEXT", "<div style='top:54px;left:8px;font-size:20px;'>1 Gig Internet</div>");
 amo.registerAttribute("frameText32", "TEXT", "<div style='top:71px;left:8px;font-size:66px;letter-spacing:-2px;' class='gradColor'>$74</div><div style='top:92px;left:124px;font-size:14px;line-height:1;'>99/<br>mo.</div><div style='top:184px;left:15px;font-size:10px;' class='AlticeRegular'>Plus taxes, fees & charges</div>");
@@ -131,7 +131,7 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top:242px;left:15px;li
       opacity:1;">
       <!-- <div id="ref" class="asset adSizeContainer"data-image="ref"></div> -->
       <div id="frameVideo1" style="top:0px;left:0px;width:160px;height:600px;"><video muted playsinline autoplay></video></div>
-      <div id="frameText11" class="frameText AlticeBold">!{frameText11}</div>
+      <div id="frameText1" class="frameText AlticeBold">!{frameText1}</div>
 
       <div id="introLogoImage" class="asset adSizeContainer" data-image="introLogoImage"></div>
       <div id="introCta" class="text AlticeBold"
@@ -209,7 +209,7 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top:242px;left:15px;li
         var animateFrame1 = function(flag){
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frameText11', {delay:.25, autoAlpha:1, x:0,y:0})
+            .to('#frameText1', {delay:.25, autoAlpha:1, x:0,y:0})
           }
           ad.layers.frameVideo1.querySelector('video').ontimeupdate = function(e){
             if((e.target.duration - e.target.currentTime) <= 0.5 && !frameChangeFlag) {

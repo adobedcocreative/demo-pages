@@ -83,7 +83,7 @@
   <script type="text/javascript">
     amo.registerClick("clickUrl","https://www.altice.com");
     amo.registerAttribute("ctaText","TEXT","Learn more");
-    amo.registerAttribute("frameText11","TEXT","<div style='top:10px;left:10px;font-size:14px;line-height:1.2;'>More speed for more devices<br>with 1 Gig Internet</div>");
+    amo.registerAttribute("frameText1","TEXT","<div style='top:10px;left:10px;font-size:14px;line-height:1.2;'>More speed for more devices<br>with 1 Gig Internet</div>");
     amo.registerAttribute("frameText21","TEXT","<div style='top:15px;left:10px;font-size:14px;'>The <span class='gradColor'>fastest</span> Internet provider</div>");
     amo.registerAttribute("frameText31","TEXT","<div style='top:6px;left:10px;font-size:36px;line-height:1;' class='gradColor'>$100</div>");
     amo.registerAttribute("frameText32","TEXT","<div style='top:15px;left:96px;font-size:11px;line-height:.9;'>Amazon.com Gift Card<span style='font-size:7.5px;' class='AlticeRegular'><br>Restrictions apply.</span></div>");
@@ -126,10 +126,10 @@
     <div id="frameText32" class="frameText">!{frameText32}</div>
 
     <div id="frameText21" class="frameText">!{frameText21}</div>
-    
+
     <div id="frame1" class="frame">
       <!-- <div id="ref" class="asset adSizeContainer"data-image="ref"></div> -->
-      <div id="frameText11" class="frameText">!{frameText11}</div>
+      <div id="frameText1" class="frameText">!{frameText1}</div>
 
       <div id="introLogoImage" class="asset adSizeContainer" data-image="introLogoImage"></div>
       <div id="introCta" class="text AlticeBold"
@@ -216,7 +216,7 @@
           var frameId = 1;
           frameChangeFlag = true;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameText11', {delay:.25, autoAlpha:1, x:0,y:0})
+          .to('#frameText1', {delay:.25, autoAlpha:1, x:0,y:0})
           .to('div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2, opacity:0, onComplete: animateFrame2}));
         }
         gsap.delayedCall(.8, animateFrame1);
