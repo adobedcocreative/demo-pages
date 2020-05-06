@@ -34,6 +34,7 @@
         amo.registerVariation("layout", "WriterWord");
         amo.registerVariation("textField1", "['<#2f2f2f>This is |your 365','29px',14,60,'29','350', 'left']");
         amo.registerVariation("textField2", "['<#d83b01>Office 365 <#2f2f2f>helps |enhance your writing, |so your stories will |shine even brighter ','12px',14,132,'14','350', 'left']");
+        amo.registerVariation("textField3", "na");
         amo.registerVariation("ctaText", "BUY NOW");
         // amo.registerVariation("ctaArrowVisibleFlag", "!{passthroughfield2}");
         amo.registerVariation("impressionTracker", "../../../../1x1.png?impressionTracker=" + Math.random());
@@ -44,6 +45,7 @@
           layout: amo.variation['layout'],
           textField1: amo.variation['textField1'],
           textField2: amo.variation['textField2'],
+          textField3: amo.variation['textField3'],
           cta: amo.variation['ctaText'],
           // ctaArrowVisibleFlag: amo.variation['ctaArrowVisibleFlag'],
           impressionTracker: amo.variation['impressionTracker'],
@@ -57,6 +59,7 @@
               layout: cam.layout,
               textField1: cam.textField1,
               textField2: cam.textField2,
+              textField3: cam.textField3,
               ctaText: cam.cta,
               // ctaArrowVisibleFlag: cam.ctaArrowVisibleFlag.toString().toLowerCase() == 'false' ? false : true,
               ctaArrowVisibleFlag: true,
@@ -79,7 +82,8 @@
         // }
         var textField1 = adData.textField1 && adData.textField1.toLowerCase() != 'na' ? adData.textField1 : ' ';
         var textField2 = adData.textField2 && adData.textField2.toLowerCase() != 'na' ? adData.textField2 : ' ';
-        textField1=textField1.replace('-_-','—');textField2=textField2.replace('-_-','—');
+        var textField3 = adData.textField3 && adData.textField3.toLowerCase() != 'na' ? adData.textField3 : ' ';
+        textField1=textField1.replace('-_-','—');textField2=textField2.replace('-_-','—');textField3=textField3.replace('-_-','—');
         var ctaText = adData.ctaText && adData.ctaText.toLowerCase() != 'na' ? adData.ctaText : '';
         var impressionTracker = adData.impressionTracker && adData.impressionTracker.toLowerCase() != 'na' ? adData.impressionTracker : '';
         var clickTracker = adData.clickTracker && adData.clickTracker.toLowerCase() != 'na' ? adData.clickTracker : '';
@@ -92,7 +96,7 @@
         var adUrl = '';
         switch(adData.layout){
           case 'DesignerPPT' : adURL = 'DesignerPPT/M365_FY20Q4_RemoteWork_GigWorker_USA_160x600_BAN_Designer_EasyRemote_English_NA_NA_SBAN_BN_NA_1.htm';break;
-          case 'PhotographerOneDrive' : adURL = 'PhotographerOneDrive/O365_GigWorkers_USA_160x600_BAN_Photographer_OneDrive_English_NA_NA_ANI_BN_NA_1.htm';break;
+          case 'Teams' : adURL = 'Teams/O365_FY20Q4_SMB_USA_160x600_BAN_Teams_English_NA_NA_ANI_BN_NA_1.htm';break;
           case 'WriterWord' : adURL = 'WriterWord/M365_FY20Q4_RemoteWork_GigWorker_USA_160x600_BAN_Writer_EasyRemote_English_NA_NA_SBAN_BN_NA_1.htm';break;
         }
         var iframe = document.createElement('iframe');
@@ -103,6 +107,7 @@
         var bannerData = {
           textField1: textField1,
           textField2: textField2,
+          textField3: textField3,
           ctaText: ctaText,
           CTAarrowVisible: [adData.ctaArrowVisibleFlag, 0,0],
           impressionTracker: impressionTracker,

@@ -21,6 +21,7 @@ var getFeed1 = function(){
               "Smart Names": data['gsx$smartnames']['$t'],
               "textField1": data['gsx$textfield1']['$t'],
               "textField2": data['gsx$textfield2']['$t'],
+              "textField3": data['gsx$textfield3']['$t'],
             });
           });
           loadTemplateFlag1 = true;
