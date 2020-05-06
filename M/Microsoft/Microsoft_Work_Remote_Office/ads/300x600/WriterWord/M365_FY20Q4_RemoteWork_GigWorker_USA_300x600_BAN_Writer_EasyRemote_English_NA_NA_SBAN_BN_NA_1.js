@@ -2927,14 +2927,14 @@ p.nominalBounds = new cjs.Rectangle(-569.8,-191.9,1233.9,1191);
 		}
 		var mc = exportRoot.mainMC
 		exportRoot.replayAnim = "inProgress"
-		
+
 		this.initBanner = function (data) {
-			
+
 			exportRoot.isReplay = false;
-			
+
 			Object.keys = function(obj) {
 				var keys = [];
-		
+
 				for (var i in obj) {
 				  if (obj.hasOwnProperty(i)) {
 					keys.push(i);
@@ -2943,7 +2943,7 @@ p.nominalBounds = new cjs.Rectangle(-569.8,-191.9,1233.9,1191);
 				return keys
 			}
 			var keys = Object.keys(data)
-			
+
 				for (var i in keys) {
 					var id = keys[i].substr(0, 4);
 						if (id == "head") {
@@ -2958,8 +2958,8 @@ p.nominalBounds = new cjs.Rectangle(-569.8,-191.9,1233.9,1191);
 						}
 				}
 		}
-		
-		
+
+
 		this.fillHead = function (txtDetails, aVar) {
 			var text = txtDetails[0]
 			var size = txtDetails[1]
@@ -2968,16 +2968,16 @@ p.nominalBounds = new cjs.Rectangle(-569.8,-191.9,1233.9,1191);
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += parseInt(size)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -2994,10 +2994,10 @@ p.nominalBounds = new cjs.Rectangle(-569.8,-191.9,1233.9,1191);
 				aVar.push(mc)
 			}
 		}
-		
-		
-		
-		
+
+
+
+
 		this.fillCta = function (txtDetails) {
 			var text = txtDetails[0]
 			var size = txtDetails[1]
@@ -3006,17 +3006,17 @@ p.nominalBounds = new cjs.Rectangle(-569.8,-191.9,1233.9,1191);
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
-		
+
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += (parseInt(size) * 0.90)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -3033,7 +3033,7 @@ p.nominalBounds = new cjs.Rectangle(-569.8,-191.9,1233.9,1191);
 				this.mainMC.txtCta.addChild(mc);
 			}
 		}
-		
+
 		this.getTheSentences = function (text, size, xOffset, yOffset, lineSpacing, lineWidth, align) {
 			var sentences = new Array()
 			var aSentenceLine = new Array()
@@ -3041,16 +3041,16 @@ p.nominalBounds = new cjs.Rectangle(-569.8,-191.9,1233.9,1191);
 			sentences = aStr.split("|");
 			var lastColor = "#000000"
 			// Figure out the setence lines
-		
+
 			for (var i = 0; i < sentences.length; i++) {
 				var aS = sentences[i].substr(0);
 				var aSplit = new Array()
 				aSplit = aS.split("<");
 				aSplit = aSplit.filter(Boolean)
 				var wholeSentence = new Array()
-		
+
 				for (var j = 0; j < aSplit.length; j++) {
-		
+
 					var checkColor = aSplit[j].indexOf("#")
 					var color = (checkColor == -1) ? lastColor : aSplit[j].substr(0, 7);
 					lastColor = color
@@ -3065,32 +3065,32 @@ p.nominalBounds = new cjs.Rectangle(-569.8,-191.9,1233.9,1191);
 			}
 			return aSentenceLine
 		}
-		
-		
+
+
 		this.runBanner = function() {
-			
-			
-			
-			
+
+
+
+
 			exportRoot.tl1 = new TimelineLite();
-			
+
 			this.tl1.stop();
 			mc.logo_intro.gotoAndPlay(1);
-			
+
 			//scene1 parallax
 			exportRoot.tl1.from(mc.animMC.scene_1.fg, 2,{x:"+=100", ease:Power3.easeOut});
 			exportRoot.tl1.from(mc.animMC.scene_1.bg, 2,{x:"+=50", ease:Power3.easeOut}, "-=2");
-			
+
 			//zoom in
 			exportRoot.tl1.from(mc.animMC.screenAnim, 0.7,{alpha:0, scaleX:0.8745, scaleY:0.145, x:133.45,y:438.55, skewX:-10.5876,ease: Power3.easeInOut}, "+=1");
 			exportRoot.tl1.to(mc.animMC.scene_1, 0.7,{ scaleX:8, scaleY:8, ease:Power3.easeInOut,onComplete: function(){mc.animMC.screenAnim.play(); mc.animMC.scene_1.alpha=0; exportRoot.tl1.stop();}}, "-=0.7");
 			exportRoot.tl1.to(mc.animMC.logo_white, 0.7,{ scaleX:8, scaleY:8, ease:Power3.easeInOut}, "-=0.7");
-			
-			//final Scene 
+
+			//final Scene
 			exportRoot.tl1.to(mc.animMC.screenAnim, 0.7,{ x:"-=300", ease:Power3.easeIn});
 			exportRoot.tl1.from(mc.animMC.scene_3.fg, 2,{ x:"+=100", ease:Power3.easeOut},"-=0.7");
 			exportRoot.tl1.from(mc.animMC.scene_3.bg, 2,{ x:"+=50", ease:Power3.easeOut},"-=2");
-		
+
 			exportRoot.tl1.stop();
 				for (var i = 0; i < exportRoot.headline1.length; i++) {
 				if (i==0) exportRoot.tl1.from(exportRoot.headline1[i], 0.8, { x: "+=100", alpha: 0, ease:Power4.easeOut}, "-=1");
@@ -3100,13 +3100,13 @@ p.nominalBounds = new cjs.Rectangle(-569.8,-191.9,1233.9,1191);
 				if (i==0) exportRoot.tl1.from(exportRoot.headline2[i], 0.8, { x: "+=100", alpha: 0, ease:Power4.easeOut}, "-=0.8");
 				if (i!=0) exportRoot.tl1.from(exportRoot.headline2[i], 0.8, { x: "+=100", alpha: 0, ease:Power4.easeOut}, "-=0.7");
 			}
-		
-			exportRoot.tl1.from(mc.cta, 0.8, {x: "+=150", ease:Power4.easeOut}, "-=0.6");
-			exportRoot.tl1.from(mc.txtCta, 0.8, {x: "+=150", ease:Power4.easeOut}, "-=0.8");
+
+			exportRoot.tl1.from(mc.cta, 0.8, {x: "+=200", ease:Power4.easeOut}, "-=0.6");
+			exportRoot.tl1.from(mc.txtCta, 0.8, {x: "+=200", ease:Power4.easeOut}, "-=0.8");
 			exportRoot.tl1.from(mc.replay_btn, 0.8, {alpha: 0, onStart:function(){exportRoot.isReplay = true;}}, "-=0.7");
-			
-			
-		
+
+
+
 		}
 	}
 
@@ -3190,41 +3190,41 @@ an.getComposition = function(id) {
 }
 
 
-an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {		
-	var lastW, lastH, lastS=1;		
-	window.addEventListener('resize', resizeCanvas);		
-	resizeCanvas();		
-	function resizeCanvas() {			
-		var w = lib.properties.width, h = lib.properties.height;			
-		var iw = window.innerWidth, ih=window.innerHeight;			
-		var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;			
-		if(isResp) {                
-			if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
-				sRatio = lastS;                
-			}				
-			else if(!isScale) {					
-				if(iw<w || ih<h)						
-					sRatio = Math.min(xRatio, yRatio);				
-			}				
-			else if(scaleType==1) {					
-				sRatio = Math.min(xRatio, yRatio);				
-			}				
-			else if(scaleType==2) {					
-				sRatio = Math.max(xRatio, yRatio);				
-			}			
-		}			
-		domContainers[0].width = w * pRatio * sRatio;			
-		domContainers[0].height = h * pRatio * sRatio;			
-		domContainers.forEach(function(container) {				
-			container.style.width = w * sRatio + 'px';				
-			container.style.height = h * sRatio + 'px';			
-		});			
-		stage.scaleX = pRatio*sRatio;			
-		stage.scaleY = pRatio*sRatio;			
-		lastW = iw; lastH = ih; lastS = sRatio;            
-		stage.tickOnUpdate = false;            
-		stage.update();            
-		stage.tickOnUpdate = true;		
+an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {
+	var lastW, lastH, lastS=1;
+	window.addEventListener('resize', resizeCanvas);
+	resizeCanvas();
+	function resizeCanvas() {
+		var w = lib.properties.width, h = lib.properties.height;
+		var iw = window.innerWidth, ih=window.innerHeight;
+		var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;
+		if(isResp) {
+			if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {
+				sRatio = lastS;
+			}
+			else if(!isScale) {
+				if(iw<w || ih<h)
+					sRatio = Math.min(xRatio, yRatio);
+			}
+			else if(scaleType==1) {
+				sRatio = Math.min(xRatio, yRatio);
+			}
+			else if(scaleType==2) {
+				sRatio = Math.max(xRatio, yRatio);
+			}
+		}
+		domContainers[0].width = w * pRatio * sRatio;
+		domContainers[0].height = h * pRatio * sRatio;
+		domContainers.forEach(function(container) {
+			container.style.width = w * sRatio + 'px';
+			container.style.height = h * sRatio + 'px';
+		});
+		stage.scaleX = pRatio*sRatio;
+		stage.scaleY = pRatio*sRatio;
+		lastW = iw; lastH = ih; lastS = sRatio;
+		stage.tickOnUpdate = false;
+		stage.update();
+		stage.tickOnUpdate = true;
 	}
 }
 
