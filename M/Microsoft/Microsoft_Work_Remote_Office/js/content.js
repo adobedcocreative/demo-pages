@@ -4,7 +4,8 @@ var adData = [];
 var loadTemplateFlag1 = false;
 var getFeed1 = function(){
   var xmlhttp = new XMLHttpRequest();
-  var url = "https://spreadsheets.google.com/feeds/list/1SPDFMenHBzS6Yrh66n18u27CTTWJEewpwAkn12lVf_Y/1/public/values?alt=json";
+  var url = "https://spreadsheets.google.com/feeds/list/1WvAjM8wsLJZYcw2jdFf2gJLrFMUBh5JELp0QYOFJZVM/1/public/values?alt=json";
+  // var url = "https://spreadsheets.google.com/feeds/list/1SPDFMenHBzS6Yrh66n18u27CTTWJEewpwAkn12lVf_Y/1/public/values?alt=json";
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
