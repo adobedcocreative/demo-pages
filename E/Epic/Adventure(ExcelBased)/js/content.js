@@ -12,10 +12,10 @@ var getFeed1 = function(){
           JSONData.feed.entry.map(function(data){
             feedTemplate1.push({
               "Ad Size": data['gsx$adsize']['$t'],
-              "Country": data['gsx$country']['$t'],
+              "Resort": data['gsx$resort']['$t'],
               "Language": data['gsx$language']['$t'],
               "Layout": data['gsx$layout']['$t'],
-              "Segment": data['gsx$segment']['$t'],
+              "Product": data['gsx$product']['$t'],
               "Smart Names": data['gsx$smartnames']['$t'],
               "frame1_BackgroundImage": data['gsx$frame1backgroundimage']['$t'],
               "frame1_Logo": data['gsx$frame1logo']['$t'],
@@ -51,11 +51,11 @@ var loadData = function(){
     	var feedContent1 = [];
     	feed.feed.map(function(data){
         data.template = feed.name;
-    		if(data.Country.indexOf('/') != -1){
-                data.Country.split('/').map(function(country){
+    		if(data.Resort.indexOf('/') != -1){
+                data.Resort.split('/').map(function(Resort){
                     var obj = {};
                     for(var i in data) { obj[i] = data[i] }
-                    obj['Country'] = country;
+                    obj['Resort'] = Resort;
                     feedContent1.push(obj);
                 });
             } else {
@@ -65,8 +65,8 @@ var loadData = function(){
     	feed.data = feedContent1;
 
       feed.data.map(function(data){
-        if(!(data.Country in feedData)) { feedData[data.Country] = []; }
-        feedData[data.Country].push(data);
+        if(!(data.Resort in feedData)) { feedData[data.Resort] = []; }
+        feedData[data.Resort].push(data);
       });
     });
     for(var i in feedData) {
@@ -88,9 +88,9 @@ var loadData = function(){
       var searchData;
       if(queryString) {
         if(queryString.indexOf('|') != -1) {
-          var country = queryString.split('|')[0];
+          var Resort = queryString.split('|')[0];
           var layoutName = queryString.split('|')[1];
-          var data = adData.find(function(data){ return data.name == country })
+          var data = adData.find(function(data){ return data.name == Resort })
           if(data) {
             data = data.data.find(function(data){ return data.name == layoutName })
             if(data) { searchData = data }
