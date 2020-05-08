@@ -214,7 +214,7 @@
         }
         document.querySelector('#subheader').innerHTML = htmlContent;
         var headlines = [];
-        adContent.data.forEach(function(data){ headlines.push(data["Smart Names"] + '|' + data.Language); });
+        adContent.data.forEach(function(data){ headlines.push(data["Segment"] + '|' + data.Language); });
         headlines = headlines.filter(function(value, index, self){ return self.indexOf(value) === index; });
         if(headlines) {
           filterString = filterString.length ? filterString : headlines[0];
@@ -223,7 +223,7 @@
           var productName = adContent.name;
           location.hash = btoa(layout+'|'+productName+'|'+filterString).replace('==','').replace('=','');
           adContents.name = adContent.name;
-          adContents.data = adContent.data.filter(function(data){ return (data["Smart Names"] + '|' + data.Language).toLowerCase() == filterString.toLowerCase(); });
+          adContents.data = adContent.data.filter(function(data){ return (data["Segment"] + '|' + data.Language).toLowerCase() == filterString.toLowerCase(); });
           htmlContent = '';
           htmlContent += headlines.map(function(headline){ return '<div '+(headline.toLowerCase() == filterString.toLowerCase()? 'class="selected"': '')+' data-id="'+layout+'|'+productName+'|'+headline+'">' + headline.split('|')[0] + '<div>(' + headline.split('|')[1] + ')</div></div>'; }).join('');
         }

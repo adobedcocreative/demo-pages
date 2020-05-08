@@ -15,7 +15,7 @@ var getFeed1 = function(){
               "Layout": data['gsx$layout']['$t'],
               "Language": data['gsx$language']['$t'],
               "Resort": data['gsx$resort']['$t'],
-              "Smart Names": data['gsx$smartnames']['$t'],
+              "Segment": data['gsx$segment']['$t'],
               "frame1_BackgroundImage": data['gsx$frame1backgroundimage']['$t'],
               "frame1_Logo": data['gsx$frame1logo']['$t'],
               "frame2_BackgroundnBorder": data['gsx$frame2backgroundnborder']['$t'],
