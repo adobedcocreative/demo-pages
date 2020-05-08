@@ -15,7 +15,6 @@ var getFeed1 = function(){
               "Resort": data['gsx$resort']['$t'],
               "Language": data['gsx$language']['$t'],
               "Layout": data['gsx$layout']['$t'],
-              "Product": data['gsx$product']['$t'],
               "Smart Names": data['gsx$smartnames']['$t'],
               "frame1_BackgroundImage": data['gsx$frame1backgroundimage']['$t'],
               "frame1_Logo": data['gsx$frame1logo']['$t'],
