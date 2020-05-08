@@ -14,7 +14,6 @@ var getFeed1 = function(){
               "Ad Size": data['gsx$adsize']['$t'],
               "Layout": data['gsx$layout']['$t'],
               "Language": data['gsx$language']['$t'],
-              "Product": data['gsx$product']['$t'],
               "Resort": data['gsx$resort']['$t'],
               "Smart Names": data['gsx$smartnames']['$t'],
               "frame1_BackgroundImage": data['gsx$frame1backgroundimage']['$t'],
@@ -74,12 +73,12 @@ var loadData = function(){
       obj.name = i;
       obj.data = [];
       var productName = [];
-      feedData[i].map(function(data){productName.push(data['Product']);});
+      feedData[i].map(function(data){productName.push(data['Resort']);});
       productName = productName.filter(function(value, index, self){ return self.indexOf(value) === index; })
       productName.map(function(productName){
         var smartObject = {};
         smartObject.name = productName;
-        smartObject.data = feedData[i].filter(function(data){ return data['Product'] == productName });
+        smartObject.data = feedData[i].filter(function(data){ return data['Resort'] == productName });
         obj.data.push(smartObject);
       });
       adData.push(obj);
