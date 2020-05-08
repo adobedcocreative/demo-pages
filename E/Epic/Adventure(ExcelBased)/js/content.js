@@ -12,9 +12,10 @@ var getFeed1 = function(){
           JSONData.feed.entry.map(function(data){
             feedTemplate1.push({
               "Ad Size": data['gsx$adsize']['$t'],
-              "Resort": data['gsx$resort']['$t'],
-              "Language": data['gsx$language']['$t'],
               "Layout": data['gsx$layout']['$t'],
+              "Language": data['gsx$language']['$t'],
+              "Product": data['gsx$product']['$t'],
+              "Resort": data['gsx$resort']['$t'],
               "Smart Names": data['gsx$smartnames']['$t'],
               "frame1_BackgroundImage": data['gsx$frame1backgroundimage']['$t'],
               "frame1_Logo": data['gsx$frame1logo']['$t'],
@@ -50,11 +51,11 @@ var loadData = function(){
     	var feedContent1 = [];
     	feed.feed.map(function(data){
         data.template = feed.name;
-    		if(data.Resort.indexOf('/') != -1){
-                data.Resort.split('/').map(function(Resort){
+    		if(data.Layout.indexOf('/') != -1){
+                data.Layout.split('/').map(function(layout){
                     var obj = {};
                     for(var i in data) { obj[i] = data[i] }
-                    obj['Resort'] = Resort;
+                    obj['Layout'] = layout;
                     feedContent1.push(obj);
                 });
             } else {
@@ -64,21 +65,21 @@ var loadData = function(){
     	feed.data = feedContent1;
 
       feed.data.map(function(data){
-        if(!(data.Resort in feedData)) { feedData[data.Resort] = []; }
-        feedData[data.Resort].push(data);
+        if(!(data.Layout in feedData)) { feedData[data.Layout] = []; }
+        feedData[data.Layout].push(data);
       });
     });
     for(var i in feedData) {
       var obj = {};
       obj.name = i;
       obj.data = [];
-      var layoutNames = [];
-      feedData[i].map(function(data){layoutNames.push(data['Layout']);});
-      layoutNames = layoutNames.filter(function(value, index, self){ return self.indexOf(value) === index; })
-      layoutNames.map(function(layoutName){
+      var productName = [];
+      feedData[i].map(function(data){productName.push(data['Product']);});
+      productName = productName.filter(function(value, index, self){ return self.indexOf(value) === index; })
+      productName.map(function(productName){
         var smartObject = {};
-        smartObject.name = layoutName;
-        smartObject.data = feedData[i].filter(function(data){ return data['Layout'] == layoutName });
+        smartObject.name = productName;
+        smartObject.data = feedData[i].filter(function(data){ return data['Product'] == productName });
         obj.data.push(smartObject);
       });
       adData.push(obj);
@@ -87,11 +88,11 @@ var loadData = function(){
       var searchData;
       if(queryString) {
         if(queryString.indexOf('|') != -1) {
-          var Resort = queryString.split('|')[0];
-          var layoutName = queryString.split('|')[1];
-          var data = adData.find(function(data){ return data.name == Resort })
+          var layout = queryString.split('|')[0];
+          var productName = queryString.split('|')[1];
+          var data = adData.find(function(data){ return data.name == layout })
           if(data) {
-            data = data.data.find(function(data){ return data.name == layoutName })
+            data = data.data.find(function(data){ return data.name == productName })
             if(data) { searchData = data }
           }
         } else {

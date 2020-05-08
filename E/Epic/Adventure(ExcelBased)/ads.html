@@ -202,15 +202,15 @@
         var searchString = queryString.split('|').splice(0, 2).join('|');
         var filterString = queryString.split('|').length > 2 ? queryString.split('|').splice(2).join('|') : '';
         var adContent = getData(queryString),adContents = {};
-        var resort = adContent.data[0].Resort;
-        var layoutName = adContent.name;
-        location.hash = btoa(resort+'|'+layoutName).replace('==','');
-        htmlContent += adData.map(function(data){ return '<div '+(resort == data.name ? 'class="selected"' : '')+' data-id="' + data.name + '">'+data.name + '</div>' }).join('');
+        var layout = adContent.data[0].Layout;
+        var productName = adContent.name;
+        location.hash = btoa(layout+'|'+productName).replace('==','');
+        htmlContent += adData.map(function(data){ return '<div '+(layout == data.name ? 'class="selected"' : '')+' data-id="' + data.name + '">'+data.name + '</div>' }).join('');
         document.querySelector('#header').innerHTML = htmlContent;
         htmlContent = '';
-        var resortData = adData.find(function(data){ return data.name == resort; });
-        if(resortData) {
-          htmlContent += resortData.data.map(function(data){ return '<div '+(layoutName == data.name ? 'class="selected"' : '')+' data-id="' + resortData.name + '|' + data.name + '" title="' + resortData.name + ' > ' + data.name + '">'+data.name + '</div>' }).join('');
+        var layoutData = adData.find(function(data){ return data.name == layout; });
+        if(layoutData) {
+          htmlContent += layoutData.data.map(function(data){ return '<div '+(productName == data.name ? 'class="selected"' : '')+' data-id="' + layoutData.name + '|' + data.name + '" title="' + layoutData.name + ' > ' + data.name + '">'+data.name + '</div>' }).join('');
         }
         document.querySelector('#subheader').innerHTML = htmlContent;
         var headlines = [];
@@ -219,17 +219,17 @@
         if(headlines) {
           filterString = filterString.length ? filterString : headlines[0];
           if(!headlines.find(function(headline){ return headline.toLowerCase() == filterString.toLowerCase(); })) { filterString = headlines[0]; }
-          var resort = adContent.data[0].Resort;
-          var layoutName = adContent.name;
-          location.hash = btoa(resort+'|'+layoutName+'|'+filterString).replace('==','').replace('=','');
+          var layout = adContent.data[0].Layout;
+          var productName = adContent.name;
+          location.hash = btoa(layout+'|'+productName+'|'+filterString).replace('==','').replace('=','');
           adContents.name = adContent.name;
           adContents.data = adContent.data.filter(function(data){ return (data["Smart Names"] + '|' + data.Language).toLowerCase() == filterString.toLowerCase(); });
           htmlContent = '';
-          htmlContent += headlines.map(function(headline){ return '<div '+(headline.toLowerCase() == filterString.toLowerCase()? 'class="selected"': '')+' data-id="'+resort+'|'+layoutName+'|'+headline+'">' + headline.split('|')[0] + '<div>(' + headline.split('|')[1] + ')</div></div>'; }).join('');
+          htmlContent += headlines.map(function(headline){ return '<div '+(headline.toLowerCase() == filterString.toLowerCase()? 'class="selected"': '')+' data-id="'+layout+'|'+productName+'|'+headline+'">' + headline.split('|')[0] + '<div>(' + headline.split('|')[1] + ')</div></div>'; }).join('');
         }
         document.querySelector('#subsubheader').innerHTML = htmlContent;
         htmlContent = '';
-        htmlContent = adContent.data[0].Resort + ' | ' + adContent.data[0].Layout + ' | ' + filterString.split('|').join(' | ');
+        htmlContent = adContent.data[0].Layout + ' | ' + adContent.data[0].Product + ' | ' + filterString.split('|').join(' | ');
         document.querySelector('#title').innerHTML = htmlContent;
         var headers = document.querySelectorAll('#header > div');
         for(var i = 0; i < headers.length; i++) {
