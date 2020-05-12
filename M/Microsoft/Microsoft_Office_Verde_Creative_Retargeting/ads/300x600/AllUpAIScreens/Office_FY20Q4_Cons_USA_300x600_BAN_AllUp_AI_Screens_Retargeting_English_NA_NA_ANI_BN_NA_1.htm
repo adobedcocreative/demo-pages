@@ -234,7 +234,7 @@ var startBanner = function(){
 				  	// window.open(clickTag);
 					var iframe = window.frameElement;
 					var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
-					parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl);
+					parentWindow.amo.onDynAdClick(parentWindow.amo.content[3], "CLICK", parentWindow.adClickUrl);
 				}
 
 					exportRoot.subMenuClick = function(id) {
@@ -260,7 +260,7 @@ var startBanner = function(){
 					var parentWindow = window.parent.parent.window;
                  	if (parentWindow && 'amoUtils' in parentWindow && 'onInteraction' in parentWindow.amoUtils) {
                  		try {
-                    		parentWindow.amoUtils.onInteraction(exportRoot.mainMC.dropdown.selectorBox.txt.text, parentWindow.amoUtils.getAllOffers()[0]);
+                    		parentWindow.amoUtils.onInteraction(exportRoot.mainMC.dropdown.selectorBox.txt.text, parentWindow.amoUtils.getAllOffers()[id-1]);
                     	} catch (e) {}
                 	}
 
@@ -268,7 +268,7 @@ var startBanner = function(){
 					// window.open(window["clickTag"+id]);
 					var iframe = window.frameElement;
 					var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
-					parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow['url'+id]);
+					parentWindow.amo.onDynAdClick(parentWindow.amo.content[id-1], "CLICK", parentWindow['url'+id]);
 				}
 				//console.log("exportRoot.btn1"+exportRoot.btn1)
 
