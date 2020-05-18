@@ -1,0 +1,14 @@
+{
+  "name": "publish",
+  "version": "1.0.0",
+  "description": "",
+  "main": "publish.js",
+  "scripts": {
+    "test": "node publish.js"
+  },
+  "author": "Neeraj Deshmukh",
+  "license": "ISC",
+  "dependencies": {
+    "adm-zip": "^0.4.13"
+  }
+}
