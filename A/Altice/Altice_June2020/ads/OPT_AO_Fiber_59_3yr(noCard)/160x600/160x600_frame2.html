@@ -237,7 +237,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 240px;left: 20px;
         },
         beforeLoad: function(data){
           data.map(function(content){
-            var daysLeft = Math.ceil((new Date('6 July 2020') - new Date())/(24*60*60*1000));
+            var daysLeft = Math.ceil((new Date('5 July 2020') - new Date())/(24*60*60*1000));
             var urgencyMessage =  daysLeft > 0 ? daysLeft + ' Day' + (daysLeft == 1 ? '' : 's') + ' Left!' : '';
             for(var i in content) { if(content[i].indexOf('(urgencyMessage)') > 0) { content[i] = content[i].split('(urgencyMessage)').join(urgencyMessage); } }
           });
