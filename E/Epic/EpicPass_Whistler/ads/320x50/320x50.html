@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ad</title>
+    <script type="text/javascript" src="https://ads.everesttech.net/ads/static/local/AMOLibrary.js"></script>
+    <link rel="stylesheet" href="css/style.min.css">
+    <!-- <link rel="stylesheet" href="https://use.typekit.net/tag1rnw.css"> -->
+    <link rel="stylesheet" href="https://use.typekit.net/emp0yrj.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/script.min.js"></script>
+    <style media="screen">
+      /* @font-face {
+          font-family: KanitLight;
+          src: url('fonts/Kanit-Light.woff') format("woff");
+      }
+      @font-face {
+          font-family: KanitMedium;
+          src: url('fonts/Kanit-Medium.woff') format("woff");
+      }
+      .KanitLight { font-family: KanitLight; }
+      .KanitMedium { font-family: KanitMedium; } */
+      .MontserratBlack {
+        font-family: montserrat,sans-serif;
+        font-weight: 900;
+        font-style: normal;
+      }
+    </style>
+    <style media="screen" data-dynamic="style">
+      #ad {
+        width: 320px;
+        height: 50px;
+        font-family: montserrat,sans-serif;
+        font-weight: 900;
+        font-style: normal;
+        color: #fff;
+        background-color: #fff;
+      }
+      .frame {
+        position: absolute;
+        top:0px;
+        left:0px;
+        width:inherit;
+        height:inherit;
+      }
+      @font-face {
+        font-family: icons;
+        src: url(fonts/icons.ttf) format('truetype'),url(fonts/icons.woff) format('woff'),url(fonts/icons.svg) format('svg');
+        font-weight: 400;
+        font-style: normal
+      }
+      [class*=" icon-"],[class^=icon-] {
+        font-family: icons!important;
+        speak: none;
+        font-style: normal;
+        font-weight: 400;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale
+      }
+      .icon-logo:before {
+        content: "\f1c6"
+      }
+      #cta { background-color: !{ctaBtn}; }
+      #cta:hover { background-color: !{ctaBtnHover}; }
+    </style>
+  </head>
+  <body>
+    <div class="" id="ad">
+      <div id="backgroundImage1" class="asset frame" style="height:78px;" data-image="backgroundImage1"></div>
+      <div id="backgroundImage2" class="asset frame" style="height:78px;left:0px;transform: translateY(-28px);transform-origin: right;" data-image="backgroundImage2"></div>
+      <!-- <div id="whitePatch1" class="frame" style="top:232px;background-color:#fff;"></div>
+      <div id="whitePatch2" class="frame" style="left:-281px;background-color:#fff;"></div> -->
+      <div id="whitePatch" class="frame" style="background-color:#fff;"></div>
+      <div id="whitePatch1" class="frame" style="background-color:#fff;"></div>
+      <div id="whitePatch2" class="frame" style="background-color:#fff;transform: translateX(-320px);"></div>
+      <div id="whitePatch3" class="frame" style="background-color:#fff;"></div>
+
+      <div id="redPatch" class="frame"
+        style="background-image:linear-gradient(to right, #680915, #b71237);
+          transform-origin: bottom right;
+          -webkit-transform: scale(0.243,0.86);
+          transform: scale(0.243,0.86);
+          opacity:0.8;">
+      </div>
+      <div id="redPatch1" class="frame" style="top:44px;left:5px;background-color:rgba(104, 9, 21, 0.8);"></div>
+      <div id="redPatch2" class="frame" style="left:-315px;background-color:rgba(104, 9, 21, 0.8);"></div>
+      <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
+      <div id="frameText1" class="text-top-left"
+        data-text="frameText1"
+        style="top: 13px;
+          left: 8px;
+          width: 160px;
+          height: 30px;
+          font-size: 15px;
+          line-height: 0.85;
+          overflow:hidden;">
+      </div>
+      <div id="frameText2" class="text-top-left"
+        data-text="frameText2"
+        style="top: 13px;
+          left: 8px;
+          width: 160px;
+          height: 30px;
+          font-size: 15px;
+          line-height: 0.85;
+          overflow:hidden;">
+      </div>
+      <div id="frameText3" class="text-top-left"
+        data-text="frameText3"
+        style="top: 13px;
+          left: 8px;
+          width: 160px;
+          height: 30px;
+          font-size: 15px;
+          line-height: 0.85;
+          transform-origin: left;
+          overflow:hidden;">
+      </div>
+      <div id="logoImage" class="icon-logo"
+        style="top: 17px;
+          left: 247px;
+          width: 70px;
+          height: 20px;
+          text-align: center;
+          line-height: 1.2;
+          font-size: 17px;
+          text-shadow: 0px 0px 5px rgba(0,0,0,0.6);
+          transform-origin:bottom;">
+      </div>
+      <div id="cta" class="text"
+        data-text="ctaText"
+        data-style="padding-bottom:2px;"
+        style="top: 17px;
+          left: 177px;
+          width: 64px;
+          height: 19px;
+          font-size: 7px;
+          color:#6a0a16;
+          transform-origin:top left;">
+      </div>
+      <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
+    </div>
+    <div id="loadFont" style="width:0;height:0;overflow:hidden;">
+      <div class="KanitLight">KanitLight</div>
+      <div class="KanitMedium">KanitMedium</div>
+    </div>
+    <script type="text/javascript">
+      var ad = new Ad({
+        root: document.querySelector('#ad'),
+        width: 320,
+        height: 50,
+        borderWidth: 1,
+        borderColor: '#000'
+      });
+      setTimeout(function() {
+        ad.contentSetup({
+          cam: {
+            backgroundImage1: 'assets/W19-20_F4_320x50_Non_Family_img_1.jpg',
+            backgroundImage2: 'assets/W19-20_F4_320x50_Non_Family_img_2.jpg',
+            frameText1: 'SKIP THE<br>TICKET LINE',
+            frameText2: 'AND GET AN EARLY<br>START ON APRÈS',
+            frameText3: 'SAVE BIG ON<br>LIFT TICKETS',
+            ctaText: 'SAVE TODAY',
+            clickURL: 'https://www.adobe.com/#VAIL',
+            // impressionTracker: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII='
+          },
+          feed: [
+            {
+              name: 'COAG',
+            }
+          ],
+          staticData: {
+            // ref: 'ref.png'
+            styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
+            ctaBtnColor: '#fff^rgba(255,255,255,0.8)',
+          },
+          beforeLoad: function(data){
+            data.map(function(content){
+              content.ctaBtn = content.ctaBtnColor.split('^')[0];
+              content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
+            });
+            return data;
+          }
+        }, function(data){
+          var adData = data[0], adClickUrl = adData['clickURL'];
+          ad.root.addEventListener("click", function(e) {
+            if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
+          });
+          // if(adData.impressionTracker.toLowerCase() != 'na'){ ad.loadAssets(adData.impressionTracker, function(assets){ }); }
+          if(adData.styleProperties && adData.styleProperties.toLowerCase() != 'na') {
+            try {
+              eval('var styleProperties = ' + adData.styleProperties);
+              if(styleProperties && typeof styleProperties == 'object')
+              for(var i in styleProperties) {
+                gsap.set(i, styleProperties[i]);
+              }
+            } catch(e) {  }
+          }
+          var adWidth = 320;
+          gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.7}})
+          .to('#whitePatch', { autoAlpha:0,duration: 0.9, delay:0.5})
+          .to('#whitePatch1', { y: 44},'-=0.9')
+          .to('#whitePatch2', { x: -315},'-=0.9')
+          .to('#whitePatch3', { x: 320},'-=0.9')
+          .to('#backgroundImage1', { y: -28,duration:2, ease:'none'},'-=0.7')
+          .from('#logoImage', { rotateX: 90},'-=1.5')
+          .to('#redPatch', { scaleX: 1,scaleY: 1, ease: 'elastic.in(1, 0.3)'},'-=0.5')
+          .from('#backgroundImage2', { autoAlpha:0, duration:0.01 })
+          .to('#redPatch', { autoAlpha:0, duration:0.01 })
+          .from('#redPatch1,#redPatch2', { autoAlpha:0, duration:0.01 })
+          .to('#backgroundImage2', { scale: 1.25, ease:'none',duration:3})
+          .from('#frameText1', { x: -adWidth, duration:0.3 }, '-=2.7')
+          .to('#frameText1', { height:0, duration:0.3 }, '-=0.5')
+          .from('#frameText2', { height:0, duration:0.5 }, '-=0.2')
+          .to('#frameText2', { height:0, duration:0.3, delay:2.5 })
+          .from('#frameText3', { scale:0, duration:0.5 })
+          .from('#cta', { autoAlpha:0, duration:0.1 })
+        });
+      }, 2000);
+    </script>
+  </body>
+</html>
