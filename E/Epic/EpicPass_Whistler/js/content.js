@@ -15,7 +15,7 @@ var getFeed1 = function(){
               "Ad Size": data['gsx$adsize']['$t'],
               "Layout": data['gsx$layout']['$t'],
               "Language": data['gsx$language']['$t'],
-              "Resort": data['gsx$resort']['$t'],
+              "Resort": data['gsx$resortcode']['$t'],
               "Product": data['gsx$product']['$t'],
               "backgroundImage1": data['gsx$backgroundimage1']['$t'],
               "backgroundImage2": data['gsx$backgroundimage2']['$t'],
