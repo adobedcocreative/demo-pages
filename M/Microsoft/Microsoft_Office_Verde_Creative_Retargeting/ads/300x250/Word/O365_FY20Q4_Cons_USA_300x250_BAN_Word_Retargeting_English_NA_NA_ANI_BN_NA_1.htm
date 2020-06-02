@@ -72,8 +72,8 @@ function init() {
 	loader.loadManifest(lib.properties.manifest);
 }
 function handleFileLoad(evt, comp) {
-	var images=comp.getImages();
-	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }
+	var images=comp.getImages();	
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
 }
 function handleComplete(evt,comp) {
 	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
@@ -86,52 +86,52 @@ function handleComplete(evt,comp) {
 	}
 	exportRoot = new lib.O365_FY20Q4_Cons_USA_300x250_BAN_Word_Retargeting_English_NA_NA_ANI_BN_NA_1();
 	stage = new lib.Stage(canvas);
-	stage.addChild(exportRoot);
+	stage.addChild(exportRoot);	
 	//Registers the "tick" event listener.
 	stage.enableMouseOver(20)
 	fnStartAnimation = function() {
 		stage.addChild(exportRoot);
 		createjs.Ticker.framerate = lib.properties.fps;
 		createjs.Ticker.addEventListener("tick", stage);
-	}
+	}	    
 	//Code to support hidpi screens and responsive scaling.
-	function makeResponsive(isResp, respDim, isScale, scaleType) {
-		var lastW, lastH, lastS=1;
-		window.addEventListener('resize', resizeCanvas);
-		resizeCanvas();
-		function resizeCanvas() {
-			var w = lib.properties.width, h = lib.properties.height;
-			var iw = window.innerWidth, ih=window.innerHeight;
-			var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;
-			if(isResp) {
-				if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {
-					sRatio = lastS;
-				}
-				else if(!isScale) {
-					if(iw<w || ih<h)
-						sRatio = Math.min(xRatio, yRatio);
-				}
-				else if(scaleType==1) {
-					sRatio = Math.min(xRatio, yRatio);
-				}
-				else if(scaleType==2) {
-					sRatio = Math.max(xRatio, yRatio);
-				}
-			}
-			canvas.width = w*pRatio*sRatio;
+	function makeResponsive(isResp, respDim, isScale, scaleType) {		
+		var lastW, lastH, lastS=1;		
+		window.addEventListener('resize', resizeCanvas);		
+		resizeCanvas();		
+		function resizeCanvas() {			
+			var w = lib.properties.width, h = lib.properties.height;			
+			var iw = window.innerWidth, ih=window.innerHeight;			
+			var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;			
+			if(isResp) {                
+				if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
+					sRatio = lastS;                
+				}				
+				else if(!isScale) {					
+					if(iw<w || ih<h)						
+						sRatio = Math.min(xRatio, yRatio);				
+				}				
+				else if(scaleType==1) {					
+					sRatio = Math.min(xRatio, yRatio);				
+				}				
+				else if(scaleType==2) {					
+					sRatio = Math.max(xRatio, yRatio);				
+				}			
+			}			
+			canvas.width = w*pRatio*sRatio;			
 			canvas.height = h*pRatio*sRatio;
-			canvas.style.width = dom_overlay_container.style.width = anim_container.style.width =  w*sRatio+'px';
+			canvas.style.width = dom_overlay_container.style.width = anim_container.style.width =  w*sRatio+'px';				
 			canvas.style.height = anim_container.style.height = dom_overlay_container.style.height = h*sRatio+'px';
 
-			stage.scaleX = pRatio*sRatio;
-			stage.scaleY = pRatio*sRatio;
-			lastW = iw; lastH = ih; lastS = sRatio;
+			stage.scaleX = pRatio*sRatio;			
+			stage.scaleY = pRatio*sRatio;			
+			lastW = iw; lastH = ih; lastS = sRatio;		
 		}
 	}
-	makeResponsive(false,'both',false,2);
+	makeResponsive(false,'both',false,2);	
 	AdobeAn.compositionLoaded(lib.properties.id);
 	fnStartAnimation();
-
+	
 
     TweenMax.delayedCall(0.2,function(){
         var iframe = window.frameElement;
@@ -160,12 +160,12 @@ function handleComplete(evt,comp) {
 			});
 		}
         exportRoot.initBanner(bannerData)
-        exportRoot.runBanner()
+        exportRoot.runBanner()	
 		startBanner()
     })
 	initReady=true
 }
-
+	
 var loadFont = false
 	var loadBody = false
 	function loaded(type) {
@@ -173,7 +173,7 @@ var loadFont = false
 		if (type=='body') loadBody=true
 		if (loadFont && loadBody) init()
 	}
-
+	
 	(function() {
 		// Optimization for Repeat Views
 
@@ -216,52 +216,52 @@ var loadFont = false
 <script>
 var startBanner = function(){
 				var varInt
-
+								
 				var rHit = document.getElementById("rHit");
 
-				rHit.addEventListener("mouseover", rHitOver.bind(this));
-				function rHitOver()  {  exportRoot.mainMC.replay_btn.gotoAndStop(1)	}
+				rHit.addEventListener("mouseover", rHitOver.bind(this));  
+				function rHitOver()  {  exportRoot.mainMC.replay_btn.gotoAndStop(1)	}  
 
-				rHit.addEventListener("mouseout", rHitOut.bind(this));
-				function rHitOut()   {  exportRoot.mainMC.replay_btn.gotoAndStop(0)	}
+				rHit.addEventListener("mouseout", rHitOut.bind(this));  
+				function rHitOut()   {  exportRoot.mainMC.replay_btn.gotoAndStop(0)	}  
 
 				var clickHit = exportRoot.btn//document.getElementById("clickHit");
-				clickHit.addEventListener("mouseover", over.bind(this));
+				clickHit.addEventListener("mouseover", over.bind(this));  
 				function over() {
 					//if (exportRoot.skipAnim==true) exportRoot.tl1.seek(exportRoot.tl1.totalDuration(), false);
-				}
-				clickHit.addEventListener("click", exitHandler.bind(this));
+				}  
+				clickHit.addEventListener("click", exitHandler.bind(this));  
 				function exitHandler() {
 				  	// window.open(clickTag);
 					var iframe = window.frameElement;
 					var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
-					parentWindow.amo.onDynAdClick(parentWindow.amo.content[3], "CLICK", parentWindow.adClickUrl);
+					parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl);
 				}
 
 					exportRoot.subMenuClick = function(id) {
 					this.hideMenu()
-
+					
 					if (id==1){
 						//exportRoot.mainMC.dropdown.selectorBox.txt.text = "BUY NOW"
 						//exportRoot.mainMC.dropdown.selectorBox.txt2.text = ""
 					}
-
+					
 					if (id==2){
 						//exportRoot.mainMC.dropdown.selectorBox.txt.text = "Purchase for my family"
 						//exportRoot.mainMC.dropdown.selectorBox.txt2.text = ""
 					}
-
+					
 					if (id==3){
 						//exportRoot.mainMC.dropdown.selectorBox.txt.text = "Purchase for myself"
 						//exportRoot.mainMC.dropdown.selectorBox.txt2.text = ""
 						//exportRoot.mainMC.dropdown.selectorBox.txt2.lineHeight = 9
 					}
-
-
+					
+					
 					var parentWindow = window.parent.parent.window;
                  	if (parentWindow && 'amoUtils' in parentWindow && 'onInteraction' in parentWindow.amoUtils) {
                  		try {
-                    		parentWindow.amoUtils.onInteraction(exportRoot.mainMC.dropdown.selectorBox.txt.text, parentWindow.amoUtils.getAllOffers()[id-1]);
+                    		//parentWindow.amoUtils.onInteraction(exportRoot.mainMC.dropdown.selectorBox.txt.text, parentWindow.amoUtils.getAllOffers()[0]);
                     	} catch (e) {}
                 	}
 
@@ -269,15 +269,15 @@ var startBanner = function(){
 					// window.open(window["clickTag"+id]);
 					var iframe = window.frameElement;
 					var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
-					parentWindow.amo.onDynAdClick(parentWindow.amo.content[id-1], "CLICK", parentWindow['url'+id]);
+					parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow['url'+id], dynamicData['dropdownText' + id].split('\n').join(' '));
 				}
 				//console.log("exportRoot.btn1"+exportRoot.btn1)
 
 				exportRoot.btn1.addEventListener("click", function(event) { exportRoot.subMenuClick(1) })
 				exportRoot.btn2.addEventListener("click", function(event) { exportRoot.subMenuClick(2) })
-				exportRoot.btn3.addEventListener("click", function(event) { exportRoot.subMenuClick(3) })
+				exportRoot.btn3.addEventListener("click", function(event) { exportRoot.subMenuClick(3) })	
 
-
+	
 				rHit.addEventListener("click", replay.bind(this));
 				function replay() {
 					if (exportRoot.isReplay == true){
@@ -297,14 +297,14 @@ var startBanner = function(){
 
                         // Restore the transform
                         context.restore(); //CLEARS THE SPECIFIC CANVAS COMPLETELY FOR NEW DRAWING
-
+                        
 						TweenMax.delayedCall(0.1,init)
 					}
 				}
-
+				
 
 
 		}
 </script>
-</body>
+</body>	
 </html>

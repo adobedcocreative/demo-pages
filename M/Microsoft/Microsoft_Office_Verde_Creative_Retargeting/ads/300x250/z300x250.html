@@ -24,10 +24,10 @@
           return text;
         }
         var contentD = [
-          { "passthroughfield1": "LEARN MORE1", },
-          { "passthroughfield1": "LEARN MORE2", },
-          { "passthroughfield1": "LEARN MORE3", },
-          { "passthroughfield1": "LEARN MORE", },
+          {
+            "name": "Microsoft",
+            "product_url": "https://office.com/",
+          }
         ];
 
         if(contentD && contentD.length) { contentD.forEach(function(data) { amo.registerContent(data); }); }
@@ -37,12 +37,11 @@
         amo.registerVariation("textField3", "na");
         amo.registerVariation("textField4", "na");
         amo.registerVariation("textField5", "na");
-        // amo.registerVariation("ctaText", "LEARN MORE1^LEARN<br>MORE2^LEARN\nMORE3^LEARN MORE"); //LEARN MORE1^LEARN MORE2^LEARN MORE3^LEARN MORE
-        amo.registerVariation("ctaText", "!{passthroughfield1}"); //LEARN MORE1^LEARN MORE2^LEARN MORE3^LEARN MORE
+        amo.registerVariation("ctaText", "LEARN MORE1^LEARN<br>MORE2^LEARN\nMORE3^LEARN MORE"); //LEARN MORE1^LEARN MORE2^LEARN MORE3^LEARN MORE
         // amo.registerVariation("ctaArrowVisibleFlag", "!{passthroughfield2}");
         amo.registerVariation("impressionTracker", "../../../../1x1.png?impressionTracker=" + Math.random());
         amo.registerVariation("clickTracker", "../../../../1x1.png?clickTracker=" + Math.random());
-        amo.registerVariation("clickURL", "https://office.com/");
+        amo.registerVariation("clickURL", "!{product_url}");
         amo.registerVariation("dropdownClickURLs", "https://adobe.com/#Microsoft1^https://adobe.com/#Microsoft2^https://adobe.com/#Microsoft3");
         var content = [], cam = {};
         var cam = {
@@ -88,7 +87,6 @@
         window.url1 = adData.dropdownClickURLs.split('^')[0];
         window.url2 = adData.dropdownClickURLs.split('^')[1];
         window.url3 = adData.dropdownClickURLs.split('^')[2];
-        adData.ctaText = content.map(function(data) { return data.ctaText }).join('^');
         // document.querySelector('iframe').addEventListener("click", exitHandler.bind(this));
         // function exitHandler() {
         //   // window.open(clickTag);
