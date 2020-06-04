@@ -23,7 +23,7 @@
     </style>
     <style media="screen" data-dynamic="style">
       #ad {
-        width: 320px;
+        width: 300px;
         height: 50px;
         font-family: Arial,Helvetica,sans-serif;
         color: #000;
@@ -116,7 +116,7 @@ amo.registerAttribute("frameText33","TEXT","&nbsp;");
 amo.registerAttribute("frameText41", "TEXT", "<div style='top:3px;left:7px;font-size:13px;'>300 Mbps Internet & TV</div>");
 amo.registerAttribute("frameText42", "TEXT", "<div style='top: 19px;left: 6px;width: 220px;line-height: 1;'><font style='font-size: 27.5px;' class='coloredText'>$65</font><font style='margin-left: 3px;font-size: 9px;display: inline-block;vertical-align: 3px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: -24px 0 0 76px;font-size: 9px;'>w/autopay & paperless bill<br>+ taxes, fees & charges</div></div>");
 amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
-amo.registerAttribute("frameImage1", "IMAGE", "320x50_OPT_SUMMER_ACQ_AO_300Mb_65Yr1_NonSub_NY_Img_frame_2.png");
+amo.registerAttribute("frameImage1", "IMAGE", "300x50_OPT_SUMMER_ACQ_AO_300Mb_65Yr1_NonSub_NY_Img_frame_2.png");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -170,9 +170,9 @@ amo.registerAttribute("frameImage1", "IMAGE", "320x50_OPT_SUMMER_ACQ_AO_300Mb_65
         data-text="frameText1"
         style="top: 2px;
           left: 8px;
-          width: 200px;
+          width: 240px;
           height: 46px;
-          font-size: 17px;
+          font-size: 16px;
           line-height: 1;">
       </div>
       <div id="frameText12" class="text-left AlticeBold"
@@ -210,7 +210,7 @@ amo.registerAttribute("frameImage1", "IMAGE", "320x50_OPT_SUMMER_ACQ_AO_300Mb_65
 
     var ad = new Ad({
       root: document.querySelector('#ad'),
-      width: 320,
+      width: 300,
       height: 50,
       borderWidth: 1,
       borderColor: '#000'
@@ -220,8 +220,8 @@ amo.registerAttribute("frameImage1", "IMAGE", "320x50_OPT_SUMMER_ACQ_AO_300Mb_65
         cam: {},
         feed: [],
         staticData: {
-          logoImage: 'images/320x50_Logo_Optimum_Black.png',
-          introLogoImage: 'images/320x50_Logo_Optimum_Black.png',
+          logoImage: 'images/300x50_Logo_Optimum_Black.png',
+          introLogoImage: 'images/300x50_Logo_Optimum_Black.png',
           // ref: 'ref4.png',
         },
         beforeLoad: function(data){
@@ -291,7 +291,7 @@ amo.registerAttribute("frameImage1", "IMAGE", "320x50_OPT_SUMMER_ACQ_AO_300Mb_65
           .to('#frame1', (flag==true?{}:{delay:1.5, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
         if('frame1' in ad.layers) ad.layers.frame1.remove();
-                    gsap.delayedCall(1.2, animateFrame3, [true]);
+                    gsap.delayedCall(1.2, animateFrame4, [true]);
       });
     }, 2000);
   </script>
