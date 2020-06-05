@@ -129,7 +129,7 @@ amo.registerAttribute("frameText42","TEXT","&nbsp;");
 amo.registerAttribute("frameText43","TEXT","&nbsp;");
 amo.registerAttribute("frameText51", "TEXT", "<div style='top: 88px;left: 22px;font-size: 28px;line-height:1;'>300 Mbps<br>Internet & TV</div>");
 amo.registerAttribute("frameText52", "TEXT", "<div style='top: 139px;left: 14px;width: 260px;line-height: 1;'><font style='font-size: 116px;letter-spacing: -1.5px;' class='coloredText'>$65</font><font style='margin-left: 9px;font-size: 19px;display: inline-block;vertical-align: 46px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 2px 0 0 8px;font-size: 14px;'>w/autopay & paperless bill<br>+ taxes, fees & charges</div></div>");
-amo.registerAttribute("frameText53", "TEXT", "<div style='top: 305px;left: 22px;width: 400px;transform: scale(0.685);transform-origin: top left;'><div class='bulletedText'>$100 Amazon.com Gift Card<div class='AlticeRegular' style='font-size: 16px;line-height:1;margin-top: 3px;'>Restrictionns apply.</div></div></div>");
+amo.registerAttribute("frameText53", "TEXT", "<div style='top: 305px;left: 22px;width: 400px;transform: scale(0.685);transform-origin: top left;'><div class='bulletedText'>$100 Amazon.com Gift Card<div class='AlticeRegular' style='font-size: 16px;line-height:1;margin-top: 3px;'>Restrictions apply.</div></div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -184,7 +184,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 305px;left: 22px;
       opacity:1;">
       <!-- <div id="ref" class="asset adSizeContainer"data-image="ref"></div> -->
       <div id="frameVideo1" style="top: 0px;left: -21px;width: 342px;height: 285px;"><video muted playsinline autoplay style="width:100%;"></video></div>
-      <div id="shape1"
+      <!-- <div id="shape1"
         style="top: 0;
           left: -21px;
           width: 60px;
@@ -209,7 +209,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 305px;left: 22px;
           height: 180px;
           font-size: 36px;
           line-height: 1;">
-      </div>
+      </div> -->
       <div id="frameText12" class="text AlticeBold"
         data-text="frameText12"
         data-style="text-align:center;"
@@ -220,6 +220,10 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 305px;left: 22px;
           font-size: 36px;
           line-height: 1;">
       </div>
+      <div id="shape1" class="shape" style="border-radius: 50px;background-image: linear-gradient(to top, #24d9c3, #0084d6);"></div>
+      <div id="shape2" class="shape" style="border-radius: 50px;background-image: linear-gradient(to top, #24d9c3, #0084d6);"></div>
+      <div id="shape3" class="shape" style="border-radius: 50px;background-image: linear-gradient(to bottom, #24d9c3, #0084d6);"></div>
+      <div id="shape4" class="shape" style="border-radius: 50px;background-image: linear-gradient(to bottom, #24d9c3, #0084d6);"></div>
       <div id="introLogoImage" class="asset adSizeContainer" data-image="introLogoImage"></div>
       <div id="introCta" class="text AlticeBold"
         data-text="ctaText"
@@ -275,8 +279,10 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 305px;left: 22px;
         setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; },800);
 
         textUpdate();
-        gsap.set('#shape1',{y:'-120%'});
-        gsap.set('#shape2',{y:'150%'});
+        gsap.set('#shape1',{top:-220,left:-10,width:70,height:220,y:820});
+        gsap.set('#shape2',{top:600,left:110,width:70,height:280,y:-880});
+        gsap.set('#shape3',{top:-480,left:210,width:70,height:480,y:1080});
+        gsap.set('#shape4',{top:-480,left:10,width:70,height:480,y:1080});
         gsap.set('#frameText1,#frameText12', {autoAlpha:0});
         gsap.set('.frameImage', {x:'100%'});
         gsap.set('.frameText, #priceLabel', {x:'-100%'});
@@ -340,8 +346,10 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 305px;left: 22px;
             .to('#frameText1', {autoAlpha:1})
             .to('#frameText1', {autoAlpha:0,delay:1.5})
             .to('#frameText12', {autoAlpha:1})
-            .to('#shape1', {y:'120%',duration:2},'-=1')
-            .to('#shape2', {y:'-150%',duration:2},'-=2')
+            gsap.to('#shape1', {y:'0',duration:0.9,delay:1.5})
+            gsap.to('#shape2', {y:'0',duration:0.9,delay:1.7})
+            gsap.to('#shape3', {y:'0',duration:0.9,delay:1.7})
+            gsap.to('#shape4', {y:'0',duration:0.9,delay:2})
           }
           ad.layers.frameVideo1.querySelector('video').onended = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})

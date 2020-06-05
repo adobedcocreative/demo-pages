@@ -185,7 +185,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 11px;left: 376px;
       <!-- <div id="ref" class="asset adSizeContainer"data-image="ref"></div> -->
       <!-- <div id="frameVideo1" style="top: -15px;left: 423px;width: 110px;height: 100px;"><video muted playsinline autoplay style="width:100%;"></video></div> -->
       <div id="frameImage1" class="asset adSizeContainer" data-image="frameImage1"></div>
-      <div id="shape1"
+      <!-- <div id="shape1"
         style="top: 0;
           left: -23px;
           width: 40px;
@@ -200,7 +200,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 11px;left: 376px;
           height: 120px;
           border-radius: 20px;
           background-image: linear-gradient(to bottom, #24d9c3, #0084d6);">
-      </div>
+      </div> -->
       <div id="frameText1" class="text-left AlticeBold"
         data-text="frameText1"
         style="top: 4px;
@@ -219,6 +219,10 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 11px;left: 376px;
           font-size: 36px;
           line-height: 1;">
       </div>
+      <div id="shape1" class="shape" style="border-radius: 30px;background-image: linear-gradient(to top, #24d9c3, #0084d6);"></div>
+      <div id="shape2" class="shape" style="border-radius: 30px;background-image: linear-gradient(to top, #24d9c3, #0084d6);"></div>
+      <div id="shape3" class="shape" style="border-radius: 30px;background-image: linear-gradient(to bottom, #24d9c3, #0084d6);"></div>
+      <div id="shape4" class="shape" style="border-radius: 30px;background-image: linear-gradient(to bottom, #24d9c3, #0084d6);"></div>
       <div id="introLogoImage" class="asset adSizeContainer" data-image="introLogoImage"></div>
       <div id="introCta" class="text AlticeBold"
         data-text="ctaText"
@@ -272,8 +276,10 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 11px;left: 376px;
         // setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; },800);
 
         textUpdate();
-        gsap.set('#shape1',{y:'-120%'});
-        gsap.set('#shape2',{y:'150%'});
+        gsap.set('#shape1',{top:-110,left:-17,width:40,height:110,y:200});
+        gsap.set('#shape2',{top:90,left:310,width:40,height:110,y:-200});
+        gsap.set('#shape3',{top:-160,left:370,width:40,height:160,y:250});
+        gsap.set('#shape4',{top:-160,left:-17,width:40,height:160,y:250});
         gsap.set('#frameText1,#frameText12', {autoAlpha:0});
         gsap.set('.frameImage', {y:'100%'});
         gsap.set('.frameText', {y:'100%'});
@@ -330,9 +336,11 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 11px;left: 376px;
           .to('#frameText1', {autoAlpha:1})
           .to('#frameText1', {autoAlpha:0,delay:1.5})
           .to('#frameText12', {autoAlpha:1})
-          .to('#shape1', {y:'120%',duration:2},'-=1')
-          .to('#shape2', {y:'-150%',duration:2},'-=2')
           .to('#frame1', (flag==true?{}:{delay:1.5, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          gsap.to('#shape1', {y:'0',duration:0.7,delay:1.6})
+          gsap.to('#shape2', {y:'0',duration:0.7,delay:1.8})
+          gsap.to('#shape3', {y:'0',duration:0.7,delay:1.8})
+          gsap.to('#shape4', {y:'0',duration:0.7,delay:2.1})
         }
         if('frame1' in ad.layers) ad.layers.frame1.remove();
                     gsap.delayedCall(1.2, animateFrame2, [true]);
