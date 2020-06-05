@@ -85,8 +85,9 @@
           transform: scale(0.18,0.755);
           opacity:0.8;">
       </div>
-      <div id="redPatch1" class="frame" style="top:80px;left:10px;background-color:rgba(104, 9, 21, 0.8);"></div>
-      <div id="redPatch2" class="frame" style="left:-718px;background-color:rgba(104, 9, 21, 0.8);"></div>
+      <!-- <div id="redPatch1" class="frame" style="top:80px;left:10px;background-color:rgba(104, 9, 21, 0.8);"></div>
+      <div id="redPatch2" class="frame" style="left:-718px;background-color:rgba(104, 9, 21, 0.8);"></div> -->
+      <div id="redPatchOutline" class="asset frame" data-image="redPatchOutline"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
       <div id="frameText1" class="text-top-left"
         data-text="frameText1"
@@ -132,7 +133,7 @@
       </div>
       <div id="cta" class="text"
         data-text="ctaText"
-        data-style="padding-bottom:2px;"
+        data-style="text-align:center;padding:0px 12px 2px;"
         style="top: 23px;
           left: 466px;
           width: 128px;
@@ -144,8 +145,7 @@
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
     <div id="loadFont" style="width:0;height:0;overflow:hidden;">
-      <div class="KanitLight">KanitLight</div>
-      <div class="KanitMedium">KanitMedium</div>
+      <div class="MontserratBlack">MontserratBlack</div>
     </div>
     <script type="text/javascript">
       var ad = new Ad({
@@ -174,6 +174,7 @@
           ],
           staticData: {
             // ref: 'ref.png'
+            redPatchOutline: 'images/728x90_grad_frame-sm.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
             ctaBtnColor: '#fff^rgba(255,255,255,0.8)',
           },
@@ -189,6 +190,10 @@
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });
+          if(ad.layers.cta.querySelector('span').offsetHeight > 20) {
+            ad.layers.cta.style.top = 19 + 'px';
+            ad.layers.cta.style.height = 50 + 'px';
+          }
           // if(adData.impressionTracker.toLowerCase() != 'na'){ ad.loadAssets(adData.impressionTracker, function(assets){ }); }
           if(adData.styleProperties && adData.styleProperties.toLowerCase() != 'na') {
             try {
@@ -202,17 +207,17 @@
           var adWidth = 728;
           gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.7}})
           .to('#whitePatch', { autoAlpha:0,duration: 0.9, delay:0.5})
-          .to('#whitePatch1', { y: 80},'-=0.9')
+          .to('#whitePatch1', { y: 81},'-=0.9')
           .to('#whitePatch2', { x: -718},'-=0.9')
           .to('#whitePatch3', { x: 728},'-=0.9')
-          .to('#backgroundImage1', { y: -70,duration:2, ease:'none'},'-=0.7')
+          .to('#backgroundImage1', { y: -70,duration:2, ease:Power1.out},'-=0.7')
           .from('#logoImage', { rotateX: 90},'-=1.5')
-          .to('#redPatch', { scaleX: 1,scaleY: 1, ease: 'elastic.in(1, 0.3)'},'-=0.5')
+          .to('#redPatch', { scaleX: 1,scaleY: 1, ease: 'elastic.in(1, 0.3)', duration: 1.8},'-=0.5')
           .from('#backgroundImage2', { autoAlpha:0, duration:0.01 })
           .to('#redPatch', { autoAlpha:0, duration:0.01 })
-          .from('#redPatch1,#redPatch2', { autoAlpha:0, duration:0.01 })
-          .to('#backgroundImage2', { y:-36 ,scale: 1.25, ease:'none',duration:3})
-          .from('#frameText1', { x: -adWidth, duration:0.3 }, '-=2.7')
+          // .from('#redPatch1,#redPatch2', { autoAlpha:0, duration:0.01 })
+          .from('#redPatchOutline', { autoAlpha:0, duration:0.01, onComplete: function(){ gsap.to('#backgroundImage2', { y:-36 ,scale: 1.25, ease:Power1.out, duration:5}) } })
+          .from('#frameText1', { x: -adWidth, duration:0.3, delay:0.3 })
           .to('#frameText1', { height:0, duration:0.3 }, '-=0.5')
           .from('#frameText2', { height:0, duration:0.5 }, '-=0.2')
           .to('#frameText2', { height:0, duration:0.3, delay:2.5 })
