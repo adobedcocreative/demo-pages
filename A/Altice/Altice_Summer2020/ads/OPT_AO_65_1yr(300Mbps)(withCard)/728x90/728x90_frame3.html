@@ -89,6 +89,15 @@
         font-size: 20px;
         color: #0084d6;
       }
+      .beam div {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: 10%;
+        height: inherit;
+        background-color: #0084d6;
+        border-radius: 50%;
+      }
       #cta::before, #introCta::before {
         content: ' ';
         position: absolute;
@@ -145,6 +154,11 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 11px;left: 376px;
         background-color:#f5f4f7;">
     </div>
     <!-- <div id="ref" class="asset adSizeContainer" data-image="ref"></div> -->
+    <div id="beam1" class="beam" style="border-radius: 30px;background-image: linear-gradient(to left, #24d9c3, #0084d6);"><div></div></div>
+    <div id="beam2" class="beam" style="border-radius: 30px;background-image: linear-gradient(to right, #24d9c3, #0084d6);"><div style="background-color:#24d9c3;"></div></div>
+    <div id="beam3" class="beam" style="border-radius: 50px;background-image: linear-gradient(to left, #24d9c3, #0084d6);"><div></div></div>
+    <div id="beam4" class="beam" style="border-radius: 30px;background-image: linear-gradient(to left, #24d9c3, #0084d6);"><div></div></div>
+    <div id="beam5" class="beam" style="border-radius: 30px;background-image: linear-gradient(to right, #24d9c3, #0084d6);"><div style="background-color:#24d9c3;"></div></div>
     <div id="logoImage" class="asset adSizeContainer" data-image="logoImage"></div>
     <div id="frameBackground" class="asset adSizeContainer" data-image="frameBackground" style="display:none;"></div>
     <div id="frameImage2" class="asset frameImage" data-image="frameImage2"></div>
@@ -280,10 +294,26 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 11px;left: 376px;
         gsap.set('#shape2',{top:90,left:310,width:40,height:110,y:-200});
         gsap.set('#shape3',{top:-160,left:370,width:40,height:160,y:250});
         gsap.set('#shape4',{top:-160,left:-17,width:40,height:160,y:250});
+        gsap.set('#beam1',{top:10,left:728,width:520,height:18,x:-1248});gsap.set('#beam1 div',{width:18});
+        gsap.set('#beam2',{top:70,left:728,width:400,height:18,x:-1128});gsap.set('#beam2 div',{width:18});
+        gsap.set('#beam3',{top:-5,left:728,width:280,height:24,x:-1008});gsap.set('#beam3 div',{width:24});
+        gsap.set('#beam4',{top:15,left:728,width:420,height:16,x:-1148});gsap.set('#beam4 div',{width:16});
+        gsap.set('#beam5',{top:60,left:728,width:340,height:15,x:-1078});gsap.set('#beam5 div',{width:15});
         gsap.set('#frameText1,#frameText12', {autoAlpha:0});
         gsap.set('.frameImage', {y:'100%'});
         gsap.set('.frameText', {y:'100%'});
         gsap.set('div[id^="frameText"][id$="1"], #priceLabel', {x:'-100%',y:0});
+        var beamFrameAnimation = function(frame){
+          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+          .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0})
+          .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
+          .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
+          gsap.to('#beam1', {x:'0',duration:0.8,delay:1})
+          gsap.to('#beam2', {x:'0',duration:0.8,delay:1.3})
+          gsap.to('#beam3', {x:'0',duration:0.8,delay:1.4})
+          gsap.to('#beam4', {x:'0',duration:0.8,delay:1.8})
+          gsap.to('#beam5', {x:'0',duration:0.8,delay:2})
+        }
         var priceFrameAnimation = function(frame){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0})
@@ -315,20 +345,20 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 11px;left: 376px;
           var frameId = 4;
           gsap.set('#frameBackground', {display: 'block'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: bulletFrameAnimation, onCompleteParams:[4]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame5}));
+          .to('#frameImage'+frameId, {duration:0, onComplete: beamFrameAnimation, onCompleteParams:[4]})
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame5}));
         }
         var animateFrame3 = function(flag){
           var frameId = 3;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[3]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.2, opacity:0, onComplete: animateFrame4}));
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame4}));
         }
         var animateFrame2 = function(flag){
           var frameId = 2;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame3}));
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}));
         }
         var animateFrame1 = function(flag){
           gsap.set('#frameText1', {x: '0'});
