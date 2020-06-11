@@ -134,8 +134,8 @@ amo.registerAttribute("frameImage2","IMAGE","728x90_OPT_SUMMER_ACQ_AO_300Mb_65Yr
 amo.registerAttribute("frameImage3","IMAGE","728x90_OPT_SUMMER_ACQ_AO_300Mb_65Yr1_NonSub_NY_Img_frame_3.png");
 amo.registerAttribute("frameImage4","IMAGE","728x90_OPT_SUMMER_ACQ_AO_300Mb_65Yr1_NonSub_NY_Img_frame_4.png");
 amo.registerAttribute("frameImage5","IMAGE","1x1.png");
-amo.registerAttribute("frameText1","TEXT","It's never been more important");
-amo.registerAttribute("frameText12","TEXT","to stay up to speed.");
+amo.registerAttribute("frameText1","TEXT","Moving?");
+amo.registerAttribute("frameText12","TEXT","Stay connected");
 amo.registerAttribute("frameText21", "TEXT", "<div style='top: 13px;left: 23px;font-size: 22px;line-height: 1;'>300 Mbps<br>Internet<br>& TV</div>");
 amo.registerAttribute("frameText22", "TEXT", "<div style='top: 3px;left: 132px;width: 300px;line-height: 1;'><font style='font-size: 84px;' class='coloredText'>$65</font><font style='margin-left: 11px;font-size: 13px;display: inline-block;vertical-align: 34px;line-height: 1.2;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='position: absolute;top: 52px;left: 156px;font-size: 10px;'>w/autopay & paperless bill<br>+ taxes, fees & charges</div></div>");
 amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
@@ -354,7 +354,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 16px;left: 399px;
           var frameId = 4;
           gsap.set('#frameBackground', {display: 'block'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: beamFrameAnimation, onCompleteParams:[4]})
+          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[4]})
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame5}));
         }
         var animateFrame3 = function(flag){

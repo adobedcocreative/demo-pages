@@ -140,7 +140,7 @@ amo.registerAttribute("frameText21", "TEXT", "<div style='top: 111px;left: 29px;
 amo.registerAttribute("frameText22", "TEXT", "<div style='top: 164px;left: 20px;width: 280px;color: #fff;line-height: 1;'><font style='font-size: 117px;letter-spacing: -2px;'>$65</font><font style='margin-left: 8px;font-size: 19px;display: inline-block;vertical-align: 50px;line-height: 0.9;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 3px 0 0 10px;font-size: 14px;'>w/autopay & paperless bill<br>+ taxes, fees & charges</div></div>");
 amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText31","TEXT","<div style='top: 89px;left: 20px;width: 260px;font-size: 28px;line-height: 1;text-align: center;'>300 Mbps Internet</div>");
-amo.registerAttribute("frameText32","TEXT","<div style='top: 212px;left: 20px;width: 260px;font-size: 28px;line-height: 1.05;text-align: center;'>Smart WiFi<br>with intelligent coverage</div>");
+amo.registerAttribute("frameText32","TEXT","<div style='top: 212px;left: 20px;width: 260px;font-size: 28px;line-height: 1.05;text-align: center;'>+ Smart WiFi<br>with intelligent coverage</div>");
 amo.registerAttribute("frameText33","TEXT","<div class='AlticeRegular' style='top: 477px;left: 22px;font-size: 14px;line-height: 1.1;'>Wired connection up to 300 Mbps.<br>WiFi speeds may vary.</div>");
 amo.registerAttribute("frameText41","TEXT","<div style='top: 216px;left: 15px;width: 270px;font-size: 28px;text-align: center;line-height: 1;'>Live, streaming,<br>and On Demand TV</div>");
 amo.registerAttribute("frameText42","TEXT","&nbsp;");
@@ -364,7 +364,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 310px;left: 22px;
           var frameId = 4;
           gsap.set('#frameBackground', {display: 'block'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: beamFrameAnimation, onCompleteParams:[4]})
+          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[4]})
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame5}));
         }
         var animateFrame3 = function(flag){

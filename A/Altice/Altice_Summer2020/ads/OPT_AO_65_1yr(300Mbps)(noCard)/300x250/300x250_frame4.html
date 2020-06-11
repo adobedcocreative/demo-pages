@@ -205,7 +205,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 159px;left: 24px;
     <div id="frameText52" class="frameText">!{frameText52}</div>
     <div id="frameText53" class="frameText">!{frameText53}</div>
     <!-- <div id="priceLabel" class="asset adSizeContainer" data-image="priceLabel"></div> -->
-    <div id="cta" class="text AlticeBold"
+    <div id="cta" class="text AlticeBold ctaWhite"
       data-text="ctaText"
       style="top: 205px;
         left: 24px;
@@ -373,6 +373,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 159px;left: 24px;
         }
         var animateFrame5 = function(flag){
           var frameId = 5;
+          ad.layers.cta.classList.remove('ctaWhite');
           gsap.set('#frameBackground', {display: 'none'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[5]})
@@ -380,21 +381,22 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 159px;left: 24px;
         }
         var animateFrame4 = function(flag){
           var frameId = 4;
+          ad.layers.cta.classList.remove('ctaWhite');
           gsap.set('#frameBackground', {display: 'block'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: beamFrameAnimation, onCompleteParams:[4]})
+          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[4]})
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame5}));
         }
         var animateFrame3 = function(flag){
           var frameId = 3;
-          ad.layers.cta.classList.remove('ctaWhite')
+          ad.layers.cta.classList.remove('ctaWhite');
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[3]})
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame4}));
         }
         var animateFrame2 = function(flag){
           var frameId = 2;
-          ad.layers.cta.classList.add('ctaWhite');
+          // ad.layers.cta.classList.add('ctaWhite');
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalLeftFrameAnimation, onCompleteParams:[frameId]})
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}));
