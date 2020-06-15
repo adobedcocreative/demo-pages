@@ -684,7 +684,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,0,0);
 
 	this.shape_1 = new cjs.Shape();
 	this.shape_1.graphics.f("#00A4EF").s().p("AiqCrIAAlVIFVAAIAAFVg");
-	this.shape_1.setTransform(-41.9098,-3.513,0.2684,0.2684);
+	this.shape_1.setTransform(-41.89,-3.51,0.2684,0.2684);
 
 	this.shape_2 = new cjs.Shape();
 	this.shape_2.graphics.f("#7FBA00").s().p("AiqCrIAAlVIFVAAIAAFVg");
