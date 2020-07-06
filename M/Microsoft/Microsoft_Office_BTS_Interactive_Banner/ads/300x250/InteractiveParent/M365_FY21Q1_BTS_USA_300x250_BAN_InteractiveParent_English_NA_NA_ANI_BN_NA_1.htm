@@ -171,6 +171,7 @@ var startBanner = function(){
 				function rHitOut()   {  exportRoot.mainMC.replay_btn.gotoAndStop(0)	}
 
 				exportRoot.subMenuClick = function(id) {
+					amoAd.onInteraction(id);
 					exportRoot.mainMC.popup_menu["opt"+id].gotoAndStop(1)
 					exportRoot.mainMC.hit1.removeEventListener("click", exportRoot.setMenu1 )
 					exportRoot.mainMC.hit2.removeEventListener("click", exportRoot.setMenu2 )
@@ -250,19 +251,20 @@ var startBanner = function(){
 			}
 		}
 		function click(id) {
-			parentWindow.amo.onDynAdClick(parentWindow.urls[id].data, "CLICK", parentWindow.urls[id].path, parentWindow.urls[id].label);
+			if(parentWindow.urls[id].path.toLowerCase() != 'na') parentWindow.amo.onDynAdClick(parentWindow.urls[id].data, "CLICK", parentWindow.urls[id].path, parentWindow.urls[id].label);
 		}
 		function onInteraction(id) {
-			var parentWindow = window.parent.parent.window;
-			if (parentWindow && 'amoUtils' in parentWindow && 'onInteraction' in parentWindow.amoUtils) {
+			var parentWindows = window.parent.parent.window;
+			if (parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
 				try {
-					parentWindow.amoUtils.onInteraction(parentWindow.urls[id].label, parentWindow.urls[id].data);
+					parentWindows.amoUtils.onInteraction(parentWindow.urls[id].label, parentWindow.urls[id].data);
 				} catch (e) {}
 			}
 		}
 		return {
 			addTracker: function(){ addTracker(); },
-			click: function(id) { click(id); }
+			click: function(id) { click(id); },
+			onInteraction: function(id) { onInteraction(id); }
 		};
 	})();
 </script>
