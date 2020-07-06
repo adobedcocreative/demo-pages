@@ -91,7 +91,7 @@
           }
         }
         var adUrl = '';
-        switch(adData.layout){
+        switch(adData.layout.split('|')[0]){
           case '3DPPT' : adURL = '3DPPT/M365_FY21Q1_BTS_USA_300x250_BAN_3DPPT_English_NA_NA_ANI_BN_NA_1.htm';break;
           case 'AllUpAI' : adURL = 'AllUpAI/M365_FY21Q1_BTS_USA_300x250_BAN_AllUpAI_English_NA_NA_ANI_BN_NA_1.htm';break;
           case 'CoauthorWord' : adURL = 'CoauthorWord/M365_FY21Q1_BTS_USA_300x250_BAN_CoauthorWord_English_NA_NA_ANI_BN_NA_1.htm';break;

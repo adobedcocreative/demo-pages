@@ -159,7 +159,7 @@
       var getCAMData = function(data) {
           var templates = {
             'Simplified': `var cam = {
-              layout: data.Layout,
+              layout: data.Layout + '|' + data["Smart Names"],
               textField1: data.textField1,
               textField2: data.textField2,
               textField3: data.textField3,

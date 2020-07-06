@@ -117,7 +117,7 @@ function handleComplete(evt,comp) {
 		bannerData.headline2 = eval(bannerData.textField2);
 		bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,"11px",0,0,"50","300", "center"] : '';
 		animation_container.addEventListener("click", function(){
-			parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl, bannerData.layout + ' - Click');
+			parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl, bannerData.layout + '|' + bannerData.ctaText);
 			if(bannerData.clickTracker) {
 				var clickTrackers = bannerData.clickTracker.split('^');
 				clickTrackers.forEach(function(url){
