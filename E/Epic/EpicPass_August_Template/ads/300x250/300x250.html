@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ad</title>
+    <script type="text/javascript" src="https://ads.everesttech.net/ads/static/local/AMOLibrary.js"></script>
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="https://use.typekit.net/hat6ala.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/script.min.js"></script>
+    <style media="screen">
+      /* @font-face {
+          font-family: KanitLight;
+          src: url('fonts/Kanit-Light.woff') format("woff");
+      }
+      @font-face {
+          font-family: KanitMedium;
+          src: url('fonts/Kanit-Medium.woff') format("woff");
+      }
+      .KanitLight { font-family: KanitLight; }
+      .KanitMedium { font-family: KanitMedium; } */
+      .BrandonGrotesqueBlack {
+        font-family: brandon-grotesque,sans-serif;
+        font-weight: 900;
+        font-style: normal;
+      }
+    </style>
+    <style media="screen" data-dynamic="style">
+      #ad {
+        width: 300px;
+        height: 250px;
+        font-family: brandon-grotesque,sans-serif;
+        font-weight: 900;
+        font-style: normal;
+        color: #fff;
+        background-color: #fff;
+      }
+      .frame {
+        position: absolute;
+        top:0px;
+        left:0px;
+        width:inherit;
+        height:inherit;
+      }
+      .orange { color: #f8951f; }
+      #cta {
+        color: #f79620;
+        background-color: #20285d;
+        -webkit-transition: color ease-in-out 0.3s, background-color ease-in-out 0.3s;
+        transition: color ease-in-out 0.3s, background-color ease-in-out 0.3s;
+      }
+      #cta::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        width: 0;
+        height: 0;
+        left: 50%;
+        margin-left: -8px;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 8px solid;
+        -webkit-transition: border ease-in-out 0.3s;
+        transition: border ease-in-out 0.3s;
+      }
+      #cta:hover {
+        color: #20285d;
+        background-color: #f79620;
+      }
+      #cta.selected {
+        color: #20285d;
+        background-color: #f79620;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="" id="ad">
+      <div id="backgroundColor" class="frame" style="background-color:#191d63;"></div>
+      <div id="backgroundImage1" class="asset frame" data-image="backgroundImage1"></div>
+      <div id="backgroundImage2" class="asset frame" data-image="backgroundImage2"></div>
+      <div id="logoImage1" class="asset frame" data-image="logoImage1"></div>
+      <div id="logoImage2" class="asset frame" data-image="logoImage2"></div>
+      <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
+      <div id="frameText1" class="text-top"
+        data-text="frameText1"
+        data-style="text-align:center;"
+        style="top: 63px;
+          left: 10px;
+          width: 280px;
+          height: 120px;
+          font-size: 20px;
+          letter-spacing: 3.25px;
+          line-height: 1.5;">
+      </div>
+      <div id="frameText2" class="text-top"
+        data-text="frameText2"
+        data-style="text-align:center;"
+        style="top: 63px;
+          left: 10px;
+          width: 280px;
+          height: 120px;
+          font-size: 20px;
+          letter-spacing: 3.25px;
+          line-height: 1.5;">
+      </div>
+      <div id="frameText3" class="text-top"
+        data-text="frameText3"
+        data-style="text-align:center;"
+        style="top: 63px;
+          left: 10px;
+          width: 280px;
+          height: 120px;
+          font-size: 20px;
+          letter-spacing: 3.25px;
+          line-height: 1.5;">
+      </div>
+      <div id="cta" class="text orange"
+        data-text="ctaText"
+        data-style="padding:0 10px;"
+        style="bottom: 0px;
+          left: 0px;
+          width: inherit;
+          height: 40px;
+          font-size: 12px;
+          letter-spacing: 2.4px;
+          border-bottom: 5px solid;
+          box-sizing: border-box;">
+      </div>
+      <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
+    </div>
+    <div id="loadFont" style="width:0;height:0;overflow:hidden;">
+      <div class="BrandonGrotesqueBlack">BrandonGrotesqueBlack</div>
+    </div>
+    <script type="text/javascript">
+      var userInterationFlag = false;
+      var ad = new Ad({
+        root: document.querySelector('#ad'),
+        width: 300,
+        height: 250,
+        borderWidth: 0,
+        borderColor: 'transparent'
+      });
+      setTimeout(function() {
+        ad.contentSetup({
+          cam: {
+            // backgroundImage1: 'assets/W19-20_F4_300x250_Non_Family_img_1.jpg',
+            // backgroundImage2: 'assets/W19-20_F4_300x250_Non_Family_img_2.jpg',
+            // frameText1: 'SKIP THE TICKET LINE',
+            // frameText2: 'AND GET<br>AN EARLY<br>START<br>ON APRÈS',
+            // frameText3: 'SAVE BIG ON LIFT TICKETS',
+            // ctaText: 'SAVE TODAY',
+            // clickURL: 'https://www.adobe.com/#VAIL',
+            // impressionTracker: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII='
+
+
+
+            backgroundImage1: 'assets/300x250_EpicPass_August_frame1a.png',
+            backgroundImage2: 'assets/300x250_EpicPass_August_frame1b.png',
+            logoImage1: 'assets/300x250_EpicPass_August_frame1_Logo.png',
+            logoImage2: 'assets/300x250_EpicPass_August_frame2_Logo.png',
+            frameText1: 'LOREM IPSUM<br>LOREM IPSUM',
+            frameText2: 'TIME’S RUNNING<br>OUT TO SAVE',
+            frameText3: 'LAST CHANCE TO USE YOUR CREDIT AND<div class="orange">GET 10 BUDDY TICKETS</div>',
+            ctaText: "BUY BEFORE SEPT 7",
+            clickURL: "https://www.epicpass.com/",
+          },
+          feed: [
+            {
+              name: 'Vail',
+            }
+          ],
+          staticData: {
+            // ref: 'ref.png'
+            styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
+          },
+          beforeLoad: function(data){
+            data.map(function(content){
+
+            });
+            return data;
+          }
+        }, function(data){
+          var adData = data[0], adClickUrl = adData['clickURL'];
+          ad.root.addEventListener("click", function(e) {
+            if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
+          });
+          // if(adData.impressionTracker.toLowerCase() != 'na'){ ad.loadAssets(adData.impressionTracker, function(assets){ }); }
+          if(adData.styleProperties && adData.styleProperties.toLowerCase() != 'na') {
+            try {
+              eval('var styleProperties = ' + adData.styleProperties);
+              if(styleProperties && typeof styleProperties == 'object')
+              for(var i in styleProperties) {
+                gsap.set(i, styleProperties[i]);
+              }
+            } catch(e) {  }
+          }
+          function ctaMouseOver() { if(!userInterationFlag) ad.layers.cta.classList.add('selected'); }
+          function ctaMouseOut() { ad.layers.cta.classList.remove('selected') }
+          function ctaFlickers() {
+            var delay = 1;
+            gsap.delayedCall(delay, ctaMouseOver);
+            gsap.delayedCall(delay + 0.75, ctaMouseOut);
+
+            delay += 2;
+            gsap.delayedCall(delay, ctaMouseOver);
+            gsap.delayedCall(delay + 0.75, ctaMouseOut);
+
+            delay += 2;
+            gsap.delayedCall(delay, ctaMouseOver);
+            gsap.delayedCall(delay + 0.75, ctaMouseOut);
+          }
+          ad.root.onmouseover = function() { userInterationFlag = true; };
+          var adWidth = 300,adHeight = 250;
+          gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.5}})
+          .to('#backgroundImage1', { autoAlpha:0.2,delay:1 })
+          .from('#backgroundImage2', { autoAlpha:0 }, '-=0.5')
+          .from('#logoImage1, #frameText1', { y:-adHeight/2 })
+          .to('#logoImage1, #backgroundImage2', { autoAlpha:0, delay:2.5 })
+          .to('#frameText1', { x:adWidth }, '-=0.5')
+          .from('#frameText2', { x:-adWidth }, '-=0.5')
+          .from('#logoImage2', { y:-adHeight/2 }, '-=0.2')
+          .to('#frameText2', { x:adWidth, delay:2.5 })
+          .from('#frameText3', { x:-adWidth }, '-=0.5')
+          .from('#cta', { y:150, onComplete:ctaFlickers })
+        });
+      }, 2000);
+    </script>
+  </body>
+</html>

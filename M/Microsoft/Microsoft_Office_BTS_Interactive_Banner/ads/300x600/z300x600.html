@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ads.everesttech.net/ads/static/local/AMOLibrary.js" charset="utf-8"></script>
+    <style media="screen">
+      body { margin: 0; padding: 0; }
+      iframe { border: none; }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+      function loadData() {
+        var replaceMacro = function(text, data) {
+          var macros = text.match(/\!\{(.*?)\}/g);
+          if(macros) {
+            macros.forEach(function(macro){
+              var macroText = macro.split('!{').join('').split('}').join('');
+              for(var key in data) { if(key == macroText) { macroText = data[key]; } }
+              text = text.split(macro).join(macroText);
+            });
+          }
+          return text;
+        }
+        var contentD = [
+          {
+            "passthroughfield1": "['<#505050>Ace the school year with |Microsoft 365. |What’s your goal?','20.5px',30,62,'23','350', 'left']",
+            "passthroughfield2": "na",
+            "passthroughfield3": "['<#0078d4>Choose one','15px',15,7,'18','350', 'left']",
+            "product_url": "https://adobe.com/#Microsoft1",
+          },
+          {
+            "passthroughfield1": "['<#505050>Work in real time, |together','20px',32,76 ,'23','350', 'left']",
+            "passthroughfield2": "['<#505050>Coauthor documents and communicate |in real time across your favorite apps, |plus 1 TB of OneDrive cloud storage','12.3px',32,131,'14','350', 'left']",
+            "passthroughfield3": "['<#505050>Working virtually','15px',15,7,'18','350', 'left']",
+            "product_url": "https://adobe.com/#Microsoft2",
+          },
+          {
+            "passthroughfield1": "['<#505050>Unleash your imagination','20px',32,75 ,'23','350', 'left']",
+            "passthroughfield2": "['<#505050>Surprise your peers with 3D presentations |in PowerPoint, plus 1 TB of OneDrive |cloud storage','12.3px',32,106,'14','350', 'left']",
+            "passthroughfield3": "['<#505050>Keeping my kids engaged','15px',15,7,'18','350', 'left']",
+            "product_url": "https://adobe.com/#Microsoft3",
+          },
+          {
+            "passthroughfield1": "['<#505050>Get a clear picture|of your finances','20px',30,75,'23','350', 'left']",
+            "passthroughfield2": "['<#505050>Securely track and manage your budget|with smart templates in Excel, plus 1 TB|of OneDrive cloud storage','12.3px',32,131,'14','350', 'left']",
+              "passthroughfield3": "['<#505050>Saving money','15px',15,7,'18','350', 'left']",
+            "product_url": "https://adobe.com/#Microsoft4",
+          },
+        ];
+
+        if(contentD && contentD.length) { contentD.forEach(function(data) { amo.registerContent(data); }); }
+        amo.registerVariation("layout", "InteractiveParent");
+        amo.registerVariation("textField1", "!{passthroughfield1}");
+        amo.registerVariation("textField2", "!{passthroughfield2}");
+        amo.registerVariation("textField3", "!{passthroughfield3}");
+        amo.registerVariation("ctaText", "BUY NOW");
+        // amo.registerVariation("ctaArrowVisibleFlag", "!{passthroughfield2}");
+        amo.registerVariation("impressionTracker", "../../../../1x1.png?impressionTracker=" + Math.random());
+        amo.registerVariation("clickTracker", "../../../../1x1.png?clickTracker=" + Math.random());
+        amo.registerVariation("clickURL", "!{product_url}");
+        var content = [], cam = {};
+        var cam = {
+          layout: amo.variation['layout'],
+          textField1: amo.variation['textField1'],
+          textField2: amo.variation['textField2'],
+          textField3: amo.variation['textField3'],
+          cta: amo.variation['ctaText'],
+          // ctaArrowVisibleFlag: amo.variation['ctaArrowVisibleFlag'],
+          impressionTracker: amo.variation['impressionTracker'],
+          clickTracker: amo.variation['clickTracker'],
+          url: amo.variation['clickURL'],
+        };
+        if(amo.content && amo.content.length) {
+          amo.content.forEach(function(data) {
+            content.push({
+              feedData: data,
+              layout: cam.layout,
+              textField1: cam.textField1,
+              textField2: cam.textField2,
+              textField3: cam.textField3,
+              ctaText: cam.cta,
+              // ctaArrowVisibleFlag: cam.ctaArrowVisibleFlag.toString().toLowerCase() == 'false' ? false : true,
+              ctaArrowVisibleFlag: true,
+              impressionTracker: cam.impressionTracker,
+              clickTracker: cam.clickTracker,
+              url: cam.url,
+            });
+          });
+          if(content && content.length) {
+            content.map(function(data){
+              for(var key in data) { data[key] = typeof data[key] == 'string' ? replaceMacro(data[key], data.feedData) : data[key]; }
+            });
+          }
+        }
+        window.adData = content[0], window.adClickUrl = adData.url;
+        window.urls = [];
+        for(var i in content) {
+          var url = {}
+          url.data = content[i].feedData;
+          url.path = content[i].url;
+          url.label = content[i].layout + '|' + eval(content[i].textField3)[0].split('>')[1];
+          urls.push(url);
+          for(var j = 1; j <= 3; j++) {
+            content[i]['textField'+j] = content[i]['textField'+j] && content[i]['textField'+j].toLowerCase() != 'na' ? content[i]['textField'+j] : ' ';
+            content[i]['textField'+j] = content[i]['textField'+j].replace('-_-','—');
+          }
+        }
+        var ctaText = adData.ctaText && adData.ctaText.toLowerCase() != 'na' ? adData.ctaText : '';
+        ctaText = ctaText.length && ctaText.indexOf('<br>') != -1 ? ctaText.split('<br>').join('\n') : ctaText;
+        var impressionTracker = adData.impressionTracker && adData.impressionTracker.toLowerCase() != 'na' ? adData.impressionTracker : '';
+        var clickTracker = adData.clickTracker && adData.clickTracker.toLowerCase() != 'na' ? adData.clickTracker : '';
+        if(impressionTracker) {
+          var isn = 'data' in amo && 'isn' in amo.data ? amo.data.isn : '';
+          if(isn.length) { impressionTracker = impressionTracker.split('(t_td_isn)').join(isn); }
+          for(var i = 1; i<=5; i++) {
+              var trackingCode = 'data' in amo && 'data' in amo.data && 'atsParams' in amo.data.data && ('x2_tracking_code_'+i) in amo.data.data.atsParams ? amo.data.data.atsParams['x2_tracking_code_'+i] : '';
+              if(trackingCode.length){ impressionTracker = impressionTracker.split('$(t_qp_TC_'+i+')').join(trackingCode); }
+          }
+        }
+        var adUrl = '';
+        switch(adData.layout.split('|')[0]){
+          case 'InteractiveParent' : adURL = 'InteractiveParent/M365_FY21Q1_BTS_USA_300x600_BAN_InteractiveParent_English_NA_NA_ANI_BN_NA_1.htm';break;
+          case 'InteractiveStudent' : adURL = 'InteractiveStudent/M365_FY21Q1_BTS_USA_300x600_BAN_InteractiveStudent_English_NA_NA_ANI_BN_NA_1.htm';break;
+        }
+        var iframe = document.createElement('iframe');
+        iframe.src = adURL;
+        iframe.width = '300';
+        iframe.height = '600';
+        document.body.appendChild(iframe);
+        var bannerData = {
+          headline1: content[0].textField1,
+          opts: content[0].textField3,
+          CTA: ctaText,
+          // CTAarrowVisible: [adData.ctaArrowVisibleFlag, 0, 0],
+          impressionTracker: impressionTracker,
+          clickTracker: clickTracker,
+        };
+        for(var i = 1; i <= 3; i++) {
+          bannerData['page_'+i+'_1'] = content[i].textField1;
+          bannerData['page_'+i+'_2'] = content[i].textField2;
+          bannerData['opt'+i] = content[i].textField3;
+        }
+        for(var i in bannerData) { try{ bannerData[i] = eval(bannerData[i]); } catch(e) {} }
+        window.getBannerData = function(){ var obj = {}; for(var i in bannerData) { obj[i] = bannerData[i]; } return obj; }
+      }
+      loadData();
+    </script>
+  </body>
+</html>
