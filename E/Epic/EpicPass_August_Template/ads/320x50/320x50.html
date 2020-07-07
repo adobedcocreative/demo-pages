@@ -44,8 +44,8 @@
       }
       .orange { color: #f8951f; }
       #cta {
-        color: #f79620;
-        background-color: #191d63;
+        color: !{ctaTextColor};
+        background-color: !{ctaButtonColor};
         -webkit-transition: color ease-in-out 0.3s, background-color ease-in-out 0.3s;
         transition: color ease-in-out 0.3s, background-color ease-in-out 0.3s;
       }
@@ -63,13 +63,13 @@
         -webkit-transition: border ease-in-out 0.3s;
         transition: border ease-in-out 0.3s;
       }
-      #cta:hover {
-        color: #20285d;
-        background-color: #f79620;
+      #ad:hover #cta {
+        color: !{ctaButtonColor};
+        background-color: !{ctaTextColor};
       }
       #cta.selected {
-        color: #20285d;
-        background-color: #f79620;
+        color: !{ctaButtonColor};
+        background-color: !{ctaTextColor};
       }
     </style>
   </head>
@@ -95,8 +95,8 @@
       <div id="frameText2" class="text-left"
         data-text="frameText2"
         style="top: 5px;
-          left: 145px;
-          width: 166px;
+          left: 140px;
+          width: 171px;
           height: 40px;
           font-size: 8px;
           letter-spacing: 1.5px;
@@ -105,8 +105,8 @@
       <div id="frameText3" class="text-left"
         data-text="frameText3"
         style="top: 5px;
-          left: 145px;
-          width: 118px;
+          left: 140px;
+          width: 123px;
           height: 40px;
           font-size: 8px;
           letter-spacing: 1.5px;
@@ -149,6 +149,7 @@
             frameText2: 'TIME’S RUNNING OUT TO SAVE',
             frameText3: 'LAST CHANCE TO USE YOUR CREDIT AND<div class="orange">GET 10 BUDDY TICKETS</div>',
             ctaText: "BUY BEFORE SEPT 7",
+            ctaColor: "#f79620^#20285d",
             clickURL: "https://www.epicpass.com/",
           },
           feed: [
@@ -162,7 +163,8 @@
           },
           beforeLoad: function(data){
             data.map(function(content){
-
+              content.ctaTextColor = content.ctaColor.split('^')[0];
+              content.ctaButtonColor = content.ctaColor.split('^')[1];
             });
             return data;
           }

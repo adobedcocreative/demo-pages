@@ -44,8 +44,8 @@
       }
       .orange { color: #f8951f; }
       #cta {
-        color: #f79620;
-        background-color: #20285d;
+        color: !{ctaTextColor};
+        background-color: !{ctaButtonColor};
         -webkit-transition: color ease-in-out 0.3s, background-color ease-in-out 0.3s;
         transition: color ease-in-out 0.3s, background-color ease-in-out 0.3s;
       }
@@ -63,13 +63,13 @@
         -webkit-transition: border ease-in-out 0.3s;
         transition: border ease-in-out 0.3s;
       }
-      #cta:hover {
-        color: #20285d;
-        background-color: #f79620;
+      #ad:hover #cta {
+        color: !{ctaButtonColor};
+        background-color: !{ctaTextColor};
       }
       #cta.selected {
-        color: #20285d;
-        background-color: #f79620;
+        color: !{ctaButtonColor};
+        background-color: !{ctaTextColor};
       }
     </style>
   </head>
@@ -151,6 +151,7 @@
             frameText2: 'TIME’S RUNNING<br>OUT TO SAVE',
             frameText3: 'LAST CHANCE TO USE YOUR CREDIT AND<div class="orange">GET 10 BUDDY TICKETS</div>',
             ctaText: "BUY BEFORE SEPT 7",
+            ctaColor: "#f79620^#20285d",
             clickURL: "https://www.epicpass.com/",
           },
           feed: [
@@ -164,7 +165,8 @@
           },
           beforeLoad: function(data){
             data.map(function(content){
-
+              content.ctaTextColor = content.ctaColor.split('^')[0];
+              content.ctaButtonColor = content.ctaColor.split('^')[1];
             });
             return data;
           }

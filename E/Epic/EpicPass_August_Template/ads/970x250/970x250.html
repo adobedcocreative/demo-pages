@@ -44,8 +44,8 @@
       }
       .orange { color: #f8951f; }
       #cta {
-        color: #f79620;
-        background-color: #191d63;
+        color: !{ctaTextColor};
+        background-color: !{ctaButtonColor};
         -webkit-transition: color ease-in-out 0.3s, background-color ease-in-out 0.3s;
         transition: color ease-in-out 0.3s, background-color ease-in-out 0.3s;
       }
@@ -63,13 +63,13 @@
         -webkit-transition: border ease-in-out 0.3s;
         transition: border ease-in-out 0.3s;
       }
-      #cta:hover {
-        color: #20285d;
-        background-color: #f79620;
+      #ad:hover #cta {
+        color: !{ctaButtonColor};
+        background-color: !{ctaTextColor};
       }
       #cta.selected {
-        color: #20285d;
-        background-color: #f79620;
+        color: !{ctaButtonColor};
+        background-color: !{ctaTextColor};
       }
     </style>
   </head>
@@ -94,22 +94,22 @@
       </div>
       <div id="frameText2" class="text-bottom-left"
         data-text="frameText2"
-        style="bottom: 36px;
+        style="bottom: 38px;
           left: 428px;
           width: 390px;
           height: 190px;
-          font-size: 30px;
-          letter-spacing: 6.8px;
+          font-size: 28px;
+          letter-spacing: 6.4px;
           line-height: 1.58;">
       </div>
       <div id="frameText3" class="text-bottom-left"
         data-text="frameText3"
-        style="bottom: 36px;
+        style="bottom: 38px;
           left: 428px;
           width: 390px;
           height: 190px;
-          font-size: 30px;
-          letter-spacing: 6.8px;
+          font-size: 28px;
+          letter-spacing: 6.4px;
           line-height: 1.58;">
       </div>
       <div id="cta" class="text orange"
@@ -149,6 +149,7 @@
             frameText2: 'TIME’S RUNNING<br>OUT TO SAVE',
             frameText3: 'LAST CHANCE<br>TO USE YOUR CREDIT AND GET<div class="orange">10 BUDDY TICKETS</div>',
             ctaText: "BUY BEFORE SEPT 7",
+            ctaColor: "#f79620^#20285d",
             clickURL: "https://www.epicpass.com/",
           },
           feed: [
@@ -162,7 +163,8 @@
           },
           beforeLoad: function(data){
             data.map(function(content){
-
+              content.ctaTextColor = content.ctaColor.split('^')[0];
+              content.ctaButtonColor = content.ctaColor.split('^')[1];
             });
             return data;
           }
