@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ad</title>
+    <script type="text/javascript" src="https://ads.everesttech.net/ads/static/local/AMOLibrary.js"></script>
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="https://use.typekit.net/clc1fgj.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/script.min.js"></script>
+    <style media="screen">
+      /* @font-face {
+          font-family: KanitLight;
+          src: url('fonts/Kanit-Light.woff') format("woff");
+      }
+      @font-face {
+          font-family: KanitMedium;
+          src: url('fonts/Kanit-Medium.woff') format("woff");
+      }
+      .KanitLight { font-family: KanitLight; }
+      .KanitMedium { font-family: KanitMedium; } */
+      .TradeGothicNextLTProBoldCondensed {
+        font-family: trade-gothic-next-condensed,sans-serif;
+        font-weight: 700;
+        font-style: normal;
+      }
+      .TradeGothicNextLTProCondensed {
+        font-family: trade-gothic-next-condensed,sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+      .GillSansNovaBook{
+        font-family: gill-sans-nova,sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+    </style>
+    <style media="screen" data-dynamic="style">
+      #ad {
+        width: 970px;
+        height: 250px;
+        font-family: arial,sans-serif;
+        font-weight: 900;
+        font-style: normal;
+        color: #4097d6;
+        background-color: #fff;
+      }
+      .frame {
+        position: absolute;
+        top:0px;
+        left:0px;
+        width:inherit;
+        height:inherit;
+      }
+      .regular {
+        font-family: trade-gothic-next-condensed,sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 89%;
+        line-height: 1.1;
+      }
+      #cta { background-color: !{ctaBtn}; }
+      #ad:hover #cta { background-color: !{ctaBtnHover}; }
+    </style>
+  </head>
+  <body>
+    <div class="" id="ad">
+      <div id="backgroundImage1" class="asset frame" data-image="backgroundImage1"></div>
+      <div id="backgroundImage2" class="asset frame multiframe" data-image="backgroundImage2"></div>
+      <div id="backgroundImage3" class="asset frame multiframe" data-image="backgroundImage3"></div>
+      <div id="backgroundImage4" class="asset frame multiframe" data-image="backgroundImage4"></div>
+      <div id="topWhitePatch" class="frame" style="top:-1198px;left:-636px;background-color:rgba(255, 255, 255, 0.85);"></div>
+      <div id="bottomWhitePatch" class="frame" style="left:596px;background-color:rgba(255, 255, 255, 0.9);"></div>
+      <div id="logoImage" class="asset frame" data-image="logoImage"></div>
+      <div id="saleImage" class="asset frame" data-image="saleImage" style="display:none;"></div>
+      <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
+      <div id="frameText" class="text-left"
+        style="top: 50px;
+          left: 623px;
+          width: 320px;
+          height: 130px;
+          font-size: 34px;
+          letter-spacing: 2.65px;
+          line-height: 1.13;">
+          <span><div id="frameText1" class="TradeGothicNextLTProCondensed" style="font-size:89%;">!{frameText1}</div><div id="frameText2" class="TradeGothicNextLTProBoldCondensed">!{frameText2}</div></span>
+      </div>
+      <div id="cta" class="text GillSansNovaBook"
+        data-text="ctaText"
+        data-style="padding:0 8px 2px;"
+        style="top: 193px;
+          left: 623px;
+          width: 156px;
+          height: 40px;
+          font-size: 16px;
+          letter-spacing: 3.2px;
+          border-radius: 20px;
+          color: #fff;">
+      </div>
+      <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
+    </div>
+    <div id="loadFont" style="width:0;height:0;overflow:hidden;">
+      <div class="TradeGothicNextLTProCondensed">TradeGothicNextLTProCondensed</div>
+      <div class="TradeGothicNextLTProBoldCondensed">TradeGothicNextLTProBoldCondensed</div>
+      <div class="GillSansNovaBook">GillSansNovaBook</div>
+    </div>
+    <script type="text/javascript">
+      var layout = 'standard';
+      var ad = new Ad({
+        root: document.querySelector('#ad'),
+        width: 970,
+        height: 250,
+        borderWidth: 1,
+        borderColor: '#999'
+      });
+      setTimeout(function() {
+        ad.contentSetup({
+          cam: {
+            layout: 'standard', //standard|sale|multiframe
+            backgroundImage1: 'assets/970x250_Vail_Resort_BackgroundImage1.png',
+            backgroundImage2: 'assets/970x250_Vail_Resort_BackgroundImage2.png',
+            backgroundImage3: 'assets/970x250_Vail_Resort_BackgroundImage3.png',
+            backgroundImage4: 'assets/970x250_Vail_Resort_BackgroundImage4.png',
+            logoImage: 'assets/970x250_Vail_Resort_LogoImage.png',
+            frameText1: 'THE BEST RATES',
+            frameText2: 'ON PREMIER LODGING',
+            ctaText: "BOOK NOW",
+            clickURL: "https://www.vail.com/",
+          },
+          feed: [
+            {
+              name: 'Vail',
+            }
+          ],
+          staticData: {
+            // ref: 'ref.png'
+            saleImage: 'images/970x250_Vail_Resort_SaleImage.png',
+            styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
+            ctaBtnColor: '#4097d6^#125789',
+          },
+          beforeLoad: function(data){
+            data.map(function(content){
+              content.ctaBtn = content.ctaBtnColor.split('^')[0];
+              content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
+              layout = content.layout.toLowerCase();
+              if(layout == 'sale') {
+                content.styleProperties = "{'#saleImage': {css:{display:'block'}}}";
+              }
+            });
+            return data;
+          }
+        }, function(data){
+          var adData = data[0], adClickUrl = adData['clickURL'];
+          ad.root.addEventListener("click", function(e) {
+            if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
+          });
+          // if(adData.impressionTracker.toLowerCase() != 'na'){ ad.loadAssets(adData.impressionTracker, function(assets){ }); }
+          if(adData.styleProperties && adData.styleProperties.toLowerCase() != 'na') {
+            try {
+              eval('var styleProperties = ' + adData.styleProperties);
+              if(styleProperties && typeof styleProperties == 'object')
+              for(var i in styleProperties) {
+                gsap.set(i, styleProperties[i]);
+              }
+            } catch(e) {  }
+          }
+          gsap.set('.multiframe', { autoAlpha :0})
+          var adWidth = 970,adHeight = 250;
+          if(layout == 'multiframe') {
+            gsap.timeline({defaults:{ease: Power2.easeInOut, duration: 0.7}})
+            .from('#bottomWhitePatch', { x:adWidth/2, delay:0.5 })
+            .from('#frameText, #cta, #logoImage', { autoAlpha:0 })
+            .to('#frameText', { autoAlpha:0, delay:3 })
+            .to('#frameText, #backgroundImage2', { autoAlpha:1 })
+            .to('#frameText', { autoAlpha:0, delay:3 })
+            .to('#frameText, #backgroundImage3', { autoAlpha:1 })
+            .to('#frameText', { autoAlpha:0, delay:3 })
+            .to('#frameText, #backgroundImage4', { autoAlpha:1 })
+          } else {
+            gsap.timeline({defaults:{ease: Power2.easeInOut, duration: 0.7}})
+            .from('#bottomWhitePatch', { x:adWidth/2, delay:0.5 })
+            .from('#frameText, #cta, #logoImage, #saleImage', { autoAlpha:0 })
+          }
+        });
+      }, 2000);
+    </script>
+  </body>
+</html>

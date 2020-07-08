@@ -159,13 +159,15 @@
       var getCAMData = function(data) {
           var templates = {
             'Simplified': `var cam = {
+              brandName: data.Resort,
               layout: data.layout,
-              backgroundImage1: '../../assets/'+data.backgroundImage1,
-              backgroundImage2: '../../assets/'+data.backgroundImage2,
-              backgroundImage3: '../../assets/'+data.backgroundImage3,
-              backgroundImage4: '../../assets/'+data.backgroundImage4,
-              logoImage: '../../assets/'+data.logoImage,
-              frameText: data.frameText,
+              backgroundImage1: '../../../assets/'+data.backgroundImage1,
+              backgroundImage2: '../../../assets/'+data.backgroundImage2,
+              backgroundImage3: '../../../assets/'+data.backgroundImage3,
+              backgroundImage4: '../../../assets/'+data.backgroundImage4,
+              logoImage: '../../../assets/'+data.logoImage,
+              frameText1: data.frameText1,
+              frameText2: data.frameText2,
               ctaText: data.CTA,
               clickURL: data.clickURL,
             }`,

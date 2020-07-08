@@ -22,7 +22,8 @@ var getFeed1 = function(){
               "backgroundImage3": data['gsx$backgroundimage3']['$t'],
               "backgroundImage4": data['gsx$backgroundimage4']['$t'],
               "logoImage": data['gsx$logoimage']['$t'],
-              "frameText": data['gsx$frametext']['$t'],
+              "frameText1": data['gsx$frametext1']['$t'],
+              "frameText2": data['gsx$frametext2']['$t'],
               "CTA": data['gsx$cta']['$t'],
               "clickURL": data['gsx$url']['$t'],
             });
