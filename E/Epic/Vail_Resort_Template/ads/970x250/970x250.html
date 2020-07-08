@@ -60,7 +60,7 @@
         line-height: 1.1;
       }
       #cta { background-color: !{ctaBtn}; }
-      #cta:hover { background-color: !{ctaBtnHover}; }
+      #ad:hover #cta { background-color: !{ctaBtnHover}; }
     </style>
   </head>
   <body>
@@ -69,31 +69,31 @@
       <div id="backgroundImage2" class="asset frame multiframe" data-image="backgroundImage2"></div>
       <div id="backgroundImage3" class="asset frame multiframe" data-image="backgroundImage3"></div>
       <div id="backgroundImage4" class="asset frame multiframe" data-image="backgroundImage4"></div>
-      <div id="topWhitePatch" class="frame" style="top:-198px;left:-636px;background-color:rgba(255, 255, 255, 0.85);"></div>
-      <div id="bottomWhitePatch" class="frame" style="left:576px;background-color:rgba(255, 255, 255, 0.9);"></div>
+      <div id="topWhitePatch" class="frame" style="top:-1198px;left:-636px;background-color:rgba(255, 255, 255, 0.85);"></div>
+      <div id="bottomWhitePatch" class="frame" style="left:596px;background-color:rgba(255, 255, 255, 0.9);"></div>
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="saleImage" class="asset frame" data-image="saleImage" style="display:none;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
       <div id="frameText" class="text-left TradeGothicNextLTProBoldCondensed"
         data-text="frameText"
-        style="top: 9px;
-          left: 602px;
-          width: 350px;
-          height: 155px;
-          font-size: 44px;
-          letter-spacing: 4.2px;
-          line-height: 1.05;">
+        style="top: 50px;
+          left: 623px;
+          width: 320px;
+          height: 130px;
+          font-size: 34px;
+          letter-spacing: 2.65px;
+          line-height: 1.13;">
       </div>
       <div id="cta" class="text GillSansNovaBook"
         data-text="ctaText"
         data-style="padding:0 8px 2px;"
-        style="top: 178px;
+        style="top: 193px;
           left: 603px;
           width: 156px;
-          height: 50px;
+          height: 40px;
           font-size: 16px;
           letter-spacing: 3.2px;
-          border-radius: 12px;
+          border-radius: 20px;
           color: #fff;">
       </div>
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
@@ -167,17 +167,17 @@
           if(layout == 'multiframe') {
             gsap.timeline({defaults:{ease: Power2.easeInOut, duration: 0.7}})
             .from('#bottomWhitePatch', { x:adWidth/2, delay:0.5 })
-            .from('#frameText, #cta', { autoAlpha:0 })
-            .to('#frameText', { autoAlpha:0, delay:2 })
+            .from('#frameText, #cta, #logoImage', { autoAlpha:0 })
+            .to('#frameText', { autoAlpha:0, delay:3 })
             .to('#frameText, #backgroundImage2', { autoAlpha:1 })
-            .to('#frameText', { autoAlpha:0, delay:2 })
+            .to('#frameText', { autoAlpha:0, delay:3 })
             .to('#frameText, #backgroundImage3', { autoAlpha:1 })
-            .to('#frameText', { autoAlpha:0, delay:2 })
+            .to('#frameText', { autoAlpha:0, delay:3 })
             .to('#frameText, #backgroundImage4', { autoAlpha:1 })
           } else {
             gsap.timeline({defaults:{ease: Power2.easeInOut, duration: 0.7}})
             .from('#bottomWhitePatch', { x:adWidth/2, delay:0.5 })
-            .from('#frameText, #cta, #saleImage', { autoAlpha:0 })
+            .from('#frameText, #cta, #logoImage, #saleImage', { autoAlpha:0 })
           }
         });
       }, 2000);

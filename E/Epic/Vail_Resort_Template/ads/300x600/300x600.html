@@ -59,7 +59,7 @@
         font-size: 90%;
       }
       #cta { background-color: !{ctaBtn}; }
-      #cta:hover { background-color: !{ctaBtnHover}; }
+      #ad:hover #cta { background-color: !{ctaBtnHover}; }
     </style>
   </head>
   <body>
@@ -170,11 +170,11 @@
             gsap.timeline({defaults:{ease: Power2.easeInOut, duration: 0.7}})
             .from('#bottomWhitePatch', { y:adHeight, delay:0.5 })
             .from('#frameText, #cta', { autoAlpha:0 })
-            .to('#frameText', { autoAlpha:0, delay:2 })
+            .to('#frameText', { autoAlpha:0, delay:3 })
             .to('#frameText, #backgroundImage2', { autoAlpha:1 })
-            .to('#frameText', { autoAlpha:0, delay:2 })
+            .to('#frameText', { autoAlpha:0, delay:3 })
             .to('#frameText, #backgroundImage3', { autoAlpha:1 })
-            .to('#frameText', { autoAlpha:0, delay:2 })
+            .to('#frameText', { autoAlpha:0, delay:3 })
             .to('#frameText, #backgroundImage4', { autoAlpha:1 })
           } else {
             gsap.timeline({defaults:{ease: Power2.easeInOut, duration: 0.7}})
