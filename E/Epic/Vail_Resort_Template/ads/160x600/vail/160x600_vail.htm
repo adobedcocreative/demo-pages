@@ -157,14 +157,11 @@
               layout = content.layout.toLowerCase();
               if(layout == 'multipleimages') {
                 content.styleProperties = "{'#frameText': {x:-3, y:-11}, '#frameText span': {css:{textAlign:'left'}}, '#cta': {x:-28, y:-20}, '#saleImage': {css:{display:'block'}}}";
-                ad.root.querySelector('#frameText1').classList.remove('text');
-                ad.root.querySelector('#frameText1').classList.add('text-left');
-
-                ad.root.querySelector('#frameText2').classList.remove('text');
-                ad.root.querySelector('#frameText2').classList.add('text-left');
-
-                ad.root.querySelector('#frameText3').classList.remove('text');
-                ad.root.querySelector('#frameText3').classList.add('text-left');
+                var frameText = document.querySelectorAll("#frameText1,#frameText2,#frameText3");
+                for (var i = 0; i < frameText.length; i++){
+                 frameText[i].classList.remove('text');
+                 frameText[i].classList.add('text-left');
+                }
                 ad.root.querySelector('#cta').style.width = '70px';
                 ad.root.querySelector('#cta').style.height = '23px';
                 ad.root.querySelector('#cta').style.fontSize = '8px';

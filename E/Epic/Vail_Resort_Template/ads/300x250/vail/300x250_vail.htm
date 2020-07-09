@@ -148,9 +148,10 @@
               layout = content.layout.toLowerCase();
               if(layout == 'multipleimages') {
                 content.styleProperties = "{'#cta': {x:-191, y:21}, '#saleImage': {css:{display:'block'}}}";
-                ad.root.querySelector('#frameText1').style.height = '38px';
-                ad.root.querySelector('#frameText2').style.height = '38px';
-                ad.root.querySelector('#frameText3').style.height = '38px';
+                var frameText = document.querySelectorAll("#frameText1,#frameText2,#frameText3");
+                for (var i = 0; i < frameText.length; i++){
+                 frameText[i].style.height = '38px';
+                }
               }
             });
             return data;

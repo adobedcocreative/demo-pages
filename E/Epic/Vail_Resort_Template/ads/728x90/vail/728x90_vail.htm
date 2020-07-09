@@ -154,20 +154,14 @@
               layout = content.layout.toLowerCase();
               if(layout == 'multipleimages') {
                 content.styleProperties = "{'#frameText': {x:2, y:1}, '#frameText span': {css:{textAlign:'left'}}, '#cta': {x:-180, y:25}, '#saleImage': {css:{display:'block'}}}";
-                ad.root.querySelector('#frameText1').style.width = '210px';
-                ad.root.querySelector('#frameText1').style.height = '46px';
-                ad.root.querySelector('#frameText1').style.fontSize = '18.2px';
-                ad.root.querySelector('#frameText1').style.lineHeight = '1.2';
+                var frameText = document.querySelectorAll("#frameText1,#frameText2,#frameText3");
+                for (var i = 0; i < frameText.length; i++){
+                 frameText[i].style.width = '210px';
+                 frameText[i].style.height = '46px';
+                 frameText[i].style.fontSize = '18.2px';
+                 frameText[i].style.lineHeight = '1.2';
+                }
 
-                ad.root.querySelector('#frameText2').style.width = '210px';
-                ad.root.querySelector('#frameText2').style.height = '46px';
-                ad.root.querySelector('#frameText2').style.fontSize = '18.2px';
-                ad.root.querySelector('#frameText2').style.lineHeight = '1.2';
-
-                ad.root.querySelector('#frameText3').style.width = '210px';
-                ad.root.querySelector('#frameText3').style.height = '46px';
-                ad.root.querySelector('#frameText3').style.fontSize = '18.2px';
-                ad.root.querySelector('#frameText3').style.lineHeight = '1.2';
                 ad.root.querySelector('#cta').style.width = '84px';
                 ad.root.querySelector('#cta').style.height = '27px';
                 ad.root.querySelector('#cta').style.fontSize = '9.5px';
