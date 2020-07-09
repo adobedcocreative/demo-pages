@@ -54,6 +54,7 @@
       <div id="topWhitePatch" class="frame" style="top:-534px;background-color:rgba(255, 255, 255, 0.85);"></div>
       <div id="bottomWhitePatch" class="frame" style="top:453px;background-color:rgba(255, 255, 255, 0.9);"></div>
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
+      <div id="saleImage" class="asset frame" data-image="saleImage" style="display:none;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
       <div id="frameText1" class="text InterLight"
         data-text="frameText1"
@@ -139,6 +140,7 @@
           ],
           staticData: {
             // ref: 'ref.png'
+            saleImage: 'images/300x600_Vail_Resort_SaleImage.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
             ctaBtnColor: '#006691^#002d40',
           },
@@ -147,10 +149,13 @@
               content.ctaBtn = content.ctaBtnColor.split('^')[0];
               content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
               layout = content.layout.toLowerCase();
-              if(layout == 'sale') {
+              if(layout == 'multipleimages') {
                 content.styleProperties = "{'#frameText': {x:-7, y:-3}, '#frameText span': {css:{textAlign:'left'}}, '#cta': {x:-85, y:0}, '#saleImage': {css:{display:'block'}}}";
-                ad.root.querySelector('#frameText').classList.remove('text');
-                ad.root.querySelector('#frameText').classList.add('text-left');
+                var frameText = document.querySelectorAll("#frameText1,#frameText2,#frameText3");
+                for (var i = 0; i < frameText.length; i++){
+                 frameText[i].classList.remove('text');
+                 frameText[i].classList.add('text-left');
+                }
               }
             });
             return data;
@@ -174,7 +179,7 @@
           if(layout != 'multipleimages') { gsap.set('.multiframe', { autoAlpha :0}) }
             gsap.timeline({defaults:{ease: Power2.easeInOut, duration: 0.7}})
             .from('#bottomWhitePatch', { y:adHeight, delay:0.5 })
-            .from('#frameText1, #cta', { autoAlpha:0 })
+            .from('#frameText1, #cta, #saleImage', { autoAlpha:0 })
             .to('#frameText1', { autoAlpha:0, delay:3 })
             .from('#frameText2, #backgroundImage2', { autoAlpha:0 })
             .to('#frameText2', { autoAlpha:0, delay:3 })
