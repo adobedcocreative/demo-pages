@@ -61,6 +61,7 @@
       <div id="topWhitePatch" class="frame" style="top:-1198px;left:-636px;background-color:rgba(255, 255, 255, 0.85);"></div>
       <div id="bottomWhitePatch" class="frame" style="left:596px;background-color:rgba(255, 255, 255, 0.9);"></div>
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
+      <div id="saleImage" class="asset frame" data-image="saleImage" style="display:none;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
       <div id="frameText1" class="text-left TradeGothicNextLTProCondensed"
         data-text="frameText1"
@@ -143,6 +144,7 @@
           ],
           staticData: {
             // ref: 'ref.png'
+            saleImage: 'images/970x250_Vail_Resort_SaleImage.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
             ctaBtnColor: '#4097d6^#125789',
           },
@@ -151,7 +153,7 @@
               content.ctaBtn = content.ctaBtnColor.split('^')[0];
               content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
               layout = content.layout.toLowerCase();
-              if(layout == 'sale') {
+              if(layout == 'multipleimages') {
                 content.styleProperties = "{'#saleImage': {css:{display:'block'}}}";
               }
             });
@@ -176,7 +178,7 @@
           if(layout != 'multipleimages') { gsap.set('.multiframe', { autoAlpha :0}) }
             gsap.timeline({defaults:{ease: Power2.easeInOut, duration: 0.7}})
             .from('#bottomWhitePatch', { x:adWidth/2, delay:0.5 })
-            .from('#frameText1, #cta, #logoImage', { autoAlpha:0 })
+            .from('#frameText1, #cta, #logoImage, #saleImage', { autoAlpha:0 })
             .to('#frameText1', { autoAlpha:0, delay:3 })
             .from('#frameText2, #backgroundImage2', { autoAlpha:0 })
             .to('#frameText2', { autoAlpha:0, delay:3 })
