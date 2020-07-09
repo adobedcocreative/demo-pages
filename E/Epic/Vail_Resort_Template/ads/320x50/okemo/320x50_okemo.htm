@@ -16,8 +16,13 @@
           font-family: InterSemiBold;
           src: url('fonts/Inter-SemiBold.woff') format("woff");
       }
+      @font-face {
+          font-family: ScotchDisplayFat;
+          src: url('fonts/Positype - Scotch Display Fat.woff') format("woff");
+      }
       .InterLight { font-family: InterLight; }
       .InterSemiBold { font-family: InterSemiBold; }
+      .ScotchDisplayFat { font-family: ScotchDisplayFat; }
     </style>
     <style media="screen" data-dynamic="style">
       #ad {
@@ -59,7 +64,7 @@
           font-size: 11px;
           letter-spacing: 1.1px;
           line-height: 1.1;">
-          <span><div id="frameText1" class="InterLight" style="font-size:88%;">!{frameText1}</div><div id="frameText2">!{frameText2}</div></span>
+          <span><div id="frameText1" class="InterLight" style="font-size:88%;">!{frameText1}</div><div id="frameText2" class="ScotchDisplayFat">!{frameText2}</div></span>
       </div>
       <div id="cta" class="text InterSemiBold"
         data-text="ctaText"
@@ -78,6 +83,7 @@
     <div id="loadFont" style="width:0;height:0;overflow:hidden;">
       <div class="InterLight">InterLight</div>
       <div class="InterSemiBold">InterSemiBold</div>
+      <div class="ScotchDisplayFat">ScotchDisplayFat</div>
     </div>
     <script type="text/javascript">
       var layout = 'standard';
