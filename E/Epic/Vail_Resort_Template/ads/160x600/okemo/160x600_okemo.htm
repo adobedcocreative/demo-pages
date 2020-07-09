@@ -16,13 +16,13 @@
           font-family: InterSemiBold;
           src: url('fonts/Inter-SemiBold.woff') format("woff");
       }
-      @font-face {
+      /* @font-face {
           font-family: ScotchDisplayFat;
           src: url('fonts/Positype - Scotch Display Fat.woff') format("woff");
-      }
+      } */
       .InterLight { font-family: InterLight; }
       .InterSemiBold { font-family: InterSemiBold; }
-      .ScotchDisplayFat { font-family: ScotchDisplayFat; }
+      /* .ScotchDisplayFat { font-family: ScotchDisplayFat; } */
     </style>
     <style media="screen" data-dynamic="style">
       #ad {
@@ -50,13 +50,13 @@
       <div id="backgroundImage1" class="asset frame" data-image="backgroundImage1"></div>
       <div id="backgroundImage2" class="asset frame multiframe" data-image="backgroundImage2"></div>
       <div id="backgroundImage3" class="asset frame multiframe" data-image="backgroundImage3"></div>
-      <div id="backgroundImage4" class="asset frame multiframe" data-image="backgroundImage4"></div>
       <div id="topWhitePatch" class="frame" style="top:-556px;background-color:rgba(255, 255, 255, 0.85);"></div>
       <div id="bottomWhitePatch" class="frame" style="top:453px;background-color:rgba(255, 255, 255, 0.9);"></div>
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
-      <div id="saleImage" class="asset frame" data-image="saleImage" style="display:none;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
-      <div id="frameText" class="text"
+      <div id="frameText1" class="text InterLight"
+        data-text="frameText1"
+        data-style="text-align:center;"
         style="top: 471px;
           left: 15px;
           width: 130px;
@@ -64,7 +64,28 @@
           font-size: 15px;
           letter-spacing: 1.6px;
           line-height: 1.3;">
-          <span style="text-align:center;"><div id="frameText1" class="InterLight" style="font-size:90%;">!{frameText1}</div><div id="frameText2" class="ScotchDisplayFat">!{frameText2}</div></span>
+      </div>
+      <div id="frameText2" class="text InterLight"
+        data-text="frameText2"
+        data-style="text-align:center;"
+        style="top: 471px;
+          left: 15px;
+          width: 130px;
+          height: 60px;
+          font-size: 15px;
+          letter-spacing: 1.6px;
+          line-height: 1.3;">
+      </div>
+      <div id="frameText3" class="text InterLight"
+        data-text="frameText3"
+        data-style="text-align:center;"
+        style="top: 471px;
+          left: 15px;
+          width: 130px;
+          height: 60px;
+          font-size: 15px;
+          letter-spacing: 1.6px;
+          line-height: 1.3;">
       </div>
       <div id="cta" class="text InterSemiBold"
         data-text="ctaText"
@@ -74,6 +95,7 @@
           width: 86px;
           height: 28px;
           font-size: 10px;
+          line-height: 20px;
           letter-spacing: 1.1px;
           border-radius: 15px;
           color: #fff;">
@@ -83,7 +105,7 @@
     <div id="loadFont" style="width:0;height:0;overflow:hidden;">
       <div class="InterLight">InterLight</div>
       <div class="InterSemiBold">InterSemiBold</div>
-      <div class="ScotchDisplayFat">ScotchDisplayFat</div>
+      <!-- <div class="ScotchDisplayFat">ScotchDisplayFat</div> -->
     </div>
     <script type="text/javascript">
       var layout = 'standard';
@@ -97,15 +119,16 @@
       setTimeout(function() {
         ad.contentSetup({
           cam: {
-            layout: 'standard', //standard|sale|multiframe
+            layout: 'singleImage', //singleImage|multipleImages
             backgroundImage1: 'assets/160x600_Vail_Resort_BackgroundImage1.png',
             backgroundImage2: 'assets/160x600_Vail_Resort_BackgroundImage2.png',
             backgroundImage3: 'assets/160x600_Vail_Resort_BackgroundImage3.png',
             backgroundImage4: 'assets/160x600_Vail_Resort_BackgroundImage4.png',
             logoImage: 'assets/160x600_Vail_Resort_LogoImage.png',
-            frameText1: 'THE BEST RATES',
-            frameText2: 'ON PREMIER LODGING',
-            ctaText: "BOOK NOW",
+            frameText1: 'Return to the mountain you love',
+            frameText2: 'Ski & ride from 1 day to every day',
+            frameText3: 'Get Your Pass By 9/7',
+            ctaText: "Buy Now",
             clickURL: "https://www.vail.com/",
           },
           feed: [
@@ -115,7 +138,6 @@
           ],
           staticData: {
             // ref: 'ref.png'
-            saleImage: 'images/160x600_Vail_Resort_SaleImage.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
             ctaBtnColor: '#006691^#002d40',
           },
@@ -123,15 +145,6 @@
             data.map(function(content){
               content.ctaBtn = content.ctaBtnColor.split('^')[0];
               content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
-              layout = content.layout.toLowerCase();
-              if(layout == 'sale') {
-                content.styleProperties = "{'#frameText': {x:-3, y:-11}, '#frameText span': {css:{textAlign:'left'}}, '#cta': {x:-28, y:-20}, '#saleImage': {css:{display:'block'}}}";
-                ad.root.querySelector('#frameText').classList.remove('text');
-                ad.root.querySelector('#frameText').classList.add('text-left');
-                ad.root.querySelector('#cta').style.width = '70px';
-                ad.root.querySelector('#cta').style.height = '23px';
-                ad.root.querySelector('#cta').style.fontSize = '8px';
-              }
             });
             return data;
           }
@@ -150,23 +163,15 @@
               }
             } catch(e) {  }
           }
-          gsap.set('.multiframe', { autoAlpha :0})
           var adWidth = 160,adHeight = 600;
-          if(layout == 'multiframe') {
+          if(layout != 'multipleimages') { gsap.set('.multiframe', { autoAlpha :0}) }
             gsap.timeline({defaults:{ease: Power2.easeInOut, duration: 0.7}})
             .from('#bottomWhitePatch', { y:adHeight, delay:0.5 })
-            .from('#frameText, #cta', { autoAlpha:0 })
-            .to('#frameText', { autoAlpha:0, delay:3 })
-            .to('#frameText, #backgroundImage2', { autoAlpha:1 })
-            .to('#frameText', { autoAlpha:0, delay:3 })
-            .to('#frameText, #backgroundImage3', { autoAlpha:1 })
-            .to('#frameText', { autoAlpha:0, delay:3 })
-            .to('#frameText, #backgroundImage4', { autoAlpha:1 })
-          } else {
-            gsap.timeline({defaults:{ease: Power2.easeInOut, duration: 0.7}})
-            .from('#bottomWhitePatch', { y:adHeight, delay:0.5 })
-            .from('#frameText, #cta, #saleImage', { autoAlpha:0 })
-          }
+            .from('#frameText1, #cta', { autoAlpha:0 })
+            .to('#frameText1', { autoAlpha:0, delay:3 })
+            .from('#frameText2, #backgroundImage2', { autoAlpha:0 })
+            .to('#frameText2', { autoAlpha:0, delay:3 })
+            .from('#frameText3, #backgroundImage3', { autoAlpha:0 })
         });
       }, 2000);
     </script>
