@@ -9,19 +9,9 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/script.min.js"></script>
     <style media="screen">
-      /* .TradeGothicNextLTProBoldCondensed {
-        font-family: trade-gothic-next-condensed,sans-serif;
-        font-weight: 700;
-        font-style: normal;
-      } */
-      .TradeGothicNextLTProCondensed {
-        font-family: trade-gothic-next-condensed,sans-serif;
-        font-weight: 400;
-        font-style: normal;
-      }
-      .GillSansNovaBook{
-        font-family: gill-sans-nova,sans-serif;
-        font-weight: 400;
+      .GibsonSemibold{
+        font-family: canada-type-gibson, sans-serif;
+        font-weight: 600;
         font-style: normal;
       }
     </style>
@@ -32,7 +22,7 @@
         font-family: arial,sans-serif;
         font-weight: 900;
         font-style: normal;
-        color: #4097d6;
+        color: #ac2226;
         background-color: #fff;
       }
       .frame {
@@ -56,7 +46,7 @@
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="saleImage" class="asset frame" data-image="saleImage" style="display:none;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
-      <div id="frameText1" class="text-left TradeGothicNextLTProCondensed"
+      <div id="frameText1" class="text-left GibsonSemibold"
         data-text="frameText1"
         style="top: 171px;
           left: 11px;
@@ -66,7 +56,7 @@
           letter-spacing: 1.7px;
           line-height: 1.15;">
       </div>
-      <div id="frameText2" class="text-left TradeGothicNextLTProCondensed"
+      <div id="frameText2" class="text-left GibsonSemibold"
         data-text="frameText2"
         style="top: 171px;
           left: 11px;
@@ -76,7 +66,7 @@
           letter-spacing: 1.7px;
           line-height: 1.15;">
       </div>
-      <div id="frameText3" class="text-left TradeGothicNextLTProCondensed"
+      <div id="frameText3" class="text-left GibsonSemibold"
         data-text="frameText3"
         style="top: 171px;
           left: 11px;
@@ -86,7 +76,7 @@
           letter-spacing: 1.7px;
           line-height: 1.15;">
       </div>
-      <div id="cta" class="text GillSansNovaBook"
+      <div id="cta" class="text GibsonSemibold"
         data-text="ctaText"
         data-style="padding:0 8px 1px;"
         style="top: 194px;
@@ -102,9 +92,7 @@
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
     <div id="loadFont" style="width:0;height:0;overflow:hidden;">
-      <div class="TradeGothicNextLTProCondensed">TradeGothicNextLTProCondensed</div>
-      <!-- <div class="TradeGothicNextLTProBoldCondensed">TradeGothicNextLTProBoldCondensed</div> -->
-      <div class="GillSansNovaBook">GillSansNovaBook</div>
+      <div class="GibsonSemibold">GibsonSemibold</div>
     </div>
     <script type="text/javascript">
       var layout = 'standard';
@@ -139,7 +127,7 @@
             // ref: 'ref.png'
             saleImage: 'images/300x250_Vail_Resort_SaleImage.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
-            ctaBtnColor: '#4097d6^#125789',
+            ctaBtnColor: '#ac2226^#791013',
           },
           beforeLoad: function(data){
             data.map(function(content){
