@@ -22,8 +22,11 @@
         amo.registerVariation("clickURL", "https://www.vail.com/");
         var adURL = '';
         switch (amo.variation['brandName'].toLowerCase()) {
-          case 'vail' : case 'vail resort' : adURL = 'vail/160x600_vail.htm';break;
-          case 'okemo' : adURL = 'okemo/160x600_okemo.htm';break;
+          case 'beaver creek' : adURL = 'BeaverCreek/160x600_BeaverCreek.htm';break;
+          case 'breckenridge' : adURL = 'Breckenridge/160x600_Breckenridge.htm';break;
+          case 'crested butte' : adURL = 'CrestedButte/160x600_CrestedButte.htm';break;
+          case 'okemo' : adURL = 'Okemo/160x600_Okemo.htm';break;
+          case 'vail' : case 'vail resort' : adURL = 'Vail/160x600_Vail.htm';break;
           default: adURL = 'vail/160x600_vail.htm';break;
         }
         var iframe = document.createElement('iframe');
