@@ -22,12 +22,24 @@
         amo.registerVariation("clickURL", "https://www.vail.com/");
         var adURL = '';
         switch (amo.variation['brandName'].toLowerCase()) {
-          case 'beaver creek' : adURL = 'BeaverCreek/300x250_BeaverCreek.htm';break;
+          case 'beaver creek' : case 'beavercreek' : adURL = 'BeaverCreek/300x250_BeaverCreek.htm';break;
           case 'breckenridge' : adURL = 'Breckenridge/300x250_Breckenridge.htm';break;
-          case 'crested butte' : adURL = 'CrestedButte/300x250_CrestedButte.htm';break;
+          case 'crested butte' : case 'crestedbutte' : adURL = 'CrestedButte/300x250_CrestedButte.htm';break;
+          case 'heavenly' : adURL = 'Heavenly/300x250_Heavenly.htm';break;
+          case 'hunter' : adURL = 'Hunter/300x250_Hunter.htm';break;
+          case 'keystone' : adURL = 'Keystone/300x250_Keystone.htm';break;
+          case 'kirkwood' : adURL = 'Kirkwood/300x250_Kirkwood.htm';break;
+          case 'liberty' : adURL = 'Liberty/300x250_Liberty.htm';break;
+          case 'mt snow' : case 'mtsnow' : adURL = 'MtSnow/300x250_MtSnow.htm';break;
+          case 'mt sunapee' : case 'mtsunapee' : adURL = 'MtSunapee/300x250_MtSunapee.htm';break;
+          case 'northstar' : adURL = 'Northstar/300x250_Northstar.htm';break;
           case 'okemo' : adURL = 'Okemo/300x250_Okemo.htm';break;
+          case 'park city' : case 'parkcity' : adURL = 'ParkCity/300x250_ParkCity.htm';break;
+          case 'stevens pass' : case 'stevenspass' : adURL = 'StevensPass/300x250_StevensPass.htm';break;
+          case 'stowe' : adURL = 'Stowe/300x250_Stowe.htm';break;
           case 'vail' : case 'vail resort' : adURL = 'Vail/300x250_Vail.htm';break;
-          default: adURL = 'vail/300x250_vail.htm';break;
+          case 'whistler blackcomb' : case 'whistlerblackcomb' : adURL = 'WhistlerBlackcomb/300x250_WhistlerBlackcomb.htm';break;
+          default: adURL = 'Vail/300x250_Vail.htm';break;
         }
         var iframe = document.createElement('iframe');
         iframe.src = adURL;

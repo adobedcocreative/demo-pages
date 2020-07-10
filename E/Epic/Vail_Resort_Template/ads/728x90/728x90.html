@@ -22,12 +22,24 @@
         amo.registerVariation("clickURL", "https://www.vail.com/");
         var adURL = '';
         switch (amo.variation['brandName'].toLowerCase()) {
-          case 'beaver creek' : adURL = 'BeaverCreek/728x90_BeaverCreek.htm';break;
+          case 'beaver creek' : case 'beavercreek' : adURL = 'BeaverCreek/728x90_BeaverCreek.htm';break;
           case 'breckenridge' : adURL = 'Breckenridge/728x90_Breckenridge.htm';break;
-          case 'crested butte' : adURL = 'CrestedButte/728x90_CrestedButte.htm';break;
+          case 'crested butte' : case 'crestedbutte' : adURL = 'CrestedButte/728x90_CrestedButte.htm';break;
+          case 'heavenly' : adURL = 'Heavenly/728x90_Heavenly.htm';break;
+          case 'hunter' : adURL = 'Hunter/728x90_Hunter.htm';break;
+          case 'keystone' : adURL = 'Keystone/728x90_Keystone.htm';break;
+          case 'kirkwood' : adURL = 'Kirkwood/728x90_Kirkwood.htm';break;
+          case 'liberty' : adURL = 'Liberty/728x90_Liberty.htm';break;
+          case 'mt snow' : case 'mtsnow' : adURL = 'MtSnow/728x90_MtSnow.htm';break;
+          case 'mt sunapee' : case 'mtsunapee' : adURL = 'MtSunapee/728x90_MtSunapee.htm';break;
+          case 'northstar' : adURL = 'Northstar/728x90_Northstar.htm';break;
           case 'okemo' : adURL = 'Okemo/728x90_Okemo.htm';break;
+          case 'park city' : case 'parkcity' : adURL = 'ParkCity/728x90_ParkCity.htm';break;
+          case 'stevens pass' : case 'stevenspass' : adURL = 'StevensPass/728x90_StevensPass.htm';break;
+          case 'stowe' : adURL = 'Stowe/728x90_Stowe.htm';break;
           case 'vail' : case 'vail resort' : adURL = 'Vail/728x90_Vail.htm';break;
-          default: adURL = 'vail/728x90_vail.htm';break;
+          case 'whistler blackcomb' : case 'whistlerblackcomb' : adURL = 'WhistlerBlackcomb/728x90_WhistlerBlackcomb.htm';break;
+          default: adURL = 'Vail/728x90_Vail.htm';break;
         }
         var iframe = document.createElement('iframe');
         iframe.src = adURL;
