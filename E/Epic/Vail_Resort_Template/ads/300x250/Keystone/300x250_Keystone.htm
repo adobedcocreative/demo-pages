@@ -9,16 +9,11 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/script.min.js"></script>
     <style media="screen">
-      .OpenSansCondensedBold {
-        font-family: open-sans-condensed,sans-serif;
-        font-weight: 700;
-        font-style: normal;
+      @font-face {
+          font-family: EagleBook;
+          src: url('fonts/Eagle Book.woff') format("woff");
       }
-      .MontserratSemibold{
-        font-family: montserrat, sans-serif;
-        font-weight: 600;
-        font-style: normal;
-      }
+      .EagleBook { font-family: EagleBook; }
     </style>
     <style media="screen" data-dynamic="style">
       #ad {
@@ -27,7 +22,7 @@
         font-family: arial,sans-serif;
         font-weight: 900;
         font-style: normal;
-        color: #5c6f7c;
+        color: #e63c2e;
         background-color: #fff;
       }
       .frame {
@@ -51,7 +46,7 @@
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="saleImage" class="asset frame" data-image="saleImage" style="display:none;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
-      <div id="frameText1" class="text-left MontserratSemibold"
+      <div id="frameText1" class="text-left EagleBook"
         data-text="frameText1"
         style="top: 171px;
           left: 11px;
@@ -61,7 +56,7 @@
           letter-spacing: 1.7px;
           line-height: 1.15;">
       </div>
-      <div id="frameText2" class="text-left MontserratSemibold"
+      <div id="frameText2" class="text-left EagleBook"
         data-text="frameText2"
         style="top: 171px;
           left: 11px;
@@ -71,7 +66,7 @@
           letter-spacing: 1.7px;
           line-height: 1.15;">
       </div>
-      <div id="frameText3" class="text-left MontserratSemibold"
+      <div id="frameText3" class="text-left EagleBook"
         data-text="frameText3"
         style="top: 171px;
           left: 11px;
@@ -81,9 +76,9 @@
           letter-spacing: 1.7px;
           line-height: 1.15;">
       </div>
-      <div id="cta" class="text OpenSansCondensedBold"
+      <div id="cta" class="text EagleBook"
         data-text="ctaText"
-        data-style="padding:0 8px 1px;"
+        data-style="padding:0 5px 0px;"
         style="top: 194px;
           left: 201px;
           width: 87px;
@@ -97,8 +92,7 @@
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
     <div id="loadFont" style="width:0;height:0;overflow:hidden;">
-      <div class="MontserratSemibold">MontserratSemibold</div>
-      <div class="OpenSansCondensedBold">OpenSansCondensedBold</div>
+      <div class="EagleBook">EagleBook</div>
     </div>
     <script type="text/javascript">
       var layout = 'standard';
@@ -133,7 +127,7 @@
             // ref: 'ref.png'
             saleImage: 'images/300x250_Vail_Resort_SaleImage.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
-            ctaBtnColor: '#5c6f7c^#3d4952',
+            ctaBtnColor: '#e63c2e^#a82b21',
           },
           beforeLoad: function(data){
             data.map(function(content){
