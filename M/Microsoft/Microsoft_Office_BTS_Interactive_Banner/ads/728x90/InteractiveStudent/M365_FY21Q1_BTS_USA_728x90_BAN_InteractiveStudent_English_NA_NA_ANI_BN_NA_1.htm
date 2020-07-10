@@ -145,7 +145,7 @@ var startBanner = function(){
 
 				exportRoot.mainMC.hit.addEventListener("click", exitHandler.bind(this));
 				function exitHandler() {
-				  amoAd.click(ClickID);
+				  amoAd.click(ClickID-1);
 				}
 
 				exportRoot.mainMC.hit.addEventListener("mouseover", mainOver.bind(this));
@@ -246,7 +246,7 @@ var startBanner = function(){
 			}
 		}
 		function click(id) {
-			if(parentWindow.urls[id].path.toLowerCase() != 'na') parentWindow.amo.onDynAdClick(parentWindow.urls[id].data, "CLICK", parentWindow.urls[id].path, parentWindow.urls[id].label);
+			if(id >= 0 && parentWindow.urls[id].path.toLowerCase() != 'na') parentWindow.amo.onDynAdClick(parentWindow.urls[id].data, "CLICK", parentWindow.urls[id].path, parentWindow.urls[id].label);
 		}
 		function onInteraction(id) {
 			var parentWindows = window.parent.parent.window;

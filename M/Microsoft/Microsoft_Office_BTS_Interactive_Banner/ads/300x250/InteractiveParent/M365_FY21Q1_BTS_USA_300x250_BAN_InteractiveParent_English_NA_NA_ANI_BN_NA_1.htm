@@ -145,7 +145,7 @@ var startBanner = function(){
 
 				exportRoot.mainMC.hit.addEventListener("click", exitHandler.bind(this));
 				function exitHandler() {
-					amoAd.click(ClickID);
+					amoAd.click(ClickID-1);
 				  // 	if (ClickID==1) window.open(clickTag_1);
 					//
 					// if (ClickID==2) window.open(clickTag_2);
@@ -251,7 +251,7 @@ var startBanner = function(){
 			}
 		}
 		function click(id) {
-			if(parentWindow.urls[id].path.toLowerCase() != 'na') parentWindow.amo.onDynAdClick(parentWindow.urls[id].data, "CLICK", parentWindow.urls[id].path, parentWindow.urls[id].label);
+			if(id >= 0 && parentWindow.urls[id].path.toLowerCase() != 'na') parentWindow.amo.onDynAdClick(parentWindow.urls[id].data, "CLICK", parentWindow.urls[id].path, parentWindow.urls[id].label);
 		}
 		function onInteraction(id) {
 			var parentWindows = window.parent.parent.window;

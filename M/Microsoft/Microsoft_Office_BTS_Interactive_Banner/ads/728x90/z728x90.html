@@ -24,12 +24,12 @@
           return text;
         }
         var contentD = [
-          {
-            "passthroughfield1": "['<#505050>Ace the school year with|Microsoft 365.|What’s your goal?','15.2px',384,19,'17','350', 'left']",
-            "passthroughfield2": "na",
-            "passthroughfield3": "['<#0078d4>Choose one','10.2px',8,5,'14','350', 'left']",
-            "product_url": "https://adobe.com/#Microsoft1",
-          },
+          // {
+          //   "passthroughfield1": "['<#505050>Ace the school year with|Microsoft 365.|What’s your goal?','15.2px',384,19,'17','350', 'left']",
+          //   "passthroughfield2": "na",
+          //   "passthroughfield3": "['<#0078d4>Choose one','10.2px',8,5,'14','350', 'left']",
+          //   "product_url": "https://adobe.com/#Microsoft1",
+          // },
           {
             "passthroughfield1": "['<#505050>Work in real time, together','15.3px',380,15 ,'20','350', 'left']",
             "passthroughfield2": "['<#505050>Coauthor documents and communicate in real |time across your favorite apps, plus 1 TB of |OneDrive cloud storage','10.2px',380,37,'12','350', 'left']",
@@ -55,6 +55,8 @@
         amo.registerVariation("textField1", "!{passthroughfield1}");
         amo.registerVariation("textField2", "!{passthroughfield2}");
         amo.registerVariation("textField3", "!{passthroughfield3}");
+        amo.registerVariation("textField4", "['<#505050>Ace the school year with|Microsoft 365.|What’s your goal?','15.2px',384,19,'17','350', 'left']");
+        amo.registerVariation("textField5", "['<#0078d4>Choose one','10.2px',8,5,'14','350', 'left']");
         amo.registerVariation("ctaText", "BUY NOW");
         // amo.registerVariation("ctaArrowVisibleFlag", "!{passthroughfield2}");
         amo.registerVariation("impressionTracker", "../../../../1x1.png?impressionTracker=" + Math.random());
@@ -66,6 +68,8 @@
           textField1: amo.variation['textField1'],
           textField2: amo.variation['textField2'],
           textField3: amo.variation['textField3'],
+          textField4: amo.variation['textField4'],
+          textField5: amo.variation['textField5'],
           cta: amo.variation['ctaText'],
           // ctaArrowVisibleFlag: amo.variation['ctaArrowVisibleFlag'],
           impressionTracker: amo.variation['impressionTracker'],
@@ -80,6 +84,8 @@
               textField1: cam.textField1,
               textField2: cam.textField2,
               textField3: cam.textField3,
+              textField4: cam.textField4,
+              textField5: cam.textField5,
               ctaText: cam.cta,
               // ctaArrowVisibleFlag: cam.ctaArrowVisibleFlag.toString().toLowerCase() == 'false' ? false : true,
               ctaArrowVisibleFlag: true,
@@ -92,6 +98,8 @@
             content.map(function(data){
               for(var key in data) { data[key] = typeof data[key] == 'string' ? replaceMacro(data[key], data.feedData) : data[key]; }
             });
+            content = content.filter(function(data){ return data.layout.split('|')[0].toLowerCase() == data.feedData.passthroughfield1.toLowerCase(); });
+            if('gender' in content[0].feedData)content = content.sort(function(a, b){return a.feedData.gender - b.feedData.gender});
           }
         }
         window.adData = content[0], window.adClickUrl = adData.url;
@@ -102,7 +110,7 @@
           url.path = content[i].url;
           url.label = content[i].layout + '|' + eval(content[i].textField3)[0].split('>')[1];
           urls.push(url);
-          for(var j = 1; j <= 3; j++) {
+          for(var j = 1; j <= 5; j++) {
             content[i]['textField'+j] = content[i]['textField'+j] && content[i]['textField'+j].toLowerCase() != 'na' ? content[i]['textField'+j] : ' ';
             content[i]['textField'+j] = content[i]['textField'+j].replace('-_-','—');
           }
@@ -130,17 +138,17 @@
         iframe.height = '90';
         document.body.appendChild(iframe);
         var bannerData = {
-          headline1: content[0].textField1,
-          opts: content[0].textField3,
+          headline1: content[0].textField4,
+          opts: content[0].textField5,
           CTA: ctaText,
           // CTAarrowVisible: [adData.ctaArrowVisibleFlag, 0, 0],
           impressionTracker: impressionTracker,
           clickTracker: clickTracker,
         };
         for(var i = 1; i <= 3; i++) {
-          bannerData['page_'+i+'_1'] = content[i].textField1;
-          bannerData['page_'+i+'_2'] = content[i].textField2;
-          bannerData['opt'+i] = content[i].textField3;
+          bannerData['page_'+i+'_1'] = content[i-1].textField1;
+          bannerData['page_'+i+'_2'] = content[i-1].textField2;
+          bannerData['opt'+i] = content[i-1].textField3;
         }
         for(var i in bannerData) { try{ bannerData[i] = eval(bannerData[i]); } catch(e) {} }
         window.getBannerData = function(){ var obj = {}; for(var i in bannerData) { obj[i] = bannerData[i]; } return obj; }

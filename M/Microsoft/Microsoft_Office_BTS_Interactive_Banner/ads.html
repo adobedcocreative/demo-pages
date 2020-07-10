@@ -160,9 +160,11 @@
           var templates = {
             'Simplified': `var cam = {
               layout: data.Layout + '|' + data["Smart Names"],
-              textField1: "!{passthroughfield1}",
+              textField1: "!{name}",
               textField2: "!{passthroughfield2}",
               textField3: "!{passthroughfield3}",
+              textField4: "!{passthroughfield4}",
+              textField5: "!{passthroughfield5}",
               ctaText: data.CTA,
               impressionTracker: "../../../../1x1.png?impressionTracker=" + Math.random(),
               clickTracker: "../../../../1x1.png?clickTracker=" + Math.random(),
@@ -175,27 +177,30 @@
       var getFeedData = function(data) {
           var contentD = [
             {
-              "passthroughfield1": data.headline1,
-              "passthroughfield2": "na",
-              "passthroughfield3": data.opts,
-              "product_url": data.click,
-            },
-            {
-              "passthroughfield1": data.page_1_1,
+              "passthroughfield1": data.Layout,
+              "name": data.page_1_1,
               "passthroughfield2": data.page_1_2,
               "passthroughfield3": data.opt1,
+              "passthroughfield4": data.headline1,
+              "passthroughfield5": data.opts,
               "product_url": data.opt1_click,
             },
             {
-              "passthroughfield1": data.page_2_1,
+              "passthroughfield1": data.Layout,
+              "name": data.page_2_1,
               "passthroughfield2": data.page_2_2,
               "passthroughfield3": data.opt2,
+              "passthroughfield4": data.headline1,
+              "passthroughfield5": data.opts,
               "product_url": data.opt2_click,
             },
             {
-              "passthroughfield1": data.page_3_1,
+              "passthroughfield1": data.Layout,
+              "name": data.page_3_1,
               "passthroughfield2": data.page_3_2,
               "passthroughfield3": data.opt3,
+              "passthroughfield4": data.headline1,
+              "passthroughfield5": data.opts,
               "product_url": data.opt3_click,
             },
           ];
