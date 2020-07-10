@@ -9,21 +9,16 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/script.min.js"></script>
     <style media="screen">
-      @font-face {
-          font-family: InterLight;
-          src: url('fonts/Inter-Light.woff') format("woff");
+      .OpenSansCondensedBold {
+        font-family: open-sans-condensed,sans-serif;
+        font-weight: 700;
+        font-style: normal;
       }
-      @font-face {
-          font-family: InterSemiBold;
-          src: url('fonts/Inter-SemiBold.woff') format("woff");
+      .MontserratSemibold{
+        font-family: montserrat, sans-serif;
+        font-weight: 600;
+        font-style: normal;
       }
-      /* @font-face {
-          font-family: ScotchDisplayFat;
-          src: url('fonts/Positype - Scotch Display Fat.woff') format("woff");
-      } */
-      .InterLight { font-family: InterLight; }
-      .InterSemiBold { font-family: InterSemiBold; }
-      /* .ScotchDisplayFat { font-family: ScotchDisplayFat; } */
     </style>
     <style media="screen" data-dynamic="style">
       #ad {
@@ -32,7 +27,7 @@
         font-family: arial,sans-serif;
         font-weight: 900;
         font-style: normal;
-        color: #006691;
+        color: #CC0000;
         background-color: #fff;
       }
       .frame {
@@ -56,7 +51,7 @@
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="saleImage" class="asset frame" data-image="saleImage" style="display:none;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
-      <div id="frameText1" class="text-left InterLight"
+      <div id="frameText1" class="text-left MontserratSemibold"
         data-text="frameText1"
         style="top: 4px;
           left: 442px;
@@ -66,7 +61,7 @@
           letter-spacing: 2.2px;
           line-height: 1.1;">
       </div>
-      <div id="frameText2" class="text-left InterLight"
+      <div id="frameText2" class="text-left MontserratSemibold"
         data-text="frameText2"
         style="top: 4px;
           left: 442px;
@@ -76,7 +71,7 @@
           letter-spacing: 2.2px;
           line-height: 1.1;">
       </div>
-      <div id="frameText3" class="text-left InterLight"
+      <div id="frameText3" class="text-left MontserratSemibold"
         data-text="frameText3"
         style="top: 4px;
           left: 442px;
@@ -86,9 +81,9 @@
           letter-spacing: 2.2px;
           line-height: 1.1;">
       </div>
-      <div id="cta" class="text InterSemiBold"
+      <div id="cta" class="text OpenSansCondensedBold"
         data-text="ctaText"
-        data-style="padding:0 8px 0px;"
+        data-style="padding:0 8px 1px;"
         style="top: 29px;
           left: 623px;
           width: 94px;
@@ -102,9 +97,9 @@
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
     <div id="loadFont" style="width:0;height:0;overflow:hidden;">
-      <div class="InterLight">InterLight</div>
-      <div class="InterSemiBold">InterSemiBold</div>
-      <!-- <div class="ScotchDisplayFat">ScotchDisplayFat</div> -->
+      <div class="MontserratSemibold">MontserratSemibold</div>
+      <!-- <div class="TradeGothicNextLTProBoldCondensed">TradeGothicNextLTProBoldCondensed</div> -->
+      <div class="OpenSansCondensedBold">OpenSansCondensedBold</div>
     </div>
     <script type="text/javascript">
       var layout = 'standard';
@@ -139,7 +134,7 @@
             // ref: 'ref.png'
             saleImage: 'images/728x90_Vail_Resort_SaleImage.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
-            ctaBtnColor: '#006691^#002d40',
+            ctaBtnColor: '#4d4d4d^#000000',
           },
           beforeLoad: function(data){
             data.map(function(content){
