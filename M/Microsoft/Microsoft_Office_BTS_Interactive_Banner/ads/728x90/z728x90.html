@@ -98,7 +98,7 @@
             content.map(function(data){
               for(var key in data) { data[key] = typeof data[key] == 'string' ? replaceMacro(data[key], data.feedData) : data[key]; }
             });
-            content = content.filter(function(data){ return data.layout.split('|')[0].toLowerCase() == data.feedData.passthroughfield1.toLowerCase(); });
+            content = content.filter(function(data){ return content[0].layout.split('|')[0].toLowerCase() == data.feedData.passthroughfield1.toLowerCase(); });
             if('gender' in content[0].feedData)content = content.sort(function(a, b){return a.feedData.gender - b.feedData.gender});
           }
         }
