@@ -81,12 +81,12 @@
       </div>
       <div id="cta" class="text AvenirLTStdBook"
         data-text="ctaText"
-        data-style="padding:0 8px 0px;"
+        data-style="text-align:center;padding:0 8px 0px;"
         style="top: 545px;
-          left: 38px;
-          width: 86px;
+          left: 32px;
+          width: 96px;
           height: 28px;
-          font-size: 10px;
+          font-size: 12px;
           line-height: 20px;
           letter-spacing: 1.1px;
           border-radius: 15px;
@@ -138,15 +138,20 @@
               content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
               layout = content.layout.toLowerCase();
               if(layout == 'multipleimages') {
-                content.styleProperties = "{'#frameText': {x:-3, y:-11}, '#frameText span': {css:{textAlign:'left'}}, '#cta': {x:-28, y:-20}, '#saleImage': {css:{display:'block'}}}";
+                content.styleProperties = "{'#frameText': {x:-3, y:-11}, '#frameText span': {css:{textAlign:'left'}}, '#cta': {y:-20}, '#saleImage': {css:{display:'block'}}}";
+                var cta = document.querySelector("#cta");
+                cta.style.left = "10px";
+                cta.style.width = "70px";
+                cta.innerHTML = '<span style="' + cta.dataset.style + '">' + content.ctaText + '</span>';
+                if(cta.querySelector('span').offsetHeight > 20) {
+                  cta.style.lineHeight = 1.2;
+                  cta.style.height = "40px";
+                }
                 var frameText = document.querySelectorAll("#frameText1,#frameText2,#frameText3");
                 for (var i = 0; i < frameText.length; i++){
                  frameText[i].classList.remove('text');
                  frameText[i].classList.add('text-left');
                 }
-                ad.root.querySelector('#cta').style.width = '70px';
-                ad.root.querySelector('#cta').style.height = '23px';
-                ad.root.querySelector('#cta').style.fontSize = '8px';
               }
             });
             return data;
