@@ -88,7 +88,7 @@
       </div>
       <div id="cta" class="text InterSemiBold"
         data-text="ctaText"
-        data-style="padding:0 8px 0px;"
+        data-style="padding:0 10px 0px;"
         style="top: 29px;
           left: 623px;
           width: 94px;
@@ -147,7 +147,13 @@
               content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
               layout = content.layout.toLowerCase();
               if(layout == 'multipleimages') {
-                content.styleProperties = "{'#frameText': {x:2, y:1}, '#frameText span': {css:{textAlign:'left'}}, '#cta': {x:-180, y:25}, '#saleImage': {css:{display:'block'}}}";
+                content.styleProperties = "{'#frameText': {x:2, y:1}, '#frameText span': {css:{textAlign:'left'}}, '#cta': {y:25}, '#saleImage': {css:{display:'block'}}}";
+                var cta = document.querySelector("#cta");
+                cta.style.left = "443px";
+                cta.style.width = "auto";
+                cta.style.minWidth = "80px";
+                cta.style.maxWidth = "120px";
+                cta.style.height = "27px";
                 var frameText = document.querySelectorAll("#frameText1,#frameText2,#frameText3");
                 for (var i = 0; i < frameText.length; i++){
                  frameText[i].style.width = '210px';
@@ -155,10 +161,6 @@
                  frameText[i].style.fontSize = '18.2px';
                  frameText[i].style.lineHeight = '1.2';
                 }
-
-                ad.root.querySelector('#cta').style.width = '84px';
-                ad.root.querySelector('#cta').style.height = '27px';
-                ad.root.querySelector('#cta').style.fontSize = '9.5px';
               }
             });
             return data;
