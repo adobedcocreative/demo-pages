@@ -86,12 +86,12 @@
       </div>
       <div id="cta" class="text OpenSansCondensedBold"
         data-text="ctaText"
-        data-style="padding:0 10px 2px;"
+        data-style="padding:0 12px 2px;"
         style="top: 542px;
           left: 97px;
           width: 108px;
           height: 34px;
-          font-size: 11px;
+          font-size: 14px;
           line-height: 20px;
           letter-spacing: 2.2px;
           /*border-radius: 15px;*/
@@ -145,7 +145,11 @@
               content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
               layout = content.layout.toLowerCase();
               if(layout == 'multipleimages') {
-                content.styleProperties = "{'#frameText': {x:-7, y:-3}, '#frameText span': {css:{textAlign:'left'}}, '#cta': {x:-85, y:0}, '#saleImage': {css:{display:'block'}}}";
+                content.styleProperties = "{'#frameText': {x:-7, y:-3}, '#frameText span': {css:{textAlign:'left'}}, '#cta': {y:0}, '#saleImage': {css:{display:'block'}}}";
+                cta.style.left = "12px";
+                cta.style.width = "auto";
+                cta.style.minWidth = "120px";
+                cta.style.maxWidth = "180px";
                 var frameText = document.querySelectorAll("#frameText1,#frameText2,#frameText3");
                 for (var i = 0; i < frameText.length; i++){
                  frameText[i].classList.remove('text');
