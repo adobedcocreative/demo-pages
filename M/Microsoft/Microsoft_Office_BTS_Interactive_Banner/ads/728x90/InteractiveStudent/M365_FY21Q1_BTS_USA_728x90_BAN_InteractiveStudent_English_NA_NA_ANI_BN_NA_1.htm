@@ -166,7 +166,7 @@ var startBanner = function(){
 				function rHitOut()   {  exportRoot.mainMC.replay_btn.gotoAndStop(0)	}
 
 				exportRoot.subMenuClick = function(id) {
-					amoAd.onInteraction(id);
+					amoAd.onInteraction(id-1);
 					exportRoot.mainMC.popup_menu["opt"+id].gotoAndStop(1)
 					exportRoot.mainMC.hit1.removeEventListener("click", exportRoot.setMenu1 )
 					exportRoot.mainMC.hit2.removeEventListener("click", exportRoot.setMenu2 )
