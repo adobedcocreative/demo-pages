@@ -246,7 +246,11 @@ var startBanner = function(){
 			}
 		}
 		function click(id) {
-			if(id >= 0 && parentWindow.urls[id].path.toLowerCase() != 'na') parentWindow.amo.onDynAdClick(parentWindow.urls[id].data, "CLICK", parentWindow.urls[id].path, parentWindow.urls[id].label);
+			if(id == -1 && parentWindow.urls[0].defaultPath.toLowerCase() != 'na') {
+					parentWindow.amo.onDynAdClick(parentWindow.urls[0].data, "CLICK", parentWindow.urls[0].defaultPath, parentWindow.urls[0].defaultLabel);
+			} else if(id >= 0 && parentWindow.urls[id].path.toLowerCase() != 'na') {
+					parentWindow.amo.onDynAdClick(parentWindow.urls[id].data, "CLICK", parentWindow.urls[id].path, parentWindow.urls[id].label);
+			}
 		}
 		function onInteraction(id) {
 			var parentWindows = window.parent.parent.window;

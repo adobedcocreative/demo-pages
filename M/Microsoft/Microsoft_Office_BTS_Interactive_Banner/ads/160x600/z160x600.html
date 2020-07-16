@@ -98,8 +98,27 @@
             content.map(function(data){
               for(var key in data) { data[key] = typeof data[key] == 'string' ? replaceMacro(data[key], data.feedData) : data[key]; }
             });
-            content = content.filter(function(data){ return content[0].layout.split('|')[0].toLowerCase() == data.feedData.passthroughfield1.toLowerCase(); });
-            if('gender' in content[0].feedData)content = content.sort(function(a, b){return a.feedData.gender - b.feedData.gender});
+            if(content[0].textField1 && content[0].textField1.indexOf('^') != -1 && content.length == 1) {
+              var defaultUrl = 'na';
+              if(content[0].url.indexOf('^') != -1 && content[0].url.split('^').length == 4) { defaultUrl = content[0].url.split('^')[3]; }
+              var newContent = [];
+              for(var i = 0; i < 3; i++) {
+                var data = {};
+                for(var j in content[0]) { data[j] = content[0][j]; }
+                var temp = data['textField'+(i+1)];
+                temp = temp.split('^');
+                data.layout += '|' + temp[3];
+                data.textField1 = temp[0];
+                data.textField2 = temp[1];
+                data.textField3 = temp[2];
+                data.url = data.url.split('^')[i];
+                data.defaultUrl = defaultUrl;
+                newContent.push(data);
+              }
+              content = newContent;
+            }
+            // content = content.filter(function(data){ return content[0].layout.split('|')[0].toLowerCase() == data.feedData.passthroughfield1.toLowerCase(); });
+            // if('gender' in content[0].feedData)content = content.sort(function(a, b){return a.feedData.gender - b.feedData.gender});
           }
         }
         window.adData = content[0], window.adClickUrl = adData.url;
