@@ -22,7 +22,7 @@
         font-family: arial,sans-serif;
         font-weight: 900;
         font-style: normal;
-        color: #F15A2B;
+        color: #000;
         background-color: #fff;
       }
       .frame {
@@ -32,8 +32,8 @@
         width:inherit;
         height:inherit;
       }
-      #cta { background-color: !{ctaBtn}; }
-      #ad:hover #cta { background-color: !{ctaBtnHover}; }
+      #cta { background: !{ctaBtn}; }
+      #ad:hover #cta { background: !{ctaBtnHover}; }
     </style>
   </head>
   <body>
@@ -89,7 +89,7 @@
           font-size: 13px;
           line-height: 20px;
           letter-spacing: 1.1px;
-          border-radius: 15px;
+          /*border-radius: 15px;*/
           color: #fff;">
       </div>
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
@@ -130,7 +130,7 @@
           staticData: {
             // ref: 'ref.png'
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
-            ctaBtnColor: '#F15A2B^#a72c06',
+            ctaBtnColor: 'linear-gradient(to bottom,#0f758b 0,#0f758b 50%,#0f758b 50%,#0f758b 100%)^linear-gradient(to bottom,#1188a2 0,#1188a2 50%,#1188a2 50%,#1188a2 100%)',
           },
           beforeLoad: function(data){
             data.map(function(content){
