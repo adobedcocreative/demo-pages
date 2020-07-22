@@ -144,13 +144,13 @@
             gsap.timeline({defaults:{ease: Power1.ease, duration: 0.9}})
             .from('#backgroundImage1', { x: adWidth})
             .from('#backgroundImage2', { x: -adWidth}, '-=0.9')
-            .to('#backgroundImage2', { scale: 1, duration: 8})
+            .to('#backgroundImage2', { scale: 1, delay:0.1, duration: 8})
           } else {
             gsap.set('#backgroundImage1', { scale: 1.14 });
             gsap.timeline({defaults:{ease: Power1.ease, duration: 0.9}})
             .from('#backgroundImage1', { x: adWidth})
             .from('#backgroundImage2', { x: -adWidth}, '-=0.9')
-            .to('#backgroundImage1', { scale: 1, duration: 8})
+            .to('#backgroundImage1', { scale: 1, delay:0.1, duration: 8})
           }
           // gsap.timeline({defaults:{ease: Power1.easeOut, duration: 0.3}})
           // .from('#backgroundImage1', { x:-5, scale: 1.14, duration: 8})
