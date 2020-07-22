@@ -75,7 +75,7 @@ function handleComplete(evt,comp) {
 	 if (!initReady) {
         startBanner()
     }
-    TweenMax.delayedCall(0.2,function(){
+		TweenMax.delayedCall(0.2,function(){
         var ctaAlignment = function(position){
 			position = position ? position : 'left';
 			var layers = exportRoot.mainMC;
@@ -84,11 +84,14 @@ function handleComplete(evt,comp) {
 			var ctaWidth = layers.txtCta.children[0].children[0].getBounds().width + 45;
 			layers.txtCta.regX = 0;
 			layers.txtCta.children[0].x = 0;
-			layers.txtCta.children[0].y += 1;
+			layers.txtCta.children[0].y -= 2;
 			layers.cta.regX = 0;
 			layers.cta.regY = 0;
 			layers.cta.scaleX = 1;
 			layers.cta.scaleY = 1;
+			layers.cta.arrow.scaleX = 0.7;
+			layers.cta.arrow.scaleY = 0.7;
+			layers.cta.arrow.regY = 13.5;
 			layers.cta.arrow.arrow_1.x = 0;
 			layers.cta.arrow.arrow.x = 0;
 			layers.cta.arrow.arrow_1.regX = 0;
@@ -115,7 +118,7 @@ function handleComplete(evt,comp) {
 		var bannerData = parentWindow.getBannerData();
 		bannerData.headline1 = eval(bannerData.textField1);
 		bannerData.headline2 = eval(bannerData.textField2);
-		bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,"12px",-2,0,"50","300", "center"] : '';
+		bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "9.5px" : "12px"),0,0,"50","300", "center"] : '';
 		animation_container.addEventListener("click", function(){
 			parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl, bannerData.layout + '|' + bannerData.ctaText);
 			if(bannerData.clickTracker) {
@@ -136,7 +139,7 @@ function handleComplete(evt,comp) {
 			});
 		}
         exportRoot.initBanner(bannerData)
-        // ctaAlignment('right')
+        ctaAlignment('left')
         exportRoot.runBanner()
     })
 	initReady=true
