@@ -183,7 +183,8 @@ var startBanner = function(){
 
 				exportRoot.mainMC.hit.addEventListener("click", exitHandler.bind(this));
 				function exitHandler() {
-		  		amoAd.click(ClickID-1);
+		  		if(!ClickID) { exportRoot.PopMenu(); }
+					else { amoAd.click(ClickID-1); }
 				}
 
 				exportRoot.mainMC.hit.addEventListener("mouseover", mainOver.bind(this));
