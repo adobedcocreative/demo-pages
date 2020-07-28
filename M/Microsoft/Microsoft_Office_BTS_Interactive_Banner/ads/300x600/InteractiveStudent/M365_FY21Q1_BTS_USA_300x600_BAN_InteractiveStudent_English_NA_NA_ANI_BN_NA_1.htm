@@ -220,9 +220,9 @@ var startBanner = function(){
 				exportRoot.setMenu1 = function() {exportRoot.subMenuClick(1);ClickID=1}
 				exportRoot.setMenu2 = function() {exportRoot.subMenuClick(2);ClickID=2}
 				exportRoot.setMenu3 = function() {exportRoot.subMenuClick(3);ClickID=3}
-				exportRoot.PopMenu = function() {exportRoot.TL_Popup.tweenFromTo("frame0", "frame1"),exportRoot.mainMC.opts.gotoAndStop(1);}
+				exportRoot.PopMenu = function() { amoAd.onInteraction(-1); exportRoot.TL_Popup.tweenFromTo("frame0", "frame1"),exportRoot.mainMC.opts.gotoAndStop(1);}
 
-				exportRoot.DownMenu = function() {exportRoot.TL_Popup.tweenFromTo("frame1", "frame0").timeScale( 2 ),exportRoot.mainMC.opts.gotoAndStop(0);}
+				exportRoot.DownMenu = function() { amoAd.onInteraction(-1); exportRoot.TL_Popup.tweenFromTo("frame1", "frame0").timeScale( 2 ),exportRoot.mainMC.opts.gotoAndStop(0);}
 
 				exportRoot.mainMC.hit1.addEventListener("click", exportRoot.setMenu1 )
 				exportRoot.mainMC.hit2.addEventListener("click", exportRoot.setMenu2 )
@@ -295,7 +295,8 @@ var startBanner = function(){
 			var parentWindows = window.parent.parent.window;
 			if (parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
 				try {
-					parentWindows.amoUtils.onInteraction(parentWindow.urls[id].label, parentWindow.urls[id].data);
+					if(id != -1) { parentWindows.amoUtils.onInteraction(parentWindow.urls[0].defaultLabel, parentWindow.urls[0].data); }
+					else { parentWindows.amoUtils.onInteraction(parentWindow.urls[id].label, parentWindow.urls[id].data); }
 				} catch (e) {}
 			}
 		}
