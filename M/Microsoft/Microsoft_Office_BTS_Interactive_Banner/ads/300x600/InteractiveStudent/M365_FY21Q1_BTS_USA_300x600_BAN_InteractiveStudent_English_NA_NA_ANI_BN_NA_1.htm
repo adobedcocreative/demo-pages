@@ -295,7 +295,7 @@ var startBanner = function(){
 			var parentWindows = window.parent.parent.window;
 			if (parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
 				try {
-					if(id != -1) { parentWindows.amoUtils.onInteraction(parentWindow.urls[0].defaultLabel, parentWindow.urls[0].data); }
+					if(id == -1) { parentWindows.amoUtils.onInteraction(parentWindow.urls[0].defaultLabel, parentWindow.urls[0].data); }
 					else { parentWindows.amoUtils.onInteraction(parentWindow.urls[id].label, parentWindow.urls[id].data); }
 				} catch (e) {}
 			}
