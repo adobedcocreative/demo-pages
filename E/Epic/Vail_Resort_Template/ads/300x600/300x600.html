@@ -28,7 +28,20 @@
         amo.registerVariation("ctaText", "Buy Now");
         amo.registerVariation("clickURL", "https://www.vail.com/");
         var adURL = '';
-        switch (amo.variation['brandName'].toLowerCase()) {
+        var replaceMacro = function(text, data) {
+          var macros = text.match(/\!\{(.*?)\}/g);
+          if(macros) {
+            macros.forEach(function(macro){
+              var macroText = macro.split('!{').join('').split('}').join('');
+              for(var key in data) { if(key == macroText) { macroText = data[key]; } }
+              text = text.split(macro).join(macroText);
+            });
+          }
+          return text;
+        }
+        var brandName = amo.variation['brandName'];
+        brandName = replaceMacro(brandName, amo.content[0]);
+        switch (brandName.toLowerCase()) {
           case 'beaver creek' : case 'beavercreek' : adURL = 'BeaverCreek/300x600_BeaverCreek.htm';break;
           case 'breckenridge' : adURL = 'Breckenridge/300x600_Breckenridge.htm';break;
           case 'crested butte' : case 'crestedbutte' : adURL = 'CrestedButte/300x600_CrestedButte.htm';break;
