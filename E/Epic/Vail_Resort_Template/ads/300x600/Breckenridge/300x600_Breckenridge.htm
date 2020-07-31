@@ -145,6 +145,18 @@
             data.map(function(content){
               content.ctaBtn = content.ctaBtnColor.split('^')[0];
               content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
+              if(content.frameText4.toLowerCase() != 'na' && !document.querySelector("#backgroundImage4")) {
+                var imageElement = document.querySelector("#backgroundImage3");
+                var newImageElement = imageElement.cloneNode(true);
+                newImageElement.id = 'backgroundImage4';
+                newImageElement.dataset.image = 'backgroundImage4';
+                imageElement.parentNode.insertBefore(newImageElement, imageElement.nextElementSibling);
+                var textElement = document.querySelector("#frameText3");
+                var newTextElement = textElement.cloneNode(true);
+                newTextElement.id = 'frameText4';
+                newTextElement.dataset.text = 'frameText4';
+                textElement.parentNode.insertBefore(newTextElement, textElement.nextElementSibling);
+              }
               layout = content.layout.toLowerCase();
               if(layout == 'multipleimages') {
                 content.styleProperties = "{'#frameText': {x:-7, y:-3}, '#frameText span': {css:{textAlign:'left'}}, '#cta': {y:0}, '#saleImage': {css:{display:'block'}}}";
@@ -176,6 +188,14 @@
               }
             } catch(e) {  }
           }
+          gsap.set('#frameText4, #backgroundImage4', { autoAlpha:0 })
+          var lastFrameAnimation = function() {
+            if(adData.frameText4.toLowerCase() != 'na') {
+              gsap.timeline({defaults:{ease: Power2.easeInOut, duration: 0.7}})
+              .to('#frameText3', { autoAlpha:0, delay:3 })
+              .to('#frameText4, #backgroundImage4', { autoAlpha:1 })
+            }
+          }
           var adWidth = 300,adHeight = 600;
           if(layout != 'multipleimages') { gsap.set('.multiframe', { autoAlpha :0}) }
             gsap.timeline({defaults:{ease: Power2.easeInOut, duration: 0.7}})
@@ -184,7 +204,7 @@
             .to('#frameText1', { autoAlpha:0, delay:3 })
             .from('#frameText2, #backgroundImage2', { autoAlpha:0 })
             .to('#frameText2', { autoAlpha:0, delay:3 })
-            .from('#frameText3, #backgroundImage3', { autoAlpha:0 })
+            .from('#frameText3, #backgroundImage3', { autoAlpha:0, onComplete: lastFrameAnimation })
         });
       }, 2000);
     </script>
