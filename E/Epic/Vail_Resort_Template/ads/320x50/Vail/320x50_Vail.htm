@@ -147,6 +147,7 @@
             data.map(function(content){
               content.ctaBtn = content.ctaBtnColor.split('^')[0];
               content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
+              layout = content.layout.toLowerCase();
               if(content.frameText4.toLowerCase() != 'na' && !document.querySelector("#backgroundImage4")) {
                 var imageElement = document.querySelector("#backgroundImage3");
                 var newImageElement = imageElement.cloneNode(true);
@@ -158,9 +159,19 @@
                 newTextElement.id = 'frameText4';
                 newTextElement.dataset.text = 'frameText4';
                 textElement.parentNode.insertBefore(newTextElement, textElement.nextElementSibling);
-              }
-              layout = content.layout.toLowerCase();
-              if(layout == 'multipleimages') {
+                content.styleProperties = "{'#cta': {y:13}}";
+                var cta = document.querySelector("#cta");
+                cta.style.left = "166px";
+                cta.style.width = "auto";
+                cta.style.minWidth = "55px";
+                cta.style.maxWidth = "90px";
+                cta.style.height = "16px";
+                var frameText = document.querySelectorAll("div[id^=frameText]");
+                for (var i = 0; i < frameText.length; i++){
+                 frameText[i].style.width = '144px';
+                 frameText[i].style.height = '24px';
+                }
+              } else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {
                 content.styleProperties = "{'#frameText': {x:-4, y:-3}, '#frameText span': {css:{textAlign:'left'}}, '#cta': {y:13}, '#saleImage': {css:{display:'block'}}}";
                 var cta = document.querySelector("#cta");
                 cta.style.left = "166px";
