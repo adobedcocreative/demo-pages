@@ -150,6 +150,7 @@
             data.map(function(content){
               content.ctaBtn = content.ctaBtnColor.split('^')[0];
               content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
+              layout = content.layout.toLowerCase();
               if(content.frameText4.toLowerCase() != 'na' && !document.querySelector("#backgroundImage4")) {
                 var imageElement = document.querySelector("#backgroundImage3");
                 var newImageElement = imageElement.cloneNode(true);
@@ -161,9 +162,15 @@
                 newTextElement.id = 'frameText4';
                 newTextElement.dataset.text = 'frameText4';
                 textElement.parentNode.insertBefore(newTextElement, textElement.nextElementSibling);
-              }
-              layout = content.layout.toLowerCase();
-              if(layout == 'multipleimages') {
+                content.styleProperties = "{'#cta': {x:'-50%',y:0}}";
+                cta.style.left = "0";
+                cta.style.width = "auto";
+                cta.style.minWidth = "120px";
+                cta.style.maxWidth = "200px";
+                cta.innerHTML = '<span style="' + cta.dataset.style + '">' + content.ctaText + '</span>';
+                cta.style.width = cta.offsetWidth + 'px';
+                cta.style.left = "50%";
+              } else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {
                 content.styleProperties = "{'#frameText': {x:-7, y:-3}, '#frameText span': {css:{textAlign:'left'}}, '#cta': {y:0}, '#saleImage': {css:{display:'block'}}}";
                 cta.style.left = "12px";
                 cta.style.width = "auto";
