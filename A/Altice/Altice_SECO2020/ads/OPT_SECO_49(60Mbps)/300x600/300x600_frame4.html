@@ -128,7 +128,7 @@
   <!-- Start of overrode asset attributes values -->
 <script type="text/javascript">
 amo.registerClick("clickUrl","https://www.altice.com");
-amo.registerAttribute("frameImage1", "TEXT", "300x600_SECO_AUGUST_ACQ_INT_60Mb_491Yr_Image_frame1.png");
+amo.registerAttribute("frameVideo1", "TEXT", "300x600_Aug_Summer.mp4");
 amo.registerAttribute("ctaText","TEXT","Learn more");
 amo.registerAttribute("frameImage2","IMAGE","300x600_SECO_AUGUST_ACQ_INT_60Mb_491Yr_Image_frame3.png");
 amo.registerAttribute("frameImage3","IMAGE","300x600_SECO_AUGUST_ACQ_INT_60Mb_491Yr_Image_frame4.png");
@@ -198,8 +198,9 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 293px;left: 22px;
       background-color:#f5f4f7;
       opacity:1;">
       <!-- <div id="ref" class="asset adSizeContainer"data-image="ref"></div> -->
-      <!-- <div id="frameVideo1" style="top: 0px;left: 0px;width: 300px;height: 286px;"><video muted playsinline autoplay style="width:100%;"></video></div> -->
-      <div id="frameImage1" class="asset adSizeContainer" data-image="frameImage1"></div>
+      <div id="frameVideo1" style="top: 0px;left: 0px;width: 300px;height: 290px;"><video muted playsinline autoplay style="width:100%;"></video></div>
+      <div id="videoOverlay" style="top:0px; left:0px; width:inherit; height:290px; background-color:rgba(0,0,0,0.2)"></div>
+      <!-- <div id="frameImage1" class="asset adSizeContainer" data-image="frameImage1"></div> -->
       <!-- <div id="shape1"
         style="top: 0;
           left: -21px;
@@ -292,7 +293,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 293px;left: 22px;
         ad.root.addEventListener("click", function(e) {
           if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
         });
-        // setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; },800);
+        setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; },800);
 
         textUpdate();
         gsap.set('#shape1',{top:-220,left:-18,width:60,height:220,y:820});
@@ -373,16 +374,21 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 293px;left: 22px;
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}));
         }
         var animateFrame1 = function(flag){
-          gsap.set('#frameText1', {x: '0'});
-          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameText1', {autoAlpha:1})
-          .to('#frameText1', {autoAlpha:0,delay:1.5})
-          .to('#frameText12', {autoAlpha:1})
-          .to('#frame1', (flag==true?{}:{delay:1.5, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
-          gsap.to('#shape1', {y:'0',ease:'none',duration:0.9,delay:1.5})
-          gsap.to('#shape2', {y:'0',ease:'none',duration:0.9,delay:1.7})
-          gsap.to('#shape3', {y:'0',ease:'none',duration:0.9,delay:1.7})
-          gsap.to('#shape4', {y:'0',ease:'none',duration:0.9,delay:2})
+          ad.layers.frameVideo1.querySelector('video').onplay = function(){
+            gsap.set('#frameText1', {x: '0'});
+            gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+            .to('#frameText1', {autoAlpha:1})
+            .to('#frameText1', {autoAlpha:0,delay:1.5})
+            .to('#frameText12', {autoAlpha:1})
+            gsap.to('#shape1', {y:'0',ease:'none',duration:0.9,delay:1.5})
+            gsap.to('#shape2', {y:'0',ease:'none',duration:0.9,delay:1.7})
+            gsap.to('#shape3', {y:'0',ease:'none',duration:0.9,delay:1.7})
+            gsap.to('#shape4', {y:'0',ease:'none',duration:0.9,delay:2})
+          }
+          ad.layers.frameVideo1.querySelector('video').onended = function(){
+            gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+            .to('#frame1', (flag==true?{}:{delay:1.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          }
         }
         if('frame1' in ad.layers) ad.layers.frame1.remove();
                     gsap.delayedCall(1.2, animateFrame4, [true]);
