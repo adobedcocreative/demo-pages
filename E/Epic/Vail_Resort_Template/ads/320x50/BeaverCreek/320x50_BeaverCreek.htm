@@ -142,6 +142,7 @@
             data.map(function(content){
               content.ctaBtn = content.ctaBtnColor.split('^')[0];
               content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
+              layout = content.layout.toLowerCase();
               if(content.frameText4.toLowerCase() != 'na' && !document.querySelector("#backgroundImage4")) {
                 var imageElement = document.querySelector("#backgroundImage3");
                 var newImageElement = imageElement.cloneNode(true);
