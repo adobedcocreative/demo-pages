@@ -156,6 +156,8 @@
                 newTextElement.id = 'frameText4';
                 newTextElement.dataset.text = 'frameText4';
                 textElement.parentNode.insertBefore(newTextElement, textElement.nextElementSibling);
+              }
+              if(layout == 'multipleimages') {
                 content.styleProperties = "{'#cta': {x:'-50%',y:21}}";
                 var cta = document.querySelector("#cta");
                 cta.style.left = "50%";
@@ -169,18 +171,19 @@
                   frameText[i].style.height = '38px';
                   frameText[i].style.textAlign = 'center';
                 }
-              } else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {
-                content.styleProperties = "{'#cta': {y:21}, '#saleImage': {css:{display:'block'}}}";
-                var cta = document.querySelector("#cta");
-                cta.style.left = "10px";
-                cta.style.width = "auto";
-                cta.style.minWidth = "90px";
-                cta.style.maxWidth = "140px";
-                var frameText = document.querySelectorAll("div[id^=frameText]");
-                for (var i = 0; i < frameText.length; i++){
-                 frameText[i].style.height = '38px';
-                }
               }
+              // else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {
+              //   content.styleProperties = "{'#cta': {y:21}, '#saleImage': {css:{display:'block'}}}";
+              //   var cta = document.querySelector("#cta");
+              //   cta.style.left = "10px";
+              //   cta.style.width = "auto";
+              //   cta.style.minWidth = "90px";
+              //   cta.style.maxWidth = "140px";
+              //   var frameText = document.querySelectorAll("div[id^=frameText]");
+              //   for (var i = 0; i < frameText.length; i++){
+              //    frameText[i].style.height = '38px';
+              //   }
+              // }
             });
             return data;
           }
