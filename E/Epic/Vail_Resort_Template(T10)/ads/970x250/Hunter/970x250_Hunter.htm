@@ -9,9 +9,9 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/script.min.js"></script>
     <style media="screen">
-      .RobotoSlabRegular{
+      .RobotoSlabBold{
         font-family: roboto-slab,serif;
-        font-weight: 400;
+        font-weight: 700;
         font-style: normal;
       }
     </style>
@@ -22,7 +22,7 @@
         font-family: arial,sans-serif;
         font-weight: 900;
         font-style: normal;
-        color: #006093;
+        color: #373e56;
         background-color: #fff;
       }
       .frame {
@@ -46,37 +46,37 @@
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="saleImage" class="asset frame" data-image="saleImage" style="display:none;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
-      <div id="frameText1" class="text-left RobotoSlabRegular"
+      <div id="frameText1" class="text-left RobotoSlabBold"
         data-text="frameText1"
         style="top: 64px;
           left: 623px;
           width: 320px;
-          height: 130px;
+          height: 114px;
           font-size: 30px;
-          letter-spacing: 2.65px;
+          letter-spacing: 0.02em;
           line-height: 1.13;">
       </div>
-      <div id="frameText2" class="text-left RobotoSlabRegular"
+      <div id="frameText2" class="text-left RobotoSlabBold"
         data-text="frameText2"
         style="top: 64px;
           left: 623px;
           width: 320px;
-          height: 130px;
+          height: 114px;
           font-size: 30px;
-          letter-spacing: 2.65px;
+          letter-spacing: 0.02em;
           line-height: 1.13;">
       </div>
-      <div id="frameText3" class="text-left RobotoSlabRegular"
+      <div id="frameText3" class="text-left RobotoSlabBold"
         data-text="frameText3"
         style="top: 64px;
           left: 623px;
           width: 320px;
-          height: 130px;
+          height: 114px;
           font-size: 30px;
-          letter-spacing: 2.65px;
+          letter-spacing: 0.02em;
           line-height: 1.13;">
       </div>
-      <div id="cta" class="text RobotoSlabRegular"
+      <div id="cta" class="text RobotoSlabBold"
         data-text="ctaText"
         data-style="padding:0 20px 0px;"
         style="top: 193px;
@@ -86,14 +86,14 @@
           height: 40px;
           font-size: 16px;
           line-height: 22px;
-          letter-spacing: 0.2em;
-          border-radius: 20px;
+          letter-spacing: 0.05em;
+          /*border-radius: 20px;*/
           color: #fff;">
       </div>
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
     <div id="loadFont" style="width:0;height:0;overflow:hidden;">
-      <div class="RobotoSlabRegular">RobotoSlabRegular</div>
+      <div class="RobotoSlabBold">RobotoSlabBold</div>
     </div>
     <script type="text/javascript">
       var layout = 'standard';
@@ -130,7 +130,7 @@
           staticData: {
             // ref: 'ref.png'
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
-            ctaBtnColor: '#006093^#7cb4cd',
+            ctaBtnColor: '#eea54a^#9c6827',
           },
           beforeLoad: function(data){
             data.map(function(content){
