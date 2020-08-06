@@ -14,6 +14,11 @@
         font-weight: 700;
         font-style: normal;
       }
+      @font-face {
+          font-family: CocoGothicBold;
+          src: url('fonts/Zetafonts - Coco Gothic Bold.woff') format("woff");
+      }
+      .CocoGothicBold { font-family: CocoGothicBold; }
     </style>
     <style media="screen" data-dynamic="style">
       #ad {
@@ -22,7 +27,7 @@
         font-family: arial,sans-serif;
         font-weight: 900;
         font-style: normal;
-        color: #0067b1;
+        color: #323232;
         background-color: #fff;
       }
       .frame {
@@ -46,7 +51,7 @@
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="saleImage" class="asset frame" data-image="saleImage" style="display:none;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
-      <div id="frameText1" class="text-left SabonLTProBold"
+      <div id="frameText1" class="text-left CocoGothicBold"
         data-text="frameText1"
         style="top: 3px;
           left: 170px;
@@ -56,7 +61,7 @@
           letter-spacing: 1.1px;
           line-height: 1.1;">
       </div>
-      <div id="frameText2" class="text-left SabonLTProBold"
+      <div id="frameText2" class="text-left CocoGothicBold"
         data-text="frameText2"
         style="top: 3px;
           left: 170px;
@@ -66,7 +71,7 @@
           letter-spacing: 1.1px;
           line-height: 1.1;">
       </div>
-      <div id="frameText3" class="text-left SabonLTProBold"
+      <div id="frameText3" class="text-left CocoGothicBold"
         data-text="frameText3"
         style="top: 3px;
           left: 170px;
@@ -93,6 +98,7 @@
     </div>
     <div id="loadFont" style="width:0;height:0;overflow:hidden;">
       <div class="SabonLTProBold">SabonLTProBold</div>
+      <div class="CocoGothicBold">CocoGothicBold</div>
     </div>
     <script type="text/javascript">
       var layout = 'standard';
@@ -129,7 +135,7 @@
           staticData: {
             // ref: 'ref.png'
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
-            ctaBtnColor: '#000000^#919195',
+            ctaBtnColor: '#E31837^#000000',
           },
           beforeLoad: function(data){
             data.map(function(content){
@@ -149,18 +155,18 @@
                 textElement.parentNode.insertBefore(newTextElement, textElement.nextElementSibling);
               }
               if(layout == 'multipleimages') {
-                content.styleProperties = "{'#cta': {y:13}}";
-                var cta = document.querySelector("#cta");
-                cta.style.left = "166px";
-                cta.style.width = "auto";
-                cta.style.minWidth = "55px";
-                cta.style.maxWidth = "90px";
-                cta.style.height = "16px";
-                var frameText = document.querySelectorAll("div[id^=frameText]");
-                for (var i = 0; i < frameText.length; i++){
-                 frameText[i].style.width = '144px';
-                 frameText[i].style.height = '24px';
-                }
+                // content.styleProperties = "{'#cta': {y:13}}";
+                // var cta = document.querySelector("#cta");
+                // cta.style.left = "166px";
+                // cta.style.width = "auto";
+                // cta.style.minWidth = "55px";
+                // cta.style.maxWidth = "90px";
+                // cta.style.height = "16px";
+                // var frameText = document.querySelectorAll("div[id^=frameText]");
+                // for (var i = 0; i < frameText.length; i++){
+                //  frameText[i].style.width = '144px';
+                //  frameText[i].style.height = '24px';
+                // }
               }
               // else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {
               //   content.styleProperties = "{'#frameText': {x:-4, y:-3}, '#frameText span': {css:{textAlign:'left'}}, '#cta': {y:13}, '#saleImage': {css:{display:'block'}}}";

@@ -14,6 +14,11 @@
         font-weight: 700;
         font-style: normal;
       }
+      @font-face {
+          font-family: CocoGothicBold;
+          src: url('fonts/Zetafonts - Coco Gothic Bold.woff') format("woff");
+      }
+      .CocoGothicBold { font-family: CocoGothicBold; }
     </style>
     <style media="screen" data-dynamic="style">
       #ad {
@@ -22,7 +27,7 @@
         font-family: arial,sans-serif;
         font-weight: 900;
         font-style: normal;
-        color: #0067b1;
+        color: #323232;
         background-color: #fff;
       }
       .frame {
@@ -46,32 +51,32 @@
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="saleImage" class="asset frame" data-image="saleImage" style="display:none;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
-      <div id="frameText1" class="text-left SabonLTProBold"
+      <div id="frameText1" class="text-left CocoGothicBold"
         data-text="frameText1"
         style="top: 64px;
           left: 623px;
           width: 320px;
-          height: 130px;
+          height: 114px;
           font-size: 30px;
           letter-spacing: 2.65px;
           line-height: 1.13;">
       </div>
-      <div id="frameText2" class="text-left SabonLTProBold"
+      <div id="frameText2" class="text-left CocoGothicBold"
         data-text="frameText2"
         style="top: 64px;
           left: 623px;
           width: 320px;
-          height: 130px;
+          height: 114px;
           font-size: 30px;
           letter-spacing: 2.65px;
           line-height: 1.13;">
       </div>
-      <div id="frameText3" class="text-left SabonLTProBold"
+      <div id="frameText3" class="text-left CocoGothicBold"
         data-text="frameText3"
         style="top: 64px;
           left: 623px;
           width: 320px;
-          height: 130px;
+          height: 114px;
           font-size: 30px;
           letter-spacing: 2.65px;
           line-height: 1.13;">
@@ -94,6 +99,7 @@
     </div>
     <div id="loadFont" style="width:0;height:0;overflow:hidden;">
       <div class="SabonLTProBold">SabonLTProBold</div>
+      <div class="CocoGothicBold">CocoGothicBold</div>
     </div>
     <script type="text/javascript">
       var layout = 'standard';
@@ -130,7 +136,7 @@
           staticData: {
             // ref: 'ref.png'
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
-            ctaBtnColor: '#000000^#919195',
+            ctaBtnColor: '#E31837^#000000',
           },
           beforeLoad: function(data){
             data.map(function(content){
