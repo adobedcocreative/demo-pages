@@ -156,6 +156,8 @@
                 newTextElement.id = 'frameText4';
                 newTextElement.dataset.text = 'frameText4';
                 textElement.parentNode.insertBefore(newTextElement, textElement.nextElementSibling);
+              }
+              if(layout == 'multipleimages') {
                 content.styleProperties = "{'#cta': {y:13}}";
                 var cta = document.querySelector("#cta");
                 cta.style.left = "166px";
@@ -168,20 +170,21 @@
                  frameText[i].style.width = '144px';
                  frameText[i].style.height = '24px';
                 }
-              } else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {
-                content.styleProperties = "{'#frameText': {x:-4, y:-3}, '#frameText span': {css:{textAlign:'left'}}, '#cta': {y:13}, '#saleImage': {css:{display:'block'}}}";
-                var cta = document.querySelector("#cta");
-                cta.style.left = "166px";
-                cta.style.width = "auto";
-                cta.style.minWidth = "55px";
-                cta.style.maxWidth = "90px";
-                cta.style.height = "16px";
-                var frameText = document.querySelectorAll("div[id^=frameText]");
-                for (var i = 0; i < frameText.length; i++){
-                 frameText[i].style.width = '95px';
-                 frameText[i].style.height = '22px';
-                }
               }
+              // else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {
+              //   content.styleProperties = "{'#frameText': {x:-4, y:-3}, '#frameText span': {css:{textAlign:'left'}}, '#cta': {y:13}, '#saleImage': {css:{display:'block'}}}";
+              //   var cta = document.querySelector("#cta");
+              //   cta.style.left = "166px";
+              //   cta.style.width = "auto";
+              //   cta.style.minWidth = "55px";
+              //   cta.style.maxWidth = "90px";
+              //   cta.style.height = "16px";
+              //   var frameText = document.querySelectorAll("div[id^=frameText]");
+              //   for (var i = 0; i < frameText.length; i++){
+              //    frameText[i].style.width = '95px';
+              //    frameText[i].style.height = '22px';
+              //   }
+              // }
             });
             return data;
           }
