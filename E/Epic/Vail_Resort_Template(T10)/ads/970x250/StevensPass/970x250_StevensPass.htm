@@ -154,13 +154,15 @@
                 newTextElement.id = 'frameText4';
                 newTextElement.dataset.text = 'frameText4';
                 textElement.parentNode.insertBefore(newTextElement, textElement.nextElementSibling);
-              } else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {
-                content.styleProperties = "{'#saleImage': {css:{display:'block'}}}";
-                var frameText = document.querySelectorAll("div[id^=frameText]");
-                for (var i = 0; i < frameText.length; i++){
-                 frameText[i].style.width = '204px';
-                }
               }
+              if(layout == 'multipleimages') { }
+              // else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {
+              //   content.styleProperties = "{'#saleImage': {css:{display:'block'}}}";
+              //   var frameText = document.querySelectorAll("div[id^=frameText]");
+              //   for (var i = 0; i < frameText.length; i++){
+              //    frameText[i].style.width = '204px';
+              //   }
+              // }
             });
             return data;
           }
