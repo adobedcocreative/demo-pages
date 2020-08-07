@@ -23,7 +23,7 @@
     </style>
     <style media="screen" data-dynamic="style">
       #ad {
-        width: 320px;
+        width: 300px;
         height: 50px;
         font-family: Arial,Helvetica,sans-serif;
         color: #000;
@@ -200,7 +200,7 @@ amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
 
     var ad = new Ad({
       root: document.querySelector('#ad'),
-      width: 320,
+      width: 300,
       height: 50,
       borderWidth: 1,
       borderColor: '#000'
@@ -210,8 +210,8 @@ amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
         cam: {},
         feed: [],
         staticData: {
-          logoImage: 'images/320x50_Logo_Optimum_Black.png',
-          introLogoImage: 'images/320x50_Logo_Optimum_Black.png',
+          logoImage: 'images/300x50_Logo_Optimum_Black.png',
+          introLogoImage: 'images/300x50_Logo_Optimum_Black.png',
           // ref: 'ref4.png',
         },
         beforeLoad: function(data){
@@ -276,7 +276,8 @@ amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
           .to('#frameText1', {autoAlpha:1})
           .to('#frame1', (flag==true?{}:{delay:3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
-        gsap.delayedCall(.8, animateFrame1);
+        if('frame1' in ad.layers) ad.layers.frame1.remove();
+                    gsap.delayedCall(1.2, animateFrame4, [true]);
       });
     }, 2000);
   </script>

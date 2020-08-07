@@ -426,7 +426,8 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 215px;left: 13px;
           // gsap.to('#shape3', {y:'0',ease:'none',duration:0.9,delay:1.7})
           // gsap.to('#shape4', {y:'0',ease:'none',duration:0.9,delay:2})
         }
-        gsap.delayedCall(.8, animateFrame1);
+        if('frame1' in ad.layers) ad.layers.frame1.remove();
+                    gsap.delayedCall(1.2, animateFrame3, [true]);
       });
     }, 2000);
   </script>

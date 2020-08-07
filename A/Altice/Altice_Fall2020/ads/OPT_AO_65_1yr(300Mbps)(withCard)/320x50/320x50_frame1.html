@@ -276,7 +276,7 @@ amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
           .to('#frameText1', {autoAlpha:1})
           .to('#frame1', (flag==true?{}:{delay:3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
-        gsap.delayedCall(.8, animateFrame1);
+        gsap.delayedCall(.8, animateFrame1, [true]);
       });
     }, 2000);
   </script>
