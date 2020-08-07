@@ -148,7 +148,7 @@ amo.registerAttribute("ctaText","TEXT","Shop now");
 amo.registerAttribute("frameImage1", "IMAGE", "728x90_OPT_FALL_ACQ_AO_Amz_65Yr1_NonSub_NY_Frame_1.png");
 amo.registerAttribute("frameImage2","IMAGE","728x90_OPT_FALL_ACQ_AO_Amz_65Yr1_NonSub_NY_Frame_2.png");
 amo.registerAttribute("frameImage3","IMAGE","728x90_OPT_FALL_ACQ_AO_Amz_65Yr1_NonSub_NY_Frame_3.png");
-amo.registerAttribute("frameVideo4","IMAGE","1x1.mp4");
+amo.registerAttribute("frameVideo4","IMAGE","WifiSymbol.mp4");
 amo.registerAttribute("frameImage5","IMAGE","1x1.png");
 amo.registerAttribute("frameText1", "TEXT", "Switch to an excellent entertainment experience");
 amo.registerAttribute("frameText21", "TEXT", "<div style='top: 13px;left: 23px;font-size: 22px;line-height: 1;'>300 Mbps<br>Internet<br>& TV</div>");
@@ -314,6 +314,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 376px;
           if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
         });
         // setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; },800);
+        setTimeout(function(){ ad.layers.frameImage4.querySelector('video').src = adData.frameVideo4; },11000);
         var video4 = ad.layers.frameImage4.querySelector('video'), videoLoad4 = false;
         video4.src = adData.frameVideo4;
         video4.onplay = function() {
@@ -321,7 +322,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 376px;
             this.pause();
             this.currentTime = 0;
           }
-          videoLoad3 = true;
+          videoLoad4 = true;
         }
 
         textUpdate();
