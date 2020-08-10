@@ -207,7 +207,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 167px;left: 24px;
     <div id="frameText22" class="frameText">!{frameText22}</div>
     <div id="frameText23" class="frameText">!{frameText23}</div>
     <!-- <div id="frameImage3" class="asset frameImage" data-image="frameImage3"></div> -->
-    <div id="frameImage3" class="frameImage" style="top: 58px;left: 125px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width: 50px;height: 50px;"></video></div>
+    <div id="frameImage3" class="frameImage" style="top: 44px;left: 102px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width: 90px;height: 78px;"></video></div>
     <div id="frameText31" class="frameText">!{frameText31}</div>
     <div id="frameText32" class="frameText">!{frameText32}</div>
     <div id="frameText33" class="frameText">!{frameText33}</div>
@@ -386,9 +386,9 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 167px;left: 24px;
           var video = ad.root.querySelector('#frameImage' + frame + ' video');
           var playVideo = function() { if(video) { video.play(); } }
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0})
+          .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0, onComplete:playVideo})
           .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
-          .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0, onComplete:playVideo});
+          .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
         }
         var generalFrameAnimation = function(frame){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
