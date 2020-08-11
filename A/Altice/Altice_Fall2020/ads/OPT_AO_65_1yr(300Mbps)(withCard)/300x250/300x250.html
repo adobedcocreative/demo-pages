@@ -107,6 +107,21 @@
         background-color: #0084d6;
         border-radius: 50%;
       }
+      .switch { }
+      .switch-button {
+        position: absolute;
+        top: 6.5px;
+        left: 7px;
+        width: 23.5px;
+        height: 23.5px;
+        border-radius: 50%;
+        -webkit-transition: left linear 0.3s;
+        transition: left ease-out 0.3s;
+        background-image: linear-gradient(to right, #24d9c3, #0084d6);
+      }
+      .switch.on .switch-button {
+        left: 62px;
+      }
       #cta::before, #introCta::before {
         content: ' ';
         position: absolute;
@@ -254,6 +269,19 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 167px;left: 24px;
           line-height: 1;
           color:#fff;">
       </div>
+      <div id="switch" class="switch"
+        style="top: 95px;
+          left: 104px;
+          width: 92px;
+          height: 36px;
+          opacity: 0;">
+        <div class="asset" data-image="switchImage" style="position: relative;width: inherit;height: inherit;"></div>
+        <div class="switch-button"></div>
+      </div>
+      <div id="shape1" class="shape" style="border-radius: 50px;background-image: linear-gradient(to top, #24d9c3, #0084d6);"></div>
+      <div id="shape2" class="shape" style="border-radius: 50px;background-image: linear-gradient(to top, #24d9c3, #0084d6);"></div>
+      <div id="shape3" class="shape" style="border-radius: 50px;background-image: linear-gradient(to bottom, #24d9c3, #0084d6);"></div>
+      <div id="shape4" class="shape" style="border-radius: 50px;background-image: linear-gradient(to bottom, #24d9c3, #0084d6);"></div>
       <div id="introLogoImage" class="asset adSizeContainer" data-image="introLogoImage"></div>
       <div id="introCta" class="text AlticeBold"
         data-text="ctaText"
@@ -291,6 +319,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 167px;left: 24px;
           logoImage: 'images/300x250_Logo_Optimum_Black.png',
           introLogoImage: 'images/300x250_Logo_Optimum_White.png',
           frameBackground: '1x1.png',
+          switchImage: '1x1.png',
           // ref: 'ref.png',
         },
         beforeLoad: function(data){
@@ -408,6 +437,9 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 167px;left: 24px;
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}));
         }
         var animateFrame1 = function(flag){
+          var animateSwitch = function() {
+            ad.root.querySelector('.switch').classList.add('on');
+          }
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameText1', {autoAlpha:1})
           .to('#frameImage1', {autoAlpha:1,delay:1.5, onComplete: animateSwitch})
