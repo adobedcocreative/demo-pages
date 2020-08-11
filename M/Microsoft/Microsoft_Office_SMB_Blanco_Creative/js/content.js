@@ -21,6 +21,7 @@ var getFeed1 = function(){
               "textField1": data['gsx$textfield1']['$t'],
               "textField2": data['gsx$textfield2']['$t'],
               "textField3": data['gsx$textfield3']['$t'],
+              "textField4": data['gsx$textfield4']['$t'],
             });
           });
           loadTemplateFlag1 = true;
