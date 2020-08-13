@@ -169,6 +169,24 @@
           }
         }, function(data){
           var adData = data[0], adClickUrl = adData['clickURL'];
+         
+         var image = new Image();
+         image.crossOrigin = 'Anonymous';
+         image.onload = function() {
+             var canvas = document.createElement('canvas');
+             var ctx = canvas.getContext('2d');
+             canvas.width = this.width;
+             canvas.height = this.height;
+             document.body.appendChild(canvas);
+             ctx.fillStyle = "#5C6F7C";
+             ctx.fillRect(0, 0, canvas.width, canvas.height);
+             ctx.globalCompositeOperation = 'destination-in';
+             ctx.drawImage(this, 0, 0);
+             var imageURL = canvas.toDataURL();
+             ad.layers.saleImage.querySelector('img').src = imageURL;
+             document.body.removeChild(canvas);
+         }
+         image.src = adData['saleImage'];
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });
