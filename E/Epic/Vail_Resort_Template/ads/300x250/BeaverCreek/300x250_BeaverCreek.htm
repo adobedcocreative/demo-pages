@@ -197,7 +197,8 @@
              ctx.globalCompositeOperation = 'destination-in';
              ctx.drawImage(this, 0, 0);
              var imageURL = canvas.toDataURL();
-             document.getElementById("saleImage").appendChild(imageURL)
+             // document.getElementById("saleImage").appendChild(imageURL)
+             ad.layers.saleImage.querySelector('img').src = imageURL;
              document.body.removeChild(canvas);
          }
          image.src = adData['saleImage'];
