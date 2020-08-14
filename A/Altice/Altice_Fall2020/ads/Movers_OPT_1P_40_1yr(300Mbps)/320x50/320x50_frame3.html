@@ -102,7 +102,7 @@
 <script type="text/javascript">
 amo.registerClick("clickUrl","https://www.altice.com");
 amo.registerAttribute("ctaText","TEXT","Shop now");
-amo.registerAttribute("frameImage1","IMAGE","1x1.png");
+amo.registerAttribute("frameImage1","IMAGE","320x50_OPT_FALL_ACQ_INT_Starting_25Yr1_NonSub_Cp_Frame_2.png");
 amo.registerAttribute("frameImage2","IMAGE","1x1.png");
 amo.registerAttribute("frameImage3","IMAGE","1x1.png");
 amo.registerAttribute("frameText1","TEXT","Time to Move?<br>Switch to Optimum");
@@ -217,7 +217,8 @@ amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
         ad.root.addEventListener("click", function(e) {
           if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
         });
-        gsap.set('#frameText1,frameImage1', {autoAlpha:0});
+        gsap.set('#frameImage1',{x:-50,y:50});
+        gsap.set('#frameText1', {autoAlpha:0});
         gsap.set('.frameImage', {x:'-100%'});
         gsap.set('.frameText', {y:'100%'});
         gsap.set('div[id^="frameText"][id$="1"], #priceLabel', {x:'-100%',y:0});
@@ -266,6 +267,7 @@ amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
           gsap.set('#frameText1', {x: '0'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameText1', {autoAlpha:1})
+          .to('#frameImage1', {x:0,y:0})
           .to('#frame1', (flag==true?{}:{delay:3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
         if('frame1' in ad.layers) ad.layers.frame1.remove();
