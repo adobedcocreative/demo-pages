@@ -14,6 +14,11 @@
         font-weight: 700;
         font-style: normal;
       }
+      @font-face {
+          font-family: BROTB;
+          src: url('fonts/BROTB.woff') format("woff");
+      }
+      .BROTB { font-family: BROTB; }
     </style>
     <style media="screen" data-dynamic="style">
       #ad {
@@ -22,7 +27,7 @@
         font-family: arial,sans-serif;
         font-weight: 900;
         font-style: normal;
-        color: #901a1e;
+        color: #fff;
         background-color: #fff;
       }
       .frame {
@@ -42,11 +47,11 @@
       <div id="backgroundImage2" class="asset frame multiframe" data-image="backgroundImage2"></div>
       <div id="backgroundImage3" class="asset frame multiframe" data-image="backgroundImage3"></div>
       <div id="topWhitePatch" class="frame" style="top:-213px;background-color:rgba(255, 255, 255, 0.85);"></div>
-      <div id="bottomWhitePatch" class="frame" style="top:165px;background-color:rgba(255, 255, 255, 0.9);"></div>
+      <div id="bottomWhitePatch" class="frame" style="top:165px;background-color:rgba(151, 27, 31, 0.9);"></div>
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="saleImage" class="asset frame" data-image="saleImage" style="display:none;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
-      <div id="frameText1" class="text-left JosefinSansBold"
+      <div id="frameText1" class="text-left BROTB"
         data-text="frameText1"
         style="top: 171px;
           left: 11px;
@@ -56,7 +61,7 @@
           letter-spacing: 1.7px;
           line-height: 1.15;">
       </div>
-      <div id="frameText2" class="text-left JosefinSansBold"
+      <div id="frameText2" class="text-left BROTB"
         data-text="frameText2"
         style="top: 171px;
           left: 11px;
@@ -66,7 +71,7 @@
           letter-spacing: 1.7px;
           line-height: 1.15;">
       </div>
-      <div id="frameText3" class="text-left JosefinSansBold"
+      <div id="frameText3" class="text-left BROTB"
         data-text="frameText3"
         style="top: 171px;
           left: 11px;
@@ -86,13 +91,13 @@
           font-size: 12px;
           line-height: 20px;
           letter-spacing: 1px;
-          border-radius: 5px;
           color: #fff;">
       </div>
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
     <div id="loadFont" style="width:0;height:0;overflow:hidden;">
       <div class="JosefinSansBold">JosefinSansBold</div>
+      <div class="BROTB">BROTB</div>
     </div>
     <script type="text/javascript">
       var layout = 'standard';
