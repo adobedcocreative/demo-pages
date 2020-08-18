@@ -21,8 +21,6 @@ var getFeed1 = function(){
               "backgroundImage2": data['gsx$backgroundimage2']['$t'],
               "backgroundImage3": data['gsx$backgroundimage3']['$t'],
               "backgroundImage4": data['gsx$backgroundimage4']['$t'],
-              "logoImage": data['gsx$logoimage']['$t'],
-              "saleImage": data['gsx$saleimage']['$t'],
               "frameText1": data['gsx$frametext1']['$t'],
               "frameText2": data['gsx$frametext2']['$t'],
               "frameText3": data['gsx$frametext3']['$t'],
