@@ -125,8 +125,6 @@
             backgroundImage3: 'assets/970x250_Vail_Resort_BackgroundImage3.png',
             backgroundImage4: 'assets/970x250_Vail_Resort_BackgroundImage4.png',
             backgroundImage4: 'assets/1x1.png',
-            logoImage: 'assets/970x250_Vail_Resort_LogoImage.png',
-            saleImage: 'assets/970x250_VL_SaleImage_BookWinterEarly.png',
             frameText1: 'Return to the mountain you love',
             frameText2: 'Ski & ride from 1 day to every day',
             frameText3: 'Get Your Pass By 9/7',
@@ -141,6 +139,8 @@
           ],
           staticData: {
             // ref: 'ref.png'
+            logoImage: './../images/970x250_Okemo_LogoImage.png',
+            saleImage: './../images/970x250_Resort_SaleImage_EPIC_PASS.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
             ctaBtnColor: '#006691^#002d40',
           },
@@ -174,6 +174,25 @@
           }
         }, function(data){
           var adData = data[0], adClickUrl = adData['clickURL'];
+         
+          var image = new Image();
+          image.crossOrigin = 'Anonymous';
+          image.onload = function() {
+            var canvas = document.createElement('canvas');
+            var ctx = canvas.getContext('2d');
+            canvas.width = this.width;
+            canvas.height = this.height;
+            document.body.appendChild(canvas);
+            ctx.fillStyle = "#F8951F";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.globalCompositeOperation = 'destination-in';
+            ctx.drawImage(this, 0, 0);
+            var imageURL = canvas.toDataURL();
+            ad.layers.saleImage.querySelector('img').src = imageURL;
+            document.body.removeChild(canvas);
+          }
+          image.src = adData['saleImage'];
+          
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });
