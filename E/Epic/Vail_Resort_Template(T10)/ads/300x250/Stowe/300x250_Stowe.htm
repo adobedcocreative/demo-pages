@@ -165,7 +165,6 @@
                 cta.style.width = "auto";
                 cta.style.minWidth = "90px";
                 cta.style.maxWidth = "140px";
-                cta.dataset.style = 'padding:0px 10px 0px;';
                 var frameText = document.querySelectorAll("div[id^=frameText]");
                 for (var i = 0; i < frameText.length; i++){
                   frameText[i].style.left = '15px';
@@ -180,7 +179,6 @@
                 cta.style.width = "auto";
                 cta.style.minWidth = "90px";
                 cta.style.maxWidth = "140px";
-                cta.dataset.style = 'padding:0px 10px 0px;';
                 var frameText = document.querySelectorAll("div[id^=frameText]");
                 for (var i = 0; i < frameText.length; i++){
                   frameText[i].style.left = '15px';
@@ -206,7 +204,7 @@
           }
         }, function(data){
           var adData = data[0], adClickUrl = adData['clickURL'];
-         
+
           var image = new Image();
           image.crossOrigin = 'Anonymous';
           image.onload = function() {
@@ -224,7 +222,7 @@
             document.body.removeChild(canvas);
           }
           image.src = adData['saleImage'];
-          
+
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });

@@ -156,6 +156,7 @@
               if(layout == 'multipleimagesoffer') {
                 content.styleProperties = "{'#saleImage': {css:{display:'block'}}}";
                 var cta = document.querySelector("#cta");
+                cta.style.left = "625px";
                 cta.style.maxWidth = "180px";
               }
               // else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {
@@ -170,7 +171,7 @@
           }
         }, function(data){
           var adData = data[0], adClickUrl = adData['clickURL'];
-         
+
           var image = new Image();
           image.crossOrigin = 'Anonymous';
           image.onload = function() {
@@ -188,7 +189,7 @@
             document.body.removeChild(canvas);
           }
           image.src = adData['saleImage'];
-          
+
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });
