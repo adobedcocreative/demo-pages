@@ -163,13 +163,22 @@
               }
               if(layout == 'multipleimages') {
                 content.styleProperties = "{'#cta': {x:'-50%',y:0}}";
-                cta.style.left = "0";
+                cta.style.left = "50%";
                 cta.style.width = "auto";
                 cta.style.minWidth = "120px";
                 cta.style.maxWidth = "200px";
                 cta.innerHTML = '<span style="' + cta.dataset.style + '">' + content.ctaText + '</span>';
                 cta.style.width = cta.offsetWidth + 'px';
-                cta.style.left = "50%";
+
+              } else if(layout == 'multipleimagesoffer') {
+                content.styleProperties = "{'#cta': {x:0,y:0}, '#saleImage': {css:{display:'block'}}}";
+                cta.style.left = "20px";
+                cta.style.width = "auto";
+                cta.style.minWidth = "120px";
+                cta.style.maxWidth = "145px";
+                cta.dataset.style = 'padding:0px 8px 0px;';
+                cta.innerHTML = '<span style="' + cta.dataset.style + '">' + content.ctaText + '</span>';
+                cta.style.width = cta.offsetWidth + 'px';
               }
               // else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {
               //   content.styleProperties = "{'#frameText': {x:-7, y:-3}, '#frameText span': {css:{textAlign:'left'}}, '#cta': {y:0}, '#saleImage': {css:{display:'block'}}}";

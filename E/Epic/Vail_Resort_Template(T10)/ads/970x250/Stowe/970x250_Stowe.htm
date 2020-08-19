@@ -160,6 +160,11 @@
                 textElement.parentNode.insertBefore(newTextElement, textElement.nextElementSibling);
               }
               if(layout == 'multipleimages') { }
+              if(layout == 'multipleimagesoffer') {
+                content.styleProperties = "{'#saleImage': {css:{display:'block'}}}";
+                var cta = document.querySelector("#cta");
+                cta.style.maxWidth = "180px";
+              }
               // else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {
               //   content.styleProperties = "{'#saleImage': {css:{display:'block'}}}";
               //   var frameText = document.querySelectorAll("div[id^=frameText]");

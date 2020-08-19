@@ -165,6 +165,22 @@
                 cta.style.width = "auto";
                 cta.style.minWidth = "90px";
                 cta.style.maxWidth = "140px";
+                cta.dataset.style = 'padding:0px 10px 0px;';
+                var frameText = document.querySelectorAll("div[id^=frameText]");
+                for (var i = 0; i < frameText.length; i++){
+                  frameText[i].style.left = '15px';
+                  frameText[i].style.width = '270px';
+                  frameText[i].style.height = '38px';
+                  frameText[i].style.textAlign = 'center';
+                }
+              } else if(layout == 'multipleimagesoffer') {
+                content.styleProperties = "{'#cta': {x:0,y:21},'#saleImage': {css:{display:'block'}}}";
+                var cta = document.querySelector("#cta");
+                cta.style.left = "15px";
+                cta.style.width = "auto";
+                cta.style.minWidth = "90px";
+                cta.style.maxWidth = "140px";
+                cta.dataset.style = 'padding:0px 10px 0px;';
                 var frameText = document.querySelectorAll("div[id^=frameText]");
                 for (var i = 0; i < frameText.length; i++){
                   frameText[i].style.left = '15px';

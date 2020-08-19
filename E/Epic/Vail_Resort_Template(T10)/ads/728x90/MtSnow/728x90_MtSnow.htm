@@ -169,6 +169,8 @@
                 //  frameText[i].style.fontSize = '18.2px';
                 //  frameText[i].style.lineHeight = '1.2';
                 // }
+              } else if(layout == 'multipleimagesoffer') {
+                content.styleProperties = "{'#saleImage': {css:{display:'block'}}}";
               }
               // else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {
               //   content.styleProperties = "{'#frameText': {x:2, y:1}, '#frameText span': {css:{textAlign:'left'}}, '#cta': {y:25}, '#saleImage': {css:{display:'block'}}}";
@@ -191,7 +193,7 @@
           }
         }, function(data){
           var adData = data[0], adClickUrl = adData['clickURL'];
-         
+
           var image = new Image();
           image.crossOrigin = 'Anonymous';
           image.onload = function() {
@@ -209,7 +211,7 @@
             document.body.removeChild(canvas);
           }
           image.src = adData['saleImage'];
-          
+
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });

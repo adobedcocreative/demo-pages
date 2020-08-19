@@ -173,6 +173,21 @@
                  frameText[i].style.fontSize = '18.2px';
                  frameText[i].style.lineHeight = '1.2';
                 }
+              } else if(layout == 'multipleimagesoffer') {
+                content.styleProperties = "{'#cta': {y:25}, '#saleImage': {css:{display:'block'}}}";
+                var cta = document.querySelector("#cta");
+                cta.style.left = "443px";
+                cta.style.width = "auto";
+                cta.style.minWidth = "80px";
+                cta.style.maxWidth = "120px";
+                cta.style.height = "27px";
+                var frameText = document.querySelectorAll("div[id^=frameText]");
+                for (var i = 0; i < frameText.length; i++){
+                 frameText[i].style.width = '275px';
+                 frameText[i].style.height = '46px';
+                 frameText[i].style.fontSize = '18.2px';
+                 frameText[i].style.lineHeight = '1.2';
+                }
               }
               // else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {
               //   content.styleProperties = "{'#frameText': {x:2, y:1}, '#frameText span': {css:{textAlign:'left'}}, '#cta': {y:25}, '#saleImage': {css:{display:'block'}}}";
