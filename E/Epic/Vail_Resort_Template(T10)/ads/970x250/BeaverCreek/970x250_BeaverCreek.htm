@@ -157,6 +157,11 @@
                 textElement.parentNode.insertBefore(newTextElement, textElement.nextElementSibling);
               }
               if(layout == 'multipleimages') { }
+              if(layout == 'multipleimagesoffer') {
+                content.styleProperties = "{'#saleImage': {css:{display:'block'}}}";
+                var cta = document.querySelector("#cta");
+                cta.style.maxWidth = "180px";
+              }
               // else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {
               //   content.styleProperties = "{'#saleImage': {css:{display:'block'}}}";
               //   var frameText = document.querySelectorAll("div[id^=frameText]");
@@ -169,7 +174,7 @@
           }
         }, function(data){
           var adData = data[0], adClickUrl = adData['clickURL'];
-         
+
           var image = new Image();
           image.crossOrigin = 'Anonymous';
           image.onload = function() {
@@ -187,7 +192,7 @@
             document.body.removeChild(canvas);
           }
           image.src = adData['saleImage'];
-          
+
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });
@@ -210,7 +215,7 @@
             }
           }
           var adWidth = 970,adHeight = 250;
-          if(layout != 'multipleimages') { gsap.set('.multiframe', { autoAlpha :0}) }
+          if(layout == 'singleimage') { gsap.set('.multiframe', { autoAlpha :0}) }
             gsap.timeline({defaults:{ease: Power2.easeInOut, duration: 0.7}})
             .from('#bottomWhitePatch', { x:adWidth/2, delay:0.5 })
             .from('#frameText1, #cta, #logoImage, #saleImage', { autoAlpha:0 })

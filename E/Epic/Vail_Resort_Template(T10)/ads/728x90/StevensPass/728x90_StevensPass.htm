@@ -232,7 +232,7 @@
             }
           }
           var adWidth = 728,adHeight = 90;
-          if(layout != 'multipleimages') { gsap.set('.multiframe', { autoAlpha :0}) }
+          if(layout == 'singleimage') { gsap.set('.multiframe', { autoAlpha :0}) }
             gsap.timeline({defaults:{ease: Power2.easeInOut, duration: 0.7}})
             .from('#bottomWhitePatch', { x:adWidth/2, delay:0.5 })
             .from('#frameText1, #cta, #saleImage', { autoAlpha:0 })

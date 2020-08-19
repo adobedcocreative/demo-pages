@@ -161,6 +161,22 @@
                 cta.style.width = "auto";
                 cta.style.minWidth = "90px";
                 cta.style.maxWidth = "140px";
+                cta.dataset.style = 'padding:0px 10px 0px;';
+                var frameText = document.querySelectorAll("div[id^=frameText]");
+                for (var i = 0; i < frameText.length; i++){
+                  frameText[i].style.left = '15px';
+                  frameText[i].style.width = '270px';
+                  frameText[i].style.height = '38px';
+                  frameText[i].style.textAlign = 'center';
+                }
+              } else if(layout == 'multipleimagesoffer') {
+                content.styleProperties = "{'#cta': {x:0,y:21},'#saleImage': {css:{display:'block'}}}";
+                var cta = document.querySelector("#cta");
+                cta.style.left = "15px";
+                cta.style.width = "auto";
+                cta.style.minWidth = "90px";
+                cta.style.maxWidth = "140px";
+                cta.dataset.style = 'padding:0px 10px 0px;';
                 var frameText = document.querySelectorAll("div[id^=frameText]");
                 for (var i = 0; i < frameText.length; i++){
                   frameText[i].style.left = '15px';
@@ -186,7 +202,7 @@
           }
         }, function(data){
           var adData = data[0], adClickUrl = adData['clickURL'];
-         
+
           var image = new Image();
           image.crossOrigin = 'Anonymous';
           image.onload = function() {
@@ -204,7 +220,7 @@
             document.body.removeChild(canvas);
           }
           image.src = adData['saleImage'];
-          
+
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });
@@ -227,7 +243,7 @@
             }
           }
           var adWidth = 300,adHeight = 250;
-          if(layout != 'multipleimages') { gsap.set('.multiframe', { autoAlpha :0}) }
+          if(layout == 'singleimage') { gsap.set('.multiframe', { autoAlpha :0}) }
             gsap.timeline({defaults:{ease: Power2.easeInOut, duration: 0.7}})
             .from('#bottomWhitePatch', { y:adHeight, delay:0.5 })
             .from('#frameText1, #cta, #saleImage', { autoAlpha:0 })

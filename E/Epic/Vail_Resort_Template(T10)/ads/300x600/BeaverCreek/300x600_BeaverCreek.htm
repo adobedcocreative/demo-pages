@@ -160,13 +160,22 @@
               }
               if(layout == 'multipleimages') {
                 content.styleProperties = "{'#cta': {x:'-50%',y:0}}";
-                cta.style.left = "0";
+                cta.style.left = "50%";
                 cta.style.width = "auto";
                 cta.style.minWidth = "120px";
                 cta.style.maxWidth = "200px";
                 cta.innerHTML = '<span style="' + cta.dataset.style + '">' + content.ctaText + '</span>';
                 cta.style.width = cta.offsetWidth + 'px';
-                cta.style.left = "50%";
+
+              } else if(layout == 'multipleimagesoffer') {
+                content.styleProperties = "{'#cta': {x:0,y:0}, '#saleImage': {css:{display:'block'}}}";
+                cta.style.left = "20px";
+                cta.style.width = "auto";
+                cta.style.minWidth = "120px";
+                cta.style.maxWidth = "145px";
+                cta.dataset.style = 'padding:0px 8px 0px;';
+                cta.innerHTML = '<span style="' + cta.dataset.style + '">' + content.ctaText + '</span>';
+                cta.style.width = cta.offsetWidth + 'px';
               }
               // else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {
               //   content.styleProperties = "{'#frameText': {x:-7, y:-3}, '#frameText span': {css:{textAlign:'left'}}, '#cta': {y:0}, '#saleImage': {css:{display:'block'}}}";
@@ -185,7 +194,7 @@
           }
         }, function(data){
           var adData = data[0], adClickUrl = adData['clickURL'];
-         
+
           var image = new Image();
           image.crossOrigin = 'Anonymous';
           image.onload = function() {
@@ -203,7 +212,7 @@
             document.body.removeChild(canvas);
           }
           image.src = adData['saleImage'];
-          
+
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });
@@ -226,7 +235,7 @@
             }
           }
           var adWidth = 300,adHeight = 600;
-          if(layout != 'multipleimages') { gsap.set('.multiframe', { autoAlpha :0}) }
+          if(layout == 'singleimage') { gsap.set('.multiframe', { autoAlpha :0}) }
             gsap.timeline({defaults:{ease: Power2.easeInOut, duration: 0.7}})
             .from('#bottomWhitePatch', { y:adHeight, delay:0.5 })
             .from('#frameText1, #cta, #saleImage', { autoAlpha:0 })
