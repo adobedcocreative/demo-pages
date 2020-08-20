@@ -27,7 +27,7 @@
         font-family: arial,sans-serif;
         font-weight: 900;
         font-style: normal;
-        color: #901a1e;
+        color: #fff;
         background-color: #fff;
       }
       .frame {
@@ -47,7 +47,7 @@
       <div id="backgroundImage2" class="asset frame multiframe" data-image="backgroundImage2"></div>
       <div id="backgroundImage3" class="asset frame multiframe" data-image="backgroundImage3"></div>
       <div id="topWhitePatch" class="frame" style="top:-1198px;left:-636px;background-color:rgba(255, 255, 255, 0.85);"></div>
-      <div id="bottomWhitePatch" class="frame" style="left:596px;background-color:rgba(255, 255, 255, 0.9);"></div>
+      <div id="bottomWhitePatch" class="frame" style="left:596px;background-color:rgba(151, 27, 31, 0.9);"></div>
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="saleImage" class="asset frame" data-image="saleImage" style="display:none;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
@@ -181,7 +181,7 @@
             canvas.width = this.width;
             canvas.height = this.height;
             document.body.appendChild(canvas);
-            ctx.fillStyle = "#99191a";
+            ctx.fillStyle = "#ffffff";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.globalCompositeOperation = 'destination-in';
             ctx.drawImage(this, 0, 0);
