@@ -1255,14 +1255,14 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 	// CTA
 	this.txtCta = new lib.cta();
 	this.txtCta.name = "txtCta";
-	this.txtCta.setTransform(667.25,60.1,1,1,0,0,0,0.7,0.1);
+	this.txtCta.setTransform(767.25,60.1,1,1,0,0,0,0.7,0.1);
 
 	this.timeline.addTween(cjs.Tween.get(this.txtCta).wait(1));
 
 	// CTA_BG
 	this.cta = new lib.CTA_btn();
 	this.cta.name = "cta";
-	this.cta.setTransform(707.75,60.35,0.9433,0.9433,0,0,0,0.1,0.2);
+	this.cta.setTransform(807.75,60.35,0.9433,0.9433,0,0,0,0.1,0.2);
 
 	this.timeline.addTween(cjs.Tween.get(this.cta).wait(1));
 
@@ -1571,8 +1571,8 @@ p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 		exportRoot.tl1.stop();
 
 
-				exportRoot.tl1.from(mc.txtCta, 0.7, { alpha: 0, x: "+=100",	ease:Power4.easeOut}, "-=0.5");
-				exportRoot.tl1.from(mc.cta, 0.7, {alpha: 0, x: "+=100", ease:Power4.easeOut}, "-=0.7");
+				exportRoot.tl1.from(mc.txtCta, 0.7, { alpha: 0, x: "+=300",	ease:Power4.easeOut}, "-=0.5");
+				exportRoot.tl1.from(mc.cta, 0.7, {alpha: 0, x: "+=300", ease:Power4.easeOut}, "-=0.7");
 				exportRoot.tl1.from(mc.replay_btn, 0.7, { alpha: 0,ease:Power4.easeOut, onStart:function(){exportRoot.isReplay = true;}}, "-=.6");
 
 				exportRoot.tl1.stop();
