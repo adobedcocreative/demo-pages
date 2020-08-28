@@ -286,9 +286,9 @@ var startBanner = function(){
 		}
 		function click(id) {
 			if(id == -1 && parentWindow.urls[0].defaultPath.toLowerCase() != 'na') {
-					parentWindow.amo.onDynAdClick(parentWindow.urls[0].data, "CLICK", parentWindow.urls[0].defaultPath, parentWindow.urls[0].defaultLabel);
+					parentWindow.amo.onDynAdClick(parentWindow.urls[0].data, "CLICK", parentWindow.urls[0].defaultPath, parentWindow.urls[0].defaultClickLabel);
 			} else if(id >= 0 && parentWindow.urls[id].path.toLowerCase() != 'na') {
-					parentWindow.amo.onDynAdClick(parentWindow.urls[id].data, "CLICK", parentWindow.urls[id].path, parentWindow.urls[id].label);
+					parentWindow.amo.onDynAdClick(parentWindow.urls[id].data, "CLICK", parentWindow.urls[id].path, parentWindow.urls[id].clickLabel);
 			}
 		}
 		function onInteraction(id) {

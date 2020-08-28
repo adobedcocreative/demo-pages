@@ -130,6 +130,8 @@
           url.defaultPath = content[i].defaultUrl;
           url.defaultLabel = ('id' in content[i].feedData ? (content[i].feedData.id + '|') : '') + content[i].layout + '|' + 'DefaultClick';
           url.label = ('id' in content[i].feedData ? (content[i].feedData.id + '|') : '') + content[i].layout + '|' + eval(content[i].textField3)[0].split('>')[1];
+          url.defaultClickLabel = content[i].layout + '|' + 'DefaultClick';
+          url.clickLabel = content[i].layout + '|' + eval(content[i].textField3)[0].split('>')[1];
           urls.push(url);
           for(var j = 1; j <= 5; j++) {
             content[i]['textField'+j] = content[i]['textField'+j] && content[i]['textField'+j].toLowerCase() != 'na' ? content[i]['textField'+j] : ' ';
