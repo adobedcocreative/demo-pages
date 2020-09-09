@@ -24,7 +24,7 @@
 	}
 </style>
 <script>
-var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation, onAdClick;
 function init() {
 	canvas = document.getElementById("canvas");
 	anim_container = document.getElementById("animation_container");
@@ -57,6 +57,9 @@ function handleComplete(evt,comp) {
 		stage.addChild(exportRoot);
 		createjs.Ticker.setFPS(lib.properties.fps);
 		createjs.Ticker.addEventListener("tick", stage);
+		dom_overlay_container.addEventListener("click", function(e){
+			onAdClick(e);
+		}, false);
 	}	    
 	//Code to support hidpi screens and responsive scaling.
 	function makeResponsive(isResp, respDim, isScale, scaleType) {		
@@ -104,7 +107,7 @@ function handleComplete(evt,comp) {
 <body onload="init();" style="margin:0px;">
 	<div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:300px; height:600px">
 		<canvas id="canvas" width="300" height="600" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
-		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:300px; height:600px; position: absolute; left: 0px; top: 0px; display: block;">
+		<div id="dom_overlay_container" style="overflow:hidden; width:300px; height:600px; position: absolute; left: 0px; top: 0px; display: block;">
 		</div>
 	</div>
 	<div id="loadFont" style="width:0;height:0;overflow:hidden;">
