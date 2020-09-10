@@ -772,11 +772,11 @@ p.nominalBounds = new cjs.Rectangle(0,-7.5,104.3,76.4);
 	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_1
-	this.instance = new lib.MSAzureLogo_StackGr();
-	this.instance.parent = this;
-	this.instance.setTransform(0,0,0.6857,0.685);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+	// this.instance = new lib.MSAzureLogo_StackGr();
+	// this.instance.parent = this;
+	// this.instance.setTransform(0,0,0.6857,0.685);
+	//
+	// this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 }).prototype = getMCSymbolPrototype(lib.logo, new cjs.Rectangle(0,0,72,20.6), null);
 

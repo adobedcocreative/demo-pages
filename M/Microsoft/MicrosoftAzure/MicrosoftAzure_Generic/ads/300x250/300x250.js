@@ -776,10 +776,10 @@ p.nominalBounds = new cjs.Rectangle(0,-7.5,104.3,76.4);
 	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_1
-	this.instance = new lib.MSAzureLogo_horGr();
-	this.instance.setTransform(0,0,0.54,0.5396);
-
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+	// this.instance = new lib.MSAzureLogo_horGr();
+	// this.instance.setTransform(0,0,0.54,0.5396);
+	//
+	// this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 	this._renderFirstFrame();
 
