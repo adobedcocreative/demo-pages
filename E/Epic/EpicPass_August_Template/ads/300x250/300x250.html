@@ -216,7 +216,7 @@
           gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.5}})
           .to('#backgroundImage1', { autoAlpha:0.2,delay:1 })
           .from('#backgroundImage2', { autoAlpha:0 }, '-=0.5')
-          .from('#logoImage1, #frameText1', { y:-adHeight/2 })
+          .from('#logoImage1, #frameText1', { y:-(3*adHeight/4) })
           .to('#logoImage1, #backgroundImage2', { autoAlpha:0, delay:2.5 })
           .to('#frameText1', { x:adWidth }, '-=0.5')
           .from('#frameText2', { x:-adWidth }, '-=0.5')
