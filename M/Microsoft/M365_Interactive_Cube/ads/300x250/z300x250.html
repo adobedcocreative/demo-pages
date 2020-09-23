@@ -26,14 +26,16 @@
         var contentD = [
           {
             "name": "Microsoft",
-            "product_url": "https://office.com/",
+            "product_url": "https://office.com/#1^https://office.com/#2^https://office.com/#3^https://office.com/#4",
           }
         ];
 
         if(contentD && contentD.length) { contentD.forEach(function(data) { amo.registerContent(data); }); }
-        amo.registerVariation("layout", "PPTMob");
-        amo.registerVariation("textField1", "['<#505050>3D isn’t just for|the movies','20.2px',15, 43,'22','3 50', 'left']");
-        amo.registerVariation("textField2", "['<#505050>Create slides|that sing with|3D animations','13.2px',15,95,'15','3 50', 'left']");
+        amo.registerVariation("layout", "3DCube_Mobile");
+        amo.registerVariation("textField1", "['<#000000> ','22.5px',31,71,'28','350', 'left']^['<#505050>Bring out |your best','30.5px',31.5,4,'33','350', 'left']^['<#505050>More time for what you |love with premium |Office apps, 1 TB of |cloud storage, and more |in one easy subscription','19.2px',31.5,92,'23','350', 'left']");
+        amo.registerVariation("textField2", "['<#505050>Share |memories |across devices','30.5px',31.5,4,'31','350', 'left']^['<#505050>Access your photos |anytime, anywhere','19.2px',31.5,118,'22','350', 'left']^['<#505050>Organize, tag, and find |your favorite memories','19.2px',31.5,173,'22','350', 'left']^['<#505050>Keep your files secured |with Personal Vault','19.2px',31.5,228,'22','350', 'left']^['<#505050>+ more','19.2px',31.5,282,'22','350', 'left']");
+        amo.registerVariation("textField3", "['<#505050>Be a hero |storyteller','30.5px',31.5,4,'31','350', 'left']^['<#505050>Create quickly with |smart templates','19.2px',31.5,92,'22','350', 'left']^['<#505050>Collaborate in real time','19.2px',31.5,147,'22','350', 'left']^['<#505050>Present on any device','19.2px',31.5,182,'22','350', 'left']^['<#505050>+ more','19.2px',31.5,215,'22','350', 'left']");
+        amo.registerVariation("textField4", "['<#505050>Create |memorable |moments','30.5px',31.5,4,'31','350', 'left']^['<#505050>Make it memorable with |3D images','19.2px',31.5,118,'22','350', 'left']^['<#505050>Use smart tools for |writing tips','19.2px',31.5,173,'22','350', 'left']^['<#505050>Turn your story into a |webpage','19.2px',31.5,228,'22','350', 'left']^['<#505050>+ more','19.2px',31.5,282,'22','350', 'left']");
         amo.registerVariation("ctaText", "BUY NOW");
         // amo.registerVariation("ctaArrowVisibleFlag", "!{passthroughfield2}");
         amo.registerVariation("impressionTracker", "../../../1x1.png?impressionTracker=" + Math.random());
