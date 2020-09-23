@@ -20,7 +20,7 @@
 		font-weight: normal;
 		font-style: Regular;
 		text-rendering: geometricPrecision;
-	}    
+	}
       .img-container {
         text-align: center;
            vertical-align: middle;
@@ -38,7 +38,7 @@
 <script src="copy.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r120/three.min.js"></script>	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r120/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.0.5/gsap.min.js"></script>
 <script src="https://cdn.rawgit.com/mrdoob/three.js/r120/examples/js/loaders/GLTFLoader.js"></script>
 <meta name="ad.size" content="width=728,height=90">
@@ -48,7 +48,7 @@
 <script src="screen3.js"></script>
 <script src="screen4.js"></script>
 <script>
-    
+
 
 var canvas, canvas1, canvas2, canvas3, canvas4, stage, stage1, stage2, stage3, stage4, exportRoot, exportRoot1, exportRoot2, exportRoot3, exportRoot4, anim_container, dom_overlay_container, fnStartAnimation, screen1, screen2, screen3, screen4;
 var canRelease = false
@@ -65,9 +65,9 @@ function iOS() {
   // iPad on iOS 13 detection
   || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
 }
-var isIOS = iOS()   
-    
-    
+var isIOS = iOS()
+
+
 var initReady=false;
 var vidID = new Array()
 function init() {
@@ -84,7 +84,7 @@ function setupCanvas() {
 function setupCanvas1() {
 	canvas1 = document.getElementById("canvas1");
 	var comp=AdobeAn.getComposition("20B396A144B6A147B6E87DD2DC23AB3D");
-                                     
+
 	var lib=comp.getLibrary();
 	var loader = new createjs.LoadQueue(false);
 	loader.addEventListener("fileload", function(evt){handleFileLoad1(evt,comp)});
@@ -95,7 +95,7 @@ function setupCanvas1() {
 function setupCanvas2() {
 	canvas2 = document.getElementById("canvas2");
 	var comp=AdobeAn.getComposition("20B396A144B6A147B6E87DD2DC23AB3C");
-                                     
+
 	var lib=comp.getLibrary();
 	var loader = new createjs.LoadQueue(false);
 	loader.addEventListener("fileload", function(evt){handleFileLoad2(evt,comp)});
@@ -123,29 +123,29 @@ function setupCanvas4() {
 	var lib=comp.getLibrary();
 	loader.loadManifest(lib.properties.manifest);
 }
-    
-    
-    
-    
+
+
+
+
 function handleFileLoad(evt, comp) {
-	var images=comp.getImages();	
-	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+	var images=comp.getImages();
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }
 }
 function handleComplete(evt,comp) {
-    
+
 	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
 	var lib=comp.getLibrary();
 	var ss=comp.getSpriteSheet();
 	exportRoot = new lib.M365_FY21Q2ConsRefresh_USA_728x90_BAN_3DCubeINT_English_NA_Standard_ANI_BN_NA_1();
-	stage = new lib.Stage(canvas);	
+	stage = new lib.Stage(canvas);
 	//Registers the "tick" event listener.
 	fnStartAnimation = function() {
 		stage.addChild(exportRoot);
 		createjs.Ticker.framerate = lib.properties.fps;
 		createjs.Ticker.addEventListener("tick", stage);
-	}	    
+	}
 	//Code to support hidpi screens and responsive scaling.
-	AdobeAn.makeResponsive(false,'both',false,2,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.makeResponsive(false,'both',false,2,[canvas,anim_container,dom_overlay_container]);
 	AdobeAn.compositionLoaded(lib.properties.id);
 	fnStartAnimation();
     stage.enableMouseOver(30)
@@ -157,7 +157,7 @@ function handleComplete(evt,comp) {
         TweenMax.delayedCall(0.5,function(){
     if (isIOS) {
         runEverything()
-    } else {  
+    } else {
         var lItem2 = null;
         var lItem3 = null;
         var lItem4 = null;
@@ -175,7 +175,7 @@ function handleComplete(evt,comp) {
         exportRoot2.mainMC.static2.visible = false
         exportRoot3.mainMC.static3.visible = false
         exportRoot4.mainMC.static4.visible = false
-    }  
+    }
         })
 
 
@@ -183,10 +183,10 @@ function handleComplete(evt,comp) {
     function videoCheck(videosLoaded) {
         if (videosLoaded>2) {
             runEverything();
-            
+
         }
     }
-    function runEverything() { 
+    function runEverything() {
     		var iframe = window.frameElement;
 			var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
 			var bannerData = parentWindow.getBannerData();
@@ -198,6 +198,8 @@ function handleComplete(evt,comp) {
 			bannerData.headline2_3 = eval(bannerData.textField2.split('^')[2]);
 			bannerData.headline2_4 = eval(bannerData.textField2.split('^')[3]);
 			bannerData.headline2_5 = eval(bannerData.textField2.split('^')[4]);
+			bannerData.headline2_6 = eval(bannerData.textField2.split('^')[5]);
+			bannerData.headline2_7 = eval(bannerData.textField2.split('^')[6]);
 			bannerData.headline3_1 = eval(bannerData.textField3.split('^')[0]);
 			bannerData.headline3_2 = eval(bannerData.textField3.split('^')[1]);
 			bannerData.headline3_3 = eval(bannerData.textField3.split('^')[2]);
@@ -246,7 +248,7 @@ function handleComplete(evt,comp) {
 	    var lVideo = document.createElement('video');
         lVideo.playsInline = true;
         lVideo.autoClear = false
-	    // Add a listener for errors etc 
+	    // Add a listener for errors etc
 	    var self = this; // Store a reference to this
 	    lVideo.addEventListener("error", function (evt) {
 	        var lErrMesg = "Error loading video element, event.type [" + evt.type + "]  Media Details: [" + evt.target.src + "]";
@@ -292,8 +294,8 @@ function handleComplete(evt,comp) {
 	}; // end_function createVideoBitmap
 }
 function handleFileLoad1(evt, comp) {
-	var images=comp.getImages();	
-	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+	var images=comp.getImages();
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }
 }
 function handleComplete1(evt,comp) {
 
@@ -307,13 +309,13 @@ function handleComplete1(evt,comp) {
 	}
 
 	exportRoot1 = new lib.screen1();
-	stage1 = new lib.Stage(canvas1);	
+	stage1 = new lib.Stage(canvas1);
 	//Registers the "tick" event listener.
 	fnStartAnimation = function() {
 		stage1.addChild(exportRoot1);
 		createjs.Ticker.framerate = lib.properties.fps;
 		createjs.Ticker.addEventListener("tick", stage1);
-	}	    
+	}
 	//Code to support hidpi screens and responsive scaling.
 	AdobeAn.compositionLoaded(lib.properties.id);
 	fnStartAnimation();
@@ -321,8 +323,8 @@ function handleComplete1(evt,comp) {
     aCont.removeChild(canvas1)
 }
 function handleFileLoad2(evt, comp) {
-	var images=comp.getImages();	
-	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+	var images=comp.getImages();
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }
 }
 function handleComplete2(evt,comp) {
 
@@ -336,13 +338,13 @@ function handleComplete2(evt,comp) {
 	}
 
 	exportRoot2 = new lib.screen2();
-	stage2 = new lib.Stage(canvas2);	
+	stage2 = new lib.Stage(canvas2);
 	//Registers the "tick" event listener.
 	fnStartAnimation = function() {
 		stage2.addChild(exportRoot2);
 		createjs.Ticker.framerate = lib.properties.fps;
 		createjs.Ticker.addEventListener("tick", stage2);
-	}	    
+	}
 	//Code to support hidpi screens and responsive scaling.
 	AdobeAn.compositionLoaded(lib.properties.id);
 	fnStartAnimation();
@@ -350,8 +352,8 @@ function handleComplete2(evt,comp) {
     aCont.removeChild(canvas2)
 }
 function handleFileLoad3(evt, comp) {
-	var images=comp.getImages();	
-	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+	var images=comp.getImages();
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }
 }
 function handleComplete3(evt,comp) {
 
@@ -365,13 +367,13 @@ function handleComplete3(evt,comp) {
 	}
 
 	exportRoot3 = new lib.screen3();
-	stage3 = new lib.Stage(canvas3);	
+	stage3 = new lib.Stage(canvas3);
 	//Registers the "tick" event listener.
 	fnStartAnimation = function() {
 		stage3.addChild(exportRoot3);
 		createjs.Ticker.framerate = lib.properties.fps;
 		createjs.Ticker.addEventListener("tick", stage3);
-	}	    
+	}
 	//Code to support hidpi screens and responsive scaling.
 	AdobeAn.compositionLoaded(lib.properties.id);
 	fnStartAnimation();
@@ -379,8 +381,8 @@ function handleComplete3(evt,comp) {
     aCont.removeChild(canvas3);
 }
 function handleFileLoad4(evt, comp) {
-	var images=comp.getImages();	
-	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+	var images=comp.getImages();
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }
 }
 function handleComplete4(evt,comp) {
 
@@ -394,13 +396,13 @@ function handleComplete4(evt,comp) {
 	}
 
 	exportRoot4 = new lib.screen4();
-	stage4 = new lib.Stage(canvas4);	
+	stage4 = new lib.Stage(canvas4);
 	//Registers the "tick" event listener.
 	fnStartAnimation = function() {
 		stage4.addChild(exportRoot4);
 		createjs.Ticker.framerate = lib.properties.fps;
 		createjs.Ticker.addEventListener("tick", stage4);
-	}	    
+	}
 	//Code to support hidpi screens and responsive scaling.
 	AdobeAn.compositionLoaded(lib.properties.id);
 	fnStartAnimation();
@@ -414,7 +416,7 @@ var loadFont = false
 		if (type=='body') loadBody=true
 		if (loadFont && loadBody) init()
 	}
-	
+
 	(function() {
 		// Optimization for Repeat Views
 
@@ -437,8 +439,8 @@ var loadFont = false
 			//loading();
 			loaded('font')
 		});
-	})();	
-	
+	})();
+
 </script>
 <!-- write your code here -->
 </head>
@@ -457,12 +459,12 @@ var loadFont = false
 		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:728px; height:90px; position: absolute; left: 0px; top: 0px; display: block; z-index: 10005 !important;">
 		<div style="position: absolute; border: 1px solid black; box-sizing: border-box; background-color:transparent; top: 0; left: 0; width: 100%; bottom: 0;"></div>
 		</div>
-		
+
 	</div>
 
 
 <script>
-var aCont = document.getElementById("animation_container"); 
+var aCont = document.getElementById("animation_container");
 function addEvent(obj, evt, fn) {
     if (obj.addEventListener) {
         obj.addEventListener(evt, fn, false);
@@ -476,13 +478,13 @@ addEvent(window,"load",function(e) {
         e = e ? e : window.event;
         var from = e.relatedTarget || e.toElement;
         if (!from || from.nodeName == "HTML") {
-            
-            
-                gsap.delayedCall( 0.01, function(){ exportRoot.mainMC.hit.dispatchEvent("pressup");canDrag = false;} ) 
+
+
+                gsap.delayedCall( 0.01, function(){ exportRoot.mainMC.hit.dispatchEvent("pressup");canDrag = false;} )
         }
     });
-});    
-    
+});
+
 startBanner = function(){
 
 				exportRoot.threeJS_tl1 = gsap.timeline();
@@ -493,19 +495,19 @@ startBanner = function(){
                 exportRoot.mainMC.hitCTA.mouseChildren = false
 				animation_container.addEventListener("mouseover", function(event) {
 				exportRoot.mainMC.cta.arrow.gotoAndStop(1);
-				})  
+				})
 
 				animation_container.addEventListener("mouseout", function(event) {
 				    exportRoot.mainMC.cta.arrow.gotoAndStop(0);
-				})  
+				})
 				// animation_container.addEventListener("click", function(event) {
-				  
+
     //                 if (faceID==0) window.open(clickTag1);
     //                 if (faceID==1) window.open(clickTag2);
     //                 if (faceID==2) window.open(clickTag3);
     //                 if (faceID==3) window.open(clickTag4);
 				// })
-		
+
                 var init = 0;
                 var percentDrag;
                 var Deg45 = 0;
@@ -533,12 +535,12 @@ startBanner = function(){
 
                    if (init==0) {
                     init=1 ;
-                   
+
                    Deg45 = 1.5708;
                        // what percent is the current degree amount?
                    currentDegree = (Deg45/100) * percentDrag
                     offsetDegree = Deg45-currentDegree
-                       
+
                    currentAngle = mesh.rotation.x;
                    lowestAngle = currentAngle - currentDegree
                    highestAngle = currentAngle + offsetDegree
@@ -548,7 +550,7 @@ startBanner = function(){
                    mesh.rotation.x = (differenceAngle/100 * percentDrag)+lowestAngle;
                     }
                 };
-    
+
                 function giveMeTheRightAnglePlease(floatNum) {
                     var num = ((floatNum+throwdistance) / 1.5708)
                     num = Math.round(num)
@@ -560,7 +562,7 @@ startBanner = function(){
                 exportRoot.mainMC.hit.addEventListener("pressmove", function() {exportRoot.dragPress()})
                 exportRoot.mainMC.hit.addEventListener("mousedown", function() {canDrag = true;})
 
-               exportRoot.releaseDrag = function() {         
+               exportRoot.releaseDrag = function() {
                    if (canRelease) {
                         if (isDrag) {
                         isDrag = false
@@ -587,7 +589,7 @@ startBanner = function(){
                         var distance = ((toLocation-currentRotation)<0) ? (toLocation-currentRotation)*-1 : (toLocation-currentRotation)
 
                        gsap.killTweensOf(mesh.rotation);
-                        
+
                         //console.log("currentRotation"+mesh.rotation.x+"  toLocation:"+toLocation+"  distance:"+distance +" throwdistance:"+throwdistance+ "  easeAmount:"+easeAmount)
                         gsap.to(mesh.rotation,2,{x:toLocation, ease:"elastic.out(1, 0.6)"});
                         //console.log("faceID:"+faceID)
@@ -597,37 +599,37 @@ startBanner = function(){
                        if (faceID==1 && !isIOS || faceID==2 && !isIOS || faceID==3 && !isIOS) {
                            //vidID[idArray[faceID]-1].currentTime = 0.2;
                             vidID[faceID-1].play()
-                        } 
+                        }
                         canRelease = false
-                            
+
                     }
                 }
                }
-	
+
 				var scene = new THREE.Scene();
 				  const fov = 15;
 				  const aspect = 728/90;  // the canvas default
 				  const near = 0.01;
 				  const far = 60;
 				  const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-				  camera.position.set(0,0,7.8); 
-	
+				  camera.position.set(0,0,7.8);
+
 				//var targetPosition = new THREE.Vector2(-0.2, 0);
 				//gsap.from(camera.position,9,{x:-1.2, y:0, z:0.4, ease:"power1.inOut"});
-				
+
 				 	//camera.rotation.y = 1
 					//camera.position.z = 15
 
-	
+
 				var mesh
 				var renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
 
 				renderer.setSize(728, 90);
 				webGL_container.appendChild( renderer.domElement );
-	
 
 
-	
+
+
 	var screenCTX
 	var screenTexture
     var screenTexture2
@@ -647,12 +649,12 @@ startBanner = function(){
                     if ((faceID+1)==3 || initialize3d) {screenTexture3.needsUpdate = true;}
                     if ((faceID+1)==4 || initialize3d) {screenTexture4.needsUpdate = true;}
 					renderer.render( scene, camera );
-					
+
 				}
 
-	
-    
-    
+
+
+
 var manager = new THREE.LoadingManager();
 manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
 
@@ -663,7 +665,7 @@ var gltf
 manager.onLoad = function () {
 
 	//console.log( 'Loading complete!:');
-    
+
 
 };
 
@@ -687,18 +689,18 @@ loader.load( '3d/cube728x90.gltf', function ( gltf ) {
                 screenTexture2 = new THREE.Texture(canvas2);
                 screenTexture3 = new THREE.Texture(canvas3);
                 screenTexture4 = new THREE.Texture(canvas4);
-    
 
-    
+
+
                 var colorEmis = new THREE.Color( 1, 1, 1 );
                 var color = new THREE.Color( 1,1, 1);
-                
-                screenTexture1.encoding = screenTexture2.encoding = screenTexture3.encoding = screenTexture4.encoding = THREE.LinearEncoding;//THREE.sRGBEncoding;// // 
-    
-    
+
+                screenTexture1.encoding = screenTexture2.encoding = screenTexture3.encoding = screenTexture4.encoding = THREE.LinearEncoding;//THREE.sRGBEncoding;// //
+
+
                 screenTexture1.minFilter = screenTexture2.minFilter = screenTexture3.minFilter = screenTexture4.minFilter = THREE.LinearFilter;
                 screenTexture1.magFilter = screenTexture2.minFilter = screenTexture3.minFilter = screenTexture4.minFilter = THREE.LinearFilter;
-    
+
                 screenTexture1.anisotropy = screenTexture2.anisotropy = screenTexture3.anisotropy = screenTexture4.anisotropy = 4
 
     /*
@@ -709,7 +711,7 @@ loader.load( '3d/cube728x90.gltf', function ( gltf ) {
 
                 screenEmis = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent:true});
 */
-                mesh = gltf.scene; 
+                mesh = gltf.scene;
                 var screenMat1 = new THREE.MeshBasicMaterial({map:screenTexture1});
                 var screenMat2 = new THREE.MeshBasicMaterial({map:screenTexture2});
                 var screenMat3 = new THREE.MeshBasicMaterial({map:screenTexture3});
@@ -718,25 +720,25 @@ loader.load( '3d/cube728x90.gltf', function ( gltf ) {
                 screenEmis = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent:true});
                // console.log( mesh)
                  //console.log( mesh.children[1].getObjectByName("Cube.001_0"))
-    
+
                 mesh.children[1].getObjectByName("Cube.001_0").material.map = screenTexture1;
-                mesh.children[1].getObjectByName("Cube.001_0").material = screenMat1; 
+                mesh.children[1].getObjectByName("Cube.001_0").material = screenMat1;
                 mesh.children[1].getObjectByName("Cube.001_1").material.map = screenTexture2;
-                mesh.children[1].getObjectByName("Cube.001_1").material = screenMat2;  
+                mesh.children[1].getObjectByName("Cube.001_1").material = screenMat2;
                 mesh.children[1].getObjectByName("Cube.001_2").material.map = screenTexture3;
-                mesh.children[1].getObjectByName("Cube.001_2").material = screenMat3;  
+                mesh.children[1].getObjectByName("Cube.001_2").material = screenMat3;
                 mesh.children[1].getObjectByName("Cube.001_3").material.map = screenTexture4;
-                mesh.children[1].getObjectByName("Cube.001_3").material = screenMat4;  
-                
-    
+                mesh.children[1].getObjectByName("Cube.001_3").material = screenMat4;
+
+
                 screenTexture1.flipY = screenTexture2.flipY = screenTexture3.flipY = screenTexture4.flipY = false;
-    
+
                 mesh.scale.set( 1, 1, 1);
                 mesh.position.y
                 mesh.position.x-=1.3
                 mesh.rotation.x=1.5708
                 scene.add( mesh );
-    
+
                 var loadingImg = document.getElementById("img");
                 gsap.from(mesh.rotation, 3, {x:"-=4.71238898",ease:"elastic.out(0.2, 0.2)"});
                 gsap.from(mesh.position, 3, {z:"-=10",     ease:"elastic.out(0.1, 0.1)", onComplete:function(){loadingImg.style.display="none"}});
@@ -747,12 +749,12 @@ loader.load( '3d/cube728x90.gltf', function ( gltf ) {
 				animate();
                 initialize3d = false
 	objectURLs.forEach( ( url ) => URL.revokeObjectURL( url ) );
-    
+
 
 } );
 
-	
-	
+
+
 	function rotateObject(object, degreeX=0, degreeY=0, degreeZ=0) {
 	   object.rotateX(THREE.Math.degToRad(degreeX));
 	   object.rotateY(THREE.Math.degToRad(degreeY));
