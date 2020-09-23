@@ -4,7 +4,7 @@ var adData = [];
 var loadTemplateFlag1 = false;
 var getFeed1 = function(){
   var xmlhttp = new XMLHttpRequest();
-  var url = "https://spreadsheets.google.com/feeds/list/1JUOQF1fukk7G1mR4IZeFvrG8LninkV6JkJsKYu3srGs/1/public/values?alt=json";
+  var url = "https://spreadsheets.google.com/feeds/list/1RydQklDxt0EUpwDejyKZvA2ianYc7hLFYxXIyBiytNc/1/public/values?alt=json";
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
@@ -20,8 +20,8 @@ var getFeed1 = function(){
               "Smart Names": data['gsx$smartnames']['$t'],
               "textField1": data['gsx$textfield1']['$t'],
               "textField2": data['gsx$textfield2']['$t'],
-              "textField3": data['gsx$textfield3']['$t'],
-              "textField4": data['gsx$textfield4']['$t'],
+              // "textField3": data['gsx$textfield3']['$t'],
+              // "textField4": data['gsx$textfield4']['$t'],
             });
           });
           loadTemplateFlag1 = true;
