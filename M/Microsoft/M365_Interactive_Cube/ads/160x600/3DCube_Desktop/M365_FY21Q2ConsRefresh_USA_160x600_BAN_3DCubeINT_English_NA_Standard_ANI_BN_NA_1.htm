@@ -208,6 +208,7 @@ function handleComplete(evt,comp) {
 			bannerData.headline4_4 = eval(bannerData.textField4.split('^')[3]);
 			bannerData.headline4_5 = eval(bannerData.textField4.split('^')[4]);
 			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,"14px",7,-1,"50","300", "center"] : '';
+			bannerData.CTAarrowVisible = [true, 10,-0.5];
 			amoAdClick = function(id) {
 				parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl[id]);
 				if(bannerData.clickTracker) {
