@@ -11,7 +11,7 @@ lib.ssMetadata = [
 
 
 
-(lib.Productivity_Word_16x9_728x90_1_img = function() {
+(lib.Share_OneDrive_16x9_728x90_1_img = function() {
 	this.initialize(ss["screen4_atlas_"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
@@ -47,7 +47,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,0,0);
 	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_1
-	this.instance = new lib.Productivity_Word_16x9_728x90_1_img();
+	this.instance = new lib.Share_OneDrive_16x9_728x90_1_img();
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
@@ -138,19 +138,19 @@ p.nominalBounds = new cjs.Rectangle(0,0,0,0);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
+	// VidStatic
+	this.static2 = new lib.static_2();
+	this.static2.name = "static2";
+	this.static2.setTransform(545.6,162,1,1,0,0,0,287.6,162);
+
+	this.timeline.addTween(cjs.Tween.get(this.static2).wait(1));
+
 	// txt
 	this.txt = new lib.txt_mc();
 	this.txt.name = "txt";
 	this.txt.setTransform(70.5,70.5,1,1,0,0,0,70.5,70.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.txt).wait(1));
-
-	// VidStatic
-	this.static4 = new lib.static_2();
-	this.static4.name = "static4";
-	this.static4.setTransform(545.6,162,1,1,0,0,0,287.6,162);
-
-	this.timeline.addTween(cjs.Tween.get(this.static4).wait(1));
 
 	// BG
 	this.shape = new cjs.Shape();
@@ -199,7 +199,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,0,0);
 			
 				for (var i in keys) {
 					var id = keys[i].substr(0, 9);
-						if (id == "headline4") {
+						if (id == "headline2") {
 							exportRoot4['' + keys[i]] = new Array()
 							exportRoot4.fillHead(data[keys[i]], exportRoot4['' + keys[i]])
 						} 
@@ -298,10 +298,10 @@ p.nominalBounds = new cjs.Rectangle(0,0,0,0);
 	// actions tween:
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
 
-	// Layer_1
+	// mainMC
 	this.mainMC = new lib.mainMC();
 	this.mainMC.name = "mainMC";
-	this.mainMC.setTransform(256,233.1,1,1,0,0,0,256,233.1);
+	this.mainMC.setTransform(62.8,62.8,1,1,0,0,0,62.8,62.8);
 
 	this.timeline.addTween(cjs.Tween.get(this.mainMC).wait(1));
 
@@ -318,7 +318,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/screen4_atlas_.png?1600682016712", id:"screen4_atlas_"}
+		{src:"images/screen4_atlas_.png?1601468141624", id:"screen4_atlas_"}
 	],
 	preloads: []
 };
