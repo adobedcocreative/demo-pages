@@ -19,7 +19,7 @@
 		text-rendering: geometricPrecision;
 	}
 	body {
-		background-color:#F2F2F2;
+		background-color:#FFFFFF;
 		overflow: hidden;
 	}
 </style>
@@ -271,7 +271,7 @@ function handleComplete(evt,comp) {
 <div id="rHit" style="display:block; position:absolute; top:0px; left:278px; width:22px; height:22px; z-index:100000 !important; cursor:pointer; "></div>
 
 <div id="animation_container" style="background-color:transparent; width:300px; height:250px;">
-    <video id="vid" preload="auto" src="./video/OneDrive_Desktop_300x250_1.mp4" autoplay="false" webkit-playsinline="" playsinline type="video/mp4" width="300" height="250" muted="muted" style="position: absolute;  z-index:-5 "></video>
+    <video id="vid" preload="auto" src="./video/OneDrive_Desktop_300x250_1.mp4" autoplay="false" webkit-playsinline="" playsinline type="video/mp4" width="300" height="250" muted="muted" style="position: absolute;  z-index:-5; opacity:0.1;"></video>
   <canvas id="canvas" width="300" height="250" style="position: absolute; display: block; background-color:transparent; cursor:pointer;" aria-label="Microsoft 3 6 5. Share memories accross devices. Save your file and photos with 1 Tera Bytes of OneDrive cloud storage and access them from any device, anywhere. Buy now." role="img"></canvas>
 
 		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:300px; height:250px; position: absolute; left: 0px; top: 0px; display: block;">
@@ -363,6 +363,7 @@ var startBanner = function(){
                         vid.currentTime = 0;
                         vid.pause()
                         vid.style.opacity = 0.1;
+                        document.body.style.backgroundColor = '';
 						TweenMax.delayedCall(0.1,init)
 					}
 				}
