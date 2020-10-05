@@ -3,37 +3,22 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"screen2_atlas_1", frames: [[0,0,228,416]]}
+		{name:"screen2_atlas_", frames: [[0,0,228,416]]}
 ];
 
 
-(lib.AnMovieClip = function(){
-	this.actionFrames = [];
-	this.gotoAndPlay = function(positionOrLabel){
-		cjs.MovieClip.prototype.gotoAndPlay.call(this,positionOrLabel);
-	}
-	this.play = function(){
-		cjs.MovieClip.prototype.play.call(this);
-	}
-	this.gotoAndStop = function(positionOrLabel){
-		cjs.MovieClip.prototype.gotoAndStop.call(this,positionOrLabel);
-	}
-	this.stop = function(){
-		cjs.MovieClip.prototype.stop.call(this);
-	}
-}).prototype = p = new cjs.MovieClip();
 // symbols:
 
 
 
 (lib.Share_OneDrive_16x9_300x250_1_img = function() {
-	this.initialize(ss["screen2_atlas_1"]);
+	this.initialize(ss["screen2_atlas_"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 // helper functions:
 
 function mc_symbol_clone() {
-	var clone = this._cloneProps(new this.constructor(this.mode, this.startPosition, this.loop, this.reversed));
+	var clone = this._cloneProps(new this.constructor(this.mode, this.startPosition, this.loop));
 	clone.gotoAndStop(this.currentFrame);
 	clone.paused = this.paused;
 	clone.framerate = this.framerate;
@@ -49,16 +34,8 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 	}
 
 
-(lib.txt_mc = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.txt_mc = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	this._renderFirstFrame();
 
@@ -66,16 +43,8 @@ if (reversed == null) { reversed = false; }
 p.nominalBounds = new cjs.Rectangle(0,0,0,0);
 
 
-(lib.static2 = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.static2 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_1
 	this.instance = new lib.Share_OneDrive_16x9_300x250_1_img();
@@ -87,16 +56,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.static2, new cjs.Rectangle(0,0,228,416), null);
 
 
-(lib.ms = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.ms = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_2
 	this.shape = new cjs.Shape();
@@ -122,16 +83,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.ms, new cjs.Rectangle(-36.4,-6.9,104.4,14.100000000000001), null);
 
 
-(lib.MSFT_Logo_anim = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.MSFT_Logo_anim = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	this.isSingleFrame = false;
 	// timeline functions:
@@ -176,16 +129,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.MSFT_Logo_anim, new cjs.Rectangle(-50.8,-9.3,132.39999999999998,21.5), null);
 
 
-(lib.mainMC = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.mainMC = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// logo
 	this.instance = new lib.MSFT_Logo_anim();
@@ -209,8 +154,8 @@ if (reversed == null) { reversed = false; }
 
 	// BG
 	this.shape = new cjs.Shape();
-	this.shape.graphics.f("#F2F2F2").s().p("Egn/AjAMAAAhF/MBP/AAAMAAABF/g");
-	this.shape.setTransform(256.0016,208.998,1.1186,1.067);
+	this.shape.graphics.f("#F2F2F2").s().p("EgsuAlWMAAAhKrMBZdAAAMAAABKrg");
+	this.shape.setTransform(256,209);
 
 	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
 
@@ -220,18 +165,9 @@ if (reversed == null) { reversed = false; }
 
 
 // stage content:
-(lib.screen2 = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.screen2 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
-	this.actionFrames = [0];
 	this.isSingleFrame = false;
 	// timeline functions:
 	this.frame_0 = function() {
@@ -371,7 +307,7 @@ if (reversed == null) { reversed = false; }
 
 	this._renderFirstFrame();
 
-}).prototype = p = new lib.AnMovieClip();
+}).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(225.7,191.4,316.7,290.29999999999995);
 // library properties:
 lib.properties = {
@@ -382,7 +318,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/screen2_atlas_1.png?1600454846196", id:"screen2_atlas_1"}
+		{src:"images/screen2_atlas_.png?1601560085756", id:"screen2_atlas_"}
 	],
 	preloads: []
 };
@@ -393,7 +329,7 @@ lib.properties = {
 
 (lib.Stage = function(canvas) {
 	createjs.Stage.call(this, canvas);
-}).prototype = p = new createjs.Stage();
+}).prototype = p = new createjs.StageGL();
 
 p.setAutoPlay = function(autoPlay) {
 	this.tickEnabled = autoPlay;
@@ -439,50 +375,7 @@ an.getComposition = function(id) {
 }
 
 
-an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {		
-	var lastW, lastH, lastS=1;		
-	window.addEventListener('resize', resizeCanvas);		
-	resizeCanvas();		
-	function resizeCanvas() {			
-		var w = lib.properties.width, h = lib.properties.height;			
-		var iw = window.innerWidth, ih=window.innerHeight;			
-		var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;			
-		if(isResp) {                
-			if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
-				sRatio = lastS;                
-			}				
-			else if(!isScale) {					
-				if(iw<w || ih<h)						
-					sRatio = Math.min(xRatio, yRatio);				
-			}				
-			else if(scaleType==1) {					
-				sRatio = Math.min(xRatio, yRatio);				
-			}				
-			else if(scaleType==2) {					
-				sRatio = Math.max(xRatio, yRatio);				
-			}			
-		}
-		domContainers[0].width = w * pRatio * sRatio;			
-		domContainers[0].height = h * pRatio * sRatio;
-		domContainers.forEach(function(container) {				
-			container.style.width = w * sRatio + 'px';				
-			container.style.height = h * sRatio + 'px';			
-		});
-		stage.scaleX = pRatio*sRatio;			
-		stage.scaleY = pRatio*sRatio;
-		lastW = iw; lastH = ih; lastS = sRatio;            
-		stage.tickOnUpdate = false;            
-		stage.update();            
-		stage.tickOnUpdate = true;		
-	}
-}
-an.handleSoundStreamOnTick = function(event) {
-	if(!event.paused){
-		var stageChild = stage.getChildAt(0);
-		if(!stageChild.paused){
-			stageChild.syncStreamSounds();
-		}
-	}
+an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {
 }
 
 
