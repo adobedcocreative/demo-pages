@@ -343,6 +343,7 @@ var startBanner = function(){
                         context.restore(); //CLEARS THE SPECIFIC CANVAS COMPLETELY FOR NEW DRAWING
                         vid.currentTime = 0;
                         vid.pause()
+                        vid.style.opacity = 0.1;
 						TweenMax.delayedCall(0.1,init)
 					}
 				}

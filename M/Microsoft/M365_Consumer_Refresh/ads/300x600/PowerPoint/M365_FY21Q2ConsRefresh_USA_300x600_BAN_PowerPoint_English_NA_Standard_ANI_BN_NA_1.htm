@@ -160,12 +160,12 @@ function handleComplete(evt,comp) {
                 bannerData.headline6 = getValue();
                 bannerData.headline7 = getValue(3);
                 bannerData.headline8 = getValue();
-                bannerData.headline10 = getValue(5);
-                bannerData.headline11 = getValue(6);
+                bannerData.headline10 = getValue(4);
+                bannerData.headline11 = getValue(5);
                 bannerData.headline12 = getValue();
                 bannerData.headline13 = getValue();
-                bannerData.headline14 = getValue(7);
-                bannerData.headline15 = getValue(8);
+                bannerData.headline14 = getValue(6);
+                bannerData.headline15 = getValue(7);
                 bannerData.headline16 = getValue();
                 bannerData.headline17 = getValue();
                 bannerData.headline22 = eval(bannerData.textField2);
@@ -344,6 +344,7 @@ var startBanner = function(){
                         context.restore(); //CLEARS THE SPECIFIC CANVAS COMPLETELY FOR NEW DRAWING
                         vid.currentTime = 0;
                         vid.pause()
+                        vid.style.opacity = 0.1;
 						TweenMax.delayedCall(0.1,init)
 					}
 				}

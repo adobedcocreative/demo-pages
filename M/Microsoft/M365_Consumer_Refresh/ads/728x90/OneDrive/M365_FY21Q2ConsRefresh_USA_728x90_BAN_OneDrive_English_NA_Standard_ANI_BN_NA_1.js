@@ -1203,6 +1203,7 @@ if (reversed == null) { reversed = false; }
 				
 				this.tlText.stop();
 				mc.logo_intro.gotoAndPlay(1);
+				setTimeout(function(){ vid.style.opacity = 1; }, 10);
 				
 			
 		}
