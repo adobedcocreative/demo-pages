@@ -164,9 +164,13 @@ function handleComplete(evt,comp) {
         var lItem4 = null;
         // Now lets create and play the video using createjs.Bitmap
 
-        lItem2 = createVideoBitmap(600, 338, "videos/OneDrive_16x9_300x600_1.mp4");
+        lItem2 = createVideoBitmap(600, 338, "videos/Share_OneDrive_16x9_300x600_1.mp4");
         lItem3 = createVideoBitmap(600, 338, "videos/Creativity_PPT_16x9_300x600_1.mp4");
         lItem4 = createVideoBitmap(600, 338, "videos/Productivity_Word_16x9_300x600_1.mp4");
+
+		lItem2.x = -50;
+		lItem3.x = -50;
+		lItem4.x = -50;
 
         exportRoot2.mainMC.addChild(lItem2)
         exportRoot3.mainMC.addChild(lItem3)
@@ -185,7 +189,7 @@ function handleComplete(evt,comp) {
 
         }
     }
-    function runEverything() {
+		function runEverything() {
     		var iframe = window.frameElement;
 			var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
 			var bannerData = parentWindow.getBannerData();
@@ -206,7 +210,7 @@ function handleComplete(evt,comp) {
 			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,"12px",3,0,"50","300", "center"] : '';
 			bannerData.CTAarrowVisible = [true,0,0];
 			amoAdClick = function(id) {
-				parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl[id]);
+				parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl[id], parentWindow.smartName[id]);
 				if(bannerData.clickTracker) {
 					var clickTrackers = bannerData.clickTracker.split('^');
 					clickTrackers.forEach(function(url){
@@ -214,6 +218,14 @@ function handleComplete(evt,comp) {
 								(new Image()).src = url;
 						}
 					});
+				}
+			}
+			amoAdInteraction = function(id) {
+				var parentWindows = window.parent.parent.window;
+				if (parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
+					try {
+						parentWindows.amoUtils.onInteraction(parentWindow.layout, parentWindow.adData.feedData);
+					} catch (e) {}
 				}
 			}
 			if(bannerData.impressionTracker) {
@@ -581,6 +593,7 @@ startBanner = function(){
                         // console.log("currentRotation"+mesh.rotation.y+"  toLocation:"+toLocation+"  distance:"+distance +" throwdistance:"+throwdistance+ "  easeAmount:"+easeAmount)
                         gsap.to(mesh.rotation,2,{y:toLocation, ease:"elastic.out(1, 0.6)"});
                         //console.log("faceID:"+faceID)
+												amoAdInteraction(faceID);
                         if (!isIOS) vidID[0].pause()
                         if (!isIOS) vidID[1].pause()
                         if (!isIOS) vidID[2].pause()

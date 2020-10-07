@@ -160,12 +160,12 @@ function handleComplete(evt,comp) {
                 bannerData.headline6 = getValue();
                 bannerData.headline7 = getValue(3);
                 bannerData.headline8 = getValue();
-                bannerData.headline10 = getValue(5);
-                bannerData.headline11 = getValue(6);
+                bannerData.headline10 = getValue(4);
+                bannerData.headline11 = getValue(5);
                 bannerData.headline12 = getValue();
                 bannerData.headline13 = getValue();
-                bannerData.headline14 = getValue(7);
-                bannerData.headline15 = getValue(8);
+                bannerData.headline14 = getValue(6);
+                bannerData.headline15 = getValue(7);
                 bannerData.headline16 = getValue();
                 bannerData.headline17 = getValue();
                 bannerData.headline22 = eval(bannerData.textField2);
@@ -258,7 +258,7 @@ function handleComplete(evt,comp) {
 <div id="rHit" style="display:block; position:absolute; top:0px; left:706px; width:22px; height:22px; z-index:100000 !important; cursor:pointer; "></div>
 
 <div id="animation_container" style="background-color:transparent; width:728px; height:90px;">
-    <video id="vid" preload="auto" src="./video/728x90_ppt_desktop_vid.mp4" autoplay="false" webkit-playsinline="" playsinline type="video/mp4" width="728" height="90" muted="muted" style="position: absolute;  z-index:-5 "></video>
+    <video id="vid" preload="auto" src="./video/728x90_ppt_desktop_vid.mp4" autoplay="false" webkit-playsinline="" playsinline type="video/mp4" width="728" height="90" muted="muted" style="position: absolute;  z-index:-5; opacity:0.1;"></video>
   <canvas id="canvas" width="728" height="90" style="position: absolute; display: block; background-color:transparent; cursor:pointer;" aria-label="Microsoft 365. Designing slides has never been easier in PowerPoint. Collaborate in real time. Present on any device. Design faster with Microsoft 365. Create professional presentation in just a few clicks with PowerPoint. Buy now." role="img"></canvas>
 
 		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:728px; height:90px; position: absolute; left: 0px; top: 0px; display: block;">
@@ -348,6 +348,7 @@ var startBanner = function(){
                         context.restore(); //CLEARS THE SPECIFIC CANVAS COMPLETELY FOR NEW DRAWING
                         vid.currentTime = 0;
                         vid.pause()
+                        vid.style.opacity = 0.1;
 						TweenMax.delayedCall(0.1,init)
 					}
 				}

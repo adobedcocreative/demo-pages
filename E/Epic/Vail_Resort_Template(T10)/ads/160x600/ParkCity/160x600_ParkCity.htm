@@ -57,7 +57,7 @@
         style="top: 457px;
           left: 15px;
           width: 130px;
-          height: 60px;
+          height: 70px;
           font-size: 15px;
           letter-spacing: 1.6px;
           line-height: 1.3;">
@@ -68,7 +68,7 @@
         style="top: 457px;
           left: 15px;
           width: 130px;
-          height: 60px;
+          height: 70px;
           font-size: 15px;
           letter-spacing: 1.6px;
           line-height: 1.3;">
@@ -79,7 +79,7 @@
         style="top: 457px;
           left: 15px;
           width: 130px;
-          height: 60px;
+          height: 70px;
           font-size: 15px;
           letter-spacing: 1.6px;
           line-height: 1.3;">
@@ -157,30 +157,19 @@
                 textElement.parentNode.insertBefore(newTextElement, textElement.nextElementSibling);
               }
               if(layout == 'multipleimages') {
-                content.styleProperties = "{'#cta': {x:'-50%',y:-20}}";
-                var cta = document.querySelector("#cta");
+                content.styleProperties = "{'#cta': {x:'-50%',y:10}}";
+                cta.style.width = "140px";
                 cta.style.left = "50%";
-                cta.style.width = "auto";
-                cta.style.minWidth = "80px";
-                cta.style.maxWidth = "140px";
                 cta.innerHTML = '<span style="' + cta.dataset.style + '">' + content.ctaText + '</span>';
-                if(cta.querySelector('span').offsetHeight > 20) {
-                  cta.style.lineHeight = 1.2;
-                  cta.style.height = "40px";
-                }
+                cta.style.width = cta.offsetWidth + 'px'
+
               } else if(layout == 'multipleimagesoffer') {
-                content.styleProperties = "{'#cta': {x:'-50%',y:-23}, '#saleImage': {css:{display:'block'}}}";
-                var cta = document.querySelector("#cta");
+                content.styleProperties = "{'#cta': {x:'-50%',y:-15}, '#saleImage': {css:{display:'block'}}}";
+                cta.style.width = "140px";
                 cta.style.left = "50%";
-                cta.style.width = "auto";
-                cta.style.minWidth = "80px";
-                cta.style.maxWidth = "140px";
                 cta.innerHTML = '<span style="' + cta.dataset.style + '">' + content.ctaText + '</span>';
-                if(cta.querySelector('span').offsetHeight > 20) {
-                  cta.style.lineHeight = 1.2;
-                  cta.style.height = "40px";
-                }
-              } 
+                cta.style.width = cta.offsetWidth + 'px';
+              }
               // else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {
               //   content.styleProperties = "{'#frameText': {x:-3, y:-11}, '#frameText span': {css:{textAlign:'left'}}, '#cta': {y:-20}, '#saleImage': {css:{display:'block'}}}";
               //   var cta = document.querySelector("#cta");

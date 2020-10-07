@@ -58,7 +58,7 @@
         style="top: 457px;
           left: 15px;
           width: 130px;
-          height: 60px;
+          height: 70px;
           font-size: 15px;
           letter-spacing: 1.6px;
           font-weight: bold;
@@ -70,7 +70,7 @@
         style="top: 457px;
           left: 15px;
           width: 130px;
-          height: 60px;
+          height: 70px;
           font-size: 15px;
           letter-spacing: 1.6px;
           font-weight: bold;
@@ -82,7 +82,7 @@
         style="top: 457px;
           left: 15px;
           width: 130px;
-          height: 60px;
+          height: 70px;
           font-size: 15px;
           letter-spacing: 1.6px;
           font-weight: bold;
@@ -139,7 +139,7 @@
           ],
           staticData: {
             // ref: 'ref.png'
-            logoImage: './../images/160x600_Vail_Resort_LogoImage.png',
+            logoImage: './../images/160x600_Stowe_LogoImage.png',
             saleImage: './../images/160x600_Resort_SaleImage_EPIC_PASS.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
             ctaBtnColor: '#c4272f^#384851',
@@ -162,30 +162,19 @@
                 textElement.parentNode.insertBefore(newTextElement, textElement.nextElementSibling);
               }
               if(layout == 'multipleimages') {
-                content.styleProperties = "{'#cta': {x:'-50%',y:-20}}";
-                var cta = document.querySelector("#cta");
+                content.styleProperties = "{'#cta': {x:'-50%',y:10}}";
+                cta.style.width = "140px";
                 cta.style.left = "50%";
-                cta.style.width = "auto";
-                cta.style.minWidth = "80px";
-                cta.style.maxWidth = "140px";
                 cta.innerHTML = '<span style="' + cta.dataset.style + '">' + content.ctaText + '</span>';
-                if(cta.querySelector('span').offsetHeight > 20) {
-                  cta.style.lineHeight = 1.2;
-                  cta.style.height = "40px";
-                }
+                cta.style.width = cta.offsetWidth + 'px'
+
               } else if(layout == 'multipleimagesoffer') {
-                content.styleProperties = "{'#cta': {x:'-50%',y:-23}, '#saleImage': {css:{display:'block'}}}";
-                var cta = document.querySelector("#cta");
+                content.styleProperties = "{'#cta': {x:'-50%',y:-15}, '#saleImage': {css:{display:'block'}}}";
+                cta.style.width = "140px";
                 cta.style.left = "50%";
-                cta.style.width = "auto";
-                cta.style.minWidth = "80px";
-                cta.style.maxWidth = "140px";
                 cta.innerHTML = '<span style="' + cta.dataset.style + '">' + content.ctaText + '</span>';
-                if(cta.querySelector('span').offsetHeight > 20) {
-                  cta.style.lineHeight = 1.2;
-                  cta.style.height = "40px";
-                }
-              } 
+                cta.style.width = cta.offsetWidth + 'px';
+              }
               // else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {
               //   content.styleProperties = "{'#frameText': {x:-3, y:-11}, '#frameText span': {css:{textAlign:'left'}}, '#cta': {y:-20}, '#saleImage': {css:{display:'block'}}}";
               //   var cta = document.querySelector("#cta");
@@ -207,7 +196,7 @@
           }
         }, function(data){
           var adData = data[0], adClickUrl = adData['clickURL'];
-         
+
           var image = new Image();
           image.crossOrigin = 'Anonymous';
           image.onload = function() {
@@ -225,7 +214,7 @@
             document.body.removeChild(canvas);
           }
           image.src = adData['saleImage'];
-          
+
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });

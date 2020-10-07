@@ -1044,7 +1044,8 @@ if (reversed == null) { reversed = false; }
 				this.tlText.from(mc.replay_btn, 1, { alpha: 0, onStart:function(){exportRoot.isReplay = true;}}, "-=0.4");
 				
 				exportRoot.tlText.stop();	
-				mc.logo_intro.gotoAndPlay(1);	
+				mc.logo_intro.gotoAndPlay(1);
+				setTimeout(function(){ vid.style.opacity = 1; }, 10);	
 		}
 	}
 

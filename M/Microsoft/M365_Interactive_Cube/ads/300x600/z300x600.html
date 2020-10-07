@@ -80,6 +80,8 @@
           }
         }
         window.adData = content[0], window.adClickUrl = adData.url.split('^');
+        window.layout = adData.layout;
+        window.smartName = [layout + '|TessScreensCube', layout + '|ODCube', layout + '|PPTCube', layout + '|WordCube'];
         // document.querySelector('iframe').addEventListener("click", exitHandler.bind(this));
         // function exitHandler() {
         //   // window.open(clickTag);

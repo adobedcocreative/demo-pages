@@ -185,7 +185,7 @@ function handleComplete(evt,comp) {
 
         }
     }
-    function runEverything() {
+		function runEverything() {
     		var iframe = window.frameElement;
 			var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
 			var bannerData = parentWindow.getBannerData();
@@ -210,7 +210,7 @@ function handleComplete(evt,comp) {
 			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,"14px",7,-1,"50","300", "center"] : '';
 			bannerData.CTAarrowVisible = [true, 10,-0.5];
 			amoAdClick = function(id) {
-				parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl[id]);
+				parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl[id], parentWindow.smartName[id]);
 				if(bannerData.clickTracker) {
 					var clickTrackers = bannerData.clickTracker.split('^');
 					clickTrackers.forEach(function(url){
@@ -218,6 +218,14 @@ function handleComplete(evt,comp) {
 								(new Image()).src = url;
 						}
 					});
+				}
+			}
+			amoAdInteraction = function(id) {
+				var parentWindows = window.parent.parent.window;
+				if (parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
+					try {
+						parentWindows.amoUtils.onInteraction(parentWindow.layout, parentWindow.adData.feedData);
+					} catch (e) {}
 				}
 			}
 			if(bannerData.impressionTracker) {
@@ -589,6 +597,7 @@ startBanner = function(){
                         // console.log("currentRotation"+mesh.rotation.y+"  toLocation:"+toLocation+"  distance:"+distance +" throwdistance:"+throwdistance+ "  easeAmount:"+easeAmount)
                         gsap.to(mesh.rotation,2,{y:toLocation, ease:"elastic.out(1, 0.6)"});
                         //console.log("faceID:"+faceID)
+												amoAdInteraction(faceID);
                         if (!isIOS) vidID[0].pause()
                         if (!isIOS) vidID[1].pause()
                         if (!isIOS) vidID[2].pause()

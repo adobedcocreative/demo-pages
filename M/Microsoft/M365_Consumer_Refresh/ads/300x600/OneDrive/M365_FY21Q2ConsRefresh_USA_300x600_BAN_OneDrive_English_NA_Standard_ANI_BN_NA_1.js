@@ -1210,6 +1210,7 @@ if (reversed == null) { reversed = false; }
 				exportRoot.tlText.stop();
 
 				mc.logo_intro.gotoAndPlay(1);
+				setTimeout(function(){ vid.style.opacity = 1; document.body.style.backgroundColor = '#F5F4F5'; }, 10);
 		}
 	}
 

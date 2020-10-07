@@ -318,7 +318,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/screen3_atlas_.png?1600682091044", id:"screen3_atlas_"}
+		{src:"images/screen3_atlas_.png?1601375091518", id:"screen3_atlas_"}
 	],
 	preloads: []
 };
