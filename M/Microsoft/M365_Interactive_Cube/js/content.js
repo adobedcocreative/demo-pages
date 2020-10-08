@@ -22,6 +22,7 @@ var getFeed1 = function(){
               "textField2": data['gsx$textfield2']['$t'],
               "textField3": data['gsx$textfield3']['$t'],
               "textField4": data['gsx$textfield4']['$t'],
+              "textField5": data['gsx$textfield5']['$t'],
             });
           });
           loadTemplateFlag1 = true;

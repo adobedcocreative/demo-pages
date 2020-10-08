@@ -36,6 +36,7 @@
         amo.registerVariation("textField2", "['<#505050>Share memories across devices','32.3px',32,356,'36','350', 'left']^['<#505050>• Access your photos anytime, anywhere |• Organize, tag, and find your favorite memories |• Keep your files secured with Personal Vault |+ more','21.5px',31,406,'34','350', 'left']");
         amo.registerVariation("textField3", "['<#505050>Be a hero storyteller','32.3px',32,356,'36','350', 'left']^['<#505050>• Create quickly with smart templates |• Collaborate in real time |• Present on any device |+ more','21.5px',31,406,'34','350', 'left']");
         amo.registerVariation("textField4", "['<#505050>Create memorable moments','32.3px',32,356,'36','350', 'left']^['<#505050>• Make it memorable with 3D images |• Use smart tools for writing tips |• Turn your story into a webpage |+ more','21.5px',31,406,'34','350', 'left']");
+        amo.registerVariation("textField5", "FY21Q2_ConsRefresh_BringBest_CubeAllUp_INT^FY21Q2_ConsRefresh_ShareMemories_CubeOD_INT^FY21Q2_ConsRefresh_HeroStoryteller_CubePPT_INT^FY21Q2_ConsRefresh_MemorableMoments_CubeWord_INT");
         amo.registerVariation("ctaText", "BUY NOW");
         // amo.registerVariation("ctaArrowVisibleFlag", "!{passthroughfield2}");
         amo.registerVariation("impressionTracker", "../../../1x1.png?impressionTracker=" + Math.random());
@@ -104,6 +105,7 @@
               if(trackingCode.length){ impressionTracker = impressionTracker.split('$(t_qp_TC_'+i+')').join(trackingCode); }
           }
         }
+        window.smartName = textField5 && textField5.split('^').length == 4 ? textField5.split('^').map(function(name) { return layout + '|' + name; }) : window.smartName;
         var adUrl = '';
         switch(adData.layout){
           // case '3DCube_Desktop' : adURL = '3DCube_Desktop/M365_FY21Q2ConsRefresh_USA_320x480_BAN_3DCubeINT_English_NA_Standard_ANI_BN_NA_1.htm';break;

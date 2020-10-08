@@ -36,6 +36,7 @@
         amo.registerVariation("textField2", "['<#505050>Share |memories |across devices','30.5px',31.5,4,'31','350', 'left']^['<#505050>Access your photos |anytime, anywhere','19.2px',31.5,118,'22','350', 'left']^['<#505050>Organize, tag, and find |your favorite memories','19.2px',31.5,173,'22','350', 'left']^['<#505050>Keep your files secured |with Personal Vault','19.2px',31.5,228,'22','350', 'left']^['<#505050>+ more','19.2px',31.5,282,'22','350', 'left']");
         amo.registerVariation("textField3", "['<#505050>Be a hero |storyteller','30.5px',31.5,4,'31','350', 'left']^['<#505050>Create quickly with |smart templates','19.2px',31.5,92,'22','350', 'left']^['<#505050>Collaborate in real time','19.2px',31.5,147,'22','350', 'left']^['<#505050>Present on any device','19.2px',31.5,182,'22','350', 'left']^['<#505050>+ more','19.2px',31.5,215,'22','350', 'left']");
         amo.registerVariation("textField4", "['<#505050>Create |memorable |moments','30.5px',31.5,4,'31','350', 'left']^['<#505050>Make it memorable with |3D images','19.2px',31.5,118,'22','350', 'left']^['<#505050>Use smart tools for |writing tips','19.2px',31.5,173,'22','350', 'left']^['<#505050>Turn your story into a |webpage','19.2px',31.5,228,'22','350', 'left']^['<#505050>+ more','19.2px',31.5,282,'22','350', 'left']");
+        amo.registerVariation("textField5", "FY21Q2_ConsRefresh_BringBest_CubeAllUp_INT^FY21Q2_ConsRefresh_ShareMemories_CubeOD_INT^FY21Q2_ConsRefresh_HeroStoryteller_CubePPT_INT^FY21Q2_ConsRefresh_MemorableMoments_CubeWord_INT");
         amo.registerVariation("ctaText", "BUY NOW");
         // amo.registerVariation("ctaArrowVisibleFlag", "!{passthroughfield2}");
         amo.registerVariation("impressionTracker", "../../../1x1.png?impressionTracker=" + Math.random());
@@ -104,6 +105,7 @@
               if(trackingCode.length){ impressionTracker = impressionTracker.split('$(t_qp_TC_'+i+')').join(trackingCode); }
           }
         }
+        window.smartName = textField5 && textField5.split('^').length == 4 ? textField5.split('^').map(function(name) { return layout + '|' + name; }) : window.smartName;
         var adUrl = '';
         switch(adData.layout){
           case '3DCube_Desktop' : adURL = '3DCube_Desktop/M365_FY21Q2ConsRefresh_USA_300x250_BAN_3DCubeINT_English_NA_Standard_ANI_BN_NA_1.htm';break;
