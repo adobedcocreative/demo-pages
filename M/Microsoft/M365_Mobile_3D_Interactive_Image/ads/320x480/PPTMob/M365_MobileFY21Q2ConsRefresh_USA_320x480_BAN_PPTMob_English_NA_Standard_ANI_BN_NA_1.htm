@@ -247,6 +247,14 @@ var startBanner = function(){
 							});
 						}
 					});
+					amoAdInteraction = function(id) {
+						var parentWindows = window.parent.parent.window;
+						if (parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
+							try {
+								parentWindows.amoUtils.onInteraction(parentWindow.layout, parentWindow.adData.feedData);
+							} catch (e) {}
+						}
+					}
 					if(bannerData.impressionTracker) {
 						var impressionTrackers = bannerData.impressionTracker.split('^');
 						impressionTrackers.forEach(function(url){

@@ -917,6 +917,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 			scope.domElement.ownerDocument.addEventListener( 'pointerup', onPointerUp, false );
 
 			scope.dispatchEvent( startEvent );
+			amoAdInteraction();
 
 		}
 
@@ -981,6 +982,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 		event.stopPropagation();
 
 		scope.dispatchEvent( startEvent );
+			amoAdInteraction();
 
 		handleMouseWheel( event );
 
@@ -1077,6 +1079,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 		if ( state !== STATE.NONE ) {
 
 			scope.dispatchEvent( startEvent );
+			amoAdInteraction();
 
 		}
 
