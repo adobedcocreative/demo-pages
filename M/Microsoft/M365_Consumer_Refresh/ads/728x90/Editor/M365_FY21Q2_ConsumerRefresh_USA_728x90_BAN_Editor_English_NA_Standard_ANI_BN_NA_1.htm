@@ -102,7 +102,7 @@ function handleComplete(evt,comp) {
 				layers.cta.children[0].graphics.clear();
 				layers.cta.children[0].graphics.beginFill(ctaBackgroundColor).drawRect(0, -15, ctaWidth, 30);
 				if(position == 'right') {
-					layers.cta.x = adWidth - ctaWidth;
+					layers.cta.x = adWidth - ctaWidth + 2;
 					layers.txtCta.x = adWidth - ctaWidth + 15;
 					layers.cta.arrow.x = ctaWidth - 20;
 				} else {
