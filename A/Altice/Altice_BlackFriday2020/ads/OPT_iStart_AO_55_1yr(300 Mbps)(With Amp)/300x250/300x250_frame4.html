@@ -144,10 +144,10 @@
 <script type="text/javascript">
 amo.registerClick("clickUrl","https://www.altice.com");
 amo.registerAttribute("ctaText","TEXT","Shop now");
-amo.registerAttribute("frameVideo1", "TEXT", "Tag_Black_Friday.mp4");
-amo.registerAttribute("frameVideo2", "TEXT", "300_Internet_Arrow.mp4");
+amo.registerAttribute("frameVideo1", "TEXT", "Tag_Season.mp4");
+amo.registerAttribute("frameVideo2", "TEXT", "300_Mbps_Arrow.mp4");
 amo.registerAttribute("frameVideo3", "TEXT", "Live_Streaming.mp4");
-amo.registerAttribute("frameVideo5", "TEXT", "Tag_Black_Friday.mp4");
+amo.registerAttribute("frameVideo5", "TEXT", "Tag_Season.mp4");
 amo.registerAttribute("frameImage4", "IMAGE", "300x250_Product_Frame_04.png");
 amo.registerAttribute("frameImage41", "IMAGE", "300x250_Icon_Frame_04.png");
 amo.registerAttribute("frameText1", "TEXT", "&nbsp;");
@@ -192,7 +192,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 168px;left: 19px;
     <div id="frameText41" class="frameText">!{frameText41}</div>
     <div id="frameText42" class="frameText">!{frameText42}</div>
     <div id="frameText43" class="frameText">!{frameText43}</div>
-    <div id="frameImage5" class="frameImage" style="top: -83px;left: 160px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width: 145px;height: inherit;"></video></div>
+    <div id="frameImage5" class="frameImage" style="top: -30px;left: 166px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width: 145px;height: inherit;"></video></div>
     <div id="frameText51" class="frameText">!{frameText51}</div>
     <div id="frameText52" class="frameText">!{frameText52}</div>
     <div id="frameText53" class="frameText">!{frameText53}</div>
@@ -217,7 +217,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 168px;left: 19px;
       background-color:#000;
       opacity:1;">
       <!-- <div id="ref" class="asset adSizeContainer"data-image="ref"></div> -->
-      <div id="frameVideo1" style="top: -110px;left: 60px;width: 180px;height: auto;"><video muted playsinline autoplay style="width:100%;"></video></div>
+      <div id="frameVideo1" style="top: -18px;left: 70px;width: 186px;height: auto;"><video muted playsinline autoplay style="width:100%;"></video></div>
       <!-- <div id="frameImage1" class="asset frameImage" data-image="frameImage1"></div> -->
       <!-- <div id="shape1"
         style="top: 0;
@@ -310,40 +310,60 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 168px;left: 19px;
         ad.root.addEventListener("click", function(e) {
           if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
         });
-        setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; },800);
-        
-        setTimeout(function(){ ad.layers.frameImage2.querySelector('video').src = adData.frameVideo2; },5000);
-        var video2 = ad.layers.frameImage2.querySelector('video'), videoLoad2 = false;
-        video2.src = adData.frameVideo2;
-        video2.onplay = function() {
-          if(!videoLoad2) {
-            this.pause();
-            this.currentTime = 0;
+        var loadVideo = function(video, path, flag) {
+          if(video && path) {
+            if(!flag) {
+              var videoLoadFlag = false
+              video.onplay = function() {
+                if(!videoLoadFlag) {
+                  this.pause();
+                  this.currentTime = 0;
+                }
+                videoLoadFlag = true;
+              }
+              video.src = path;
+            }
+            setTimeout(function(){ video.src = path; },500);
           }
-          videoLoad2 = true;
         }
-
-        setTimeout(function(){ ad.layers.frameImage3.querySelector('video').src = adData.frameVideo3; },7000);
-        var video3 = ad.layers.frameImage3.querySelector('video'), videoLoad3 = false;
-        video3.src = adData.frameVideo3;
-        video3.onplay = function() {
-          if(!videoLoad3) {
-            this.pause();
-            this.currentTime = 0;
-          }
-          videoLoad3 = true;
-        }
-
-        setTimeout(function(){ ad.layers.frameImage5.querySelector('video').src = adData.frameVideo5; },13000);
-        var video5 = ad.layers.frameImage5.querySelector('video'), videoLoad5 = false;
-        video5.src = adData.frameVideo5;
-        video5.onplay = function() {
-          if(!videoLoad5) {
-            this.pause();
-            this.currentTime = 0;
-          }
-          videoLoad5 = true;
-        }
+        loadVideo(ad.layers.frameVideo1.querySelector('video'), adData.frameVideo1, true);
+        loadVideo(ad.layers.frameImage2.querySelector('video'), adData.frameVideo2);
+        loadVideo(ad.layers.frameImage3.querySelector('video'), adData.frameVideo3);
+        loadVideo(ad.layers.frameImage5.querySelector('video'), adData.frameVideo5);
+        // setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; },800);
+        //
+        // setTimeout(function(){ ad.layers.frameImage2.querySelector('video').src = adData.frameVideo2; },800);
+        // var video2 = ad.layers.frameImage2.querySelector('video'), videoLoad2 = false;
+        // video2.onplay = function() {
+        //   if(!videoLoad2) {
+        //     this.pause();
+        //     this.currentTime = 0;
+        //   }
+        //   videoLoad2 = true;
+        // }
+        // video2.src = adData.frameVideo2;
+        //
+        // setTimeout(function(){ ad.layers.frameImage3.querySelector('video').src = adData.frameVideo3; },800);
+        // var video3 = ad.layers.frameImage3.querySelector('video'), videoLoad3 = false;
+        // video3.onplay = function() {
+        //   if(!videoLoad3) {
+        //     this.pause();
+        //     this.currentTime = 0;
+        //   }
+        //   videoLoad3 = true;
+        // }
+        // video3.src = adData.frameVideo3;
+        //
+        // setTimeout(function(){ ad.layers.frameImage5.querySelector('video').src = adData.frameVideo5; },800);
+        // var video5 = ad.layers.frameImage5.querySelector('video'), videoLoad5 = false;
+        // video5.onplay = function() {
+        //   if(!videoLoad5) {
+        //     this.pause();
+        //     this.currentTime = 0;
+        //   }
+        //   videoLoad5 = true;
+        // }
+        // video5.src = adData.frameVideo5;
 
         textUpdate();
         gsap.set('#shape1',{top:-120,left:-18,width:60,height:120,y:370});
@@ -359,6 +379,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 168px;left: 19px;
         gsap.set('.frameImage', {x:'100%'});
         gsap.set('.frameText, #priceLabel', {x:'-100%'});
         // gsap.set('#frameImage1', {x:'-100%'});
+        // gsap.set('#frameImage5', {y:'-20'});
         var beamFrameAnimation = function(frame){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0})
@@ -384,6 +405,18 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 168px;left: 19px;
           .to('#frameText'+frame+'2', {delay:0.4, x:0,y:0})
           .to('#frameText'+frame+'3', {delay:0.4, x:0,y:0});
         }
+        // var videoFrameTopAnimation = function(frame){
+        //   var video = ad.root.querySelector('#frameImage' + frame + ' video');
+        //   var playVideo = function() { if(video) { video.play(); } }
+        //   video.onplay = function() {
+        //     gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+        //     .to('#frameImage'+frame, {x:0,y:0, delay: 1})
+        //   }
+        //   gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+        //   .to('#frameText'+frame+'1', {x:0,y: 0, onComplete:playVideo})
+        //   .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
+        //   .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
+        // }
         var videoFrameAnimation = function(frame){
           var video = ad.root.querySelector('#frameImage' + frame + ' video');
           var playVideo = function() { if(video) { video.play(); } }
@@ -432,7 +465,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 168px;left: 19px;
           var frameId = 2;
           // ad.layers.cta.classList.add('ctaWhite');
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: generalLeftFrameAnimation, onCompleteParams:[frameId]})
+          .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[frameId]})
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}));
         }
         var animateFrame1 = function(flag){
