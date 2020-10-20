@@ -126,42 +126,42 @@
           ],
           staticData: {
             // ref: 'ref.png'
-            logoImage: './../images/300x250_' + amo.variation['brandName'] + '_LogoImage.png',
+            logoImage: './../images/300x250_' + amo.variation['brandName'].replace(/ /g,'') + '_LogoImage.png',
             saleImage: './../images/300x250_Resort_SaleImage_EPIC_PASS.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
             ctaBtnColor: '#b4cbd4^#b4cbd4',
           },
           beforeLoad: function(data){
             data.map(function(content){
-              if(amo.variation['brandName'].toLowerCase() == 'aftonalps'){
+              if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'aftonalps'){
                 content.ctaBtnColor = '#ffad1f^#f89f04';
-              }else if(amo.variation['brandName'].toLowerCase() == 'alpinevalley'){
+              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'alpinevalley'){
                 content.ctaBtnColor = '#3f4d69^#37486a';
-              }else if(amo.variation['brandName'].toLowerCase() == 'attitash'){
+              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'attitash'){
                 content.ctaBtnColor = '#0047ba^#024fcd';
-              }else if(amo.variation['brandName'].toLowerCase() == 'bostonmills'){
+              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'bostonmills'){
                 content.ctaBtnColor = '#00819e^#0392b2';
-              }else if(amo.variation['brandName'].toLowerCase() == 'crotched'){
+              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'crotched'){
                 content.ctaBtnColor = '#b2d550^#c3e85c';
-              }else if(amo.variation['brandName'].toLowerCase() == 'hiddenvalley'){
+              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'hiddenvalley'){
                 content.ctaBtnColor = '#0d8194^#0c96ac';
-              }else if(amo.variation['brandName'].toLowerCase() == 'jfbb'){
+              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'jfbb'){
                 content.ctaBtnColor = '#274154^#2f526b';
-              }else if(amo.variation['brandName'].toLowerCase() == 'madriver'){
+              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'madriver'){
                 content.ctaBtnColor = '#044e37^#046849';
-              }else if(amo.variation['brandName'].toLowerCase() == 'mtbrighton'){
+              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'mtbrighton'){
                 content.ctaBtnColor = '#583293^#6e47ac';
-              }else if(amo.variation['brandName'].toLowerCase() == 'paolipeaks'){
+              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'paolipeaks'){
                 content.ctaBtnColor = '#b4cbd4^#b8e0f0';
-              }else if(amo.variation['brandName'].toLowerCase() == 'roundtop'){
+              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'roundtop'){
                 content.ctaBtnColor = '#b6d34c^#cae46c';
-              }else if(amo.variation['brandName'].toLowerCase() == 'snowcreek'){
+              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'snowcreek'){
                 content.ctaBtnColor = '#00303e^#01485d';
-              }else if(amo.variation['brandName'].toLowerCase() == 'whitetail'){
+              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'whitetail'){
                 content.ctaBtnColor = '#2f5b47^#397359';
-              }else if(amo.variation['brandName'].toLowerCase() == 'wildcat'){
+              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'wildcat'){
                 content.ctaBtnColor = '#006f66^#088d82';
-              }else if(amo.variation['brandName'].toLowerCase() == 'wilmot'){
+              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'wilmot'){
                 content.ctaBtnColor = '#ad253f^#be334d';
               }
               content.ctaBtn = content.ctaBtnColor.split('^')[0];
