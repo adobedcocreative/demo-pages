@@ -19,7 +19,7 @@
 		text-rendering: geometricPrecision;
 	}
 body {
-    background-color:#F2F2F2;
+    background-color:#FFFFFF;
     overflow: hidden;
 }
 </style>
@@ -131,6 +131,8 @@ function handleComplete(evt,comp) {
                   var adWidth = document.querySelector('#animation_container').offsetWidth;
                   var ctaBackgroundColor = layers.cta.children[0].graphics._fill.style;
                   var ctaWidth = layers.txtCta.children[0].children[0].getBounds().width + 45;
+                  layers.scaleX = 1;
+                  layers.scaleY = 1;
                   layers.txtCta.regX = 0;
                   layers.txtCta.children[0].x = 0;
                   layers.txtCta.children[0].y -= 2;
