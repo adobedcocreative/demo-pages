@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ad</title>
+    <link rel="stylesheet" href="css/style.min.css">
+    <!-- <link rel="stylesheet" href="https://use.typekit.net/qgz2kzw.css"> -->
+    <script type="text/javascript" src="https://ads.everesttech.net/ads/static/local/AMOLibrary.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
+    <script src="js/script.min.js" charset="utf-8"></script>
+    <style media="screen">
+      @font-face {
+          font-family: LoewBlack;
+          src: url('fonts/Loew 2.0-Black.woff') format("woff");
+      }
+      .LoewBlack { font-family: LoewBlack; }
+      @font-face {
+          font-family: LoewBold;
+          src: url('fonts/Loew 2.0-Bold.woff') format("woff");
+      }
+      .LoewBold { font-family: LoewBold; }
+      @font-face {
+          font-family: LoewHeavy;
+          src: url('fonts/Loew 2.0-Heavy.woff') format("woff");
+      }
+      .LoewHeavy { font-family: LoewHeavy; }
+    </style>
+    <!--
+      Available Classes:-
+        For Images :-
+          .asset        -Image Center Align(Image can shrink according to the container but will expand beyond its original size)
+          .asset-top    -Image Top Center Align(Image can shrink according to the container but will expand beyond its original size)
+          .asset-left
+
+    -->
+    <style media="screen" data-dynamic="style">
+      #ad {
+        width: 728px;
+        height: 90px;
+        font-family: LoewHeavy,Helvetica,sans-serif;
+        background-color: #000;
+        color: #fff;
+      }
+      .frame {
+        position: absolute;
+        top:0px;
+        left:0px;
+        width:inherit;
+        height:inherit;
+      }
+      .frameImage {
+        position: absolute;
+        top:0px;
+        left:0px;
+        width:inherit;
+        height:90px;
+      }
+      #cta { background-color: !{ctaBtn}; }
+      #cta:hover { background-color: !{ctaBtnHover}; }
+    </style>
+  </head>
+  <body>
+    <div class="" id="ad">
+      <div id="backgroundImage" class="asset frame" data-image="backgroundImage"></div>
+      <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
+      <div id="logoImage" class="asset-right"
+        data-image="logoImage"
+        style="top: 9px;
+          left: 632px;
+          width: 82px;
+          height: 35px;">
+      </div>
+      <div id="whitePatch"
+        style="top: 48px;
+          left: 632px;
+          width: 82px;
+          height: 2px;
+          background-color:#fff;">
+      </div>
+      <div id="frameText1" dir="auto" class="text-left"
+        data-text="frameText1"
+        style="top: 2px;
+          left: 375px;
+          width: 250px;
+          height: 90px;
+          font-size: 25px;
+          line-height: 0.9;">
+      </div>
+      <div id="frameText2" dir="auto" class="text-left"
+        data-text="frameText2"
+        style="top: 2px;
+          left: 375px;
+          width: 250px;
+          height: 90px;
+          font-size: 25px;
+          line-height: 0.9;">
+      </div>
+      <div id="frameText3" dir="auto" class="text-left"
+        data-text="frameText3"
+        style="top: 2px;
+          left: 375px;
+          width: 250px;
+          height: 90px;
+          font-size: 25px;
+          line-height: 0.9;">
+      </div>
+      <div id="cta" dir="auto" class="text LoewHeavy"
+        data-style="text-align:center;padding:3px 7px"
+        data-text="ctaText"
+        style="top: 57px;
+          left: 632px;
+          width: 82px;
+          height: 30px;
+          font-size: 9px;
+          line-height: 1;
+          color:#fff;">
+      </div>
+
+      <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
+    </div>
+    <div id="loadFont" style="width:0;height:0;overflow:hidden;">
+      <div class="LoewBlack" style="color:transparent;">LoewBlack</div>
+      <div class="LoewBold" style="color:transparent;">LoewBold</div>
+      <div class="LoewHeavy" style="color:transparent;">LoewHeavy</div>
+    </div>
+    <script type="text/javascript">
+      var ad = new Ad({
+        root: document.querySelector('#ad'),
+        width: 728,
+        height: 90,
+        borderWidth: 1,
+        borderColor: '#000'
+      });
+      setTimeout(function() {
+        ad.contentSetup({
+          cam: {
+            backgroundImage: 'assets/728x90_Hilton_New_BackgroundImage.png',
+            logoImage: 'assets/Hilton_Hotels_and_Resorts_Logo.png',
+            frameText1: "HERE’S TO YOUR<br>NEXT MEMORY",
+            frameText2: "WHENEVER<br>YOU’RE READY",
+            frameText3: "na", //<div class='LoewBold'>SOUTH BEACH</div>FROM $XX//<div class='LoewBold'>HILTON<br>SANTA MONICA</div>FROM $XX
+            ctaText: 'BOOK NOW',
+            ctaBtnColor: '#00a8e1^#007096',
+            clickURL: 'https://www.adobe.com/#Hilton',
+            layout: 'generic1'
+          },
+          feed: [
+            {
+              name: 'Hilton',
+            }
+          ],
+          staticData: {
+            // ref:'ref1.png',
+          },
+          beforeLoad: function(data){
+            var replaceMacro = function(text, data) {
+              var macros = text.match(/\!\{(.*?)\}/g);
+              if(macros) {
+                macros.forEach(function(macro){
+                  var macroText = macro.split('!{').join('').split('}').join('');
+                  for(var key in data) { if(key == macroText) { macroText = data[key]; } }
+                  text = text.split(macro).join(macroText);
+                });
+              }
+              return text;
+            }
+            data.map(function(content){
+              content.ctaBtn = content.ctaBtnColor.split('^')[0];
+              content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
+              content.frameTextFlag3 = Boolean(content.frameText3 != '' && content.frameText3.toLowerCase() != 'na');
+            });
+            return data;
+          }
+        }, function(data){
+          var adData = data[0], adClickUrl = adData['clickURL'];
+          ad.root.addEventListener("click", function(e) {
+            if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
+          });
+
+          if(adData.layout.toLowerCase() != 'generic'){
+            ad.layers.logoImage.style.top = '29px';
+            ad.layers.logoImage.style.left = '502px';
+            ad.layers.logoImage.style.width = '80px';
+            ad.layers.logoImage.style.height = '32px';
+
+            ad.layers.cta.style.top = '30px';
+            ad.layers.cta.style.left = '615px';
+            ad.layers.cta.style.width = '97px';
+            ad.layers.cta.style.height = '30px';
+            ad.layers.cta.style.fontSize = '12px';
+
+            ad.layers.whitePatch.style.top = '30px';
+            ad.layers.whitePatch.style.left = '597px';
+            ad.layers.whitePatch.style.width = '2px';
+            ad.layers.whitePatch.style.height = '30px';
+
+            ad.layers.frameText1.style.left = ad.layers.frameText2.style.left = ad.layers.frameText3.style.left = '260px';
+          }
+
+          gsap.set('#frameText3', {autoAlpha:0});
+          var thirdFrameAnimation = function(){
+            if(adData.frameTextFlag3) {
+              gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.5}})
+              .to('#frameText2', {autoAlpha:0, duration:0.3, delay:2.5})
+              .to('#frameText3', {autoAlpha:1})
+            }
+          }
+          var adHeight = 90;
+          gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.5}})
+          .from('#logoImage', {y:-adHeight/2})
+          .from('#cta', {y:adHeight/2}, '-=0.5')
+          .from('#whitePatch', {scaleY:0}, '-=0.5')
+          .from('#frameText1', {autoAlpha:0, y:'-20%'})
+          .to('#frameText1', {autoAlpha:0, duration:0.3, delay:2.5})
+          .from('#frameText2', {autoAlpha:0, onComplete: thirdFrameAnimation})
+        });
+      }, 2000);
+    </script>
+  </body>
+</html>
