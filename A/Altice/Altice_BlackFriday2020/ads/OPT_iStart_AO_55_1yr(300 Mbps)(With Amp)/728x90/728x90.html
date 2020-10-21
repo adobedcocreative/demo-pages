@@ -145,7 +145,7 @@
 amo.registerClick("clickUrl","https://www.altice.com");
 
 amo.registerAttribute("ctaText","TEXT","Shop now");
-amo.registerAttribute("frameVideo1", "TEXT", "Tag_Empty.mp4");
+amo.registerAttribute("frameImage1", "IMAGE", "728x90_Tag_Frame_01.png");
 amo.registerAttribute("frameVideo2", "TEXT", "300_Mbps_Arrow.mp4");
 amo.registerAttribute("frameVideo3", "TEXT", "Live_Streaming.mp4");
 amo.registerAttribute("frameImage4","IMAGE","728x90_Product_Frame_04.png");
@@ -222,8 +222,8 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 376px;
       background-color:#000;
       opacity:1;">
       <!-- <div id="ref" class="asset adSizeContainer"data-image="ref"></div> -->
-      <div id="frameVideo1" style="top: 5px;left: 35px;width: 80px;height: 90px;"><video muted playsinline autoplay style="width:100%;"></video></div>
-      <!-- <div id="frameImage1" class="asset adSizeContainer" data-image="frameImage1"></div> -->
+      <!-- <div id="frameVideo1" style="top: 5px;left: 35px;width: 80px;height: 90px;"><video muted playsinline autoplay style="width:100%;"></video></div> -->
+      <div id="frameImage1" class="asset adSizeContainer" data-image="frameImage1"></div>
       <!-- <div id="shape1"
         style="top: 0;
           left: -23px;
@@ -330,7 +330,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 376px;
             setTimeout(function(){ video.src = path; }, (flag ? 800 : 500));
           }
         }
-        loadVideo(ad.layers.frameVideo1.querySelector('video'), adData.frameVideo1, true);
+        // loadVideo(ad.layers.frameVideo1.querySelector('video'), adData.frameVideo1, true);
         loadVideo(ad.layers.frameImage2.querySelector('video'), adData.frameVideo2);
         loadVideo(ad.layers.frameImage3.querySelector('video'), adData.frameVideo3);
         // setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; },800);
@@ -429,27 +429,18 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 376px;
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}));
         }
         var animateFrame1 = function(flag){
-          // var animateSwitch = function() {
-          //   ad.root.querySelector('.switch').classList.add('on');
-          // }
-          // gsap.set('#frameText1', {x: '0'});
-          // gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          // .to('#frameText1', {autoAlpha:1})
-          // .to('#frameImage1', {autoAlpha:1,delay:1.5, onComplete: animateSwitch})
-          // .to('#frame1', (flag==true?{}:{delay:2.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
-          // gsap.to('#shape1', {y:'0',ease:'none',duration:0.7,delay:1.6})
-          // gsap.to('#shape2', {y:'0',ease:'none',duration:0.7,delay:1.8})
-          // gsap.to('#shape3', {y:'0',ease:'none',duration:0.7,delay:1.8})
-          // gsap.to('#shape4', {y:'0',ease:'none',duration:0.7,delay:2.1})
           gsap.set('#frameText1', {x: '0'});
-          ad.layers.frameVideo1.querySelector('video').onplay = function(){
-            gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frameText1', {autoAlpha:1})
-          }
-          ad.layers.frameVideo1.querySelector('video').onended = function(){
-            gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frame1', (flag==true?{}:{delay:0.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
-          }
+          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+          .to('#frameText1, #frameImage1', {autoAlpha:1})
+          .to('#frame1', (flag==true?{}:{delay:2.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          // ad.layers.frameVideo1.querySelector('video').onplay = function(){
+          //   gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+          //   .to('#frameText1', {autoAlpha:1})
+          // }
+          // ad.layers.frameVideo1.querySelector('video').onended = function(){
+          //   gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+          //   .to('#frame1', (flag==true?{}:{delay:0.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          // }
         }
         gsap.delayedCall(.8, animateFrame1);
       });

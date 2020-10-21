@@ -145,7 +145,7 @@
 amo.registerClick("clickUrl","https://www.altice.com");
 amo.registerAttribute("ctaText","TEXT","Shop now");
 amo.registerAttribute("frameVideo1", "TEXT", "Shopping_Cart.mp4");
-amo.registerAttribute("frameVideo2", "IMAGE", "Tag_Black_Friday.mp4");
+amo.registerAttribute("frameImage2", "IMAGE", "728x90_Tag_Frame_02.png");
 amo.registerAttribute("frameVideo3", "TEXT", "300_Mbps_Arrow.mp4");
 amo.registerAttribute("frameVideo4", "IMAGE", "Speedo_Meter.mp4");
 amo.registerAttribute("frameImage5", "IMAGE", "1x1.png");
@@ -181,7 +181,8 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 376px;
     <div id="beam5" class="beam" style="border-radius: 30px;background-image: linear-gradient(to right, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
     <div id="logoImage" class="asset adSizeContainer" data-image="logoImage"></div>
     <div id="frameBackground" class="asset adSizeContainer" data-image="frameBackground" style="display:none;"></div>
-    <div id="frameImage2" class="frameImage" style="top: 8px;left: 458px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width: 80px;height: 80px;"></video></div>
+    <div id="frameImage2" class="asset frameImage" data-image="frameImage2"></div>
+    <!-- <div id="frameImage2" class="frameImage" style="top: 8px;left: 458px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width: 80px;height: 80px;"></video></div> -->
     <div id="frameText21" class="frameText">!{frameText21}</div>
     <div id="frameText22" class="frameText">!{frameText22}</div>
     <!-- <div id="frameText23" class="frameText">!{frameText23}</div> -->
@@ -327,7 +328,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 376px;
           }
         }
         loadVideo(ad.layers.frameVideo1.querySelector('video'), adData.frameVideo1, true);
-        loadVideo(ad.layers.frameImage2.querySelector('video'), adData.frameVideo2);
+        // loadVideo(ad.layers.frameImage2.querySelector('video'), adData.frameVideo2);
         loadVideo(ad.layers.frameImage3.querySelector('video'), adData.frameVideo3);
         loadVideo(ad.layers.frameImage4.querySelector('video'), adData.frameVideo4);
         // setTimeout(function(){ ad.layers.frameVideo1.querySelector('video').src = adData.frameVideo1; },800);
@@ -356,7 +357,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 376px;
         gsap.set('.frameImage', {y:'110%'});
         gsap.set('.frameText', {y:'100%'});
         gsap.set('div[id^="frameText"][id$="1"], #priceLabel', {x:'-100%',y:0});
-        gsap.set('#frameImage2', {x: '-90', y:'90'});
+        // gsap.set('#frameImage2', {x: '-90', y:'90'});
         // // gsap.set('#frameImage1', {y:0});
         var beamFrameAnimation = function(frame){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
@@ -420,7 +421,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 376px;
         var animateFrame2 = function(flag){
           var frameId = 2;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[frameId]})
+          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}));
         }
         var animateFrame1 = function(flag){
