@@ -219,7 +219,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 324px;width:420px
       opacity:1;">
       <!-- <div id="ref" class="asset adSizeContainer"data-image="ref"></div> -->
       <!-- <div id="frameVideo1" style="top: 0px;left: 20px;width: 310px;height: inherit;"><video muted playsinline autoplay style="width:100%;"></video></div> -->
-      <div id="frameVideo1" style="top: 26px;left: 25px;width: 280px;height: inherit;"><video muted playsinline autoplay style="width:100%;"></video></div>
+      <div id="frameVideo1" style="top: 0px;left: 25px;width: 280px;height: inherit;"><video muted playsinline autoplay style="width:100%;"></video></div>
       <!-- <div id="frameImage1" class="asset frameImage" data-image="frameImage1"></div> -->
       <!-- <div id="shape1"
         style="top: 0;
@@ -472,6 +472,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 324px;width:420px
           // gsap.to('#shape4', {y:'0',ease:'none',duration:0.9,delay:2})
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+            .to('#frameVideo1', {delay:0.6, duration:0.1, ease: 'none', y:32})
             .to('#frameText1', {autoAlpha:1})
           }
           ad.layers.frameVideo1.querySelector('video').onended = function(){
