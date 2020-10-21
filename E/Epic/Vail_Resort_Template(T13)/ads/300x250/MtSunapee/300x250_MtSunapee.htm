@@ -48,6 +48,7 @@
       <div id="backgroundImage3" class="asset frame multiframe" data-image="backgroundImage3"></div>
       <div id="topWhitePatch" class="frame" style="top:-213px;background-color:rgba(242, 240, 229, 0.8);"></div>
       <div id="bottomWhitePatch" class="frame" style="top:165px;background-color:rgba(242, 240, 229, 0.8);"></div>
+      <div id="saleLogoCirlce" style="display:inline-block;width:46px;height:46px;bottom:7px;right:14px;background-color:#fff;border-radius:50%;"></div>
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="saleImage" class="asset frame" data-image="saleImage" style="display:none;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
@@ -183,7 +184,7 @@
                 var frameText = document.querySelectorAll("div[id^=frameText]");
                 for (var i = 0; i < frameText.length; i++){
                   frameText[i].style.left = '15px';
-                  frameText[i].style.width = '270px';
+                  // frameText[i].style.width = '270px';
                   frameText[i].style.height = '38px';
                   frameText[i].style.textAlign = 'center';
                 }
@@ -249,7 +250,7 @@
           if(layout == 'singleimage') { gsap.set('.multiframe', { autoAlpha :0}) }
             gsap.timeline({defaults:{ease: Power2.easeInOut, duration: 0.7}})
             .from('#bottomWhitePatch', { y:adHeight, delay:0.5 })
-            .from('#frameText1, #cta, #saleImage', { autoAlpha:0 })
+            .from('#frameText1, #cta, #saleImage, #saleLogoCirlce', { autoAlpha:0 })
             .to('#frameText1', { autoAlpha:0, delay:3 })
             .from('#frameText2, #backgroundImage2', { autoAlpha:0 })
             .to('#frameText2', { autoAlpha:0, delay:3 })
