@@ -48,6 +48,7 @@
       <div id="backgroundImage3" class="asset frame multiframe" data-image="backgroundImage3"></div>
       <div id="topWhitePatch" class="frame" style="top:-556px;background-color:rgba(0, 76, 128, 0.85);"></div>
       <div id="bottomWhitePatch" class="frame" style="top:453px;background-color:rgba(0, 76, 128, 0.9);"></div>
+      <div id="saleLogoCirlce" style="display:inline-block;width:48px;height:48px;bottom:13px;right:13px;background-color:#fff;border-radius:50%;"></div>
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="saleImage" class="asset frame" data-image="saleImage" style="display:none;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
@@ -166,11 +167,16 @@
                 cta.style.width = cta.offsetWidth + 'px'
 
               } else if(layout == 'multipleimagesoffer') {
-                content.styleProperties = "{'#cta': {x:'-50%',y:-15}, '#saleImage': {css:{display:'block'}}}";
-                cta.style.width = "140px";
-                cta.style.left = "50%";
+                // content.styleProperties = "{'#cta': {x:'-50%',y:-15}, '#saleImage': {css:{display:'block'}}}";
+                content.styleProperties = "{'#saleImage': {css:{display:'block'}}}";
+                var cta = document.querySelector("#cta");
+                cta.style.left = "10px";
+                cta.style.width = "70px";
                 cta.innerHTML = '<span style="' + cta.dataset.style + '">' + content.ctaText + '</span>';
-                cta.style.width = cta.offsetWidth + 'px';
+                if(cta.querySelector('span').offsetHeight > 20) {
+                  cta.style.lineHeight = 1.2;
+                  cta.style.height = "40px";
+                }
               }
               // else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {
               //   content.styleProperties = "{'#frameText': {x:-3, y:-11}, '#frameText span': {css:{textAlign:'left'}}, '#cta': {y:-20}, '#saleImage': {css:{display:'block'}}}";
@@ -202,7 +208,7 @@
             canvas.width = this.width;
             canvas.height = this.height;
             document.body.appendChild(canvas);
-            ctx.fillStyle = "#FFFFFF";
+            ctx.fillStyle = "#004C80";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.globalCompositeOperation = 'destination-in';
             ctx.drawImage(this, 0, 0);
@@ -237,7 +243,7 @@
           if(layout == 'singleimage') { gsap.set('.multiframe', { autoAlpha :0}) }
             gsap.timeline({defaults:{ease: Power2.easeInOut, duration: 0.7}})
             .from('#bottomWhitePatch', { y:adHeight, delay:0.5 })
-            .from('#frameText1, #cta, #saleImage', { autoAlpha:0 })
+            .from('#frameText1, #cta, #saleImage, #saleLogoCirlce', { autoAlpha:0 })
             .to('#frameText1', { autoAlpha:0, delay:3 })
             .from('#frameText2, #backgroundImage2', { autoAlpha:0 })
             .to('#frameText2', { autoAlpha:0, delay:3 })
