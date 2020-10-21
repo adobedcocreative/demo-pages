@@ -335,7 +335,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 167px;left: 24px;
               }
               video.src = path;
             }
-            setTimeout(function(){ video.src = path; },500);
+            setTimeout(function(){ video.src = path; }, (flag ? 800 : 500));
           }
         }
         loadVideo(ad.layers.frameVideo1.querySelector('video'), adData.frameVideo1, true);
