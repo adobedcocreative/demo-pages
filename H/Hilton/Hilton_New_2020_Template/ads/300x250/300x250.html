@@ -62,6 +62,7 @@
   <body>
     <div class="" id="ad">
       <div id="backgroundImage" class="asset frame" data-image="backgroundImage"></div>
+      <div id="overlayColor" class="frame"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
       <div id="logoImage" class="asset-right"
         data-image="logoImage"
@@ -142,6 +143,7 @@
             frameText1: "HERE’S TO YOUR<br>NEXT MEMORY",
             frameText2: "WHENEVER<br>YOU’RE READY",
             frameText3: "na", //<div class='LoewBold'>SOUTH BEACH</div>FROM $XX//<div class='LoewBold'>HILTON<br>SANTA MONICA</div>FROM $XX
+            styleProperties: "{'#overlayColor':{'background': 'linear-gradient(to top, rgba(0,0,0,0.5) 20%, transparent 40%)'}}",
             ctaText: 'BOOK NOW',
             ctaBtnColor: '#00a8e1^#007096',
             clickURL: 'https://www.adobe.com/#Hilton'
@@ -178,6 +180,16 @@
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });
+          if(adData.styleProperties && adData.styleProperties.toLowerCase() != 'na') {
+            try {
+              eval('var styleProperties = ' + adData.styleProperties);
+              if(styleProperties && typeof styleProperties == 'object')
+              for(var i in styleProperties) {
+                gsap.set(i, styleProperties[i]);
+              }
+            } catch(e) {  }
+          }
+          textUpdate();
           gsap.set('#frameText3', {autoAlpha:0});
           var thirdFrameAnimation = function(){
             if(adData.frameTextFlag3) {
