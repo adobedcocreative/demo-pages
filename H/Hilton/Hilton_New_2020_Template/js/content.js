@@ -23,6 +23,7 @@ var getFeed1 = function(){
               "frameText1": data['gsx$frametext1']['$t'],
               "frameText2": data['gsx$frametext2']['$t'],
               "frameText3": data['gsx$frametext3']['$t'],
+              "styleProperties": data['gsx$styleproperties']['$t'],
               "ctaBtnColor": data['gsx$ctabtncolor']['$t'],
               "clickURL": data['gsx$url']['$t'],
             });
@@ -71,12 +72,12 @@ var loadData = function(){
       obj.name = i;
       obj.data = [];
       var layoutNames = [];
-      feedData[i].map(function(data){layoutNames.push(data['Layout']);});
+      feedData[i].map(function(data){layoutNames.push(data['Smart Names']);});
       layoutNames = layoutNames.filter(function(value, index, self){ return self.indexOf(value) === index; })
       layoutNames.map(function(layoutName){
         var smartObject = {};
         smartObject.name = layoutName;
-        smartObject.data = feedData[i].filter(function(data){ return data['Layout'] == layoutName });
+        smartObject.data = feedData[i].filter(function(data){ return data['Smart Names'] == layoutName });
         obj.data.push(smartObject);
       });
       adData.push(obj);
