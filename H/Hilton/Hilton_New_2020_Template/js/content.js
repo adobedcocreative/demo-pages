@@ -23,6 +23,7 @@ var getFeed1 = function(){
               "frameText1": data['gsx$frametext1']['$t'],
               "frameText2": data['gsx$frametext2']['$t'],
               "frameText3": data['gsx$frametext3']['$t'],
+              "styleProperties": data['gsx$styleproperties']['$t'],
               "ctaBtnColor": data['gsx$ctabtncolor']['$t'],
               "clickURL": data['gsx$url']['$t'],
             });
