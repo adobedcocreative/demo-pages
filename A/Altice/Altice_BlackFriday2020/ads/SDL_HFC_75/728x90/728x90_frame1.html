@@ -91,7 +91,7 @@
          amo.registerAttribute("frameText31", "TEXT", "<div style='top:8px;left:10px;font-size:72px;line-height:1;' class='gradColor'>$50</div>");
          amo.registerAttribute("frameText32", "TEXT", "<div style='top:28px;left:155px;font-size:22px;line-height:.8;'>Visa<span style='vertical-align:9px;font-size:50%;'>®</span> Prepaid Card<span style='font-size:10px;' class='AlticeRegular'><br>Terms apply.</span></div>");
          amo.registerAttribute("frameText41", "TEXT", "<div style='top:2px;left:10px;font-size:28px;'>1 Gig Internet</div>");
-         amo.registerAttribute("frameText42", "TEXT", "<div style='top:32px;left:10px;font-size:28px;'>$55/mo. FOR LIFE</div><div style='top:66px;left:10px;font-size:14px;' class='AlticeRegular'>w/Auto Pay & Paperless Bill. Plus taxes, fees & charges</div>");
+         amo.registerAttribute("frameText42", "TEXT", "<div style='top:32px;left:10px;font-size:28px;'>$75/mo. FOR LIFE</div><div style='top:66px;left:10px;font-size:14px;' class='AlticeRegular'>w/Auto Pay & Paperless Bill. Plus taxes, fees & charges</div>");
          amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
       </script>
       <!-- End of overrode asset attributes values -->
@@ -232,8 +232,7 @@
                         .to("#frameText1", { delay: 0.25, autoAlpha: 1, x: 0, y: 0 })
                         .to('div[id^="frameText' + frameId + '"]', flag == true ? {} : { delay: 2, opacity: 0, onComplete: animateFrame2 });
                   };
-                  if('frame1' in ad.layers) ad.layers.frame1.remove();
-                    gsap.delayedCall(1.2, animateFrame3, [true]);
+                  gsap.delayedCall(.8, animateFrame1, [true]);
                }
             );
          }, 2000);

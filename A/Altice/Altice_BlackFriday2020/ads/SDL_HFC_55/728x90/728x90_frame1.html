@@ -232,8 +232,7 @@
                         .to("#frameText1", { delay: 0.25, autoAlpha: 1, x: 0, y: 0 })
                         .to('div[id^="frameText' + frameId + '"]', flag == true ? {} : { delay: 2, opacity: 0, onComplete: animateFrame2 });
                   };
-                  if('frame1' in ad.layers) ad.layers.frame1.remove();
-                    gsap.delayedCall(1.2, animateFrame3, [true]);
+                  gsap.delayedCall(.8, animateFrame1, [true]);
                }
             );
          }, 2000);

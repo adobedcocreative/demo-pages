@@ -89,7 +89,7 @@ amo.registerAttribute("frameImage3", "IMAGE", "300x250_SDL_VisaCard.png");
 amo.registerAttribute("frameText31", "TEXT", "<div style='top:65px;left:132px;font-size:36px;' class='gradColor'>$50</div>");
 amo.registerAttribute("frameText32", "TEXT", "<div style='top:107px;left:132px;font-size:13px;line-height:1;'>Visa<span style='vertical-align:5px;font-size:50%;'>®</span> Prepaid Card<br><span style='font-size:10px;' class='AlticeRegular'>Terms apply.</span></div>");
 amo.registerAttribute("frameText41", "TEXT", "<div style='top:15px;left:24px;font-size:22px;'>1 Gig Internet</div>");
-amo.registerAttribute("frameText42", "TEXT", "<div style='top:32px;left:24px;font-size:78px;letter-spacing:-2px;' class='gradColor'>$55</div><div style='top:55px;left:164px;font-size:14px;line-height:1;'>/mo.</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div style='top:32px;left:24px;font-size:78px;letter-spacing:-2px;' class='gradColor'>$75</div><div style='top:55px;left:164px;font-size:14px;line-height:1;'>/mo.</div>");
 amo.registerAttribute("frameText43", "TEXT", "<div style='top:158px;left:24px;font-size:10px;' class='AlticeRegular'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div>");
 </script>
 <!-- End of overrode asset attributes values -->
@@ -235,7 +235,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top:158px;left:24px;fo
             }
           }
         }
-        gsap.delayedCall(.8, animateFrame1);
+        gsap.delayedCall(.8, animateFrame1, [true]);
       });
     }, 2000);
   </script>
