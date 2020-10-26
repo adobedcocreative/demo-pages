@@ -81,6 +81,7 @@
           }
         }
         window.adData = content[0], window.adClickUrl = adData.url;
+        window.layout = adData.layout;
         // document.querySelector('iframe').addEventListener("click", exitHandler.bind(this));
         // function exitHandler() {
         //   // window.open(clickTag);
@@ -112,6 +113,7 @@
           case 'OneDrive' : adURL = 'OneDrive/M365_FY21Q2Holiday_USA_300x600_BAN_OD_EN_NA_Standard_ANI_BN_NA_1.htm';break;
           case 'PPT' : adURL = 'PPT/M365_FY21Q2Holiday_USA_300x600_BAN_PPT_EN_NA_Standard_ANI_BN_NA_1.htm';break;
           case 'Word' : adURL = 'Word/M365_FY21Q2Holiday_USA_300x600_BAN_Word_EN_NA_Standard_ANI_BN_NA_1.htm';break;
+          case 'Carousel' : adURL = 'Carousel/M365_FY21Q2Holiday_USA_300x600_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1.htm';break;
         }
         var iframe = document.createElement('iframe');
         iframe.src = adURL;

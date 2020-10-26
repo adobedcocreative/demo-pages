@@ -2016,7 +2016,7 @@ if (reversed == null) { reversed = false; }
 			var ClickID = 0
 
 			exportRoot.trigger_button = function() {
-				console.log("status button "+status_button + " id "+ClickID)
+				// console.log("status button "+status_button + " id "+ClickID)
 				if (status_button == "on"){
 					hit1.mouseEnabled = false;
 					hit2.mouseEnabled = false;

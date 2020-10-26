@@ -2016,7 +2016,7 @@ if (reversed == null) { reversed = false; }
 			var ClickID = 0
 			
 			exportRoot.trigger_button = function() {
-				console.log("status button "+status_button + " id "+ClickID)
+				// console.log("status button "+status_button + " id "+ClickID)
 				if (status_button == "on"){
 					hit1.mouseEnabled = false;
 					hit2.mouseEnabled = false;
@@ -2374,20 +2374,24 @@ if (reversed == null) { reversed = false; }
 		
 			exportRoot.setMenu1 = function () {
 				ClickID--;
+				amoAdInteraction('Previous Click');
 				direction = "prev";
 				exportRoot.subMenuClick(ClickID, direction);
 			}
 			exportRoot.setMenu2 = function () {
 				ClickID++;
+				amoAdInteraction('Next Click');
 				direction = "next";
 				exportRoot.subMenuClick(ClickID, direction);
 			}
-		
+
 			exportRoot.expandMenu = function (subID) {
+				amoAdInteraction('Expand Click');
 				exportRoot.subMenuExpand(subID);
 				menuPos = "expanded"
 			}
 			exportRoot.shrinkMenu = function (subID) {
+				amoAdInteraction('Back Click');
 				exportRoot.subMenuShrink(subID);
 				menuPos = "shrunk"
 			}
@@ -2460,16 +2464,17 @@ if (reversed == null) { reversed = false; }
 			swipe.on("swipe", function() {
 				var dir = swipe.direction;
 				if (dir == "none") {
-					if (ClickID==0) window.open(clickTag1);
-					if (ClickID==1) window.open(clickTag2);
-					if (ClickID==2) window.open(clickTag3);
-					if (ClickID==3) window.open(clickTag4);
+					// if (ClickID==0) window.open(clickTag1);
+					// if (ClickID==1) window.open(clickTag2);
+					// if (ClickID==2) window.open(clickTag3);
+					// if (ClickID==3) window.open(clickTag4);
+					amoAdClick(ClickID);
 				} else if (dir == "left") {
 					if (status_button=="on" && menuPos == "shrunk") exportRoot.setMenu2()
 				} else {
 					if (status_button=="on" && menuPos == "shrunk") exportRoot.setMenu1()
 				}
-				console.log(swipe.direction)
+				// console.log(swipe.direction)
 			});
 		
 		}
