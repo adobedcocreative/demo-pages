@@ -155,9 +155,10 @@ amo.registerAttribute("frameText1", "TEXT", "Season of<br><font class='coloredTe
 amo.registerAttribute("frameText21", "TEXT", "<div style='top: 111px;left: 29px;font-size: 28px;line-height:1.1;color: #fff;'>100 Mbps<br>Internet</div>");
 amo.registerAttribute("frameText22", "TEXT", "<div style='top: 164px;left: 20px;width: 280px;color: #fff;line-height: 1;'><font style='font-size: 117px;letter-spacing: -2px;'>$35</font><font style='margin-left: 5px;font-size: 19px;display: inline-block;vertical-align: 50px;line-height: 0.9;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 3px 0 0 10px;font-size: 14px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
 amo.registerAttribute("frameText31", "TEXT", "<div style='top: 198px;left: 20px;width: 260px;font-size: 28px;line-height: 1.1;text-align: center;'>100 Mbps Internet</div>");
-amo.registerAttribute("frameText32", "TEXT", "<div class='AlticeRegular' style='top:477px;width: 250px;left:22px;font-size:14px;line-height:1.15;'>Wired connection up to 100 Mbps.<br>Speeds, prices & availability vary by area.</div>");
-amo.registerAttribute("frameText41", "TEXT", "<div style='top: 199px;left: 10px;width: 280px;font-size: 27px;line-height: 1.1;text-align: center;'><font class='coloredText'>1.5x the speed</font><br>of Fios<sup style='font-size:55%;vertical-align: 63%;'>®</sup> for<br>the same price</div>");
-amo.registerAttribute("frameText42", "TEXT", "<div class='AlticeRegular' style='top: 460px;left: 22px;font-size: 14px;line-height: 1.1;'>Based on Verizon Fios<sup style='font-size:40%;'>®</sup><br>200 Mbps $39.99 Internet offer<br>download speed as of 10/12/20.</div>");
+amo.registerAttribute("frameText32", "TEXT", "<div class='AlticeRegular' style='top:477px;width: 250px;left:22px;font-size:12px;line-height:1.15;'>Wired connection up to 100 Mbps.<br>Speeds, prices & availability vary by area.</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div style='top: 87px;left: 22px;width: 256px;font-size: 23.5px;line-height: 1.1;'>+ 1 Gig Internet<br>now available</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div style='top: 144px;left: 21px;width: 256px;font-size: 42px;line-height: 1;'>on our next generation network</div>");
+amo.registerAttribute("frameText43", "TEXT", "<div class='AlticeRegular' style='top:477px;width: 250px;left:22px;font-size:12px;line-height:1.15;'>Speeds, prices &<br>availability vary by area.</div>");
 amo.registerAttribute("frameText51", "TEXT", "<div style='top: 88px;left: 22px;font-size: 28px;line-height:1;'>100 Mbps<br>Internet</div>");
 amo.registerAttribute("frameText52", "TEXT", "<div style='top: 139px;left: 14px;width: 260px;line-height: 1;'><font style='font-size: 116px;letter-spacing: -1.5px;' class='coloredText'>$35</font><font style='margin-left: 5px;font-size: 19px;display: inline-block;vertical-align: 46px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 2px 0 0 8px;font-size: 14px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
 amo.registerAttribute("frameText53", "TEXT", "<div style='top: 310px;left: 22px;width: 400px;transform: scale(0.685);transform-origin: top left;'><div class='bulletedText'>No annual contract</div></div>");
@@ -192,10 +193,10 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 310px;left: 22px;
     <div id="frameText31" class="frameText">!{frameText31}</div>
     <div id="frameText32" class="frameText">!{frameText32}</div>
     <!-- <div id="frameText33" class="frameText">!{frameText33}</div> -->
-    <div id="frameImage4" class="frameImage" style="top: 89px;left: 76px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width: 145px;height: auto;"></video></div>
+    <div id="frameImage4" class="asset frameImage" data-image="frameImage4"></div>
     <div id="frameText41" class="frameText">!{frameText41}</div>
     <div id="frameText42" class="frameText">!{frameText42}</div>
-    <!-- <div id="frameText43" class="frameText">!{frameText43}</div> -->
+    <div id="frameText43" class="frameText">!{frameText43}</div>
     <div id="frameImage5" class="frameImage" style="top: 354px;left: 62px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width: 160px;height: auto"></video></div>
     <div id="frameText51" class="frameText">!{frameText51}</div>
     <div id="frameText52" class="frameText">!{frameText52}</div>
@@ -443,10 +444,10 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 310px;left: 22px;
           var frameId = 4;
           gsap.set('#frameBackground', {display: 'block'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[4]})
-          .to('#frameImage41', {delay:0.1, duration:0.2,autoAlpha:1})
+          .to('#frameImage'+frameId, {duration:0, onComplete: beamFrameAnimation, onCompleteParams:[4]})
+          // .to('#frameImage41', {delay:0.1, duration:0.2,autoAlpha:1})
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame5}));
-          gsap.to('#frameImage41', (flag==true?{}:{opacity:0,ease:'none', delay:2.7}));
+          // gsap.to('#frameImage41', (flag==true?{}:{opacity:0,ease:'none', delay:2.7}));
         }
         var animateFrame3 = function(flag){
           var frameId = 3;
