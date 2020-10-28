@@ -194,7 +194,7 @@
           var hamptonCodes = splitCodes("XS,HP,HX");
           var homewoodCodes = splitCodes("HW");
           var home2Codes = splitCodes("H2,HT");
-          var lxr = splitCodes("LXR");
+          var lxr = splitCodes("LX");
           var matchingCodes = (displayValue && displayValue.length)?(splitCodes(displayValue + "")):null;
           var whitePatchColor = "#fff";
 
@@ -235,25 +235,25 @@
           }
           textUpdate();
 
-          if(adData.layout.toLowerCase() != 'generic'){
+          // if(adData.layout.toLowerCase() != 'generic'){
             // ad.layers.logoImage.style.top = '29px';
             // ad.layers.logoImage.style.left = '502px';
             // ad.layers.logoImage.style.width = '80px';
             // ad.layers.logoImage.style.height = '32px';
 
-            // ad.layers.cta.style.top = '30px';
-            // ad.layers.cta.style.left = '615px';
-            // ad.layers.cta.style.width = '97px';
-            // ad.layers.cta.style.height = '30px';
-            // ad.layers.cta.style.fontSize = '12px';
+            ad.layers.cta.style.top = '30px';
+            ad.layers.cta.style.left = '615px';
+            ad.layers.cta.style.width = '97px';
+            ad.layers.cta.style.height = '30px';
+            ad.layers.cta.style.fontSize = '12px';
 
-            // ad.layers.whitePatch.style.top = '30px';
-            // ad.layers.whitePatch.style.left = '597px';
-            // ad.layers.whitePatch.style.width = '2px';
-            // ad.layers.whitePatch.style.height = '30px';
+            ad.layers.whitePatch.style.top = '30px';
+            ad.layers.whitePatch.style.left = '597px';
+            ad.layers.whitePatch.style.width = '2px';
+            ad.layers.whitePatch.style.height = '30px';
 
             // ad.layers.frameText1.style.left = ad.layers.frameText2.style.left = ad.layers.frameText3.style.left = '260px';
-          }
+          // }
 
           gsap.set('#frameText3', {autoAlpha:0});
           var thirdFrameAnimation = function(){
