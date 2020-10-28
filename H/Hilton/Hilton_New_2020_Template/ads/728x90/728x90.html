@@ -57,7 +57,6 @@
       }
       #cta { background-color: !{ctaBtn}; }
       #cta:hover { background-color: !{ctaBtnHover}; }
-      #whitePatch { background-color: !{ctaBtn}; }
     </style>
   </head>
   <body>
@@ -74,28 +73,28 @@
       </div>
       <div id="frameText1" dir="auto" class="text-left"
         data-text="frameText1"
-        style="top: 2px;
-          left: 260px;
-          width: 250px;
-          height: 90px;
+        style="top: 5px;
+          left: 250px;
+          width: 230px;
+          height: 80px;
           font-size: 25px;
           line-height: 0.9;">
       </div>
       <div id="frameText2" dir="auto" class="text-left"
         data-text="frameText2"
-        style="top: 2px;
-          left: 260px;
-          width: 250px;
-          height: 90px;
+        style="top: 5px;
+          left: 250px;
+          width: 230px;
+          height: 80px;
           font-size: 25px;
           line-height: 0.9;">
       </div>
       <div id="frameText3" dir="auto" class="text-left"
         data-text="frameText3"
-        style="top: 2px;
-          left: 260px;
-          width: 250px;
-          height: 90px;
+        style="top: 5px;
+          left: 250px;
+          width: 230px;
+          height: 80px;
           font-size: 25px;
           line-height: 0.9;">
       </div>
@@ -181,9 +180,62 @@
               }
             } catch(e) {  }
           }
+
+          var displayValue = "";
+          try{
+            displayValue = adData['ut1'].toUpperCase();
+          } catch (e) {}
+          var hiltonCodes = splitCodes("PR,TW,HS,HN,HI,HH,HF,HILT,GV");
+          var waldorfCodes = splitCodes("WA");
+          var embassyCodes = splitCodes("ES");
+          var doubleTreeCodes = splitCodes("DR,DI,DH,DG,DC,DT");
+          var conradCodes = splitCodes("CI,CH");
+          var hiltonGardenCodes = splitCodes("GI");
+          var hamptonCodes = splitCodes("XS,HP,HX");
+          var homewoodCodes = splitCodes("HW");
+          var home2Codes = splitCodes("H2,HT");
+          var lxr = splitCodes("LX");
+          var matchingCodes = (displayValue && displayValue.length)?(splitCodes(displayValue + "")):null;
+          var whitePatchColor = "#fff";
+
+          if(matchingCodes){
+            for(var matchIndex in matchingCodes){
+              if(hiltonCodes.indexOf(matchingCodes[matchIndex]) != -1){
+                
+              }else if(waldorfCodes.indexOf(matchingCodes[matchIndex]) != -1){
+                whitePatchColor = '#000';
+              }else if(embassyCodes.indexOf(matchingCodes[matchIndex]) != -1){
+                
+              }else if(doubleTreeCodes.indexOf(matchingCodes[matchIndex]) != -1){
+                
+              }else if(conradCodes.indexOf(matchingCodes[matchIndex]) != -1){
+                whitePatchColor = '#000';
+              }else if(hiltonGardenCodes.indexOf(matchingCodes[matchIndex]) != -1){
+                
+              }else if(hamptonCodes.indexOf(matchingCodes[matchIndex]) != -1){
+                
+              }else if(homewoodCodes.indexOf(matchingCodes[matchIndex]) != -1){
+                
+              }else if(home2Codes.indexOf(matchingCodes[matchIndex]) != -1){
+               
+              }else if(lxr.indexOf(matchingCodes[matchIndex]) != -1){
+                whitePatchColor = '#000';
+              }else{
+
+              }
+            }
+          }
+          ad.layers.whitePatch.style.backgroundColor = whitePatchColor;
+
+          function splitCodes(str){
+            if(str && str.length > 0){
+              return (str.toLowerCase().replace(/\s/g, "").split(","));
+            }
+            return str;
+          }
           textUpdate();
 
-          if(adData.layout.toLowerCase() != 'generic'){
+          // if(adData.layout.toLowerCase() != 'generic'){
             // ad.layers.logoImage.style.top = '29px';
             // ad.layers.logoImage.style.left = '502px';
             // ad.layers.logoImage.style.width = '80px';
@@ -201,7 +253,7 @@
             ad.layers.whitePatch.style.height = '30px';
 
             // ad.layers.frameText1.style.left = ad.layers.frameText2.style.left = ad.layers.frameText3.style.left = '260px';
-          }
+          // }
 
           gsap.set('#frameText3', {autoAlpha:0});
           var thirdFrameAnimation = function(){

@@ -26,6 +26,7 @@ var getFeed1 = function(){
               "styleProperties": data['gsx$styleproperties']['$t'],
               "ctaBtnColor": data['gsx$ctabtncolor']['$t'],
               "clickURL": data['gsx$url']['$t'],
+              "ut1": data['gsx$ut1']['$t'],
             });
           });
           loadTemplateFlag1 = true;
