@@ -104,14 +104,14 @@
 amo.registerClick("clickUrl","https://www.altice.com");
 amo.registerAttribute("ctaText","TEXT","Shop now");
 amo.registerAttribute("frameVideo1", "TEXT", "Shopping_Cart_Mobile.mp4");
-amo.registerAttribute("frameImage2","IMAGE","1x1.png");
+amo.registerAttribute("frameImage2", "IMAGE", "1x1.png");
 amo.registerAttribute("frameImage3", "TEXT", "1x1.png");
-amo.registerAttribute("frameImage4","IMAGE","1x1.png");
-amo.registerAttribute("frameImage5","IMAGE","1x1.png");
-amo.registerAttribute("frameText1","TEXT","Season of<br>Black Friday Deals");
-amo.registerAttribute("frameText21", "TEXT", "<div style='top:10px;left:8px;'><div class='bulletedText'>Up to 300 Mbps Internet</div></div>");
-amo.registerAttribute("frameText22", "TEXT", "<div style='top:25px;left:8px;'><div class='bulletedText'>No annual contract</div></div>");
-amo.registerAttribute("frameText23","TEXT","&nbsp;");
+amo.registerAttribute("frameImage4", "IMAGE", "1x1.png");
+amo.registerAttribute("frameImage5", "IMAGE", "1x1.png");
+amo.registerAttribute("frameText1", "TEXT", "Season of<br>Black Friday Deals");
+amo.registerAttribute("frameText21", "TEXT", "<div style='top:6px;left:8px;'><div class='bulletedText'>Up to 300 Mbps Internet</div></div>");
+amo.registerAttribute("frameText22", "TEXT", "<div style='top:21px;left:8px;'><div class='bulletedText'>No annual contract</div></div>");
+amo.registerAttribute("frameText23", "TEXT", "<div class='AlticeRegular' style='top:35px;left:8px;font-size:8px;'>Speeds, prices & availability vary by area.</div>");
 amo.registerAttribute("frameText31", "TEXT", "<div style='top:3px;left:7px;font-size:13px;'>300 Mbps Internet</div>");
 amo.registerAttribute("frameText32", "TEXT", "<div style='top: 19px;left: 6px;width: 220px;line-height: 1;'><font style='font-size: 27.5px;' class='coloredText'>$35</font><font style='margin-left: 3px;font-size: 9px;display: inline-block;vertical-align: 3px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: -23px 0 0 76px;font-size: 9px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
 amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
@@ -305,16 +305,17 @@ amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
         // }
         var animateFrame1 = function(flag){
           gsap.set('#frameText1', {x: '0'});
-          ad.layers.frameVideo1.querySelector('video').playbackRate = 0.75
+          // ad.layers.frameVideo1.querySelector('video').playbackRate = 0.75
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frameVideo1', {delay:0.6, duration:0.75, ease: 'none', x:0})
+            // .to('#frameVideo1', {delay:0.6, duration:0.75, ease: 'none', x:0})
             // .to('#frameText1', {autoAlpha:1}, '-=0.3')
-            setTimeout(function(){ gsap.set('#frameText1', {autoAlpha:1}); typingAnimation(ad.layers.frameText1.querySelector('span'), 50, function(){ }); },600);            
+            setTimeout(function(){ gsap.set('#frameText1', {autoAlpha:1}); typingAnimation(ad.layers.frameText1.querySelector('span'), 50, function(){ }); },600);
           }
           ad.layers.frameVideo1.querySelector('video').onended = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frame1', (flag==true?{}:{delay:2.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+            .to('#frameVideo1', {duration:0.4, ease: 'none', x:0})
+            .to('#frame1', (flag==true?{}:{delay:1.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
           }
         }
         gsap.delayedCall(.8, animateFrame1, [true]);

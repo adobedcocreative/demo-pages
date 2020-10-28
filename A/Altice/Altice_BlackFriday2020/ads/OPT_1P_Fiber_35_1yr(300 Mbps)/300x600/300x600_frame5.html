@@ -155,9 +155,9 @@ amo.registerAttribute("frameText1", "TEXT", "Season of<br><font class='coloredTe
 amo.registerAttribute("frameText21", "TEXT", "<div style='top: 111px;left: 29px;font-size: 28px;line-height:1.1;color: #fff;'>300 Mbps<br>Fiber Internet</div>");
 amo.registerAttribute("frameText22", "TEXT", "<div style='top: 164px;left: 20px;width: 280px;color: #fff;line-height: 1;'><font style='font-size: 117px;letter-spacing: -2px;'>$35</font><font style='margin-left: 5px;font-size: 19px;display: inline-block;vertical-align: 50px;line-height: 0.9;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 3px 0 0 10px;font-size: 14px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
 amo.registerAttribute("frameText31", "TEXT", "<div style='top: 198px;left: 20px;width: 260px;font-size: 28px;line-height: 1.1;text-align: center;'>300 Mbps Fiber Internet</div>");
-amo.registerAttribute("frameText32", "TEXT", "<div class='AlticeRegular' style='top:477px;width: 250px;left:22px;font-size:14px;line-height:1.15;'>Wired connection up to 300 Mbps.<br>WiFi speed may vary.</div>");
-amo.registerAttribute("frameText41", "TEXT", "<div style='top: 199px;left: 10px;width: 280px;font-size: 27px;line-height: 1.1;text-align: center;'><font class='coloredText'>1.5x the speed</font><br>of Fios<sup style='font-size:55%;vertical-align: 63%;'>®</sup> for<br>the same price</div>");
-amo.registerAttribute("frameText42", "TEXT", "<div class='AlticeRegular' style='top: 477px;left: 22px;font-size: 14px;line-height: 1.1;'>Based on Verizon Fios<sup style='font-size:40%;'>®</sup> 200 Mbps<br>$39.99 Internet offer as of 10/12/20.</div>");
+amo.registerAttribute("frameText32", "TEXT", "<div class='AlticeRegular' style='top:460px;width: 250px;left:22px;font-size:14px;line-height:1.1;'>Wired connection up to 300 Mbps.<br>WiFi speed may vary. Speeds, prices & availability vary by area.</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div style='top: 199px;left: 10px;width: 280px;font-size: 27px;line-height: 1.1;text-align: center;'><font class='coloredText'>1.5x the speed</font><br>of Fios<sup style='font-size:55%;vertical-align: 63%;'>®</sup> for<br>$5/mo. less</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div class='AlticeRegular' style='top: 460px;left: 22px;font-size: 14px;line-height: 1.1;'>Based on Verizon Fios<sup style='font-size:40%;'>®</sup><br>200 Mbps $39.99 Internet offer<br>download speed as of 10/19/20.</div>");
 amo.registerAttribute("frameText51", "TEXT", "<div style='top: 88px;left: 22px;font-size: 28px;line-height:1;'>300 Mbps<br>Fiber Internet</div>");
 amo.registerAttribute("frameText52", "TEXT", "<div style='top: 139px;left: 14px;width: 260px;line-height: 1;'><font style='font-size: 116px;letter-spacing: -1.5px;' class='coloredText'>$35</font><font style='margin-left: 5px;font-size: 19px;display: inline-block;vertical-align: 46px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 2px 0 0 8px;font-size: 14px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
 amo.registerAttribute("frameText53", "TEXT", "<div style='top: 310px;left: 22px;width: 400px;transform: scale(0.685);transform-origin: top left;'><div class='bulletedText'>Smart WiFi coverage</div></div>");
@@ -196,7 +196,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 310px;left: 22px;
     <div id="frameText41" class="frameText">!{frameText41}</div>
     <div id="frameText42" class="frameText">!{frameText42}</div>
     <!-- <div id="frameText43" class="frameText">!{frameText43}</div> -->
-    <div id="frameImage5" class="frameImage" style="top: 354px;left: 62px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width: 160px;height: auto"></video></div>
+    <div id="frameImage5" class="frameImage" style="top: 354px;left: 62px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width: 172px;height: auto"></video></div>
     <div id="frameText51" class="frameText">!{frameText51}</div>
     <div id="frameText52" class="frameText">!{frameText52}</div>
     <div id="frameText53" class="frameText">!{frameText53}</div>
@@ -381,7 +381,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 310px;left: 22px;
         gsap.set('#beam3',{top:355,left:300,width:220,height:30,x:-520});gsap.set('#beam3 div',{width:30});
         gsap.set('#beam4',{top:313,left:300,width:230,height:18,x:-530});gsap.set('#beam4 div',{width:18});
         gsap.set('#beam5',{top:30,left:300,width:240,height:28,x:-540});gsap.set('#beam5 div',{width:28});
-        gsap.set('#frameText1', {autoAlpha:0});
+        // gsap.set('#frameText1', {autoAlpha:0});
         gsap.set('.frameImage', {x:'100%'});
         gsap.set('.frameText, #priceLabel', {x:'-100%'});
         // gsap.set('#frameImage1', {x:0});
@@ -461,8 +461,8 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 310px;left: 22px;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[frameId]})
           .to('#frameImage21', {delay:0.2, autoAlpha:1})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}));
-          gsap.to('#frameImage21', (flag==true?{}:{opacity:0,ease:'none', delay:2.7}));
+          .to('#frameImage'+frameId+', #frameImage21, div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}));
+          // gsap.to('#frameImage21', (flag==true?{}:{opacity:0,ease:'none', delay:2.7}));
         }
         var animateFrame1 = function(flag){
           // var animateSwitch = function() {
@@ -476,14 +476,24 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 310px;left: 22px;
           // gsap.to('#shape2', {y:'0',ease:'none',duration:0.9,delay:1.7})
           // gsap.to('#shape3', {y:'0',ease:'none',duration:0.9,delay:1.7})
           // gsap.to('#shape4', {y:'0',ease:'none',duration:0.9,delay:2})
+          var introEndFlag = false;
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
+            this.playbackRate = 0.5;
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frameText1', {autoAlpha:1})
+            // .to('#frameText1', {autoAlpha:1})
           }
-          ad.layers.frameVideo1.querySelector('video').onended = function(){
-            gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frame1', (flag==true?{}:{delay:1.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          ad.layers.frameVideo1.querySelector('video').ontimeupdate = function(){
+            if(this.currentTime >= 1.2 && !introEndFlag) {
+              introEndFlag = true;
+              gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+              .to('#frameText1', {x:'100%'})
+              .to('#frame1', (flag==true?{}:{delay:0, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+            }
           }
+          // ad.layers.frameVideo1.querySelector('video').onended = function(){
+          //   gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+          //   .to('#frame1', (flag==true?{}:{delay:1.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          // }
         }
         if('frame1' in ad.layers) ad.layers.frame1.remove();
                     gsap.delayedCall(1.2, animateFrame5, [true]);

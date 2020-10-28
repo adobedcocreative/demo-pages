@@ -305,16 +305,17 @@ amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
         // }
         var animateFrame1 = function(flag){
           gsap.set('#frameText1', {x: '0'});
-          ad.layers.frameVideo1.querySelector('video').playbackRate = 0.75
+          // ad.layers.frameVideo1.querySelector('video').playbackRate = 0.75
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frameVideo1', {delay:0.6, duration:0.75, ease: 'none', x:0})
+            // .to('#frameVideo1', {delay:0.6, duration:0.75, ease: 'none', x:0})
             // .to('#frameText1', {autoAlpha:1}, '-=0.3')
             setTimeout(function(){ gsap.set('#frameText1', {autoAlpha:1}); typingAnimation(ad.layers.frameText1.querySelector('span'), 50, function(){ }); },600);
           }
           ad.layers.frameVideo1.querySelector('video').onended = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frame1', (flag==true?{}:{delay:2.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+            .to('#frameVideo1', {duration:0.4, ease: 'none', x:0})
+            .to('#frame1', (flag==true?{}:{delay:1.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
           }
         }
         gsap.delayedCall(.8, animateFrame1, [true]);
