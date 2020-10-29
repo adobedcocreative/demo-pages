@@ -324,7 +324,7 @@ amo.registerAttribute("frameText53", "TEXT", "&nbsp;");
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
             .to('#frameVideo1', {delay:0.6, duration:0.75, ease: 'none', x:0})
             // .to('#frameText1', {autoAlpha:1}, '-=0.3')
-            setTimeout(function(){ gsap.set('#frameText1', {autoAlpha:1}); typingAnimation(ad.layers.frameText1.querySelector('span'), 50, function(){ }); },600);            
+            setTimeout(function(){ gsap.set('#frameText1', {autoAlpha:1}); typingAnimation(ad.layers.frameText1.querySelector('span'), 50, function(){ }); },600);
           }
           ad.layers.frameVideo1.querySelector('video').onended = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
