@@ -355,7 +355,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 167px;left: 24px;
         gsap.set('#beam3',{top:174,left:300,width:180,height:22,x:-480});gsap.set('#beam3 div',{width:22});
         gsap.set('#beam4',{top:145,left:300,width:150,height:14,x:-530});gsap.set('#beam4 div',{width:14});
         gsap.set('#beam5',{top:25,left:300,width:240,height:20,x:-540});gsap.set('#beam5 div',{width:20});
-        gsap.set('#frameText1', {autoAlpha:0});
+        // gsap.set('#frameText1', {autoAlpha:0});
         gsap.set('.frameImage', {x:'100%'});
         gsap.set('.frameText, #priceLabel', {x:'-100%'});
         // gsap.set('#frameImage1', {x:'-100%'});
@@ -441,24 +441,19 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 167px;left: 24px;
           // gsap.to('#frameImage21', (flag==true?{}:{opacity:0,ease:'none', delay:2.7}));
         }
         var animateFrame1 = function(flag){
-          // var animateSwitch = function() {
-          //   ad.root.querySelector('.switch').classList.add('on');
-          // }
-          // gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          // .to('#frameText1', {autoAlpha:1})
-          // .to('#frameImage1', {autoAlpha:1,delay:1.5, onComplete: animateSwitch})
-          // .to('#frame1', (flag==true?{}:{delay:2.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
-          // gsap.to('#shape1', {y:'0',ease:'none',duration:0.7,delay:1.6})
-          // gsap.to('#shape2', {y:'0',ease:'none',duration:0.7,delay:1.8})
-          // gsap.to('#shape3', {y:'0',ease:'none',duration:0.7,delay:1.8})
-          // gsap.to('#shape4', {y:'0',ease:'none',duration:0.7,delay:2.1})
+          var introEndFlag = false;
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
-            gsap.timeline({defaults:{ease: "power2.Out", duration:0.2}})
-            .to('#frameText1', {autoAlpha:1})
+            this.playbackRate = 0.5;
+            gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+            // .to('#frameText1', {autoAlpha:1})
           }
-          ad.layers.frameVideo1.querySelector('video').onended = function(){
-            gsap.timeline({defaults:{ease: "power2.Out", duration:0.2}})
-            .to('#frame1', (flag==true?{}:{delay:1.3, duration:0.2, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          ad.layers.frameVideo1.querySelector('video').ontimeupdate = function(){
+            if(this.currentTime >= 1.2 && !introEndFlag) {
+              introEndFlag = true;
+              gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+              .to('#frameText1', {x:'100%'})
+              .to('#frame1', (flag==true?{}:{delay:0, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+            }
           }
         }
         if('frame1' in ad.layers) ad.layers.frame1.remove();

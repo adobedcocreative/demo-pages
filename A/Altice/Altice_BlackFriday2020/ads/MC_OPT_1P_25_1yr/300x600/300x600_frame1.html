@@ -196,7 +196,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 310px;left: 22px;
     <div id="frameText41" class="frameText">!{frameText41}</div>
     <div id="frameText42" class="frameText">!{frameText42}</div>
     <!-- <div id="frameText43" class="frameText">!{frameText43}</div> -->
-    <div id="frameImage5" class="frameImage" style="top: 354px;left: 62px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width: 160px;height: auto"></video></div>
+    <div id="frameImage5" class="frameImage" style="top: 354px;left: 62px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width: 172px;height: auto"></video></div>
     <div id="frameText51" class="frameText">!{frameText51}</div>
     <div id="frameText52" class="frameText">!{frameText52}</div>
     <div id="frameText53" class="frameText">!{frameText53}</div>
@@ -381,7 +381,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 310px;left: 22px;
         gsap.set('#beam3',{top:355,left:300,width:220,height:30,x:-520});gsap.set('#beam3 div',{width:30});
         gsap.set('#beam4',{top:313,left:300,width:230,height:18,x:-530});gsap.set('#beam4 div',{width:18});
         gsap.set('#beam5',{top:30,left:300,width:240,height:28,x:-540});gsap.set('#beam5 div',{width:28});
-        gsap.set('#frameText1', {autoAlpha:0});
+        // gsap.set('#frameText1', {autoAlpha:0});
         gsap.set('.frameImage', {x:'100%'});
         gsap.set('.frameText, #priceLabel', {x:'-100%'});
         // gsap.set('#frameImage1', {x:0});
@@ -465,24 +465,19 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 310px;left: 22px;
           // gsap.to('#frameImage21', (flag==true?{}:{opacity:0,ease:'none', delay:2.7}));
         }
         var animateFrame1 = function(flag){
-          // var animateSwitch = function() {
-          //   ad.root.querySelector('.switch').classList.add('on');
-          // }
-          // gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          // .to('#frameText1', {autoAlpha:1})
-          // .to('#frameImage1', {autoAlpha:1,delay:1.5, onComplete: animateSwitch})
-          // .to('#frame1', (flag==true?{}:{delay:2.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
-          // gsap.to('#shape1', {y:'0',ease:'none',duration:0.9,delay:1.5})
-          // gsap.to('#shape2', {y:'0',ease:'none',duration:0.9,delay:1.7})
-          // gsap.to('#shape3', {y:'0',ease:'none',duration:0.9,delay:1.7})
-          // gsap.to('#shape4', {y:'0',ease:'none',duration:0.9,delay:2})
+          var introEndFlag = false;
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
+            this.playbackRate = 0.5;
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frameText1', {autoAlpha:1})
+            // .to('#frameText1', {autoAlpha:1})
           }
-          ad.layers.frameVideo1.querySelector('video').onended = function(){
-            gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frame1', (flag==true?{}:{delay:1.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          ad.layers.frameVideo1.querySelector('video').ontimeupdate = function(){
+            if(this.currentTime >= 1.2 && !introEndFlag) {
+              introEndFlag = true;
+              gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+              .to('#frameText1', {x:'120%'})
+              .to('#frame1', (flag==true?{}:{delay:0, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+            }
           }
         }
         gsap.delayedCall(.8, animateFrame1, [true]);
