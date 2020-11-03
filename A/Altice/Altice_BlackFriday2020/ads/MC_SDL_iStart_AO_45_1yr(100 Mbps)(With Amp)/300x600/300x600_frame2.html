@@ -146,7 +146,7 @@
 amo.registerClick("clickUrl","https://www.altice.com");
 amo.registerAttribute("ctaText","TEXT","Compra");
 amo.registerAttribute("frameVideo1", "TEXT", "Tag_Season.mp4");
-amo.registerAttribute("frameVideo2", "TEXT", "300_Mbps_Arrow.mp4");
+amo.registerAttribute("frameVideo2", "TEXT", "100_Mbps_Arrow.mp4");
 amo.registerAttribute("frameVideo3", "TEXT", "Live_Streaming.mp4");
 amo.registerAttribute("frameVideo5", "TEXT", "Tag_Season_endFrame.mp4");
 amo.registerAttribute("frameImage4", "IMAGE", "300x600_Product_Frame_04.png");
@@ -294,8 +294,8 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 324px;width:420px
         cam: {},
         feed: [],
         staticData: {
-          logoImage: 'images/300x600_Logo_Optimum_White.png',
-          introLogoImage: 'images/300x600_Logo_Optimum_White.png',
+          logoImage: 'images/300x600_Logo_Suddenlink_White.png',
+          introLogoImage: 'images/300x600_Logo_Suddenlink_White.png',
           frameBackground: '1x1.png',
           // switchImage: 'images/Switch_Icon_Frame.png',
           // ref: 'OPT iStart_AO $45 1 yr. (300 Mbps) (With Amp) 300x600-frame5.jpg',
@@ -472,7 +472,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 324px;width:420px
           // gsap.to('#shape4', {y:'0',ease:'none',duration:0.9,delay:2})
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frameVideo1', {delay:0.6, duration:0.1, ease: 'none', y:32})
+            .to('#frameVideo1', {delay:0.4, duration:0.1, ease: 'none', y:32})
             .to('#frameText1', {autoAlpha:1})
           }
           ad.layers.frameVideo1.querySelector('video').onended = function(){
