@@ -14,6 +14,12 @@
           src: url('fonts/Prompt-ExtraBold.woff') format("woff");
       }
       .PromptExtraBold { font-family: PromptExtraBold; }
+
+      @font-face {
+          font-family: PromptRegular;
+          src: url('fonts/Prompt-Regular.woff') format("woff");
+      }
+      .PromptRegular { font-family: PromptRegular; }
     </style>
     <style media="screen" data-dynamic="style">
       #ad {
@@ -76,7 +82,7 @@
           letter-spacing: 0.05em;
           line-height: 1.15;">
       </div>
-      <div id="cta" class="text PromptExtraBold"
+      <div id="cta" class="text PromptRegular"
         data-text="ctaText"
         data-style="padding:1px 10px 0px;"
         style="top: 194px;
@@ -93,6 +99,7 @@
     </div>
     <div id="loadFont" style="width:0;height:0;overflow:hidden;">
       <div class="PromptExtraBold">PromptExtraBold</div>
+      <div class="PromptRegular">PromptRegular</div>
     </div>
     <script type="text/javascript">
       var layout = 'standard';
