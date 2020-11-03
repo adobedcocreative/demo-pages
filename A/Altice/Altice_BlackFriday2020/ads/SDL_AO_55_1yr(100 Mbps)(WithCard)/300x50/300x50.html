@@ -38,6 +38,7 @@
       .frame > div {
         position: absolute;
       }
+      .transparent { color:transparent; }
       .frameText {
         font-family: Altice-Bold;
         top:0px;
@@ -251,7 +252,8 @@ amo.registerAttribute("frameText53", "TEXT", "&nbsp;");
           }
         }
         // loadVideo(ad.layers.frameVideo1.querySelector('video'), adData.frameVideo1, true);
-        gsap.set('#frameText1,frameImage1', {autoAlpha:0});
+        gsap.set('#frameText1', {autoAlpha:0});
+        gsap.set('#frameImage1', {y:'-100%'});
         gsap.set('.frameImage', {y:'100%'});
         gsap.set('.frameText', {y:'100%'});
         gsap.set('div[id^="frameText"][id$="1"], #priceLabel', {x:'-100%',y:0});
@@ -316,10 +318,10 @@ amo.registerAttribute("frameText53", "TEXT", "&nbsp;");
         //   .to('#frame1', (flag==true?{}:{delay:3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         // }
         var animateFrame1 = function(flag){
-          gsap.set('#frameText1', {x: '0'});
+          setTimeout(function(){ gsap.set('#frameText1', {x: '0', autoAlpha: 1}); typingAnimation(ad.layers.frameText1.querySelector('span'), 50, function(){ }); },500);
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameText1, #frameImage1', {autoAlpha:1})
-          .to('#frame1', (flag==true?{}:{delay:2.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          .to('#frameImage1', {y:0,delay:1.8})
+          .to('#frame1', (flag==true?{}:{delay:1.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
           // ad.layers.frameVideo1.querySelector('video').onplay = function(){
           //   gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           //   .to('#frameText1', {autoAlpha:1})

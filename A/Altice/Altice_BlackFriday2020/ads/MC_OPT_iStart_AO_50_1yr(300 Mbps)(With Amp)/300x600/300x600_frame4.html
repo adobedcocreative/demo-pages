@@ -159,7 +159,7 @@ amo.registerAttribute("frameText41","TEXT","<div style='top: 92px;left: 18.73px;
 amo.registerAttribute("frameText42","TEXT","&nbsp;");
 amo.registerAttribute("frameText43","TEXT","&nbsp;");
 amo.registerAttribute("frameText51", "TEXT", "<div style='top: 87.32px;left: 21.54px;font-size: 28px;line-height:1;'>Internet de<br>300 megas y TV</div>");
-amo.registerAttribute("frameText52", "TEXT", "<div style='top: 139px;left: 14px;width: 260px;line-height: 1;'><font style='font-size: 117px;letter-spacing: -5px;' class='coloredText'>$50</font><font style='margin-left: 8px;font-size: 20px;display: inline-block;vertical-align: 46px;line-height: 0.95;'>/mes<br>1 año</font><div class='AlticeRegular' style='margin: 0px 0 0 8px;font-size: 14px;'>con pago automático y<br>facturación electrónica<br>más tarifas, imptos. y cargos.</div></div>");
+amo.registerAttribute("frameText52", "TEXT", "<div style='top: 139px;left: 14px;width: 260px;line-height: 1;'><font style='font-size: 117px;letter-spacing: -5px;padding-right:5px;' class='coloredText'>$50</font><font style='margin-left: 3px;font-size: 20px;display: inline-block;vertical-align: 46px;line-height: 0.95;'>/mes<br>1 año</font><div class='AlticeRegular' style='margin: 0px 0 0 8px;font-size: 14px;'>con pago automático y<br>facturación electrónica<br>más tarifas, imptos. y cargos.</div></div>");
 amo.registerAttribute("frameText53", "TEXT", "<div style='top: 324px;width:420px;left: 21px;transform: scale(0.62);transform-origin: top left;'><div class='bulletedText'>Pregúntanos cómo obtener<br>la tarjeta prepagada Visa<span style='vertical-align:5px;font-size:9px;'>®</span><br>de $100. <span class='AlticeRegular' style='font-size: 20px;line-height:1;'>Aplican términos.</span></div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
@@ -193,7 +193,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 324px;width:420px
     <div id="frameText41" class="frameText">!{frameText41}</div>
     <div id="frameText42" class="frameText">!{frameText42}</div>
     <div id="frameText43" class="frameText">!{frameText43}</div>
-    <div id="frameImage5" class="frameImage" style="top: 365px;left: 62px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width: 160px;height: auto"></video></div>
+    <div id="frameImage5" class="frameImage" style="top: 373px;left: 62px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width: 160px;height: auto"></video></div>
     <div id="frameText51" class="frameText">!{frameText51}</div>
     <div id="frameText52" class="frameText">!{frameText52}</div>
     <div id="frameText53" class="frameText">!{frameText53}</div>
@@ -472,7 +472,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 324px;width:420px
           // gsap.to('#shape4', {y:'0',ease:'none',duration:0.9,delay:2})
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frameVideo1', {delay:0.4, duration:0.1, ease: 'none', y:32})
+            .to('#frameVideo1', {delay:0.6, duration:0.1, ease: 'none', y:32})
             .to('#frameText1', {autoAlpha:1})
           }
           ad.layers.frameVideo1.querySelector('video').onended = function(){
