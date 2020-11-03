@@ -109,12 +109,18 @@ amo.registerAttribute("frameImage3", "TEXT", "1x1.png");
 amo.registerAttribute("frameImage4", "IMAGE", "1x1.png");
 amo.registerAttribute("frameImage5", "IMAGE", "1x1.png");
 amo.registerAttribute("frameText1", "TEXT", "Season of<br>Black Friday Deals");
-amo.registerAttribute("frameText21", "TEXT", "<div style='top:6px;left:8px;'><div class='bulletedText'>Up to 1 Gig Internet</div></div>");
-amo.registerAttribute("frameText22", "TEXT", "<div style='top:21px;left:8px;'><div class='bulletedText'>No annual contract</div></div>");
-amo.registerAttribute("frameText23", "TEXT", "<div class='AlticeRegular' style='top:35px;left:8px;font-size:8px;'>Speeds, prices & availability vary by area.</div>");
-amo.registerAttribute("frameText31", "TEXT", "<div style='top:3px;left:7px;font-size:13px;'>1 Gig Internet</div>");
-amo.registerAttribute("frameText32", "TEXT", "<div style='top: 19px;left: 6px;width: 220px;line-height: 1;'><font style='font-size: 27.5px;' class='coloredText'>$55</font><font style='margin-left: 3px;font-size: 9px;display: inline-block;vertical-align: 3px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: -23px 0 0 76px;font-size: 9px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
-amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
+amo.registerAttribute("frameText21", "TEXT", "<div style='top:3px;left:8px;font-size:13px;'>1 Gig<br>Internet</div>");
+amo.registerAttribute("frameText22", "TEXT", "<div style='top: 5px;left: 73px;width: 220px;line-height: 1;'><font style='font-size: 27.5px;' class='coloredText'>$55</font><font style='margin-left: 1px;font-size: 9px;display: inline-block;vertical-align: 13px;'>/mo.</font><div style='color: #fff;background: #0084d6;display: table;font-size: 9px;padding: 2px 5px 1px 3px;border-radius: 0px 10px 10px 0px;margin-left: 1px;margin-top: 1px;'>FOR LIFE</div><div class='AlticeRegular' style='margin: -39px 0 0 76px;font-size: 9px;line-height: 1.2;width: 64px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
+amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
+amo.registerAttribute("frameText31", "TEXT", "<div style='top:6px;left:8px;'><div class='bulletedText'>1 Gig Internet</div></div>");
+amo.registerAttribute("frameText32", "TEXT", "<div style='top:21px;left:8px;'><div class='bulletedText'>Smart WiFi coverage</div></div>");
+amo.registerAttribute("frameText33", "TEXT", "<div class='AlticeRegular' style='top: 36px;left: 11px;font-size: 9.3px;'>Wired connection to 940 Mbps.</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div style='top: 12px;left: 8px;font-size: 12.5px;line-height: 1.1;'>Exclusive $10 discount FOR LIFE<br>for Fios<sup style='font-size:50%;'>®</sup> customers</div>");
+amo.registerAttribute("frameText42", "TEXT", "&nbsp;");
+amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
+amo.registerAttribute("frameText51", "TEXT", "<div style='top:3px;left:8px;font-size:13px;'>1 Gig<br>Internet</div>");
+amo.registerAttribute("frameText52", "TEXT", "<div style='top: 5px;left: 73px;width: 220px;line-height: 1;'><font style='font-size: 27.5px;' class='coloredText'>$55</font><font style='margin-left: 1px;font-size: 9px;display: inline-block;vertical-align: 13px;'>/mo.</font><div style='color: #fff;background: #0084d6;display: table;font-size: 9px;padding: 2px 5px 1px 3px;border-radius: 0px 10px 10px 0px;margin-left: 1px;margin-top: 1px;'>FOR LIFE</div><div class='AlticeRegular' style='margin: -39px 0 0 76px;font-size: 9px;line-height: 1.2;width: 64px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
+amo.registerAttribute("frameText53", "TEXT", "&nbsp;");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -139,6 +145,14 @@ amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
     <div id="frameText31" class="frameText">!{frameText31}</div>
     <div id="frameText32" class="frameText">!{frameText32}</div>
     <div id="frameText33" class="frameText">!{frameText33}</div>
+    <div id="frameImage4" class="asset frameImage" data-image="frameImage4"></div>
+    <div id="frameText41" class="frameText">!{frameText41}</div>
+    <div id="frameText42" class="frameText">!{frameText42}</div>
+    <div id="frameText43" class="frameText">!{frameText43}</div>
+    <div id="frameImage5" class="asset frameImage" data-image="frameImage5"></div>
+    <div id="frameText51" class="frameText">!{frameText51}</div>
+    <div id="frameText52" class="frameText">!{frameText52}</div>
+    <div id="frameText53" class="frameText">!{frameText53}</div>
     <div id="cta" class="text AlticeBold"
       data-text="ctaText"
       style="top: 5px;
@@ -283,13 +297,13 @@ amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
           var frameId = 4;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[4]})
-          // .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame5}));
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame5}));
         }
         var animateFrame3 = function(flag){
           var frameId = 3;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[3]})
-          // .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame4}));
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame4}));
         }
         var animateFrame2 = function(flag){
           var frameId = 2;
