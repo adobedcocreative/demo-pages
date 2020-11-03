@@ -569,6 +569,7 @@ startBanner = function(){
                 exportRoot.mainMC.hit.addEventListener("pressup", function() { exportRoot.releaseDrag()})
                 exportRoot.mainMC.hit.addEventListener("pressmove", function() {exportRoot.dragPress()})
                 exportRoot.mainMC.hit.addEventListener("mousedown", function() {canDrag = true;})
+								exportRoot.mainMC.hit.addEventListener("click", function() { if(!canRelease) amoAdClick(faceID); })
 
                exportRoot.releaseDrag = function() {
                    if (canRelease) {
