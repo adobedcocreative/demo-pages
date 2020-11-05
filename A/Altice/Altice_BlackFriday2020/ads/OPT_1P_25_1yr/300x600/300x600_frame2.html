@@ -177,7 +177,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 310px;left: 22px;
     </div>
     <!-- <div id="ref" class="asset adSizeContainer" data-image="ref"></div> -->
     <div id="beam1" class="beam" style="border-radius: 30px;background-image: linear-gradient(to left, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
-    <div id="beam2" class="beam" style="border-radius: 30px;background-image: linear-gradient(to right, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
+    <div id="beam2" class="beam" style="border-radius: 30px;background-image: linear-gradient(to left, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
     <div id="beam3" class="beam" style="border-radius: 50px;background-image: linear-gradient(to left, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
     <div id="beam4" class="beam" style="border-radius: 30px;background-image: linear-gradient(to left, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
     <div id="beam5" class="beam" style="border-radius: 30px;background-image: linear-gradient(to right, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
@@ -376,8 +376,8 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 310px;left: 22px;
         gsap.set('#shape2',{top:600,left:110,width:60,height:280,y:-880});
         gsap.set('#shape3',{top:-480,left:210,width:60,height:480,y:1080});
         gsap.set('#shape4',{top:-480,left:20,width:55,height:480,y:1080});
-        gsap.set('#beam1',{top:410,left:300,width:220,height:26,x:-520});gsap.set('#beam1 div',{width:26});
-        gsap.set('#beam2',{top:134,left:300,width:200,height:20,x:-500});gsap.set('#beam2 div',{width:20});
+        gsap.set('#beam1',{top:50,left:300,width:220,height:26,x:-520});gsap.set('#beam1 div',{width:26});
+        gsap.set('#beam2',{top:355,left:300,width:200,height:20,x:-500});gsap.set('#beam2 div',{width:20});
         gsap.set('#beam3',{top:355,left:300,width:220,height:30,x:-520});gsap.set('#beam3 div',{width:30});
         gsap.set('#beam4',{top:313,left:300,width:230,height:18,x:-530});gsap.set('#beam4 div',{width:18});
         gsap.set('#beam5',{top:30,left:300,width:240,height:28,x:-540});gsap.set('#beam5 div',{width:28});
@@ -391,8 +391,8 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 310px;left: 22px;
           .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
           .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
           gsap.to('#beam1', {x:'0',ease:'none', duration:0.5,delay:0.8})
-          gsap.to('#beam2', {x:'0',ease:'none',duration:0.5,delay:1.1})
-          gsap.to('#beam3', {x:'0',ease:'none',duration:0.5,delay:1.3})
+          gsap.to('#beam2', {x:'0',ease:'none',duration:0.5,delay:1.3})
+          // gsap.to('#beam3', {x:'0',ease:'none',duration:0.5,delay:1.3})
           // gsap.to('#beam4', {x:'0',ease:'none',duration:0.5,delay:1.7})
           // gsap.to('#beam5', {x:'0',ease:'none',duration:0.5,delay:2})
         }
