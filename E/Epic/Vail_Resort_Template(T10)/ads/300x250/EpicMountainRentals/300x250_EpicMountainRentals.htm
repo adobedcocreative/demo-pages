@@ -58,8 +58,7 @@
           left: 11px;
           width: 180px;
           height: 70px;
-          font-size: 17px;
-          letter-spacing: 0.05em;
+          font-size: 15px;
           line-height: 1.15;">
       </div>
       <div id="frameText2" class="text-left PromptExtraBold"
@@ -68,8 +67,7 @@
           left: 11px;
           width: 180px;
           height: 70px;
-          font-size: 17px;
-          letter-spacing: 0.05em;
+          font-size: 15px;
           line-height: 1.15;">
       </div>
       <div id="frameText3" class="text-left PromptExtraBold"
@@ -78,8 +76,7 @@
           left: 11px;
           width: 180px;
           height: 70px;
-          font-size: 17px;
-          letter-spacing: 0.05em;
+          font-size: 15px;
           line-height: 1.15;">
       </div>
       <div id="cta" class="text PromptRegular"
@@ -91,7 +88,6 @@
           height: 28px;
           font-size: 12px;
           line-height: 20px;
-          letter-spacing: 0.05em;
           /* border-radius: 15px; */
           color: #fff;">
       </div>
@@ -165,9 +161,10 @@
                 cta.dataset.style = 'padding:0px 10px 0px;';
                 var frameText = document.querySelectorAll("div[id^=frameText]");
                 for (var i = 0; i < frameText.length; i++){
-                  frameText[i].style.left = '15px';
-                  frameText[i].style.width = '270px';
-                  frameText[i].style.height = '38px';
+                  frameText[i].style.top = '181px';
+                  frameText[i].style.left = '10px';
+                  frameText[i].style.width = '280px';
+                  frameText[i].style.height = '20px';
                   frameText[i].style.textAlign = 'center';
                 }
               } else if(layout == 'multipleimagesoffer') {

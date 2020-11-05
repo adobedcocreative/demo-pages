@@ -55,43 +55,39 @@
       <div id="frameText1" class="text-left PromptExtraBold"
         data-text="frameText1"
         style="top: 3px;
-          left: 180px;
+          left: 170px;
           width: 82px;
           height: 44px;
           font-size: 10px;
-          letter-spacing: 0.05em;
           line-height: 1.1;">
       </div>
       <div id="frameText2" class="text-left PromptExtraBold"
         data-text="frameText2"
         style="top: 3px;
-          left: 180px;
+          left: 170px;
           width: 82px;
           height: 44px;
           font-size: 10px;
-          letter-spacing: 0.05em;
           line-height: 1.1;">
       </div>
       <div id="frameText3" class="text-left PromptExtraBold"
         data-text="frameText3"
         style="top: 3px;
-          left: 180px;
+          left: 170px;
           width: 82px;
           height: 44px;
           font-size: 10px;
-          letter-spacing: 0.05em;
           line-height: 1.1;">
       </div>
       <div id="cta" class="text PromptRegular"
         data-text="ctaText"
         data-style="padding:2px 6px 0px;"
-        style="top: 17px;
+        style="top: 15px;
           left: 256px;
           width: 55px;
           height: 18px;
           font-size: 8px;
           line-height: 10px;
-          letter-spacing: 0.5px;
           /* border-radius: 12px; */
           color: #fff;">
       </div>
@@ -158,28 +154,31 @@
               if(layout == 'multipleimages') {
                 content.styleProperties = "{'#cta': {y:13}}";
                 var cta = document.querySelector("#cta");
-                cta.style.left = "178px";
+                cta.style.left = "170px";
                 cta.style.width = "auto";
                 cta.style.minWidth = "55px";
                 cta.style.maxWidth = "90px";
                 cta.style.height = "16px";
                 var frameText = document.querySelectorAll("div[id^=frameText]");
                 for (var i = 0; i < frameText.length; i++){
+                 frameText[i].style.top = '10px';
                  frameText[i].style.width = '138px';
-                 frameText[i].style.height = '24px';
+                 frameText[i].style.height = '10px';
                 }
               } else if(layout == 'multipleimagesoffer') {
                 content.styleProperties = "{'#cta': {y:13}, '#saleImage': {css:{display:'block'}}}";
                 var cta = document.querySelector("#cta");
-                cta.style.left = "178px";
+                cta.style.left = "170px";
+                cta.style.top = "15px";
                 cta.style.width = "auto";
                 cta.style.minWidth = "55px";
                 cta.style.maxWidth = "85px";
                 cta.style.height = "16px";
                 var frameText = document.querySelectorAll("div[id^=frameText]");
                 for (var i = 0; i < frameText.length; i++){
+                 frameText[i].style.top = '10px';
                  frameText[i].style.width = '138px';
-                 frameText[i].style.height = '24px';
+                 frameText[i].style.height = '10px';
                 }
               }
               // else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {
