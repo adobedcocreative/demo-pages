@@ -138,9 +138,9 @@ amo.registerAttribute("frameVideo4", "TEXT", "Tag_Season.mp4");
 amo.registerAttribute("frameText1","TEXT","Season of<br><font class='coloredText'>Black Friday</font> Deals");
 amo.registerAttribute("frameText21", "TEXT", "<div style='top: 90px;left: 29px;font-size: 28px;line-height:1;color: #fff;'>60 Mbps<br>Internet</div>");
 amo.registerAttribute("frameText22", "TEXT", "<div style='top: 142px;left: 20px;width: 280px;color: #fff;line-height: 1;'><font style='font-size: 117px;letter-spacing: -2px;'>$49</font><font style='margin-left: 8px;font-size: 19px;display: inline-block;vertical-align: 50px;line-height: 0.9;'>82/<br>mo.</font><div class='AlticeRegular' style='margin: 3px 0 0 10px;font-size: 14px;'>Plus taxes, fees &<br>optional services</div></div>");
-amo.registerAttribute("frameText23", "TEXT", "<div class='AlticeRegular' style='top:297px;left:31px;font-size:14px;line-height:1.1;color: #fff;'>Wired connection<br>up to 60 Mbps.<br>WiFi speeds may vary.</div>");
+amo.registerAttribute("frameText23", "TEXT", "<div class='AlticeRegular' style='top:297px;left:30px;font-size:14px;line-height:1;color: #fff;'>Wired connection up to<br>60 Mbps. WiFi speeds<br>may vary.</div>");
 amo.registerAttribute("frameText31","TEXT","<div style='top: 136px;left: 22px;width: 256px;font-size: 19px;line-height: 1.1;'>Act fast & get the<br>first 3 mos. for just</div>");
-amo.registerAttribute("frameText32","TEXT","<div style='top: 177px;left: 21px;width: 256px;font-size: 42px;line-height: 1;'>$9.95/mo.</div>");
+amo.registerAttribute("frameText32","TEXT","<div style='top: 177px;left: 21px;width: 256px;font-size: 37px;line-height: 1;'>$9.95/mo.</div>");
 amo.registerAttribute("frameText33","TEXT","&nbsp;");
 amo.registerAttribute("frameText41", "TEXT", "<div style='top: 88px;left: 22px;font-size: 28px;line-height:1;'>60 Mbps<br>Internet</div>");
 amo.registerAttribute("frameText42", "TEXT", "<div style='top: 139px;left: 14px;width: 260px;line-height: 1;'><font style='font-size: 116px;letter-spacing: -1.5px;' class='coloredText'>$49</font><font style='margin-left: 4px;font-size: 19px;display: inline-block;vertical-align: 46px;'>82/<br>mo.</font><div class='AlticeRegular' style='margin: 2px 0 0 8px;font-size: 14px;'>Plus taxes, fees & optional services</div></div>");
@@ -315,7 +315,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 293px;left: 22px;
         gsap.set('#beam3',{top:355,left:300,width:220,height:30,x:-520});gsap.set('#beam3 div',{width:30});
         gsap.set('#beam4',{top:313,left:300,width:230,height:18,x:-530});gsap.set('#beam4 div',{width:18});
         gsap.set('#beam5',{top:30,left:300,width:240,height:28,x:-540});gsap.set('#beam5 div',{width:28});
-        gsap.set('#frameText1,#frameText12', {autoAlpha:0});
+        // gsap.set('#frameText1', {autoAlpha:0});
         gsap.set('.frameImage', {x:'100%'});
         gsap.set('.frameText, #priceLabel', {x:'-100%'});
         var beamFrameAnimation = function(frame){
@@ -395,13 +395,19 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 293px;left: 22px;
           // gsap.to('#frameImage21', (flag==true?{}:{opacity:0,ease:'none', delay:2.7}));
         }
         var animateFrame1 = function(flag){
+          var introEndFlag = false;
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
+            this.playbackRate = 0.5;
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frameText1', {autoAlpha:1})
+            // .to('#frameText1', {autoAlpha:1})
           }
-          ad.layers.frameVideo1.querySelector('video').onended = function(){
-            gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frame1', (flag==true?{}:{delay:1.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          ad.layers.frameVideo1.querySelector('video').ontimeupdate = function(){
+            if(this.currentTime >= 1.2 && !introEndFlag) {
+              introEndFlag = true;
+              gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+              .to('#frameText1', {x:'120%'})
+              .to('#frame1', (flag==true?{}:{delay:0, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+            }
           }
         }
         gsap.delayedCall(.8, animateFrame1);
