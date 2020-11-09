@@ -378,7 +378,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 215px;left: 13px;
         gsap.set('#shape4',{top:-480,left:5,width:32,height:480,y:1080});
         gsap.set('#beam1',{top:52,left:160,width:150,height:20,x:-310});gsap.set('#beam1 div',{width:20});
         gsap.set('#beam2',{top:260,left:160,width:150,height:18,x:-310});gsap.set('#beam2 div',{width:18});
-        gsap.set('#beam3',{top:260,left:160,width:140,height:20,x:-300});gsap.set('#beam3 div',{width:20});
+        gsap.set('#beam3',{top:320,left:160,width:140,height:20,x:-300});gsap.set('#beam3 div',{width:20});
         gsap.set('#beam4',{top:230,left:160,width:170,height:14,x:-330});gsap.set('#beam4 div',{width:14});
         gsap.set('#beam5',{top:30,left:160,width:180,height:22,x:-340});gsap.set('#beam5 div',{width:22});
         // gsap.set('#frameText1', {autoAlpha:0});
@@ -392,7 +392,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 215px;left: 13px;
           .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
           gsap.to('#beam1', {x:'0',ease:'none', duration:0.5,delay:0.8})
           gsap.to('#beam2', {x:'0',ease:'none',duration:0.5,delay:1.3})
-          // gsap.to('#beam3', {x:'0',ease:'none',duration:0.5,delay:1.3})
+          gsap.to('#beam3', {x:'0',ease:'none',duration:0.5,delay:1.8})
           // gsap.to('#beam4', {x:'0',ease:'none',duration:0.5,delay:1.8})
           // gsap.to('#beam5', {x:'0',ease:'none',duration:0.5,delay:2.1})
         }
