@@ -156,9 +156,9 @@ amo.registerAttribute("frameText21", "TEXT", "<div style='top: 111px;left: 29px;
 amo.registerAttribute("frameText22", "TEXT", "<div style='top: 164px;left: 20px;width: 280px;color: #fff;line-height: 1;'><font style='font-size: 117px;letter-spacing: -2px;'>$30</font><font style='margin-left: 5px;font-size: 19px;display: inline-block;vertical-align: 50px;line-height: 0.9;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 3px 0 0 10px;font-size: 14px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
 amo.registerAttribute("frameText31", "TEXT", "<div style='top: 198px;left: 20px;width: 260px;font-size: 28px;line-height: 1.1;text-align: center;'>Fast & reliable Internet</div>");
 amo.registerAttribute("frameText32", "TEXT", "<div class='AlticeRegular' style='top:477px;width: 250px;left:22px;font-size:14px;line-height:1.15;'>Speeds, prices &<br>availability vary by area.</div>");
-amo.registerAttribute("frameText41", "TEXT", "<div style='top: 87px;left: 22px;width: 256px;font-size: 23.5px;line-height: 1.1;'>+ 1 Gig Internet<br>now available</div>");
-amo.registerAttribute("frameText42", "TEXT", "<div style='top: 144px;left: 21px;width: 256px;font-size: 42px;line-height: 1;'>on our next generation network</div>");
-amo.registerAttribute("frameText43", "TEXT", "<div class='AlticeRegular' style='top:477px;width: 250px;left:22px;font-size:14px;line-height:1.15;'>Speeds, prices &<br>availability vary by area.</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div style='top: 84px;left: 21px;width: 256px;font-size: 42px;line-height: 1;'>On our next generation network</div>");
+amo.registerAttribute("frameText42", "TEXT", "&nbsp;");
+amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText51", "TEXT", "<div style='top: 88px;left: 22px;font-size: 28px;line-height:1;'>Internet<br>starting at</div>");
 amo.registerAttribute("frameText52", "TEXT", "<div style='top: 139px;left: 14px;width: 260px;line-height: 1;'><font style='font-size: 116px;letter-spacing: -1.5px;' class='coloredText'>$30</font><font style='margin-left: 5px;font-size: 19px;display: inline-block;vertical-align: 46px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 2px 0 0 8px;font-size: 14px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
 amo.registerAttribute("frameText53", "TEXT", "<div style='top: 310px;left: 22px;width: 400px;transform: scale(0.685);transform-origin: top left;'><div class='bulletedText'>Free installation!</div></div>");
@@ -379,7 +379,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 310px;left: 22px;
         gsap.set('#shape4',{top:-480,left:20,width:55,height:480,y:1080});
         gsap.set('#beam1',{top:50,left:300,width:220,height:26,x:-520});gsap.set('#beam1 div',{width:26});
         gsap.set('#beam2',{top:355,left:300,width:200,height:20,x:-500});gsap.set('#beam2 div',{width:20});
-        gsap.set('#beam3',{top:355,left:300,width:220,height:30,x:-520});gsap.set('#beam3 div',{width:30});
+        gsap.set('#beam3',{top:410,left:300,width:220,height:30,x:-520});gsap.set('#beam3 div',{width:30});
         gsap.set('#beam4',{top:313,left:300,width:230,height:18,x:-530});gsap.set('#beam4 div',{width:18});
         gsap.set('#beam5',{top:30,left:300,width:240,height:28,x:-540});gsap.set('#beam5 div',{width:28});
         // gsap.set('#frameText1', {autoAlpha:0});
@@ -393,7 +393,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 310px;left: 22px;
           .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
           gsap.to('#beam1', {x:'0',ease:'none', duration:0.5,delay:0.8})
           gsap.to('#beam2', {x:'0',ease:'none',duration:0.5,delay:1.3})
-          // gsap.to('#beam3', {x:'0',ease:'none',duration:0.5,delay:1.3})
+          gsap.to('#beam3', {x:'0',ease:'none',duration:0.5,delay:1.8})
           // gsap.to('#beam4', {x:'0',ease:'none',duration:0.5,delay:1.7})
           // gsap.to('#beam5', {x:'0',ease:'none',duration:0.5,delay:2})
         }
