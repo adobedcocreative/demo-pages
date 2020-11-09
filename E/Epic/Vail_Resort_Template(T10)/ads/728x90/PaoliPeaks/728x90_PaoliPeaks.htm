@@ -126,7 +126,7 @@
           ],
           staticData: {
             // ref: 'ref.png'
-            logoImage: './../images/728x90_' + amo.variation['brandName'].replace(/ /g,'') + '_LogoImage.png',
+            logoImage: './../images/728x90_PaoliPeaks_LogoImage.png',
             saleImage: './../images/728x90_Resort_SaleImage_EPIC_PASS.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
             ctaBtnColor: '#b4cbd4^#b4cbd4',
@@ -249,6 +249,7 @@
             document.body.removeChild(canvas);
           }
           image.src = adData['saleImage'];
+          ad.layers.logoImage.querySelector('img').src = './../images/728x90_' + adData['brandName'].replace(/ /g,'') + '_LogoImage.png';
 
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }

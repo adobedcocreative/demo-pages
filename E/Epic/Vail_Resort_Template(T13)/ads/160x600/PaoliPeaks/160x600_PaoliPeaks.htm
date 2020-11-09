@@ -131,7 +131,7 @@
           staticData: {
             // ref: 'ref.png'
             // logoImage: './../images/160x600_BeaverCreek_LogoImage.png',
-            logoImage: './../images/160x600_' + amo.variation['brandName'].replace(/ /g,'') + '_LogoImage.png',
+            logoImage: './../images/160x600_PaoliPeaks_LogoImage.png',
             saleImage: './../images/160x600_Resort_SaleImage_CYBER_WEEK.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
             ctaBtnColor: '#b4cbd4^#b4cbd4',
@@ -242,6 +242,7 @@
             document.body.removeChild(canvas);
           }
           image.src = adData['saleImage'];
+          ad.layers.logoImage.querySelector('img').src = './../images/160x600_' + adData['brandName'].replace(/ /g,'') + '_LogoImage.png';
 
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
