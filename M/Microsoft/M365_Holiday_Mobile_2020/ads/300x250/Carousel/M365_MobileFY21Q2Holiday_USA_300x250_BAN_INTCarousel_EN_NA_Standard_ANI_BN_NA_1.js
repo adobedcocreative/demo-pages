@@ -2367,24 +2367,24 @@ if (reversed == null) { reversed = false; }
 
 			exportRoot.setMenu1 = function () {
 				ClickID--;
-				amoAdInteraction('Previous Click');
+				amoAdInteraction('Previous Click', ClickID);
 				direction = "prev";
 				exportRoot.subMenuClick(ClickID, direction);
 			}
 			exportRoot.setMenu2 = function () {
 				ClickID++;
-				amoAdInteraction('Next Click');
+				amoAdInteraction('Next Click', ClickID);
 				direction = "next";
 				exportRoot.subMenuClick(ClickID, direction);
 			}
 
 			exportRoot.expandMenu = function (subID) {
-				amoAdInteraction('Expand Click');
+				amoAdInteraction('Expand Click', ClickID);
 				exportRoot.subMenuExpand(subID);
 				menuPos = "expanded"
 			}
 			exportRoot.shrinkMenu = function (subID) {
-				amoAdInteraction('Back Click');
+				amoAdInteraction('Back Click', ClickID);
 				exportRoot.subMenuShrink(subID);
 				menuPos = "shrunk"
 			}
