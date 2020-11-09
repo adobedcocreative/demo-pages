@@ -129,9 +129,16 @@ function handleComplete(evt,comp) {
 			bannerData.enlarged_3_2 = eval(bannerData.textField4.split('^')[1]);
 			bannerData.enlarged_4_1 = eval(bannerData.textField5.split('^')[0]);
 			bannerData.enlarged_4_2 = eval(bannerData.textField5.split('^')[1]);
-			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "8.5px" : "13px"),0,0,"50","300", "center"] : '';
+			var smartNames = [];
+			if(bannerData.textField2.split('^').length > 2) {
+				smartNames.push(bannerData.textField2.split('^')[2]);
+				smartNames.push(bannerData.textField3.split('^')[2]);
+				smartNames.push(bannerData.textField4.split('^')[2]);
+				smartNames.push(bannerData.textField5.split('^')[2]);
+			}
+			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 12 ? ((bannerData.ctaText.length >= 15) ? "8.5px" : "11px") : "13px"),0,0,"50","300", "center"] : '';
 			amoAdClick = function(id) {
-				parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl.split('^').length > 1 ? parentWindow.adClickUrl.split('^')[id] : parentWindow.adClickUrl);
+				parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl.split('^').length > 1 ? parentWindow.adClickUrl.split('^')[id] : parentWindow.adClickUrl, parentWindow.layout + (smartNames && smartNames.length == 4 ? '|' + smartNames[id] : '') + ' - Click');
 				if(bannerData.clickTracker) {
 					var clickTrackers = bannerData.clickTracker.split('^');
 					clickTrackers.forEach(function(url){
@@ -141,11 +148,11 @@ function handleComplete(evt,comp) {
 					});
 				}
 			}
-			amoAdInteraction = function(text) {
+			amoAdInteraction = function(text, id) {
 				var parentWindows = window.parent.parent.window;
 				if (parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
 					try {
-						parentWindows.amoUtils.onInteraction(parentWindow.layout + ' - ' + text, parentWindow.adData.feedData);
+						parentWindows.amoUtils.onInteraction(parentWindow.layout +  '|' + id + ' - ' + text, parentWindow.adData.feedData);
 					} catch (e) {}
 				}
 			}
