@@ -2484,7 +2484,7 @@ if (reversed == null) { reversed = false; }
 				} else {
 					if (status_button=="on" && menuPos == "shrunk") exportRoot.setMenu1()
 				}
-				console.log(swipe.direction)
+				// console.log(swipe.direction)
 			});
 
 		}
