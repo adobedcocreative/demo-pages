@@ -127,6 +127,7 @@ var loadFont = false
 </head>
 <body onload="loaded('body')" style="margin:0px;">
 
+<div id="clickAreaTop" style="display:block; position:absolute; top:0px; left:0px; width:150px; height:250px; z-index:100001 !important; cursor:pointer; "></div>
 <div id="clickHit" style="display:block; position:absolute; top:190px; left:0px; width:111px; height:60px; z-index:100001 !important; cursor:pointer; "></div>
 <div id="overlayImage" style="pointer-events: none; display:block; position:absolute; top:177px; left:202px; width:32px; height:32px; z-index:100001 !important; cursor:pointer; "><img src="images/iconRotate.png" width="32" height="32"></div>
 <div id="webGL_container" style="width:250px; height:250px; position: absolute; z-index: 1000 !important; overflow:hidden"></div>
@@ -280,6 +281,18 @@ var startBanner = function(){
 									bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "9px" : "13px"),0,0,"50","300", "center"] : '';
 									var clickHit = document.getElementById("clickHit");
 									clickHit.addEventListener("click", function(){
+										parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl);
+										if(bannerData.clickTracker) {
+											var clickTrackers = bannerData.clickTracker.split('^');
+											clickTrackers.forEach(function(url){
+												if(url && url.toLowerCase() != 'na') {
+														(new Image()).src = url;
+												}
+											});
+										}
+									});
+									var clickAreaTop = document.getElementById("clickAreaTop");
+									clickAreaTop.addEventListener("click", function(){
 										parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl);
 										if(bannerData.clickTracker) {
 											var clickTrackers = bannerData.clickTracker.split('^');
