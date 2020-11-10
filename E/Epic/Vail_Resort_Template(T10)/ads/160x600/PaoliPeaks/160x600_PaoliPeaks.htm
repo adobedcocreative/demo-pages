@@ -137,39 +137,40 @@
           },
           beforeLoad: function(data){
             data.map(function(content){
-              if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'aftonalps'){
+              if(content['brandName'].replace(/ /g,'').toLowerCase() == 'aftonalps'){
                 content.ctaBtnColor = '#ffad1f^#f89f04';
-              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'alpinevalley'){
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'alpinevalley'){
                 content.ctaBtnColor = '#3f4d69^#37486a';
-              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'attitash'){
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'attitash'){
                 content.ctaBtnColor = '#0047ba^#024fcd';
-              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'bostonmills'){
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'bostonmills'){
                 content.ctaBtnColor = '#00819e^#0392b2';
-              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'crotched'){
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'crotched'){
                 content.ctaBtnColor = '#000000^#121212';
-              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'hiddenvalley'){
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'hiddenvalley'){
                 content.ctaBtnColor = '#0d8194^#0c96ac';
-              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'jfbb'){
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'jfbb'){
                 content.ctaBtnColor = '#274154^#2f526b';
-              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'madriver'){
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'madriver'){
                 content.ctaBtnColor = '#044e37^#046849';
-              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'mtbrighton'){
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'mtbrighton'){
                 content.ctaBtnColor = '#583293^#6e47ac';
-              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'paolipeaks'){
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'paolipeaks'){
                 content.ctaBtnColor = '#00205C^#012c7c';
-              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'roundtop'){
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'roundtop'){
                 content.ctaBtnColor = '#007FAD^#018cbf';
-              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'snowcreek'){
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'snowcreek'){
                 content.ctaBtnColor = '#00303e^#01485d';
-              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'whitetail'){
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'whitetail'){
                 content.ctaBtnColor = '#2f5b47^#397359';
-              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'wildcat'){
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'wildcat'){
                 content.ctaBtnColor = '#006f66^#088d82';
-              }else if(amo.variation['brandName'].replace(/ /g,'').toLowerCase() == 'wilmot'){
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'wilmot'){
                 content.ctaBtnColor = '#ad253f^#be334d';
               }
               content.ctaBtn = content.ctaBtnColor.split('^')[0];
               content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
+              content['logoImage'] = './../images/160x600_' + content['brandName'].replace(/ /g,'') + '_LogoImage.png';
               layout = content.layout.toLowerCase();
               if(content.frameText4.toLowerCase() != 'na' && !document.querySelector("#backgroundImage4")) {
                 var imageElement = document.querySelector("#backgroundImage3");
@@ -236,7 +237,6 @@
             document.body.removeChild(canvas);
           }
           image.src = adData['saleImage'];
-          ad.layers.logoImage.querySelector('img').src = './../images/160x600_' + adData['brandName'].replace(/ /g,'') + '_LogoImage.png';
 
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
