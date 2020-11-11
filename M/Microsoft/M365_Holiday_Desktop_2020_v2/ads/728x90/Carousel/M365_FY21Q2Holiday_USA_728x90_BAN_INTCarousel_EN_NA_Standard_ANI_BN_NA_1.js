@@ -3,170 +3,155 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_1", frames: [[267,1654,137,243],[0,0,582,353],[0,355,582,353],[0,710,582,353],[0,1065,582,353],[802,0,203,416],[584,650,203,416],[789,650,203,416],[801,1068,109,424],[584,1068,203,416],[584,434,420,214],[0,1420,265,232],[267,1420,265,232],[534,1486,265,232],[0,1654,265,232],[584,0,216,432],[801,1494,184,215],[912,1068,86,89],[912,1250,57,47],[912,1159,86,89]]}
+		{name:"M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_", frames: [[267,1654,137,243],[0,0,582,353],[0,355,582,353],[0,710,582,353],[0,1065,582,353],[802,0,203,416],[584,650,203,416],[789,650,203,416],[801,1068,109,424],[584,1068,203,416],[584,434,420,214],[0,1420,265,232],[267,1420,265,232],[534,1486,265,232],[0,1654,265,232],[584,0,216,432],[801,1494,184,215],[912,1068,86,89],[912,1250,57,47],[912,1159,86,89]]}
 ];
 
 
-(lib.AnMovieClip = function(){
-	this.actionFrames = [];
-	this.gotoAndPlay = function(positionOrLabel){
-		cjs.MovieClip.prototype.gotoAndPlay.call(this,positionOrLabel);
-	}
-	this.play = function(){
-		cjs.MovieClip.prototype.play.call(this);
-	}
-	this.gotoAndStop = function(positionOrLabel){
-		cjs.MovieClip.prototype.gotoAndStop.call(this,positionOrLabel);
-	}
-	this.stop = function(){
-		cjs.MovieClip.prototype.stop.call(this);
-	}
-}).prototype = p = new cjs.MovieClip();
 // symbols:
 
 
 
 (lib.CoffeeCup11 = function() {
-	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
+	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.Desktop_Images_0000s_0000_PPTDesktop = function() {
-	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
+	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_"]);
 	this.gotoAndStop(1);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.Desktop_Images_0000s_0001_WordDesktoppngcopy = function() {
-	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
+	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_"]);
 	this.gotoAndStop(2);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.Desktop_Images_0000s_0002_ExcelDesktop1 = function() {
-	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
+	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_"]);
 	this.gotoAndStop(3);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.Desktop_Images_0000s_0003_ODDesktop1 = function() {
-	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
+	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_"]);
 	this.gotoAndStop(4);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.enlargeexcel = function() {
-	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
+	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_"]);
 	this.gotoAndStop(5);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.enlargedonedrive = function() {
-	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
+	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_"]);
 	this.gotoAndStop(6);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.Enlargedppt = function() {
-	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
+	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_"]);
 	this.gotoAndStop(7);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.enlargedshadow = function() {
-	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
+	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_"]);
 	this.gotoAndStop(8);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.Enlargedworld = function() {
-	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
+	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_"]);
 	this.gotoAndStop(9);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.firtwigandpineconeswhitebackgroundVUE4NYF = function() {
-	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
+	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_"]);
 	this.gotoAndStop(10);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.Mobile_Images_0000s_0000_PPTMobile = function() {
-	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
+	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_"]);
 	this.gotoAndStop(11);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.Mobile_Images_0000s_0001_WordMobile = function() {
-	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
+	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_"]);
 	this.gotoAndStop(12);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.Mobile_Images_0000s_0002_ExcelMobile1 = function() {
-	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
+	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_"]);
 	this.gotoAndStop(13);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.Mobile_Images_0000s_0003_ODMobile1 = function() {
-	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
+	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_"]);
 	this.gotoAndStop(14);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.OneDriveBackgroundElements = function() {
-	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
+	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_"]);
 	this.gotoAndStop(15);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.OvenMit = function() {
-	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
+	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_"]);
 	this.gotoAndStop(16);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.snowflakegroup1 = function() {
-	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
+	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_"]);
 	this.gotoAndStop(17);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.snowflakegroup2 = function() {
-	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
+	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_"]);
 	this.gotoAndStop(18);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.SnowflakeGroup = function() {
-	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
+	this.initialize(ss["M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_"]);
 	this.gotoAndStop(19);
 }).prototype = p = new cjs.Sprite();
 // helper functions:
 
 function mc_symbol_clone() {
-	var clone = this._cloneProps(new this.constructor(this.mode, this.startPosition, this.loop, this.reversed));
+	var clone = this._cloneProps(new this.constructor(this.mode, this.startPosition, this.loop));
 	clone.gotoAndStop(this.currentFrame);
 	clone.paused = this.paused;
 	clone.framerate = this.framerate;
@@ -182,16 +167,8 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 	}
 
 
-(lib.white = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.white = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_2
 	this.shape = new cjs.Shape();
@@ -205,16 +182,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.white, new cjs.Rectangle(0,0,300,250), null);
 
 
-(lib.txt_mc = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.txt_mc = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	this._renderFirstFrame();
 
@@ -222,16 +191,8 @@ if (reversed == null) { reversed = false; }
 p.nominalBounds = new cjs.Rectangle(0,0,0,0);
 
 
-(lib.txt = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.txt = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	this._renderFirstFrame();
 
@@ -239,16 +200,8 @@ if (reversed == null) { reversed = false; }
 p.nominalBounds = new cjs.Rectangle(0,0,300,250);
 
 
-(lib.Tween7 = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.Tween7 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
 	this.shape = new cjs.Shape();
@@ -267,16 +220,8 @@ if (reversed == null) { reversed = false; }
 p.nominalBounds = new cjs.Rectangle(-9.2,-7.8,18.4,15.8);
 
 
-(lib.Tween2 = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.Tween2 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_1
 	this.shape = new cjs.Shape();
@@ -291,16 +236,8 @@ if (reversed == null) { reversed = false; }
 p.nominalBounds = new cjs.Rectangle(-3.6,-3.6,7.300000000000001,7.300000000000001);
 
 
-(lib.Tween1 = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.Tween1 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_1
 	this.shape = new cjs.Shape();
@@ -314,16 +251,8 @@ if (reversed == null) { reversed = false; }
 p.nominalBounds = new cjs.Rectangle(-3.6,-3.6,7.300000000000001,7.300000000000001);
 
 
-(lib.snowflakes_2 = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.snowflakes_2 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_1
 	this.instance = new lib.snowflakegroup2();
@@ -339,16 +268,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.snowflakes_2, new cjs.Rectangle(-134.7,14.6,564.5999999999999,97.9), null);
 
 
-(lib.snowflakes_1 = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.snowflakes_1 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_1
 	this.instance = new lib.SnowflakeGroup();
@@ -361,16 +282,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.snowflakes_1, new cjs.Rectangle(-43,-44.5,86,89), null);
 
 
-(lib.Screen_2_Word = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.Screen_2_Word = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_1
 	this.instance = new lib.Desktop_Images_0000s_0001_WordDesktoppngcopy();
@@ -382,16 +295,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.Screen_2_Word, new cjs.Rectangle(0,0,582,353), null);
 
 
-(lib.Screen_2_PPT = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.Screen_2_PPT = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_1
 	this.instance = new lib.Desktop_Images_0000s_0000_PPTDesktop();
@@ -403,16 +308,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.Screen_2_PPT, new cjs.Rectangle(0,0,582,353), null);
 
 
-(lib.Screen_2_OneDrive = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.Screen_2_OneDrive = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_1
 	this.instance = new lib.Desktop_Images_0000s_0003_ODDesktop1();
@@ -424,16 +321,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.Screen_2_OneDrive, new cjs.Rectangle(0,0,582,353), null);
 
 
-(lib.Screen_2_Excel = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.Screen_2_Excel = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_1
 	this.instance = new lib.Desktop_Images_0000s_0002_ExcelDesktop1();
@@ -445,16 +334,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.Screen_2_Excel, new cjs.Rectangle(0,0,582,353), null);
 
 
-(lib.Screen_1_Word = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.Screen_1_Word = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_1
 	this.instance = new lib.Mobile_Images_0000s_0001_WordMobile();
@@ -466,16 +347,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.Screen_1_Word, new cjs.Rectangle(0,0,265,232), null);
 
 
-(lib.Screen_1_PPT = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.Screen_1_PPT = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_1
 	this.instance = new lib.Mobile_Images_0000s_0000_PPTMobile();
@@ -487,16 +360,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.Screen_1_PPT, new cjs.Rectangle(0,0,265,232), null);
 
 
-(lib.Screen_1_OneDrive = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.Screen_1_OneDrive = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_1
 	this.instance = new lib.Mobile_Images_0000s_0003_ODMobile1();
@@ -508,16 +373,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.Screen_1_OneDrive, new cjs.Rectangle(0,0,265,232), null);
 
 
-(lib.Screen_1_Excel = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.Screen_1_Excel = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_1
 	this.instance = new lib.Mobile_Images_0000s_0002_ExcelMobile1();
@@ -529,16 +386,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.Screen_1_Excel, new cjs.Rectangle(0,0,265,232), null);
 
 
-(lib.option_hit_round = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.option_hit_round = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_1
 	this.shape = new cjs.Shape();
@@ -554,16 +403,8 @@ if (reversed == null) { reversed = false; }
 p.nominalBounds = new cjs.Rectangle(-9.6,-9.6,47.7,47.7);
 
 
-(lib.option_hit = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.option_hit = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_1
 	this.shape = new cjs.Shape();
@@ -579,16 +420,8 @@ if (reversed == null) { reversed = false; }
 p.nominalBounds = new cjs.Rectangle(-5,-5,30,30);
 
 
-(lib.object_2 = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.object_2 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_0 = function() {
@@ -634,16 +467,8 @@ if (reversed == null) { reversed = false; }
 p.nominalBounds = new cjs.Rectangle(138,73.4,148.60000000000002,223.6);
 
 
-(lib.object_1 = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.object_1 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_0 = function() {
@@ -683,16 +508,8 @@ if (reversed == null) { reversed = false; }
 p.nominalBounds = new cjs.Rectangle(108.8,-46.8,375.5,283.8);
 
 
-(lib.ms = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.ms = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_2
 	this.shape = new cjs.Shape();
@@ -718,16 +535,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.ms, new cjs.Rectangle(-36.4,-6.9,104.4,14.100000000000001), null);
 
 
-(lib.cta_arrow = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.cta_arrow = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
 	this.shape = new cjs.Shape();
@@ -741,16 +550,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.cta_arrow, new cjs.Rectangle(-5.4,-4.1,11.2,8.3), null);
 
 
-(lib.cta = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.cta = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	this._renderFirstFrame();
 
@@ -758,16 +559,8 @@ if (reversed == null) { reversed = false; }
 p.nominalBounds = new cjs.Rectangle(0,0,0,0);
 
 
-(lib.logo_box = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.logo_box = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_1
 	this.shape = new cjs.Shape();
@@ -793,16 +586,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.logo_box, new cjs.Rectangle(-10.8,-10.7,21.6,21.5), null);
 
 
-(lib.logo = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.logo = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_2
 	this.shape = new cjs.Shape();
@@ -844,16 +629,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.logo, new cjs.Rectangle(-52.7,-23.6,93.6,15.200000000000001), null);
 
 
-(lib.hit = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.hit = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_1
 	this.shape = new cjs.Shape();
@@ -872,16 +649,8 @@ if (reversed == null) { reversed = false; }
 p.nominalBounds = new cjs.Rectangle(0,0,300,250);
 
 
-(lib.cta_glare = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.cta_glare = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_0 = function() {
@@ -911,16 +680,8 @@ if (reversed == null) { reversed = false; }
 p.nominalBounds = new cjs.Rectangle(0,0,114.7,30.3);
 
 
-(lib.Btn_Return = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.Btn_Return = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_4
 	this.shape = new cjs.Shape();
@@ -941,16 +702,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.Btn_Return, new cjs.Rectangle(0,0,29.5,29.5), null);
 
 
-(lib.Btn_Expand = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.Btn_Expand = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_2
 	this.shape = new cjs.Shape();
@@ -971,16 +724,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.Btn_Expand, new cjs.Rectangle(0,0,23.2,23.2), null);
 
 
-(lib.arrow = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.arrow = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
 	this.shape = new cjs.Shape();
@@ -994,16 +739,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.arrow, new cjs.Rectangle(0,0,11.3,8.4), null);
 
 
-(lib.replay_btn = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {out:0,over:1,down:2,hit:3};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.replay_btn = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{out:0,over:1,down:2,hit:3});
 
 	// timeline functions:
 	this.frame_0 = function() {
@@ -1026,16 +763,8 @@ if (reversed == null) { reversed = false; }
 p.nominalBounds = new cjs.Rectangle(-34.8,0,32.699999999999996,30.6);
 
 
-(lib.Page_indicator_dot = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {selected:1,deselected:17};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.Page_indicator_dot = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{selected:1,deselected:17});
 
 	// timeline functions:
 	this.frame_0 = function() {
@@ -1067,16 +796,8 @@ if (reversed == null) { reversed = false; }
 p.nominalBounds = new cjs.Rectangle(-3.6,-3.6,7.300000000000001,7.300000000000001);
 
 
-(lib.Page_indicator = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.Page_indicator = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_2
 	this.dot_4 = new lib.Page_indicator_dot();
@@ -1109,16 +830,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.Page_indicator, new cjs.Rectangle(-1,-1,119.5,13), null);
 
 
-(lib.Page = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.Page = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	this.isSingleFrame = false;
 	// timeline functions:
@@ -1161,16 +874,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.Page, new cjs.Rectangle(192.9,-34.1,535.2,206.7), null);
 
 
-(lib.cta_arrowmo = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.cta_arrowmo = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_52 = function() {
@@ -1216,16 +921,8 @@ if (reversed == null) { reversed = false; }
 p.nominalBounds = new cjs.Rectangle(-10.2,-4.1,20.5,8.3);
 
 
-(lib.mountain_anim = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.mountain_anim = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_4
 	this.indicator = new lib.Page_indicator();
@@ -1317,16 +1014,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.mountain_anim, new cjs.Rectangle(13.4,0,349.40000000000003,102.9), null);
 
 
-(lib.MSFT_logo_sq = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.MSFT_logo_sq = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	this.isSingleFrame = false;
 	// timeline functions:
@@ -1355,16 +1044,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.MSFT_logo_sq, new cjs.Rectangle(-50.8,-9.3,21.599999999999998,21.5), null);
 
 
-(lib.MSFT_Logo_anim = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.MSFT_Logo_anim = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	this.isSingleFrame = false;
 	// timeline functions:
@@ -1409,16 +1090,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.MSFT_Logo_anim, new cjs.Rectangle(-50.8,-9.3,132.39999999999998,21.5), null);
 
 
-(lib.logos = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.logos = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_0 = function() {
@@ -1533,16 +1206,8 @@ if (reversed == null) { reversed = false; }
 p.nominalBounds = new cjs.Rectangle(-2565.5,-67.5,4739.3,292.1);
 
 
-(lib.bg = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.bg = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_3
 	this.snowflakes_1 = new lib.snowflakes_1();
@@ -1570,16 +1235,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.bg, new cjs.Rectangle(0,-5,728,100.8), null);
 
 
-(lib.arrowMain = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.arrowMain = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
 	this.frame_0 = function() {
@@ -1606,16 +1263,8 @@ if (reversed == null) { reversed = false; }
 p.nominalBounds = new cjs.Rectangle(0.5,0.5,20.5,20.5);
 
 
-(lib.CTA_btn = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.CTA_btn = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 3
 	this.arrow = new lib.arrowMain();
@@ -1643,16 +1292,8 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.CTA_btn, new cjs.Rectangle(-84.2,-16.7,108.80000000000001,31.2), null);
 
 
-(lib.mainMC = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.mainMC = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
 	// MSoftLogo
 	this.logo_intro = new lib.logos();
@@ -1705,6 +1346,26 @@ if (reversed == null) { reversed = false; }
 	this.timeline.addTween(cjs.Tween.get(this.Enlarged).wait(1));
 
 	// option_hits
+	this.dot4 = new lib.option_hit();
+	this.dot4.name = "dot4";
+	this.dot4.setTransform(103.25,73.4,0.7018,1.0159,0,0,0,9.8,13.8);
+	new cjs.ButtonHelper(this.dot4, 0, 1, 2, false, new lib.option_hit(), 3);
+
+	this.dot3 = new lib.option_hit();
+	this.dot3.name = "dot3";
+	this.dot3.setTransform(82.75,73.4,0.7018,1.0159,0,0,0,9.9,13.8);
+	new cjs.ButtonHelper(this.dot3, 0, 1, 2, false, new lib.option_hit(), 3);
+
+	this.dot2 = new lib.option_hit();
+	this.dot2.name = "dot2";
+	this.dot2.setTransform(62.5,73.4,0.7018,1.0159,0,0,0,9.8,13.8);
+	new cjs.ButtonHelper(this.dot2, 0, 1, 2, false, new lib.option_hit(), 3);
+
+	this.dot1 = new lib.option_hit();
+	this.dot1.name = "dot1";
+	this.dot1.setTransform(41.5,73.4,0.7018,1.0159,0,0,0,9.8,13.8);
+	new cjs.ButtonHelper(this.dot1, 0, 1, 2, false, new lib.option_hit(), 3);
+
 	this.hit_expand = new lib.option_hit_round();
 	this.hit_expand.name = "hit_expand";
 	this.hit_expand.setTransform(244,68.15,1.0595,1.0595,0,0,0,9.5,10);
@@ -1720,7 +1381,7 @@ if (reversed == null) { reversed = false; }
 	this.hit1.setTransform(12.85,69.5,1,1,0,0,0,10,10.3);
 	new cjs.ButtonHelper(this.hit1, 0, 1, 2, false, new lib.option_hit(), 3);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.hit1},{t:this.hit2},{t:this.hit_expand}]}).wait(1));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.hit1},{t:this.hit2},{t:this.hit_expand},{t:this.dot1},{t:this.dot2},{t:this.dot3},{t:this.dot4}]}).wait(1));
 
 	// empty_hit
 	this.no_hit = new lib.hit();
@@ -1771,18 +1432,9 @@ if (reversed == null) { reversed = false; }
 
 
 // stage content:
-(lib.M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1 = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
+(lib.M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
-	this.actionFrames = [0];
 	this.isSingleFrame = false;
 	// timeline functions:
 	this.frame_0 = function() {
@@ -1977,6 +1629,10 @@ if (reversed == null) { reversed = false; }
 		var hit = mc.hit
 		var hit1 = mc.hit1
 		var hit2 = mc.hit2
+		var dot1 = mc.dot1
+		var dot2 = mc.dot2
+		var dot3 = mc.dot3
+		var dot4 = mc.dot4
 		var no_hit = mc.no_hit
 
 		var main_screen = mc.main_screen
@@ -2015,23 +1671,12 @@ if (reversed == null) { reversed = false; }
 			var status_button = "on";
 			var ClickID = 0
 
-			exportRoot.trigger_button = function() {
-				// console.log("status button "+status_button + " id "+ClickID)
-				if (status_button == "on"){
-					hit1.mouseEnabled = false;
-					hit2.mouseEnabled = false;
-					status_button = "off";
-				} else {
-					hit1.mouseEnabled = true;
-					hit2.mouseEnabled = true;
-					status_button = "on";
-				}
-			}
-
-
 		this.runBanner = function () {
 
 			mc.replay_btn.visible = false
+			screen_1_onedrive.visible = false
+			screen_2_onedrive.visible = false
+
 			mc.cta.alpha = 1
 			mc.txtCta.alpha = 1
 
@@ -2039,8 +1684,8 @@ if (reversed == null) { reversed = false; }
 
 				this.TL_MainIntro = new TimelineMax();
 
-				exportRoot.TL_MainIntro.from(screen_1_onedrive, 1.1, {x: "+=120",y: "+=180", ease:Power2.easeOut});
-				exportRoot.TL_MainIntro.from(screen_2_onedrive, 1, {x: "+=120",y: "+=180", ease:Power3.easeOut}, "-=0.85");
+				exportRoot.TL_MainIntro.from(screen_1_onedrive, 1.1, {x: "+=120",y: "+=180", ease:Power2.easeOut, ease:Power2.easeOut, onStart:function(){screen_1_onedrive.visible = true}});
+				exportRoot.TL_MainIntro.from(screen_2_onedrive, 1, {x: "+=120",y: "+=180", ease:Power3.easeOut, ease:Power2.easeOut, onStart:function(){screen_2_onedrive.visible = true}}, "-=0.85");
 				exportRoot.TL_MainIntro.from(indicator, 0.6, {alpha:0, ease:Power3.easeOut, onStart:function(){dot_1.gotoAndPlay("selected", exportRoot.TL_MainText.tweenTo("Out"));}}, "-=0.4");
 
 				exportRoot.TL_MainIntro.from(mc.cta, 0.6, {x: "+=200", ease:Power3.easeOut}, "-=0.6");
@@ -2052,74 +1697,319 @@ if (reversed == null) { reversed = false; }
 
 				exportRoot.TL_MainIntro.stop();
 
-				//CAROUSEL ANIMATION
+						//CAROUSEL ANIMATION
 
 				this.TL_MainScreen = new TimelineMax();
-				exportRoot.TL_MainScreen.add('frame0');
+				exportRoot.TL_MainScreen.add('frame0_start');
 
-				exportRoot.TL_MainScreen.to(mc, 0, {onStart:function(){exportRoot.trigger_button()}}, "=+0.01");
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_excel, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_excel, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_word, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
 
 				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0, scaleY: 0, ease:Power3.easeIn});
 
-				exportRoot.TL_MainScreen.to(screen_1_onedrive, .6, {x: "-=60", y: "-=90", alpha:0, ease:Power1.easeIn}, "=-0.4");
-				exportRoot.TL_MainScreen.to(screen_2_onedrive, .6, {x: "-=60", y: "-=90", alpha:0, ease:Power2.easeIn}, "-=.55");
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
 
-				exportRoot.TL_MainScreen.from(screen_1_excel, 1.1, {x: "+=120", y: "+=180", ease:Power2.easeOut}, "-=0.6");
-				exportRoot.TL_MainScreen.from(screen_2_excel, 1, {x: "+=120", y: "+=180", ease:Power3.easeOut}, "-=0.85");
+				exportRoot.TL_MainScreen.to(screen_1_excel, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_excel, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
 				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
 
-				exportRoot.TL_MainScreen.to(mc, 0, {onStart:function(){exportRoot.trigger_button()}});
+				exportRoot.TL_MainScreen.add('frame0_end');
 
-				exportRoot.TL_MainScreen.add('frame1');
+				exportRoot.TL_MainScreen.add('1>0_start');
 
-				exportRoot.TL_MainScreen.to(mc, 0, {onComplete:function(){exportRoot.trigger_button()}}, "=+0.01");
-				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0, scaleY: 0, ease:Power3.easeIn});
-
-				exportRoot.TL_MainScreen.to(screen_1_excel, .6, {x: "-=60", y: "-=90", alpha:0, ease:Power1.easeIn}, "=-0.4");
-				exportRoot.TL_MainScreen.to(screen_2_excel, .6, {x: "-=60", y: "-=90", alpha:0, ease:Power2.easeIn}, "-=.55");
-
-				exportRoot.TL_MainScreen.from(screen_1_word, 1.1, {x: "+=120", y: "+=180", ease:Power2.easeOut}, "-=0.6");
-				exportRoot.TL_MainScreen.from(screen_2_word, 1, {x: "+=120", y: "+=180", ease:Power3.easeOut}, "-=0.85");
-				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
-
-				exportRoot.TL_MainScreen.to(mc, 0, {onStart:function(){exportRoot.trigger_button()}});
-
-				exportRoot.TL_MainScreen.add('frame2');
-
-				exportRoot.TL_MainScreen.to(mc, 0, {onComplete:function(){exportRoot.trigger_button()}}, "=+0.01");
+				exportRoot.TL_MainScreen.to(screen_1_excel, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_excel, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
 
 				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});
 
-				exportRoot.TL_MainScreen.to(screen_1_word, .6, {x: "-=60", y: "-=90", alpha:0, ease:Power1.easeIn}, "=-0.4");
-				exportRoot.TL_MainScreen.to(screen_2_word, .6, {x: "-=60", y: "-=90", alpha:0, ease:Power2.easeIn}, "-=.55");
+				exportRoot.TL_MainScreen.to(screen_1_excel, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_excel, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
 
-				exportRoot.TL_MainScreen.from(screen_1_ppt, 1.1, {x: "+=120", y: "+=180", ease:Power2.easeOut}, "-=0.6");
-				exportRoot.TL_MainScreen.from(screen_2_ppt, 1, {x: "+=120", y: "+=180", ease:Power3.easeOut}, "-=0.85");
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+
 				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
 
-				exportRoot.TL_MainScreen.to(mc, 0, {onStart:function(){exportRoot.trigger_button()}});
+				exportRoot.TL_MainScreen.add('1>0_end');
+				exportRoot.TL_MainScreen.add('0>1_start');
 
-				exportRoot.TL_MainScreen.add('frame3');
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_excel, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_excel, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
 
-				exportRoot.TL_MainScreen.to(mc, 0, {onComplete:function(){exportRoot.trigger_button()}}, "=+0.01");
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});
 
-				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0.01, {x:init_onedrive_s1_x+120, y:init_onedrive_s1_y+180, alpha:1, ease:Power2.easeOut});
-				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0.01, {x:init_onedrive_s2_x+120, y:init_onedrive_s2_y+180, alpha:1, ease:Power3.easeOut}, "-=0.01");
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_excel, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_excel, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
+
+				exportRoot.TL_MainScreen.add('0>1_end');
+
+				exportRoot.TL_MainScreen.add('frame1_start');
+
+				exportRoot.TL_MainScreen.to(screen_1_excel, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_excel, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_word, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0, scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_excel, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_excel, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_word, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_word, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
+
+				exportRoot.TL_MainScreen.add('frame1_end');
+
+				exportRoot.TL_MainScreen.add('2>0_start');
+
+				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_word, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_word, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_word, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
+
+				exportRoot.TL_MainScreen.add('2>0_end');
+
+				exportRoot.TL_MainScreen.add('0>2_start');
+
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_word, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_word, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_word, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
+
+				exportRoot.TL_MainScreen.add('0>2_end');
+
+				exportRoot.TL_MainScreen.add('2>1_start');
+
+				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_word, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_excel, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_excel, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_word, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_word, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_excel, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_excel, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
+
+				exportRoot.TL_MainScreen.add('2>1_end');
+
+				exportRoot.TL_MainScreen.add('1>2_start');
+
+				exportRoot.TL_MainScreen.to(screen_1_excel, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_excel, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_word, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_excel, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_excel, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_word, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_word, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
+
+				exportRoot.TL_MainScreen.add('1>2_end');
+
+				exportRoot.TL_MainScreen.add('frame2_start');
+
+				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_word, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_word, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_word, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_ppt, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
+
+				exportRoot.TL_MainScreen.add('frame2_end');
+
+				exportRoot.TL_MainScreen.add('3>0_start');
+
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_ppt, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_ppt, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
+
+				exportRoot.TL_MainScreen.add('3>0_end');
+
+				exportRoot.TL_MainScreen.add('0>3_start');
+
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_ppt, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
+
+				exportRoot.TL_MainScreen.add('0>3_end');
+
+				exportRoot.TL_MainScreen.add('3>1_start');
+
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_excel, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_excel, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_ppt, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_ppt, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_excel, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_excel, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
+
+				exportRoot.TL_MainScreen.add('3>1_end');
+
+				exportRoot.TL_MainScreen.add('1>3_start');
+
+				exportRoot.TL_MainScreen.to(screen_1_excel, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_excel, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_excel, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_excel, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_ppt, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
+
+				exportRoot.TL_MainScreen.add('1>3_end');
+
+				exportRoot.TL_MainScreen.add('3>2_start');
+
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_word, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_ppt, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_ppt, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_word, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_word, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
+
+				exportRoot.TL_MainScreen.add('3>2_end');
+
+				exportRoot.TL_MainScreen.add('2>3_start');
+
+				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_word, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_word, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_word, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_ppt, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
+
+				exportRoot.TL_MainScreen.add('2>3_end');
+
+				exportRoot.TL_MainScreen.add('frame3_start');
+
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0.01, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1, ease:Power2.easeOut});
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0.01, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1, ease:Power3.easeOut}, "-=0.01");
 
 				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn}, "-=0.01");
 
-				exportRoot.TL_MainScreen.to(screen_1_ppt, .6, {x: "-=60", y: "-=90", alpha:0, ease:Power1.easeIn}, "=-0.4");
-				exportRoot.TL_MainScreen.to(screen_2_ppt, .6, {x: "-=60", y: "-=90", alpha:0, ease:Power2.easeIn}, "-=.55");
+				exportRoot.TL_MainScreen.to(screen_1_ppt, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_ppt, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
 
 				exportRoot.TL_MainScreen.to(screen_1_onedrive, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
 				exportRoot.TL_MainScreen.to(screen_2_onedrive, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
 				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
 
-				exportRoot.TL_MainScreen.to(mc, 0, {onStart:function(){exportRoot.trigger_button()}});
-
-				exportRoot.TL_MainScreen.add('frame4');
+				exportRoot.TL_MainScreen.add('frame3_end');
 
 				exportRoot.TL_MainScreen.stop();
+
 
 				//EXPAND ANIMATION
 
@@ -2364,6 +2254,23 @@ if (reversed == null) { reversed = false; }
 				exportRoot.selectedOption(id)
 			}
 
+			exportRoot.jumpMenuClick = function (id, PrevID) {
+				// Check ID is within RANGE
+				if (ClickID < 0) {
+					ClickID = 3;
+				}
+				if (ClickID > 3) {
+					ClickID = 0;
+				}
+				if (PrevID < 0) {
+					PrevID = 3;
+				}
+				if (PrevID > 3) {
+					PrevID = 0;
+				}
+				exportRoot.jumpOption(ClickID, PrevID)
+			}
+
 			exportRoot.subMenuExpand = function (subID) {
 				exportRoot.selectedExpand(subID)
 			}
@@ -2385,6 +2292,31 @@ if (reversed == null) { reversed = false; }
 				exportRoot.subMenuClick(ClickID, direction);
 			}
 
+			exportRoot.jumpMenu1 = function () {
+				PrevID = ClickID;
+				ClickID = 0;
+				amoAdInteraction('Dot1 Click', ClickID);
+				exportRoot.jumpMenuClick(ClickID, PrevID);
+			}
+			exportRoot.jumpMenu2 = function () {
+				PrevID = ClickID;
+				ClickID = 1;
+				amoAdInteraction('Dot2 Click', ClickID);
+				exportRoot.jumpMenuClick(ClickID, PrevID);
+			}
+			exportRoot.jumpMenu3 = function () {
+				PrevID = ClickID;
+				ClickID = 2;
+				amoAdInteraction('Dot3 Click', ClickID);
+				exportRoot.jumpMenuClick(ClickID, PrevID);
+			}
+			exportRoot.jumpMenu4 = function () {
+				PrevID = ClickID;
+				ClickID = 3;
+				amoAdInteraction('Dot4 Click', ClickID);
+				exportRoot.jumpMenuClick(ClickID, PrevID);
+			}
+
 			exportRoot.expandMenu = function (subID) {
 				amoAdInteraction('Expand Click', ClickID);
 				exportRoot.subMenuExpand(subID);
@@ -2398,23 +2330,47 @@ if (reversed == null) { reversed = false; }
 
 			exportRoot.mainMC.hit1.addEventListener("click", exportRoot.setMenu1)
 			exportRoot.mainMC.hit2.addEventListener("click", exportRoot.setMenu2)
+
+			exportRoot.mainMC.dot1.addEventListener("click", exportRoot.jumpMenu1)
+			exportRoot.mainMC.dot2.addEventListener("click", exportRoot.jumpMenu2)
+			exportRoot.mainMC.dot3.addEventListener("click", exportRoot.jumpMenu3)
+			exportRoot.mainMC.dot4.addEventListener("click", exportRoot.jumpMenu4)
+
 			exportRoot.mainMC.hit_expand.addEventListener("click", exportRoot.expandMenu)
 			exportRoot.mainMC.hit_shrink.addEventListener("click", exportRoot.shrinkMenu)
 
 			exportRoot.selectedOption = function (subID) {
-
 				if (direction=="next") {
-					if (subID==0) {exportRoot.TL_MainScreen.tweenFromTo("frame3", "frame4"),dot_4.gotoAndPlay("deselected"),dot_1.gotoAndPlay("selected");}
-					if (subID==1) {exportRoot.TL_MainScreen.tweenFromTo("frame0", "frame1"),dot_1.gotoAndPlay("deselected"),dot_2.gotoAndPlay("selected");}
-					if (subID==2) {exportRoot.TL_MainScreen.tweenFromTo("frame1", "frame2"),dot_2.gotoAndPlay("deselected"),dot_3.gotoAndPlay("selected");}
-					if (subID==3) {exportRoot.TL_MainScreen.tweenFromTo("frame2", "frame3"),dot_3.gotoAndPlay("deselected"),dot_4.gotoAndPlay("selected");}
+					if (subID==0) {exportRoot.TL_MainScreen.tweenFromTo("frame3_start", "frame3_end"),dot_4.gotoAndPlay("deselected"),dot_1.gotoAndPlay("selected");}
+					if (subID==1) {exportRoot.TL_MainScreen.tweenFromTo("frame0_start", "frame0_end"),dot_1.gotoAndPlay("deselected"),dot_2.gotoAndPlay("selected");}
+					if (subID==2) {exportRoot.TL_MainScreen.tweenFromTo("frame1_start", "frame1_end"),dot_2.gotoAndPlay("deselected"),dot_3.gotoAndPlay("selected");}
+					if (subID==3) {exportRoot.TL_MainScreen.tweenFromTo("frame2_start", "frame2_end"),dot_3.gotoAndPlay("deselected"),dot_4.gotoAndPlay("selected");}
 				} else {
-					if (subID==0) {exportRoot.TL_MainScreen.tweenFromTo("frame1", "frame0"),dot_2.gotoAndPlay("deselected"),dot_1.gotoAndPlay("selected");}
-					if (subID==1) {exportRoot.TL_MainScreen.tweenFromTo("frame2", "frame1"),dot_3.gotoAndPlay("deselected"),dot_2.gotoAndPlay("selected");}
-					if (subID==2) {exportRoot.TL_MainScreen.tweenFromTo("frame3", "frame2"),dot_4.gotoAndPlay("deselected"),dot_3.gotoAndPlay("selected");}
-					if (subID==3) {exportRoot.TL_MainScreen.tweenFromTo("frame4", "frame3"),dot_1.gotoAndPlay("deselected"),dot_4.gotoAndPlay("selected");}
+					if (subID==0) {exportRoot.TL_MainScreen.tweenFromTo("frame0_end", "frame0_start"),dot_2.gotoAndPlay("deselected"),dot_1.gotoAndPlay("selected");}
+					if (subID==1) {exportRoot.TL_MainScreen.tweenFromTo("frame1_end", "frame1_start"),dot_3.gotoAndPlay("deselected"),dot_2.gotoAndPlay("selected");}
+					if (subID==2) {exportRoot.TL_MainScreen.tweenFromTo("frame2_end", "frame2_start"),dot_4.gotoAndPlay("deselected"),dot_3.gotoAndPlay("selected");}
+					if (subID==3) {exportRoot.TL_MainScreen.tweenFromTo("frame3_end", "frame3_start"),dot_1.gotoAndPlay("deselected"),dot_4.gotoAndPlay("selected");}
 				}
 				exportRoot.selectedScreenIn(subID)
+			}
+
+			exportRoot.jumpOption = function (ClickID, PrevID) {
+					if (ClickID==0&&PrevID==1) {exportRoot.TL_MainScreen.tweenFromTo("1>0_start", "1>0_end"),dot_2.gotoAndPlay("deselected"),dot_1.gotoAndPlay("selected");}
+					if (ClickID==0&&PrevID==2) {exportRoot.TL_MainScreen.tweenFromTo("2>0_start", "2>0_end"),dot_3.gotoAndPlay("deselected"),dot_1.gotoAndPlay("selected");}
+					if (ClickID==0&&PrevID==3) {exportRoot.TL_MainScreen.tweenFromTo("3>0_start", "3>0_end"),dot_4.gotoAndPlay("deselected"),dot_1.gotoAndPlay("selected");}
+
+					if (ClickID==1&&PrevID==0) {exportRoot.TL_MainScreen.tweenFromTo("0>1_start", "0>1_end"),dot_1.gotoAndPlay("deselected"),dot_2.gotoAndPlay("selected");}
+					if (ClickID==1&&PrevID==2) {exportRoot.TL_MainScreen.tweenFromTo("2>1_start", "2>1_end"),dot_3.gotoAndPlay("deselected"),dot_2.gotoAndPlay("selected");}
+					if (ClickID==1&&PrevID==3) {exportRoot.TL_MainScreen.tweenFromTo("3>1_start", "3>1_end"),dot_4.gotoAndPlay("deselected"),dot_2.gotoAndPlay("selected");}
+					//
+					if (ClickID==2&&PrevID==0) {exportRoot.TL_MainScreen.tweenFromTo("0>2_start", "0>2_end"),dot_1.gotoAndPlay("deselected"),dot_3.gotoAndPlay("selected");}
+					if (ClickID==2&&PrevID==1) {exportRoot.TL_MainScreen.tweenFromTo("1>2_start", "1>2_end"),dot_2.gotoAndPlay("deselected"),dot_3.gotoAndPlay("selected");}
+					if (ClickID==2&&PrevID==3) {exportRoot.TL_MainScreen.tweenFromTo("3>2_start", "3>2_end"),dot_4.gotoAndPlay("deselected"),dot_3.gotoAndPlay("selected");}
+
+					if (ClickID==3&&PrevID==0) {exportRoot.TL_MainScreen.tweenFromTo("0>3_start", "0>3_end"),dot_1.gotoAndPlay("deselected"),dot_4.gotoAndPlay("selected");}
+					if (ClickID==3&&PrevID==1) {exportRoot.TL_MainScreen.tweenFromTo("1>3_start", "1>3_end"),dot_2.gotoAndPlay("deselected"),dot_4.gotoAndPlay("selected");}
+					if (ClickID==3&&PrevID==2) {exportRoot.TL_MainScreen.tweenFromTo("2>3_start", "2>3_end"),dot_3.gotoAndPlay("deselected"),dot_4.gotoAndPlay("selected");}
+				exportRoot.selectedScreenIn(ClickID)
 			}
 
 			exportRoot.selectedExpand = function (subID) {
@@ -2442,13 +2398,7 @@ if (reversed == null) { reversed = false; }
 
 			exportRoot.mainMC.hit.addEventListener("mouseover", mainOver.bind(this));
 			exportRoot.mainMC.hit.addEventListener("mouseout", mainOut.bind(this));
-		/*
-			exportRoot.mainMC.hit.addEventListener("click", function(event) {
-				if (ClickID==0) window.open(clickTag1);
-				if (ClickID==1) window.open(clickTag2);
-				if (ClickID==2) window.open(clickTag3);
-				if (ClickID==3) window.open(clickTag4);
-			}) */
+
 			function mainOver() {
 				exportRoot.mainMC.cta.arrow.gotoAndStop(1);
 			}
@@ -2456,9 +2406,7 @@ if (reversed == null) { reversed = false; }
 				exportRoot.mainMC.cta.arrow.gotoAndStop(0);
 			}
 
-
 			var swipe = new Swipe(exportRoot.mainMC.hit, 50, 100); // distance 50 pixels, duration 100 ms
-
 
 			// 4. add an event to capture swipe
 			swipe.on("swipe", function() {
@@ -2492,7 +2440,7 @@ if (reversed == null) { reversed = false; }
 
 	this._renderFirstFrame();
 
-}).prototype = p = new lib.AnMovieClip();
+}).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(362.4,10.9,366.6,239.1);
 // library properties:
 lib.properties = {
@@ -2503,7 +2451,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_1.png?1603290302797", id:"M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_1"}
+		{src:"images/M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_.png?1605025300450", id:"M365_FY21Q2Holiday_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1_atlas_"}
 	],
 	preloads: []
 };
@@ -2514,7 +2462,7 @@ lib.properties = {
 
 (lib.Stage = function(canvas) {
 	createjs.Stage.call(this, canvas);
-}).prototype = p = new createjs.Stage();
+}).prototype = p = new createjs.StageGL();
 
 p.setAutoPlay = function(autoPlay) {
 	this.tickEnabled = autoPlay;
@@ -2595,14 +2543,6 @@ an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers)
 		stage.tickOnUpdate = false;
 		stage.update();
 		stage.tickOnUpdate = true;
-	}
-}
-an.handleSoundStreamOnTick = function(event) {
-	if(!event.paused){
-		var stageChild = stage.getChildAt(0);
-		if(!stageChild.paused){
-			stageChild.syncStreamSounds();
-		}
 	}
 }
 

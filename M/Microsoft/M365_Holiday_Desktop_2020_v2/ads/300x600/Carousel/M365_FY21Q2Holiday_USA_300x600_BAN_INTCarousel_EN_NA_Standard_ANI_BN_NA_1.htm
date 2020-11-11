@@ -34,7 +34,7 @@ body {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
 <!-- <script src="https://zimjs.org/cdn/cat/00/zim.js"></script> -->
-<script src="js/zim.js"></script>
+		<script src = "js/zim.js"></script>
 <script src="M365_FY21Q2Holiday_USA_300x600_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1.js?1501171107836"></script>
 <meta name="ad.size" content="width=300,height=600">
 <script>
@@ -81,7 +81,7 @@ function handleComplete(evt,comp) {
 	 if (!initReady) {
         startBanner()
     }
-    TweenMax.delayedCall(0.2,function(){
+		TweenMax.delayedCall(0.2,function(){
 			var ctaAlignment = function(position){
 				position = position ? position : 'left';
 				var layers = exportRoot.mainMC;
@@ -227,10 +227,6 @@ var startBanner = function(){
 				var container = myFT.$("#animation_container");
 
 				var varInt
-				//var ClickID	= 0
-
-				//exportRoot.mainMC.hit.addEventListener("click", mainHit.bind(this));
-
 				var rHit = document.getElementById("rHit");
 				rHit.addEventListener("mouseover", rHitOver.bind(this));
 				function rHitOver()  {  exportRoot.mainMC.replay_btn.gotoAndStop(1)	}

@@ -131,7 +131,9 @@ function handleComplete(evt,comp) {
 			bannerData.enlarged_3_2 = eval(bannerData.textField4.split('^')[1]);
 			bannerData.enlarged_4_1 = eval(bannerData.textField5.split('^')[0]);
 			bannerData.enlarged_4_2 = eval(bannerData.textField5.split('^')[1]);
-			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "8px" : "13px"),0,0,"50","300", "center"] : '';
+			var fontSize = (bannerData.ctaText.length >= 12 ? ((bannerData.ctaText.length >= 15) ? "8px" : "11px") : "13px");
+			fontSize = bannerData.ctaText.indexOf('詳') != -1 ? '9.5px' : fontSize;
+			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,fontSize,0,0,"50","300", "center"] : '';
 			var smartNames = [];
 			if(bannerData.textField2.split('^').length > 2) {
 				smartNames.push(bannerData.textField2.split('^')[2]);
