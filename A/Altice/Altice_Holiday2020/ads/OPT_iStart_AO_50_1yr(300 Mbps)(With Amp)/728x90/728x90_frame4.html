@@ -359,7 +359,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 10px;left: 376px;
         gsap.set('.frameText', {y:'100%'});
         gsap.set('div[id^="frameText"][id$="1"], #priceLabel', {x:'-100%',y:0});
         gsap.set('.frameImageLeft', {x:'-100%', y:0});
-        gsap.set('#frameImage1', {x:'-15%'});
+        gsap.set('#frameImage1', {x:'-25%'});
         var beamFrameAnimation = function(frame){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0})
