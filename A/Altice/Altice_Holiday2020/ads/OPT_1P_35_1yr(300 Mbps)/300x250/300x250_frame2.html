@@ -175,16 +175,16 @@
 <script type="text/javascript">
 amo.registerClick("clickUrl","https://www.altice.com");
 amo.registerAttribute("ctaText","TEXT","Shop now");
-amo.registerAttribute("frameText1", "TEXT", "Share the joy");
+amo.registerAttribute("frameText1", "TEXT", "Share more joy");
 amo.registerAttribute("frameText21", "TEXT", "<div style='top: 133px;left: 20px;width: 260px;font-size: 21px;line-height: 1.05;text-align: center;color:#fff;'>300 Mbps Internet</div>");
 amo.registerAttribute("frameText22", "TEXT", "<div class='AlticeRegular' style='top:178px;left:29px;font-size:9px;line-height:1.2;color:#fff;'>Wired connection up to 300 Mbps.<br>WiFi speeds may vary.</div>");
 amo.registerAttribute("frameText31", "TEXT", "<div style='top: 127px;left: 20px;width: 260px;font-size: 20.7px;line-height: 1.05;text-align: center;'>Live, streaming, and<br>On Demand TV</div>");
 amo.registerAttribute("frameText32", "TEXT", "<div class='AlticeRegular' style='top:178px;left:29px;font-size:9px;line-height:1.2;'>Speeds, prices &<br>availability vary by area.</div>");
 amo.registerAttribute("frameText41", "TEXT", "<div style='top: 26px;left: 27px;width: 160px;font-size: 16.2px;line-height: 1;' class='coloredText'>Holiday Deal!</div>");
 amo.registerAttribute("frameText42", "TEXT", "<div style='top: 47px;left: 27px;width: 160px;font-size: 16.2px;line-height: 1;'>Optimum Amplify smart speaker</div>");
-amo.registerAttribute("frameText51", "TEXT", "<div style='top: 19px;left: 25px;font-size: 20.5px;line-height: 1.1;'>300 Mbps<br>Internet & TV</div>");
-amo.registerAttribute("frameText52", "TEXT", "<div style='top: 64px;left: 20px;width: 160px;line-height: 1;'><div style='font-size: 16px;margin-left: 4px;' class='strikeText'>$55/mo.</div><font style='font-size: 60px;letter-spacing: -1.5px;padding-right: 2px;' class='coloredText'>$50</font><font style='margin-left: 3px;font-size: 10px;display: inline-block;vertical-align: 23px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 1px 0 0 5px;font-size: 9px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
-amo.registerAttribute("frameText53", "TEXT", "<div style='top: 167px;left: 21px;transform: scale(0.77);transform-origin: top left;'><div class='bulletedText'>Find out how to get a $100 Visa<span style='vertical-align:5px;font-size:9px;'>®</span> Prepaid Card. <span class='AlticeRegular' style='font-size: 12px;'>Terms apply.</span></div></div>");
+amo.registerAttribute("frameText51", "TEXT", "<div style='top: 21px;left: 23px;font-size: 19.5px;line-height: 1.05;'>300 Mbps<br>Internet</div>");
+amo.registerAttribute("frameText52", "TEXT", "<div style='top: 63px;left: 18px;width: 160px;line-height: 1;'><div style='font-size: 16px;margin-left: 6px;' class='strikeText'>$40/mo.</div><font style='font-size: 64px;letter-spacing: -0.5px;padding-right: 2px;line-height: 0.92;' class='coloredText'>$35</font><font style='margin-left: 1px;font-size: 11px;display: inline-block;vertical-align: 25px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 5px 0 0 5px;font-size: 9px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
+amo.registerAttribute("frameText53", "TEXT", "<div style='top: 171px;left: 22px;transform: scale(0.77);transform-origin: top left;'><div class='bulletedText'>Free installation</div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -247,6 +247,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 167px;left: 21px;
       opacity:1;">
       <!-- <div id="ref" class="asset adSizeContainer"data-image="ref"></div> -->
       <div id="frameVideo1" style="top: 0px;left: 0px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width:auto;"></video></div>
+      <div id="videoOverlay" class="adSizeContainer" style="background-color:rgba(0,0,0,0.3);"></div>
       <div id="frameImage1" class="asset frameImageLeft" data-image="frameImage1"></div>
       <!-- <div id="shape1"
         style="top: 0;
@@ -326,7 +327,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 167px;left: 21px;
           logoImageWhite: 'images/300x250_Logo_Optimum_White.png',
           introLogoImage: 'images/300x250_Logo_Optimum_White.png',
           frameBackground: '1x1.png',
-          frameVideo1: "300x250_sharejoy.mp4",
+          frameVideo1: "300x250_internet.mp4",
           frameVideo2: "300x250_morejoy.mp4",
           frameVideo3: "HolidayBanners_PlayButton.mp4",
           frameImage1: "300x250_OPT_HOL_ACQ_iStartFIB_Amp_50Yr1_NonSub_Fiber2P_Icon_Frame_01.png",
@@ -334,7 +335,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 167px;left: 21px;
           frameImage31: "300x250_OPT_HOL_ACQ_iStartFIB_Amp_50Yr1_NonSub_Fiber2P_Icon_Frame_03.png",
           frameImage41: "300x250_OPT_HOL_ACQ_iStartFIB_Amp_50Yr1_NonSub_Fiber2P_Icon_Frame_04.png",
           frameImage4: "300x250_OPT_HOL_ACQ_iStartFIB_Amp_50Yr1_NonSub_Fiber2P_Img_amplify_Frame_04.png",
-          frameImage5: "300x250_OPT_HOL_ACQ_iStartFIB_Amp_50Yr1_NonSub_Fiber2P_Img_TV_Frame_05.png",
+          frameImage5: "300x250_OPT_HOL_ACQ_INT_300Mb_35Yr1_NonSub_Img_ipad_Frame_05.png",
           // switchImage: '1x1.png',
           // ref: 'OPT AO $65 1 yr. (300 Mbps) (Gift Card With Amp) 300x250-frame5.jpg',
         },
@@ -383,7 +384,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 167px;left: 21px;
         gsap.set('.frameImage', {x:'100%'});
         gsap.set('.frameText, #priceLabel', {x:'-100%'});
         gsap.set('.frameImageLeft', {x:'-100%'});
-        // gsap.set('#frameImage1', {x:'-100%'});
+        gsap.set('#frameImage1', {x:'-50%'});
         // gsap.set('#frameImage5', {y:'-20'});
         var beamFrameAnimation = function(frame){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
@@ -491,7 +492,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 167px;left: 21px;
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
             setTimeout(function(){ gsap.set('#frameText1', {x: '0', autoAlpha: 1}); typingAnimation(ad.layers.frameText1.querySelector('span'), 50, function(){ }); },500);
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frameImage1', {x:0,y:0,delay:1.2})
+            .to('#frameImage1', {x:'100%',y:0,delay:0.4, duration: 1.2})
           }
           ad.layers.frameVideo1.querySelector('video').onended = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.2}})

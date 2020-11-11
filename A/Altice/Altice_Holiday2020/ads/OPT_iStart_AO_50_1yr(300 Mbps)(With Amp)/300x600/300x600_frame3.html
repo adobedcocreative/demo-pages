@@ -167,7 +167,7 @@ amo.registerAttribute("frameText31", "TEXT", "<div style='top: 93px;left: 19px;w
 amo.registerAttribute("frameText32", "TEXT", "<div style='top: 139px;left: 19px;width: 240px;font-size: 28px;line-height: 1;'>Optimum<br>Amplify smart<br>speaker</div>");
 amo.registerAttribute("frameText41", "TEXT", "<div style='top: 87.32px;left: 21.54px;font-size: 28px;line-height:1;'>300 Mbps<br>Internet & TV</div>");
 amo.registerAttribute("frameText42", "TEXT", "<div style='top: 146px;left: 14px;width: 260px;line-height: 1;'><div style='font-size: 23px;margin-left: 8px;' class='strikeText'>$55/mo.</div><font style='font-size: 117px;letter-spacing: -3px;padding-right: 3px;line-height: 0.9;' class='coloredText'>$50</font><font style='margin-left: 5px;font-size: 19px;display: inline-block;vertical-align: 49px;line-height: 0.95;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 7px 0 0 8px;font-size: 14px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
-amo.registerAttribute("frameText43", "TEXT", "<div style='top: 329px;width:420px;left: 21px;transform: scale(0.69);transform-origin: top left;'><div class='bulletedText'>Find out to get a $100 Visa<span style='vertical-align:11px;font-size:14px;'>®</span><br>Prepaid Card. <span class='AlticeRegular' style='font-size: 20px;line-height:1;'>Terms apply.</span></div></div>");
+amo.registerAttribute("frameText43", "TEXT", "<div style='top: 329px;width:420px;left: 21px;transform: scale(0.67);transform-origin: top left;'><div class='bulletedText'>Find out how to get a $100 Visa<span style='vertical-align:11px;font-size:14px;'>®</span> Prepaid Card. <span class='AlticeRegular' style='font-size: 20.5px;line-height:1;'>Terms apply.</span></div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -197,7 +197,8 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 329px;width:420px
     <div id="frameText21" class="frameText">!{frameText21}</div>
     <div id="frameText22" class="frameText">!{frameText22}</div>
     <div id="frameImage3" class="asset frameImage" data-image="frameImage3"></div>
-    <div id="frameImage31" class="asset adSizeContainer" data-image="frameImage31" style="opacity: 0;transform:scale(0.5);transform-origin: 26% 51%;"></div>
+    <!-- <div id="frameImage31" class="asset adSizeContainer" data-image="frameImage31" style="opacity: 0;transform:scale(0.5);transform-origin: 26% 51%;"></div> -->
+    <div id="frameImage31" class="asset adSizeContainer" data-image="frameImage31" style="opacity:0;"></div>
     <div id="frameText31" class="frameText">!{frameText31}</div>
     <div id="frameText32" class="frameText">!{frameText32}</div>
     <!-- <div id="frameText33" class="frameText">!{frameText33}</div> -->
@@ -364,7 +365,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 329px;width:420px
         gsap.set('.frameImage', {x:'100%'});
         gsap.set('.frameText, #priceLabel', {x:'-100%'});
         gsap.set('.frameImageLeft', {x:'-100%', y:0});
-        // gsap.set('#frameImage1', {x:0});
+        gsap.set('#frameImage1', {x:'-50%'});
         var beamFrameAnimation = function(frame){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0})
@@ -425,7 +426,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 329px;width:420px
           ad.layers.cta.classList.remove('ctaWhite');
           gsap.set('#frameBackground', {display: 'block'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage31', {delay:0.5, autoAlpha:1, scale:1, ease: "back.out(1.7)"})
+          .to('#frameImage31', {delay:0.2, autoAlpha:1})
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[3]})
           .to('#frameImage'+frameId+', #frameImage31, div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame4}));
@@ -456,8 +457,8 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 329px;width:420px
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
             setTimeout(function(){ gsap.set('#frameText1', {x: '0', autoAlpha: 1}); typingAnimation(ad.layers.frameText1.querySelector('span'), 50, function(){ }); },500);
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frameImage1', {x:0,y:0,delay:1.2})
-            .to('#frameImage1, #frameText1', {x:'120%',y:0,delay:1.4})
+            .to('#frameImage1', {x:'100%',y:0,delay:0.4, duration: 1.2})
+            .to('#frameText1', {x:'120%',y:0,delay:1.4})
             .to('#frameText11, #frameImage11', {x:0,y:0})
             .to('#frameText12', {delay:-0.2, x:0,y:0})
             // .to('#frameText13', {delay:-0.2, x:0,y:0})

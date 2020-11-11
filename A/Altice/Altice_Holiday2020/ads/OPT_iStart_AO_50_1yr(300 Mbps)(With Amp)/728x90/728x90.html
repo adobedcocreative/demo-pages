@@ -189,8 +189,10 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 10px;left: 376px;
     <div id="frameImage21" class="asset adSizeContainer" data-image="frameImage21" style="opacity:0;transform:scale(0.8);transform-origin: 15% 50%;"></div>
     <div id="frameText21" class="frameText">!{frameText21}</div>
     <div id="frameText22" class="frameText">!{frameText22}</div>
+    <div id="frameText23" class="frameText">!{frameText23}</div>
     <div id="frameImage3" class="asset frameImage" data-image="frameImage3"></div>
-    <div id="frameImage31" class="asset adSizeContainer" data-image="frameImage31" style="opacity:0;transform:scale(0.5);transform-origin: 35% 55%;"></div>
+    <!-- <div id="frameImage31" class="asset adSizeContainer" data-image="frameImage31" style="opacity:0;transform:scale(0.5);transform-origin: 35% 55%;"></div> -->
+    <div id="frameImage31" class="asset adSizeContainer" data-image="frameImage31" style="opacity:0;"></div>
     <div id="frameText31" class="frameText">!{frameText31}</div>
     <div id="frameText32" class="frameText">!{frameText32}</div>
     <!-- <div id="frameText33" class="frameText">!{frameText33}</div> -->
@@ -219,6 +221,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 10px;left: 376px;
       opacity:1;">
       <!-- <div id="ref" class="asset adSizeContainer"data-image="ref"></div> -->
       <div id="frameImage1" class="asset frameImageLeft" data-image="frameImage1"></div>
+      <div id="backgroundGradient" class="adSizeContainer" style="background: linear-gradient(to right, transparent, #f5f4f5, #f5f4f5);width: 300px;right: 0px;left: auto;"></div>
       <div id="frameImage11" class="asset frameImageLeft" data-image="frameImage11"></div>
       <div id="frameText11" class="frameText">!{frameText11}</div>
       <div id="frameText12" class="frameText">!{frameText12}</div>
@@ -356,7 +359,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 10px;left: 376px;
         gsap.set('.frameText', {y:'100%'});
         gsap.set('div[id^="frameText"][id$="1"], #priceLabel', {x:'-100%',y:0});
         gsap.set('.frameImageLeft', {x:'-100%', y:0});
-        // // gsap.set('#frameImage1', {y:0});
+        gsap.set('#frameImage1', {x:'-15%'});
         var beamFrameAnimation = function(frame){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0})
@@ -409,7 +412,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 10px;left: 376px;
           ad.layers.cta.classList.remove('ctaWhite');
           gsap.set('#frameBackground', {display: 'block'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage31', {delay:0.5, autoAlpha:1, scale:1, ease: "back.out(1.7)"})
+          .to('#frameImage31', {delay:0.2, autoAlpha:1})
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[3]})
           .to('#frameImage'+frameId+', #frameImage31, div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame4}));
@@ -440,8 +443,8 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 10px;left: 376px;
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
             setTimeout(function(){ gsap.set('#frameText1', {x: '0', autoAlpha: 1}); typingAnimation(ad.layers.frameText1.querySelector('span'), 50, function(){ }); },500);
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frameImage1', {x:0,y:0,delay:1.2})
-            .to('#frameImage1, #frameText1', {autoAlpha:0,delay:1.4})
+            .to('#frameImage1', {x:'50%',y:0,delay:0.4, duration: 1.2})
+            .to('#frameText1', {autoAlpha:0,delay:1.4})
             .to('#frameText11, #frameImage11', {x:0,y:0})
             .to('#frameText12', {delay:-0.2, x:0,y:0})
             .to('#frameText13', {delay:-0.2, x:0,y:0})

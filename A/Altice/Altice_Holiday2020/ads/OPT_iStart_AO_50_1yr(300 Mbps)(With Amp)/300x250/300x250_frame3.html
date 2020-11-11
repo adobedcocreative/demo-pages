@@ -216,7 +216,8 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 167px;left: 21px;
     <div id="frameText21" class="frameText">!{frameText21}</div>
     <div id="frameText22" class="frameText">!{frameText22}</div>
     <div id="frameImage3" class="asset frameImage" data-image="frameImage3"></div>
-    <div id="frameImage31" class="asset adSizeContainer" data-image="frameImage31" style="opacity:0;transform:scale(0.5);transform-origin: 23% 62%;"></div>
+    <!-- <div id="frameImage31" class="asset adSizeContainer" data-image="frameImage31" style="opacity:0;transform:scale(0.5);transform-origin: 23% 62%;"></div> -->
+    <div id="frameImage31" class="asset adSizeContainer" data-image="frameImage31" style="opacity:0;"></div>
     <div id="frameText31" class="frameText">!{frameText31}</div>
     <div id="frameText32" class="frameText">!{frameText32}</div>
     <!-- <div id="frameText33" class="frameText">!{frameText33}</div> -->
@@ -247,6 +248,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 167px;left: 21px;
       opacity:1;">
       <!-- <div id="ref" class="asset adSizeContainer"data-image="ref"></div> -->
       <div id="frameVideo1" style="top: 0px;left: 0px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width:auto;"></video></div>
+      <div id="videoOverlay" class="adSizeContainer" style="background-color:rgba(0,0,0,0.3);"></div>
       <div id="frameImage1" class="asset frameImageLeft" data-image="frameImage1"></div>
       <!-- <div id="shape1"
         style="top: 0;
@@ -384,7 +386,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 167px;left: 21px;
         gsap.set('.frameImage', {x:'100%'});
         gsap.set('.frameText, #priceLabel', {x:'-100%'});
         gsap.set('.frameImageLeft', {x:'-100%'});
-        // gsap.set('#frameImage1', {x:'-100%'});
+        gsap.set('#frameImage1', {x:'-50%'});
         // gsap.set('#frameImage5', {y:'-20'});
         var beamFrameAnimation = function(frame){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
@@ -458,7 +460,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 167px;left: 21px;
           ad.layers.cta.classList.remove('ctaWhite');
           gsap.set('#frameBackground', {display: 'block'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage31', {delay:0.5, autoAlpha:1, scale:1, ease: "back.out(1.7)"})
+          .to('#frameImage31', {delay:0.2, autoAlpha:1})
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[3]})
           .to('#frameImage'+frameId+', #frameImage31, div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame4}));
@@ -492,8 +494,8 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 167px;left: 21px;
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
             setTimeout(function(){ gsap.set('#frameText1', {x: '0', autoAlpha: 1}); typingAnimation(ad.layers.frameText1.querySelector('span'), 50, function(){ }); },500);
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frameImage1', {x:0,y:0,delay:1.2})
-            .to('#frameImage1, #frameText1', {x:'120%',y:0,delay:1.4})
+            .to('#frameImage1', {x:'100%',y:0,delay:0.4, duration: 1.2})
+            .to('#frameText1', {x:'120%',y:0,delay:1.4})
             .to('#frameText11, #frameImage11', {x:0,y:0})
             .to('#frameText12', {delay:-0.2, x:0,y:0})
             // .to('#frameText13', {delay:-0.2, x:0,y:0})
