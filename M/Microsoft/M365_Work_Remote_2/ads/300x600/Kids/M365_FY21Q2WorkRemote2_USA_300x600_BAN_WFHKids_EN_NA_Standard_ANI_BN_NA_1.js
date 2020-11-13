@@ -2,13 +2,12 @@
 
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
-lib.ssMetadata = [
-		{name:"M365_FY21Q2WorkRemote2_USA_300x600_BAN_WFHKids_EN_NA_Standard_ANI_BN_NA_1_atlas_1", frames: [[3248,0,624,600],[664,602,586,600],[664,0,644,600],[0,0,662,638],[1252,602,586,600],[1310,0,644,600],[3070,602,617,507],[1840,602,586,600],[1956,0,644,600],[2428,602,640,532],[0,640,624,499],[2602,0,644,600]]}
-];
+lib.ssMetadata = [];
 
 
 (lib.AnMovieClip = function(){
 	this.actionFrames = [];
+	this.ignorePause = false;
 	this.gotoAndPlay = function(positionOrLabel){
 		cjs.MovieClip.prototype.gotoAndPlay.call(this,positionOrLabel);
 	}
@@ -27,87 +26,75 @@ lib.ssMetadata = [
 
 
 (lib.BG = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x600_BAN_WFHKids_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(0);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.BG);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,624,600);
 
 
 (lib.bg2 = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x600_BAN_WFHKids_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(1);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.bg2);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,586,600);
 
 
 (lib.bg3 = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x600_BAN_WFHKids_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(2);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.bg3);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,644,600);
 
 
 (lib.BG_blur = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x600_BAN_WFHKids_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(3);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.BG_blur);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,662,638);
 
 
 (lib.bg_blur2 = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x600_BAN_WFHKids_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(4);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.bg_blur2);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,586,600);
 
 
 (lib.bg_blur3 = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x600_BAN_WFHKids_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(5);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.bg_blur3);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,644,600);
 
 
 (lib.FG = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x600_BAN_WFHKids_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(6);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.FG);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,617,507);
 
 
 (lib.fg2 = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x600_BAN_WFHKids_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(7);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.fg2);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,586,600);
 
 
 (lib.fg3 = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x600_BAN_WFHKids_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(8);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.fg3);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,644,600);
 
 
 (lib.FG_Blur = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x600_BAN_WFHKids_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(9);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.FG_Blur);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,640,532);
 
 
 (lib.fg_blur2 = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x600_BAN_WFHKids_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(10);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.fg_blur2);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,624,499);
 
 
 (lib.fg_blur3 = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x600_BAN_WFHKids_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(11);
-}).prototype = p = new cjs.Sprite();
-// helper functions:
+	this.initialize(img.fg_blur3);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,644,600);// helper functions:
 
 function mc_symbol_clone() {
 	var clone = this._cloneProps(new this.constructor(this.mode, this.startPosition, this.loop, this.reversed));
@@ -980,7 +967,7 @@ if (reversed == null) { reversed = false; }
 
 	// Layer_2
 	this.instance = new lib.MSFT_logo_sq();
-	this.instance.setTransform(298.9,342.5,0.291,0.291,0,0,0,-39.4,2.3);
+	this.instance.setTransform(298.9,342.5,0.291,0.291,0,0,0,-39.4,2.2);
 	this.instance._off = true;
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1).to({_off:false},0).to({regX:-40,regY:1.4,scaleX:4.815,scaleY:4.815,x:298.7,y:348.6},13,cjs.Ease.quadOut).to({x:31.1},12,cjs.Ease.quadInOut).to({_off:true},1).wait(74));
@@ -1239,7 +1226,7 @@ if (reversed == null) { reversed = false; }
 	// CTA_BG
 	this.cta = new lib.CTA_btn();
 	this.cta.name = "cta";
-	this.cta.setTransform(318.05,544.95,1.1404,1.1404,0,0,0,0.3,0.3);
+	this.cta.setTransform(317.95,544.85,1.1404,1.1404,0,0,0,0.2,0.2);
 
 	this.timeline.addTween(cjs.Tween.get(this.cta).wait(1));
 
@@ -1675,7 +1662,7 @@ if (reversed == null) { reversed = false; }
 
 				mc.logo_intro.gotoAndPlay(1);
 
-		
+
 
 
 		}
@@ -1704,7 +1691,18 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/M365_FY21Q2WorkRemote2_USA_300x600_BAN_WFHKids_EN_NA_Standard_ANI_BN_NA_1_atlas_1.png?1602238795226", id:"M365_FY21Q2WorkRemote2_USA_300x600_BAN_WFHKids_EN_NA_Standard_ANI_BN_NA_1_atlas_1"}
+		{src:"images/BG.jpg", id:"BG"},
+		{src:"images/bg2.jpg", id:"bg2"},
+		{src:"images/bg3.jpg", id:"bg3"},
+		{src:"images/BG_blur.png", id:"BG_blur"},
+		{src:"images/bg_blur2.jpg", id:"bg_blur2"},
+		{src:"images/bg_blur3.jpg", id:"bg_blur3"},
+		{src:"images/FG.png", id:"FG"},
+		{src:"images/fg2.png", id:"fg2"},
+		{src:"images/fg3.png", id:"fg3"},
+		{src:"images/FG_Blur.png", id:"FG_Blur"},
+		{src:"images/fg_blur2.png", id:"fg_blur2"},
+		{src:"images/fg_blur3.png", id:"fg_blur3"}
 	],
 	preloads: []
 };
@@ -1801,7 +1799,7 @@ an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers)
 an.handleSoundStreamOnTick = function(event) {
 	if(!event.paused){
 		var stageChild = stage.getChildAt(0);
-		if(!stageChild.paused){
+		if(!stageChild.paused || stageChild.ignorePause){
 			stageChild.syncStreamSounds();
 		}
 	}

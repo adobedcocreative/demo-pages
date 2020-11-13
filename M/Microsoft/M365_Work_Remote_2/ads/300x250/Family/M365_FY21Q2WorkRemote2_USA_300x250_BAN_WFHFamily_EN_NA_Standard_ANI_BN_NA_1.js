@@ -2,13 +2,12 @@
 
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
-lib.ssMetadata = [
-		{name:"M365_FY21Q2WorkRemote2_USA_300x250_BAN_WFHFamily_EN_NA_Standard_ANI_BN_NA_1_atlas_1", frames: [[1837,578,460,313],[622,0,882,588],[1506,0,864,576],[1506,578,329,484],[622,590,451,307],[3240,611,489,261],[0,0,620,930],[1075,590,393,321],[3318,0,756,609],[2372,491,866,471],[3240,874,452,253],[2372,0,944,489]]}
-];
+lib.ssMetadata = [];
 
 
 (lib.AnMovieClip = function(){
 	this.actionFrames = [];
+	this.ignorePause = false;
 	this.gotoAndPlay = function(positionOrLabel){
 		cjs.MovieClip.prototype.gotoAndPlay.call(this,positionOrLabel);
 	}
@@ -27,87 +26,75 @@ lib.ssMetadata = [
 
 
 (lib.b1blur = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x250_BAN_WFHFamily_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(0);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.b1blur);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,460,313);
 
 
 (lib.backgroundf1 = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x250_BAN_WFHFamily_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(1);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.backgroundf1);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,882,588);
 
 
 (lib.BG3 = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x250_BAN_WFHFamily_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(2);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.BG3);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,864,576);
 
 
 (lib.BG2blur = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x250_BAN_WFHFamily_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(3);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.BG2blur);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,329,484);
 
 
 (lib.BG3blur = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x250_BAN_WFHFamily_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(4);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.BG3blur);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,451,307);
 
 
 (lib.f1blur = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x250_BAN_WFHFamily_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(5);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.f1blur);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,489,261);
 
 
 (lib.f2BG = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x250_BAN_WFHFamily_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(6);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.f2BG);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,620,930);
 
 
 (lib.F2blur = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x250_BAN_WFHFamily_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(7);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.F2blur);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,393,321);
 
 
 (lib.f2FG = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x250_BAN_WFHFamily_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(8);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.f2FG);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,756,609);
 
 
 (lib.FG3 = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x250_BAN_WFHFamily_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(9);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.FG3);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,866,471);
 
 
 (lib.FG3blur = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x250_BAN_WFHFamily_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(10);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.FG3blur);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,452,253);
 
 
 (lib.forgroundf1 = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x250_BAN_WFHFamily_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(11);
-}).prototype = p = new cjs.Sprite();
-// helper functions:
+	this.initialize(img.forgroundf1);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,944,489);// helper functions:
 
 function mc_symbol_clone() {
 	var clone = this._cloneProps(new this.constructor(this.mode, this.startPosition, this.loop, this.reversed));
@@ -995,14 +982,14 @@ if (reversed == null) { reversed = false; }
 	// blur
 	this.blur = new lib.fg3blur();
 	this.blur.name = "blur";
-	this.blur.setTransform(215.3,119.3,1,1,0,0,0,225.5,126.3);
+	this.blur.setTransform(215.3,119.2,1,1,0,0,0,225.5,126.2);
 	this.blur.alpha = 0;
 
 	this.timeline.addTween(cjs.Tween.get(this.blur).wait(1));
 
 	// Layer_1
 	this.instance = new lib.FG3();
-	this.instance.setTransform(0,1.35,0.5,0.5);
+	this.instance.setTransform(0,1.35);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
@@ -1032,7 +1019,6 @@ if (reversed == null) { reversed = false; }
 
 	// Layer_1
 	this.instance = new lib.f2FG();
-	this.instance.setTransform(0,0,0.5,0.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
@@ -1062,7 +1048,7 @@ if (reversed == null) { reversed = false; }
 
 	// Layer_1
 	this.instance = new lib.f2BG();
-	this.instance.setTransform(0,0,0.5,0.5);
+	this.instance.setTransform(0,0,0.9804,0.9804);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
@@ -1085,14 +1071,14 @@ if (reversed == null) { reversed = false; }
 	// Layer_2
 	this.blur = new lib.f1blur_1();
 	this.blur.name = "blur";
-	this.blur.setTransform(222.35,126.75,1,1,0,0,0,230,133.3);
+	this.blur.setTransform(222.35,126.65,1,1,0,0,0,230,133.2);
 	this.blur.alpha = 0;
 
 	this.timeline.addTween(cjs.Tween.get(this.blur).wait(1));
 
 	// Layer_1
 	this.instance = new lib.forgroundf1();
-	this.instance.setTransform(-0.9,0,0.5005,0.5006);
+	this.instance.setTransform(-0.9,0,1.0011,1.0013);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
@@ -1122,7 +1108,6 @@ if (reversed == null) { reversed = false; }
 
 	// Layer_1
 	this.instance = new lib.backgroundf1();
-	this.instance.setTransform(0,0,0.5,0.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
@@ -1152,7 +1137,6 @@ if (reversed == null) { reversed = false; }
 
 	// Layer_1
 	this.instance = new lib.BG3();
-	this.instance.setTransform(0,0,0.5,0.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
@@ -1283,7 +1267,7 @@ if (reversed == null) { reversed = false; }
 	// CTA_BG
 	this.cta = new lib.CTA_btn();
 	this.cta.name = "cta";
-	this.cta.setTransform(118.2,218.35,1.1404,1.1404,0,0,0,0.3,0.3);
+	this.cta.setTransform(118.1,218.25,1.1404,1.1404,0,0,0,0.2,0.2);
 
 	this.timeline.addTween(cjs.Tween.get(this.cta).wait(1));
 
@@ -1740,7 +1724,18 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/M365_FY21Q2WorkRemote2_USA_300x250_BAN_WFHFamily_EN_NA_Standard_ANI_BN_NA_1_atlas_1.png?1602236682398", id:"M365_FY21Q2WorkRemote2_USA_300x250_BAN_WFHFamily_EN_NA_Standard_ANI_BN_NA_1_atlas_1"}
+		{src:"images/b1blur.png", id:"b1blur"},
+		{src:"images/backgroundf1.png", id:"backgroundf1"},
+		{src:"images/BG3.png", id:"BG3"},
+		{src:"images/BG2blur.png", id:"BG2blur"},
+		{src:"images/BG3blur.png", id:"BG3blur"},
+		{src:"images/f1blur.png", id:"f1blur"},
+		{src:"images/f2BG.png", id:"f2BG"},
+		{src:"images/F2blur.png", id:"F2blur"},
+		{src:"images/f2FG.png", id:"f2FG"},
+		{src:"images/FG3.png", id:"FG3"},
+		{src:"images/FG3blur.png", id:"FG3blur"},
+		{src:"images/forgroundf1.png", id:"forgroundf1"}
 	],
 	preloads: []
 };
@@ -1837,7 +1832,7 @@ an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers)
 an.handleSoundStreamOnTick = function(event) {
 	if(!event.paused){
 		var stageChild = stage.getChildAt(0);
-		if(!stageChild.paused){
+		if(!stageChild.paused || stageChild.ignorePause){
 			stageChild.syncStreamSounds();
 		}
 	}

@@ -2,13 +2,12 @@
 
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
-lib.ssMetadata = [
-		{name:"M365_FY21Q2WorkRemote2_USA_300x250_BAN_YPHeadphones_EN_NA_Standard_ANI_BN_NA_1_atlas_1", frames: [[602,455,600,446],[1204,455,600,446],[1204,903,600,419],[0,0,600,453],[602,0,600,453],[1204,1324,600,419],[1204,0,600,453],[602,903,600,446],[0,910,600,439],[0,1351,600,419],[0,455,600,453],[602,1351,600,419]]}
-];
+lib.ssMetadata = [];
 
 
 (lib.AnMovieClip = function(){
 	this.actionFrames = [];
+	this.ignorePause = false;
 	this.gotoAndPlay = function(positionOrLabel){
 		cjs.MovieClip.prototype.gotoAndPlay.call(this,positionOrLabel);
 	}
@@ -27,87 +26,75 @@ lib.ssMetadata = [
 
 
 (lib.bg = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x250_BAN_YPHeadphones_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(0);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.bg);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,600,446);
 
 
 (lib.bg1_blur1 = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x250_BAN_YPHeadphones_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(1);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.bg1_blur1);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,600,446);
 
 
 (lib.bg2 = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x250_BAN_YPHeadphones_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(2);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.bg2);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,600,419);
 
 
 (lib.bg31 = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x250_BAN_YPHeadphones_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(3);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.bg31);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,600,453);
 
 
 (lib.bg3b = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x250_BAN_YPHeadphones_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(4);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.bg3b);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,600,453);
 
 
 (lib.bg_blur21 = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x250_BAN_YPHeadphones_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(5);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.bg_blur21);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,600,419);
 
 
 (lib.bg_blur3 = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x250_BAN_YPHeadphones_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(6);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.bg_blur3);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,600,453);
 
 
 (lib.fg = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x250_BAN_YPHeadphones_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(7);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.fg);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,600,446);
 
 
 (lib.fg1_blur1 = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x250_BAN_YPHeadphones_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(8);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.fg1_blur1);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,600,439);
 
 
 (lib.fg2 = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x250_BAN_YPHeadphones_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(9);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.fg2);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,600,419);
 
 
 (lib.fg3 = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x250_BAN_YPHeadphones_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(10);
-}).prototype = p = new cjs.Sprite();
-
+	this.initialize(img.fg3);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,600,453);
 
 
 (lib.fg_blur2 = function() {
-	this.initialize(ss["M365_FY21Q2WorkRemote2_USA_300x250_BAN_YPHeadphones_EN_NA_Standard_ANI_BN_NA_1_atlas_1"]);
-	this.gotoAndStop(11);
-}).prototype = p = new cjs.Sprite();
-// helper functions:
+	this.initialize(img.fg_blur2);
+}).prototype = p = new cjs.Bitmap();
+p.nominalBounds = new cjs.Rectangle(0,0,600,419);// helper functions:
 
 function mc_symbol_clone() {
 	var clone = this._cloneProps(new this.constructor(this.mode, this.startPosition, this.loop, this.reversed));
@@ -341,7 +328,7 @@ if (reversed == null) { reversed = false; }
 
 	// Layer_1
 	this.instance = new lib.bg3b();
-	this.instance.setTransform(0,0,0.5874,0.5874);
+	this.instance.setTransform(0,0,1.0128,1.0128);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
@@ -407,7 +394,7 @@ if (reversed == null) { reversed = false; }
 
 	// Layer_1
 	this.instance = new lib.fg_blur2();
-	this.instance.setTransform(0,0,0.5745,0.5745);
+	this.instance.setTransform(0,0,1.0079,1.0079);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
@@ -475,7 +462,7 @@ if (reversed == null) { reversed = false; }
 
 	// Layer_1
 	this.instance = new lib.fg1_blur1();
-	this.instance.setTransform(0,0,0.5673,0.5673);
+	this.instance.setTransform(0,0,0.9299,0.9299);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
@@ -1007,7 +994,7 @@ if (reversed == null) { reversed = false; }
 
 	// Layer_1
 	this.instance = new lib.fg2();
-	this.instance.setTransform(-56,10,0.5746,0.5746);
+	this.instance.setTransform(-56,10,1.008,1.008);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
@@ -1036,7 +1023,7 @@ if (reversed == null) { reversed = false; }
 
 	// Layer_1
 	this.instance = new lib.bg2();
-	this.instance.setTransform(-71.85,-7,0.6175,0.6175);
+	this.instance.setTransform(-71.85,-7,0.9959,0.9959);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
@@ -1066,7 +1053,7 @@ if (reversed == null) { reversed = false; }
 
 	// Layer_1
 	this.instance = new lib.fg();
-	this.instance.setTransform(-71.4,-10,0.6121,0.6121);
+	this.instance.setTransform(-71.4,-10,1.0034,1.0034);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
@@ -1096,7 +1083,7 @@ if (reversed == null) { reversed = false; }
 
 	// Layer_1
 	this.instance = new lib.bg();
-	this.instance.setTransform(-40,0,0.5673,0.5673);
+	this.instance.setTransform(-40,0,0.9952,0.9952);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
@@ -1148,7 +1135,7 @@ if (reversed == null) { reversed = false; }
 
 	// Layer_1
 	this.instance = new lib.bg31();
-	this.instance.setTransform(22.2,19.9,0.5571,0.5571);
+	this.instance.setTransform(22.2,19.9,1.0129,1.0129);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
@@ -1250,7 +1237,7 @@ if (reversed == null) { reversed = false; }
 
 	// Layer_1
 	this.instance = new lib.fg3();
-	this.instance.setTransform(9,5,0.5875,0.5875);
+	this.instance.setTransform(9,5,1.0129,1.0129);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
@@ -1308,7 +1295,7 @@ if (reversed == null) { reversed = false; }
 	// CTA_BG
 	this.cta = new lib.CTA_btn();
 	this.cta.name = "cta";
-	this.cta.setTransform(118.2,218.35,1.1404,1.1404,0,0,0,0.3,0.3);
+	this.cta.setTransform(118.1,218.25,1.1404,1.1404,0,0,0,0.2,0.2);
 
 	this.timeline.addTween(cjs.Tween.get(this.cta).wait(1));
 
@@ -1783,7 +1770,18 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/M365_FY21Q2WorkRemote2_USA_300x250_BAN_YPHeadphones_EN_NA_Standard_ANI_BN_NA_1_atlas_1.png?1602241883848", id:"M365_FY21Q2WorkRemote2_USA_300x250_BAN_YPHeadphones_EN_NA_Standard_ANI_BN_NA_1_atlas_1"}
+		{src:"images/bg.jpg", id:"bg"},
+		{src:"images/bg1_blur1.jpg", id:"bg1_blur1"},
+		{src:"images/bg2.jpg", id:"bg2"},
+		{src:"images/bg31.jpg", id:"bg31"},
+		{src:"images/bg3b.png", id:"bg3b"},
+		{src:"images/bg_blur21.jpg", id:"bg_blur21"},
+		{src:"images/bg_blur3.jpg", id:"bg_blur3"},
+		{src:"images/fg.png", id:"fg"},
+		{src:"images/fg1_blur1.png", id:"fg1_blur1"},
+		{src:"images/fg2.png", id:"fg2"},
+		{src:"images/fg3.png", id:"fg3"},
+		{src:"images/fg_blur2.png", id:"fg_blur2"}
 	],
 	preloads: []
 };
@@ -1880,7 +1878,7 @@ an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers)
 an.handleSoundStreamOnTick = function(event) {
 	if(!event.paused){
 		var stageChild = stage.getChildAt(0);
-		if(!stageChild.paused){
+		if(!stageChild.paused || stageChild.ignorePause){
 			stageChild.syncStreamSounds();
 		}
 	}
