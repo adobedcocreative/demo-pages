@@ -181,7 +181,7 @@ amo.registerAttribute("frameText22", "TEXT", "<div style='top: 92px;left: 37px;w
 amo.registerAttribute("frameText31", "TEXT", "<div style='top: 133px;left: 20px;width: 260px;font-size: 21px;line-height: 1.05;text-align: center;color:#fff;'>300 Mbps Internet</div>");
 amo.registerAttribute("frameText32", "TEXT", "<div class='AlticeRegular' style='top: 168px;left: 24px;font-size: 9px;line-height: 1.1;color:#fff;'>Wired connection up to 300 Mbps.<br>WiFi speeds may vary. Speeds, prices<br>& availability vary by area.</div>");
 amo.registerAttribute("frameText41", "TEXT", "<div style='top: 104px;left: 20px;width: 260px;font-size: 23px;line-height: 1;text-align: center;'><font class='coloredText'>1.5x the speed</font> of Fios<sup style='font-size:60%;vertical-align: 70%;'>®</sup> for $5/mo. less</div>");
-amo.registerAttribute("frameText42", "TEXT", "<div class='AlticeRegular' style='top:165px;left:24px;font-size:9px;line-height:1.15;'>Based on Verizon Fios<sup style='font-size:54%;'>®</sup><br>200 Mbps $39.99 Internet offer<br>download speed as of 10/19/20.</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div class='AlticeRegular' style='top:165px;left:24px;font-size:9px;line-height:1.15;'>Based on Verizon Fios<sup style='font-size:54%;'>®</sup><br>200 Mbps $39.99 Internet offer<br>download speed as of 11/02/20.</div>");
 amo.registerAttribute("frameText51", "TEXT", "<div style='top: 21px;left: 23px;font-size: 19.5px;line-height: 1.05;'>300 Mbps<br>Internet</div>");
 amo.registerAttribute("frameText52", "TEXT", "<div style='top: 63px;left: 18px;width: 160px;line-height: 1;'><div style='font-size: 16px;margin-left: 6px;' class='strikeText'>$40/mo.</div><font style='font-size: 64px;letter-spacing: -0.5px;padding-right: 2px;line-height: 0.92;' class='coloredText'>$35</font><font style='margin-left: 1px;font-size: 11px;display: inline-block;vertical-align: 25px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 5px 0 0 5px;font-size: 9px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
 amo.registerAttribute("frameText53", "TEXT", "<div style='top: 171px;left: 22px;transform: scale(0.77);transform-origin: top left;'><div class='bulletedText'>Free installation</div></div>");
@@ -212,6 +212,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 171px;left: 22px;
     <div id="frameText22" class="frameText">!{frameText22}</div>
     <!-- <div id="frameImage3" class="asset frameImage" data-image="frameImage3"></div> -->
     <div id="frameVideo3" class="adSizeContainer" style="top: 0px;left: 0px;width: inherit;height: inherit;opacity:0;"><video muted playsinline autoplay style="width: auto;"></video></div>
+    <div id="videoOverlay" class="adSizeContainer" style="background-color:rgba(0,0,0,0.3);opacity:0;"></div>
     <div id="frameImage3" class="asset frameImageLeft" data-image="frameImage3"></div>
     <div id="frameText31" class="frameText">!{frameText31}</div>
     <div id="frameText32" class="frameText">!{frameText32}</div>
@@ -472,13 +473,13 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 171px;left: 22px;
           var playVideo = function() { if(video) { video.play(); } }
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#logoImage', {autoAlpha:0, duration:0})
-          .to('#frameVideo3, #logoImageWhite', {x:0, y:0, autoAlpha:1, onComplete:playVideo})
+          .to('#frameVideo3, #videoOverlay, #logoImageWhite', {x:0, y:0, autoAlpha:1, onComplete:playVideo})
           .to('#frameText'+frameId+'1, #frameImage'+frameId, {x:0,y:0})
           .to('#frameText'+frameId+'2', {delay:-0.2, x:0,y:0})
           .to('#frameText'+frameId+'3', {delay:-0.2, x:0,y:0});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           // .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[frameId]})
-          .to('#frameImage'+frameId+', #frameVideo3, #logoImageWhite, div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame4}))
+          .to('#frameImage'+frameId+', #frameVideo3, #videoOverlay, #logoImageWhite, div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame4}))
           .to('#logoImage', {autoAlpha:1, duration:0})
         }
         var animateFrame2 = function(flag){
@@ -492,11 +493,11 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 171px;left: 22px;
         }
         var animateFrame1 = function(flag){
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
-            setTimeout(function(){ gsap.set('#frameText1', {x: '0', autoAlpha: 1}); typingAnimation(ad.layers.frameText1.querySelector('span'), 50, function(){ }); },500);
+            setTimeout(function(){ gsap.set('#frameText1', {x: '0', autoAlpha: 1}); typingAnimation(ad.layers.frameText1.querySelector('span'), 50, function(){ }); },550);
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frameImage12', {delay:0.3, autoAlpha:1, scale:1, ease: "back.out(1.7)"})
+            .to('#frameImage12', {delay:0.3, autoAlpha:1, scale:1})
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frameImage1', {x:'100%',y:0,delay:0.4, duration: 1.2})
+            .to('#frameImage1', {x:'100%',y:0,delay:0.4, duration: 2})
           }
           ad.layers.frameVideo1.querySelector('video').onended = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.2}})

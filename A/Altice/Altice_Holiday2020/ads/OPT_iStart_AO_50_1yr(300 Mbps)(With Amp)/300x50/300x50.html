@@ -321,8 +321,8 @@ amo.registerAttribute("frameText53", "TEXT", "&nbsp;");
         var animateFrame1 = function(flag){
           setTimeout(function(){ gsap.set('#frameText1', {x: '0', autoAlpha: 1}); typingAnimation(ad.layers.frameText1.querySelector('span'), 40, function(){ }); },500);
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage1', {x:'80%',y:0,delay:0.4, duration: 1.2})
-          .to('#frame1', (flag==true?{}:{delay:1.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          .to('#frameImage1', {x:'80%',y:0,delay:0.4, duration: 2})
+          .to('#frame1', (flag==true?{}:{delay:0.5, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
           // ad.layers.frameVideo1.querySelector('video').onplay = function(){
           //   gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           //   .to('#frameText1', {autoAlpha:1})

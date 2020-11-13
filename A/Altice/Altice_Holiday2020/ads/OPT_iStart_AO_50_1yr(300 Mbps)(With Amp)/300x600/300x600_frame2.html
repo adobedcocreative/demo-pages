@@ -455,10 +455,10 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 329px;width:420px
         // }
         var animateFrame1 = function(flag){
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
-            setTimeout(function(){ gsap.set('#frameText1', {x: '0', autoAlpha: 1}); typingAnimation(ad.layers.frameText1.querySelector('span'), 50, function(){ }); },500);
+            setTimeout(function(){ gsap.set('#frameText1', {x: '0', autoAlpha: 1}); typingAnimation(ad.layers.frameText1.querySelector('span'), 50, function(){ }); },550);
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frameImage1', {x:'100%',y:0,delay:0.4, duration: 1.2})
-            .to('#frameText1', {x:'120%',y:0,delay:1.4})
+            .to('#frameImage1', {x:'100%',y:0,delay:0.4, duration: 2})
+            .to('#frameText1', {x:'120%',y:0,delay:0.6})
             .to('#frameText11, #frameImage11', {x:0,y:0})
             .to('#frameText12', {delay:-0.2, x:0,y:0})
             // .to('#frameText13', {delay:-0.2, x:0,y:0})
