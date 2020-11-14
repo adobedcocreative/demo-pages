@@ -26,7 +26,7 @@
            vertical-align: middle;
            text-align: center;
 
-  	}
+      }
   	body {
 		overflow: hidden;
 	}
@@ -54,6 +54,8 @@
 var canvas, canvas1, canvas2, canvas3, canvas4, stage, stage1, stage2, stage3, stage4, exportRoot, exportRoot1, exportRoot2, exportRoot3, exportRoot4, anim_container, dom_overlay_container, fnStartAnimation, screen1, screen2, screen3, screen4;
 var canRelease = false
 var canDrag = true
+var initMouseEvents = false
+
 function iOS() {
   return [
     'iPad Simulator',
@@ -518,10 +520,14 @@ startBanner = function(){
                 var throwdistance=0
                 var isDrag = false
 
-                   exportRoot.dragPress = function() {
-                    if (canDrag) {
-                       canRelease = true
+                    var mouseX, prevMouseX;
+                    mouseX = stage.mouseX
 
+                exportRoot.dragPress = function() {
+                    if (canDrag && initMouseEvents) {
+                    canRelease = true
+                    prevMouseX = mouseX
+                    mouseX = stage.mouseX
                    isDrag = true
                    gsap.killTweensOf(mesh.rotation)
                    throwdistance_pastTick = throwdistance_thisTick
@@ -547,26 +553,29 @@ startBanner = function(){
                    mesh.rotation.y = (differenceAngle/100 * percentDrag)+lowestAngle;
                     }
                 };
-
-                function giveMeTheRightAnglePlease(floatNum) {
-                    var num = ((floatNum+throwdistance) / 1.5708)
+                function giveMeTheRightAnglePlease(floatNum, checkMouse) {
+                    if (checkMouse>1) throwdistance=0
+                    if (throwdistance>10) throwdistance=10
+                    if (throwdistance<-10) throwdistance=-10
+					var num = ((floatNum+throwdistance) / 1.5708)
                     num = Math.round(num)
                     return num * 1.5708
                 }
                 var idArray = new Array(2,1,0,3,3)
                 var faceID = 0
                 exportRoot.mainMC.hit.addEventListener("pressup", function() { exportRoot.releaseDrag()})
-                exportRoot.mainMC.hit.addEventListener("pressmove", function() {exportRoot.dragPress()})
+                exportRoot.mainMC.hit.addEventListener("pressmove", function() {throwdistance_pastTick = throwdistance_thisTick; exportRoot.dragPress()})
                 exportRoot.mainMC.hit.addEventListener("mousedown", function() {canDrag = true;})
 								exportRoot.mainMC.hit.addEventListener("click", function() { if(!canRelease) amoAdClick(faceID); })
 
                exportRoot.releaseDrag = function() {
-                   if (canRelease) {
+                   var checkMouse = Math.abs(prevMouseX-stage.mouseX)
+                   if (canRelease && initMouseEvents) {
                         if (isDrag) {
                         isDrag = false
                         init=0
                         var currentRotation = mesh.rotation.y
-                        var toLocation = giveMeTheRightAnglePlease(mesh.rotation.y)
+                        var toLocation = giveMeTheRightAnglePlease(currentRotation, checkMouse)
                         faceID = (toLocation/(Math.PI*2))
                         faceID = (parseFloat(faceID).toFixed( 2 )- Math.floor(faceID))*4
                         faceID = (faceID==4) ? 0 : faceID
@@ -584,7 +593,7 @@ startBanner = function(){
                        gsap.killTweensOf(mesh.rotation);
 
                         // console.log("currentRotation"+mesh.rotation.y+"  toLocation:"+toLocation+"  distance:"+distance +" throwdistance:"+throwdistance+ "  easeAmount:"+easeAmount)
-                        gsap.to(mesh.rotation,2,{y:toLocation, ease:"elastic.out(1, 0.6)"});
+                        gsap.to(mesh.rotation,2,{y:toLocation, ease:"elastic.out(1, 0.6)", onComplete:function(){canRelease = false;}});
                         //console.log("faceID:"+faceID)
 												amoAdInteraction(faceID);
                         if (!isIOS) vidID[0].pause()
@@ -744,7 +753,7 @@ loader.load( '3d/cube320x480.gltf', function ( gltf ) {
 
                 var loadingImg = document.getElementById("img");
                 gsap.from(mesh.rotation, 3, {y:"-=4.71238898",ease:"elastic.out(0.2, 0.2)"});
-                gsap.from(mesh.position, 3, {z:"-=10",     ease:"elastic.out(0.1, 0.1)", onComplete:function(){loadingImg.style.display="none"}});
+                gsap.from(mesh.position, 3, {z:"-=10",     ease:"elastic.out(0.1, 0.1)", onComplete:function(){initMouseEvents=true;loadingImg.style.display="none"}});
 
 				camera.lookAt( new THREE.Vector3(0,0,0) );
 

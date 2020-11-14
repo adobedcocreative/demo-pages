@@ -26,7 +26,7 @@
            vertical-align: middle;
            text-align: center;
 
-  	}
+      }
   	body {
 		overflow: hidden;
 	}
@@ -54,6 +54,8 @@
 var canvas, canvas1, canvas2, canvas3, canvas4, stage, stage1, stage2, stage3, stage4, exportRoot, exportRoot1, exportRoot2, exportRoot3, exportRoot4, anim_container, dom_overlay_container, fnStartAnimation, screen1, screen2, screen3, screen4;
 var canRelease = false
 var canDrag = true
+var initMouseEvents = false
+
 function iOS() {
   return [
     'iPad Simulator',
@@ -525,18 +527,22 @@ startBanner = function(){
                 var throwdistance=0
                 var isDrag = false
 
-                   exportRoot.dragPress = function() {
-                    if (canDrag) {
-                       canRelease = true
+                    var mouseX, prevMouseX;
+                    mouseX = stage.mouseX
+
+                exportRoot.dragPress = function() {
+                    if (canDrag && initMouseEvents) {
+                    canRelease = true
+                    prevMouseX = mouseX
+                    mouseX = stage.mouseX
 
                    isDrag = true
-                   gsap.killTweensOf(mesh.rotation)
                    throwdistance_pastTick = throwdistance_thisTick
                    throwdistance_thisTick = mesh.rotation.y
+                    gsap.killTweensOf(mesh.rotation)
                    throwdistance = throwdistance_thisTick - throwdistance_pastTick
                    throwdistance =throwdistance*15
                    percentDrag = (stage.mouseX/300) * 100;
-
 
                    if (init==0) {
                     init=1 ;
@@ -554,9 +560,14 @@ startBanner = function(){
 
                    mesh.rotation.y = (differenceAngle/100 * percentDrag)+lowestAngle;
                     }
-                };
 
-                function giveMeTheRightAnglePlease(floatNum) {
+                };
+                function giveMeTheRightAnglePlease(floatNum, checkMouse) {
+                	console.log("throwdistance: "+throwdistance+"    checkMouse:"+checkMouse)
+                    if (checkMouse>1) throwdistance=0
+                    if (throwdistance>10) throwdistance=10
+                    if (throwdistance<-10) throwdistance=-10
+
                     var num = ((floatNum+throwdistance) / 1.5708)
                     num = Math.round(num)
                     return num * 1.5708
@@ -569,12 +580,13 @@ startBanner = function(){
 								exportRoot.mainMC.hit.addEventListener("click", function() { if(!canRelease) amoAdClick(faceID); })
 
                exportRoot.releaseDrag = function() {
-                   if (canRelease) {
+                   var checkMouse = Math.abs(prevMouseX-stage.mouseX)
+                   if (canRelease && initMouseEvents) {
                         if (isDrag) {
                         isDrag = false
                         init=0
                         var currentRotation = mesh.rotation.y
-                        var toLocation = giveMeTheRightAnglePlease(mesh.rotation.y)
+                        var toLocation = giveMeTheRightAnglePlease(currentRotation, checkMouse)
                         faceID = (toLocation/(Math.PI*2))
                         faceID = (parseFloat(faceID).toFixed( 2 )- Math.floor(faceID))*4
                         faceID = (faceID==4) ? 0 : faceID
@@ -592,7 +604,7 @@ startBanner = function(){
                        gsap.killTweensOf(mesh.rotation);
 
                         // console.log("currentRotation"+mesh.rotation.y+"  toLocation:"+toLocation+"  distance:"+distance +" throwdistance:"+throwdistance+ "  easeAmount:"+easeAmount)
-                        gsap.to(mesh.rotation,2,{y:toLocation, ease:"elastic.out(1, 0.6)"});
+                        gsap.to(mesh.rotation,2,{y:toLocation, ease:"elastic.out(1, 0.6)", onComplete:function(){canRelease = false;}});
                         //console.log("faceID:"+faceID)
 												amoAdInteraction(faceID);
                         if (!isIOS) vidID[0].pause()
@@ -602,7 +614,7 @@ startBanner = function(){
                            //vidID[idArray[faceID]-1].currentTime = 0.2;
                             vidID[faceID-1].play()
                         }
-                        canRelease = false
+
 
                     }
                 }
@@ -749,7 +761,7 @@ loader.load( '3d/Cube.gltf', function ( gltf ) {
 
                 var loadingImg = document.getElementById("img");
                 gsap.from(mesh.rotation, 3, {y:"-=4.71238898",ease:"elastic.out(0.5, 0.6)"});
-                gsap.from(mesh.position, 3, {z:"-=40",     ease:"elastic.out(0.5, 0.6)", onComplete:function(){loadingImg.style.display="none"}});
+                gsap.from(mesh.position, 3, {z:"-=40",     ease:"elastic.out(0.5, 0.6)", onComplete:function(){initMouseEvents=true;loadingImg.style.display="none"}});
 
 				camera.lookAt( new THREE.Vector3(0,0,0) );
 
