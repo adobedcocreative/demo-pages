@@ -157,7 +157,7 @@
 <script type="text/javascript">
 amo.registerClick("clickUrl","https://www.altice.com");
 amo.registerAttribute("ctaText","TEXT","Shop now");
-amo.registerAttribute("frameText1", "TEXT", "Share<br>the joy");
+amo.registerAttribute("frameText1", "TEXT", "Moving? Unpack a holiday deal");
 amo.registerAttribute("frameText11", "TEXT", "<div style='top: 312px;left: 10px;width: 140px;font-size: 20.7px;line-height: 1;text-align: center;'>300 Mbps<br>Internet</div>");
 amo.registerAttribute("frameText12", "TEXT", "<div class='AlticeRegular' style='top:445px;width: 130px;left:18px;font-size:10px;line-height:1.15;'>Wired connection<br>up to 300 Mbps.<br>WiFi speeds may vary.</div>");
 amo.registerAttribute("frameText21", "TEXT", "<div style='top: 255px;left: 5px;width: 150px;font-size: 19.8px;line-height: 1;text-align: center;'>Live,<br>streaming,<br>and<br>On Demand TV</div>");
@@ -229,6 +229,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 235px;width:170px
       <!-- <div id="ref" class="asset adSizeContainer"data-image="ref"></div> -->
       <div id="frameVideo1" style="top: 0px;left: 0px;width: inheritheight: inherit;"><video muted playsinline autoplay style="width:auto;"></video></div>
       <div id="frameImage1" class="asset frameImageLeft" data-image="frameImage1"></div>
+      <div id="frameImage12" class="asset adSizeContainer" data-image="frameImage12"></div>
       <!-- <div id="shape1"
         style="top: 0;
           left: -23px;
@@ -248,11 +249,11 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 235px;width:170px
       <div id="frameText1" class="text-top AlticeBold"
         data-text="frameText1"
         data-style="text-align:center;"
-        style="top: 249px;
+        style="top: 312px;
           left: 5px;
           width: 150px;
           height: 120px;
-          font-size: 25px;
+          font-size: 24px;
           line-height: 1;">
       </div>
       <div id="frameImage11" class="asset frameImageLeft" data-image="frameImage11"></div>
@@ -313,6 +314,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 235px;width:170px
           frameVideo2: "HolidayBanners_PlayButton.mp4",
           frameImage1: "160x600_OPT_HOL_ACQ_iStartFIB_Amp_50Yr1_NonSub_Fiber2P_Icon_Frame_01.png",
           frameImage11: "160x600_OPT_HOL_ACQ_iStartFIB_Amp_50Yr1_NonSub_Fiber2P_Icon_Frame_02.png",
+          frameImage12: "160x600_OPT_Mov_ACQ_1P_HolidaySale_35Yr1_NonSub_Generic_Icon_02_Frame_01.png",
           frameImage21: "160x600_OPT_HOL_ACQ_iStartFIB_Amp_50Yr1_NonSub_Fiber2P_Icon_Frame_03.png",
           frameImage31: "160x600_OPT_HOL_ACQ_iStartFIB_Amp_50Yr1_NonSub_Fiber2P_Icon_Frame_04.png",
           frameImage3: "160x600_OPT_HOL_ACQ_iStartFIB_Amp_50Yr1_NonSub_Fiber2P_Img_amplify_Frame_04.png",
@@ -366,7 +368,8 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 235px;width:170px
         gsap.set('.frameImage', {x:'100%'});
         gsap.set('.frameText, #priceLabel', {x:'-100%'});
         gsap.set('.frameImageLeft', {x:'-100%', y:0});
-        gsap.set('#frameImage1', {x:'-60%'});
+        gsap.set('#frameImage12', {x:'-100%'});
+        gsap.set('#frameImage1', {x:'-60%', y: 25});
         var beamFrameAnimation = function(frame){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0})
@@ -456,10 +459,12 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 235px;width:170px
         // }
         var animateFrame1 = function(flag){
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
-            setTimeout(function(){ gsap.set('#frameText1', {x: '0', autoAlpha: 1}); typingAnimation(ad.layers.frameText1.querySelector('span'), 50, function(){ }); },550);
+            setTimeout(function(){ gsap.set('#frameText1', {x: '0', autoAlpha: 1}); typingAnimation(ad.layers.frameText1.querySelector('span'), 30, function(){ }); },550);
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frameImage1', {x:'100%',y:0,delay:0.4, duration: 2})
-            .to('#frameText1', {x:'120%',y:0,delay:0.6})
+            .to('#frameImage12', {delay:0.3, x: 0})
+            gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+            .to('#frameImage1', {x:'100%', delay:0.4, duration: 2})
+            .to('#frameText1, #frameImage12', {x:'120%',y:0,delay:0.6})
             .to('#frameText11, #frameImage11', {x:0,y:0})
             .to('#frameText12', {delay:-0.2, x:0,y:0})
             // .to('#frameText13', {delay:-0.2, x:0,y:0})
