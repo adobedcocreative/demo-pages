@@ -432,34 +432,6 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 215px;left: 13px;
           .to('#frameImage'+frameId, {duration:0, onComplete: beamFrameAnimation, onCompleteParams:[4]})
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame5}));
         }
-        // var animateFrame3 = function(flag){
-        //   var frameId = 3;
-        //   gsap.set('#frameBackground', {display: 'block'});
-        //   gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-        //   .to('#frameImage31', {delay:1, autoAlpha:1, scale:1, ease: "back.out(1.7)"})
-        //   var video = ad.root.querySelector('#frameImage' + frameId + ' video');
-        //   var playVideo = function() {
-        //     gsap.timeline({defaults:{ease: 'none', duration:0.7}})
-        //     // .to('#frameImage3', {x:0})
-        //     if(video) { video.play(); }
-        //   }
-        //   gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-        //   .to('#frameImage'+frameId, {duration:0.1, autoAlpha: 1, onComplete: playVideo})
-        //   .to('#frameText'+frameId+'1', {delay:0.5,x:0,y:0, autoAlpha: 1})
-        //   .to('#frameText'+frameId+'2', {delay:-0.2, x:0,y:0})
-        //   .to('#frameText'+frameId+'3', {delay:-0.2, x:0,y:0});
-        //   gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-        //   // .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[3]})
-        //   .to('#frameImage'+frameId+', #frameImage31, div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame4}));
-        // }
-        // var animateFrame2 = function(flag){
-        //   var frameId = 2;
-        //   gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-        //   .to('#frameImage21', {delay:0.2, autoAlpha:1, scale:1})
-        //   gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-        //   .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[2]})
-        //   .to('#frameImage'+frameId+', #frameImage21, div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}));
-        // }
         var animateFrame3 = function(flag){
           var frameId = 3;
           gsap.set('#frameBackground', {display: 'block'});
