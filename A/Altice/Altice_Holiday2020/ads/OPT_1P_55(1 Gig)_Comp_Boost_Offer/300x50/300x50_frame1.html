@@ -106,13 +106,17 @@ amo.registerAttribute("ctaText","TEXT","Shop now");
 amo.registerAttribute("frameImage1", "IMAGE", "300x50_OPT_HOL_ACQ_INT_300Mb_35Yr1_NonSub_Icon_Frame_01.png");
 amo.registerAttribute("frameImage2", "IMAGE", "1x1.png");
 amo.registerAttribute("frameImage3", "TEXT", "1x1.png");
+amo.registerAttribute("frameImage4", "TEXT", "1x1.png");
 amo.registerAttribute("frameText1", "TEXT", "Share more joy");
-amo.registerAttribute("frameText21", "TEXT", "<div style='top:7px;left:8px;'><div class='bulletedText'>Up to 300 Mbps Internet</div></div>");
-amo.registerAttribute("frameText22", "TEXT", "<div style='top:22px;left:8px;'><div class='bulletedText'>Free installation</div></div>");
-amo.registerAttribute("frameText23", "TEXT", "<div class='AlticeRegular' style='top:35px;left:20px;font-size:9px;'>Speeds, prices & availability vary by area.</div>");
-amo.registerAttribute("frameText31", "TEXT", "<div style='top:2px;left:8px;font-size:13px;'>300 Mbps Internet</div>");
-amo.registerAttribute("frameText32", "TEXT", "<div style='top: 18px;left: 6px;width: 220px;line-height: 1;'><font style='font-size: 27.5px;' class='coloredText'>$35</font><font style='margin-left: 3px;font-size: 9px;display: inline-block;vertical-align: 3px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: -23px 0 0 76px;font-size: 9px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
+amo.registerAttribute("frameText21", "TEXT", "<div style='top:6px;left:8px;'><div class='bulletedText'>1 Gig Internet</div></div>");
+amo.registerAttribute("frameText22", "TEXT", "<div style='top:21px;left:8px;'><div class='bulletedText'>Smart WiFi coverage</div></div>");
+amo.registerAttribute("frameText23", "TEXT", "<div class='AlticeRegular' style='top: 36px;left: 11px;font-size: 9.1px;'>Wired connection up to 940 Mbps.</div>");
+amo.registerAttribute("frameText31", "TEXT", "<div style='top: 12px;left: 8px;font-size: 12.5px;line-height: 1.1;'>Exclusive $10 discount FOR LIFE</div>");
+amo.registerAttribute("frameText32", "TEXT", "<div class='AlticeRegular' style='top: 28px;left: 8px;font-size: 9.1px;'>Speeds, prices & availability vary by area.</div>");
 amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
+amo.registerAttribute("frameText41", "TEXT", "<div style='top:7px;left:8px;font-size:13px;line-height:1.1;'>1 Gig<br>Internet</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div style='top: 5px;left: 63px;width: 220px;line-height: 1;'><font style='font-size: 27.5px;' class='coloredText'>$55</font><font style='margin-left: 1px;font-size: 9px;display: inline-block;vertical-align: 13px;'>/mo.</font><div style='color: #fff;background: #0084d6;display: table;font-size: 9px;padding: 2px 5px 1px 3px;border-radius: 0px 10px 10px 0px;margin-left: 1px;margin-top: 1px;'>FOR LIFE</div><div class='AlticeRegular' style='margin: -39px 0 0 76px;font-size: 9px;line-height: 1.2;width: 64px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
+amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -137,6 +141,10 @@ amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
     <div id="frameText31" class="frameText">!{frameText31}</div>
     <div id="frameText32" class="frameText">!{frameText32}</div>
     <div id="frameText33" class="frameText">!{frameText33}</div>
+    <div id="frameImage41" class="asset frameImage" data-image="frameImage4"></div>
+    <div id="frameText41" class="frameText">!{frameText41}</div>
+    <div id="frameText42" class="frameText">!{frameText42}</div>
+    <div id="frameText43" class="frameText">!{frameText43}</div>
     <div id="cta" class="text AlticeBold"
       data-text="ctaText"
       style="top: 5px;
@@ -287,8 +295,8 @@ amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
         var animateFrame3 = function(flag){
           var frameId = 3;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[3]})
-          // .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame4}));
+          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[3]})
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame4}));
         }
         var animateFrame2 = function(flag){
           var frameId = 2;
