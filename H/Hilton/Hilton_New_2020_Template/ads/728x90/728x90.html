@@ -65,11 +65,18 @@
       <div id="overlayColor" class="frame"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
+      <div id="staticLogoImage" class="asset frame" data-image="staticLogoImage"
+        style="top: 0px;
+          left: 506px;
+          width: 80px;
+          height: 90px;">
+      </div>
       <div id="whitePatch"
         style="top: 48px;
           left: 632px;
           width: 82px;
-          height: 2px;">
+          height: 2px;
+          background-color:#fff;">
       </div>
       <div id="frameText1" dir="auto" class="text-left"
         data-text="frameText1"
@@ -145,6 +152,7 @@
             }
           ],
           staticData: {
+            staticLogoImage: 'images/Hilton_White_Logo.png',
             // ref:'ref1.png',
           },
           beforeLoad: function(data){
@@ -160,6 +168,86 @@
               return text;
             }
             data.map(function(content){
+              var displayValue = "";
+              try{
+                displayValue = content['ut1'].toUpperCase();
+              } catch (e) {}
+              var hiltonCodes = splitCodes("PR,TW,HS,HN,HI,HH,HF,HILT,GV");
+              var waldorfCodes = splitCodes("WA");
+              var embassyCodes = splitCodes("ES");
+              var doubleTreeCodes = splitCodes("DR,DI,DH,DG,DC,DT");
+              var conradCodes = splitCodes("CI,CH");
+              var hiltonGardenCodes = splitCodes("GI");
+              var hamptonCodes = splitCodes("XS,HP,HX");
+              var homewoodCodes = splitCodes("HW");
+              var home2Codes = splitCodes("H2,HT");
+              var lxrCodes = splitCodes("LXR");
+              var canopyCodes = splitCodes("CA");
+              var curioCodes = splitCodes("CU");
+              var mottoCodes = splitCodes("MT");
+              var truCodes = splitCodes("TR");
+              var tapestryCodes = splitCodes("TP");
+              var matchingCodes = (displayValue && displayValue.length)?(splitCodes(displayValue + "")):null;
+              var whitePatchColor = "#fff";
+              var staticLogoImageURL = "hilton";
+              var logoColor = "white";
+
+              if(matchingCodes){
+                for(var matchIndex in matchingCodes){
+                  if(hiltonCodes.indexOf(matchingCodes[matchIndex]) != -1){
+                    // document.querySelector("#staticLogoImage").style.width = '75px';
+                    // document.querySelector("#staticLogoImage").style.left = '508px';
+                  }else if(waldorfCodes.indexOf(matchingCodes[matchIndex]) != -1){
+                    staticLogoImageURL = 'waldorf';
+                  }else if(embassyCodes.indexOf(matchingCodes[matchIndex]) != -1){
+                    staticLogoImageURL = 'embassysuites';
+                    document.querySelector("#staticLogoImage").style.width = '38px';
+                    document.querySelector("#staticLogoImage").style.left = '542px';
+                  }else if(doubleTreeCodes.indexOf(matchingCodes[matchIndex]) != -1){
+                    staticLogoImageURL = 'doubletree';
+                    document.querySelector("#staticLogoImage").style.width = '50px';
+                    document.querySelector("#staticLogoImage").style.left = '538px';
+                  }else if(conradCodes.indexOf(matchingCodes[matchIndex]) != -1){
+                    staticLogoImageURL = 'conrad';
+                    document.querySelector("#staticLogoImage").style.top = '-2px';
+                    document.querySelector("#staticLogoImage").style.left = '486px';
+                    document.querySelector("#staticLogoImage").style.width = '100px';
+                    document.querySelector("#staticLogoImage").style.height = '94px';
+                  }else if(hiltonGardenCodes.indexOf(matchingCodes[matchIndex]) != -1){
+                    staticLogoImageURL = 'hgi';
+                  }else if(hamptonCodes.indexOf(matchingCodes[matchIndex]) != -1){
+                    staticLogoImageURL = 'hampton';
+                  }else if(homewoodCodes.indexOf(matchingCodes[matchIndex]) != -1){
+                    staticLogoImageURL = 'homewood';
+                  }else if(home2Codes.indexOf(matchingCodes[matchIndex]) != -1){
+                    staticLogoImageURL = 'home2';
+                  }else if(lxrCodes.indexOf(matchingCodes[matchIndex]) != -1){
+                    staticLogoImageURL = 'lxr';
+                  }else if(canopyCodes.indexOf(matchingCodes[matchIndex]) != -1){
+                    staticLogoImageURL = 'canopy';
+                  }else if(curioCodes.indexOf(matchingCodes[matchIndex]) != -1){
+                    staticLogoImageURL = 'curio';
+                    document.querySelector("#staticLogoImage").style.left = '522px';
+                    document.querySelector("#staticLogoImage").style.width = '65px';
+                  }else if(mottoCodes.indexOf(matchingCodes[matchIndex]) != -1){
+                    staticLogoImageURL = 'mottoCodes';
+                  }else if(truCodes.indexOf(matchingCodes[matchIndex]) != -1){
+                    staticLogoImageURL = 'try';
+                  }else if(tapestryCodes.indexOf(matchingCodes[matchIndex]) != -1){
+                    staticLogoImageURL = 'tapestry';
+                  }
+                }
+              }
+              // document.querySelector("#whitePatch").style.backgroundColor = whitePatchColor;
+              content['staticLogoImage'] = '../../assets/images/' + staticLogoImageURL  + '_' + logoColor + '.png';
+
+              function splitCodes(str){
+                if(str && str.length > 0){
+                  return (str.toLowerCase().replace(/\s/g, "").split(","));
+                }
+                return str;
+              }
+
               content.ctaBtn = content.ctaBtnColor.split('^')[0];
               content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
               content.frameTextFlag3 = Boolean(content.frameText3 != '' && content.frameText3.toLowerCase() != 'na');
@@ -181,58 +269,6 @@
             } catch(e) {  }
           }
 
-          var displayValue = "";
-          try{
-            displayValue = adData['ut1'].toUpperCase();
-          } catch (e) {}
-          var hiltonCodes = splitCodes("PR,TW,HS,HN,HI,HH,HF,HILT,GV");
-          var waldorfCodes = splitCodes("WA");
-          var embassyCodes = splitCodes("ES");
-          var doubleTreeCodes = splitCodes("DR,DI,DH,DG,DC,DT");
-          var conradCodes = splitCodes("CI,CH");
-          var hiltonGardenCodes = splitCodes("GI");
-          var hamptonCodes = splitCodes("XS,HP,HX");
-          var homewoodCodes = splitCodes("HW");
-          var home2Codes = splitCodes("H2,HT");
-          var lxr = splitCodes("LX");
-          var matchingCodes = (displayValue && displayValue.length)?(splitCodes(displayValue + "")):null;
-          var whitePatchColor = "#fff";
-
-          if(matchingCodes){
-            for(var matchIndex in matchingCodes){
-              if(hiltonCodes.indexOf(matchingCodes[matchIndex]) != -1){
-                
-              }else if(waldorfCodes.indexOf(matchingCodes[matchIndex]) != -1){
-                whitePatchColor = '#000';
-              }else if(embassyCodes.indexOf(matchingCodes[matchIndex]) != -1){
-                
-              }else if(doubleTreeCodes.indexOf(matchingCodes[matchIndex]) != -1){
-                
-              }else if(conradCodes.indexOf(matchingCodes[matchIndex]) != -1){
-                whitePatchColor = '#000';
-              }else if(hiltonGardenCodes.indexOf(matchingCodes[matchIndex]) != -1){
-                
-              }else if(hamptonCodes.indexOf(matchingCodes[matchIndex]) != -1){
-                
-              }else if(homewoodCodes.indexOf(matchingCodes[matchIndex]) != -1){
-                
-              }else if(home2Codes.indexOf(matchingCodes[matchIndex]) != -1){
-               
-              }else if(lxr.indexOf(matchingCodes[matchIndex]) != -1){
-                whitePatchColor = '#000';
-              }else{
-
-              }
-            }
-          }
-          ad.layers.whitePatch.style.backgroundColor = whitePatchColor;
-
-          function splitCodes(str){
-            if(str && str.length > 0){
-              return (str.toLowerCase().replace(/\s/g, "").split(","));
-            }
-            return str;
-          }
           textUpdate();
 
           // if(adData.layout.toLowerCase() != 'generic'){
@@ -265,7 +301,7 @@
           }
           var adHeight = 90;
           gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.5}})
-          .from('#logoImage', {y:-adHeight/2})
+          .from('#staticLogoImage', {y:-adHeight/2})
           .from('#cta', {y:adHeight/2}, '-=0.5')
           .from('#whitePatch', {scaleY:0}, '-=0.5')
           .from('#frameText1', {autoAlpha:0, y:'-20%'})
