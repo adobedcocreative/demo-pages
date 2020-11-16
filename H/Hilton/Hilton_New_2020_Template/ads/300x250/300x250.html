@@ -63,9 +63,8 @@
     <div class="" id="ad">
       <div id="backgroundImage" class="asset frame" data-image="backgroundImage"></div>
       <div id="overlayColor" class="frame"></div>
-      <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
-      <div id="logoImage" class="asset frame" data-image="logoImage"></div>
-      <div id="staticLogoImage" class="asset frame" data-image="staticLogoImage"
+      <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->     
+      <div id="logoImage" class="asset frame" data-image="logoImage"
         style="top: 157px;
           left: 0px;
           width: 137px;
@@ -139,7 +138,7 @@
         ad.contentSetup({
           cam: {
             backgroundImage: 'assets/300x250_Hilton_New_BackgroundImage.png',
-            logoImage: 'assets/Hilton_Logo.png',
+            logoColor: 'white',
             frameText1: "HERE’S TO YOUR<br>NEXT MEMORY",
             frameText2: "WHENEVER<br>YOU’RE READY",
             frameText3: "na", //<div class='LoewBold'>SOUTH BEACH</div>FROM $XX//<div class='LoewBold'>HILTON<br>SANTA MONICA</div>FROM $XX
@@ -155,6 +154,7 @@
           ],
           staticData: {
             // ref:'ref1.png',
+            layout: 'homepage',
           },
           beforeLoad: function(data){
             var replaceMacro = function(text, data) {
@@ -188,55 +188,69 @@
               var mottoCodes = splitCodes("MT");
               var truCodes = splitCodes("TR");
               var tapestryCodes = splitCodes("TP");
+
               var matchingCodes = (displayValue && displayValue.length)?(splitCodes(displayValue + "")):null;
               var whitePatchColor = "#fff";
-              var staticLogoImageURL = "hilton";
+              var logoImageName = "hilton";
               var logoColor = "white";
 
               if(matchingCodes){
                 for(var matchIndex in matchingCodes){
                   if(hiltonCodes.indexOf(matchingCodes[matchIndex]) != -1){
-                    // document.querySelector("#staticLogoImage").style.width = '75px';
-                    // document.querySelector("#staticLogoImage").style.left = '508px';
+                    // document.querySelector("#logoImage").style.width = '75px';
+                    // document.querySelector("#logoImage").style.left = '508px';
                   }else if(waldorfCodes.indexOf(matchingCodes[matchIndex]) != -1){
-                    staticLogoImageURL = 'waldorf';
+                    logoImageName = 'waldorf';
+                    document.querySelector("#logoImage").style.height = '95px';
+                    document.querySelector("#logoImage").style.top = '157px';
                   }else if(embassyCodes.indexOf(matchingCodes[matchIndex]) != -1){
-                    staticLogoImageURL = 'embassysuites';
-                    document.querySelector("#staticLogoImage").style.height = '45px';
-                    document.querySelector("#staticLogoImage").style.top = '182px';
+                    logoImageName = 'embassysuites';
+                    document.querySelector("#logoImage").style.height = '45px';
+                    document.querySelector("#logoImage").style.top = '182px';
                   }else if(doubleTreeCodes.indexOf(matchingCodes[matchIndex]) != -1){
-                    staticLogoImageURL = 'doubletree';
-                    document.querySelector("#staticLogoImage").style.height = '56px';
-                    document.querySelector("#staticLogoImage").style.top = '177px';
+                    logoImageName = 'doubletree';
+                    document.querySelector("#logoImage").style.height = '56px';
+                    document.querySelector("#logoImage").style.top = '177px';
                   }else if(conradCodes.indexOf(matchingCodes[matchIndex]) != -1){
-                    staticLogoImageURL = 'conrad';
+                    logoImageName = 'conrad';
                   }else if(hiltonGardenCodes.indexOf(matchingCodes[matchIndex]) != -1){
-                    staticLogoImageURL = 'hgi';
+                    logoImageName = 'hgi';
+                    document.querySelector("#logoImage").style.height = '94px';
                   }else if(hamptonCodes.indexOf(matchingCodes[matchIndex]) != -1){
-                    staticLogoImageURL = 'hampton';
+                    logoImageName = 'hampton';
+                    document.querySelector("#logoImage").style.height = '60px';
+                    document.querySelector("#logoImage").style.top = '175px';
+                    document.querySelector("#logoImage").style.width = '137px';
                   }else if(homewoodCodes.indexOf(matchingCodes[matchIndex]) != -1){
-                    staticLogoImageURL = 'homewood';
+                    logoImageName = 'homewood';
+                    document.querySelector("#logoImage").style.height = '91px';
+                    document.querySelector("#logoImage").style.top = '160px';
                   }else if(home2Codes.indexOf(matchingCodes[matchIndex]) != -1){
-                    staticLogoImageURL = 'home2';
+                    logoImageName = 'home2';
+                    document.querySelector("#logoImage").style.height = '90px';
+                    document.querySelector("#logoImage").style.top = '160px';
                   }else if(lxrCodes.indexOf(matchingCodes[matchIndex]) != -1){
-                    staticLogoImageURL = 'lxr';
+                    logoImageName = 'lxr';
+                    document.querySelector("#logoImage").style.height = '96px';
                   }else if(canopyCodes.indexOf(matchingCodes[matchIndex]) != -1){
-                    staticLogoImageURL = 'canopy';
+                    logoImageName = 'canopy';
                   }else if(curioCodes.indexOf(matchingCodes[matchIndex]) != -1){
-                    staticLogoImageURL = 'curio';
-                    document.querySelector("#staticLogoImage").style.top = '165px';
-                    document.querySelector("#staticLogoImage").style.height = '80px';
+                    logoImageName = 'curio';
+                    document.querySelector("#logoImage").style.top = '165px';
+                    document.querySelector("#logoImage").style.height = '80px';
                   }else if(mottoCodes.indexOf(matchingCodes[matchIndex]) != -1){
-                    staticLogoImageURL = 'mottoCodes';
+                    logoImageName = 'motto';
                   }else if(truCodes.indexOf(matchingCodes[matchIndex]) != -1){
-                    staticLogoImageURL = 'try';
+                    logoImageName = 'tru';
+                    document.querySelector("#logoImage").style.height = '70px';
+                    document.querySelector("#logoImage").style.top = '170px';
                   }else if(tapestryCodes.indexOf(matchingCodes[matchIndex]) != -1){
-                    staticLogoImageURL = 'tapestry';
+                    logoImageName = 'tapestry';
                   }
                 }
               }
               // document.querySelector("#whitePatch").style.backgroundColor = whitePatchColor;
-              content['staticLogoImage'] = '../../assets/images/' + staticLogoImageURL  + '_' + logoColor + '.png';
+              content['logoImage'] = 'images/' + logoImageName  + '_' + content['logoColor'].toLowerCase() + '.png';
 
               function splitCodes(str){
                 if(str && str.length > 0){
@@ -277,7 +291,7 @@
           }
           var adWidth = 300;
           gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.5}})
-          .from('#staticLogoImage', {x:-adWidth/2})
+          .from('#logoImage', {x:-adWidth/2})
           .from('#cta', {x:adWidth/2}, '-=0.5')
           .from('#whitePatch', {scaleY:0}, '-=0.5')
           .from('#frameText1', {autoAlpha:0, y:'-20%'})
