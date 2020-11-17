@@ -159,9 +159,8 @@
       var getCAMData = function(data) {
           var templates = {
             'Simplified': `var cam = {
-              layout: data.Layout,
               backgroundImage: '../../assets/'+data.backgroundImage,
-              logoImage: '../../assets/'+data.logoImage,
+              logoColor: data.logoColor,
               frameText1: data.frameText1,
               frameText2: data.frameText2,
               frameText3: data.frameText3,
@@ -201,7 +200,7 @@
         var filterString = queryString.split('|').length > 2 ? queryString.split('|').splice(2).join('|') : '';
         var adContent = getData(queryString),adContents = {};
         var country = adContent.data[0].Country;
-        var layoutName = adContent.name;
+        var layoutName = "adContent.name";
         location.hash = btoa(country+'|'+layoutName).replace('==','');
         htmlContent += adData.map(function(data){ return '<div '+(country == data.name ? 'class="selected"' : '')+' data-id="' + data.name + '">'+data.name + '</div>' }).join('');
         document.querySelector('#header').innerHTML = htmlContent;
@@ -227,7 +226,7 @@
         }
         document.querySelector('#subsubheader').innerHTML = htmlContent;
         htmlContent = '';
-        htmlContent = adContent.data[0].Country + ' | ' + adContent.data[0].Layout + ' | ' + filterString.split('|').join(' | ');
+        htmlContent = adContent.data[0].Country + ' | ' + filterString.split('|').join(' | ');
         document.querySelector('#title').innerHTML = htmlContent;
         var headers = document.querySelectorAll('#header > div');
         for(var i = 0; i < headers.length; i++) {
