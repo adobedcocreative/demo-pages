@@ -192,7 +192,6 @@
               var matchingCodes = (displayValue && displayValue.length)?(splitCodes(displayValue + "")):null;
               var whitePatchColor = "#fff";
               var logoImageName = "hilton";
-              var logoColor = "white";
 
               if(matchingCodes){
                 for(var matchIndex in matchingCodes){
@@ -209,8 +208,9 @@
                     document.querySelector("#logoImage").style.top = '182px';
                   }else if(doubleTreeCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'doubletree';
-                    document.querySelector("#logoImage").style.height = '56px';
-                    document.querySelector("#logoImage").style.top = '177px';
+                    document.querySelector("#logoImage").style.width = '150px';
+                    document.querySelector("#logoImage").style.height = '120px';
+                    document.querySelector("#logoImage").style.top = '145px';
                   }else if(conradCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'conrad';
                   }else if(hiltonGardenCodes.indexOf(matchingCodes[matchIndex]) != -1){
