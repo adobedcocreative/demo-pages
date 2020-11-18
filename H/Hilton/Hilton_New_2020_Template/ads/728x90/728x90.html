@@ -186,6 +186,7 @@
               var mottoCodes = splitCodes("UA");
               var truCodes = splitCodes("RU");
               var tapestryCodes = splitCodes("UP");
+              var hgvCodes = splitCodes("HG");
 
               var matchingCodes = (displayValue && displayValue.length)?(splitCodes(displayValue + "")):null;
               var whitePatchColor = "#fff";
@@ -247,6 +248,11 @@
                     document.querySelector("#logoImage").style.width = '62px';
                   }else if(tapestryCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'tapestry';
+                  }else if(hgvCodes.indexOf(matchingCodes[matchIndex]) != -1){
+                    logoImageName = 'hgv';
+                    whitePatchColor = '#000';
+                    document.querySelector("#logoImage").style.width = '78px';
+                    document.querySelector("#logoImage").style.left = '510px';
                   }
                 }
               }
