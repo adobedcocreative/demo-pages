@@ -154,7 +154,8 @@ function handleComplete(evt,comp) {
 				var parentWindows = window.parent.parent.window;
 				if (parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
 					try {
-						parentWindows.amoUtils.onInteraction(parentWindow.layout + (smartNames && smartNames.length == 4 ? '|' + smartNames[id] : '') + ' - ' + text, parentWindow.adData.feedData);
+						var id = ('id' in parentWindow.adData.feedData ? ('|' + parentWindow.adData.feedData.id) : '')
+						parentWindows.amoUtils.onInteraction(parentWindow.layout + (smartNames && smartNames.length == 4 ? '|' + smartNames[id] : '') + ' - ' + text + id, parentWindow.adData.feedData);
 					} catch (e) {}
 				}
 			}
