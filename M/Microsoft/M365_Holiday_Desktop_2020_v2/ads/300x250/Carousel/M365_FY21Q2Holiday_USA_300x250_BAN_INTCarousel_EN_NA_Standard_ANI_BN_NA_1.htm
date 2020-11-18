@@ -139,7 +139,7 @@ function handleComplete(evt,comp) {
 			}
 			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 12 ? ((bannerData.ctaText.length >= 15) ? "8.5px" : "11px") : "13px"),0,0,"50","300", "center"] : '';
 			amoAdClick = function(id) {
-				parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl.split('^').length > 1 ? parentWindow.adClickUrl.split('^')[id] : parentWindow.adClickUrl, parentWindow.layout + (smartNames && smartNames.length == 4 ? '|' + smartNames[id] : '') + ' - Click');
+				parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl.split('^').length > 1 ? parentWindow.adClickUrl.split('^')[id] : parentWindow.adClickUrl, parentWindow.layout + (smartNames && smartNames.length == 4 ? '|' + smartNames[id] : '') + '|' + bannerData.ctaText);
 				if(bannerData.clickTracker) {
 					var clickTrackers = bannerData.clickTracker.split('^');
 					clickTrackers.forEach(function(url){

@@ -143,7 +143,7 @@ function handleComplete(evt,comp) {
 				smartNames.push(bannerData.textField5.split('^')[2]);
 			}
 			amoAdClick = function(id) {
-				parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl.split('^').length > 1 ? parentWindow.adClickUrl.split('^')[id] : parentWindow.adClickUrl, parentWindow.layout + (smartNames && smartNames.length == 4 ? '|' + smartNames[id] : '') + ' - Click');
+				parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl.split('^').length > 1 ? parentWindow.adClickUrl.split('^')[id] : parentWindow.adClickUrl, parentWindow.layout + (smartNames && smartNames.length == 4 ? '|' + smartNames[id] : '') + '|' + bannerData.ctaText);
 				if(bannerData.clickTracker) {
 					var clickTrackers = bannerData.clickTracker.split('^');
 					clickTrackers.forEach(function(url){
