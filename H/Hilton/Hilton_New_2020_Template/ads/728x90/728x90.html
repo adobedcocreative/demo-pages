@@ -135,6 +135,7 @@
       setTimeout(function() {
         ad.contentSetup({
           cam: {
+            layoutCode: 'HI',
             backgroundImage: 'assets/728x90_Hilton_New_BackgroundImage.png',
             logoColor: 'white',
             frameText1: "HERE’S TO YOUR<br>NEXT MEMORY",
@@ -169,7 +170,7 @@
             data.map(function(content){
               var displayValue = "";
               try{
-                displayValue = content['ut1'].toUpperCase();
+                displayValue = content['layoutCode'].toUpperCase();
               } catch (e) {}
               var hiltonCodes = splitCodes("HI,HH");
               var waldorfCodes = splitCodes("WA");

@@ -1,4 +1,5 @@
 NAME	DESCRIPTION	DATA_TYPE	MAX_LENGTH	DEFAULT_VALUE	ALLOWED_VALUES
+layoutCode	text	TEXT	1	1	1
 backgroundImage	IMAGE	GRAPHIC	1	1	1
 logoColor	text	TEXT	1	1	1
 frameText1	text	TEXT	1	1	1

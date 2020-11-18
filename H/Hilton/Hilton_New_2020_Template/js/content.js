@@ -18,6 +18,7 @@ var getFeed1 = function(){
               "logoColor": data['gsx$logocolor']['$t'],
               "Segment": data['gsx$segment']['$t'],
               "Smart Names": data['gsx$smartnames']['$t'],
+              "layoutCode": data['gsx$layoutcode']['$t'],
               "backgroundImage": data['gsx$backgroundimage']['$t'],
               "frameText1": data['gsx$frametext1']['$t'],
               "frameText2": data['gsx$frametext2']['$t'],
@@ -25,7 +26,6 @@ var getFeed1 = function(){
               "styleProperties": data['gsx$styleproperties']['$t'],
               "ctaBtnColor": data['gsx$ctabtncolor']['$t'],
               "clickURL": data['gsx$url']['$t'],
-              "ut1": data['gsx$ut1']['$t'],
             });
           });
           loadTemplateFlag1 = true;
