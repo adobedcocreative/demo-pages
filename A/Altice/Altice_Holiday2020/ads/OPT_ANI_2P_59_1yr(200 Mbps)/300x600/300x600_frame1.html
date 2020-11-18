@@ -161,13 +161,11 @@ amo.registerAttribute("ctaText","TEXT","Upgrade now");
 amo.registerAttribute("frameText1", "TEXT", "Share the joy");
 amo.registerAttribute("frameText11", "TEXT", "<div style='top: 380px;left: 20px;width: 260px;font-size: 28px;line-height: 1.1;text-align: center;'>200 Mbps Internet</div>");
 amo.registerAttribute("frameText12", "TEXT", "<div class='AlticeRegular' style='top:477px;width: 250px;left:22px;font-size:14px;line-height:1.15;'>Wired connection up to 200 Mbps.<br>WiFi speeds may vary.</div>");
-amo.registerAttribute("frameText21", "TEXT", "<div style='top: 246px;left: 20px;width: 260px;font-size: 28px;line-height: 1;text-align: center;'>Live, streaming,<br>and<br>On Demand TV</div>");
-amo.registerAttribute("frameText22", "TEXT", "<div class='AlticeRegular' style='top:477px;width: 250px;left:22px;font-size:14px;line-height:1.15;'>Speeds, prices &<br>availability vary by area.</div>");
-amo.registerAttribute("frameText31", "TEXT", "<div style='top: 93px;left: 19px;width: 240px;font-size: 28px;line-height: 1;' class='coloredText'>Holiday Deal!</div>");
-amo.registerAttribute("frameText32", "TEXT", "<div style='top: 139px;left: 19px;width: 240px;font-size: 28px;line-height: 1;'>Optimum<br>Amplify smart<br>speaker</div>");
-amo.registerAttribute("frameText41", "TEXT", "<div style='top: 87.32px;left: 21.54px;font-size: 28px;line-height:1;'>200 Mbps<br>Internet & TV</div>");
-amo.registerAttribute("frameText42", "TEXT", "<div style='top: 146px;left: 14px;width: 260px;line-height: 1;'><div style='font-size: 23px;margin-left: 8px;' class='strikeText'>$55/mo.</div><font style='font-size: 117px;letter-spacing: -3px;padding-right: 3px;line-height: 0.9;' class='coloredText'>$59</font><font style='margin-left: 5px;font-size: 19px;display: inline-block;vertical-align: 49px;line-height: 0.95;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 7px 0 0 8px;font-size: 14px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
-amo.registerAttribute("frameText43", "TEXT", "<div style='top: 329px;width:420px;left: 21px;transform: scale(0.67);transform-origin: top left;'><div class='bulletedText'>Find out how to get a $100 Visa<span style='vertical-align:11px;font-size:14px;'>®</span> Prepaid Card. <span class='AlticeRegular' style='font-size: 20.5px;line-height:1;'>Terms apply.</span></div></div>");
+amo.registerAttribute("frameText21", "TEXT", "<div style='top: 246px;left: 20px;width: 260px;font-size: 28px;line-height: 1;text-align: center;'>Live and<br>On Demand TV</div>");
+amo.registerAttribute("frameText22", "TEXT", "&nbsp;");
+amo.registerAttribute("frameText31", "TEXT", "<div style='top: 68px;left: 21.54px;font-size: 28px;line-height:1;'><div style='color: #0084d6;height: 20px;font-size: 51%;'>Holiday Deal!</div>200 Mbps<br>Internet & TV</div>");
+amo.registerAttribute("frameText32", "TEXT", "<div style='top: 146px;left: 14px;width: 260px;line-height: 1;'><font style='font-size: 117px;letter-spacing: -3px;padding-right: 3px;line-height: 0.9;' class='coloredText'>$59</font><font style='margin-left: 5px;font-size: 19px;display: inline-block;vertical-align: 31px;line-height: 0.95;'>99/<br>mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 7px 0 0 8px;font-size: 14px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
+amo.registerAttribute("frameText33", "TEXT", "<div style='top: 309px;width:420px;left: 21px;transform: scale(0.67);transform-origin: top left;'><div class='bulletedText'>Bundle Internet & TV today!</div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -197,15 +195,9 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 329px;width:420px
     <div id="frameText21" class="frameText">!{frameText21}</div>
     <div id="frameText22" class="frameText">!{frameText22}</div>
     <div id="frameImage3" class="asset frameImage" data-image="frameImage3"></div>
-    <!-- <div id="frameImage31" class="asset adSizeContainer" data-image="frameImage31" style="opacity: 0;transform:scale(0.5);transform-origin: 26% 51%;"></div> -->
-    <div id="frameImage31" class="asset adSizeContainer" data-image="frameImage31" style="opacity:0;"></div>
     <div id="frameText31" class="frameText">!{frameText31}</div>
     <div id="frameText32" class="frameText">!{frameText32}</div>
-    <!-- <div id="frameText33" class="frameText">!{frameText33}</div> -->
-    <div id="frameImage4" class="asset frameImage" data-image="frameImage4"></div>
-    <div id="frameText41" class="frameText">!{frameText41}</div>
-    <div id="frameText42" class="frameText">!{frameText42}</div>
-    <div id="frameText43" class="frameText">!{frameText43}</div>
+    <div id="frameText33" class="frameText">!{frameText33}</div>
     <div id="logoImage" class="asset adSizeContainer" data-image="logoImage"></div>
     <!-- <div id="priceLabel" class="asset adSizeContainer" data-image="priceLabel"></div> -->
     <div id="cta" class="text AlticeBold"
@@ -313,9 +305,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 329px;width:420px
           frameImage1: "300x600_OPT_HOL_ACQ_iStartFIB_Amp_50Yr1_NonSub_Fiber2P_Icon_Frame_01.png",
           frameImage11: "300x600_OPT_HOL_ACQ_iStartFIB_Amp_50Yr1_NonSub_Fiber2P_Icon_Frame_02.png",
           frameImage21: "300x600_OPT_HOL_ACQ_iStartFIB_Amp_50Yr1_NonSub_Fiber2P_Icon_Frame_03.png",
-          frameImage31: "300x600_OPT_HOL_ACQ_iStartFIB_Amp_50Yr1_NonSub_Fiber2P_Icon_Frame_04.png",
-          frameImage3: "300x600_OPT_HOL_ACQ_iStartFIB_Amp_50Yr1_NonSub_Fiber2P_Img_amplify_Frame_04.png",
-          frameImage4: "300x600_OPT_HOL_ACQ_iStartFIB_Amp_50Yr1_NonSub_Fiber2P_Img_TV_Frame_05.png",
+          frameImage3: "300x600_OPT_HOL_ACQ_iStartFIB_Amp_50Yr1_NonSub_Fiber2P_Img_TV_Frame_05.png",
           // switchImage: 'images/Switch_Icon_Frame.png',
           // ref: 'OPT iStart_AO $59 1 yr. (200 Mbps) (With Amp) 300x600-frame5.jpg',
         },
@@ -426,10 +416,8 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 329px;width:420px
           ad.layers.cta.classList.remove('ctaWhite');
           gsap.set('#frameBackground', {display: 'block'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage31', {delay:0.2, autoAlpha:1})
-          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[3]})
-          .to('#frameImage'+frameId+', #frameImage31, div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame4}));
+          // .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame4}));
         }
         var animateFrame2 = function(flag){
           var frameId = 2;
