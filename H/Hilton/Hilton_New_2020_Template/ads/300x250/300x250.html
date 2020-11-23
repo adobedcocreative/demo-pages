@@ -203,6 +203,7 @@
                     document.querySelector("#logoImage").style.left = '27px';
                   }else if(waldorfCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'waldorf';
+                    whitePatchColor = '#000';
                     // document.querySelector("#logoImage").style.height = '95px';
                     // document.querySelector("#logoImage").style.top = '157px';
                   }else if(embassyCodes.indexOf(matchingCodes[matchIndex]) != -1){
@@ -243,6 +244,7 @@
                     document.querySelector("#logoImage").style.left = '16px';
                   }else if(lxrCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'lxr';
+                    whitePatchColor = '#000';
                     document.querySelector("#logoImage").style.top = '168px';
                     document.querySelector("#logoImage").style.left = '28px';
                     document.querySelector("#logoImage").style.height = '83px';
@@ -278,7 +280,7 @@
                   }
                 }
               }
-              // document.querySelector("#whitePatch").style.backgroundColor = whitePatchColor;
+              document.querySelector("#whitePatch").style.backgroundColor = whitePatchColor;
               content['logoImage'] = 'images/' + logoImageName  + '_' + content['logoColor'].toLowerCase() + '.png';
 
               function splitCodes(str){
