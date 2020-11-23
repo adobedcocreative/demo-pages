@@ -63,7 +63,7 @@
     <div class="" id="ad">
       <div id="backgroundImage" class="asset frame" data-image="backgroundImage"></div>
       <div id="overlayColor" class="frame"></div>
-      <div id="ref" class="asset frame" data-image="ref"></div>
+      <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
       <div id="logoImage" class="asset-right-center frame" data-image="logoImage"
         style="top: 0px;
           left: 507px;
@@ -153,7 +153,7 @@
           ],
           staticData: {
             layout: 'generic',
-            ref:'ref.png',
+            // ref:'ref.png',
           },
           beforeLoad: function(data){
             var replaceMacro = function(text, data) {
@@ -197,7 +197,8 @@
               if(matchingCodes){
                 for(var matchIndex in matchingCodes){
                   if(hiltonCodes.indexOf(matchingCodes[matchIndex]) != -1){
-                    document.querySelector("#logoImage").style.top = '-3px';
+                    logoImageName = 'hilton';
+                    document.querySelector("#logoImage").style.top = '2px';
                   }else if(waldorfCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'waldorf';
                     whitePatchColor = '#000';
@@ -208,51 +209,63 @@
                     document.querySelector("#logoImage").style.left = '542px';
                   }else if(doubleTreeCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'doubletree';
-                    document.querySelector("#logoImage").style.width = '50px';
-                    document.querySelector("#logoImage").style.left = '538px';
+                    document.querySelector("#logoImage").style.top = '-8px';
+                    document.querySelector("#logoImage").style.left = '476px';
+                    document.querySelector("#logoImage").style.width = '107px';
+                    document.querySelector("#logoImage").style.height = '107px';
                   }else if(conradCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'conrad';
                     whitePatchColor = '#000';
-                    document.querySelector("#logoImage").style.top = '-2px';
-                    document.querySelector("#logoImage").style.left = '486px';
-                    document.querySelector("#logoImage").style.width = '100px';
-                    document.querySelector("#logoImage").style.height = '94px';
+                    document.querySelector("#logoImage").style.top = '-8px';
+                    document.querySelector("#logoImage").style.left = '476px';
+                    document.querySelector("#logoImage").style.width = '107px';
+                    document.querySelector("#logoImage").style.height = '107px';
                   }else if(hiltonGardenCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'hgi';
                   }else if(hamptonCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'hampton';
-                    document.querySelector("#logoImage").style.width = '46px';
-                    document.querySelector("#logoImage").style.left = '536px';
+                    document.querySelector("#logoImage").style.width = '75px';
+                    document.querySelector("#logoImage").style.left = '507px';
                   }else if(homewoodCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'homewood';
                     document.querySelector("#logoImage").style.width = '78px';
-                    document.querySelector("#logoImage").style.left = '510px';
+                    document.querySelector("#logoImage").style.left = '503px';
                   }else if(home2Codes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'home2';
-                    document.querySelector("#logoImage").style.width = '66px';
-                    document.querySelector("#logoImage").style.left = '522px';
+                    document.querySelector("#logoImage").style.top = '3px';
+                    document.querySelector("#logoImage").style.left = '492px';
+                    document.querySelector("#logoImage").style.width = '90px';
                   }else if(lxrCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'lxr';
-                    document.querySelector("#logoImage").style.left = '511px';
-                    document.querySelector("#logoImage").style.width = '73px';
+                    document.querySelector("#logoImage").style.left = '518px';
+                    document.querySelector("#logoImage").style.width = '64px';
                   }else if(canopyCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'canopy';
+                    document.querySelector("#logoImage").style.top = '-4px';
+                    document.querySelector("#logoImage").style.left = '486px';
+                    document.querySelector("#logoImage").style.width = '96px';
+                    document.querySelector("#logoImage").style.height = '100px';
                   }else if(curioCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'curio';
-                    document.querySelector("#logoImage").style.left = '522px';
-                    document.querySelector("#logoImage").style.width = '65px';
+                    document.querySelector("#logoImage").style.left = '525px';
+                    document.querySelector("#logoImage").style.width = '57px';
                   }else if(mottoCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'motto';
+                    document.querySelector("#logoImage").style.left = '1px';
+                    document.querySelector("#logoImage").style.left = '498px';
+                    document.querySelector("#logoImage").style.width = '86px';
                   }else if(truCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'tru';
-                    document.querySelector("#logoImage").style.left = '523px';
-                    document.querySelector("#logoImage").style.width = '62px';
+                    document.querySelector("#logoImage").style.left = '540px';
+                    document.querySelector("#logoImage").style.width = '50px';
                   }else if(tapestryCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'tapestry';
+                    document.querySelector("#logoImage").style.left = '496px';
+                    document.querySelector("#logoImage").style.width = '87px';
                   }else if(hgvCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'hgv';
                     document.querySelector("#logoImage").style.width = '78px';
-                    document.querySelector("#logoImage").style.left = '510px';
+                    document.querySelector("#logoImage").style.left = '504px';
                   }
                 }
               }
