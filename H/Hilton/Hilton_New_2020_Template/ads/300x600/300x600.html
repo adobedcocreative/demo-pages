@@ -63,18 +63,18 @@
     <div class="" id="ad">
       <div id="backgroundImage" class="asset frame" data-image="backgroundImage"></div>
       <div id="overlayColor" class="frame"></div>
-      <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
-      <div id="logoImage" class="asset frame" data-image="logoImage"
-        style="top: 494px;
+      <div id="ref" class="asset frame" data-image="ref"></div>
+      <div id="logoImage" class="asset-center-bottom frame" data-image="logoImage"
+        style="top: 396px;
           left: 0px;
-          width: 150px;
-          height: 100px;">
+          width: 300px;
+          height: 130px;">
       </div>
       <div id="whitePatch"
-        style="top: 525px;
-          left: 137px;
-          width: 2px;
-          height: 34px;
+        style="top: 509px;
+          left: 86px;
+          width: 128px;
+          height: 2px;
           background-color:#fff;">
       </div>
       <div id="frameText1" dir="auto" class="text-bottom-left"
@@ -110,11 +110,11 @@
       <div id="cta" dir="auto" class="text LoewHeavy"
         data-style="text-align:center;padding:3px 7px"
         data-text="ctaText"
-        style="top: 525px;
-          left: 154px;
-          width: 120px;
-          height: 34px;
-          font-size: 15.5px;
+        style="top: 528px;
+          left: 86px;
+          width: 128px;
+          height: 36px;
+          font-size: 16px;
           line-height: 1;
           color:#fff;">
       </div>
@@ -154,7 +154,7 @@
             }
           ],
           staticData: {
-            // ref:'ref2.png',
+            ref:'ref.png',
             layout: 'generic',
           },
           beforeLoad: function(data){
@@ -203,9 +203,6 @@
                     // document.querySelector("#logoImage").style.left = '508px';
                   }else if(waldorfCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'waldorf';
-                    document.querySelector("#logoImage").style.width = '137px';
-                    document.querySelector("#logoImage").style.height = '91px';
-                    document.querySelector("#logoImage").style.top = '496px';
                   }else if(embassyCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'embassysuites';
                     content['layout'] = 'homepage';
@@ -294,19 +291,6 @@
           }
 
           textUpdate();
-
-          if(adData.layout.toLowerCase() != 'generic'){
-            ad.layers.cta.style.top = '515px';
-            ad.layers.cta.style.left = '126px';
-            ad.layers.cta.style.width = '139px';
-            ad.layers.cta.style.height = '45px';
-            ad.layers.cta.style.fontSize = '18px';
-
-
-            ad.layers.whitePatch.style.top = '515px';
-            ad.layers.whitePatch.style.left = '110px';
-            ad.layers.whitePatch.style.height = '45px';
-          }
 
           gsap.set('#frameText3', {autoAlpha:0});
           var thirdFrameAnimation = function(){

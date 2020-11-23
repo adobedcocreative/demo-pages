@@ -63,11 +63,11 @@
     <div class="" id="ad">
       <div id="backgroundImage" class="asset frame" data-image="backgroundImage"></div>
       <div id="overlayColor" class="frame"></div>
-      <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
-      <div id="logoImage" class="asset frame" data-image="logoImage"
+      <div id="ref" class="asset frame" data-image="ref"></div>
+      <div id="logoImage" class="asset-right-center frame" data-image="logoImage"
         style="top: 0px;
-          left: 506px;
-          width: 80px;
+          left: 507px;
+          width: 75px;
           height: 90px;">
       </div>
       <div id="whitePatch"
@@ -153,7 +153,7 @@
           ],
           staticData: {
             layout: 'generic',
-            // ref:'ref1.png',
+            ref:'ref.png',
           },
           beforeLoad: function(data){
             var replaceMacro = function(text, data) {
@@ -197,11 +197,11 @@
               if(matchingCodes){
                 for(var matchIndex in matchingCodes){
                   if(hiltonCodes.indexOf(matchingCodes[matchIndex]) != -1){
-                    // document.querySelector("#logoImage").style.width = '75px';
-                    // document.querySelector("#logoImage").style.left = '508px';
+                    document.querySelector("#logoImage").style.top = '-3px';
                   }else if(waldorfCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'waldorf';
                     whitePatchColor = '#000';
+                    document.querySelector("#logoImage").style.top = '-3px';
                   }else if(embassyCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'embassysuites';
                     document.querySelector("#logoImage").style.width = '38px';

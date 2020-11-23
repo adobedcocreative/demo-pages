@@ -61,20 +61,20 @@
   </head>
   <body>
     <div class="" id="ad">
-      <div id="backgroundImage" class="asset frame" data-image="backgroundImage"></div>
+      <div id="backgroundImage" class="asset-right-center frame" data-image="backgroundImage"></div>
       <div id="overlayColor" class="frame"></div>
-      <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->     
+      <div id="ref" class="asset frame" data-image="ref"></div>     
       <div id="logoImage" class="asset frame" data-image="logoImage"
-        style="top: 157px;
-          left: 0px;
-          width: 137px;
-          height: 100px;">
+        style="top: 166px;
+          left: 23px;
+          width: 125px;
+          height: 82px;">
       </div>
       <div id="whitePatch"
-        style="top: 188px;
-          left: 149px;
+        style="top: 197px;
+          left: 141px;
           width: 2px;
-          height: 35px;
+          height: 27px;
           background-color:#fff;">
       </div>
       <div id="frameText1" dir="auto" class="text-left"
@@ -110,10 +110,10 @@
       <div id="cta" dir="auto" class="text LoewHeavy"
         data-style="text-align:center;padding:3px 7px"
         data-text="ctaText"
-        style="top: 188px;
-          left: 165px;
-          width: 120px;
-          height: 35px;
+        style="top: 197px;
+          left: 158px;
+          width: 95px;
+          height: 27px;
           font-size: 15.5px;
           line-height: 1;
           color:#fff;">
@@ -154,7 +154,7 @@
             }
           ],
           staticData: {
-            // ref:'ref1.png',
+            ref:'ref.png',
             layout: 'homepage',
           },
           beforeLoad: function(data){
@@ -202,8 +202,8 @@
                     // document.querySelector("#logoImage").style.left = '508px';
                   }else if(waldorfCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'waldorf';
-                    document.querySelector("#logoImage").style.height = '95px';
-                    document.querySelector("#logoImage").style.top = '157px';
+                    // document.querySelector("#logoImage").style.height = '95px';
+                    // document.querySelector("#logoImage").style.top = '157px';
                   }else if(embassyCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'embassysuites';
                     document.querySelector("#logoImage").style.height = '45px';

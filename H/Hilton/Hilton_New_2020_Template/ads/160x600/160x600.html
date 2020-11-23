@@ -63,17 +63,17 @@
     <div class="" id="ad">
       <div id="backgroundImage" class="asset frame" data-image="backgroundImage"></div>
       <div id="overlayColor" class="frame"></div>
-      <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
-      <div id="logoImage" class="asset frame" data-image="logoImage"
-        style="top: 441px;
+      <div id="ref" class="asset frame" data-image="ref"></div>
+      <div id="logoImage" class="asset-center-bottom frame" data-image="logoImage"
+        style="top: 396px;
           left: 0px;
           width: 160px;
-          height: 105px;">
+          height: 130px;">
       </div>
       <div id="whitePatch"
-        style="top: 525px;
-          left: 30px;
-          width: 100px;
+        style="top: 509px;
+          left: 16px;
+          width: 128px;
           height: 2px;
           background-color:#fff;">
       </div>
@@ -110,11 +110,11 @@
       <div id="cta" dir="auto" class="text LoewHeavy"
         data-style="text-align:center;padding:3px 7px"
         data-text="ctaText"
-        style="top: 542px;
-          left: 30px;
-          width: 100px;
-          height: 33px;
-          font-size: 12px;
+        style="top: 528px;
+          left: 16px;
+          width: 128px;
+          height: 36px;
+          font-size: 16px;
           line-height: 1;
           color:#fff;">
       </div>
@@ -154,7 +154,7 @@
             }
           ],
           staticData: {
-            // ref:'ref1.png',
+            ref:'ref.png',
             layout: 'homepage',
           },
           beforeLoad: function(data){
@@ -202,8 +202,6 @@
                     // document.querySelector("#logoImage").style.left = '508px';
                   }else if(waldorfCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'waldorf';
-                    document.querySelector("#logoImage").style.height = '104px';
-                    document.querySelector("#logoImage").style.top = '436px';
                   }else if(embassyCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'embassysuites';
                     document.querySelector("#logoImage").style.height = '85px';
