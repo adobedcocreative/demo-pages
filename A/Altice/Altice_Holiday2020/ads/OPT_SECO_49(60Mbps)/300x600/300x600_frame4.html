@@ -188,8 +188,9 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 293px;left: 22px;
     <div id="beam3" class="beam" style="border-radius: 50px;background-image: linear-gradient(to left, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
     <div id="beam4" class="beam" style="border-radius: 30px;background-image: linear-gradient(to left, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
     <div id="beam5" class="beam" style="border-radius: 30px;background-image: linear-gradient(to right, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
-    <div id="frameImage2" class="adSizeContainer" style="top: 305px;left: 181px;width: 98px;height: auto;"><video muted playsinline autoplay style="width: 100%;"></video></div>
+    <!-- <div id="frameImage2" class="adSizeContainer" style="top: 305px;left: 181px;width: 98px;height: auto;"><video muted playsinline autoplay style="width: 100%;"></video></div> -->
     <div id="frameImage21" class="asset adSizeContainer" data-image="frameImage21" style="opacity:0;"></div>
+    <div id="frameImage2" class="asset frameImage" data-image="frameImage2"></div>
     <div id="frameText21" class="frameText">!{frameText21}</div>
     <div id="frameText22" class="frameText">!{frameText22}</div>
     <div id="frameText23" class="frameText">!{frameText23}</div>
@@ -302,11 +303,11 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 293px;left: 22px;
           introLogoImage: 'images/300x600_Logo_Optimum_Black.png',
           frameBackground: '1x1.png',
           frameVideo1: "300x600_internet.mp4",
-          frameVideo2: "HolidayBanner_ORNAMENT.mp4",
           frameVideo3: "HolidayBanners_Sled.mp4",
           frameImage1: "300x600_OPT_HOL_ACQ_INT_300Mb_35Yr1_NonSub_Icon_Frame_01.png",
           frameImage12: "300x600_OPT_HOL_ACQ_INT_300Mb_35Yr1_NonSub_Icon_02_Frame_01.png",
-          frameImage21: "300x600_OPT_HOL_ACQ_INT_300Mb_35Yr1_NonSub_Background_Frame_02.png",
+          frameImage2: "300x600_OPT_HOL_ACQ_INT_300Mb_35Yr1_NonSub_Background_Frame_02.png",
+          frameImage21: "300x600_OPT_HOL_ACQ_INT_300Mb_35Yr1_NonSub_Icon_Frame_02.png",
           frameImage3: "300x600_OPT_Holiday_GiftBox.png",
           frameImage4: "300x600_OPT_HOL_ACQ_INT_300Mb_35Yr1_NonSub_Img_ipad_Frame_05.png",
           // switchImage: 'images/Switch_Icon_Frame.png',
@@ -342,7 +343,6 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 293px;left: 22px;
           }
         }
         loadVideo(ad.layers.frameVideo1.querySelector('video'), adData.frameVideo1, true);
-        loadVideo(ad.layers.frameImage2.querySelector('video'), adData.frameVideo2);
         loadVideo(ad.layers.frameImage3.querySelector('video'), adData.frameVideo3);
 
         textUpdate();
@@ -360,7 +360,6 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 293px;left: 22px;
         gsap.set('.frameText, #priceLabel', {x:'-100%'});
         gsap.set('.frameImageLeft', {x:'-100%', y:0});
         gsap.set('#frameImage1', {x:'-50%'});
-        gsap.set('#frameImage2', {autoAlpha: 0});
         var beamFrameAnimation = function(frame){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0})
@@ -432,23 +431,10 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 293px;left: 22px;
         }
         var animateFrame2 = function(flag){
           var frameId = 2;
-          // gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          // .to('#frameImage21', {delay:0.2, autoAlpha:1, scale:1})
-          var video = ad.root.querySelector('#frameImage' + frameId + ' video');
-          video.currentTime = 0;
-          var playVideo = function() {
-            if(video) { video.play(); }
-            // gsap.timeline({defaults:{ease: 'none', duration:0.7}})
-            // .to('#frameImage' + frameId, {y:0})
-          }
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage' + frameId + '1', {delay:0.2, autoAlpha:1, scale:1})
-          .to('#frameImage' + frameId, {duration:0.1, autoAlpha:1, onComplete: playVideo})
-          .to('#frameText'+frameId+'1', {x:0,y:0, autoAlpha: 1})
-          .to('#frameText'+frameId+'2', {delay:-0.2, x:0,y:0})
-          .to('#frameText'+frameId+'3', {delay:-0.2, x:0,y:0});
+          .to('#frameImage21', {delay:0.2, autoAlpha:1, scale:1, ease: "back.out(1.7)"})
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          // .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[2]})
+          .to('#frameImage'+frameId, {duration:0, onComplete: generalLeftFrameAnimation, onCompleteParams:[2]})
           .to('#frameImage'+frameId+', #frameImage21, div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}));
         }
         var animateFrame1 = function(flag){
@@ -497,7 +483,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 293px;left: 22px;
       } finally {
         document.querySelector('#backgroundColor').style.backgroundColor = color;
         document.querySelector('#frame1').style.backgroundColor = color;
-      }  
+      }
     }
   </script>
 </body>

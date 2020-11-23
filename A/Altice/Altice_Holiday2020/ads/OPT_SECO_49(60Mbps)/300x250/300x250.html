@@ -201,7 +201,8 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 165px;left: 23px;
     </div>
     <!-- <div id="ref" class="asset adSizeContainer" data-image="ref"></div> -->
     <div id="frameBackground" class="asset adSizeContainer" data-image="frameBackground" style="display:none;"></div>
-    <div id="frameImage2" class="adSizeContainer" style="top: -29px;left: 207px;width: 81px;height: auto;"><video muted playsinline autoplay style="width: 100%;"></video></div>
+    <!-- <div id="frameImage2" class="adSizeContainer" style="top: -29px;left: 207px;width: 81px;height: auto;"><video muted playsinline autoplay style="width: 100%;"></video></div> -->
+    <div id="frameImage2" class="asset frameImage" data-image="frameImage2"></div>
     <div id="frameImage21" class="asset adSizeContainer" data-image="frameImage21" style="opacity:0;"></div>
     <div id="frameText21" class="frameText">!{frameText21}</div>
     <div id="frameText22" class="frameText">!{frameText22}</div>
@@ -323,11 +324,11 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 165px;left: 23px;
           introLogoImage: 'images/300x250_Logo_Optimum_White.png',
           frameBackground: '1x1.png',
           frameVideo1: "300x250_internet.mp4",
-          frameVideo2: "HolidayBanner_ORNAMENT.mp4",
           frameVideo3: "HolidayBanners_Sled.mp4",
           frameImage1: "300x250_OPT_HOL_ACQ_INT_300Mb_35Yr1_NonSub_Icon_Frame_01.png",
           frameImage12: "300x250_OPT_HOL_ACQ_INT_300Mb_35Yr1_NonSub_Icon_02_Frame_01.png",
-          frameImage21: "300x250_OPT_HOL_ACQ_INT_300Mb_35Yr1_NonSub_Background_Frame_02.png",
+          frameImage2: "300x250_OPT_HOL_ACQ_INT_300Mb_35Yr1_NonSub_Background_Frame_02.png",
+          frameImage21: "300x250_OPT_HOL_ACQ_INT_300Mb_35Yr1_NonSub_Icon_Frame_02.png",
           frameImage3: "300x250_OPT_Holiday_GiftBox.png",
           frameImage4: "300x250_OPT_HOL_ACQ_INT_300Mb_35Yr1_NonSub_Img_ipad_Frame_05.png",
           // switchImage: '1x1.png',
@@ -361,7 +362,6 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 165px;left: 23px;
           }
         }
         loadVideo(ad.layers.frameVideo1.querySelector('video'), adData.frameVideo1, true);
-        loadVideo(ad.layers.frameImage2.querySelector('video'), adData.frameVideo2);
         loadVideo(ad.layers.frameImage3.querySelector('video'), adData.frameVideo3);
 
         textUpdate();
@@ -379,7 +379,6 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 165px;left: 23px;
         gsap.set('.frameText, #priceLabel', {x:'-100%'});
         gsap.set('.frameImageLeft', {x:'-100%'});
         gsap.set('#frameImage1', {x:'-50%'});
-        gsap.set('#frameImage2', {y:'-100%'});
         var beamFrameAnimation = function(frame){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0})
@@ -469,7 +468,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 165px;left: 23px;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage21', {delay:0.2, autoAlpha:1, scale:1})
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[2]})
+          .to('#frameImage'+frameId, {duration:0, onComplete: generalLeftFrameAnimation, onCompleteParams:[2]})
           .to('#frameImage'+frameId+', #frameImage21, div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}));
         }
         var animateFrame1 = function(flag){
@@ -517,7 +516,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 165px;left: 23px;
       } finally {
         document.querySelector('#backgroundColor').style.backgroundColor = color;
         document.querySelector('#frame1').style.backgroundColor = color;
-      }  
+      }
     }
   </script>
 </body>
