@@ -24,6 +24,36 @@
           src: url('fonts/Loew 2.0-Heavy.woff') format("woff");
       }
       .LoewHeavy { font-family: LoewHeavy; }
+
+      @font-face {
+          font-family: DidotBold;
+          src: url('fonts/Didot-Bold.woff') format("woff");
+      }
+      .DidotBold { font-family: DidotBold; }
+
+      @font-face {
+          font-family: NobelBold;
+          src: url('fonts/Nobel-Bold.woff') format("woff");
+      }
+      .NobelBold { font-family: NobelBold; }
+
+      @font-face {
+          font-family: ProximaNovaBlack;
+          src: url('fonts/ProximaNova-Black.woff') format("woff");
+      }
+      .ProximaNovaBlack { font-family: ProximaNovaBlack; }
+
+      @font-face {
+          font-family: BreeSerifEb;
+          src: url('fonts/BreeSerifEb.woff') format("woff");
+      }
+      .BreeSerifEb { font-family: BreeSerifEb; }
+
+      @font-face {
+          font-family: BrandonBlack;
+          src: url('fonts/Brandon-Black.woff') format("woff");
+      }
+      .BrandonBlack { font-family: BrandonBlack; }
     </style>
     <!--
       Available Classes:-
@@ -115,7 +145,6 @@
           width: 128px;
           height: 36px;
           font-size: 16px;
-          line-height: 1;
           color:#fff;">
       </div>
 
@@ -203,6 +232,9 @@
                   }else if(waldorfCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'waldorf';
                     whitePatchColor = '#000';
+
+                    document.querySelector("#ad").style.fontFamily = "NobelBold";
+                    document.querySelector("#cta").style.fontFamily = "NobelBold";
                   }else if(embassyCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'embassysuites';
                     document.querySelector("#logoImage").style.top = '376px';
@@ -213,12 +245,21 @@
                   }else if(conradCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'conrad';
                     document.querySelector("#logoImage").style.top = '411px';
+
+                    document.querySelector("#ad").style.fontFamily = "BrandonBlack";
+                    document.querySelector("#cta").style.fontFamily = "BrandonBlack";
                   }else if(hiltonGardenCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'hgi';
                     document.querySelector("#logoImage").style.top = '406px';
+
+                    document.querySelector("#ad").style.fontFamily = "BreeSerifEb";
+                    document.querySelector("#cta").style.fontFamily = "BreeSerifEb";
                   }else if(hamptonCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'hampton';
                     document.querySelector("#logoImage").style.top = '389px';
+
+                    document.querySelector("#ad").style.fontFamily = "BreeSerifEb";
+                    document.querySelector("#cta").style.fontFamily = "BreeSerifEb";
                   }else if(homewoodCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'homewood';
                     document.querySelector("#logoImage").style.top = '406px';
@@ -229,6 +270,9 @@
                     logoImageName = 'lxr';
                     whitePatchColor = '#000';
                     document.querySelector("#logoImage").style.top = '402px';
+
+                    document.querySelector("#ad").style.fontFamily = "DidotBold";
+                    document.querySelector("#cta").style.fontFamily = "DidotBold";
                   }else if(canopyCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'canopy';
                     document.querySelector("#logoImage").style.top = '411px';
@@ -241,6 +285,9 @@
                   }else if(truCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'tru';
                     document.querySelector("#logoImage").style.top = '376px';
+
+                    document.querySelector("#ad").style.fontFamily = "ProximaNovaBlack";
+                    document.querySelector("#cta").style.fontFamily = "ProximaNovaBlack";
                   }else if(tapestryCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'tapestry';
                     document .querySelector("#logoImage").style.top = '407px';

@@ -24,6 +24,36 @@
           src: url('fonts/Loew 2.0-Heavy.woff') format("woff");
       }
       .LoewHeavy { font-family: LoewHeavy; }
+
+      @font-face {
+          font-family: DidotBold;
+          src: url('fonts/Didot-Bold.woff') format("woff");
+      }
+      .DidotBold { font-family: DidotBold; }
+
+      @font-face {
+          font-family: NobelBold;
+          src: url('fonts/Nobel-Bold.woff') format("woff");
+      }
+      .NobelBold { font-family: NobelBold; }
+
+      @font-face {
+          font-family: ProximaNovaBlack;
+          src: url('fonts/ProximaNova-Black.woff') format("woff");
+      }
+      .ProximaNovaBlack { font-family: ProximaNovaBlack; }
+
+      @font-face {
+          font-family: BreeSerifEb;
+          src: url('fonts/BreeSerifEb.woff') format("woff");
+      }
+      .BreeSerifEb { font-family: BreeSerifEb; }
+
+      @font-face {
+          font-family: BrandonBlack;
+          src: url('fonts/Brandon-Black.woff') format("woff");
+      }
+      .BrandonBlack { font-family: BrandonBlack; }
     </style>
     <!--
       Available Classes:-
@@ -115,7 +145,6 @@
           width: 95px;
           height: 27px;
           font-size: 15.5px;
-          line-height: 1;
           color:#fff;">
       </div>
 
@@ -194,7 +223,7 @@
               var matchingCodes = (displayValue && displayValue.length)?(splitCodes(displayValue + "")):null;
               var whitePatchColor = "#fff";
               var logoImageName = "hilton";
-
+              
               if(matchingCodes){
                 for(var matchIndex in matchingCodes){
                   if(hiltonCodes.indexOf(matchingCodes[matchIndex]) != -1){
@@ -206,6 +235,9 @@
                     whitePatchColor = '#000';
                     // document.querySelector("#logoImage").style.height = '95px';
                     // document.querySelector("#logoImage").style.top = '157px';
+
+                    document.querySelector("#ad").style.fontFamily = "NobelBold";
+                    document.querySelector("#cta").style.fontFamily = "NobelBold";
                   }else if(embassyCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'embassysuites';
                     document.querySelector("#logoImage").style.top = '190px';
@@ -224,10 +256,16 @@
                     document.querySelector("#logoImage").style.left = '13px';
                     document.querySelector("#logoImage").style.width = '125px';
                     document.querySelector("#logoImage").style.height = '109px';
+
+                    document.querySelector("#ad").style.fontFamily = "BrandonBlack";
+                    document.querySelector("#cta").style.fontFamily = "BrandonBlack";
                   }else if(hiltonGardenCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'hgi';
                     document.querySelector("#logoImage").style.height = '94px';
                     document.querySelector("#logoImage").style.top = '163px';
+
+                    document.querySelector("#ad").style.fontFamily = "BreeSerifEb";
+                    document.querySelector("#cta").style.fontFamily = "BreeSerifEb";
                   }else if(hamptonCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'hampton';
                     document.querySelector("#logoImage").style.height = '93px';
@@ -248,6 +286,9 @@
                     document.querySelector("#logoImage").style.top = '168px';
                     document.querySelector("#logoImage").style.left = '28px';
                     document.querySelector("#logoImage").style.height = '83px';
+
+                    document.querySelector("#ad").style.fontFamily = "DidotBold";
+                    document.querySelector("#cta").style.fontFamily = "DidotBold";
                   }else if(canopyCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'canopy';
                     document.querySelector("#logoImage").style.top = '162px';
@@ -270,6 +311,9 @@
                     document.querySelector("#logoImage").style.left = '28px';
                     document.querySelector("#logoImage").style.width = '125px';
                     document.querySelector("#logoImage").style.height = '55px';
+
+                    document.querySelector("#ad").style.fontFamily = "ProximaNovaBlack";
+                    document.querySelector("#cta").style.fontFamily = "ProximaNovaBlack";
                   }else if(tapestryCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'tapestry';
                     document.querySelector("#logoImage").style.height = '89px';
