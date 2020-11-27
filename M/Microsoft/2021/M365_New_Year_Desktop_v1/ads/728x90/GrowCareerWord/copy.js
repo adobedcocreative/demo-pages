@@ -1,0 +1,11 @@
+// JavaScript Document
+	//  TEXT, TEXTSIZE, XPOS, YPOS, LINE SPACING, LINE WIDTH, JUSTIFYTEXT
+	// use | for new line.  Use <#FFFFFF> for color change.
+	// when this occurs you can use line height to adjust line spacing.
+	// lineWidth is no longer needed.
+	var bannerData = new Object()
+	
+	bannerData.headline1 = ['<#FFFFFF>Start fresh with Microsoft 365','20px',291, 16,'20','3 50', 'left']	['<#FFFFFF>Grow your career with help from smart features','12px',296, 44,'14','3 50', 'left']
+	bannerData.CTA = ['<#0078D4>LEARN MORE','12px',-1,0,'50','300', 'center']
+	
+	bannerData.CTAarrowVisible = [true, 0,0]
