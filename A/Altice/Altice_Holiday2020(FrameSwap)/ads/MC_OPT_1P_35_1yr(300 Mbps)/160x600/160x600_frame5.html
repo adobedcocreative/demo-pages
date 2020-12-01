@@ -162,11 +162,12 @@ amo.registerAttribute("frameText21", "TEXT", "<div style='top: 127px;left: 17px;
 amo.registerAttribute("frameText22", "TEXT", "<div style='top: 162px;left: 11px;width: 140px;color: #fff;line-height: 1;'><font style='font-size: 63px;letter-spacing: -1.5px;'>$35</font><font style='margin-left: 3px;font-size: 10px;display: inline-block;vertical-align: 26px;'>/mes<br>1 año</font><div class='AlticeRegular' style='margin: 0px 0 0 7px;font-size: 9px;line-height: 1.2;width: 110px;'>con pago automático<br>y facturación electrónica<br>más tarifas, imptos.<br>y cargos.</div></div>");
 amo.registerAttribute("frameText31", "TEXT", "<div style='top: 312px;left: 10px;width: 140px;font-size: 20.7px;line-height: 1;text-align: center;'>Internet de<br>300 megas</div>");
 amo.registerAttribute("frameText32", "TEXT", "<div class='AlticeRegular' style='top: 407px;width: 124px;left:18px;font-size:9.9px;line-height:1.3;'>Conexión por cable de hasta 300 megas Velocidades WiFi podrían variar. Velocidad, precios y disponibilidad varian según el área.</div>");
-amo.registerAttribute("frameText41", "TEXT", "<div style='top: 251px;left: 5px;width: 150px;font-size: 19px;line-height: 1.15;text-align: center;'><font class='coloredText'>50% más velocidad</font> que Fios<sup style='font-size:52%;vertical-align: 70%;'>®</sup> y por $5 menos al mes.</div>");
-amo.registerAttribute("frameText42", "TEXT", "<div class='AlticeRegular' style='top: 433px;left: 18px;width:130px;font-size: 9.9px;line-height: 1.2;'>Basado en la velocidad de descarga de Internet de Verizon Fios<sup style='font-size:54%;'>®</sup> de 200 Mbps $39.99 del 2 nov 2020.</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div style='top: 244px;left: 31px;font-size: 40px;line-height: 1;' class='coloredText'>$100</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div style='top: 281px;left: 5px;width: 150px;font-size: 17px;line-height: 1.05;text-align: center;'>¡Tarjeta prepagada Visa<span style='vertical-align: 50%;font-size: 60%;'>®</span>!</div>");
+amo.registerAttribute("frameText43", "TEXT", "<div class='AlticeRegular' style='position: absolute;top: 318px;left: 10px;width: 140px;font-size: 10px;line-height: 1.15;text-align: center;'>Aplican términos.</div>");
 amo.registerAttribute("frameText51", "TEXT", "<div style='top: 78px;left: 13px;font-size: 18px;line-height:1;'>Internet de<br>300 megas</div>");
 amo.registerAttribute("frameText52", "TEXT", "<div style='top: 118px;left: 9px;width: 150px;line-height: 1;'><div style='font-size: 15px;margin-left: 5px;' class='strikeText'>$40/mo.</div><font style='font-size: 65px;letter-spacing: -2px;padding-right: 2px;' class='coloredText'>$35</font><font style='margin-left: 0px;font-size: 11px;display: inline-block;vertical-align: 25px;'>/mes<br>1 año</font><div class='AlticeRegular' style='margin: 2px 0 0 5px;font-size: 10px;'>con pago automático<br>y facturación electrónica<br>más tarifas, imptos. y cargos.</div></div>");
-amo.registerAttribute("frameText53", "TEXT", "<div style='top: 245px;width:170px;left: 13px;transform: scale(0.87);transform-origin: top left;'><div class='bulletedText'>Instalación gratis</div></div>");
+amo.registerAttribute("frameText53", "TEXT", "<div style='top: 235px;width:170px;left: 13px;transform: scale(0.87);transform-origin: top left;'><div class='bulletedText' style='line-height:1.1;'>¡Tarjeta prepagada Visa<span style='vertical-align:5px;font-size:9px;'>®</span> de $100! <div class='AlticeRegular' style='font-size: 10.5px;'>Aplican términos.</div></div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -196,11 +197,11 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 245px;width:170px
     <div id="frameImage3" class="asset frameImageLeft" data-image="frameImage3"></div>
     <div id="frameText31" class="frameText">!{frameText31}</div>
     <div id="frameText32" class="frameText">!{frameText32}</div>
-    <div id="frameImage4" class="frameImage" style="top: 139px;left: 17px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width: 125px;height: auto"></video></div>
+    <div id="frameImage4" class="asset frameImage" data-image="frameImage4"></div>
     <div id="frameImage41" class="asset adSizeContainer" data-image="frameImage41" style="opacity:0;transform:scale(0.8);transform-origin: 50% 25%;"></div>
     <div id="frameText41" class="frameText">!{frameText41}</div>
     <div id="frameText42" class="frameText">!{frameText42}</div>
-    <!-- <div id="frameText43" class="frameText">!{frameText43}</div> -->
+    <div id="frameText43" class="frameText">!{frameText43}</div>
     <div id="frameImage5" class="asset frameImage" data-image="frameImage5"></div>
     <div id="frameText51" class="frameText">!{frameText51}</div>
     <div id="frameText52" class="frameText">!{frameText52}</div>
@@ -308,13 +309,13 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 245px;width:170px
           frameBackground: '1x1.png',
           frameVideo1: "160x600_internet.mp4",
           frameVideo3: "160x600_morejoy.mp4",
-          frameVideo4: "Holiday Banners_Speedometer.mp4",
           frameImage1: "160x600_OPT_HOL_ACQ_INT_300Mb_35Yr1_NonSub_Icon_Frame_01.png",
           frameImage12: "160x600_OPT_HOL_ACQ_INT_300Mb_35Yr1_NonSub_Icon_02_Frame_01.png",
           frameImage2: "160x600_OPT_HOL_ACQ_INT_300Mb_35Yr1_NonSub_Background_Frame_02.png",
           frameImage21: "160x600_OPT_HOL_ACQ_INT_Starting_25Yr1_MC_Cp_Icon_Frame_02.png",
           frameImage3: "160x600_OPT_HOL_ACQ_INT_300Mb_35Yr1_NonSub_Icon_Frame_03.png",
-          frameImage41: "160x600_OPT_HOL_ACQ_INT_300Mb_35Yr1_NonSub_Icon_Frame_04.png",
+          frameImage4: "160x600_OPT-100-Reward-Card.png",
+          frameImage41: "160x600_OPT_Img_SnowFlakes_Frame_04.png",
           frameImage5: "160x600_OPT_HOL_ACQ_INT_300Mb_35Yr1_NonSub_Img_ipad_Frame_05.png",
           // switchImage: 'images/Switch_Icon_Frame.png',
           // ref: 'OPT iStart_AO $35 1 yr. (300 Mbps) (With Amp) 160x600-frame5.jpg',
@@ -350,7 +351,6 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 245px;width:170px
         }
         loadVideo(ad.layers.frameVideo1.querySelector('video'), adData.frameVideo1, true);
         loadVideo(ad.layers.frameVideo3.querySelector('video'), adData.frameVideo3);
-        loadVideo(ad.layers.frameImage4.querySelector('video'), adData.frameVideo4);
 
         textUpdate();
         gsap.set('#shape1',{top:-220,left:-14,width:36,height:220,y:820});
@@ -425,9 +425,9 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 245px;width:170px
           var frameId = 4;
           gsap.set('#frameBackground', {display: 'block'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage41', {delay:1, autoAlpha:1, scale:1, ease: "back.out(1.7)"})
+          .to('#frameImage41', {delay:0.5, autoAlpha:1, scale:1, ease: "back.out(1.7)"})
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[4]})
+          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[4]})
           .to('#frameImage'+frameId+', #frameImage41, div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame5}));
         }
         var animateFrame3 = function(flag){
@@ -497,7 +497,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 245px;width:170px
       } finally {
         document.querySelector('#backgroundColor').style.backgroundColor = color;
         document.querySelector('#frame1').style.backgroundColor = color;
-      }  
+      }
     }
   </script>
 </body>

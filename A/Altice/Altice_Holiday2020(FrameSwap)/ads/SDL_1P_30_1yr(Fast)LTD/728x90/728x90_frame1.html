@@ -151,12 +151,12 @@ amo.registerAttribute("frameText22", "TEXT", "<div style='top: 3px;left: 127px;w
 amo.registerAttribute("frameText31", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText32", "TEXT", "<div style='top: 40px;left: 243px;font-size: 22px;line-height: 1;'>Fast & reliable Internet</div>");
 amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText41", "TEXT", "<div style='top: 25px;left: 22px;font-size: 26.4px;line-height: 1;'>On our next generation network</div>");
-amo.registerAttribute("frameText42", "TEXT", "<div class='AlticeRegular' style='top: 53px;left: 22px;font-size: 11px;line-height: 1;'>Speeds, prices & availability vary by area.</div>");
-amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
+amo.registerAttribute("frameText41", "TEXT", "&nbsp;");
+amo.registerAttribute("frameText42", "TEXT", "<div style='top: 11px;left: 243px;font-size: 47px;line-height: 1;' class='coloredText'>$100</div>");
+amo.registerAttribute("frameText43", "TEXT", "<div style='top: 55px;left: 243px;font-size: 21px;line-height: 1.05;'>Visa<span style='vertical-align: 50%;font-size: 60%;'>®</span> Prepaid Card on us!<span class='AlticeRegular' style='font-size:10px;margin-left:3px;'>Terms apply.</span></div>");
 amo.registerAttribute("frameText51", "TEXT", "<div style='top: 12px;left: 23px;font-size: 21px;line-height: 1;'>Internet<br>starting<br>at</div>");
 amo.registerAttribute("frameText52", "TEXT", "<div style='top: 3px;left: 127px;width: 300px;line-height: 1;'><font style='font-size: 86px;letter-spacing: -2px;padding-right: 2px;' class='coloredText'>$30</font><font style='margin-left: 4px;font-size: 13px;display: inline-block;vertical-align: 36px;line-height: 1.05;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='position: absolute;top: 52px;left: 152px;font-size: 10px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
-amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 378px;transform: scale(0.66);transform-origin: top left;'><div class='bulletedText' style='line-height: 1.15;'>Free installation</div></div>");
+amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 378px;transform: scale(0.66);transform-origin: top left;'><div class='bulletedText' style='line-height: 1.15;'>$100 Visa<span style='vertical-align:5px;font-size:9px;'>®</span> Prepaid Card! <div class='AlticeRegular' style='font-size: 15px;margin-left:1px;'>Terms apply.</div></div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -190,6 +190,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 378px;
     <div id="frameText32" class="frameText">!{frameText32}</div>
     <div id="frameText33" class="frameText">!{frameText33}</div>
     <div id="frameImage4" class="asset frameImage" data-image="frameImage4"></div>
+    <div id="frameImage41" class="asset adSizeContainer" data-image="frameImage41" style="opacity:0;transform:scale(0.8);transform-origin: 15% 50%;"></div>
     <div id="frameText41" class="frameText">!{frameText41}</div>
     <div id="frameText42" class="frameText">!{frameText42}</div>
     <div id="frameText43" class="frameText">!{frameText43}</div>
@@ -303,7 +304,8 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 378px;
           frameImage12: "728x90_OPT_HOL_ACQ_INT_300Mb_35Yr1_NonSub_Icon_02_Frame_01.png",
           frameImage2: "1x1.png",
           frameImage3: "728x90_OPT_HOL_ACQ_INT_300Mb_35Yr1_NonSub_Icon_Frame_03.png",
-          frameImage4: "1x1.png",
+          frameImage4: "728x90_OPT-100-Reward-Card.png",
+          frameImage41: "728x90_OPT_Img_SnowFlakes_Frame_04.png",
           frameImage5: "1x1.png",
           // switchImage: 'images/Switch_Icon_Frame.png',
           // ref: 'ref.png',
@@ -404,8 +406,10 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 378px;
           var frameId = 4;
           gsap.set('#frameBackground', {display: 'block'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: beamFrameAnimation, onCompleteParams:[4]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame5}));
+          .to('#frameImage41', {delay:0.5, autoAlpha:1, scale:1, ease: "back.out(1.7)"})
+          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[4]})
+          .to('#frameImage'+frameId+', #frameImage41, div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame5}));
         }
 
         var animateFrame3 = function(flag){
@@ -472,7 +476,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 378px;
       } finally {
         document.querySelector('#backgroundColor').style.backgroundColor = color;
         document.querySelector('#frame1').style.backgroundColor = color;
-      }  
+      }
     }
   </script>
 </body>
