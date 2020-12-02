@@ -31,9 +31,9 @@
         ];
 
         if(contentD && contentD.length) { contentD.forEach(function(data) { amo.registerContent(data); }); }
-        amo.registerVariation("layout", "OneDrive");
-        amo.registerVariation("textField1", "['<#a80000>Protect joyful moments |in the cloud','18.4px',16, 43,'20','3 50', 'left']");
-        amo.registerVariation("textField2", "['<#505050>With 1 TB of OneDrive |cloud storage','12.2px',16, 90,'14','3 50', 'left']");
+        amo.registerVariation("layout", "GetOrganizedOutlook");
+        amo.registerVariation("textField1", "['<#505050>Start fresh with |Microsoft 365','22.5px',16,44 ,'24.5','350', 'left']");
+        amo.registerVariation("textField2", "na");
         amo.registerVariation("textField3", "na");
         amo.registerVariation("textField4", "na");
         amo.registerVariation("textField5", "na");
@@ -82,6 +82,10 @@
         }
         window.adData = content[0], window.adClickUrl = adData.url;
         window.layout = adData.layout;
+        if(window.layout == 'AllUp3DCube') {
+          window.smartName = [layout + '|SmartName1', layout + '|SmartName2', layout + '|SmartName3', layout + '|SmartName4'];
+          window.smartName = textField5 && textField5.split('^').length == 4 ? textField5.split('^').map(function(name) { return layout + '|' + name; }) : window.smartName;
+        }
         // document.querySelector('iframe').addEventListener("click", exitHandler.bind(this));
         // function exitHandler() {
         //   // window.open(clickTag);
@@ -106,9 +110,10 @@
         }
         var adUrl = '';
         switch(adData.layout){
-          case 'Carousel' : adURL = 'Carousel/M365_MobileFY21Q2Holiday_USA_250x250_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1.htm';break;
-          case 'OneDrive' : adURL = 'OneDrive/M365_MobileFY21Q2Holiday_USA_250x250_BAN_ODInt_EN_NA_Standard_ANI_BN_NA_1.htm';break;
-          case 'PPT' : adURL = 'PPT/M365_MobileFY21Q2Holiday_USA_250x250_BAN_PPTInt_EN_NA_Standard_ANI_BN_NA_1.htm';break;
+          case 'AllUp3DCube' : adURL = 'AllUp3DCube/M365_MobileFY21Q3NewYear_USA_250x250_BAN_AllUp3DCubeINT_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
+          case 'GetOrganizedOutlook' : adURL = 'GetOrganizedOutlook/M365_MobileFY21Q3NewYear_USA_250x250_BAN_GetOrgOutlook_EN_NA_Standard_SBAN_LEA_NA_1.htm';break;
+          case 'GrowCareerWord' : adURL = 'GrowCareerWord/M365_MobileFY21Q3NewYear_USA_250x250_BAN_GrowCareerWord_EN_NA_Standard_SBAN_LEA_NA_1.htm';break;
+          case 'SecurityPrivacyOD' : adURL = 'SecurityPrivacyOD/M365_MobileFY21Q3NewYear_USA_250x250_BAN_SecurityPrivOD_EN_NA_Standard_SBAN_LEA_NA_1.htm';break;
         }
         var iframe = document.createElement('iframe');
         iframe.src = adURL;
