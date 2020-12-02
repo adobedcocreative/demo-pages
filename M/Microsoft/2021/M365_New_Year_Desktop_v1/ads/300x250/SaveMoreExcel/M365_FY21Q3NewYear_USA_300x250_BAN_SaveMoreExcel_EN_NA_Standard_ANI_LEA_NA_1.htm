@@ -65,7 +65,7 @@ var vis = (function(){
 })();
 vis(function(){
   var checkState = vis() ? 'Visible' : 'Not visible';
-    console.log(checkState+"  videoState:"+exportRoot.videoState)
+   // console.log(checkState+"  videoState:"+exportRoot.videoState)
     if (checkState=='Visible' && exportRoot.videoState!="reset") {
         vid.play()
     } else if (checkState=='Not visible' && exportRoot.videoState!="reset") {
@@ -159,7 +159,7 @@ function handleComplete(evt,comp) {
                 var bannerData = parentWindow.getBannerData();          
                 bannerData.headline1 = eval(bannerData.textField1);
                 bannerData.headline2 = eval(bannerData.textField2);
-                bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "9px" : "12px"),0,0,"50","300", "center"] : '';
+                bannerData.CTA = bannerData.ctaText ? ['<#107C41>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "9px" : "12px"),0,0,"50","300", "center"] : '';
                 animation_container.addEventListener("click", function(){
                   parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl);
                   if(bannerData.clickTracker) {
@@ -180,7 +180,7 @@ function handleComplete(evt,comp) {
                   });
                 }
                 exportRoot.initBanner(bannerData)
-                ctaAlignment('left')
+                ctaAlignment('right')
                 exportRoot.runBanner()	
                 initReady=true
                 vid.muted = true;
@@ -272,12 +272,12 @@ xhrReq.onload = function() {
     }
 }
 xhrReq.onerror = function() {
-    console.log('err' ,arguments);
+   // console.log('err' ,arguments);
 }
 xhrReq.onprogress = function(e){
     if(e.lengthComputable) {
         var percentComplete = ((e.loaded/e.total)*100|0) + '%';
-        console.log('progress: ', percentComplete);
+       // console.log('progress: ', percentComplete);
         if (percentComplete=='100%' && !loadVideo) loaded('video')
     }
 }

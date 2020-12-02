@@ -205,17 +205,17 @@ function handleComplete(evt,comp) {
 	    var self = this; // Store a reference to this
 	    lVideo.addEventListener("error", function (evt) {
 	        var lErrMesg = "Error loading video element, event.type [" + evt.type + "]  Media Details: [" + evt.target.src + "]";
-	        console.log(lErrMesg);
+	       // console.log(lErrMesg);
 	    });
 
 	    lVideo.addEventListener("abort", function (evt) {
 	        var lErrMesg = "Abort/Error loading video element, event.type [" + evt.type + "] Media Details: [" + evt.target.src + "]";
-	        console.log(lErrMesg);
+	       // console.log(lErrMesg);
 	    });
 
 	    lVideo.addEventListener("loadeddata", function (evt) {
 	        var lMesg = "Media element can be played, event.type [" + evt.type + "] Media Details: [" + evt.target.src + "]";;
-	        console.log(lMesg);
+	       // console.log(lMesg);
 	        videosLoaded++
             videoCheck(videosLoaded)
 	    });
@@ -924,7 +924,7 @@ startBanner = function(){
                 exportRoot.mainMC.hit.addEventListener('mousemove', function() {tmpDrag = true});
                 exportRoot.mainMC.hit.addEventListener('click', function() {exitBanner(tmpDrag) } );
                 function exitBanner(isDrag) {
-                    console.log("isDrag:"+isDrag)
+                   // console.log("isDrag:"+isDrag)
                     if (!isDrag) {
                         exitURL()
                     }
@@ -960,7 +960,7 @@ startBanner = function(){
 							prevBtn.alpha = 1;
 							hitPrev.visible = true;
 						}});
-                        console.log("faceID:"+faceID)
+                       // console.log("faceID:"+faceID)
                         if (!isIOS) {vidID[0].pause(); vidID[0].currentTime =0};
                         if (!isIOS) {vidID[1].pause(); vidID[1].currentTime =0};
                         if (!isIOS) {vidID[2].pause(); vidID[2].currentTime =0};
