@@ -50,16 +50,22 @@
       .BreeSerifEb { font-family: BreeSerifEb; }
 
       @font-face {
-          font-family: BrandonBlack;
-          src: url('fonts/Brandon-Black.woff') format("woff");
+          font-family: AvenirNextBold;
+          src: url('fonts/AvenirNext-Bold.woff') format("woff");
       }
-      .BrandonBlack { font-family: BrandonBlack; }
+      .AvenirNextBold { font-family: AvenirNextBold; }
 
       @font-face {
           font-family: GarageGothicBold;
           src: url('fonts/GarageGothic-Bold.woff') format("woff");
       }
       .GarageGothicBold { font-family: GarageGothicBold; }
+
+      @font-face {
+          font-family: FranklinGothicMed;
+          src: url('fonts/FranklinGothicMed.woff') format("woff");
+      }
+      .FranklinGothicMed { font-family: FranklinGothicMed; }
     </style>
     <!--
       Available Classes:-
@@ -145,6 +151,7 @@
       </div>
       <div id="cta" dir="auto" class="text"
         data-text="ctaText"
+        data-style="padding:0 10px 1px;"
         style="top: 528px;
           left: 16px;
           width: 128px;
@@ -224,6 +231,10 @@
               var truCodes = splitCodes("RU");
               var tapestryCodes = splitCodes("UP");
               var hgvCodes = splitCodes("HG");
+
+              if(displayValue.toUpperCase().indexOf('HGV') != -1 && displayValue.toUpperCase().indexOf('HG') != -1 && displayValue.toUpperCase().indexOf('HI') != -1){
+                displayValue = splitCodes("HG");
+              }
               
               var matchingCodes = (displayValue && displayValue.length)?(splitCodes(displayValue + "")):null;
               var whitePatchColor = "#fff";
@@ -239,6 +250,7 @@
                     whitePatchColor = '#000';
 
                     document.querySelector("#ad").style.fontFamily = "NobelBold";
+                    document.querySelector("#cta").style.fontFamily = "FranklinGothicMed";
                   }else if(embassyCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'embassysuites';
                     document.querySelector("#logoImage").style.top = '376px';
@@ -250,7 +262,7 @@
                     logoImageName = 'conrad';
                     document.querySelector("#logoImage").style.top = '411px';
 
-                    document.querySelector("#ad").style.fontFamily = "BrandonBlack";
+                    document.querySelector("#ad").style.fontFamily = "AvenirNextBold";
                   }else if(hiltonGardenCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'hgi';
                     document.querySelector("#logoImage").style.top = '406px';
