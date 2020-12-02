@@ -140,10 +140,9 @@
           font-size: 25px;
           line-height: 0.9;">
       </div>
-      <div id="cta" dir="auto" class="text LoewHeavy"
-        data-style="text-align:center;padding:3px 7px"
+      <div id="cta" dir="auto" class="text"
         data-text="ctaText"
-        style="top: 30x;
+        style="top: 30px;
           left: 615px;
           width: 97px;
           height: 30px;
@@ -240,7 +239,6 @@
                     document.querySelector("#logoImage").style.top = '-3px';
 
                     document.querySelector("#ad").style.fontFamily = "NobelBold";
-                    document.querySelector("#cta").style.fontFamily = "NobelBold";
                   }else if(embassyCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'embassysuites';
                     document.querySelector("#logoImage").style.width = '38px';
@@ -260,19 +258,22 @@
                     document.querySelector("#logoImage").style.height = '107px';
 
                     document.querySelector("#ad").style.fontFamily = "BrandonBlack";
-                    document.querySelector("#cta").style.fontFamily = "BrandonBlack";
                   }else if(hiltonGardenCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'hgi';
 
                     document.querySelector("#ad").style.fontFamily = "BreeSerifEb";
-                    document.querySelector("#cta").style.fontFamily = "BreeSerifEb";
                   }else if(hamptonCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'hampton';
                     document.querySelector("#logoImage").style.width = '75px';
                     document.querySelector("#logoImage").style.left = '507px';
 
                     document.querySelector("#ad").style.fontFamily = "GarageGothicBold";
-                    document.querySelector("#cta").style.fontFamily = "GarageGothicBold";
+
+                    document.querySelector("#cta").style.fontSize = "20px";
+                    var frameText = document.querySelectorAll("div[id^=frameText]");
+                    for (var i = 0; i < frameText.length; i++){
+                      frameText[i].style.fontSize = "35px";
+                    }
                   }else if(homewoodCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'homewood';
                     document.querySelector("#logoImage").style.width = '78px';
@@ -289,7 +290,6 @@
                     document.querySelector("#logoImage").style.width = '64px';
 
                     document.querySelector("#ad").style.fontFamily = "DidotBold";
-                    document.querySelector("#cta").style.fontFamily = "DidotBold";
                   }else if(canopyCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'canopy';
                     document.querySelector("#logoImage").style.top = '-4px';
@@ -311,7 +311,6 @@
                     document.querySelector("#logoImage").style.width = '50px';
 
                     document.querySelector("#ad").style.fontFamily = "ProximaNovaBlack";
-                    document.querySelector("#cta").style.fontFamily = "ProximaNovaBlack";
                   }else if(tapestryCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'tapestry';
                     document.querySelector("#logoImage").style.left = '496px';
@@ -356,17 +355,6 @@
 
           textUpdate();
 
-            
-            ad.layers.cta.style.top = '30px';
-            ad.layers.cta.style.left = '615px';
-            ad.layers.cta.style.width = '97px';
-            ad.layers.cta.style.height = '30px';
-            ad.layers.cta.style.fontSize = '12px';
-
-            ad.layers.whitePatch.style.top = '30px';
-            ad.layers.whitePatch.style.left = '597px';
-            ad.layers.whitePatch.style.width = '2px';
-            ad.layers.whitePatch.style.height = '30px';
 
           gsap.set('#frameText3', {autoAlpha:0});
           var thirdFrameAnimation = function(){

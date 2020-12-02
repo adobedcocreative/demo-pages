@@ -143,8 +143,7 @@
           line-height: 1;
           color:#104c97;">
       </div>
-      <div id="cta" dir="auto" class="text LoewHeavy"
-        data-style="text-align:center;padding:3px 7px"
+      <div id="cta" dir="auto" class="text"
         data-text="ctaText"
         style="top: 197px;
           left: 158px;
@@ -243,7 +242,6 @@
                     // document.querySelector("#logoImage").style.top = '157px';
 
                     document.querySelector("#ad").style.fontFamily = "NobelBold";
-                    document.querySelector("#cta").style.fontFamily = "NobelBold";
                   }else if(embassyCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'embassysuites';
                     document.querySelector("#logoImage").style.top = '190px';
@@ -264,14 +262,12 @@
                     document.querySelector("#logoImage").style.height = '109px';
 
                     document.querySelector("#ad").style.fontFamily = "BrandonBlack";
-                    document.querySelector("#cta").style.fontFamily = "BrandonBlack";
                   }else if(hiltonGardenCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'hgi';
                     document.querySelector("#logoImage").style.height = '94px';
                     document.querySelector("#logoImage").style.top = '163px';
 
                     document.querySelector("#ad").style.fontFamily = "BreeSerifEb";
-                    document.querySelector("#cta").style.fontFamily = "BreeSerifEb";
                   }else if(hamptonCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'hampton';
                     document.querySelector("#logoImage").style.height = '93px';
@@ -279,7 +275,13 @@
                     document.querySelector("#logoImage").style.left = '20px';
 
                     document.querySelector("#ad").style.fontFamily = "GarageGothicBold";
-                    document.querySelector("#cta").style.fontFamily = "GarageGothicBold";
+
+                    document.querySelector("#cta").style.fontSize = "20px";
+                    var frameText = document.querySelectorAll("div[id^=frameText]");
+                    for (var i = 0; i < frameText.length; i++){
+                      frameText[i].style.height = "100px";
+                      frameText[i].style.fontSize = "33px";
+                    }
                   }else if(homewoodCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'homewood';
                     document.querySelector("#logoImage").style.height = '90px';
@@ -297,7 +299,6 @@
                     document.querySelector("#logoImage").style.height = '83px';
 
                     document.querySelector("#ad").style.fontFamily = "DidotBold";
-                    document.querySelector("#cta").style.fontFamily = "DidotBold";
                   }else if(canopyCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'canopy';
                     document.querySelector("#logoImage").style.top = '162px';
@@ -322,7 +323,6 @@
                     document.querySelector("#logoImage").style.height = '55px';
 
                     document.querySelector("#ad").style.fontFamily = "ProximaNovaBlack";
-                    document.querySelector("#cta").style.fontFamily = "ProximaNovaBlack";
                   }else if(tapestryCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'tapestry';
                     document.querySelector("#logoImage").style.height = '89px';
