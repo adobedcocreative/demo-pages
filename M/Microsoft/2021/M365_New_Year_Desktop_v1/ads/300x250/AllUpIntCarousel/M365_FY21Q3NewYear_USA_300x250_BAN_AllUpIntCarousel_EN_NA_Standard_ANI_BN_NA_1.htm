@@ -55,8 +55,8 @@ function init() {
 	loader.loadManifest(lib.properties.manifest);
 }
 function handleFileLoad(evt, comp) {
-	var images=comp.getImages();	
-	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+	var images=comp.getImages();
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }
 }
 function handleComplete(evt,comp) {
 	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
@@ -68,28 +68,73 @@ function handleComplete(evt,comp) {
 		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
 	}
 	exportRoot = new lib.M365_FY21Q3NewYear_USA_300x250_BAN_AllUpIntCarousel_EN_NA_Standard_ANI_BN_NA_1();
-	stage = new lib.Stage(canvas);	
+	stage = new lib.Stage(canvas);
 	//Registers the "tick" event listener.
 	fnStartAnimation = function() {
 		stage.addChild(exportRoot);
 		createjs.Ticker.framerate = lib.properties.fps;
 		createjs.Ticker.addEventListener("tick", stage);
-	}	    
+	}
 	//Code to support hidpi screens and responsive scaling.
-	AdobeAn.makeResponsive(false,'both',false,2,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.makeResponsive(false,'both',false,2,[canvas,anim_container,dom_overlay_container]);
 	AdobeAn.compositionLoaded(lib.properties.id);
 	fnStartAnimation();
-	
+
 	 if (!initReady) {
         startBanner()
     }
     TweenMax.delayedCall(0.2,function(){
+			var iframe = window.frameElement;
+			var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
+			var bannerData = parentWindow.getBannerData();
+			bannerData.headline1 = eval(bannerData.textField1.split('^')[0]);
+			bannerData.headline2 = eval(bannerData.textField1.split('^')[1]);
+			bannerData.enlarged_1_1 = eval(bannerData.textField2.split('^')[0]);
+			bannerData.enlarged_2_1 = eval(bannerData.textField3.split('^')[0]);
+			bannerData.enlarged_3_1 = eval(bannerData.textField4.split('^')[0]);
+			bannerData.enlarged_4_1 = eval(bannerData.textField5.split('^')[0]);
+			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "9px" : "12px"),0,0,"50","300", "center"] : '';
+			var smartNames = [];
+			if(bannerData.textField2.split('^').length > 2) {
+				smartNames.push(bannerData.textField2.split('^')[1]);
+				smartNames.push(bannerData.textField3.split('^')[1]);
+				smartNames.push(bannerData.textField4.split('^')[1]);
+				smartNames.push(bannerData.textField5.split('^')[1]);
+			}
+			amoAdClick = function(id) {
+				parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl.split('^').length > 1 ? parentWindow.adClickUrl.split('^')[id] : parentWindow.adClickUrl, parentWindow.layout + (smartNames && smartNames.length == 4 ? '|' + smartNames[id] : '') + '|' + bannerData.ctaText);
+				if(bannerData.clickTracker) {
+					var clickTrackers = bannerData.clickTracker.split('^');
+					clickTrackers.forEach(function(url){
+						if(url && url.toLowerCase() != 'na') {
+								(new Image()).src = url;
+						}
+					});
+				}
+			}
+			amoAdInteraction = function(text, id) {
+				var parentWindows = window.parent.parent.window;
+				if (parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
+					try {
+						var productId = ('id' in parentWindow.adData.feedData ? ('|' + parentWindow.adData.feedData.id) : '')
+						parentWindows.amoUtils.onInteraction(parentWindow.layout + (smartNames && smartNames.length == 4 ? '|' + smartNames[id] : '') + ' - ' + text + productId, parentWindow.adData.feedData);
+					} catch (e) {}
+				}
+			}
+			if(bannerData.impressionTracker) {
+				var impressionTrackers = bannerData.impressionTracker.split('^');
+				impressionTrackers.forEach(function(url){
+					if(url && url.toLowerCase() != 'na') {
+							(new Image()).src = url;
+					}
+				});
+			}
         exportRoot.initBanner(bannerData)
-        exportRoot.runBanner()	
+        exportRoot.runBanner()
     })
 	initReady=true
 }
-	
+
 var loadFont = false
 	var loadBody = false
 	function loaded(type) {
@@ -97,7 +142,7 @@ var loadFont = false
 		if (type=='body') loadBody=true
 		if (loadFont && loadBody) init()
 	}
-	
+
 	(function() {
 		// Optimization for Repeat Views
 
@@ -140,10 +185,10 @@ var loadFont = false
 var startBanner = function(){
 	           createjs.Touch.enable(stage);
 				//var container = myFT.$("#animation_container");
-	
+
 				var varInt
-				
+
 				}
 </script>
-</body>	
+</body>
 </html>

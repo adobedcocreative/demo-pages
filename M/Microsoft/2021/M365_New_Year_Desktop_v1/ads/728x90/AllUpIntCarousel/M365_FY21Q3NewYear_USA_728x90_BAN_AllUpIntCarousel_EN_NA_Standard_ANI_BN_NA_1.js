@@ -2995,41 +2995,49 @@ if (reversed == null) { reversed = false; }
 		
 			exportRoot.setMenu1 = function () {
 				ClickID--;
+				amoAdInteraction('Previous Click', ClickID);
 				direction = "prev";
 				exportRoot.subMenuClick(ClickID, direction);
 			}
 			exportRoot.setMenu2 = function () {
 				ClickID++;
+				amoAdInteraction('Next Click', ClickID);
 				direction = "next";
 				exportRoot.subMenuClick(ClickID, direction);
 			}
-			
+
 			exportRoot.jumpMenu1 = function () {
 				PrevID = ClickID;
 				ClickID = 0;
+				amoAdInteraction('Dot1 Click', ClickID);
 				exportRoot.jumpMenuClick(ClickID, PrevID);
 			}
 			exportRoot.jumpMenu2 = function () {
 				PrevID = ClickID;
 				ClickID = 1;
+				amoAdInteraction('Dot2 Click', ClickID);
 				exportRoot.jumpMenuClick(ClickID, PrevID);
 			}
 			exportRoot.jumpMenu3 = function () {
 				PrevID = ClickID;
 				ClickID = 2;
+				amoAdInteraction('Dot3 Click', ClickID);
 				exportRoot.jumpMenuClick(ClickID, PrevID);
 			}
 			exportRoot.jumpMenu4 = function () {
 				PrevID = ClickID;
 				ClickID = 3;
+				amoAdInteraction('Dot4 Click', ClickID);
 				exportRoot.jumpMenuClick(ClickID, PrevID);
 			}
-		
+
 			exportRoot.expandMenu = function (subID) {
+				amoAdInteraction('Expand Click', ClickID);
 				exportRoot.subMenuExpand(subID);
 				menuPos = "expanded"
 			}
 			exportRoot.shrinkMenu = function (subID) {
+				amoAdInteraction('Back Click', ClickID);
 				exportRoot.subMenuShrink(subID);
 				menuPos = "shrunk"
 			}
@@ -3127,16 +3135,17 @@ if (reversed == null) { reversed = false; }
 			swipe.on("swipe", function() {
 				var dir = swipe.direction;
 				if (dir == "none") {
-					if (ClickID==0) window.open(clickTag1);
-					if (ClickID==1) window.open(clickTag2);
-					if (ClickID==2) window.open(clickTag3);
-					if (ClickID==3) window.open(clickTag4);
+					// if (ClickID==0) window.open(clickTag1);
+					// if (ClickID==1) window.open(clickTag2);
+					// if (ClickID==2) window.open(clickTag3);
+					// if (ClickID==3) window.open(clickTag4);
+					amoAdClick(ClickID);
 				} else if (dir == "left") {
 					if (status_button=="on" && menuPos == "shrunk") exportRoot.setMenu2()
 				} else {
 					if (status_button=="on" && menuPos == "shrunk") exportRoot.setMenu1()
 				}
-				console.log(swipe.direction)
+				// console.log(swipe.direction)
 			});
 			
 			//mc.cache(-100, -100, 200, 200);
