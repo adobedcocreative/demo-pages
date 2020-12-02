@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ads.everesttech.net/ads/static/local/AMOLibrary.js" charset="utf-8"></script>
+    <style media="screen">
+      body { margin: 0; padding: 0; }
+      iframe { border: none; }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+      function loadData() {
+        var replaceMacro = function(text, data) {
+          var macros = text.match(/\!\{(.*?)\}/g);
+          if(macros) {
+            macros.forEach(function(macro){
+              var macroText = macro.split('!{').join('').split('}').join('');
+              for(var key in data) { if(key == macroText) { macroText = data[key]; } }
+              text = text.split(macro).join(macroText);
+            });
+          }
+          return text;
+        }
+        var contentD = [
+          {
+            "name": "Microsoft",
+            "product_url": "https://office.com/",
+          }
+        ];
+
+        if(contentD && contentD.length) { contentD.forEach(function(data) { amo.registerContent(data); }); }
+        amo.registerVariation("layout", "GetOrganizedOutlook");
+        amo.registerVariation("textField1", "['<#505050>Start fresh with Microsoft 365','18.2px',306, 18,'20','3 50', 'left']");
+        amo.registerVariation("textField2", "['<#505050>Get an organized, ad-free inbox','12.1px',341, 44,'14','3 50', 'left']");
+        amo.registerVariation("textField3", "na");
+        amo.registerVariation("textField4", "na");
+        amo.registerVariation("textField5", "na");
+        amo.registerVariation("ctaText", "LEARN MORE");
+        // amo.registerVariation("ctaArrowVisibleFlag", "!{passthroughfield2}");
+        amo.registerVariation("impressionTracker", "../../../../1x1.png?impressionTracker=" + Math.random());
+        amo.registerVariation("clickTracker", "../../../../1x1.png?clickTracker=" + Math.random());
+        amo.registerVariation("clickURL", "!{product_url}");
+        var content = [], cam = {};
+        var cam = {
+          layout: amo.variation['layout'],
+          textField1: amo.variation['textField1'],
+          textField2: amo.variation['textField2'],
+          textField3: amo.variation['textField3'],
+          textField4: amo.variation['textField4'],
+          textField5: amo.variation['textField5'],
+          cta: amo.variation['ctaText'],
+          // ctaArrowVisibleFlag: amo.variation['ctaArrowVisibleFlag'],
+          impressionTracker: amo.variation['impressionTracker'],
+          clickTracker: amo.variation['clickTracker'],
+          url: amo.variation['clickURL']
+        };
+        if(amo.content && amo.content.length) {
+          amo.content.forEach(function(data) {
+            content.push({
+              feedData: data,
+              layout: cam.layout,
+              textField1: cam.textField1,
+              textField2: cam.textField2,
+              textField3: cam.textField3,
+              textField4: cam.textField4,
+              textField5: cam.textField5,
+              ctaText: cam.cta,
+              // ctaArrowVisibleFlag: cam.ctaArrowVisibleFlag.toString().toLowerCase() == 'false' ? false : true,
+              ctaArrowVisibleFlag: true,
+              impressionTracker: cam.impressionTracker,
+              clickTracker: cam.clickTracker,
+              url: cam.url
+            });
+          });
+          if(content && content.length) {
+            content.map(function(data){
+              for(var key in data) { data[key] = typeof data[key] == 'string' ? replaceMacro(data[key], data.feedData) : data[key]; }
+            });
+          }
+        }
+        window.adData = content[0], window.adClickUrl = adData.url;
+        window.layout = adData.layout;
+        if(window.layout == 'AllUp3DCube') {
+          window.smartName = [layout + '|SmartName1', layout + '|SmartName2', layout + '|SmartName3', layout + '|SmartName4'];
+          window.smartName = textField5 && textField5.split('^').length == 4 ? textField5.split('^').map(function(name) { return layout + '|' + name; }) : window.smartName;
+        }
+        // document.querySelector('iframe').addEventListener("click", exitHandler.bind(this));
+        // function exitHandler() {
+        //   // window.open(clickTag);
+        //   amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl);
+        // }
+        var textField1 = adData.textField1 && adData.textField1.toLowerCase() != 'na' ? adData.textField1 : ' ';
+        var textField2 = adData.textField2 && adData.textField2.toLowerCase() != 'na' ? adData.textField2 : ' ';
+        var textField3 = adData.textField3 && adData.textField3.toLowerCase() != 'na' ? adData.textField3 : ' ';
+        var textField4 = adData.textField4 && adData.textField4.toLowerCase() != 'na' ? adData.textField4 : ' ';
+        var textField5 = adData.textField5 && adData.textField5.toLowerCase() != 'na' ? adData.textField5 : ' ';
+        textField1=textField1.replace('-_-','—');textField2=textField2.replace('-_-','—');textField3=textField3.replace('-_-','—');textField4=textField4.replace('-_-','—');textField5=textField5.replace('-_-','—');
+        var ctaText = adData.ctaText && adData.ctaText.toLowerCase() != 'na' ? adData.ctaText : '';
+        var impressionTracker = adData.impressionTracker && adData.impressionTracker.toLowerCase() != 'na' ? adData.impressionTracker : '';
+        var clickTracker = adData.clickTracker && adData.clickTracker.toLowerCase() != 'na' ? adData.clickTracker : '';
+        if(impressionTracker) {
+          var isn = 'data' in amo && 'isn' in amo.data ? amo.data.isn : '';
+          if(isn.length) { impressionTracker = impressionTracker.split('(t_td_isn)').join(isn); }
+          for(var i = 1; i<=5; i++) {
+              var trackingCode = 'data' in amo && 'data' in amo.data && 'atsParams' in amo.data.data && ('x2_tracking_code_'+i) in amo.data.data.atsParams ? amo.data.data.atsParams['x2_tracking_code_'+i] : '';
+              if(trackingCode.length){ impressionTracker = impressionTracker.split('$(t_qp_TC_'+i+')').join(trackingCode); }
+          }
+        }
+        var adUrl = '';
+        switch(adData.layout){
+          case 'AllUp3DCube' : adURL = 'AllUp3DCube/M365_FY21Q3NewYear_USA_728x90_BAN_AllUp3DCube_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
+          case 'AllUpIntCarousel' : adURL = 'AllUpIntCarousel/M365_FY21Q3NewYear_USA_728x90_BAN_AllUpIntCarousel_EN_NA_Standard_ANI_BN_NA_1.htm';break;
+          case 'GetOrganizedOutlook' : adURL = 'GetOrganizedOutlook/M365_FY21Q3NewYear_USA_728x90_BAN_GetOrganizedOutlook_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
+          case 'GrowCareerWord' : adURL = 'GrowCareerWord/M365_FY21Q3NewYear_USA_728x90_BAN_GrowCareerWord_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
+          case 'LearnSkillPPT' : adURL = 'LearnSkillPPT/M365_FY21Q3NewYear_USA_728x90_BAN_LearnSkillPPT_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
+          case 'SaveMoreExcel' : adURL = 'SaveMoreExcel/M365_FY21Q3NewYear_USA_728x90_BAN_SaveMoreExcel_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
+          case 'SaveTimeOD' : adURL = 'SaveTimeOD/M365_FY21Q3NewYear_USA_728x90_BAN_SaveTimeOD_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
+          case 'SecurityPrivacyOD' : adURL = 'SecurityPrivacyOD/M365_FY21Q3NewYear_USA_728x90_BAN_SecurityPrivOD_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
+        }
+        var iframe = document.createElement('iframe');
+        iframe.src = adURL;
+        iframe.width = '728';
+        iframe.height = '90';
+        document.body.appendChild(iframe);
+        var bannerData = {
+          textField1: textField1,
+          textField2: textField2,
+          textField3: textField3,
+          textField4: textField4,
+          textField5: textField5,
+          ctaText: ctaText,
+          CTAarrowVisible: [adData.ctaArrowVisibleFlag, (adData.layout == 'WriterWord' ? 10 : 0),0],
+          impressionTracker: impressionTracker,
+          clickTracker: clickTracker,
+        };
+        window.getBannerData = function(){ var obj = {}; for(var i in bannerData) { obj[i] = bannerData[i]; } return obj; }
+      }
+      loadData();
+    </script>
+  </body>
+</html>
