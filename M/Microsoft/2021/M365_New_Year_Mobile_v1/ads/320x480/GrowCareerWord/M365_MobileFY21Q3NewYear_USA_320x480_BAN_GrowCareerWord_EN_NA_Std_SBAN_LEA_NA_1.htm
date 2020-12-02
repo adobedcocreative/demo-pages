@@ -78,7 +78,7 @@ body {
         var ctaWidth = layers.txtCta.children[0].children[0].getBounds().width + 45;
         layers.txtCta.regX = 0;
         layers.txtCta.children[0].x = 0;
-        layers.txtCta.children[0].y -= 2;
+        layers.txtCta.children[0].y -= 4;
         layers.cta.regX = 0;
         layers.cta.regY = 0;
         layers.cta.scaleX = 1;
@@ -96,7 +96,7 @@ body {
         layers.cta.children[0].regX = 0;
         layers.cta.children[0].regY = 0;
         layers.cta.children[0].graphics.clear();
-        layers.cta.children[0].graphics.beginFill(ctaBackgroundColor).drawRect(0, -15, ctaWidth, 30);
+        layers.cta.children[0].graphics.beginFill(ctaBackgroundColor).drawRect(0, -21, ctaWidth, 42);
         if(position == 'right') {
           layers.cta.x = adWidth - ctaWidth;
           layers.txtCta.x = adWidth - ctaWidth + 15;
@@ -132,7 +132,7 @@ body {
         });
       }
       exportRoot.initBanner(bannerData)
-      // ctaAlignment('left')
+      ctaAlignment('right')
 			exportRoot.runBanner()
 	   })
 
