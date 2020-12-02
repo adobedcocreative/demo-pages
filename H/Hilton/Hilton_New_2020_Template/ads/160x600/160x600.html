@@ -54,6 +54,12 @@
           src: url('fonts/Brandon-Black.woff') format("woff");
       }
       .BrandonBlack { font-family: BrandonBlack; }
+
+      @font-face {
+          font-family: GarageGothicBold;
+          src: url('fonts/GarageGothic-Bold.woff') format("woff");
+      }
+      .GarageGothicBold { font-family: GarageGothicBold; }
     </style>
     <!--
       Available Classes:-
@@ -258,6 +264,8 @@
                     logoImageName = 'hampton';
                     document.querySelector("#logoImage").style.top = '389px';
 
+                    document.querySelector("#ad").style.fontFamily = "GarageGothicBold";
+                    document.querySelector("#cta").style.fontFamily = "GarageGothicBold";
                   }else if(homewoodCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'homewood';
                     document.querySelector("#logoImage").style.top = '406px';
