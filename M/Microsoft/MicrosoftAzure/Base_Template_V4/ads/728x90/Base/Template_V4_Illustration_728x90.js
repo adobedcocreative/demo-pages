@@ -889,6 +889,7 @@ if (reversed == null) { reversed = false; }
 }).prototype = p = new lib.AnMovieClip();
 p.nominalBounds = new cjs.Rectangle(364,45,365.79999999999995,258.5);
 var adSize = '728x90';
+var logoImage = 'Microsoftlogo_rgb_cgray1.png';
 var frameImage1 = 'Illustration_Migration/' + adSize + '_Illustration_Migration_F1.png';
 var frameImage2 = 'Illustration_Migration/' + adSize + 'Illustration_Migration_F2.png';
 var iframe = window.frameElement;
@@ -912,6 +913,12 @@ if(layout) {
 		case 'UI_OpenSource' : frameImage1 = layout+'/' + adSize + '_' + layout + '_F1.png';frameImage2 = layout+'/' + adSize + '_' + layout + '_F2.png'; break;
 		default:
 	}
+	switch (layout) {
+		case 'Illustration_HybridCloud' :
+		case 'Illustration_MachineLearning' :
+		case 'Illustration_OpenSource' :  logoImage = 'Microsoftlogo_rgb_cwhite.png'; break;
+		default:
+	}
 }
 // library properties:
 lib.properties = {
@@ -924,7 +931,7 @@ lib.properties = {
 	manifest: [
 		{src:"images/" + frameImage1, id:"_728x90_F1"},
 		{src:"images/" + frameImage2, id:"_728x90_F2"},
-		{src:"images/Microsoftlogo_rgb_cgray1.png?1606143462849", id:"Microsoftlogo_rgb_cgray1"}
+		{src:"images/" + logoImage, id:"Microsoftlogo_rgb_cgray1"}
 	],
 	preloads: []
 };

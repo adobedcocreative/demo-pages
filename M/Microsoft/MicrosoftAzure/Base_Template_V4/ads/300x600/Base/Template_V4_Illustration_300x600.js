@@ -933,6 +933,7 @@ if (reversed == null) { reversed = false; }
 }).prototype = p = new lib.AnMovieClip();
 p.nominalBounds = new cjs.Rectangle(150,300,150,300);
 var adSize = '300x600';
+var logoImage = 'Microsoftlogo_rgb_cgray1.png';
 var frameImage1 = 'Illustration_Migration/' + adSize + '_Illustration_Migration_F1.png';
 var frameImage2 = 'Illustration_Migration/' + adSize + 'Illustration_Migration_F2.png';
 var iframe = window.frameElement;
@@ -956,6 +957,12 @@ if(layout) {
 		case 'UI_OpenSource' : frameImage1 = layout+'/' + adSize + '_' + layout + '_F1.png';frameImage2 = layout+'/' + adSize + '_' + layout + '_F2.png'; break;
 		default:
 	}
+	switch (layout) {
+		case 'Illustration_HybridCloud' :
+		case 'Illustration_MachineLearning' :
+		case 'Illustration_OpenSource' :  logoImage = 'Microsoftlogo_rgb_cwhite.png'; break;
+		default:
+	}
 }
 // library properties:
 lib.properties = {
@@ -968,7 +975,7 @@ lib.properties = {
 	manifest: [
 		{src:"images/" + frameImage2, id:"_086E0069_FY21_AzureDirect_Creative_Refresh_BSV4_Illustration_MigrationV4Migration300x600F4"},
 		{src:"images/" + frameImage1, id:"_086E0069_FY21_AzureDirect_Creative_Refresh_BSV4_Illustration_MigrationV4MigrationF1"},
-		{src:"images/Microsoftlogo_rgb_cgray1.png?1606136332385", id:"Microsoftlogo_rgb_cgray1"}
+		{src:"images/" + logoImage, id:"Microsoftlogo_rgb_cgray1"}
 	],
 	preloads: []
 };
