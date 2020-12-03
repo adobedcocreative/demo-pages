@@ -110,6 +110,19 @@
         }
         var adUrl = '';
         switch(adData.layout){
+          case 'Illustration_AI' :
+          case 'Illustration_HybridCloud' :
+          case 'Illustration_MachineLearning' :
+          case 'Illustration_Migration' :
+          case 'Illustration_OpenSource' :
+          case 'Lifestyle_Male' :
+          case 'Lifestyle_Female' :
+          case 'UI_AI' :
+          case 'UI_FreeAccount' :
+          case 'UI_HybridCloud' :
+          case 'UI_MachineLearning' :
+          case 'UI_Migration' :
+          case 'UI_OpenSource' : adURL = 'Base/Template_V4_Illustration_160x600.htm';break;
           case 'Migration' : adURL = 'Migration/Template_V4_Illustration_160x600.htm';break;
           case 'Open Source' : adURL = 'Open Source/Template_V4_Illustration_160x600.htm';break;
         }
@@ -119,6 +132,7 @@
         iframe.height = '600';
         document.body.appendChild(iframe);
         var bannerData = {
+          layout: layout,
           textField1: textField1,
           textField2: textField2,
           textField3: textField3,
