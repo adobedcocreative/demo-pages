@@ -84,6 +84,61 @@ function handleComplete(evt,comp) {
         startBanner()
     }
     TweenMax.delayedCall(0.2,function(){
+			var ctaAlignment = function(position){
+        position = position ? position : 'left';
+        var layers = exportRoot.mainMC;
+        var adWidth = document.querySelector('#animation_container').offsetWidth;
+        window.ctaWidth = layers.txtCta.children[0].children[0].getBounds().width + 45;
+        layers.txtCta.regX = 0;
+        layers.txtCta.children[0].x = 0;
+        layers.txtCta.children[0].y += 1;
+				layers.txtCta.scaleX = 1;
+        layers.txtCta.scaleY = 1;
+        layers.cta.regX = 0;
+        layers.cta.regY = 0;
+        layers.cta.scaleX = 1;
+        layers.cta.scaleY = 1;
+				var alignArrow = function(layer){
+					if(layer) {
+						layer.y = 0;
+						layer.arrow_1.x = 0;
+		        layer.arrow.x = 0;
+		        layer.arrow_1.regX = 0;
+		        layer.arrow.regX = 0;
+		        layer.regX = 0;
+						layer.x = ctaWidth - 20;
+					}
+				}
+        alignArrow(layers.cta.arrow0);
+				alignArrow(layers.cta.arrow1);
+				alignArrow(layers.cta.arrow2);
+				alignArrow(layers.cta.arrow3);
+				alignArrow(layers.cta.arrow4);
+				var alignBackground = function(layer) {
+					if(layer) {
+						var ctaBackgroundColor = layer.shape.graphics._fill.style;
+						layer.x = 0;
+		        layer.y = 0;
+		        layer.scaleX = 1;
+		        layer.scaleY = 1;
+		        layer.regX = 0;
+		        layer.regY = 0;
+						layer.shape.x = 0;
+						layer.shape.y = 0;
+		        layer.shape.graphics.clear();
+		        layer.shape.graphics.beginFill(ctaBackgroundColor).drawRect(0, -15, ctaWidth, 30);
+					}
+				}
+				alignBackground(layers.cta.ctaBg1);
+				alignBackground(layers.cta.ctaBg2);
+        if(position == 'right') {
+          layers.cta.x = adWidth - ctaWidth;
+          layers.txtCta.x = adWidth - ctaWidth + 15;
+        } else {
+          layers.cta.x = 0;
+          layers.txtCta.x = 15;
+        }
+      }
 			var iframe = window.frameElement;
 			var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
 			var bannerData = parentWindow.getBannerData();
@@ -93,7 +148,7 @@ function handleComplete(evt,comp) {
 			bannerData.enlarged_2_1 = eval(bannerData.textField3.split('^')[0]);
 			bannerData.enlarged_3_1 = eval(bannerData.textField4.split('^')[0]);
 			bannerData.enlarged_4_1 = eval(bannerData.textField5.split('^')[0]);
-			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "9px" : "12px"),0,0,"50","300", "center"] : '';
+			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "12px" : "14px"),0,0,"50","300", "center"] : '';
 			var smartNames = [];
 			if(bannerData.textField2.split('^').length > 2) {
 				smartNames.push(bannerData.textField2.split('^')[1]);
@@ -130,6 +185,7 @@ function handleComplete(evt,comp) {
 				});
 			}
         exportRoot.initBanner(bannerData)
+				ctaAlignment('left');
         exportRoot.runBanner()
     })
 	initReady=true
