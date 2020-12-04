@@ -943,8 +943,8 @@ var layout = bannerData.layout;
 if(layout) {
 	switch (layout) {
 		case 'Illustration_AI' :
-		case 'Illustration_HybridCloud' :
-		case 'Illustration_MachineLearning' :
+		case 'Illustration_Hybrid' :
+		case 'Illustration_ML' :
 		case 'Illustration_Migration' :
 		case 'Illustration_OpenSource' :
 		case 'Lifestyle_Male' :
@@ -952,14 +952,14 @@ if(layout) {
 		case 'UI_AI' :
 		case 'UI_FreeAccount' :
 		case 'UI_HybridCloud' :
-		case 'UI_MachineLearning' :
+		case 'UI_ML' :
 		case 'UI_Migration' :
 		case 'UI_OpenSource' : frameImage1 = layout+'/' + adSize + '_' + layout + '_F1.png';frameImage2 = layout+'/' + adSize + '_' + layout + '_F2.png'; break;
 		default:
 	}
 	switch (layout) {
-		case 'Illustration_HybridCloud' :
-		case 'Illustration_MachineLearning' :
+		case 'Illustration_Hybrid' :
+		case 'Illustration_ML' :
 		case 'Illustration_OpenSource' :  logoImage = 'Microsoftlogo_rgb_cwhite.png'; break;
 		default:
 	}
