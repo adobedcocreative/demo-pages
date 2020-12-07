@@ -319,7 +319,7 @@ var startBanner = function(){
 										var parentWindows = window.parent.parent.window;
 										if (parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
 											try {
-												var smartName = bannerData.headline3 && bannerData.headline2 != ' ' ? ('|' + bannerData.headline2) : '';
+												var smartName = bannerData.textField3 && bannerData.textField3 != ' ' ? ('|' + bannerData.textField3) : '';
 												parentWindows.amoUtils.onInteraction(parentWindow.layout + smartName, parentWindow.adData.feedData);
 											} catch (e) {}
 										}
