@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="authoring-tool" content="Adobe_Animate_CC">
+<title>M365_FY21Q3SMBRefresh_USA_300x600_BAN_ODStorage_EN_NA_Standard_ANI_TRY_NA_1</title>
+<style>
+	@font-face {
+		font-family: 'Segoe Pro';
+		src: local('☺'), url('fonts/SegoePro-Semibold.woff') format('woff');
+		font-weight: normal;
+		font-style: Regular;
+		text-rendering: geometricPrecision;
+	}
+body {
+    background-color:#909090;
+}
+</style>
+<script>var clickTag = "http://www.google.com";</script>
+<script src="copy.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r122/three.min.js"></script>
+<script src="https://threejs.org/examples/js/renderers/CSS3DRenderer.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+<script src="M365_FY21Q3SMBRefresh_USA_300x600_BAN_ODStorage_EN_NA_Standard_ANI_TRY_NA_1.js?1501171107836"></script>
+<meta name="ad.size" content="width=300,height=600">
+<script src="foreground.js"></script>
+
+<script>
+var canvas, canvas1, stage, stage1, exportRoot, exportRoot1, anim_container, fg_container, dom_overlay_container, fnStartAnimation, initReady, tlCube, foreground, domFace1, domFace2, domFace3, domFace4, domFace5, domFace6, domFace7, domFace8
+
+let userAgent = navigator.userAgent;
+let b = "";
+if(userAgent.indexOf("Firefox") > -1){
+    b = "firefox";
+}
+
+    
+initReady=false
+	var cubeGroup = new THREE.Group();
+    var cubeMaterialGroup = new THREE.Group();
+	
+function init() {
+	setupCanvas1()
+    setupCanvas()
+}
+function setupCanvas() {
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("90A26FE74B042E4A89CA750D1DA2DF1F");
+	var lib=comp.getLibrary();
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+	var lib=comp.getLibrary();
+	loader.loadManifest(lib.properties.manifest);
+}
+
+function handleFileLoad(evt, comp) {
+	var images=comp.getImages();	
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+}
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib.M365_FY21Q3SMBRefresh_USA_300x600_BAN_ODStorage_EN_NA_Standard_ANI_TRY_NA_1();
+	stage = new lib.Stage(canvas);	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.framerate = lib.properties.fps;
+		createjs.Ticker.addEventListener("tick", stage);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	AdobeAn.makeResponsive(false,'both',false,2,[canvas,anim_container,fg_container,dom_overlay_container]);	
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+	
+	if (!initReady) {
+        startBanner()
+    }	
+	
+    gsap.delayedCall(0.2,function(){
+		animStart()
+        exportRoot1.initBanner(bannerData)
+        exportRoot1.runBanner()
+		initDiv.style.visibility='hidden'
+    })
+	initReady=true
+}
+function setupCanvas1() {
+	canvas1 = document.getElementById("canvas1");
+	fg_container = document.getElementById("foreground_container");
+	var comp=AdobeAn.getComposition("20B396A144B6A147B6E87DD2DC23AB3D");                                     
+	var lib=comp.getLibrary();
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", function(evt){handleFileLoad1(evt,comp)});
+	loader.addEventListener("complete", function(evt){handleComplete1(evt,comp)});
+	var lib=comp.getLibrary();
+	loader.loadManifest(lib.properties.manifest);
+}
+function handleFileLoad1(evt, comp) {
+	var images=comp.getImages();	
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+}
+function handleComplete1(evt,comp) {
+
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+
+	exportRoot1 = new lib.foreground();
+	stage1 = new lib.Stage(canvas1);	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		stage1.addChild(exportRoot1);
+		createjs.Ticker.framerate = lib.properties.fps;
+		createjs.Ticker.addEventListener("tick", stage1);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+    //aCont.removeChild(canvas1)
+}
+	
+var loadFont = false
+	var loadBody = false
+	function loaded(type) {
+		if (type=='font') loadFont=true
+		if (type=='body') loadBody=true
+		if (loadFont && loadBody) init()
+	}
+	
+	(function() {
+		// Optimization for Repeat Views
+
+		/* Font Face Observer v2.0.13 - © Bram Stein. License: BSD-3-Clause */
+		(function(){'use strict';var f,g=[];function l(a){g.push(a);1==g.length&&f()}function m(){for(;g.length;)g[0](),g.shift()}f=function(){setTimeout(m)};function n(a){this.a=p;this.b=void 0;this.f=[];var b=this;try{a(function(a){q(b,a)},function(a){r(b,a)})}catch(c){r(b,c)}}var p=2;function t(a){return new n(function(b,c){c(a)})}function u(a){return new n(function(b){b(a)})}function q(a,b){if(a.a==p){if(b==a)throw new TypeError;var c=!1;try{var d=b&&b.then;if(null!=b&&"object"==typeof b&&"function"==typeof d){d.call(b,function(b){c||q(a,b);c=!0},function(b){c||r(a,b);c=!0});return}}catch(e){c||r(a,e);return}a.a=0;a.b=b;v(a)}}
+		function r(a,b){if(a.a==p){if(b==a)throw new TypeError;a.a=1;a.b=b;v(a)}}function v(a){l(function(){if(a.a!=p)for(;a.f.length;){var b=a.f.shift(),c=b[0],d=b[1],e=b[2],b=b[3];try{0==a.a?"function"==typeof c?e(c.call(void 0,a.b)):e(a.b):1==a.a&&("function"==typeof d?e(d.call(void 0,a.b)):b(a.b))}catch(h){b(h)}}})}n.prototype.g=function(a){return this.c(void 0,a)};n.prototype.c=function(a,b){var c=this;return new n(function(d,e){c.f.push([a,b,d,e]);v(c)})};
+		function w(a){return new n(function(b,c){function d(c){return function(d){h[c]=d;e+=1;e==a.length&&b(h)}}var e=0,h=[];0==a.length&&b(h);for(var k=0;k<a.length;k+=1)u(a[k]).c(d(k),c)})}function x(a){return new n(function(b,c){for(var d=0;d<a.length;d+=1)u(a[d]).c(b,c)})};window.Promise||(window.Promise=n,window.Promise.resolve=u,window.Promise.reject=t,window.Promise.race=x,window.Promise.all=w,window.Promise.prototype.then=n.prototype.c,window.Promise.prototype["catch"]=n.prototype.g);}());
+		(function(){function l(a,b){document.addEventListener?a.addEventListener("scroll",b,!1):a.attachEvent("scroll",b)}function m(a){document.body?a():document.addEventListener?document.addEventListener("DOMContentLoaded",function c(){document.removeEventListener("DOMContentLoaded",c);a()}):document.attachEvent("onreadystatechange",function k(){if("interactive"==document.readyState||"complete"==document.readyState)document.detachEvent("onreadystatechange",k),a()})};function r(a){this.a=document.createElement("div");this.a.setAttribute("aria-hidden","true");this.a.appendChild(document.createTextNode(a));this.b=document.createElement("span");this.c=document.createElement("span");this.h=document.createElement("span");this.f=document.createElement("span");this.g=-1;this.b.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;";this.c.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;";
+		this.f.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;";this.h.style.cssText="display:inline-block;width:200%;height:200%;font-size:16px;max-width:none;";this.b.appendChild(this.h);this.c.appendChild(this.f);this.a.appendChild(this.b);this.a.appendChild(this.c)}
+		function t(a,b){a.a.style.cssText="max-width:none;min-width:20px;min-height:20px;display:inline-block;overflow:hidden;position:absolute;width:auto;margin:0;padding:0;top:-999px;white-space:nowrap;font-synthesis:none;font:"+b+";"}function y(a){var b=a.a.offsetWidth,c=b+100;a.f.style.width=c+"px";a.c.scrollLeft=c;a.b.scrollLeft=a.b.scrollWidth+100;return a.g!==b?(a.g=b,!0):!1}function z(a,b){function c(){var a=k;y(a)&&a.a.parentNode&&b(a.g)}var k=a;l(a.b,c);l(a.c,c);y(a)};function A(a,b){var c=b||{};this.family=a;this.style=c.style||"normal";this.weight=c.weight||"normal";this.stretch=c.stretch||"normal"}var B=null,C=null,E=null,F=null;function G(){if(null===C)if(J()&&/Apple/.test(window.navigator.vendor)){var a=/AppleWebKit\/([0-9]+)(?:\.([0-9]+))(?:\.([0-9]+))/.exec(window.navigator.userAgent);C=!!a&&603>parseInt(a[1],10)}else C=!1;return C}function J(){null===F&&(F=!!document.fonts);return F}
+		function K(){if(null===E){var a=document.createElement("div");try{a.style.font="condensed 100px sans-serif"}catch(b){}E=""!==a.style.font}return E}function L(a,b){return[a.style,a.weight,K()?a.stretch:"","100px",b].join(" ")}
+		A.prototype.load=function(a,b){var c=this,k=a||"BESbswy",q=0,D=b||3E3,H=(new Date).getTime();return new Promise(function(a,b){if(J()&&!G()){var M=new Promise(function(a,b){function e(){(new Date).getTime()-H>=D?b():document.fonts.load(L(c,'"'+c.family+'"'),k).then(function(c){1<=c.length?a():setTimeout(e,25)},function(){b()})}e()}),N=new Promise(function(a,c){q=setTimeout(c,D)});Promise.race([N,M]).then(function(){clearTimeout(q);a(c)},function(){b(c)})}else m(function(){function u(){var b;if(b=-1!=
+		f&&-1!=g||-1!=f&&-1!=h||-1!=g&&-1!=h)(b=f!=g&&f!=h&&g!=h)||(null===B&&(b=/AppleWebKit\/([0-9]+)(?:\.([0-9]+))/.exec(window.navigator.userAgent),B=!!b&&(536>parseInt(b[1],10)||536===parseInt(b[1],10)&&11>=parseInt(b[2],10))),b=B&&(f==v&&g==v&&h==v||f==w&&g==w&&h==w||f==x&&g==x&&h==x)),b=!b;b&&(d.parentNode&&d.parentNode.removeChild(d),clearTimeout(q),a(c))}function I(){if((new Date).getTime()-H>=D)d.parentNode&&d.parentNode.removeChild(d),b(c);else{var a=document.hidden;if(!0===a||void 0===a)f=e.a.offsetWidth,
+		g=n.a.offsetWidth,h=p.a.offsetWidth,u();q=setTimeout(I,50)}}var e=new r(k),n=new r(k),p=new r(k),f=-1,g=-1,h=-1,v=-1,w=-1,x=-1,d=document.createElement("div");d.dir="ltr";t(e,L(c,"sans-serif"));t(n,L(c,"serif"));t(p,L(c,"monospace"));d.appendChild(e.a);d.appendChild(n.a);d.appendChild(p.a);document.body.appendChild(d);v=e.a.offsetWidth;w=n.a.offsetWidth;x=p.a.offsetWidth;I();z(e,function(a){f=a;u()});t(e,L(c,'"'+c.family+'",sans-serif'));z(n,function(a){g=a;u()});t(n,L(c,'"'+c.family+'",serif'));
+		z(p,function(a){h=a;u()});t(p,L(c,'"'+c.family+'",monospace'))})})};"object"===typeof module?module.exports=A:(window.FontFaceObserver=A,window.FontFaceObserver.prototype.load=A.prototype.load);}());
+		var fontA = new FontFaceObserver('Segoe Pro');
+		Promise.all([
+			fontA.load(null, 10000),
+		]).then(function () {
+			//loading();
+			loaded('font')
+		});
+	})();
+
+
+</script>
+<!-- write your code here -->
+    <style>
+        .faces {
+            position: absolute; 
+            width:250px; 
+            height:50px; 
+            font-family:'Segoe Pro'; 
+            text-align: center; 
+            line-height: 50px; 
+        }
+        .firefoxAlt {
+            border: 1px solid rgba(0, 0, 0, 0.1); 
+            filter:blur(.25px);
+        }
+		.webGL_style {
+			width:300px; 
+			height:600px; 
+			position: absolute;
+			background-color:transparent;
+			top: 60px;  
+			cursor:pointer;
+		}
+    
+    </style>
+</head>
+<body onload="loaded('body')" style="margin:0px;">
+<div id="face1" class="faces"></div>
+<div id="face2" class="faces"></div>
+<div id="face3" class="faces"></div>
+<div id="face4" class="faces"></div>
+<div id="face5" class="faces"></div>
+<div id="face6" class="faces"></div>
+<div id="face7" class="faces"></div>
+<div id="face8" class="faces"></div>
+<div id="rHit" style="display:block; position:absolute; top:0px; left:278px; width:22px; height:22px; z-index:100000 !important; cursor:pointer; "></div>
+<div id="hit" style="display:block; position:absolute; border: 1px solid black; box-sizing: border-box; top:0px; left:0px; width:300px; height:600px; z-index:99999 !important; cursor:pointer; "></div>
+<div id="foreground_container" style="width:300px; height:600px; position: absolute; background-color:transparent; cursor:pointer; z-index: 11">
+<canvas id="canvas1" width="300" height="600" style="position: absolute; display: block; cursor:pointer;" role="img"></canvas></div>
+<div id="webGL_container" class="webGL_style" style="z-index: 10"></div>
+<div id="webGL_container_CSS3D" class="webGL_style" style="z-index: 9"></div>
+<div id="init" style="background-color:#FFFFFF; position: absolute; display: block; z-index:10; width:100%; height:100%; "></div>
+<div id="animation_container" style="background-color:#FFFFFF; width:300px; height:600px">
+  <canvas id="canvas" width="300" height="600" style="position: absolute; display: block; background-color:#FFFFFF; cursor:pointer;" aria-label="Microsoft 3 6 5. Manage your business in the cloud. Save and share files with 1 TB of OneDrive cloud storage per user. Try now." role="img"></canvas>
+		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:300px; height:600px; position: absolute; left: 0px; top: 0px; display: block;">
+		<div style="position: absolute; background-color:transparent; top: 0; left: 0; width: 100%; bottom: 0;"></div>
+		</div>
+	</div>
+
+
+<script>
+if (b == "firefox") {
+    var faceStyle = document.getElementsByClassName('faces');
+    for(var h=0; h<faceStyle.length;h++) {
+        faceStyle[h].classList.add('firefoxAlt');
+    }
+}
+
+    
+    
+var initDiv = document.getElementById("init");
+var startBanner = function(){
+				var varInt
+                var face = new Array()
+                for (var i=1; i<9; i++) {
+                    var f = document.getElementById("face"+i);
+                    f.style.fontSize = bannerData["cube"+i][1]
+                    f.style.color = "white"
+                    f.style.backgroundColor = "#0078D4"
+                    var txt = document.createTextNode(bannerData["cube"+i][0]);
+                    f.appendChild(txt);
+                    face.push(document.getElementById("face"+i))
+                }
+
+                screenTexture1 = new THREE.Texture(face[0]);
+                screenTexture2 = new THREE.Texture(face[1]);
+                screenTexture3 = new THREE.Texture(face[2]);
+                screenTexture4 = new THREE.Texture(face[3]);  
+				screenTexture5 = new THREE.Texture(face[4]);
+                screenTexture6 = new THREE.Texture(face[5]);
+                screenTexture7 = new THREE.Texture(face[6]);
+                screenTexture8 = new THREE.Texture(face[7]);
+    
+                domFace1 = new THREE.CSS3DObject( face[0] ); domFace1.doubleSided = false;
+                domFace2 = new THREE.CSS3DObject( face[1] ); domFace2.doubleSided = false;
+                domFace3 = new THREE.CSS3DObject( face[2] ); domFace3.doubleSided = false;
+                domFace4 = new THREE.CSS3DObject( face[3] ); domFace4.doubleSided = false;
+				domFace5 = new THREE.CSS3DObject( face[4] ); domFace5.doubleSided = false;
+                domFace6 = new THREE.CSS3DObject( face[5] ); domFace6.doubleSided = false;
+                domFace7 = new THREE.CSS3DObject( face[6] ); domFace7.doubleSided = false;
+                domFace8 = new THREE.CSS3DObject( face[7] ); domFace8.doubleSided = false;
+	
+                var screenMat1 = new THREE.MeshBasicMaterial({map:screenTexture1});
+                var screenMat2 = new THREE.MeshBasicMaterial({map:screenTexture2});
+                var screenMat3 = new THREE.MeshBasicMaterial({map:screenTexture3});
+                var screenMat4 = new THREE.MeshBasicMaterial({map:screenTexture4});   
+    
+				var rHit = document.getElementById("rHit");
+				rHit.addEventListener("mouseover", rHitOver.bind(this));  
+				function rHitOver()  {  exportRoot1.mainMC.replay_btn.gotoAndStop(1) }  
+
+				rHit.addEventListener("mouseout", rHitOut.bind(this));  
+				function rHitOut()   {  exportRoot1.mainMC.replay_btn.gotoAndStop(0)	} 
+	
+				function replay() {
+					if (exportRoot1.isReplay == true){
+						tlCube.pause(0.01);
+						domFace1.visible = true;
+						domFace2.visible = true;
+						domFace3.visible = true;
+						domFace4.visible = true;
+						domFace5.visible = true;
+						domFace6.visible = true;
+						domFace7.visible = true;
+						domFace8.visible = true;
+						stage.removeAllChildren();
+						stage1.removeAllChildren();
+						stage.update();
+						stage1.update();
+                        var canvas = document.getElementById('canvas');
+                        context = canvas.getContext('2d');
+
+                        // Store the current transformation matrix
+                        context.save();
+
+                        // Use the identity matrix while clearing the canvas
+                        context.setTransform(1, 0, 0, 1, 0, 0);
+                        context.clearRect(0, 0, canvas.width, canvas.height);
+
+                        // Restore the transform
+                        context.restore(); //CLEARS THE SPECIFIC CANVAS COMPLETELY FOR NEW DRAWING
+                        
+						gsap.delayedCall(0.1,init)
+					}
+				}
+
+				var mainHit = document.getElementById("hit");
+				var animation_container = document.getElementById("animation_container");
+	
+				mainHit.addEventListener("mouseover", over.bind(this));  
+				function over() {
+				exportRoot1.mainMC.cta.arrow.gotoAndStop(1);
+				}  
+
+				mainHit.addEventListener("mouseout", out.bind(this));  
+				function out() {
+						exportRoot1.mainMC.cta.arrow.gotoAndStop(0);
+				}  
+				mainHit.addEventListener("click", exitHandler.bind(this));  
+				function exitHandler() {
+				  window.open(clickTag);
+				}
+				rHit.addEventListener("click", replay.bind(this));
+            //
+            //   3D CODE
+            //
+            //
+            var w = 300
+            var h = 265
+            const scene = new THREE.Scene(); // WEBGL
+            const scene2 = new THREE.Scene(); // CSS3D
+    
+            const camera = new THREE.PerspectiveCamera( 60, w / h , 0.1, 1000 );
+    		
+            camera.position.z = 290;
+			camera.position.x = -53;
+			//camera.position.y = -28;
+			camera.rotation.y = -.18;
+            const renderer = new THREE.WebGLRenderer({alpha: true, antialias: true});
+            const rendererCSS3D = new THREE.CSS3DRenderer();
+
+            renderer.setSize( w, h );
+            rendererCSS3D.setSize( w, h );    
+            
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
+            rendererCSS3D.domElement.style.position = 'absolute';
+            rendererCSS3D.domElement.style.top = 0;
+            
+            var webGL = document.getElementById('webGL_container')
+            var webGL2 = document.getElementById('webGL_container_CSS3D')
+
+            webGL.appendChild( renderer.domElement );
+   			webGL2.appendChild( rendererCSS3D.domElement );     
+            
+            domFace1.position.z += 25
+            domFace3.position.z -= 25; domFace3.rotation.x = THREE.Math.degToRad( 180 )
+            domFace2.position.y += 25; domFace2.rotation.x = THREE.Math.degToRad( 270 ) 
+            domFace4.position.y -= 25; domFace4.rotation.x = THREE.Math.degToRad( 90 )
+			domFace5.position.z += 25
+            domFace7.position.z -= 25; domFace7.rotation.x = THREE.Math.degToRad( 180 )
+            domFace6.position.y += 25; domFace6.rotation.x = THREE.Math.degToRad( 270 ) 
+            domFace8.position.y -= 25; domFace8.rotation.x = THREE.Math.degToRad( 90 ) 
+    
+            cubeGroup.add(domFace1)
+            cubeGroup.add(domFace2)
+            cubeGroup.add(domFace3)
+            cubeGroup.add(domFace4)
+			cubeGroup.add(domFace5)
+            cubeGroup.add(domFace6)
+            cubeGroup.add(domFace7)
+            cubeGroup.add(domFace8)
+            //cubeGroup.position.y +=100;
+            scene2.add( cubeGroup );
+    
+            for (var i = 1; i<5; i++) {
+                var material = new THREE.MeshPhongMaterial({
+                    opacity	: .1,
+                    blending: THREE.NormalBlending,
+                    side: THREE.FrontSide,
+                    shininess:0,
+                    flatShading: false,
+                });
+                var fw = document.getElementById('face'+i).offsetWidth
+                var fh = document.getElementById('face'+i).offsetHeight
+                var geometry = new THREE.PlaneGeometry(fw,fh);
+                var mesh = new THREE.Mesh( geometry, material );
+                var aFace = eval("domFace"+i)
+                mesh.position.copy( aFace.position );
+                mesh.rotation.copy( aFace.rotation );
+                //mesh.scale.copy( domObject.scale );
+                mesh.castShadow = false;
+                mesh.receiveShadow = true;
+                cubeMaterialGroup.add( mesh );
+            }
+            //cubeMaterialGroup.position.z += 50
+			scene.add(cubeMaterialGroup)    
+
+			const light2 = new THREE.HemisphereLight( 0x0078d4, 0x000000, .5);
+			light2.color.setHSL( 1, 1, 1 );
+			light2.groundColor.setHSL( -1, -1, -1 );
+			light2.position.set(0,50,-50);
+			scene.add( light2 );
+	
+			function animate() {
+				scene.updateMatrixWorld()
+				renderer.render( scene, camera );
+				rendererCSS3D.render( scene2, camera );
+				requestAnimationFrame( animate );
+            }
+            animate()
+			
+			tlCube = gsap.timeline();
+			tlCube.pause();
+	
+			tlCube.from(cubeGroup.scale, 1, {x:"0", y:"0", z:"0", ease:Power4.easeOut, onStart:function(){domFace5.visible = false; domFace6.visible = false;domFace7.visible = false;domFace8.visible = false;}}, "+=.6");
+			tlCube.from(cubeGroup.position, .6, {x:"-=60", y:"+=5", z:"0", ease:Power4.easeOut}, "<");
+            tlCube.from(cubeMaterialGroup.scale, 1, {x:"0", y:"0", z:"0", ease:Power4.easeOut}, "-=1");
+			tlCube.from(cubeMaterialGroup.position, .6, {x:"-=60", y:"+=5", z:"0", ease:Power4.easeOut}, "<");
+			tlCube.from(cubeGroup.rotation, 1, {x:"-=4", ease:Power4.easeOut}, "-=1");
+            tlCube.from(cubeMaterialGroup.rotation, 1, {x:"-=4", ease:Power4.easeOut}, "-=1");		
+
+			tlCube.to(cubeGroup.rotation, .6, {x:"+=1.5708", ease:Power4.easeInOut}, "+=.7");
+            tlCube.to(cubeMaterialGroup.rotation, .6, {x:"+=1.5708", ease:Power4.easeInOut}, "-=.6");
+	
+			tlCube.to(cubeGroup.rotation, .5, {x:"+=1.5708", ease:Power4.easeInOut, onComplete:function(){domFace1.visible = false; domFace5.visible = true; }}, "+=.55");
+            tlCube.to(cubeMaterialGroup.rotation, .5, {x:"+=1.5708", ease:Power4.easeInOut}, "-=.5");
+	
+			tlCube.to(cubeGroup.rotation, .4, {x:"+=1.5708", ease:Power4.easeInOut, onComplete:function(){domFace2.visible = false; domFace6.visible = true; }}, "+=.4");
+            tlCube.to(cubeMaterialGroup.rotation, .4, {x:"+=1.5708", ease:Power4.easeInOut}, "-=.4");
+	
+			tlCube.to(cubeGroup.rotation, .3, {x:"+=1.5708", ease:Power3.easeInOut, onComplete:function(){domFace3.visible = false; domFace7.visible = true; }}, "+=.25");
+            tlCube.to(cubeMaterialGroup.rotation, .3, {x:"+=1.5708", ease:Power3.easeInOut}, "-=.3");
+	
+			tlCube.to(cubeGroup.rotation, .3, {x:"+=1.5708", ease:Power2.easeInOut, onComplete:function(){domFace4.visible = false; domFace8.visible = true; }}, "+=.08");
+            tlCube.to(cubeMaterialGroup.rotation, .3, {x:"+=1.5708", ease:Power2.easeInOut}, "-=.3");
+	
+			tlCube.to(cubeGroup.rotation, .2, {x:"+=1.5708", ease:Power2.easeInOut}, "+=.08");
+            tlCube.to(cubeMaterialGroup.rotation, .2, {x:"+=1.5708", ease:Power2.easeInOut}, "-=.2");
+	
+			tlCube.to(cubeGroup.rotation, .2, {x:"+=1.5708", ease:Power2.easeInOut}, "+=.08");
+            tlCube.to(cubeMaterialGroup.rotation, .2, {x:"+=1.5708", ease:Power2.easeInOut}, "-=.2");
+	
+			tlCube.to(cubeGroup.rotation, .1, {x:"+=1.5708", ease:Power1.easeInOut}, "+=.03");
+            tlCube.to(cubeMaterialGroup.rotation, .1, {x:"+=1.5708", ease:Power1.easeInOut}, "-=.1");
+	
+			tlCube.to(cubeGroup.rotation, .08, {x:"+=1.5708", ease:Power1.easeInOut}, "+=.01");
+            tlCube.to(cubeMaterialGroup.rotation, .08, {x:"+=1.5708", ease:Power1.easeInOut}, "-=.08");
+	
+			tlCube.to(cubeGroup.rotation, .06, {x:"+=1.5708", ease:Sine.easeInOut});
+            tlCube.to(cubeMaterialGroup.rotation, .06, {x:"+=1.5708", ease:Sine.easeInOut}, "-=.06");
+				
+			tlCube.to(cubeGroup.rotation, .15, {x:"+=4.7124", ease:Sine.easeIn});
+            tlCube.to(cubeMaterialGroup.rotation, .15, {x:"+=4.7124", ease:Sine.easeIn}, "-=.15");
+
+			tlCube.to(cubeGroup.rotation, 1, {x:"+=8.6966", ease:Back.easeOut}, "+=0");
+            tlCube.to(cubeMaterialGroup.rotation, 1, {x:"+=8.6966", ease:Back.easeOut}, "-=1");
+	
+			tlCube.to(cubeGroup.scale, .6, {x:"0", y:"0", z:"0", ease:Power4.easeIn, onComplete:function(){domFace5.visible = false; domFace6.visible = false; domFace7.visible = false;domFace8.visible = false;}}, "+=.4");
+			tlCube.to(cubeGroup.position, .6, {x:"+=65", y:"+=12", z:"0", ease:Power4.easeIn}, "<");
+
+	        tlCube.to(cubeMaterialGroup.scale, .6, {x:"0", y:"0", z:"0", ease:Power4.easeIn}, "<");
+			tlCube.to(cubeMaterialGroup.position, .6, {x:"+=65", y:"+=12", z:"0", ease:Power4.easeIn}, "<");
+
+			
+		}
+function animStart(){
+				
+			tlBg = gsap.timeline({defaults: {ease:Power4.easeOut}});
+			tlBg.pause();
+			tlBg.to([exportRoot.mainMC.Bg, exportRoot1.mainMC.foreground], 1.2, {
+				scaleX: 1.312, 
+				scaleY: 1.312, 
+				x: "-=157", 
+				y: "-=43"},
+			"+=8.1");
+	 		//tlBg.to(exportRoot1.mainMC.foreground, 1.2, {alpha:0}, "<");
+}
+</script>
+</body>	
+</html>
