@@ -7,12 +7,12 @@
 	
 	
 	
-	bannerData.headline1 = ["<#FFFFFF>Defend against cyberthreats","18px",150,179 ,"20","350", "center"];
-	bannerData.headline2 = ["<#FFFFFF>Protect your customer data","18px",150,179 ,"20","350", "center"];
-	bannerData.headline3 = ["<#FFFFFF>Keep company devices protected","18px",150,179 ,"20","350", "center"];
+	bannerData.headline1 = ['<#FFFFFF>Defend against cyberthreats','18px',150,179 ,'20','350', 'center']
+	bannerData.headline2 = ['<#FFFFFF>Protect your customer data','18px',150,179 ,'20','350', 'center']
+	bannerData.headline3 = ['<#FFFFFF>Keep company devices protected','18px',150,179 ,'20','350', 'center']
 	
-	bannerData.headline4 = ["<#FFFFFF>Safeguard your business data","20px",150,146 ,"20","350", "center"];
+	bannerData.headline4 = ['<#FFFFFF>Safeguard your business data','20px',150,146 ,'20','350', 'center']
 
-	bannerData.CTA = ["<#0078D4>TRY NOW","12px",0,0,"16","300", "center"];
+	bannerData.CTA = ['<#0078D4>TRY NOW','12px',0,0,'16','300', 'center']
 	
 	bannerData.CTAarrowVisible = [true, 0,0]

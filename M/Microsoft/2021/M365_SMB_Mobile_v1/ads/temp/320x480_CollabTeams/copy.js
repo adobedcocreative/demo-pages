@@ -5,26 +5,26 @@
 	// lineWidth is no longer needed.
 	var bannerData = new Object()	
 	
-	bannerData.headline1 = ["<#505050>Your all-in-one hub","24px",160,85 ,"27","350", "center"];
+	bannerData.headline1 = ['<#505050>Your all-in-one hub','24px',160,85 ,'27','350', 'center']
 
     // No colors or new lines
-	bannerData.cube1 = ["collaboration","30px"];
+	bannerData.cube1 = ['collaboration','30px']
 	// No colors or new lines
-	bannerData.cube2 = ["file sharing","30px"];
+	bannerData.cube2 = ['file sharing','30px']
 	// No colors or new lines
-	bannerData.cube3 = ["video","30px"];
+	bannerData.cube3 = ['video','30px']
 	// No colors or new lines
-	bannerData.cube4 = ["call","30px"];
+	bannerData.cube4 = ['call','30px']
 	// No colors or new lines
-	bannerData.cube5 = ["chat","30px"];
+	bannerData.cube5 = ['chat','30px']
 	// No colors or new lines
-	bannerData.cube6 = ["communication","30px"];
+	bannerData.cube6 = ['communication','30px']
 	// No colors or new lines
-	bannerData.cube7 = ["collaboration","30px"];
+	bannerData.cube7 = ['collaboration','30px']
 	// No colors or new lines
-	bannerData.cube8 = ["file sharing","30px"];
+	bannerData.cube8 = ['file sharing','30px']
 
 
-	bannerData.CTA = ["<#FFFFFF>TRY NOW","11px",0,0,"16","300", "left"];
+	bannerData.CTA = ['<#FFFFFF>TRY NOW','11px',0,0,'16','300', 'left']
 
 	bannerData.CTAarrowVisible = [true, 0,0]
