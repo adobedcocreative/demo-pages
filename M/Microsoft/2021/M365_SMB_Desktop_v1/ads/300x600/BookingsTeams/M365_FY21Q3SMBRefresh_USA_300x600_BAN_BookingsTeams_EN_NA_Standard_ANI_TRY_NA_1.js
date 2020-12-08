@@ -1412,16 +1412,16 @@ if (reversed == null) { reversed = false; }
 		}
 		var mc = exportRoot.mainMC
 		exportRoot.replayAnim = "inProgress"
-		
-		
+
+
 		this.initBanner = function (data) {
-			
+
 			exportRoot.isReplay = false;
 			exportRoot.shadowReplay = false;
-			
+
 			Object.keys = function(obj) {
 				var keys = [];
-		
+
 				for (var i in obj) {
 				  if (obj.hasOwnProperty(i)) {
 					keys.push(i);
@@ -1430,7 +1430,7 @@ if (reversed == null) { reversed = false; }
 				return keys
 			}
 			var keys = Object.keys(data)
-			
+
 				for (var i in keys) {
 					var id = keys[i].substr(0, 4);
 						if (id == "head") {
@@ -1445,7 +1445,7 @@ if (reversed == null) { reversed = false; }
 						}
 				}
 		}
-		
+
 		this.fillHead = function (txtDetails, aVar) {
 			var text = txtDetails[0]
 			var size = txtDetails[1]
@@ -1454,16 +1454,16 @@ if (reversed == null) { reversed = false; }
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += parseInt(size)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -1480,7 +1480,7 @@ if (reversed == null) { reversed = false; }
 				aVar.push(mc)
 			}
 		}
-		
+
 		this.fillCta = function (txtDetails) {
 			var text = txtDetails[0]
 			var size = txtDetails[1]
@@ -1489,17 +1489,17 @@ if (reversed == null) { reversed = false; }
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
-		
+
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += (parseInt(size) * 0.90)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -1516,7 +1516,7 @@ if (reversed == null) { reversed = false; }
 				this.mainMC.txtCta.addChild(mc);
 			}
 		}
-		
+
 		this.getTheSentences = function (text, size, xOffset, yOffset, lineSpacing, lineWidth, align) {
 			var sentences = new Array()
 			var aSentenceLine = new Array()
@@ -1524,16 +1524,16 @@ if (reversed == null) { reversed = false; }
 			sentences = aStr.split("|");
 			var lastColor = "#000000"
 			// Figure out the setence lines
-		
+
 			for (var i = 0; i < sentences.length; i++) {
 				var aS = sentences[i].substr(0);
 				var aSplit = new Array()
 				aSplit = aS.split("<");
 				aSplit = aSplit.filter(Boolean)
 				var wholeSentence = new Array()
-		
+
 				for (var j = 0; j < aSplit.length; j++) {
-		
+
 					var checkColor = aSplit[j].indexOf("#")
 					var color = (checkColor == -1) ? lastColor : aSplit[j].substr(0, 7);
 					lastColor = color
@@ -1548,54 +1548,54 @@ if (reversed == null) { reversed = false; }
 			}
 			return aSentenceLine
 		}
-		
+
 		var mc = exportRoot.mainMC;
 		mc.visible = false;
 		mc.replay_btn.alpha=0
-		
+
 		this.runBanner = function() {
-			
+
 				mc.visible = true;
 				mc.replay_btn.alpha=1
-		
+
 				this.tlMain = gsap.timeline();
-				
+
 				this.tlMain.to(mc.manScene.foregroundOverlay, 1, {alpha:.6, ease:Power3.easeOut});
-			
+
 				this.tlMain.from(exportRoot.headline1,{duration:0.8, y: "+=10", alpha: 0, ease:Power4.easeOut}, "<");
 				this.tlMain.to(exportRoot.headline1,{duration:0.8, y: "-=10", alpha: 0, ease:Power4.easeIn}, "+=0.2");
-				
+
 				this.tlMain.from(exportRoot.headline2,{duration:0.8, y: "+=10", alpha: 0, ease:Power4.easeOut}, "+=0");
 				this.tlMain.to(exportRoot.headline2,{duration:0.8, y: "-=10", alpha: 0, ease:Power4.easeIn}, "+=0.2");
-				
+
 				this.tlMain.to(mc.manScene.foregroundOverlay, 1, {x:"-=300", ease:Power3.easeIn}, "<");
 				this.tlMain.from(mc.manScene.backgroundOverlay, 1, {x:"+=300", ease:Power3.easeOut}, "<+.9");
-		
+
 				this.tlMain.from(mc.manScene.calendar, .6, {y:"+=10", rotation:"-=10", alpha:0, ease:Back.easeOut}, "<+.9");
 				this.tlMain.from(mc.manScene.calendar.dot, .6, {scaleX:0, scaleY:0, ease:Back.easeOut}, "<+.3");
-		
+
 				this.tlMain.to(mc.manScene, 1, {x:"-=150", ease:Power3.easeInOut},"+=.5");
-				this.tlMain.to(mc.manScene.foregroundOverlay, 0, {x:"+=300", alpha:0}, "<");		
+				this.tlMain.to(mc.manScene.foregroundOverlay, 0, {x:"+=300", alpha:0}, "<");
 				this.tlMain.to(mc.manScene.foregroundOverlay, 1, {alpha:.8, ease:Power3.easeInOut},"<");
 				this.tlMain.from(mc.womanScene, 1, {x:"+=300", ease:Power3.easeInOut, onStart:function(){mc.womanScene.play();}}, "<");
-				
+
 				this.tlMain.from(mc.womanScene.calendar, .6, {y:"+=10", rotation:"-=10", alpha:0, ease:Back.easeOut}, "<+.9");
 				this.tlMain.from(mc.womanScene.calendar.dot, .6, {scaleX:0, scaleY:0, ease:Back.easeOut}, "<+.3");
 				this.tlMain.from(mc.womanScene.calendar.txt1, .6, {x:"+=10", alpha:0, ease:Power3.easeOut}, "<+.3");
 				this.tlMain.from(mc.womanScene.calendar.txt2, .6, {x:"+=10", alpha:0, ease:Power3.easeOut}, "<+.1");
-		
+
 				this.tlMain.to(mc.womanScene.calendar, .6, {y:"+=10", scaleX:.5, scaleY:.5, alpha:0, ease:Power3.easeInOut}, "+=.8");
 				this.tlMain.to(mc.womanScene.womanHead, .6, {alpha:0, ease:Power3.easeInOut}, "+=.8");
 				//this.tlMain.to(mc.womanScene.woman, 1, {x:"-=25", scaleX:1.3, scaleY:1.3, ease:Power3.easeInOut}, "<");
-				
+
 				this.tlMain.fromTo(mc.womanScene.foregroundOverlay, 1, {alpha:0}, {alpha:.8, ease:Power3.easeOut}, "<");
-		
+
 				this.tlMain.from(exportRoot.headline3,{duration:0.8, y: "+=10", alpha: 0, ease:Power4.easeOut}, "<+.5");
 				this.tlMain.to(exportRoot.headline3,{duration:0.8, y: "-=10", alpha: 0, ease:Power4.easeIn}, "+=0.2");
-				
+
 				this.tlMain.from(exportRoot.headline4,{duration:0.8, y: "+=10", alpha: 0, ease:Power4.easeOut}, "+=0");
 				this.tlMain.to(exportRoot.headline4,{duration:0.8, y: "-=10", alpha: 0, ease:Power4.easeIn}, "+=0.2");
-				
+
 				this.tlMain.to(mc.womanScene, 1, {x:"+=118.5", ease:Power3.easeInOut, onStart:function(){mc.womanScene.play();}}, "<+.6");
 				this.tlMain.to(mc.womanScene.woman, 1, {x:"-=68", y:"+=66", scaleX:0.8, scaleY:0.8, ease:Power3.easeInOut}, "<");
 				this.tlMain.to(mc.womanScene.foregroundOverlay, 1, {alpha:0, ease:Power3.easeInOut}, "<");
@@ -1603,18 +1603,18 @@ if (reversed == null) { reversed = false; }
 				this.tlMain.to(mc.manScene.man, 1, {y:"+=74",x:"-=08", scaleX:.8, scaleY:.8, ease:Power3.easeInOut, onStart:function(){mc.manScene.manHead.visible=false; mc.manScene.calendar.visible=false;}}, "<");
 				this.tlMain.to(mc.manScene.manBG, 1, {y:"+=74",x:"-=08", scaleX:.8, scaleY:.8, ease:Power3.easeInOut}, "<");
 				this.tlMain.to(mc.manScene.foregroundOverlay, 1, {alpha:0, ease:Power3.easeInOut},"<");
-		
-				
+
+
 				this.tlMain.from(exportRoot.headline5,{duration:0.8, y: "+=30", alpha: 0, ease:Power4.easeOut}, "<+.1");
-				this.tlMain.from(exportRoot.headline6,{duration:0.8, y: "+=30", alpha: 0, ease:Power4.easeOut}, "<+.1");		
+				this.tlMain.from(exportRoot.headline6,{duration:0.8, y: "+=30", alpha: 0, ease:Power4.easeOut}, "<+.1");
 				this.tlMain.from(exportRoot.headline7,{duration:0.8, y: "+=30", alpha: 0, ease:Power4.easeOut}, "<+.1");
-				this.tlMain.from(exportRoot.headline8,{duration:0.8, y: "+=30", alpha: 0, ease:Power4.easeOut}, "<+.1");		
-				this.tlMain.from(exportRoot.headline9,{duration:0.8, y: "+=30", alpha: 0, ease:Power4.easeOut}, "<+.1");		
-				
-				this.tlMain.from(mc.cta, { duration: 0.6, x: "-=150"}, "-=0.7");
-				this.tlMain.from(mc.txtCta, { duration: 0.6, x: "-=150"}, "-=0.7");
+				this.tlMain.from(exportRoot.headline8,{duration:0.8, y: "+=30", alpha: 0, ease:Power4.easeOut}, "<+.1");
+				this.tlMain.from(exportRoot.headline9,{duration:0.8, y: "+=30", alpha: 0, ease:Power4.easeOut}, "<+.1");
+
+				this.tlMain.from(mc.cta, { duration: 0.6, x: "-=200"}, "-=0.7");
+				this.tlMain.from(mc.txtCta, { duration: 0.6, x: "-=200"}, "-=0.7");
 				this.tlMain.from(mc.replay_btn, { alpha: 0, onStart:function(){exportRoot.isReplay = true;}}, "-=0.6");
-				
+
 		}
 	}
 
@@ -1698,41 +1698,41 @@ an.getComposition = function(id) {
 }
 
 
-an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {		
-	var lastW, lastH, lastS=1;		
-	window.addEventListener('resize', resizeCanvas);		
-	resizeCanvas();		
-	function resizeCanvas() {			
-		var w = lib.properties.width, h = lib.properties.height;			
-		var iw = window.innerWidth, ih=window.innerHeight;			
-		var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;			
-		if(isResp) {                
-			if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
-				sRatio = lastS;                
-			}				
-			else if(!isScale) {					
-				if(iw<w || ih<h)						
-					sRatio = Math.min(xRatio, yRatio);				
-			}				
-			else if(scaleType==1) {					
-				sRatio = Math.min(xRatio, yRatio);				
-			}				
-			else if(scaleType==2) {					
-				sRatio = Math.max(xRatio, yRatio);				
-			}			
+an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {
+	var lastW, lastH, lastS=1;
+	window.addEventListener('resize', resizeCanvas);
+	resizeCanvas();
+	function resizeCanvas() {
+		var w = lib.properties.width, h = lib.properties.height;
+		var iw = window.innerWidth, ih=window.innerHeight;
+		var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;
+		if(isResp) {
+			if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {
+				sRatio = lastS;
+			}
+			else if(!isScale) {
+				if(iw<w || ih<h)
+					sRatio = Math.min(xRatio, yRatio);
+			}
+			else if(scaleType==1) {
+				sRatio = Math.min(xRatio, yRatio);
+			}
+			else if(scaleType==2) {
+				sRatio = Math.max(xRatio, yRatio);
+			}
 		}
-		domContainers[0].width = w * pRatio * sRatio;			
+		domContainers[0].width = w * pRatio * sRatio;
 		domContainers[0].height = h * pRatio * sRatio;
-		domContainers.forEach(function(container) {				
-			container.style.width = w * sRatio + 'px';				
-			container.style.height = h * sRatio + 'px';			
+		domContainers.forEach(function(container) {
+			container.style.width = w * sRatio + 'px';
+			container.style.height = h * sRatio + 'px';
 		});
-		stage.scaleX = pRatio*sRatio;			
+		stage.scaleX = pRatio*sRatio;
 		stage.scaleY = pRatio*sRatio;
-		lastW = iw; lastH = ih; lastS = sRatio;            
-		stage.tickOnUpdate = false;            
-		stage.update();            
-		stage.tickOnUpdate = true;		
+		lastW = iw; lastH = ih; lastS = sRatio;
+		stage.tickOnUpdate = false;
+		stage.update();
+		stage.tickOnUpdate = true;
 	}
 }
 an.handleSoundStreamOnTick = function(event) {

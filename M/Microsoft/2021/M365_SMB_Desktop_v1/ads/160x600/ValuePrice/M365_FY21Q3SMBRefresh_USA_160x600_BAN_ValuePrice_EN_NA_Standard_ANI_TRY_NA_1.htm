@@ -77,12 +77,14 @@ function handleComplete(evt,comp) {
         startBanner()
     }
 
-    TweenMax.delayedCall(0.2,function(){
+  TweenMax.delayedCall(0.2,function(){
 		animStart()
-        exportRoot.initBanner(bannerData)
-        exportRoot.runBanner()
-        initDiv.style.visibility='hidden'
-    })
+		amoAd.addTracker();
+    exportRoot.initBanner(bannerData)
+		amoAd.ctaAlignment();
+    exportRoot.runBanner()
+    initDiv.style.visibility='hidden'
+  })
 	initReady=true
 }
 
@@ -487,7 +489,7 @@ function animStart(){
 <script type="text/javascript">
 	var amoAd = (function(){
 		var ctaAlignment = function(position){
-			var layers = exportRoot1.mainMC;
+			var layers = exportRoot.mainMC;
 			var adWidth = document.querySelector('#animation_container').offsetWidth;
 			var ctaBackgroundColor = layers.cta.children[0].graphics._fill.style;
 			var yPoints = layers.cta.children[0].graphics._activeInstructions.map(function(point){ return(point.y) });
@@ -504,7 +506,9 @@ function animStart(){
 			position = position ? position : (layers.cta.x > adWidth ? 'right' : 'left');
 			layers.txtCta.regX = 0;
 			layers.txtCta.children[0].x = 0;
-			// layers.txtCta.children[0].y -= 2;
+			layers.txtCta.children[0].y -= 3;
+			layers.txtCta.scaleX = 1;
+			layers.txtCta.scaleY = 1;
 			layers.cta.regX = 0;
 			layers.cta.regY = 0;
 			layers.cta.scaleX = 1;
@@ -554,6 +558,8 @@ function animStart(){
 		bannerData.cube6 = getValue(5);
 		bannerData.cube7 = getValue(6);
 		bannerData.cube8 = getValue(7);
+		bannerData.cube9 = getValue(8);
+		bannerData.cube10 = getValue(9);
 		bannerData.headline1 = eval(bannerData.textField2);
 		bannerData.headline2 = eval(bannerData.textField3);
 		bannerData.headline3 = eval(bannerData.textField4);

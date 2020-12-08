@@ -79,11 +79,13 @@ function handleComplete(evt,comp) {
         startBanner()
     }
 
-    gsap.delayedCall(0.2,function(){
-        exportRoot.initBanner(bannerData)
-        exportRoot.runBanner()
-        initDiv.style.visibility='hidden'
-    })
+	gsap.delayedCall(0.2,function(){
+		amoAd.addTracker();
+    exportRoot.initBanner(bannerData)
+		amoAd.ctaAlignment();
+    exportRoot.runBanner()
+    initDiv.style.visibility='hidden'
+  })
 	initReady=true
 }
 
@@ -409,7 +411,7 @@ var startBanner = function(){
 <script type="text/javascript">
 	var amoAd = (function(){
 		var ctaAlignment = function(position){
-			var layers = exportRoot1.mainMC;
+			var layers = exportRoot.mainMC;
 			var adWidth = document.querySelector('#animation_container').offsetWidth;
 			var ctaBackgroundColor = layers.cta.children[0].graphics._fill.style;
 			var yPoints = layers.cta.children[0].graphics._activeInstructions.map(function(point){ return(point.y) });
@@ -426,7 +428,9 @@ var startBanner = function(){
 			position = position ? position : (layers.cta.x > adWidth ? 'right' : 'left');
 			layers.txtCta.regX = 0;
 			layers.txtCta.children[0].x = 0;
-			// layers.txtCta.children[0].y -= 2;
+			layers.txtCta.children[0].y -= 2;
+			layers.txtCta.scaleX = 1;
+			layers.txtCta.scaleY = 1;
 			layers.cta.regX = 0;
 			layers.cta.regY = 0;
 			layers.cta.scaleX = 1;
@@ -477,8 +481,6 @@ var startBanner = function(){
 		bannerData.cube7 = getValue(6);
 		bannerData.cube8 = getValue(7);
 		bannerData.headline1 = eval(bannerData.textField2);
-		bannerData.headline2 = eval(bannerData.textField3);
-		bannerData.headline3 = eval(bannerData.textField4);
 		bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "9px" : "12px"),0,0,"50","300", "center"] : '';
 		function addTracker() {
 			var mainHit = document.getElementById("hit");
