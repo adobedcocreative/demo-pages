@@ -48,8 +48,8 @@ function init() {
 	loader.loadManifest(lib.properties.manifest);
 }
 function handleFileLoad(evt, comp) {
-	var images=comp.getImages();	
-	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+	var images=comp.getImages();
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }
 }
 function handleComplete(evt,comp) {
 	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
@@ -61,31 +61,33 @@ function handleComplete(evt,comp) {
 		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
 	}
 	exportRoot = new lib.M365_MobileFY21Q3SMBRefresh_USA_320x480_BAN_ValuePrice_EN_NA_Standard_ANI_TRY_NA_1();
-	stage = new lib.Stage(canvas);	
+	stage = new lib.Stage(canvas);
 	//Registers the "tick" event listener.
 	fnStartAnimation = function() {
 		stage.addChild(exportRoot);
 		createjs.Ticker.framerate = lib.properties.fps;
 		createjs.Ticker.addEventListener("tick", stage);
-	}	    
+	}
 	//Code to support hidpi screens and responsive scaling.
-	AdobeAn.makeResponsive(false,'both',false,2,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.makeResponsive(false,'both',false,2,[canvas,anim_container,dom_overlay_container]);
 	AdobeAn.compositionLoaded(lib.properties.id);
 	fnStartAnimation();
-	
+
 	 if (!initReady) {
         startBanner()
     }
-	
-    TweenMax.delayedCall(0.2,function(){
+
+  TweenMax.delayedCall(0.2,function(){
 		animStart()
-        exportRoot.initBanner(bannerData)
-        exportRoot.runBanner()
-        initDiv.style.visibility='hidden'
-    })
+		amoAd.addTracker();
+		exportRoot.initBanner(bannerData)
+		amoAd.ctaAlignment();
+    exportRoot.runBanner()
+    initDiv.style.visibility='hidden'
+  })
 	initReady=true
 }
-	
+
 var loadFont = false
 	var loadBody = false
 	function loaded(type) {
@@ -93,7 +95,7 @@ var loadFont = false
 		if (type=='body') loadBody=true
 		if (loadFont && loadBody) init()
 	}
-	
+
 	(function() {
 		// Optimization for Repeat Views
 
@@ -123,22 +125,22 @@ var loadFont = false
 
 <style>
         .faces {
-            position: absolute; 
-            width:290px; 
-            height:50px; 
-            font-family:'Segoe Pro'; 
-            text-align: center; 
-            line-height: 50px; 
+            position: absolute;
+            width:290px;
+            height:50px;
+            font-family:'Segoe Pro';
+            text-align: center;
+            line-height: 50px;
         }
         .firefoxAlt {
-            border: 1px solid rgba(0, 0, 0, 0.1); 
+            border: 1px solid rgba(0, 0, 0, 0.1);
             filter:blur(.25px);
         }
-    
+
 </style>
 </head>
 <body onload="loaded('body')" style="margin:0px;">
-    
+
 <div id="face1" class="faces"></div>
 <div id="face2" class="faces"></div>
 <div id="face3" class="faces"></div>
@@ -149,8 +151,8 @@ var loadFont = false
 <div id="face8" class="faces"></div>
 <div id="face9" class="faces"></div>
 <div id="face10" class="faces"></div>
-	
-	
+
+
 <div id="rHit" style="display:block; position:absolute; top:0px; left:298px; width:22px; height:22px; z-index:100000 !important; cursor:pointer; "></div>
 <div id="hit" style="display:block; position:absolute; top:0px; left:0px; width:320px; height:480px; z-index:99999 !important; cursor:pointer; "></div>
 <div id="webGL_container" style="width:320px; height:480px; position: absolute; background-color:transparent; cursor:pointer; z-index: 10"></div>
@@ -164,7 +166,7 @@ var loadFont = false
 
 
 <script>
-	
+
 	if (b == "firefox") {
     var faceStyle = document.getElementsByClassName('faces');
     for(var h=0; h<faceStyle.length;h++) {
@@ -189,14 +191,14 @@ var startBanner = function(){
                 screenTexture1 = new THREE.Texture(face[0]);
                 screenTexture2 = new THREE.Texture(face[1]);
                 screenTexture3 = new THREE.Texture(face[2]);
-                screenTexture4 = new THREE.Texture(face[3]);  
+                screenTexture4 = new THREE.Texture(face[3]);
 				screenTexture5 = new THREE.Texture(face[4]);
                 screenTexture6 = new THREE.Texture(face[5]);
                 screenTexture7 = new THREE.Texture(face[6]);
                 screenTexture8 = new THREE.Texture(face[7]);
 				screenTexture9 = new THREE.Texture(face[8]);
                 screenTexture10 = new THREE.Texture(face[9]);
-    
+
                 var domFace1 = new THREE.CSS3DObject( face[0] ); domFace1.doubleSided = false;
                 var domFace2 = new THREE.CSS3DObject( face[1] ); domFace2.doubleSided = false;
                 var domFace3 = new THREE.CSS3DObject( face[2] ); domFace3.doubleSided = false;
@@ -204,23 +206,23 @@ var startBanner = function(){
 				var domFace5 = new THREE.CSS3DObject( face[4] ); domFace5.doubleSided = false;
                 var domFace6 = new THREE.CSS3DObject( face[5] ); domFace6.doubleSided = false;
                 var domFace7 = new THREE.CSS3DObject( face[6] ); domFace7.doubleSided = false;
-                var domFace8 = new THREE.CSS3DObject( face[7] ); domFace8.doubleSided = false;  
-	            var domFace9 = new THREE.CSS3DObject( face[8] ); domFace9.doubleSided = false;  
-	            var domFace10 = new THREE.CSS3DObject( face[9] ); domFace10.doubleSided = false;  
-             
-	
+                var domFace8 = new THREE.CSS3DObject( face[7] ); domFace8.doubleSided = false;
+	            var domFace9 = new THREE.CSS3DObject( face[8] ); domFace9.doubleSided = false;
+	            var domFace10 = new THREE.CSS3DObject( face[9] ); domFace10.doubleSided = false;
+
+
 				var screenMat1 = new THREE.MeshBasicMaterial({map:screenTexture1});
                 var screenMat2 = new THREE.MeshBasicMaterial({map:screenTexture2});
                 var screenMat3 = new THREE.MeshBasicMaterial({map:screenTexture3});
-                var screenMat4 = new THREE.MeshBasicMaterial({map:screenTexture4});   
-    
-				var rHit = document.getElementById("rHit");
-				rHit.addEventListener("mouseover", rHitOver.bind(this));  
-				function rHitOver()  {  exportRoot.mainMC.replay_btn.gotoAndStop(1) }  
+                var screenMat4 = new THREE.MeshBasicMaterial({map:screenTexture4});
 
-				rHit.addEventListener("mouseout", rHitOut.bind(this));  
-				function rHitOut()   {  exportRoot.mainMC.replay_btn.gotoAndStop(0)	} 
-	
+				var rHit = document.getElementById("rHit");
+				rHit.addEventListener("mouseover", rHitOver.bind(this));
+				function rHitOver()  {  exportRoot.mainMC.replay_btn.gotoAndStop(1) }
+
+				rHit.addEventListener("mouseout", rHitOut.bind(this));
+				function rHitOut()   {  exportRoot.mainMC.replay_btn.gotoAndStop(0)	}
+
 				function replay() {
 					if (exportRoot.isReplay == true){
                         initDiv.style.visibility='visible'
@@ -233,11 +235,11 @@ var startBanner = function(){
 						domFace6.visible = true;
 						domFace7.visible = true;
 						domFace8.visible = true;
-						domFace9.visible = true;						
+						domFace9.visible = true;
 						domFace10.visible = true;
 						stage.removeAllChildren();
 						stage.update();
-						
+
                         var canvas = document.getElementById('canvas');
                         context = canvas.getContext('2d');
 
@@ -250,23 +252,23 @@ var startBanner = function(){
 
                         // Restore the transform
                         context.restore(); //CLEARS THE SPECIFIC CANVAS COMPLETELY FOR NEW DRAWING
-                        
+
 						gsap.delayedCall(0.1,init)
 					}
 				}
 
 				var mainHit = document.getElementById("hit");
 				var animation_container = document.getElementById("animation_container");
-				mainHit.addEventListener("mouseover", over.bind(this));  
+				mainHit.addEventListener("mouseover", over.bind(this));
 				function over() {
 				exportRoot.mainMC.cta.arrow.gotoAndStop(1);
-				}  
+				}
 
-				mainHit.addEventListener("mouseout", out.bind(this));  
+				mainHit.addEventListener("mouseout", out.bind(this));
 				function out() {
 						exportRoot.mainMC.cta.arrow.gotoAndStop(0);
-				}  
-				// mainHit.addEventListener("click", exitHandler.bind(this));  
+				}
+				// mainHit.addEventListener("click", exitHandler.bind(this));
 				// function exitHandler() {
 				//   window.open(clickTag);
 				// }
@@ -279,9 +281,9 @@ var startBanner = function(){
             var h = 890
             const scene = new THREE.Scene(); // WEBGL
             const scene2 = new THREE.Scene(); // CSS3D
-    
+
             const camera = new THREE.PerspectiveCamera( 75, w / h , 0.1, 1000 );
-    
+
             camera.position.z = 780;
 			camera.position.y = -28;
 			camera.rotation.x = -.025;
@@ -289,31 +291,31 @@ var startBanner = function(){
             const rendererCSS3D = new THREE.CSS3DRenderer();
 
             renderer.setSize( w, h );
-            rendererCSS3D.setSize( w, h );    
-            
+            rendererCSS3D.setSize( w, h );
+
             renderer.shadowMap.enabled = true;
             renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
             rendererCSS3D.domElement.style.position = 'absolute';
             rendererCSS3D.domElement.style.top = 0;
-            
+
             var webGL = document.getElementById('webGL_container')
-            
+
             webGL.appendChild( renderer.domElement );
             animation_container.appendChild( rendererCSS3D.domElement );
-   
+
             var cubeGroup = new THREE.Group();
             var cubeMaterialGroup = new THREE.Group();
-            
+
             domFace1.position.z += 25
-            domFace2.position.y += 25; domFace2.rotation.x = THREE.Math.degToRad( 270 ) 
+            domFace2.position.y += 25; domFace2.rotation.x = THREE.Math.degToRad( 270 )
             domFace3.position.z -= 25; domFace3.rotation.x = THREE.Math.degToRad( 180 )
             domFace4.position.y -= 25; domFace4.rotation.x = THREE.Math.degToRad( 90 )
 			domFace5.position.z += 25
             domFace6.position.y += 25; domFace6.rotation.x = THREE.Math.degToRad( 270 )
-            domFace7.position.z -= 25; domFace7.rotation.x = THREE.Math.degToRad( 180 ) 
-            domFace8.position.y -= 25; domFace8.rotation.x = THREE.Math.degToRad( 90 ) 
-    		domFace9.position.z += 25; 
-	        domFace10.position.y += 25; domFace10.rotation.x = THREE.Math.degToRad( 270 ) 
+            domFace7.position.z -= 25; domFace7.rotation.x = THREE.Math.degToRad( 180 )
+            domFace8.position.y -= 25; domFace8.rotation.x = THREE.Math.degToRad( 90 )
+    		domFace9.position.z += 25;
+	        domFace10.position.y += 25; domFace10.rotation.x = THREE.Math.degToRad( 270 )
 
             cubeGroup.add(domFace1)
             cubeGroup.add(domFace2)
@@ -325,9 +327,9 @@ var startBanner = function(){
             cubeGroup.add(domFace8)
             cubeGroup.add(domFace9)
             cubeGroup.add(domFace10)
-            
+
             scene2.add( cubeGroup );
-    
+
             for (var i = 1; i<5; i++) {
                 var material = new THREE.MeshPhongMaterial({
                     opacity	: .1,
@@ -349,14 +351,14 @@ var startBanner = function(){
                 cubeMaterialGroup.add( mesh );
             }
             //cubeMaterialGroup.position.z += 50
-			scene.add(cubeMaterialGroup)    
+			scene.add(cubeMaterialGroup)
 
 			const light2 = new THREE.HemisphereLight( 0x0078d4, 0x000000, .5);
 			light2.color.setHSL( 1, 1, 1 );
 			light2.groundColor.setHSL( -1, -1, -1 );
 			light2.position.set(0,50,-50);
 			scene.add( light2 );
-	
+
 			function animate() {
 				scene.updateMatrixWorld()
 				renderer.render( scene, camera );
@@ -364,40 +366,40 @@ var startBanner = function(){
 				requestAnimationFrame( animate );
             }
             animate()
-	
+
 			tlCube = gsap.timeline();
 			tlCube.pause();
-		
+
 			tlCube.from(cubeGroup.scale, 1, {x:"0", y:"0", z:"0", ease:Power4.easeOut, onStart:function(){domFace5.visible = false; domFace6.visible = false;domFace7.visible = false;domFace8.visible = false;domFace9.visible = false;domFace10.visible = false;}}, "+=.6");
             tlCube.from(cubeMaterialGroup.scale, 1, {x:"0", y:"0", z:"0", ease:Power4.easeOut}, "-=1");
-	
+
 			tlCube.from([cubeGroup.rotation,cubeMaterialGroup.rotation], 1, {x:"-=4", ease:Power4.easeOut}, "-=1");
 			tlCube.to([cubeGroup.rotation,cubeMaterialGroup.rotation], .6, {x:"+=1.5708", ease:Power4.easeInOut}, "+=.7");
 
 			tlCube.to([cubeGroup.rotation,cubeMaterialGroup.rotation], .5, {x:"+=1.5708", ease:Power4.easeInOut, onComplete:function(){
-				domFace1.visible = false; 
-				domFace5.visible = true; 
+				domFace1.visible = false;
+				domFace5.visible = true;
 			}}, "+=.55");
- 
+
 			tlCube.to([cubeGroup.rotation,cubeMaterialGroup.rotation], .4, {x:"+=1.5708", ease:Power4.easeInOut, onComplete:function(){
 				domFace2.visible = false;
-				domFace6.visible = true; 
+				domFace6.visible = true;
 			}}, "+=.4");
- 
+
 			tlCube.to([cubeGroup.rotation,cubeMaterialGroup.rotation], .3, {x:"+=1.5708", ease:Power3.easeInOut, onComplete:function(){
-				domFace3.visible = false; 
-				domFace7.visible = true; 
+				domFace3.visible = false;
+				domFace7.visible = true;
 			}}, "+=.25");
-	
+
 			tlCube.to([cubeGroup.rotation,cubeMaterialGroup.rotation], .3, {x:"+=1.5708", ease:Power2.easeInOut, onComplete:function(){
 				domFace4.visible = false;
-				domFace8.visible = true; 
+				domFace8.visible = true;
 			}}, "+=.08");
-	
+
 			tlCube.to([cubeGroup.rotation,cubeMaterialGroup.rotation], .2, {x:"+=1.5708", ease:Power2.easeInOut}, "+=.08");
-	
+
 			tlCube.to([cubeGroup.rotation,cubeMaterialGroup.rotation], .2, {x:"+=1.5708", ease:Power2.easeInOut}, "+=.08");
-	
+
 			tlCube.to([cubeGroup.rotation,cubeMaterialGroup.rotation], .1, {x:"+=1.5708", ease:Power1.easeInOut}, "+=.03");
 
 			tlCube.to([cubeGroup.rotation,cubeMaterialGroup.rotation], .08, {x:"+=1.5708", ease:Power1.easeInOut}, "+=.01");
@@ -408,30 +410,30 @@ var startBanner = function(){
 
 			tlCube.to([cubeGroup.rotation,cubeMaterialGroup.rotation], 1, {x:"+=11.8916", ease:Back.easeOut, onStart:function(){
 			domFace5.visible = false;
-			domFace6.visible = false; 
+			domFace6.visible = false;
 			domFace9.visible = true;
 			domFace10.visible = true;}});
 			tlCube.to(camera.position,{duration:1,y:"-=2"},"-=1");
-	
+
 			tlCube.to(cubeGroup.scale, 1, {x:"0", y:"0", z:"0", ease:Power4.easeIn}, "+=0.2");
-			tlCube.to(cubeMaterialGroup.scale, 1, {x:"0", y:"0", z:"0", ease:Power4.easeIn}, "-=1");	
-			
+			tlCube.to(cubeMaterialGroup.scale, 1, {x:"0", y:"0", z:"0", ease:Power4.easeIn}, "-=1");
+
 		}
 function animStart(){
 			var tlCubeShadow1 = gsap.timeline();
 			tlCubeShadow1.pause();
 			tlCubeShadow1.to(exportRoot.mainMC.cubeShadow, .5, {scaleX: 1, scaleY: 1.2});
-			tlCubeShadow1.to(exportRoot.mainMC.cubeShadow, .5, {scaleX: 1, scaleY: 1});					
-			
+			tlCubeShadow1.to(exportRoot.mainMC.cubeShadow, .5, {scaleX: 1, scaleY: 1});
+
 			var tlCubeShadow2 = gsap.timeline();
 			tlCubeShadow2.pause();
 			tlCubeShadow2.to(exportRoot.mainMC.cubeShadow, .5, {scaleX: 1, scaleY: 1.2});
 			tlCubeShadow2.to(exportRoot.mainMC.cubeShadow, .5, {scaleX: 1, scaleY: 1});
 			tlCubeShadow2.to(exportRoot.mainMC.cubeShadow, .5, {scaleX: 1, scaleY: 1.2});
-			tlCubeShadow2.to(exportRoot.mainMC.cubeShadow, .5, {scaleX: 1, scaleY: 1});	
+			tlCubeShadow2.to(exportRoot.mainMC.cubeShadow, .5, {scaleX: 1, scaleY: 1});
 			tlCubeShadow2.to(exportRoot.mainMC.cubeShadow, .5, {scaleX: 1, scaleY: 1.2});
 			tlCubeShadow2.to(exportRoot.mainMC.cubeShadow, .5, {scaleX: 1, scaleY: 1});
-	
+
 			var tlCubeShadow3 = gsap.timeline();
 			tlCubeShadow3.pause();
 			tlCubeShadow3.to(exportRoot.mainMC.cubeShadow, .3, {scaleX: 1, scaleY: 1.2});
@@ -441,11 +443,11 @@ function animStart(){
 			tlCubeShadow3.to(exportRoot.mainMC.cubeShadow, .4, {scaleX: 1, scaleY: 1.2});
 			tlCubeShadow3.to(exportRoot.mainMC.cubeShadow, .4, {scaleX: 1, scaleY: 1});
 			tlCubeShadow3.to(exportRoot.mainMC.cubeShadow, .5, {scaleX: 1, scaleY: 1.2});
-			tlCubeShadow3.to(exportRoot.mainMC.cubeShadow, .65, {scaleX: 1, scaleY: 1});	
+			tlCubeShadow3.to(exportRoot.mainMC.cubeShadow, .65, {scaleX: 1, scaleY: 1});
 			tlCubeShadow3.to(exportRoot.mainMC.cubeShadow, .8, {scaleX: 1, scaleY: 1.2});
 			tlCubeShadow3.to(exportRoot.mainMC.cubeShadow, 1, {scaleX: 1, scaleY: 1, ease:Sine.easeOut});
 			tlCubeShadow3.to(exportRoot.mainMC.cubeShadow, 2, {scaleX: 1, scaleY: 1.2, ease:Sine.easeInOut});
-	
+
 			tlCubeShadow = gsap.timeline();
 			tlCubeShadow.pause();
 			//tlCubeShadow.pause();
@@ -457,32 +459,156 @@ function animStart(){
 			tlCubeShadow.to(exportRoot.mainMC.cubeShadow, 1, {y:"+=20", scaleX: 1, scaleY: 1, alpha:.25, ease:Power4.easeOut}, "+=.6");
 
 			tlCubeShadow.fromTo(tlCubeShadow1, .6, {progress:0}, {progress:1, ease:Power1.easeInOut}, "+=.7");
-	
+
 			tlCubeShadow.fromTo(tlCubeShadow1, .5, {progress:0}, {progress:1, ease:Power1.easeInOut}, "+=.55");
-	
+
 			tlCubeShadow.fromTo(tlCubeShadow1, .4, {progress:0}, {progress:1, ease:Power1.easeInOut}, "+=.4");
-	
+
 			tlCubeShadow.fromTo(tlCubeShadow1, .3, {progress:0}, {progress:1, ease:Power1.easeInOut}, "+=.25");
 
 			tlCubeShadow.fromTo(tlCubeShadow1, .3, {progress:0}, {progress:1, ease:Power1.easeInOut}, "+=.08");
 
 			tlCubeShadow.fromTo(tlCubeShadow1, .2, {progress:0}, {progress:1, ease:Power1.easeInOut}, "+=.08");
-	
+
 			tlCubeShadow.fromTo(tlCubeShadow1, .2, {progress:0}, {progress:1, ease:Power1.easeInOut}, "+=.08");
-	
+
 			tlCubeShadow.fromTo(tlCubeShadow1, .1, {progress:0}, {progress:1, ease:Power1.easeInOut}, "+=.03");
-	
+
 			tlCubeShadow.fromTo(tlCubeShadow1, .08, {progress:0}, {progress:1, ease:Power1.easeInOut}, "+=.01");
-	
+
 			tlCubeShadow.fromTo(tlCubeShadow1, .06, {progress:0}, {progress:1, ease:Sine.easeInOut});
-				
+
 			tlCubeShadow.fromTo(tlCubeShadow2, .15, {progress:0}, {progress:1, ease:Sine.easeIn});
 
 			tlCubeShadow.fromTo(tlCubeShadow3, 1.2, {progress:0}, {progress:1});
-	
+
 			tlCubeShadow.to(exportRoot.mainMC.cubeShadow, .95, {y:"-=20", scaleX: 0, scaleY: 0, alpha:0, ease:Power4.easeIn}, "+=.0");
-		
+
 }
 </script>
-</body>	
+<script type="text/javascript">
+	var amoAd = (function(){
+		var ctaAlignment = function(position){
+			var layers = exportRoot.mainMC;
+			var adWidth = document.querySelector('#animation_container').offsetWidth;
+			var ctaBackgroundColor = layers.cta.children[0].graphics._fill.style;
+			var yPoints = layers.cta.children[0].graphics._activeInstructions.map(function(point){ return(point.y) });
+			var yTemp = [];
+			yPoints.forEach(function(y){
+			    if(y && (!yTemp.length || !Boolean(Math.abs(yTemp.find(function(z){return y == z}))))) {
+							yTemp.push(y);
+			    }
+			});
+			var ctaScaleX = layers.cta.scaleX, ctaScaleY = layers.cta.scaleY;
+			var ctaHeight = Math.ceil(Math.abs(yTemp[0]) + Math.abs(yTemp[1]));
+			ctaHeight *= ctaScaleY * layers.cta.children[0].scaleY;
+			var ctaWidth = layers.txtCta.children[0].children[0].getBounds().width + 45;
+			position = position ? position : (layers.cta.x > adWidth ? 'right' : 'left');
+			layers.txtCta.regX = 0;
+			layers.txtCta.children[0].x = 0;
+			layers.txtCta.children[0].y -= 3;
+			layers.txtCta.scaleX = 1;
+			layers.txtCta.scaleY = 1;
+			layers.cta.regX = 0;
+			layers.cta.regY = 0;
+			layers.cta.scaleX = 1;
+			layers.cta.scaleY = 1;
+			layers.cta.arrow.y = 0;
+			layers.cta.arrow.arrow_1.x = 0;
+			layers.cta.arrow.arrow.x = 0;
+			layers.cta.arrow.arrow_1.regX = 0;
+			layers.cta.arrow.arrow.regX = 0;
+			layers.cta.arrow.regX = 0;
+			layers.cta.arrow.arrow.scaleX = layers.cta.arrow.arrow_1.scaleX = ctaScaleX;
+			layers.cta.arrow.arrow.scaleY = layers.cta.arrow.arrow_1.scaleY = ctaScaleY;
+			layers.cta.children[0].x = 0;
+			layers.cta.children[0].y = 0;
+			layers.cta.children[0].scaleX = 1;
+			layers.cta.children[0].scaleY = 1;
+			layers.cta.children[0].regX = 0;
+			layers.cta.children[0].regY = 0;
+			layers.cta.children[0].graphics.clear();
+			// layers.cta.children[0].graphics.beginFill(ctaBackgroundColor).drawRect(0, -15, ctaWidth, 30);
+			layers.cta.children[0].graphics.beginFill(ctaBackgroundColor).drawRect(0, -ctaHeight/2, ctaWidth, ctaHeight);
+			if(position == 'right') {
+				layers.cta.x = adWidth - ctaWidth;
+				layers.txtCta.x = adWidth - ctaWidth + 15;
+				layers.cta.arrow.x = ctaWidth - 20;
+			} else {
+				layers.cta.x = 0;
+				layers.txtCta.x = 15;
+				layers.cta.arrow.x = ctaWidth - 20;
+			}
+		}
+		var iframe = window.frameElement;
+		var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
+		window.bannerData = parentWindow.getBannerData();
+		var introText = eval(bannerData.textField1)[0];
+		// var introColor = introText.match(/\<(.*?)\>/g)[0];
+		// var introContent = introText.split(introColor)[1];
+		// var introValues = introContent.split('^');
+		// var getValue = function(index) { return eval(bannerData.textField1.split(introContent).join((typeof index != 'undefined' && index in introValues ? introValues[index] : ' '))); }
+		var introValues = introText.split('^');
+		var getValue = function(index) { return eval(bannerData.textField1.split(introText).join((typeof index != 'undefined' && index in introValues ? introValues[index] : ' '))); }
+		bannerData.cube1 = getValue(0);
+		bannerData.cube2 = getValue(1);
+		bannerData.cube3 = getValue(2);
+		bannerData.cube4 = getValue(3);
+		bannerData.cube5 = getValue(4);
+		bannerData.cube6 = getValue(5);
+		bannerData.cube7 = getValue(6);
+		bannerData.cube8 = getValue(7);
+		bannerData.cube9 = getValue(8);
+		bannerData.cube10 = getValue(9);
+		bannerData.headline1 = eval(bannerData.textField2);
+		bannerData.headline2 = eval(bannerData.textField3);
+		bannerData.headline3 = eval(bannerData.textField4);
+		bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "11px" : "14px"),0,0,"50","300", "center"] : '';
+		function addTracker() {
+			var mainHit = document.getElementById("hit");
+			mainHit.addEventListener("click", function(){
+				parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl);
+				if(bannerData.clickTracker) {
+					var clickTrackers = bannerData.clickTracker.split('^');
+					clickTrackers.forEach(function(url){
+						if(url && url.toLowerCase() != 'na') {
+								(new Image()).src = url;
+						}
+					});
+				}
+			});
+			if(bannerData.impressionTracker) {
+				var impressionTrackers = bannerData.impressionTracker.split('^');
+				impressionTrackers.forEach(function(url){
+					if(url && url.toLowerCase() != 'na') {
+							(new Image()).src = url;
+					}
+				});
+			}
+		}
+		function click(id) {
+			if(id == -1 && parentWindow.urls[0].defaultPath.toLowerCase() != 'na') {
+					parentWindow.amo.onDynAdClick(parentWindow.urls[0].data, "CLICK", parentWindow.urls[0].defaultPath, parentWindow.urls[0].defaultClickLabel);
+			} else if(id >= 0 && parentWindow.urls[id].path.toLowerCase() != 'na') {
+					parentWindow.amo.onDynAdClick(parentWindow.urls[id].data, "CLICK", parentWindow.urls[id].path, parentWindow.urls[id].clickLabel);
+			}
+		}
+		function onInteraction(id) {
+			var parentWindows = window.parent.parent.window;
+			if (parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
+				try {
+					if(id == -1) { parentWindows.amoUtils.onInteraction(parentWindow.urls[0].defaultLabel, parentWindow.urls[0].data); }
+					else { parentWindows.amoUtils.onInteraction(parentWindow.urls[id].label, parentWindow.urls[id].data); }
+				} catch (e) {}
+			}
+		}
+		return {
+			addTracker: function(){ addTracker(); },
+			click: function(id) { click(id); },
+			ctaAlignment: function(){ ctaAlignment(); },
+			onInteraction: function(id) { onInteraction(id); }
+		};
+	})();
+</script>
+</body>
 </html>
