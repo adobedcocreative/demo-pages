@@ -175,6 +175,7 @@
           height: 10px;
           font-size: 6px;
           line-height: 1;
+          opacity: 0;
           color:#FFFFFF;">
       </div>
       <div id="cta" dir="auto" class="text"
@@ -387,6 +388,7 @@
               gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.5}})
               .to('#frameText2', {autoAlpha:0, duration:0.3, delay:2.5})
               .to('#frameText3', {autoAlpha:1})
+              .to('#disclaimer', {autoAlpha:1})
             }
           }
           var adWidth = 300;
