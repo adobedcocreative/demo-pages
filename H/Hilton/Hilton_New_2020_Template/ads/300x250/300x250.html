@@ -66,6 +66,24 @@
           src: url('fonts/FranklinGothicMed.woff') format("woff");
       }
       .FranklinGothicMed { font-family: FranklinGothicMed; }
+
+      @font-face {
+          font-family: BrandonGrotesqueBlack;
+          src: url('fonts/Brandon Grotesque Black.woff') format("woff");
+      }
+      .BrandonGrotesqueBlack { font-family: BrandonGrotesqueBlack; }
+
+      @font-face {
+          font-family: AvenirBlack;
+          src: url('fonts/Avenir-Black.woff') format("woff");
+      }
+      .AvenirBlack { font-family: AvenirBlack; }
+
+      @font-face {
+          font-family: DINBold;
+          src: url('fonts/DIN-Bold.woff') format("woff");
+      }
+      .DINBold { font-family: DINBold; }
     </style>
     <!--
       Available Classes:-
@@ -105,7 +123,7 @@
     <div class="" id="ad">
       <div id="backgroundImage" class="asset-right-center frame" data-image="backgroundImage"></div>
       <div id="overlayColor" class="frame"></div>
-      <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->     
+      <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
       <div id="logoImage" class="asset frame" data-image="logoImage"
         style="top: 166px;
           left: 23px;
@@ -127,7 +145,7 @@
           height: 62px;
           font-size: 24px;
           line-height: 1;
-          color:#104c97;">
+          color:#FFFFFF;">
       </div>
       <div id="frameText2" dir="auto" class="text-left"
         data-text="frameText2"
@@ -137,7 +155,7 @@
           height: 62px;
           font-size: 24px;
           line-height: 1;
-          color:#104c97;">
+          color:#FFFFFF;">
       </div>
       <div id="frameText3" dir="auto" class="text-left"
         data-text="frameText3"
@@ -147,7 +165,17 @@
           height: 62px;
           font-size: 24px;
           line-height: 1;
-          color:#104c97;">
+          color:#FFFFFF;">
+      </div>
+      <div id="disclaimer" dir="auto" class="text"
+        data-text="disclaimer"
+        style="top: 235px;
+          left: 0px;
+          width: 300px;
+          height: 10px;
+          font-size: 6px;
+          line-height: 1;
+          color:#FFFFFF;">
       </div>
       <div id="cta" dir="auto" class="text"
         data-text="ctaText"
@@ -186,6 +214,7 @@
             styleProperties: "{'#overlayColor':{'background': 'linear-gradient(to top, rgba(0,0,0,0.5) 20%, transparent 40%)'}}",
             ctaText: 'BOOK NOW',
             ctaBtnColor: '#00a8e1^#007096',
+            disclaimer: '*Pet fees apply and vary by hotel.',
             clickURL: 'https://www.adobe.com/#Hilton'
           },
           feed: [
@@ -259,6 +288,8 @@
                     document.querySelector("#logoImage").style.left = '28px';
                     document.querySelector("#logoImage").style.width = '125px';
                     document.querySelector("#logoImage").style.height = '41px';
+
+                    document.querySelector("#ad").style.fontFamily = "AvenirBlack";
                   }else if(doubleTreeCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'doubletree';
                     document.querySelector("#logoImage").style.top = '150px';
@@ -297,11 +328,15 @@
                     logoImageName = 'homewood';
                     document.querySelector("#logoImage").style.height = '90px';
                     document.querySelector("#logoImage").style.top = '165px';
+
+                    document.querySelector("#ad").style.fontFamily = "BrandonGrotesqueBlack";
                   }else if(home2Codes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'home2';
-                    document.querySelector("#logoImage").style.height = '102px';
-                    document.querySelector("#logoImage").style.top = '162px';
-                    document.querySelector("#logoImage").style.left = '16px';
+                    document.querySelector("#logoImage").style.height = '65px';
+                    document.querySelector("#logoImage").style.top = '178px';
+                    document.querySelector("#logoImage").style.left = '34px';
+
+                    document.querySelector("#ad").style.fontFamily = "DINBold";
                   }else if(lxrCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'lxr';
                     whitePatchColor = '#000';

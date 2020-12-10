@@ -66,6 +66,24 @@
           src: url('fonts/FranklinGothicMed.woff') format("woff");
       }
       .FranklinGothicMed { font-family: FranklinGothicMed; }
+
+      @font-face {
+          font-family: BrandonGrotesqueBlack;
+          src: url('fonts/Brandon Grotesque Black.woff') format("woff");
+      }
+      .BrandonGrotesqueBlack { font-family: BrandonGrotesqueBlack; }
+
+      @font-face {
+          font-family: AvenirBlack;
+          src: url('fonts/Avenir-Black.woff') format("woff");
+      }
+      .AvenirBlack { font-family: AvenirBlack; }
+
+      @font-face {
+          font-family: DINBold;
+          src: url('fonts/DIN-Bold.woff') format("woff");
+      }
+      .DINBold { font-family: DINBold; }
     </style>
     <!--
       Available Classes:-
@@ -146,6 +164,16 @@
           font-size: 25px;
           line-height: 0.9;">
       </div>
+      <div id="disclaimer" dir="auto" class="text-right"
+        data-text="disclaimer"
+        style="top: 77px;
+          left: 412px;
+          width: 300px;
+          height: 8px;
+          font-size: 6px;
+          line-height: 1;
+          color:#FFFFFF;">
+      </div>
       <div id="cta" dir="auto" class="text"
         data-text="ctaText"
         style="top: 30px;
@@ -184,6 +212,7 @@
             styleProperties: "na",
             ctaText: 'BOOK NOW',
             ctaBtnColor: '#00a8e1^#007096',
+            disclaimer: '*Pet fees apply and vary by hotel.',
             clickURL: 'https://www.adobe.com/#Hilton'
           },
           feed: [
@@ -252,8 +281,10 @@
                     document.querySelector("#cta").style.fontFamily = "FranklinGothicMed";
                   }else if(embassyCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'embassysuites';
-                    document.querySelector("#logoImage").style.width = '38px';
-                    document.querySelector("#logoImage").style.left = '542px';
+                    // document.querySelector("#logoImage").style.width = '38px';
+                    // document.querySelector("#logoImage").style.left = '542px';
+
+                    document.querySelector("#ad").style.fontFamily = "AvenirBlack";
                   }else if(doubleTreeCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'doubletree';
                     document.querySelector("#logoImage").style.top = '-8px';
@@ -289,11 +320,15 @@
                     logoImageName = 'homewood';
                     document.querySelector("#logoImage").style.width = '78px';
                     document.querySelector("#logoImage").style.left = '503px';
+
+                    document.querySelector("#ad").style.fontFamily = "BrandonGrotesqueBlack";
                   }else if(home2Codes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'home2';
                     document.querySelector("#logoImage").style.top = '3px';
                     document.querySelector("#logoImage").style.left = '492px';
                     document.querySelector("#logoImage").style.width = '90px';
+
+                    document.querySelector("#ad").style.fontFamily = "DINBold";
                   }else if(lxrCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'lxr';
                     whitePatchColor = '#000';
