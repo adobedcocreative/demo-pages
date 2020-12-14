@@ -841,7 +841,7 @@ if (reversed == null) { reversed = false; }
 	// CTA_BG
 	this.cta = new lib.CTA_btn();
 	this.cta.name = "cta";
-	this.cta.setTransform(311.5,217.6,1.136,1.136,0,0,0,0.2,0.3);
+	this.cta.setTransform(311.5,217.5,1.136,1.136,0,0,0,0.2,0.2);
 
 	this.timeline.addTween(cjs.Tween.get(this.cta).wait(1));
 

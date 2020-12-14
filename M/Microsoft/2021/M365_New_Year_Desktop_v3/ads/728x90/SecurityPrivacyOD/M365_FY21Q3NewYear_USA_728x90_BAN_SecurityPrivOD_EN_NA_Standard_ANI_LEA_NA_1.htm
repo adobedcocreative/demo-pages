@@ -184,6 +184,7 @@ function handleComplete(evt,comp) {
                 exportRoot.initBanner(bannerData)
                 ctaAlignment('right')
                 exportRoot.runBanner()
+                initDiv.style.visibility='hidden'
                 initReady=true
                 vid.muted = true;
 
@@ -246,6 +247,7 @@ function handleComplete(evt,comp) {
 
 <div id="rHit" style="display:block; position:absolute; top:0px; left:706px; width:22px; height:22px; z-index:100000 !important; cursor:pointer; "></div>
 
+<div id="init" style="background-color:#FFFFFF; position: absolute; display: block; z-index:10; width:100%; height:100%; "></div>
 <div id="animation_container" style="background-color:transparent; width:728px; height:90px;">
     <video id="vid" preload="auto" src="./video/Security_728x90_Display.mp4" autoplay="false" webkit-playsinline="" playsinline type="video/mp4" width="728" height="90" muted="muted" style="position: absolute;  z-index:-5 "></video>
   <canvas id="canvas" width="728" height="90" style="position: absolute; display: block; background-color:transparent; cursor:pointer;" aria-label="Start fresh with Microsoft 3 6 5. Keep valuable files organized and secured in your personal vault. Learn more." role="img"></canvas>
@@ -286,6 +288,7 @@ xhrReq.onprogress = function(e){
 xhrReq.send();
 
 
+var initDiv = document.getElementById("init");
 var startBanner = function(){
                 //console.log("startBanner")
 
@@ -319,6 +322,7 @@ var startBanner = function(){
 
 				function replay() {
 					if (exportRoot.isReplay == true){
+                        initDiv.style.visibility='visible'
 						//TweenMax.killAll();
 						stage.removeAllChildren();
 						stage.update();

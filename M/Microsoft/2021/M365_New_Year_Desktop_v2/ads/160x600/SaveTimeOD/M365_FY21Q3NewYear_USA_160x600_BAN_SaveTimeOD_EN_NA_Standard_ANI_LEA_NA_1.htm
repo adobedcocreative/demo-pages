@@ -182,6 +182,7 @@ function handleComplete(evt,comp) {
                 exportRoot.initBanner(bannerData)
                 ctaAlignment('right')
                 exportRoot.runBanner()
+                initDiv.style.visibility='hidden'	
                 initReady=true
                 vid.muted = true;
 
@@ -244,6 +245,7 @@ function handleComplete(evt,comp) {
 
 <div id="rHit" style="display:block; position:absolute; top:0px; left:138px; width:22px; height:22px; z-index:100000 !important; cursor:pointer; "></div>
 
+<div id="init" style="background-color:#FFFFFF; position: absolute; display: block; z-index:10; width:100%; height:100%; "></div>
 <div id="animation_container" style="background-color:transparent; width:160px; height:600px;">
     <video id="vid" preload="auto" src="./video/OneDrive_160x600_ST.mp4" autoplay="false" webkit-playsinline="" playsinline type="video/mp4" width="160" height="600" muted="muted" style="position: absolute;  z-index:-5 "></video>
   <canvas id="canvas" width="160" height="600" style="position: absolute; display: block; background-color:transparent; cursor:pointer;" aria-label="Start fresh with Microsoft 3 6 5. Your memories organized and accessible. Learn more." role="img"></canvas>
@@ -284,6 +286,7 @@ xhrReq.onprogress = function(e){
 xhrReq.send();
 
 
+var initDiv = document.getElementById("init");
 var startBanner = function(){
                 //console.log("startBanner")
 
@@ -317,6 +320,7 @@ var startBanner = function(){
 
 				function replay() {
 					if (exportRoot.isReplay == true){
+                        initDiv.style.visibility='visible'
 						//TweenMax.killAll();
 						stage.removeAllChildren();
 						stage.update();
