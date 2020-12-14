@@ -25,6 +25,7 @@ var getFeed1 = function(){
               "frameText3": data['gsx$frametext3']['$t'],
               "styleProperties": data['gsx$styleproperties']['$t'],
               "ctaBtnColor": data['gsx$ctabtncolor']['$t'],
+              "disclaimer": data['gsx$disclaimer']['$t'],
               "clickURL": data['gsx$url']['$t'],
             });
           });

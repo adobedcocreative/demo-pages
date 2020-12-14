@@ -951,7 +951,7 @@ if(layout) {
 		case 'Lifestyle_Female' :
 		case 'UI_AI' :
 		case 'UI_FreeAccount' :
-		case 'UI_HybridCloud' :
+		case 'UI_Hybrid' :
 		case 'UI_ML' :
 		case 'UI_Migration' :
 		case 'UI_OpenSource' : frameImage1 = layout+'/' + adSize + '_' + layout + '_F1.png';frameImage2 = layout+'/' + adSize + '_' + layout + '_F2.png'; break;
