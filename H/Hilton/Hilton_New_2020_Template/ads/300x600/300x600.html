@@ -84,6 +84,18 @@
           src: url('fonts/DIN-Bold.woff') format("woff");
       }
       .DINBold { font-family: DINBold; }
+
+      @font-face {
+          font-family: MonumentGroteskMedium;
+          src: url('fonts/MonumentGrotesk-Medium.woff') format("woff");
+      }
+      .MonumentGroteskMedium { font-family: MonumentGroteskMedium; }
+
+      @font-face {
+          font-family: FSElliotProBold;
+          src: url('fonts/FSElliotPro-Bold.woff') format("woff");
+      }
+      .FSElliotProBold { font-family: FSElliotProBold; }
     </style>
     <!--
       Available Classes:-
@@ -328,13 +340,17 @@
                     document.querySelector("#ad").style.fontFamily = "DidotBold";
                   }else if(canopyCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'canopy';
+                    whitePatchColor = '#000';
+
+                    document.querySelector("#ad").style.fontFamily = "FSElliotProBold";
                     document.querySelector("#logoImage").style.top = '411px';
                   }else if(curioCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'curio';
                     document.querySelector("#logoImage").style.top = '399px';
                   }else if(mottoCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'motto';
-                    document .querySelector("#logoImage").style.top = '408px'; 
+                    document .querySelector("#logoImage").style.top = '408px';
+                    document.querySelector("#ad").style.fontFamily = "MonumentGroteskMedium";
                   }else if(truCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'tru';
                     document.querySelector("#logoImage").style.top = '376px';
