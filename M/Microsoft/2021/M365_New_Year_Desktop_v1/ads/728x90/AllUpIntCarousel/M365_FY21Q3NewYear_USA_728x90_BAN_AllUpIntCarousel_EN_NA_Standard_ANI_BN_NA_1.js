@@ -2341,6 +2341,18 @@ if (reversed == null) { reversed = false; }
 			mc.txtCta.cache(-50,-40,150,80,2);
 			//mc.cta.ctaBg.cache(0,0,200,80,2);
 
+				//SET POSITION
+
+				this.TL_SetPos = gsap.timeline();
+				exportRoot.TL_SetPos.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_SetPos.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_SetPos.to(screen_1_excel, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_SetPos.to(screen_2_excel, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+				exportRoot.TL_SetPos.to(screen_1_word, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_SetPos.to(screen_2_word, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+				exportRoot.TL_SetPos.to(screen_1_ppt, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_SetPos.to(screen_2_ppt, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+
 				//INTRO ANIMATION
 
 				this.TL_MainIntro = gsap.timeline();
@@ -2362,15 +2374,6 @@ if (reversed == null) { reversed = false; }
 
 				this.TL_MainScreen = gsap.timeline();
 				exportRoot.TL_MainScreen.add('frame0_start');
-
-				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
-				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
-				exportRoot.TL_MainScreen.to(screen_1_excel, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
-				exportRoot.TL_MainScreen.to(screen_2_excel, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
-				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
-				exportRoot.TL_MainScreen.to(screen_2_word, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
-				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
-				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
 
 				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0, scaleY: 0, ease:Power3.easeIn});
 
@@ -3177,18 +3180,18 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/Desktop_Images_0000s_0000_PPTDesktop.png?1606155743729", id:"Desktop_Images_0000s_0000_PPTDesktop"},
-		{src:"images/Desktop_Images_0000s_0001_WordDesktop.png?1606155743729", id:"Desktop_Images_0000s_0001_WordDesktop"},
-		{src:"images/Desktop_Images_0000s_0002_ExcelDesktop1.png?1606155743729", id:"Desktop_Images_0000s_0002_ExcelDesktop1"},
-		{src:"images/Desktop_Images_0000s_0003_ODDesktop1.png?1606155743729", id:"Desktop_Images_0000s_0003_ODDesktop1"},
-		{src:"images/Excel_728x90_Display0000823.png?1606155743729", id:"Excel_728x90_Display0000823"},
-		{src:"images/Mobile_Images_0000s_0000_PPTMobile.png?1606155743729", id:"Mobile_Images_0000s_0000_PPTMobile"},
-		{src:"images/Mobile_Images_0000s_0001_WordMobile.png?1606155743729", id:"Mobile_Images_0000s_0001_WordMobile"},
-		{src:"images/Mobile_Images_0000s_0002_ExcelMobile1.png?1606155743729", id:"Mobile_Images_0000s_0002_ExcelMobile1"},
-		{src:"images/Mobile_Images_0000s_0003_ODMobile1.png?1606155743729", id:"Mobile_Images_0000s_0003_ODMobile1"},
-		{src:"images/OneDrive_728x90_Display0000509.png?1606155743729", id:"OneDrive_728x90_Display0000509"},
-		{src:"images/Powerpoint_728x90_Display0000616.png?1606155743729", id:"Powerpoint_728x90_Display0000616"},
-		{src:"images/Word_728x90_Display0001003.png?1606155743729", id:"Word_728x90_Display0001003"}
+		{src:"images/Desktop_Images_0000s_0000_PPTDesktop.png?1608026181732", id:"Desktop_Images_0000s_0000_PPTDesktop"},
+		{src:"images/Desktop_Images_0000s_0001_WordDesktop.png?1608026181732", id:"Desktop_Images_0000s_0001_WordDesktop"},
+		{src:"images/Desktop_Images_0000s_0002_ExcelDesktop1.png?1608026181732", id:"Desktop_Images_0000s_0002_ExcelDesktop1"},
+		{src:"images/Desktop_Images_0000s_0003_ODDesktop1.png?1608026181732", id:"Desktop_Images_0000s_0003_ODDesktop1"},
+		{src:"images/Excel_728x90_Display0000823.png?1608026181732", id:"Excel_728x90_Display0000823"},
+		{src:"images/Mobile_Images_0000s_0000_PPTMobile.png?1608026181732", id:"Mobile_Images_0000s_0000_PPTMobile"},
+		{src:"images/Mobile_Images_0000s_0001_WordMobile.png?1608026181732", id:"Mobile_Images_0000s_0001_WordMobile"},
+		{src:"images/Mobile_Images_0000s_0002_ExcelMobile1.png?1608026181732", id:"Mobile_Images_0000s_0002_ExcelMobile1"},
+		{src:"images/Mobile_Images_0000s_0003_ODMobile1.png?1608026181732", id:"Mobile_Images_0000s_0003_ODMobile1"},
+		{src:"images/OneDrive_728x90_Display0000509.png?1608026181732", id:"OneDrive_728x90_Display0000509"},
+		{src:"images/Powerpoint_728x90_Display0000616.png?1608026181732", id:"Powerpoint_728x90_Display0000616"},
+		{src:"images/Word_728x90_Display0001003.png?1608026181732", id:"Word_728x90_Display0001003"}
 	],
 	preloads: []
 };

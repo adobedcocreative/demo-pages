@@ -1691,7 +1691,7 @@ if (reversed == null) { reversed = false; }
 
 	// Layer_7
 	this.instance_1 = new lib.MSFT_Logo_anim();
-	this.instance_1.setTransform(-132.85,516.4,4.5673,4.5673,0,0,0,0.1,0.3);
+	this.instance_1.setTransform(-132.85,515.95,4.5673,4.5673,0,0,0,0.1,0.2);
 	this.instance_1._off = true;
 
 	var maskedShapeInstanceList = [this.instance_1];
@@ -1733,7 +1733,7 @@ if (reversed == null) { reversed = false; }
 
 	// Layer_9
 	this.instance_2 = new lib.MSFT_Logo_anim();
-	this.instance_2.setTransform(195.6,516.4,4.5673,4.5673,0,0,0,0.2,0.3);
+	this.instance_2.setTransform(195.6,515.95,4.5673,4.5673,0,0,0,0.2,0.2);
 	this.instance_2._off = true;
 
 	var maskedShapeInstanceList = [this.instance_2];
@@ -1748,13 +1748,13 @@ if (reversed == null) { reversed = false; }
 	this.instance_3 = new lib.white();
 	this.instance_3.setTransform(1305.4,1659.85,3.0806,4.0484,0,0,0,485.4,406.9);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_3).wait(51).to({scaleX:3.0746,scaleY:4.0405,x:1302.55,y:1656.65},0).to({regX:485.3,regY:406.8,scaleX:3.0931,scaleY:4.0648,x:387.25,y:1666.1},21,cjs.Ease.quadIn).wait(3));
+	this.timeline.addTween(cjs.Tween.get(this.instance_3).wait(51).to({scaleX:3.0746,scaleY:4.0405,x:1302.55,y:1656.65},0).to({regX:485.2,regY:406.8,scaleX:3.0931,scaleY:4.0648,x:386.95,y:1666.1},21,cjs.Ease.quadIn).wait(3));
 
 	// white copy
 	this.instance_4 = new lib.white();
 	this.instance_4.setTransform(1305.4,1659.85,3.0806,4.0484,0,0,0,485.4,406.9);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_4).wait(53).to({scaleX:3.0746,scaleY:4.0405,x:1302.55,y:1656.65},0).to({regX:485.3,regY:406.8,scaleX:3.0931,scaleY:4.0648,x:387.25,y:1666.1},21,cjs.Ease.quadIn).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance_4).wait(53).to({scaleX:3.0746,scaleY:4.0405,x:1302.55,y:1656.65},0).to({regX:485.2,regY:406.8,scaleX:3.0931,scaleY:4.0648,x:386.95,y:1666.1},21,cjs.Ease.quadIn).wait(1));
 
 	this._renderFirstFrame();
 
@@ -2036,7 +2036,7 @@ if (reversed == null) { reversed = false; }
 	// CTA_BG
 	this.cta = new lib.CTA_btn();
 	this.cta.name = "cta";
-	this.cta.setTransform(88.7,552.3,1,1,0,0,0,0.2,0.3);
+	this.cta.setTransform(88.7,552.2,1,1,0,0,0,0.2,0.2);
 
 	this.timeline.addTween(cjs.Tween.get(this.cta).wait(1));
 
@@ -2104,7 +2104,7 @@ if (reversed == null) { reversed = false; }
 	// Main_Screen
 	this.main_screen = new lib.mountain_anim();
 	this.main_screen.name = "main_screen";
-	this.main_screen.setTransform(315.6,296.9,1.3,1.3,0,0,0,284.3,25.3);
+	this.main_screen.setTransform(315.6,296.75,1.3,1.3,0,0,0,284.3,25.2);
 
 	this.timeline.addTween(cjs.Tween.get(this.main_screen).wait(1));
 
@@ -2401,6 +2401,18 @@ if (reversed == null) { reversed = false; }
 			mc.txtCta.cache(-50,-40,200,80,2);
 			//mc.cta.ctaBg.cache(0,0,200,80,2);
 
+				//SET POSITION
+				this.TL_SetPos = gsap.timeline();
+
+				exportRoot.TL_SetPos.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_SetPos.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_SetPos.to(screen_1_excel, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_SetPos.to(screen_2_excel, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+				exportRoot.TL_SetPos.to(screen_1_word, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_SetPos.to(screen_2_word, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+				exportRoot.TL_SetPos.to(screen_1_ppt, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_SetPos.to(screen_2_ppt, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+
 				//INTRO ANIMATION
 
 				this.TL_MainIntro = gsap.timeline();
@@ -2422,15 +2434,6 @@ if (reversed == null) { reversed = false; }
 
 				this.TL_MainScreen = gsap.timeline();
 				exportRoot.TL_MainScreen.add('frame0_start');
-
-				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
-				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
-				exportRoot.TL_MainScreen.to(screen_1_excel, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
-				exportRoot.TL_MainScreen.to(screen_2_excel, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
-				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
-				exportRoot.TL_MainScreen.to(screen_2_word, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
-				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
-				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
 
 				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0, scaleY: 0, ease:Power3.easeIn});
 
@@ -2818,7 +2821,7 @@ if (reversed == null) { reversed = false; }
 
 				exportRoot.TL_MainText1.to(exportRoot.mainMC.cta, .5, { x:"-=200", ease:Power3.easeIn}, "-=1.5");
 				exportRoot.TL_MainText1.to(exportRoot.mainMC.txtCta, .5, { x:"-=200", ease:Power3.easeIn}, "-=1.5");
-				exportRoot.TL_MainText1.to(exportRoot.mainMC.cta, 0, { x:"+=500", onComplete:function(){exportRoot.mainMC.cta.ctaBg1.visible = false; exportRoot.mainMC.cta.arrow0.visible = false; exportRoot.mainMC.cta.ctaBg2.visible = true; exportRoot.mainMC.cta.arrow2.visible = true;}}, "-=1");
+				exportRoot.TL_MainText1.to(exportRoot.mainMC.cta, 0, { x:"+=500", onComplete:function(){exportRoot.mainMC.cta.ctaBg1.visible = false; exportRoot.mainMC.cta.arrow0.visible = false; exportRoot.mainMC.cta.ctaBg2.visible = true; exportRoot.mainMC.cta.arrow3.visible = true;}}, "-=1");
 				exportRoot.TL_MainText1.to(exportRoot.mainMC.txtCta, 0, { x:"+=500", easel: {tint: "#185ABD", tintAmount: 1}}, "-=1");
 				exportRoot.TL_MainText1.to(exportRoot.mainMC.cta, .5, { x:"-=" + (ctaWidth ? ctaWidth : "200"), ease:Power4.easeOut}, "-=.6");
 				exportRoot.TL_MainText1.to(exportRoot.mainMC.txtCta, .5, { x:"-=" + (ctaWidth ? ctaWidth : "200"), ease:Power4.easeOut}, "-=.6");
@@ -2841,7 +2844,7 @@ if (reversed == null) { reversed = false; }
 
 				exportRoot.TL_MainText1.to(exportRoot.mainMC.cta, .3, { x:"+=" + (ctaWidth ? ctaWidth : "200"), ease:Power3.easeIn}, "-=.5");
 				exportRoot.TL_MainText1.to(exportRoot.mainMC.txtCta, .3, { x:"+=" + (ctaWidth ? ctaWidth : "200"), ease:Power3.easeIn}, "-=.5");
-				exportRoot.TL_MainText1.to(exportRoot.mainMC.cta, 0, { x:"-=500", onStart:function(){exportRoot.mainMC.cta.ctaBg1.visible = true; exportRoot.mainMC.cta.arrow0.visible = true; exportRoot.mainMC.cta.ctaBg2.visible = false; exportRoot.mainMC.cta.arrow2.visible = false;}}, "-=.2");
+				exportRoot.TL_MainText1.to(exportRoot.mainMC.cta, 0, { x:"-=500", onStart:function(){exportRoot.mainMC.cta.ctaBg1.visible = true; exportRoot.mainMC.cta.arrow0.visible = true; exportRoot.mainMC.cta.ctaBg2.visible = false; exportRoot.mainMC.cta.arrow3.visible = false;}}, "-=.2");
 				exportRoot.TL_MainText1.to(exportRoot.mainMC.txtCta, 0, { x:"-=500", easel: {tint: "#FFFFFF", tintAmount: 0}}, "-=.2");
 				exportRoot.TL_MainText1.to(exportRoot.mainMC.cta, .5, { x:"+=200", ease:Power3.easeOut}, "-=.2");
 				exportRoot.TL_MainText1.to(exportRoot.mainMC.txtCta, .5, { x:"+=200", ease:Power3.easeOut}, "-=.5");
@@ -3240,18 +3243,18 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/Desktop_Images_0000s_0000_PPTDesktop.png?1606156773210", id:"Desktop_Images_0000s_0000_PPTDesktop"},
-		{src:"images/Desktop_Images_0000s_0001_WordDesktop.png?1606156773210", id:"Desktop_Images_0000s_0001_WordDesktop"},
-		{src:"images/Desktop_Images_0000s_0002_ExcelDesktop1.png?1606156773210", id:"Desktop_Images_0000s_0002_ExcelDesktop1"},
-		{src:"images/Desktop_Images_0000s_0003_ODDesktop1.png?1606156773210", id:"Desktop_Images_0000s_0003_ODDesktop1"},
-		{src:"images/Excel_300x600_Display0000823.png?1606156773210", id:"Excel_300x600_Display0000823"},
-		{src:"images/Mobile_Images_0000s_0000_PPTMobile.png?1606156773210", id:"Mobile_Images_0000s_0000_PPTMobile"},
-		{src:"images/Mobile_Images_0000s_0001_WordMobile.png?1606156773210", id:"Mobile_Images_0000s_0001_WordMobile"},
-		{src:"images/Mobile_Images_0000s_0002_ExcelMobile1.png?1606156773210", id:"Mobile_Images_0000s_0002_ExcelMobile1"},
-		{src:"images/Mobile_Images_0000s_0003_ODMobile1.png?1606156773210", id:"Mobile_Images_0000s_0003_ODMobile1"},
-		{src:"images/OneDrive_300x600_Display0000614.png?1606156773210", id:"OneDrive_300x600_Display0000614"},
-		{src:"images/Powerpoint_300x600_Display0000615.png?1606156773210", id:"Powerpoint_300x600_Display0000615"},
-		{src:"images/Word_300x600_Display0001013.png?1606156773210", id:"Word_300x600_Display0001013"}
+		{src:"images/Desktop_Images_0000s_0000_PPTDesktop.png?1608025209139", id:"Desktop_Images_0000s_0000_PPTDesktop"},
+		{src:"images/Desktop_Images_0000s_0001_WordDesktop.png?1608025209139", id:"Desktop_Images_0000s_0001_WordDesktop"},
+		{src:"images/Desktop_Images_0000s_0002_ExcelDesktop1.png?1608025209139", id:"Desktop_Images_0000s_0002_ExcelDesktop1"},
+		{src:"images/Desktop_Images_0000s_0003_ODDesktop1.png?1608025209139", id:"Desktop_Images_0000s_0003_ODDesktop1"},
+		{src:"images/Excel_300x600_Display0000823.png?1608025209139", id:"Excel_300x600_Display0000823"},
+		{src:"images/Mobile_Images_0000s_0000_PPTMobile.png?1608025209139", id:"Mobile_Images_0000s_0000_PPTMobile"},
+		{src:"images/Mobile_Images_0000s_0001_WordMobile.png?1608025209139", id:"Mobile_Images_0000s_0001_WordMobile"},
+		{src:"images/Mobile_Images_0000s_0002_ExcelMobile1.png?1608025209139", id:"Mobile_Images_0000s_0002_ExcelMobile1"},
+		{src:"images/Mobile_Images_0000s_0003_ODMobile1.png?1608025209139", id:"Mobile_Images_0000s_0003_ODMobile1"},
+		{src:"images/OneDrive_300x600_Display0000614.png?1608025209139", id:"OneDrive_300x600_Display0000614"},
+		{src:"images/Powerpoint_300x600_Display0000615.png?1608025209139", id:"Powerpoint_300x600_Display0000615"},
+		{src:"images/Word_300x600_Display0001013.png?1608025209139", id:"Word_300x600_Display0001013"}
 	],
 	preloads: []
 };
