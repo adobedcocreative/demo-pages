@@ -218,7 +218,6 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 376px;
       opacity:1;">
       <!-- <div id="ref" class="asset adSizeContainer"data-image="ref"></div> -->
       <div id="frameVideo1" style="top: 0px;left: 0px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width:auto;"></video></div>
-      <div id="frameImage1" class="asset adSizeContainer" data-image="frameImage1"></div>
       <!-- <div id="shape1"
         style="top: 0;
           left: -23px;
@@ -254,10 +253,12 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 376px;
         <div class="asset" data-image="switchImage" style="position: relative;width: inherit;height: inherit;"></div>
         <div class="switch-button"></div>
       </div> -->
-      <div id="shape1" class="shape" style="border-radius: 30px;background-image: linear-gradient(to top, #24d9c3, #0084d6);"></div>
-      <div id="shape2" class="shape" style="border-radius: 30px;background-image: linear-gradient(to top, #24d9c3, #0084d6);"></div>
-      <div id="shape3" class="shape" style="border-radius: 30px;background-image: linear-gradient(to bottom, #24d9c3, #0084d6);"></div>
-      <div id="shape4" class="shape" style="border-radius: 30px;background-image: linear-gradient(to bottom, #24d9c3, #0084d6);"></div>
+      <div class="shapes" style="top: 0;left: 0;width: 210px;height: inherit;overflow: hidden;">
+        <div id="shape1" class="shape" style="position: absolute;border-radius: 30px;background-image: linear-gradient(to left, #24d9c3, #0084d6);"></div>
+        <div id="shape2" class="shape" style="position: absolute;border-radius: 30px;background-image: linear-gradient(to left, #24d9c3, #0084d6);"></div>
+        <div id="shape3" class="shape" style="position: absolute;border-radius: 30px;background-image: linear-gradient(to bottom, #24d9c3, #0084d6);"></div>
+        <div id="shape4" class="shape" style="position: absolute;border-radius: 30px;background-image: linear-gradient(to bottom, #24d9c3, #0084d6);"></div>
+      </div>
       <div id="introLogoImage" class="asset adSizeContainer" data-image="introLogoImage"></div>
       <div id="introCta" class="text AlticeBold"
         data-text="ctaText"
@@ -298,7 +299,6 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 376px;
           frameVideo1: "728x90_yoga.mp4",
           frameVideo2: "Animate_300_Mbps_Arrow.mp4",
           frameVideo3: "Animate_HolidayBanners_PlayButton.mp4",
-          frameImage1: "728x90_OPT_JAN_ACQ_iStart_AmpPC_50Yr1_NonSub_NY_Img_Frame_01.png",
           frameImage2: "1x1.png",
           frameImage4: "728x90_OPT_JAN_ACQ_iStart_AmpPC_50Yr1_NonSub_NY_Img_Amplify_Frame_04.png",
           frameImage41: "728x90_OPT_JAN_ACQ_iStart_AmpPC_50Yr1_NonSub_NY_Img_Frame_04_2.png",
@@ -336,8 +336,8 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 376px;
         loadVideo(ad.layers.frameImage3.querySelector('video'), adData.frameVideo3);
 
         textUpdate();
-        gsap.set('#shape1',{top:-110,left:-17,width:36,height:110,y:200});
-        gsap.set('#shape2',{top:90,left:310,width:30,height:110,y:-200});
+        gsap.set('#shape1',{top:10,left:210,width:160,height:18,x:-370});
+        gsap.set('#shape2',{top:66,left:-140,width:140,height:15,x:350});
         gsap.set('#shape3',{top:-160,left:370,width:36,height:160,y:250});
         gsap.set('#shape4',{top:-160,left:40,width:32,height:160,y:250});
         gsap.set('#beam1',{top:74,left:728,width:270,height:17,x:-998});gsap.set('#beam1 div',{width:18});
@@ -420,6 +420,8 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 376px;
         }
         var animateFrame1 = function(flag){
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
+            gsap.to('#shape1', {x:'0',ease:'none', duration:0.7,delay:0.8})
+            gsap.to('#shape2', {x:'0',ease:'none', duration:0.7,delay:1.2})
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
             .to('#frameText1', {x:0,y:0})
           }
