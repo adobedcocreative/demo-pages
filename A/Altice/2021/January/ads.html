@@ -246,8 +246,10 @@
         var creativePath = 'ads/' + adContent.data[0]['Smart Names'] + '/' + adSize + '/' + adSize + '.html';
         var creativeFrames = frames[creativePath];
         var framesHTML = '';
-        for(var i in creativeFrames) {
-          framesHTML += '<div class="frame-wrapper" id="ad' + adSize + '"><iframe src="' + creativeFrames[i] + '?v=' + publishVersion + '" width="' + adWidth + '" height="' + adHeight + '"></iframe></div>';
+        if(Object.keys(creativeFrames).length > 1) {
+          for(var i in creativeFrames) {
+            framesHTML += '<div class="frame-wrapper" id="ad' + adSize + '"><iframe src="' + creativeFrames[i] + '?v=' + publishVersion + '" width="' + adWidth + '" height="' + adHeight + '"></iframe></div>';
+          }
         }
         document.querySelector('#adContainer').innerHTML = //'<div class="frame-wrapper"><iframe src="160x600/160x600.html" width="160" height="600" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>160 x 600</div></div>'+
         // '<div class="frame-wrapper"><iframe src="300x600/300x600.html" width="300" height="600" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>300 x 600 Portrait</div></div>'+
@@ -263,10 +265,10 @@
           // '<div class="frame-wrapper"><iframe src="728x90/728x90.html" width="728" height="90" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>728 x 90</div></div>'+
           '<div class="frame-wrapper" id="ad728x90"></div>'+
         '</div>'+
-        '<div>'+
+        (framesHTML.length ? '<div>'+
           '<div class="frame-title">Frames</div>'+
           framesHTML+
-        '</div>'+
+        '</div>' : '')+
         // '<div class="frame-wrapper"><iframe src="970x250/970x250.html" width="970" height="250" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>970 x 250</div></div>';
         '';
         var group = adContent.data[0].Group;
