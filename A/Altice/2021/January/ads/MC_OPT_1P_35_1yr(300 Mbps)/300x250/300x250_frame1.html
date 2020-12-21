@@ -475,7 +475,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 178px;left: 22px;
           }
           ad.layers.frameVideo1.querySelector('video').onended = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.2}})
-            .to('#frame1', (flag==true?{}:{delay:0.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+            .to('#frame1', (flag==true?{}:{delay:0, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
           }
         }
         gsap.delayedCall(.8, animateFrame1, [true]);
