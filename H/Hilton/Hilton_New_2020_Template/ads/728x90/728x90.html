@@ -255,6 +255,7 @@
                 displayValue = content['layoutCode'].toUpperCase();
               } catch (e) {}
               var hiltonCodes = splitCodes("HI,HH");
+              var hiltonHotelResortCodes = splitCodes("HHR");
               var waldorfCodes = splitCodes("WA");
               var embassyCodes = splitCodes("ES");
               var doubleTreeCodes = splitCodes("DT");
@@ -285,6 +286,10 @@
                   if(hiltonCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'hilton';
                     document.querySelector("#logoImage").style.top = '2px';
+                  }else if(hiltonHotelResortCodes.indexOf(matchingCodes[matchIndex]) != -1){
+                    logoImageName = 'hhr';
+                    document.querySelector("#logoImage").style.top = '25px';
+                    document.querySelector("#logoImage").style.height = '40px';
                   }else if(waldorfCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'waldorf';
                     whitePatchColor = '#000';
