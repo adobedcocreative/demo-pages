@@ -158,14 +158,12 @@
 amo.registerClick("clickUrl","https://www.altice.com");
 amo.registerAttribute("ctaText","TEXT","Learn more");
 amo.registerAttribute("frameText1", "TEXT", "TV on your schedule");
-amo.registerAttribute("frameText21", "TEXT", "<div style='top: 127px;left: 17px;font-size: 18px;line-height: 0.95;color: #fff;'>Add Cloud<br>DVR Plus</div>");
-amo.registerAttribute("frameText22", "TEXT", "<div style='top: 162px;left: 11px;width: 140px;color: #fff;line-height: 1;'><font style='font-size: 63px;letter-spacing: -1.5px;'>$10</font><font style='margin-left: 4px;font-size: 10px;display: inline-block;vertical-align: 26px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 0px 0 0 7px;font-size: 10px;line-height: 1.1;width: 75px;'>Plus taxes</div></div>");
-amo.registerAttribute("frameText31", "TEXT", "<div style='top: 153px;left: 10px;width: 140px;font-size: 19px;line-height: 1.05;text-align: center;'><div class='coloredText'>75 hours of</div>DVR storage</div>");
-amo.registerAttribute("frameText41", "TEXT", "<div style='top: 80px;left: 8px;width: 140px;font-size: 19px;line-height: 1.05;text-align: center;'>Or get <div class='coloredText' style='font-size: 141%;line-height: 0.9;padding-top: 3px;padding-bottom: 3px;'>2X the storage</div>with Cloud DVR Max</div>");
-amo.registerAttribute("frameText51", "TEXT", "<div style='top: 141px;left: 20px;width: 120px;font-size: 24px;line-height: 1.1;text-align: center;'>Pause, play &<br>rewind live TV</div>");
-amo.registerAttribute("frameText61", "TEXT", "<div style='top: 78px;left: 13px;font-size: 18px;line-height:1;'><div style='color:#0084d6;margin-top: -27px;margin-left: 2px;height: 27px;font-size: 73%;'>Never miss a beat</div>Add Cloud<br>DVR Plus</div>");
-amo.registerAttribute("frameText62", "TEXT", "<div style='top: 114px;left: 9px;width: 150px;line-height: 1;'><font style='font-size: 65px;letter-spacing: -2px;padding-right: 2px;' class='coloredText'>$10</font><font style='margin-left: 1px;font-size: 11px;display: inline-block;vertical-align: 25px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 2px 0 0 5px;font-size: 10px;'>Plus taxes</div></div>");
-amo.registerAttribute("frameText63", "TEXT", "<div style='top: 216px;width:170px;left: 13px;transform: scale(0.87);transform-origin: top left;'><div class='bulletedText' style='line-height: 1;'>75 hours of<br>DVR storage</div></div>");
+amo.registerAttribute("frameText21", "TEXT", "<div style='top: 141px;left: 20px;width: 120px;font-size: 24px;line-height: 1.1;text-align: center;'>Pause, play &<br>rewind live TV</div>");
+amo.registerAttribute("frameText31", "TEXT", "<div style='top: 153px;left: 8px;width: 144px;font-size: 19px;line-height: 1.05;text-align: center;'><div class='coloredText'>75 hours of</div>your favorite shows & movies</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div style='top: 80px;left: 10px;width: 140px;font-size: 19px;line-height: 1.05;text-align: center;'>Or get <div class='coloredText' style='font-size: 141%;line-height: 0.9;padding-top: 3px;padding-bottom: 3px;'>2X the storage</div>with Cloud DVR Max</div>");
+amo.registerAttribute("frameText51", "TEXT", "<div style='top: 78px;left: 13px;font-size: 18px;line-height:1;'><div style='color:#0084d6;margin-top: -27px;margin-left: 2px;height: 27px;font-size: 73%;'>Never miss a beat</div>Add Cloud<br>DVR Plus</div>");
+amo.registerAttribute("frameText52", "TEXT", "<div style='top: 114px;left: 9px;width: 150px;line-height: 1;'><font style='font-size: 65px;letter-spacing: -2px;padding-right: 2px;' class='coloredText'>$10</font><font style='margin-left: 1px;font-size: 11px;display: inline-block;vertical-align: 25px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 2px 0 0 5px;font-size: 10px;'>Plus taxes</div></div>");
+amo.registerAttribute("frameText53", "TEXT", "<div style='top: 216px;width:170px;left: 13px;transform: scale(0.87);transform-origin: top left;'><div class='bulletedText' style='line-height: 1;'>75 hours of<br>DVR storage</div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -187,7 +185,7 @@ amo.registerAttribute("frameText63", "TEXT", "<div style='top: 216px;width:170px
     <div id="beam4" class="beam" style="border-radius: 30px;background-image: linear-gradient(to left, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
     <div id="beam5" class="beam" style="border-radius: 30px;background-image: linear-gradient(to right, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
     <div id="frameBackground" class="asset adSizeContainer" data-image="frameBackground" style="display:none;"></div>
-    <div id="frameImage2" class="asset frameImage" data-image="frameImage2"></div>
+    <div id="frameImage2" class="frameImage" style="top: 77px;left: 14px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width: 128px;height: auto"></video></div>
     <div id="frameText21" class="frameText">!{frameText21}</div>
     <div id="frameText22" class="frameText">!{frameText22}</div>
     <div id="frameText23" class="frameText">!{frameText23}</div>
@@ -199,14 +197,10 @@ amo.registerAttribute("frameText63", "TEXT", "<div style='top: 216px;width:170px
     <div id="frameText41" class="frameText">!{frameText41}</div>
     <div id="frameText42" class="frameText">!{frameText42}</div>
     <div id="frameText43" class="frameText">!{frameText43}</div>
-    <div id="frameImage5" class="frameImage" style="top: 77px;left: 14px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width: 128px;height: auto"></video></div>
+    <div id="frameImage5" class="asset frameImage" data-image="frameImage5"></div>
     <div id="frameText51" class="frameText">!{frameText51}</div>
     <div id="frameText52" class="frameText">!{frameText52}</div>
     <div id="frameText53" class="frameText">!{frameText53}</div>
-    <div id="frameImage6" class="asset frameImage" data-image="frameImage6"></div>
-    <div id="frameText61" class="frameText">!{frameText61}</div>
-    <div id="frameText62" class="frameText">!{frameText62}</div>
-    <div id="frameText63" class="frameText">!{frameText63}</div>
     <div id="logoImage" class="asset adSizeContainer" data-image="logoImage"></div>
     <!-- <div id="priceLabel" class="asset adSizeContainer" data-image="priceLabel"></div> -->
     <div id="cta" class="text AlticeBold"
@@ -307,18 +301,16 @@ amo.registerAttribute("frameText63", "TEXT", "<div style='top: 216px;width:170px
           introLogoImage: 'images/160x600_Logo_Optimum_Black.png',
           frameBackground: '1x1.png',
           frameVideo1: "160x600_Cloud_DVR.mp4",
+          frameVideo2: "Animate_3_buttons_smaller.mp4",
           frameVideo3: "Animate_DVR_smaller.mp4",
-          frameVideo5: "Animate_3_buttons_smaller.mp4",
-          frameImage2: "160x600_OPT_JAN_ACQ_FIB_300Mb_35Yr1_NonSub_Fiber1P_Img_Frame_02.png",
           frameImage4: "1x1.png",
-          frameImage6: "160x600_OPT_UPGQ1_ANI_Video_CLDVR_10_Subs_GM_Bnr_Img_Frame_06.png",
+          frameImage5: "160x600_OPT_UPGQ1_ANI_Video_CLDVR_10_Subs_GM_Bnr_Img_Frame_06.png",
           frameText23: "&nbsp;",
+          frameText22: "&nbsp;",
           frameText32: "&nbsp;",
           frameText33: "&nbsp;",
           frameText42: "&nbsp;",
           frameText43: "&nbsp;",
-          frameText52: "&nbsp;",
-          frameText53: "&nbsp;",
         },
         beforeLoad: function(data){
           data.map(function(content){
@@ -350,8 +342,8 @@ amo.registerAttribute("frameText63", "TEXT", "<div style='top: 216px;width:170px
           }
         }
         loadVideo(ad.layers.frameVideo1.querySelector('video'), adData.frameVideo1, true);
+        loadVideo(ad.layers.frameImage2.querySelector('video'), adData.frameVideo2);
         loadVideo(ad.layers.frameImage3.querySelector('video'), adData.frameVideo3);
-        loadVideo(ad.layers.frameImage5.querySelector('video'), adData.frameVideo5);
 
         textUpdate();
         gsap.set('#shape1',{top:-220,left:-14,width:36,height:220,y:820});
@@ -425,8 +417,8 @@ amo.registerAttribute("frameText63", "TEXT", "<div style='top: 216px;width:170px
           var frameId = 5;
           gsap.set('#frameBackground', {display: 'block'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[frameId]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame6}));
+          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
+          // .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame6}));
         }
         var animateFrame4 = function(flag){
           var frameId = 4;
@@ -444,8 +436,8 @@ amo.registerAttribute("frameText63", "TEXT", "<div style='top: 216px;width:170px
         var animateFrame2 = function(flag){
           var frameId = 2;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: generalLeftFrameAnimation, onCompleteParams:[frameId]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2, opacity:0, onComplete: animateFrame3}));
+          .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[frameId]})
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}));
         }
         var animateFrame1 = function(flag){
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
