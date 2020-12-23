@@ -148,7 +148,7 @@ function handleComplete(evt,comp) {
 			bannerData.enlarged_2_1 = eval(bannerData.textField3.split('^')[0]);
 			bannerData.enlarged_3_1 = eval(bannerData.textField4.split('^')[0]);
 			bannerData.enlarged_4_1 = eval(bannerData.textField5.split('^')[0]);
-			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "8.5px" : "12px"),0,0,"50","300", "center"] : '';
+			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "8.5px" : (bannerData.ctaText.length >= 12 ? "10.5px" : "12px")),0,0,"50","300", "center"] : '';
 			var smartNames = [];
 			if(bannerData.textField2.split('^').length > 2) {
 				smartNames.push(bannerData.textField2.split('^')[1]);
