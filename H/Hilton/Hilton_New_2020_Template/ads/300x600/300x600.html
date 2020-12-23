@@ -96,6 +96,30 @@
           src: url('fonts/FSElliotPro-Bold.woff') format("woff");
       }
       .FSElliotProBold { font-family: FSElliotProBold; }
+
+      @font-face {
+          font-family: GothamBlack;
+          src: url('fonts/Gotham-Black.woff') format("woff");
+      }
+      .GothamBlack { font-family: GothamBlack; }
+
+      @font-face {
+          font-family: StagLCGBold;
+          src: url('fonts/Stag LCG-Bold.woff') format("woff");
+      }
+      .StagLCGBold { font-family: StagLCGBold; }
+
+      @font-face {
+          font-family: LoewBlack;
+          src: url('fonts/Loew-Black.woff') format("woff");
+      }
+      .LoewBlack { font-family: LoewBlack; }
+
+      @font-face {
+          font-family: BrandonGrotesqueBoldItalic;
+          src: url('fonts/BrandonGrotesque-BoldItalic.woff') format("woff");
+      }
+      .BrandonGrotesqueBoldItalic { font-family: BrandonGrotesqueBoldItalic; }
     </style>
     <!--
       Available Classes:-
@@ -151,9 +175,9 @@
       </div>
       <div id="frameText1" dir="auto" class="text-top-left"
         data-text="frameText1"
-        style="top: 75px;
-          left: 15px;
-          width: 280px;
+        style="top: 45px;
+          left: 20px;
+          width: 260px;
           height: 140px;
           font-size: 29px;;
           line-height: 1;
@@ -161,9 +185,9 @@
       </div>
       <div id="frameText2" dir="auto" class="text-top-left"
         data-text="frameText2"
-        style="top: 75px;
-          left: 15px;
-          width: 280px;
+        style="top: 45px;
+          left: 20px;
+          width: 260px;
           height: 140px;
           font-size: 29px;
           line-height: 1;
@@ -171,9 +195,9 @@
       </div>
       <div id="frameText3" dir="auto" class="text-top-left"
         data-text="frameText3"
-        style="top: 75px;
-          left: 15px;
-          width: 280px;
+        style="top: 45px;
+          left: 20px;
+          width: 260px;
           height: 140px;
           font-size: 29px;
           line-height: 1;
@@ -291,6 +315,8 @@
                   }else if(hiltonHotelResortCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'hhr';
                     document.querySelector("#logoImage").style.top = '381px';
+
+                    document.querySelector("#ad").style.fontFamily = "LoewBlack";
                   }else if(waldorfCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'waldorf';
                     whitePatchColor = '#000';
@@ -304,8 +330,10 @@
                     document.querySelector("#ad").style.fontFamily = "AvenirBlack";
                   }else if(doubleTreeCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'doubletree';
-                    document.querySelector("#logoImage").style.top = '380px';
-                    document.querySelector("#logoImage").style.height = '138px';
+                    document.querySelector("#logoImage").style.top = '413px';
+                    document.querySelector("#logoImage").style.height = '130px';
+
+                    document.querySelector("#ad").style.fontFamily = "StagLCGBold";
                   }else if(conradCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'conrad';
                     document.querySelector("#logoImage").style.top = '411px';
@@ -351,6 +379,8 @@
                   }else if(curioCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'curio';
                     document.querySelector("#logoImage").style.top = '399px';
+
+                    document.querySelector("#ad").style.fontFamily = "GothamBlack";
                   }else if(mottoCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'motto';
                     document .querySelector("#logoImage").style.top = '408px';
@@ -363,6 +393,9 @@
                   }else if(tapestryCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'tapestry';
                     document .querySelector("#logoImage").style.top = '407px';
+
+                    document.querySelector("#ad").style.fontFamily = "BrandonGrotesqueBoldItalic";
+                    document.querySelector("#cta").style.fontFamily = "BrandonGrotesqueBlack";
                   }else if(hgvCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'hgv';
                     document.querySelector("#logoImage").style.top = '405px'; 

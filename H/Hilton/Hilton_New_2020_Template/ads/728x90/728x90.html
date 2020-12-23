@@ -96,6 +96,30 @@
           src: url('fonts/FSElliotPro-Bold.woff') format("woff");
       }
       .FSElliotProBold { font-family: FSElliotProBold; }
+
+      @font-face {
+          font-family: GothamBlack;
+          src: url('fonts/Gotham-Black.woff') format("woff");
+      }
+      .GothamBlack { font-family: GothamBlack; }
+
+      @font-face {
+          font-family: StagLCGBold;
+          src: url('fonts/Stag LCG-Bold.woff') format("woff");
+      }
+      .StagLCGBold { font-family: StagLCGBold; }
+
+      @font-face {
+          font-family: LoewBlack;
+          src: url('fonts/Loew-Black.woff') format("woff");
+      }
+      .LoewBlack { font-family: LoewBlack; }
+
+      @font-face {
+          font-family: BrandonGrotesqueBoldItalic;
+          src: url('fonts/BrandonGrotesque-BoldItalic.woff') format("woff");
+      }
+      .BrandonGrotesqueBoldItalic { font-family: BrandonGrotesqueBoldItalic; }
     </style>
     <!--
       Available Classes:-
@@ -288,8 +312,10 @@
                     document.querySelector("#logoImage").style.top = '2px';
                   }else if(hiltonHotelResortCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'hhr';
-                    document.querySelector("#logoImage").style.top = '25px';
-                    document.querySelector("#logoImage").style.height = '40px';
+                    document.querySelector("#logoImage").style.top = '16px';
+                    document.querySelector("#logoImage").style.height = '60px';
+
+                    document.querySelector("#ad").style.fontFamily = "LoewBlack";
                   }else if(waldorfCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'waldorf';
                     whitePatchColor = '#000';
@@ -309,6 +335,8 @@
                     document.querySelector("#logoImage").style.left = '476px';
                     document.querySelector("#logoImage").style.width = '107px';
                     document.querySelector("#logoImage").style.height = '107px';
+
+                    document.querySelector("#ad").style.fontFamily = "StagLCGBold";
                   }else if(conradCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'conrad';
                     whitePatchColor = '#000';
@@ -367,6 +395,8 @@
                     logoImageName = 'curio';
                     document.querySelector("#logoImage").style.left = '525px';
                     document.querySelector("#logoImage").style.width = '57px';
+
+                    document.querySelector("#ad").style.fontFamily = "GothamBlack";
                   }else if(mottoCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'motto';
                     whitePatchColor = '#000';
@@ -384,6 +414,9 @@
                     logoImageName = 'tapestry';
                     document.querySelector("#logoImage").style.left = '496px';
                     document.querySelector("#logoImage").style.width = '87px';
+
+                    document.querySelector("#ad").style.fontFamily = "BrandonGrotesqueBoldItalic";
+                    document.querySelector("#cta").style.fontFamily = "BrandonGrotesqueBlack";
                   }else if(hgvCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'hgv';
                     document.querySelector("#logoImage").style.width = '78px';
