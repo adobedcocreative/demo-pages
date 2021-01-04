@@ -158,12 +158,13 @@
 amo.registerClick("clickUrl","https://www.altice.com");
 amo.registerAttribute("ctaText","TEXT","Learn more");
 amo.registerAttribute("frameText1", "TEXT", "TV on your schedule");
+amo.registerAttribute("frameText12", "TEXT", "with Cloud DVR Plus");
 amo.registerAttribute("frameText21", "TEXT", "<div style='top: 141px;left: 20px;width: 120px;font-size: 24px;line-height: 1.1;text-align: center;'>Pause, play &<br>rewind live TV</div>");
 amo.registerAttribute("frameText31", "TEXT", "<div style='top: 153px;left: 8px;width: 144px;font-size: 19px;line-height: 1.05;text-align: center;'><div class='coloredText'>75 hours of</div>your favorite shows & movies</div>");
 amo.registerAttribute("frameText41", "TEXT", "<div style='top: 80px;left: 10px;width: 140px;font-size: 19px;line-height: 1.05;text-align: center;'>Or get <div class='coloredText' style='font-size: 141%;line-height: 0.9;padding-top: 3px;padding-bottom: 3px;'>2X the storage</div>with Cloud DVR Max</div>");
 amo.registerAttribute("frameText51", "TEXT", "<div style='top: 78px;left: 13px;font-size: 18px;line-height:1;'><div style='color:#0084d6;margin-top: -27px;margin-left: 2px;height: 27px;font-size: 73%;'>Never miss a beat</div>Add Cloud<br>DVR Plus</div>");
 amo.registerAttribute("frameText52", "TEXT", "<div style='top: 114px;left: 9px;width: 150px;line-height: 1;'><font style='font-size: 65px;letter-spacing: -2px;padding-right: 2px;' class='coloredText'>$10</font><font style='margin-left: 1px;font-size: 11px;display: inline-block;vertical-align: 25px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 2px 0 0 5px;font-size: 10px;'>Plus taxes</div></div>");
-amo.registerAttribute("frameText53", "TEXT", "<div style='top: 216px;width:170px;left: 13px;transform: scale(0.87);transform-origin: top left;'><div class='bulletedText' style='line-height: 1;'>75 hours of<br>DVR storage</div></div>");
+amo.registerAttribute("frameText53", "TEXT", "<div style='top: 216px;width:160px;left: 13px;transform: scale(0.87);transform-origin: top left;'><div class='bulletedText' style='line-height: 1;'>Record 75 hours of your favorite shows & movies</div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -241,6 +242,16 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 216px;width:170px
       </div> -->
       <div id="frameText1" class="text-top AlticeBold"
         data-text="frameText1"
+        data-style="text-align:center;"
+        style="top: 253px;
+          left: 5px;
+          width: 150px;
+          height: 120px;
+          font-size: 26px;
+          line-height: 1;">
+      </div>
+      <div id="frameText12" class="text-top AlticeBold"
+        data-text="frameText12"
         data-style="text-align:center;"
         style="top: 253px;
           left: 5px;
@@ -355,7 +366,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 216px;width:170px
         gsap.set('#beam3',{top:232,left:160,width:140,height:13,x:-300});gsap.set('#beam3 div',{width:13});
         gsap.set('#beam4',{top:230,left:160,width:170,height:14,x:-330});gsap.set('#beam4 div',{width:14});
         gsap.set('#beam5',{top:30,left:160,width:180,height:22,x:-340});gsap.set('#beam5 div',{width:22});
-        gsap.set('#frameText1', {x:'-120%'});
+        gsap.set('#frameText1, #frameText12', {x:'-120%'});
         gsap.set('.frameImage', {x:'100%'});
         gsap.set('.frameText, #priceLabel', {x:'-100%'});
         // gsap.set('.frameImageLeft', {x:'-100%', y:0});
@@ -443,10 +454,12 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 216px;width:170px
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
             .to('#frameText1', {x:0,y:0})
+            .to('#frameText1', {x:'120%',y:0, delay:1.4})
+            .to('#frameText12', {x:0,y:0})
           }
           ad.layers.frameVideo1.querySelector('video').onended = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.2}})
-            .to('#frame1', (flag==true?{}:{delay:0, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+            .to('#frame1', (flag==true?{}:{delay:0.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
           }
         }
         if('frame1' in ad.layers) ad.layers.frame1.remove();

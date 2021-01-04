@@ -109,6 +109,7 @@ amo.registerAttribute("frameImage3", "IMAGE", "1x1.png");
 amo.registerAttribute("frameImage4", "IMAGE", "1x1.png");
 amo.registerAttribute("frameImage5", "IMAGE", "1x1.png");
 amo.registerAttribute("frameText1", "TEXT", "TV on your schedule");
+amo.registerAttribute("frameText12", "TEXT", "with Cloud DVR Plus");
 amo.registerAttribute("frameText21", "TEXT", "<div style='top: 10px;left: 9px;font-size: 17px;line-height: 1;'>Pause, play &<br>rewind live TV</div>");
 amo.registerAttribute("frameText31", "TEXT", "<div style='top: 13px;left: 8px;font-size: 16.5px;'><font class='coloredText'>75 hours of</font> DVR storage</div>");
 amo.registerAttribute("frameText41", "TEXT", "<div style='top: 9px;left: 9px;font-size: 17px;line-height: 1;'>Or get <font class='coloredText'>2X the storage</font><br>with Cloud DVR Max</div>");
@@ -169,6 +170,15 @@ amo.registerAttribute("frameText51", "TEXT", "<div style='top: 10px;left: 7px;fo
       <!-- <div id="frameVideo1" style="top: 4px;left: 145px;width: 45px;height: 45px;"><video muted playsinline autoplay style="width:100%;"></video></div> -->
       <div id="frameText1" class="text-left AlticeBold"
         data-text="frameText1"
+        style="top: 5px;
+          left: 8px;
+          width: 200px;
+          height: 40px;
+          font-size: 18px;
+          line-height: 0.95;">
+      </div>
+      <div id="frameText12" class="text-left AlticeBold"
+        data-text="frameText12"
         style="top: 5px;
           left: 8px;
           width: 200px;
@@ -252,7 +262,7 @@ amo.registerAttribute("frameText51", "TEXT", "<div style='top: 10px;left: 7px;fo
           }
         }
         // loadVideo(ad.layers.frameVideo1.querySelector('video'), adData.frameVideo1, true);
-        gsap.set('#frameText1', {autoAlpha:0});
+        gsap.set('#frameText1, #frameText12', {x:'-120%'});
         gsap.set('.frameImage', {y:'100%'});
         gsap.set('.frameText', {y:'100%'});
         gsap.set('div[id^="frameText"][id$="1"], #priceLabel', {x:'-100%',y:0});
@@ -317,9 +327,11 @@ amo.registerAttribute("frameText51", "TEXT", "<div style='top: 10px;left: 7px;fo
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2, opacity:0, onComplete: animateFrame3}));
         }
         var animateFrame1 = function(flag){
-          setTimeout(function(){ gsap.set('#frameText1', {x: '0', autoAlpha: 1}); typingAnimation(ad.layers.frameText1.querySelector('span'), 30, function(){ }); },500);
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frame1', (flag==true?{}:{delay:2, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          .to('#frameText1', {x:0,y:0})
+          .to('#frameText1', {x:'-120%',y:0, delay:1.5})
+          .to('#frameText12', {x:0,y:0})
+          .to('#frame1', (flag==true?{}:{delay:1.5, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
         gsap.delayedCall(.8, animateFrame1, [true]);
       });
