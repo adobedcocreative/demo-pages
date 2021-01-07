@@ -446,14 +446,14 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 165px;left: 23px;
           ad.layers.cta.classList.remove('ctaWhite');
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: beamFrameAnimation, onCompleteParams:[frameId]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame4}))
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 3.7, opacity:0, onComplete: animateFrame4}))
         }
         var animateFrame2 = function(flag){
           var frameId = 2;
           ad.layers.cta.classList.add('ctaWhite');
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalLeftFrameAnimation, onCompleteParams:[2]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}));
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 3.7, opacity:0, onComplete: animateFrame3}));
         }
         var animateFrame1 = function(flag){
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
