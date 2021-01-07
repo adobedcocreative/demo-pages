@@ -237,7 +237,7 @@ function handleComplete(evt,comp) {
 			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,"12.5px",0,0,"50","300", "center"] : '';
 			bannerData.CTAarrowVisible = [true, 0,0];
 			amoAdClick = function(id) {
-				parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl.split('^').length > 1 ? parentWindow.adClickUrl.split('^')[id] : parentWindow.adClickUrl, parentWindow.smartName[id]);
+				parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl.split('^').length > 1 ? parentWindow.adClickUrl.split('^')[id] : parentWindow.adClickUrl, (parentWindow.smartName[id] + '|' + bannerData.ctaText));
 				if(bannerData.clickTracker) {
 					var clickTrackers = bannerData.clickTracker.split('^');
 					clickTrackers.forEach(function(url){
@@ -247,13 +247,18 @@ function handleComplete(evt,comp) {
 					});
 				}
 			}
+			window.amoAdInteractionFlag = true;
 			amoAdInteraction = function(text, id) {
-				var parentWindows = window.parent.parent.window;
-				if (parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
-					try {
-						var productId = ('id' in parentWindow.adData.feedData ? ('|' + parentWindow.adData.feedData.id) : '');
-						parentWindows.amoUtils.onInteraction(parentWindow.smartName[id] + ' - ' + text + productId, parentWindow.adData.feedData);
-					} catch (e) {}
+				if(window.amoAdInteractionFlag) {
+					window.amoAdInteractionFlag = false;
+					setTimeout(function(){ window.amoAdInteractionFlag = true; }, 200);
+					var parentWindows = window.parent.parent.window;
+					if (amoAdInteractionFlag && parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
+						try {
+							var productId = ('id' in parentWindow.adData.feedData ? ('|' + parentWindow.adData.feedData.id) : '');
+							parentWindows.amoUtils.onInteraction(parentWindow.smartName[id] + '|' + bannerData.ctaText + ' - ' + text + productId, parentWindow.adData.feedData);
+						} catch (e) {}
+					}
 				}
 			}
 			if(bannerData.impressionTracker) {

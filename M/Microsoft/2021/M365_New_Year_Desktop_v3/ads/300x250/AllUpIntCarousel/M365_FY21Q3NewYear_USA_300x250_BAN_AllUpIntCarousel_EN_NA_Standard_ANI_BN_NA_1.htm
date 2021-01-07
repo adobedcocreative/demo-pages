@@ -172,7 +172,7 @@ function handleComplete(evt,comp) {
 				if (parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
 					try {
 						var productId = ('id' in parentWindow.adData.feedData ? ('|' + parentWindow.adData.feedData.id) : '')
-						parentWindows.amoUtils.onInteraction(parentWindow.layout + (smartNames && smartNames.length == 4 ? '|' + smartNames[id] : '') + ' - ' + text + productId, parentWindow.adData.feedData);
+						parentWindows.amoUtils.onInteraction(parentWindow.layout + (smartNames && smartNames.length == 4 ? '|' + smartNames[id] : '') + '|' + bannerData.ctaText + ' - ' + text + productId, parentWindow.adData.feedData);
 					} catch (e) {}
 				}
 			}

@@ -812,7 +812,7 @@ if (reversed == null) { reversed = false; }
 		//mc.cta.alpha=0;
 		
 		this.runBanner = function() {
-			//console.log("IS THIS WORKING???")
+			//// console.log("IS THIS WORKING???")
 			
 			//mc.cta.alpha=1
 			

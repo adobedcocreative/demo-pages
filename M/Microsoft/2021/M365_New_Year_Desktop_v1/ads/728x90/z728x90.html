@@ -84,7 +84,7 @@
         window.layout = adData.layout;
         if(window.layout == 'AllUp3DCube') {
           window.smartName = [layout + '|SmartName1', layout + '|SmartName2', layout + '|SmartName3', layout + '|SmartName4'];
-          window.smartName = textField5 && textField5.split('^').length == 4 ? textField5.split('^').map(function(name) { return layout + '|' + name; }) : window.smartName;
+          window.smartName = adData.textField5 && adData.textField5.split('^').length == 4 ? adData.textField5.split('^').map(function(name) { return layout + '|' + name; }) : window.smartName;
         }
         // document.querySelector('iframe').addEventListener("click", exitHandler.bind(this));
         // function exitHandler() {

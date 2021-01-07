@@ -1219,7 +1219,7 @@ loader.load( '3d/cube728x90.gltf', function ( gltf ) {
 			// } else if(id >= 0 && parentWindow.urls[id].path.toLowerCase() != 'na') {
 			// 		parentWindow.amo.onDynAdClick(parentWindow.urls[id].data, "CLICK", parentWindow.urls[id].path, parentWindow.urls[id].clickLabel);
 			// }
-			parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl.split('^').length > 1 ? parentWindow.adClickUrl.split('^')[id] : parentWindow.adClickUrl, parentWindow.smartName[id]);
+			parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl.split('^').length > 1 ? parentWindow.adClickUrl.split('^')[id] : parentWindow.adClickUrl, (parentWindow.smartName[id] + '|' + bannerData.ctaText));
 			if(bannerData.clickTracker) {
 				var clickTrackers = bannerData.clickTracker.split('^');
 				clickTrackers.forEach(function(url){
@@ -1229,6 +1229,7 @@ loader.load( '3d/cube728x90.gltf', function ( gltf ) {
 				});
 			}
 		}
+		window.amoAdInteractionFlag = true;
 		function onInteraction(id) {
 			// var parentWindows = window.parent.parent.window;
 			// if (parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
@@ -1237,12 +1238,16 @@ loader.load( '3d/cube728x90.gltf', function ( gltf ) {
 			// 		else { parentWindows.amoUtils.onInteraction(parentWindow.urls[id].label, parentWindow.urls[id].data); }
 			// 	} catch (e) {}
 			// }
-			var parentWindows = window.parent.parent.window;
-			if (parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
-				try {
-					var productId = ('id' in parentWindow.adData.feedData ? ('|' + parentWindow.adData.feedData.id) : '');
-					parentWindows.amoUtils.onInteraction(parentWindow.smartName[id] + ' - ' + text + productId, parentWindow.adData.feedData);
-				} catch (e) {}
+			if(window.amoAdInteractionFlag) {
+				window.amoAdInteractionFlag = false;
+				setTimeout(function(){ window.amoAdInteractionFlag = true; }, 200);
+				var parentWindows = window.parent.parent.window;
+				if (amoAdInteractionFlag && parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
+					try {
+						var productId = ('id' in parentWindow.adData.feedData ? ('|' + parentWindow.adData.feedData.id) : '');
+						parentWindows.amoUtils.onInteraction(parentWindow.smartName[id] + '|' + bannerData.ctaText + ' - ' + text + productId, parentWindow.adData.feedData);
+					} catch (e) {}
+				}
 			}
 		}
 		return {
