@@ -161,8 +161,8 @@
       <div id="overlayColor" class="frame"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
       <div id="logoImage" class="asset frame" data-image="logoImage"
-        style="top: 166px;
-          left: 23px;
+        style="top: 170px;
+          left: 27px;
           width: 125px;
           height: 82px;">
       </div>
@@ -436,7 +436,14 @@
                 }
               }
               document.querySelector("#whitePatch").style.backgroundColor = whitePatchColor;
-              content['logoImage'] = 'images/' + logoImageName  + '_' + content['logoColor'].toLowerCase() + '.png';
+              
+              if(content['name'].toLowerCase().indexOf('default') != -1){
+                try{
+                  content['logoImage'] = content['logoImage'];
+                } catch (e) {}
+              } else {
+                content['logoImage'] = 'images/' + logoImageName  + '_' + content['logoColor'].toLowerCase() + '.png';
+              }
 
               function splitCodes(str){
                 if(str && str.length > 0){

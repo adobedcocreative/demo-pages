@@ -20,6 +20,7 @@ var getFeed1 = function(){
               "Smart Names": data['gsx$smartnames']['$t'],
               "layoutCode": data['gsx$layoutcode']['$t'],
               "backgroundImage": data['gsx$backgroundimage']['$t'],
+              "logoImage": data['gsx$logoimage']['$t'],
               "frameText1": data['gsx$frametext1']['$t'],
               "frameText2": data['gsx$frametext2']['$t'],
               "frameText3": data['gsx$frametext3']['$t'],

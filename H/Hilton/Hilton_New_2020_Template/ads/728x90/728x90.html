@@ -425,7 +425,14 @@
                 }
               }
               document.querySelector("#whitePatch").style.backgroundColor = whitePatchColor;
-              content['logoImage'] = 'images/' + logoImageName  + '_' + content['logoColor'].toLowerCase() + '.png';
+              
+              if(content['name'].toLowerCase().indexOf('default') != -1){
+                try{
+                  content['logoImage'] = content['logoImage'];
+                } catch (e) {}
+              } else {
+                content['logoImage'] = 'images/' + logoImageName  + '_' + content['logoColor'].toLowerCase() + '.png';
+              }
 
               function splitCodes(str){
                 if(str && str.length > 0){
