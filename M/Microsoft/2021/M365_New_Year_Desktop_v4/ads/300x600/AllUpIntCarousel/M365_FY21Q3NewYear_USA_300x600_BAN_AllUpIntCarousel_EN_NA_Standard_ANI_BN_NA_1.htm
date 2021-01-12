@@ -149,15 +149,15 @@ function handleComplete(evt,comp) {
 			bannerData.enlarged_3_1 = eval(bannerData.textField4.split('^')[0]);
 			bannerData.enlarged_4_1 = eval(bannerData.textField5.split('^')[0]);
 			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "12px" : "14px"),0,0,"50","300", "center"] : '';
-			var smartNames = [];
+			window.smartNames = [];
 			if(bannerData.textField2.split('^').length > 2) {
-				smartNames.push(bannerData.textField2.split('^')[1]);
-				smartNames.push(bannerData.textField3.split('^')[1]);
-				smartNames.push(bannerData.textField4.split('^')[1]);
-				smartNames.push(bannerData.textField5.split('^')[1]);
+				window.smartNames.push(bannerData.textField2.split('^')[1]);
+				window.smartNames.push(bannerData.textField3.split('^')[1]);
+				window.smartNames.push(bannerData.textField4.split('^')[1]);
+				window.smartNames.push(bannerData.textField5.split('^')[1]);
 			}
 			amoAdClick = function(id) {
-				parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl.split('^').length > 1 ? parentWindow.adClickUrl.split('^')[id] : parentWindow.adClickUrl, parentWindow.layout + (smartNames && smartNames.length == 4 ? '|' + smartNames[id] : '') + '|' + bannerData.ctaText);
+				parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl.split('^').length > 1 ? parentWindow.adClickUrl.split('^')[id] : parentWindow.adClickUrl, parentWindow.layout + (window.smartNames && window.smartNames.length == 4 ? '|' + window.smartNames[id] : '') + '|' + bannerData.ctaText);
 				if(bannerData.clickTracker) {
 					var clickTrackers = bannerData.clickTracker.split('^');
 					clickTrackers.forEach(function(url){
@@ -172,7 +172,7 @@ function handleComplete(evt,comp) {
 				if (parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
 					try {
 						var productId = ('id' in parentWindow.adData.feedData ? ('|' + parentWindow.adData.feedData.id) : '')
-						parentWindows.amoUtils.onInteraction(parentWindow.layout + (smartNames && smartNames.length == 4 ? '|' + smartNames[id] : '') + '|' + bannerData.ctaText + ' - ' + text + productId, parentWindow.adData.feedData);
+						parentWindows.amoUtils.onInteraction(parentWindow.layout + (window.smartNames && window.smartNames.length == 4 ? '|' + window.smartNames[id] : '') + '|' + bannerData.ctaText + ' - ' + text + productId, parentWindow.adData.feedData);
 					} catch (e) {}
 				}
 			}
