@@ -438,11 +438,11 @@
               document.querySelector("#whitePatch").style.backgroundColor = whitePatchColor;
               
               if(content['name'].toLowerCase().indexOf('default') != -1){
+                content['logoImage'] = 'images/' + logoImageName  + '_' + content['logoColor'].toLowerCase() + '.png';
+              } else {
                 try{
                   content['logoImage'] = content['logoImage'];
                 } catch (e) {}
-              } else {
-                content['logoImage'] = 'images/' + logoImageName  + '_' + content['logoColor'].toLowerCase() + '.png';
               }
 
               function splitCodes(str){
