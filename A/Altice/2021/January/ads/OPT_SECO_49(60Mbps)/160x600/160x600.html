@@ -159,7 +159,7 @@ amo.registerClick("clickUrl","https://www.altice.com");
 amo.registerAttribute("ctaText","TEXT","Shop now");
 amo.registerAttribute("frameText1", "TEXT", "Get a Fresh Start to a New Year");
 amo.registerAttribute("frameText21", "TEXT", "<div style='top: 127px;left: 17px;font-size: 18px;line-height: 0.95;color: #fff;'>60 Mbps Internet</div>");
-amo.registerAttribute("frameText22", "TEXT", "<div style='top: 162px;left: 11px;width: 140px;color: #fff;line-height: 1;'><font style='font-size: 63px;letter-spacing: -1.5px;'>$49</font><font style='margin-left: 8px;font-size: 10px;display: inline-block;vertical-align: 26px;'>82/<br>mo.</font><div class='AlticeRegular' style='margin: 0px 0 0 7px;font-size: 10px;line-height: 1.1;width: 90px;'>Plus taxes, fees &<br>optional services</div></div>");
+amo.registerAttribute("frameText22", "TEXT", "<div style='top: 162px;left: 11px;width: 140px;color: #fff;line-height: 1;'><font style='font-size: 63px;letter-spacing: -1.5px;'>$49</font><font style='margin-left: 5px;font-size: 10px;display: inline-block;vertical-align: 26px;'>82/<br>mo.</font><div class='AlticeRegular' style='margin: 0px 0 0 7px;font-size: 10px;line-height: 1.1;width: 90px;'>Plus taxes, fees &<br>optional services</div></div>");
 amo.registerAttribute("frameText23", "TEXT", "<div class='AlticeRegular' style='top:445px;left:18px;width:120px;font-size:10px;line-height:1.15;'>Wired connection up to 60 Mbps. WiFi speeds may vary.</div>");
 amo.registerAttribute("frameText31","TEXT","<div style='top: 92px;left: 15px;width: 136px;font-size: 15px;line-height: 1.1;'>Act fast & get the<br>first 3 mos. for just</div>");
 amo.registerAttribute("frameText32","TEXT","<div style='top: 127px;left: 14px;width: 140px;font-size: 26px;line-height: 1;'>$9.95/mo.</div>");
@@ -414,7 +414,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 216px;left: 13px;
           var frameId = 3;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: beamFrameAnimation, onCompleteParams:[frameId]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 3.7, opacity:0, onComplete: animateFrame4}));
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 4.2, opacity:0, onComplete: animateFrame4}));
         }
         var animateFrame2 = function(flag){
           var frameId = 2;
@@ -431,7 +431,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 216px;left: 13px;
           }
           ad.layers.frameVideo1.querySelector('video').onended = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.2}})
-            .to('#frame1', (flag==true?{}:{delay:0, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+            .to('#frame1', (flag==true?{}:{delay:0.4, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
           }
         }
         gsap.delayedCall(.8, animateFrame1);
