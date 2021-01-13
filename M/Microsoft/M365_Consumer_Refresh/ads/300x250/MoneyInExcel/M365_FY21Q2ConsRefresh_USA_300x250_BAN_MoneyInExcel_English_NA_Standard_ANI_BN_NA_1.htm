@@ -156,17 +156,23 @@ function handleComplete(evt,comp) {
                 var iframe = window.frameElement;
                 var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
                 var bannerData = parentWindow.getBannerData();
-                var introText = eval(bannerData.textField1)[0];
-                var introColor = introText.match(/\<(.*?)\>/g)[0];
-                var introContent = introText.split(introColor)[1];
-                var introValues = introContent.split('^');
-                var getValue = function(index) { return eval(bannerData.textField1.split(introContent).join((typeof index != 'undefined' && index in introValues ? introValues[index] : ' '))); }
-                bannerData.headline1 = getValue(0);
-                bannerData.headline2 = getValue(1);
-                bannerData.headline3 = getValue();
-                bannerData.headline4 = getValue();
-                bannerData.headline5 = getValue(2);
-                bannerData.headline6 = getValue();
+                // var introText = eval(bannerData.textField1)[0];
+                // var introColor = introText.match(/\<(.*?)\>/g)[0];
+                // var introContent = introText.split(introColor)[1];
+                // var introValues = introContent.split('^');
+                // var getValue = function(index) { return eval(bannerData.textField1.split(introContent).join((typeof index != 'undefined' && index in introValues ? introValues[index] : ' '))); }
+                // bannerData.headline1 = getValue(0);
+                // bannerData.headline2 = getValue(1);
+                // bannerData.headline3 = getValue();
+                // bannerData.headline4 = getValue();
+                // bannerData.headline5 = getValue(2);
+                // bannerData.headline6 = getValue();
+                bannerData.headline1 = eval(bannerData.textField1.split('^')[0]);
+                bannerData.headline2 = eval(bannerData.textField1.split('^')[1]);
+                bannerData.headline3 = eval(bannerData.textField1.split('^')[2]);
+                bannerData.headline4 = eval(bannerData.textField1.split('^')[3]);
+                bannerData.headline5 = eval(bannerData.textField1.split('^')[4]);
+                bannerData.headline6 = eval(bannerData.textField1.split('^')[5]);
                 bannerData.headline14 = eval(bannerData.textField2);
                 bannerData.headline15 = eval(bannerData.textField3);
                 bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "9px" : "12px"),0,0,"50","300", "center"] : '';
