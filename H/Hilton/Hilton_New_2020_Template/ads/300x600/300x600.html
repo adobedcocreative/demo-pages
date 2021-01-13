@@ -405,11 +405,20 @@
               document.querySelector("#whitePatch").style.backgroundColor = whitePatchColor;
               
               if(content['name'].toLowerCase().indexOf('default') != -1){
+                content['logoImage'] = 'images/' + logoImageName  + '_' + content['logoColor'].toLowerCase() + '.png';
+              } else {
                 try{
                   content['logoImage'] = content['logoImage'];
+                  document.querySelector("#logoImage").style.width = '300px';
+                  document.querySelector("#logoImage").style.height = '600px';
+                  document.querySelector("#logoImage").style.top = '0px';
+                  document.querySelector("#logoImage").style.left = '0px';
+                  document.querySelector("#ad").style.fontFamily = "LoewHeavy";
+                  document.querySelector("#frameText1").style.fontSize = "29px";
+                  document.querySelector("#frameText2").style.fontSize = "29px";
+                  document.querySelector("#frameText3").style.fontSize = "29px";
+                  document.querySelector("#cta").style.fontSize = "15px";
                 } catch (e) {}
-              } else {
-                content['logoImage'] = 'images/' + logoImageName  + '_' + content['logoColor'].toLowerCase() + '.png';
               }
 
               function splitCodes(str){

@@ -442,6 +442,17 @@
               } else {
                 try{
                   content['logoImage'] = content['logoImage'];
+                  document.querySelector("#logoImage").style.width = '300px';
+                  document.querySelector("#logoImage").style.height = '250px';
+                  document.querySelector("#logoImage").style.top = '0px';
+                  document.querySelector("#logoImage").style.left = '0px';
+                  document.querySelector("#ad").style.fontFamily = "LoewHeavy";
+                  var frameText = document.querySelectorAll("div[id^=frameText]");
+                  for (var i = 0; i < frameText.length; i++){
+                    frameText[i].style.fontSize = "24px";
+                  }
+
+                  document.querySelector("#cta").style.fontSize = "12px";
                 } catch (e) {}
               }
 
