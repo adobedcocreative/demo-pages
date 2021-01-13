@@ -150,7 +150,7 @@ function handleComplete(evt,comp) {
 			bannerData.enlarged_4_1 = eval(bannerData.textField5.split('^')[0]);
 			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "12px" : "14px"),0,0,"50","300", "center"] : '';
 			window.smartNames = [];
-			if(bannerData.textField2.split('^').length > 2) {
+			if(bannerData.textField2.split('^').length >= 2) {
 				window.smartNames.push(bannerData.textField2.split('^')[1]);
 				window.smartNames.push(bannerData.textField3.split('^')[1]);
 				window.smartNames.push(bannerData.textField4.split('^')[1]);
