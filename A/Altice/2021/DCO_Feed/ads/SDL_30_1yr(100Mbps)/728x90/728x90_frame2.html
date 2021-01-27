@@ -141,7 +141,7 @@
       }
     </style>
   <!-- Start of overrode asset attributes values -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 amo.registerClick("clickUrl","https://www.altice.com");
 
 amo.registerAttribute("ctaText","TEXT","Shop now");
@@ -158,7 +158,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div class='AlticeRegular' style='
 amo.registerAttribute("frameText51", "TEXT", "<div style='top: 12px;left: 23px;font-size: 21px;line-height: 1;'>Internet<br>starting<br>at</div>");
 amo.registerAttribute("frameText52", "TEXT", "<div style='top: 3px;left: 127px;width: 300px;line-height: 1;'><font style='font-size: 86px;letter-spacing: -2px;padding-right: 2px;' class='coloredText'>$30</font><font style='margin-left: 4px;font-size: 13px;display: inline-block;vertical-align: 36px;line-height: 1.05;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='position: absolute;top: 52px;left: 152px;font-size: 10px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
 amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 378px;transform: scale(0.66);transform-origin: top left;'><div class='bulletedText' style='line-height: 1.15;'>No annual contract</div></div>");
-</script>
+</script> -->
 <!-- End of overrode asset attributes values -->
 </head>
 
@@ -290,8 +290,20 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 378px;
     });
     setTimeout(function() {
       ad.contentSetup({
-        cam: {},
-        feed: [],
+        cam: {
+          "frameText1": "Get a Fresh Start<br>to a New Year",
+          "frameText2": "<div style='top: 12px;left: 23px;font-size: 21px;line-height: 1;'>Internet<br>starting<br>at</div>^<div style='top: 3px;left: 127px;width: 300px;line-height: 1;'><font style='font-size: 86px;letter-spacing: -2px;padding-right: 2px;' class='coloredText'>$30</font><font style='margin-left: 4px;font-size: 13px;display: inline-block;vertical-align: 36px;line-height: 1.05;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='position: absolute;top: 52px;left: 152px;font-size: 10px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>^&nbsp;",
+          "frameText3": "&nbsp;^<div style='top: 31px;left: 131px;font-size: 22px;line-height: 1;'>Fast & reliable Internet</div>^&nbsp;",
+          "frameText4": "<div style='top: 20px;left: 22px;font-size: 17.5px;line-height: 1;'>+ 1 Gig Internet now available</div>^<div style='top: 38px;left: 22px;font-size: 26.4px;line-height: 1;'>on our next generation network</div>^<div class='AlticeRegular' style='top: 66px;left: 22px;font-size: 11px;line-height: 1;'>Speeds, prices & availability vary by area.</div>",
+          "frameText5": "<div style='top: 12px;left: 23px;font-size: 21px;line-height: 1;'>Internet<br>starting<br>at</div>^<div style='top: 3px;left: 127px;width: 300px;line-height: 1;'><font style='font-size: 86px;letter-spacing: -2px;padding-right: 2px;' class='coloredText'>$30</font><font style='margin-left: 4px;font-size: 13px;display: inline-block;vertical-align: 36px;line-height: 1.05;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='position: absolute;top: 52px;left: 152px;font-size: 10px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>^<div style='top: 10px;left: 378px;transform: scale(0.66);transform-origin: top left;'><div class='bulletedText' style='line-height: 1.15;'>No annual contract</div></div>",
+          "ctaText": "Shop now",
+          "clickUrl": "https://www.altice.com",
+        },
+        feed: [
+          {
+            name: "Altice",
+          }
+        ],
         staticData: {
           logoImage: 'images/728x90_Logo_Suddenlink_Black.png',
           introLogoImage: 'images/728x90_Logo_Suddenlink_Black.png',
@@ -304,7 +316,24 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 378px;
         },
         beforeLoad: function(data){
           data.map(function(content){
+            var daysLeft = Math.ceil((new Date('5 July 2020') - new Date())/(24*60*60*1000));
+            var urgencyMessage =  daysLeft > 0 ? daysLeft + ' Day' + (daysLeft == 1 ? '' : 's') + ' Left!' : '';
+            for(var i in content) { if(typeof content[i] == 'string' && content[i].indexOf('(urgencyMessage)') > 0) { content[i] = content[i].split('(urgencyMessage)').join(urgencyMessage); } }
+            content.frameText21 = content.frameText2.split('^')[0];
+            content.frameText22 = content.frameText2.split('^').length > 1 ? content.frameText2.split('^')[1] : '&nbsp;';
+            content.frameText23 = content.frameText2.split('^').length > 2 ? content.frameText2.split('^')[2] : '&nbsp;';
 
+            content.frameText31 = content.frameText3.split('^')[0];
+            content.frameText32 = content.frameText3.split('^').length > 1 ? content.frameText3.split('^')[1] : '&nbsp;';
+            content.frameText33 = content.frameText3.split('^').length > 2 ? content.frameText3.split('^')[2] : '&nbsp;';
+
+            content.frameText41 = content.frameText4.split('^')[0];
+            content.frameText42 = content.frameText4.split('^').length > 1 ? content.frameText4.split('^')[1] : '&nbsp;';
+            content.frameText43 = content.frameText4.split('^').length > 2 ? content.frameText4.split('^')[2] : '&nbsp;';
+
+            content.frameText51 = content.frameText5.split('^')[0];
+            content.frameText52 = content.frameText5.split('^').length > 1 ? content.frameText5.split('^')[1] : '&nbsp;';
+            content.frameText53 = content.frameText5.split('^').length > 2 ? content.frameText5.split('^')[2] : '&nbsp;';
           });
           return data;
         }
