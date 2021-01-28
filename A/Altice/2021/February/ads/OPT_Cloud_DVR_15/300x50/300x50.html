@@ -81,7 +81,7 @@
         font-size: 13px;
         color: #0084d6;
       }
-      #cta::before, #introCta::before {
+      /* #cta::before, #introCta::before {
         content: ' ';
         position: absolute;
         top: 2px;
@@ -91,7 +91,7 @@
         border-radius: 10px;
         box-sizing: content-box;
         background: #f5f4f5;
-      }
+      } */
       #cta:hover {
         opacity: 0.7 !important;
       }
@@ -108,12 +108,11 @@ amo.registerAttribute("frameImage2", "IMAGE", "1x1.png");
 amo.registerAttribute("frameImage3", "IMAGE", "1x1.png");
 amo.registerAttribute("frameImage4", "IMAGE", "1x1.png");
 amo.registerAttribute("frameImage5", "IMAGE", "1x1.png");
-amo.registerAttribute("frameText1", "TEXT", "TV on your schedule");
-amo.registerAttribute("frameText12", "TEXT", "with Cloud DVR Plus");
-amo.registerAttribute("frameText21", "TEXT", "<div style='top: 10px;left: 9px;font-size: 17px;line-height: 1;'>Pause, play &<br>rewind live TV</div>");
-amo.registerAttribute("frameText31", "TEXT", "<div style='top: 13px;left: 8px;font-size: 16.5px;'><font class='coloredText'>75 hours</font> of DVR storage</div>");
-amo.registerAttribute("frameText41", "TEXT", "<div style='top: 9px;left: 9px;font-size: 17px;line-height: 1;'>Or get <font class='coloredText'>2X the storage</font><br>with Cloud DVR Max</div>");
-amo.registerAttribute("frameText51", "TEXT", "<div style='top: 10px;left: 7px;font-size: 17px;line-height: 0.95;'>Add Cloud DVR Plus<br><font class='coloredText'>for $15/mo. for 1 yr.</font></div>");
+amo.registerAttribute("frameText1", "TEXT", "Never miss a beat");
+amo.registerAttribute("frameText21", "TEXT", "<div style='top: 10px;left: 7px;font-size: 15.2px;line-height: 1;'>Upgrade to Cloud DVR Max<br><font class='coloredText'>for $15/mo. for 1 yr.</font></div>");
+amo.registerAttribute("frameText31", "TEXT", "<div style='top: 13px;left: 8px;font-size: 15.5px;'><font class='coloredText'>150 hours</font> of DVR storage</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div style='top: 9px;left: 9px;font-size: 16px;line-height: 1;'>Pause, play & rewind<br>more of your shows</div>");
+amo.registerAttribute("frameText51", "TEXT", "<div style='top: 10px;left: 7px;font-size: 15.2px;line-height: 1;'>Upgrade to Cloud DVR Max<br><font class='coloredText'>for $15/mo. for 1 yr.</font></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -149,15 +148,17 @@ amo.registerAttribute("frameText51", "TEXT", "<div style='top: 10px;left: 7px;fo
     <div id="cta" class="text AlticeBold"
       data-text="ctaText"
       style="top: 5px;
-        right: 15px;
-        width: 65px;
-        height: 14px;
-        font-size: 10px;
+        right: 8px;
+        width: 75px;
+        height: 18px;
+        font-size: 11px;
         overflow: hidden;
         border-radius: 10px;
         line-height: 0.9;
-        padding: 2px;
-        background-image: linear-gradient(to right, #24d9c3, #0084d6);">
+        /* padding: 2px; */
+        /* background-image: linear-gradient(to right, #24d9c3, #0084d6); */
+        color: #fff;
+        background: #0084d6;">
     </div>
     <div id="frame1" class="frame"
       style="transform-origin:bottom center;
@@ -174,31 +175,24 @@ amo.registerAttribute("frameText51", "TEXT", "<div style='top: 10px;left: 7px;fo
           left: 8px;
           width: 200px;
           height: 40px;
-          font-size: 18px;
-          line-height: 0.95;">
-      </div>
-      <div id="frameText12" class="text-left AlticeBold"
-        data-text="frameText12"
-        style="top: 5px;
-          left: 8px;
-          width: 200px;
-          height: 40px;
-          font-size: 18px;
+          font-size: 16px;
           line-height: 0.95;">
       </div>
       <div id="introLogoImage" class="asset adSizeContainer" data-image="introLogoImage"></div>
       <div id="introCta" class="text AlticeBold"
         data-text="ctaText"
         style="top: 5px;
-          right: 15px;
-          width: 65px;
-          height: 14px;
-          font-size: 10px;
+          right: 8px;
+          width: 75px;
+          height: 18px;
+          font-size: 11px;
           overflow: hidden;
           border-radius: 10px;
           line-height: 0.9;
-          padding: 2px;
-          background-image: linear-gradient(to right, #24d9c3, #0084d6);">
+          /* padding: 2px; */
+          /* background-image: linear-gradient(to right, #24d9c3, #0084d6); */
+          color: #fff;
+          background: #0084d6;">
       </div>
     </div>
     <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all 0.5s ease 1s;transition:all 0.5s ease 1s;"></div>
@@ -262,7 +256,7 @@ amo.registerAttribute("frameText51", "TEXT", "<div style='top: 10px;left: 7px;fo
           }
         }
         // loadVideo(ad.layers.frameVideo1.querySelector('video'), adData.frameVideo1, true);
-        gsap.set('#frameText1, #frameText12', {x:'-120%'});
+        gsap.set('#frameText1', {x:'-120%'});
         gsap.set('.frameImage', {y:'100%'});
         gsap.set('.frameText', {y:'100%'});
         gsap.set('div[id^="frameText"][id$="1"], #priceLabel', {x:'-100%',y:0});
@@ -329,8 +323,8 @@ amo.registerAttribute("frameText51", "TEXT", "<div style='top: 10px;left: 7px;fo
         var animateFrame1 = function(flag){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameText1', {x:0,y:0})
-          .to('#frameText1', {x:'-120%',y:0, delay:1.5})
-          .to('#frameText12', {x:0,y:0})
+          // .to('#frameText1', {x:'-120%',y:0, delay:1.5})
+          // .to('#frameText12', {x:0,y:0})
           .to('#frame1', (flag==true?{}:{delay:1.5, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
         gsap.delayedCall(.8, animateFrame1);
