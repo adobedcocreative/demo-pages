@@ -4,35 +4,33 @@ var adData = [];
 var loadTemplateFlag1 = false;
 var getFeed1 = function(){
   var xmlhttp = new XMLHttpRequest();
-  // var url = "https://spreadsheets.google.com/feeds/list/1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/3/public/values?alt=json";
-  var url = "https://spreadsheets.google.com/feeds/list/1i564DiRU35eN8CpRMm-_dmIUUSHgm6oyAxMWEtfFtpI/1/public/values?alt=json";
+  var url = "https://spreadsheets.google.com/feeds/list/1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/3/public/values?alt=json";
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
           var JSONData = JSON.parse(this.responseText);
           JSONData.feed.entry.map(function(data){
+            feedTemplate1.push({
+              "Ad Size": data['gsx$adsize']['$t'],
+              "Language": data['gsx$language']['$t'],
+              "Group": data['gsx$group']['$t'],
+              "Smart Names": data['gsx$smartnames']['$t'],
+              "Visibility": data['gsx$visibility']['$t'],
+            });
             // feedTemplate1.push({
             //   "Ad Size": data['gsx$adsize']['$t'],
+            //   "CTA": data['gsx$cta']['$t'],
+            //   "Place": data['gsx$place']['$t'],
             //   "Language": data['gsx$language']['$t'],
             //   "Group": data['gsx$group']['$t'],
             //   "Smart Names": data['gsx$smartnames']['$t'],
-            //   "Visibility": data['gsx$visibility']['$t'],
+            //   "textField1": data['gsx$textfield1']['$t'],
+            //   "textField2": data['gsx$textfield2']['$t'],
+            //   "textField3": data['gsx$textfield3']['$t'],
+            //   "textField4": data['gsx$textfield4']['$t'],
+            //   "textField5": data['gsx$textfield5']['$t'],
+            //   // "Visibility": data['gsx$visibility']['$t'],
             // });
-            feedTemplate1.push({
-              "Ad Size": data['gsx$adsize']['$t'],
-              "CTA": data['gsx$cta']['$t'],
-              "Place": data['gsx$place']['$t'],
-              "Variation": data['gsx$variation']['$t'],
-              "Smart Names": data['gsx$smartnames']['$t'],
-              "textField1": data['gsx$textfield1']['$t'],
-              "textField2": data['gsx$textfield2']['$t'],
-              "textField3": data['gsx$textfield3']['$t'],
-              "textField4": data['gsx$textfield4']['$t'],
-              "textField5": data['gsx$textfield5']['$t'],
-              "endFrameImage": data['gsx$endframeimage']['$t'],
-              "URL": data['gsx$url']['$t'],
-              // "Visibility": data['gsx$visibility']['$t'],
-            });
           });
           // if(location.hostname && location.hostname != 'localhost') {
           //   var tempFeed = [];
@@ -61,8 +59,8 @@ var loadData = function(){
       feedContent.push(obj);
     });
     feedContent.map(function(data){
-      if(!(data.Variation in feedData)) { feedData[data.Variation] = []; }
-      feedData[data.Variation].push(data);
+      if(!(data.Group in feedData)) { feedData[data.Group] = []; }
+      feedData[data.Group].push(data);
     });
     for(var i in feedData) {
       var obj = {};
@@ -100,7 +98,7 @@ var loadData = function(){
       selectedAd = selectedAd ? selectedAd : '300x250';
       var obj = {};
       for(var i in selectedData) { obj[i] = selectedData[i]; }
-      obj.selectedAd = obj.data.find(function(ad){ return ad['Ad Size'] == selectedAd }) ? selectedAd : obj.data[0].ads[0];
+      obj.selectedAd = obj.data[0].ads.find(function(ad){ return ad == selectedAd }) ? selectedAd : obj.data[0].ads[0];
       return obj;
     }
     loadPage();
