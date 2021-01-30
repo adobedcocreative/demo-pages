@@ -253,7 +253,7 @@ function handleComplete(evt,comp) {
 					window.amoAdInteractionFlag = false;
 					setTimeout(function(){ window.amoAdInteractionFlag = true; }, 200);
 					var parentWindows = window.parent.parent.window;
-					if (amoAdInteractionFlag && parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
+					if (parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
 						try {
 							var productId = ('id' in parentWindow.adData.feedData ? ('|' + parentWindow.adData.feedData.id) : '');
 							parentWindows.amoUtils.onInteraction(parentWindow.smartName[id] + '|' + bannerData.ctaText + ' - ' + text + productId, parentWindow.adData.feedData);

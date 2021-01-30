@@ -1163,7 +1163,7 @@ loader.load( '3d/cube300x250.gltf', function ( gltf ) {
 			}
 		}
 		window.amoAdInteractionFlag = true;
-		function onInteraction(id) {
+		function onInteraction(text, id) {
 			// var parentWindows = window.parent.parent.window;
 			// if (parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
 			// 	try {
@@ -1175,7 +1175,7 @@ loader.load( '3d/cube300x250.gltf', function ( gltf ) {
 				window.amoAdInteractionFlag = false;
 				setTimeout(function(){ window.amoAdInteractionFlag = true; }, 200);
 				var parentWindows = window.parent.parent.window;
-				if (amoAdInteractionFlag && parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
+				if (parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
 					try {
 						var productId = ('id' in parentWindow.adData.feedData ? ('|' + parentWindow.adData.feedData.id) : '');
 						parentWindows.amoUtils.onInteraction(parentWindow.smartName[id] + '|' + bannerData.ctaText + ' - ' + text + productId, parentWindow.adData.feedData);
@@ -1187,7 +1187,7 @@ loader.load( '3d/cube300x250.gltf', function ( gltf ) {
 			addTracker: function(){ addTracker(); },
 			click: function(id) { click(id); },
 			ctaAlignment: function(){ ctaAlignment(); },
-			onInteraction: function(id) { onInteraction(id); }
+			onInteraction: function(text, id) { onInteraction(text, id); }
 		};
 	})();
 </script>
