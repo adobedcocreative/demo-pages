@@ -4,7 +4,7 @@ var adData = [];
 var loadTemplateFlag1 = false;
 var getFeed1 = function(){
   var xmlhttp = new XMLHttpRequest();
-  var url = "https://spreadsheets.google.com/feeds/list/17t2S3CeQH3AH5PeUhfxdgnZM947MdS5sKAF0ExoBdXA/1/public/values?alt=json";
+  var url = "https://spreadsheets.google.com/feeds/list/1gmT26o2PquSxYuc7cOUHCL7oMqSap-5w013Mj0zmCWQ/1/public/values?alt=json";
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {

@@ -31,12 +31,12 @@
         ];
 
         if(contentD && contentD.length) { contentD.forEach(function(data) { amo.registerContent(data); }); }
-        amo.registerVariation("layout", "GetOrganizedOutlook");
-        amo.registerVariation("textField1", "['<#505050>Start fresh with |Microsoft 365','22.5px',16,44 ,'24.5','350', 'left']");
-        amo.registerVariation("textField2", "na");
-        amo.registerVariation("textField3", "na");
-        amo.registerVariation("textField4", "na");
-        amo.registerVariation("textField5", "na");
+        amo.registerVariation("layout", "CarouselMobile");
+        amo.registerVariation("textField1", "['<#505050>Experience the benefits |of Microsoft 365','18.2px',15,43,'20','350', 'left']^['<#505050>Do more |with premium |features and |OneDrive |cloud storage','12.4px',15,92,'14','350','left']");
+        amo.registerVariation("textField2", "['<#505050>Protect photos |across devices','18.2px',15,43,'20','350', 'left']^['<#505050>Quickly find |what matters |with 1 TB of |OneDrive storage','12.4px',15,93,'14','350','left']");
+        amo.registerVariation("textField3", "['<#505050>Easily track |your budget','18.2px',15,43,'20','350', 'left']^['<#505050>Budget better with |smart templates','12.4px',15,93,'14','350','left']");
+        amo.registerVariation("textField4", "['<#505050>Put your best |words forward','18.2px',15,43,'20','350', 'left']^['<#505050>Advanced |suggestions to |bring out your |best writer','12.4px',15,93,'14','350','left']");
+        amo.registerVariation("textField5", "['<#505050>Design |something |memorable, |faster','18.2px',15,40,'20','350', 'left']^['<#505050>Create with |ease using |smart features','12.4px',15,129,'14','350','left']");
         amo.registerVariation("ctaText", "BUY NOW");
         // amo.registerVariation("ctaArrowVisibleFlag", "!{passthroughfield2}");
         amo.registerVariation("impressionTracker", "../../../../1x1.png?impressionTracker=" + Math.random());
@@ -110,10 +110,7 @@
         }
         var adUrl = '';
         switch(adData.layout){
-          case 'AllUp3DCube' : adURL = 'AllUp3DCube/M365_MobileFY21Q3NewYear_USA_250x250_BAN_AllUp3DCubeINT_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
-          case 'GetOrganizedOutlook' : adURL = 'GetOrganizedOutlook/M365_MobileFY21Q3NewYear_USA_250x250_BAN_GetOrgOutlook_EN_NA_Standard_SBAN_LEA_NA_1.htm';break;
-          case 'GrowCareerWord' : adURL = 'GrowCareerWord/M365_MobileFY21Q3NewYear_USA_250x250_BAN_GrowCareerWord_EN_NA_Standard_SBAN_LEA_NA_1.htm';break;
-          case 'SecurityPrivacyOD' : adURL = 'SecurityPrivacyOD/M365_MobileFY21Q3NewYear_USA_250x250_BAN_SecurityPrivOD_EN_NA_Standard_SBAN_LEA_NA_1.htm';break;
+          case 'CarouselMobile' : adURL = 'CarouselMobile/M365_MobileFY21Q3ConsOpt_USA_250x250_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1.htm';break;
         }
         var iframe = document.createElement('iframe');
         iframe.src = adURL;
