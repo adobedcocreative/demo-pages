@@ -51,8 +51,8 @@ function init() {
 	loader.loadManifest(lib.properties.manifest);
 }
 function handleFileLoad(evt, comp) {
-	var images=comp.getImages();	
-	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+	var images=comp.getImages();
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }
 }
 function handleComplete(evt,comp) {
 	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
@@ -64,28 +64,133 @@ function handleComplete(evt,comp) {
 		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
 	}
 	exportRoot = new lib.M365_FY21Q3ConsOpt_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1();
-	stage = new lib.Stage(canvas);	
+	stage = new lib.Stage(canvas);
 	//Registers the "tick" event listener.
 	fnStartAnimation = function() {
 		stage.addChild(exportRoot);
 		createjs.Ticker.framerate = lib.properties.fps;
 		createjs.Ticker.addEventListener("tick", stage);
-	}	    
+	}
 	//Code to support hidpi screens and responsive scaling.
-	AdobeAn.makeResponsive(false,'both',false,2,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.makeResponsive(false,'both',false,2,[canvas,anim_container,dom_overlay_container]);
 	AdobeAn.compositionLoaded(lib.properties.id);
 	fnStartAnimation();
-	
+
 	 if (!initReady) {
         startBanner()
     }
-    gsap.delayedCall(0.2,function(){
+		gsap.delayedCall(0.2,function(){
+			var ctaAlignment = function(position){
+        position = position ? position : 'left';
+        var layers = exportRoot.mainMC;
+        var adWidth = document.querySelector('#animation_container').offsetWidth;
+        window.ctaWidth = layers.txtCta.children[0].children[0].getBounds().width + 45;
+        layers.txtCta.regX = 0;
+        layers.txtCta.children[0].x = 0;
+        layers.txtCta.children[0].y += 1;
+				layers.txtCta.scaleX = 1;
+        layers.txtCta.scaleY = 1;
+        layers.cta.regX = 0;
+        layers.cta.regY = 0;
+        layers.cta.scaleX = 1;
+        layers.cta.scaleY = 1;
+				var alignArrow = function(layer){
+					if(layer) {
+						layer.y = 0;
+						layer.arrow_1.x = 0;
+		        layer.arrow.x = 0;
+		        layer.arrow_1.regX = 0;
+		        layer.arrow.regX = 0;
+		        layer.regX = 0;
+						layer.x = ctaWidth - 20;
+					}
+				}
+        alignArrow(layers.cta.arrow0);
+				alignArrow(layers.cta.arrow1);
+				alignArrow(layers.cta.arrow2);
+				alignArrow(layers.cta.arrow3);
+				alignArrow(layers.cta.arrow4);
+				var alignBackground = function(layer) {
+					if(layer) {
+						var ctaBackgroundColor = layer.shape.graphics._fill.style;
+						layer.x = 0;
+		        layer.y = 0;
+		        layer.scaleX = 1;
+		        layer.scaleY = 1;
+		        layer.regX = 0;
+		        layer.regY = 0;
+						layer.shape.x = 0;
+						layer.shape.y = 0;
+		        layer.shape.graphics.clear();
+		        layer.shape.graphics.beginFill(ctaBackgroundColor).drawRect(0, -15, ctaWidth, 30);
+					}
+				}
+				alignBackground(layers.cta.ctaBg1);
+				alignBackground(layers.cta.ctaBg2);
+        if(position == 'right') {
+          layers.cta.x = adWidth - ctaWidth;
+          layers.txtCta.x = adWidth - ctaWidth + 15;
+        } else {
+          layers.cta.x = 0;
+          layers.txtCta.x = 15;
+        }
+      }
+			var iframe = window.frameElement;
+			var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
+			var bannerData = parentWindow.getBannerData();
+			bannerData.headline1 = eval(bannerData.textField1.split('^')[0]);
+			bannerData.headline2 = eval(bannerData.textField1.split('^')[1]);
+			bannerData.enlarged_1_1 = eval(bannerData.textField2.split('^')[0]);
+			bannerData.enlarged_1_2 = eval(bannerData.textField2.split('^')[1]);
+			bannerData.enlarged_2_1 = eval(bannerData.textField3.split('^')[0]);
+			bannerData.enlarged_2_2 = eval(bannerData.textField3.split('^')[1]);
+			bannerData.enlarged_3_1 = eval(bannerData.textField4.split('^')[0]);
+			bannerData.enlarged_3_2 = eval(bannerData.textField4.split('^')[1]);
+			bannerData.enlarged_4_1 = eval(bannerData.textField5.split('^')[0]);
+			bannerData.enlarged_4_2 = eval(bannerData.textField5.split('^')[1]);
+			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "10px" : (bannerData.ctaText.length >= 12 ? "11px" : "13px")),0,0,"50","300", "center"] : '';
+			window.smartNames = [];
+			if(bannerData.textField2.split('^').length >= 2) {
+				window.smartNames.push(bannerData.textField2.split('^')[1]);
+				window.smartNames.push(bannerData.textField3.split('^')[1]);
+				window.smartNames.push(bannerData.textField4.split('^')[1]);
+				window.smartNames.push(bannerData.textField5.split('^')[1]);
+			}
+			amoAdClick = function(id) {
+				parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl.split('^').length > 1 ? parentWindow.adClickUrl.split('^')[id] : parentWindow.adClickUrl, parentWindow.layout + (window.smartNames && window.smartNames.length == 4 ? '|' + window.smartNames[id] : '') + '|' + bannerData.ctaText);
+				if(bannerData.clickTracker) {
+					var clickTrackers = bannerData.clickTracker.split('^');
+					clickTrackers.forEach(function(url){
+						if(url && url.toLowerCase() != 'na') {
+								(new Image()).src = url;
+						}
+					});
+				}
+			}
+			amoAdInteraction = function(text, id) {
+				var parentWindows = window.parent.parent.window;
+				if (parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
+					try {
+						var productId = ('id' in parentWindow.adData.feedData ? ('|' + parentWindow.adData.feedData.id) : '')
+						parentWindows.amoUtils.onInteraction(parentWindow.layout + (window.smartNames && window.smartNames.length == 4 ? '|' + window.smartNames[id] : '') + '|' + bannerData.ctaText + ' - ' + text + productId, parentWindow.adData.feedData);
+					} catch (e) {}
+				}
+			}
+			if(bannerData.impressionTracker) {
+				var impressionTrackers = bannerData.impressionTracker.split('^');
+				impressionTrackers.forEach(function(url){
+					if(url && url.toLowerCase() != 'na') {
+							(new Image()).src = url;
+					}
+				});
+			}
         exportRoot.initBanner(bannerData)
-        exportRoot.runBanner()	
+				// ctaAlignment('left');
+        exportRoot.runBanner()
     })
 	initReady=true
 }
-	
+
 var loadFont = false
 	var loadBody = false
 	function loaded(type) {
@@ -93,7 +198,7 @@ var loadFont = false
 		if (type=='body') loadBody=true
 		if (loadFont && loadBody) init()
 	}
-	
+
 	(function() {
 		// Optimization for Repeat Views
 
@@ -136,21 +241,21 @@ var loadFont = false
 var startBanner = function(){
 	           createjs.Touch.enable(stage);
 
-	
+
 				var varInt
 				//var ClickID	= 0
-				
-				//exportRoot.mainMC.hit.addEventListener("click", mainHit.bind(this));
-								
-				var rHit = document.getElementById("rHit");
-				rHit.addEventListener("mouseover", rHitOver.bind(this));  
-				function rHitOver()  {  exportRoot.mainMC.replay_btn.gotoAndStop(1)	}  
 
-				rHit.addEventListener("mouseout", rHitOut.bind(this));  
-				function rHitOut()   {  exportRoot.mainMC.replay_btn.gotoAndStop(0)	}  
+				//exportRoot.mainMC.hit.addEventListener("click", mainHit.bind(this));
+
+				var rHit = document.getElementById("rHit");
+				rHit.addEventListener("mouseover", rHitOver.bind(this));
+				function rHitOver()  {  exportRoot.mainMC.replay_btn.gotoAndStop(1)	}
+
+				rHit.addEventListener("mouseout", rHitOut.bind(this));
+				function rHitOut()   {  exportRoot.mainMC.replay_btn.gotoAndStop(0)	}
 
 				rHit.addEventListener("click", replay.bind(this));
-				
+
 				function replay() {
 					if (exportRoot.isReplay == true){
 
@@ -169,11 +274,11 @@ var startBanner = function(){
 
                         // Restore the transform
                         context.restore(); //CLEARS THE SPECIFIC CANVAS COMPLETELY FOR NEW DRAWING
-                        
+
 						gsap.delayedCall(0.1,init)
 					}
 				}
 		}
 </script>
-</body>	
+</body>
 </html>
