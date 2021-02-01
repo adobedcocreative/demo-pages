@@ -31,13 +31,13 @@
         ];
 
         if(contentD && contentD.length) { contentD.forEach(function(data) { amo.registerContent(data); }); }
-        amo.registerVariation("layout", "GetOrganizedOutlook");
-        amo.registerVariation("textField1", "['<#505050>Start fresh with|Microsoft 365','18px',80, 128,'20','3 50', 'center']");
-        amo.registerVariation("textField2", "['<#505050>Get an organized,|ad-free inbox','11px',80, 176,'13','3 50', 'center']");
+        amo.registerVariation("layout", "AllUpShare");
+        amo.registerVariation("textField1", "['<#505050>It’s like 6|subscriptions|in one','18.5px',16,43,'20','350', 'left']");
+        amo.registerVariation("textField2", "['<#505050>Every Microsoft 365|Family user can use|it on multiple devices|at the same time​','12.3px',16,113,'14','350','left']");
         amo.registerVariation("textField3", "na");
         amo.registerVariation("textField4", "na");
         amo.registerVariation("textField5", "na");
-        amo.registerVariation("ctaText", "LEARN MORE");
+        amo.registerVariation("ctaText", "BUY NOW");
         // amo.registerVariation("ctaArrowVisibleFlag", "!{passthroughfield2}");
         amo.registerVariation("impressionTracker", "../../../../1x1.png?impressionTracker=" + Math.random());
         amo.registerVariation("clickTracker", "../../../../1x1.png?clickTracker=" + Math.random());
@@ -110,14 +110,11 @@
         }
         var adUrl = '';
         switch(adData.layout){
-          case 'AllUp3DCube' : adURL = 'AllUp3DCube/M365_FY21Q3NewYear_USA_160x600_BAN_AllUp3DCube_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
-          case 'AllUpIntCarousel' : adURL = 'AllUpIntCarousel/M365_FY21Q3NewYear_USA_160x600_BAN_AllUpIntCarousel_EN_NA_Standard_ANI_BN_NA_1.htm';break;
-          case 'GetOrganizedOutlook' : adURL = 'GetOrganizedOutlook/M365_FY21Q3NewYear_USA_160x600_BAN_GetOrganizedOutlook_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
-          case 'GrowCareerWord' : adURL = 'GrowCareerWord/M365_FY21Q3NewYear_USA_160x600_BAN_GrowCareerWord_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
-          case 'LearnSkillPPT' : adURL = 'LearnSkillPPT/M365_FY21Q3NewYear_USA_160x600_BAN_LearnSkillPPT_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
-          case 'SaveMoreExcel' : adURL = 'SaveMoreExcel/M365_FY21Q3NewYear_USA_160x600_BAN_SaveMoreExcel_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
-          case 'SaveTimeOD' : adURL = 'SaveTimeOD/M365_FY21Q3NewYear_USA_160x600_BAN_SaveTimeOD_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
-          case 'SecurityPrivacyOD' : adURL = 'SecurityPrivacyOD/M365_FY21Q3NewYear_USA_160x600_BAN_SecurityPrivOD_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
+          case 'AllUpShare' : adURL = 'AllUpShare/M365_FY21Q3ConsOpt_USA_160x600_BAN_AllUpShare_EN_NA_Standard_ANI_BN_NA_1.htm';break;
+          case 'CarouselDesktop' : adURL = 'CarouselDesktop/M365_FY21Q3ConsOpt_USA_160x600_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1.htm';break;
+          case 'Editor' : adURL = 'Editor/M365_FY21Q3ConsOpt_USA_160x600_BAN_Editor_EN_NA_Standard_ANI_BN_NA_1.htm';break;
+          case 'Forms' : adURL = 'Forms/M365_FY21Q3ConsOpt_USA_160x600_BAN_Forms_EN_NA_Standard_ANI_BN_NA_1.htm';break;
+          case 'OutlookSecurity' : adURL = 'OutlookSecurity/M365_FY21Q3ConsOpt_USA_160x600_BAN_Security_EN_NA_Standard_ANI_BN_NA_1.htm';break;
         }
         var iframe = document.createElement('iframe');
         iframe.src = adURL;
