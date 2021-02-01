@@ -5,10 +5,10 @@
 	// lineWidth is no longer needed.
 	var bannerData = new Object()
 		
-	bannerData.headline1 = ["<#505050>It’s like 6|subscriptions|in one","18.5px",16,43,"20","350", "left"];
+	bannerData.headline1 = ['<#505050>It’s like 6|subscriptions|in one','18.5px',16,43,'20','350', 'left']
 
-	bannerData.headline2 = ["<#505050>Every Microsoft 365|Family user can use|it on multiple devices|at the same time​","12.3px",16,113,"14","350","left"];
+	bannerData.headline2 = ['<#505050>Every Microsoft 365|Family user can use|it on multiple devices|at the same time​','12.3px',16,113,'14','350','left']
 
-	bannerData.CTA = ["<#FFFFFF>BUY NOW","12px",0,0,"50","300", "center"];
+	bannerData.CTA = ['<#FFFFFF>BUY NOW','12px',0,0,'50','300', 'center']
 	
 	bannerData.CTAarrowVisible = [true, 0,0]
