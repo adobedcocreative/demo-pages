@@ -1742,18 +1742,18 @@ if (reversed == null) { reversed = false; }
 		}
 		var frequency = 5;
 		stage.enableMouseOver(frequency);
-		
+
 		var mc = exportRoot.mainMC
 		exportRoot.replayAnim = "inProgress"
-		
+
 		this.initBanner = function (data) {
-		
+
 			exportRoot.isReplay = false;
 			exportRoot.shadowReplay = false;
-		
+
 			Object.keys = function (obj) {
 				var keys = [];
-		
+
 				for (var i in obj) {
 					if (obj.hasOwnProperty(i)) {
 						keys.push(i);
@@ -1762,7 +1762,7 @@ if (reversed == null) { reversed = false; }
 				return keys
 			}
 			var keys = Object.keys(data)
-		
+
 			for (var i in keys) {
 				var id = keys[i].substr(0, 4);
 				if (id == "head") {
@@ -1780,8 +1780,8 @@ if (reversed == null) { reversed = false; }
 				}
 			}
 		}
-		
-		
+
+
 		this.fillHead = function (txtDetails, aVar) {
 			var text = txtDetails[0]
 			var size = txtDetails[1]
@@ -1790,16 +1790,16 @@ if (reversed == null) { reversed = false; }
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += parseInt(size)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -1816,7 +1816,7 @@ if (reversed == null) { reversed = false; }
 				aVar.push(mc)
 			}
 		}
-		
+
 		this.fillenlarged = function (txtDetails, aVar) {
 			var text = txtDetails[0]
 			var size = txtDetails[1]
@@ -1825,16 +1825,16 @@ if (reversed == null) { reversed = false; }
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += parseInt(size)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -1851,7 +1851,7 @@ if (reversed == null) { reversed = false; }
 				aVar.push(mc)
 			}
 		}
-		
+
 		this.fillCta = function (txtDetails) {
 			var text = txtDetails[0]
 			var size = txtDetails[1]
@@ -1860,17 +1860,17 @@ if (reversed == null) { reversed = false; }
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
-		
+
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += (parseInt(size) * 0.90)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -1887,7 +1887,7 @@ if (reversed == null) { reversed = false; }
 				this.mainMC.txtCta.addChild(mc);
 			}
 		}
-		
+
 		this.getTheSentences = function (text, size, xOffset, yOffset, lineSpacing, lineWidth, align) {
 			var sentences = new Array()
 			var aSentenceLine = new Array()
@@ -1895,16 +1895,16 @@ if (reversed == null) { reversed = false; }
 			sentences = aStr.split("|");
 			var lastColor = "#000000"
 			// Figure out the setence lines
-		
+
 			for (var i = 0; i < sentences.length; i++) {
 				var aS = sentences[i].substr(0);
 				var aSplit = new Array()
 				aSplit = aS.split("<");
 				aSplit = aSplit.filter(Boolean)
 				var wholeSentence = new Array()
-		
+
 				for (var j = 0; j < aSplit.length; j++) {
-		
+
 					var checkColor = aSplit[j].indexOf("#")
 					var color = (checkColor == -1) ? lastColor : aSplit[j].substr(0, 7);
 					lastColor = color
@@ -1919,9 +1919,9 @@ if (reversed == null) { reversed = false; }
 			}
 			return aSentenceLine
 		}
-		
+
 		var mc = exportRoot.mainMC
-		
+
 		var hit = mc.hit
 		var hit1 = mc.hit1
 		var hit2 = mc.hit2
@@ -1930,7 +1930,7 @@ if (reversed == null) { reversed = false; }
 		var dot3 = mc.dot3
 		var dot4 = mc.dot4
 		var no_hit = mc.no_hit
-		
+
 		var main_screen = mc.main_screen
 		var screen_1_onedrive = mc.main_screen.screen_1_onedrive
 		var screen_2_onedrive = mc.main_screen.screen_2_onedrive
@@ -1944,415 +1944,415 @@ if (reversed == null) { reversed = false; }
 		var dot_2 = mc.main_screen.indicator.dot_2
 		var dot_3 = mc.main_screen.indicator.dot_3
 		var dot_4 = mc.main_screen.indicator.dot_4
-		
+
 		//var snowflakes_1 = mc.background.snowflakes_1
 		//var snowflakes_2 = mc.background.snowflakes_2
-		
-		
+
+
 		var indicator = mc.main_screen.indicator
 		var btn_expand = mc.main_screen.btn_expand
-		
+
 		mc.cta.alpha = 0
 		mc.txtCta.alpha = 0
-		
+
 		var menuPos = "shrunk"
-		
+
 			var init_onedrive_s1_x = screen_1_onedrive.x;
 			var init_onedrive_s1_y = screen_1_onedrive.y;
 			var init_onedrive_s2_x = screen_2_onedrive.x;
 			var init_onedrive_s2_y = screen_2_onedrive.y;
-			
+
 			var status_button = "on";
 			var ClickID = 0
-				
+
 		this.runBanner = function () {
-		
+
 			mc.replay_btn.visible = false
 			screen_1_onedrive.visible = false
 			screen_2_onedrive.visible = false
-			
+
 			mc.cta.alpha = 1
 			mc.txtCta.alpha = 1
-					
+
 				//INTRO ANIMATION
-			
+
 				this.TL_MainIntro = new TimelineMax();
-			
-				exportRoot.TL_MainIntro.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});		
-				exportRoot.TL_MainIntro.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});		
-				exportRoot.TL_MainIntro.to(screen_1_excel, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});		
+
+				exportRoot.TL_MainIntro.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainIntro.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainIntro.to(screen_1_excel, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
 				exportRoot.TL_MainIntro.to(screen_2_excel, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
-				exportRoot.TL_MainIntro.to(screen_1_word, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});		
+				exportRoot.TL_MainIntro.to(screen_1_word, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
 				exportRoot.TL_MainIntro.to(screen_2_word, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
-				exportRoot.TL_MainIntro.to(screen_1_ppt, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});		
+				exportRoot.TL_MainIntro.to(screen_1_ppt, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
 				exportRoot.TL_MainIntro.to(screen_2_ppt, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
-		
-		
-				exportRoot.TL_MainIntro.from(screen_1_onedrive, 1.1, {x: "+=120",y: "+=180", ease:Power2.easeOut, ease:Power2.easeOut, onStart:function(){screen_1_onedrive.visible = true}});		
-				exportRoot.TL_MainIntro.from(screen_2_onedrive, 1, {x: "+=120",y: "+=180", ease:Power3.easeOut, ease:Power2.easeOut, onStart:function(){screen_2_onedrive.visible = true}}, "-=0.85");		
-				exportRoot.TL_MainIntro.from(indicator, 0.6, {alpha:0, ease:Power3.easeOut, onStart:function(){dot_1.gotoAndPlay("selected", exportRoot.TL_MainText.tweenTo("Out"));}}, "-=0.4");		
-				
-				exportRoot.TL_MainIntro.from(mc.cta, 0.6, {x: "-=110", ease:Power3.easeOut}, "-=0.6");
-				exportRoot.TL_MainIntro.from(mc.txtCta, 0.6, {x: "-=110", ease:Power3.easeOut}, "-=0.6");
+
+
+				exportRoot.TL_MainIntro.from(screen_1_onedrive, 1.1, {x: "+=120",y: "+=180", ease:Power2.easeOut, ease:Power2.easeOut, onStart:function(){screen_1_onedrive.visible = true}});
+				exportRoot.TL_MainIntro.from(screen_2_onedrive, 1, {x: "+=120",y: "+=180", ease:Power3.easeOut, ease:Power2.easeOut, onStart:function(){screen_2_onedrive.visible = true}}, "-=0.85");
+				exportRoot.TL_MainIntro.from(indicator, 0.6, {alpha:0, ease:Power3.easeOut, onStart:function(){dot_1.gotoAndPlay("selected", exportRoot.TL_MainText.tweenTo("Out"));}}, "-=0.4");
+
+				exportRoot.TL_MainIntro.from(mc.cta, 0.6, {x: "-=150", ease:Power3.easeOut}, "-=0.6");
+				exportRoot.TL_MainIntro.from(mc.txtCta, 0.6, {x: "-=150", ease:Power3.easeOut}, "-=0.6");
 				exportRoot.TL_MainIntro.from(mc.hit1, 0.1, {y: "+=100"}, "-=0");
 				exportRoot.TL_MainIntro.from(mc.hit2, 0.1, {y: "+=100"}, "-=0");
-		
-				exportRoot.TL_MainIntro.from(btn_expand, 0.6, {scaleX: 0, scaleY: 0, ease:Power3.easeOut}, "-=0.4");		
-					
+
+				exportRoot.TL_MainIntro.from(btn_expand, 0.6, {scaleX: 0, scaleY: 0, ease:Power3.easeOut}, "-=0.4");
+
 				exportRoot.TL_MainIntro.pause();
-				
+
 				//CAROUSEL ANIMATION
-				
+
 				this.TL_MainScreen = new TimelineMax();
 				exportRoot.TL_MainScreen.add('frame0_start');
-							
-				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0, scaleY: 0, ease:Power3.easeIn});		
-		
-				exportRoot.TL_MainScreen.to(screen_1_onedrive, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");		
-				exportRoot.TL_MainScreen.to(screen_2_onedrive, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");		
-		
-				exportRoot.TL_MainScreen.to(screen_1_excel, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");		
-				exportRoot.TL_MainScreen.to(screen_2_excel, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");		
-				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");		
-				
-				exportRoot.TL_MainScreen.add('frame0_end');
-				
-				exportRoot.TL_MainScreen.add('1>0_start');
-				
-				exportRoot.TL_MainScreen.to(screen_1_excel, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_excel, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});		
-		
-				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});		
-						
-				exportRoot.TL_MainScreen.to(screen_1_excel, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");		
-				exportRoot.TL_MainScreen.to(screen_2_excel, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");		
-		
-				exportRoot.TL_MainScreen.to(screen_1_onedrive, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");		
-				exportRoot.TL_MainScreen.to(screen_2_onedrive, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");		
-		
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0, scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_excel, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_excel, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
 				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
-				
+
+				exportRoot.TL_MainScreen.add('frame0_end');
+
+				exportRoot.TL_MainScreen.add('1>0_start');
+
+				exportRoot.TL_MainScreen.to(screen_1_excel, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_excel, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_excel, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_excel, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
+
 				exportRoot.TL_MainScreen.add('1>0_end');
 				exportRoot.TL_MainScreen.add('0>1_start');
-				
-				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_1_excel, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_excel, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});		
-		
-				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});		
-						
-				exportRoot.TL_MainScreen.to(screen_1_onedrive, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");		
-				exportRoot.TL_MainScreen.to(screen_2_onedrive, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");		
-		
-				exportRoot.TL_MainScreen.to(screen_1_excel, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");		
-				exportRoot.TL_MainScreen.to(screen_2_excel, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");		
-		
+
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_excel, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_excel, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_excel, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_excel, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+
 				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
-				
+
 				exportRoot.TL_MainScreen.add('0>1_end');
-				
+
 				exportRoot.TL_MainScreen.add('frame1_start');
-				
-				exportRoot.TL_MainScreen.to(screen_1_excel, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_excel, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});		
+
+				exportRoot.TL_MainScreen.to(screen_1_excel, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_excel, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
 				exportRoot.TL_MainScreen.to(screen_2_word, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
-				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});		
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
 				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
-				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});		
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
 				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
-				
-				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0, scaleY: 0, ease:Power3.easeIn});		
-		
-				exportRoot.TL_MainScreen.to(screen_1_excel, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");		
-				exportRoot.TL_MainScreen.to(screen_2_excel, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");		
-		
-				exportRoot.TL_MainScreen.to(screen_1_word, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");		
-				exportRoot.TL_MainScreen.to(screen_2_word, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");		
-				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");	
-				
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0, scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_excel, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_excel, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_word, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_word, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
+
 				exportRoot.TL_MainScreen.add('frame1_end');
-				
+
 				exportRoot.TL_MainScreen.add('2>0_start');
-				
-				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_word, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});		
-		
-				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});		
-						
-				exportRoot.TL_MainScreen.to(screen_1_word, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");		
-				exportRoot.TL_MainScreen.to(screen_2_word, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");	
-				
-				exportRoot.TL_MainScreen.to(screen_1_onedrive, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");		
-				exportRoot.TL_MainScreen.to(screen_2_onedrive, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");		
-		
+
+				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_word, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_word, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_word, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+
 				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
-				
+
 				exportRoot.TL_MainScreen.add('2>0_end');
-				
+
 				exportRoot.TL_MainScreen.add('0>2_start');
-				
-				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_word, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});		
-		
-				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});		
-						
-				exportRoot.TL_MainScreen.to(screen_1_onedrive, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");		
-				exportRoot.TL_MainScreen.to(screen_2_onedrive, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");	
-		
-				exportRoot.TL_MainScreen.to(screen_1_word, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");		
-				exportRoot.TL_MainScreen.to(screen_2_word, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");		
-		
+
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_word, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_word, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_word, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+
 				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
-				
+
 				exportRoot.TL_MainScreen.add('0>2_end');
-				
+
 				exportRoot.TL_MainScreen.add('2>1_start');
-				
-				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_word, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_1_excel, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_excel, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});		
-		
-				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});		
-						
-				exportRoot.TL_MainScreen.to(screen_1_word, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");		
-				exportRoot.TL_MainScreen.to(screen_2_word, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");	
-				
-				exportRoot.TL_MainScreen.to(screen_1_excel, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");		
-				exportRoot.TL_MainScreen.to(screen_2_excel, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");		
-		
+
+				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_word, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_excel, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_excel, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_word, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_word, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_excel, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_excel, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+
 				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
-				
+
 				exportRoot.TL_MainScreen.add('2>1_end');
-				
+
 				exportRoot.TL_MainScreen.add('1>2_start');
-				
-				exportRoot.TL_MainScreen.to(screen_1_excel, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_excel, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_word, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});		
-		
-				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});		
-						
-				exportRoot.TL_MainScreen.to(screen_1_excel, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");		
-				exportRoot.TL_MainScreen.to(screen_2_excel, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");		
-		
-				exportRoot.TL_MainScreen.to(screen_1_word, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");		
-				exportRoot.TL_MainScreen.to(screen_2_word, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");		
-		
+
+				exportRoot.TL_MainScreen.to(screen_1_excel, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_excel, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_word, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_excel, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_excel, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_word, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_word, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+
 				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
-				
+
 				exportRoot.TL_MainScreen.add('1>2_end');
-						
+
 				exportRoot.TL_MainScreen.add('frame2_start');
-				
-				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_word, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});		
+
+				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_word, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
 				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
-				
-				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});		
-		
-				exportRoot.TL_MainScreen.to(screen_1_word, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");		
-				exportRoot.TL_MainScreen.to(screen_2_word, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");		
-		
-				exportRoot.TL_MainScreen.to(screen_1_ppt, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");		
-				exportRoot.TL_MainScreen.to(screen_2_ppt, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");		
-				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");	
-				
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_word, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_word, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_ppt, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
+
 				exportRoot.TL_MainScreen.add('frame2_end');
-				
+
 				exportRoot.TL_MainScreen.add('3>0_start');
-				
-				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});		
-		
-				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});		
-						
-				exportRoot.TL_MainScreen.to(screen_1_ppt, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");		
-				exportRoot.TL_MainScreen.to(screen_2_ppt, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");		
-		
-				exportRoot.TL_MainScreen.to(screen_1_onedrive, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");		
-				exportRoot.TL_MainScreen.to(screen_2_onedrive, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");		
-		
+
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_ppt, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_ppt, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+
 				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
-				
+
 				exportRoot.TL_MainScreen.add('3>0_end');
-				
+
 				exportRoot.TL_MainScreen.add('0>3_start');
-				
-				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});		
-		
-				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});		
-						
-				exportRoot.TL_MainScreen.to(screen_1_onedrive, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");		
-				exportRoot.TL_MainScreen.to(screen_2_onedrive, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");		
-		
-				exportRoot.TL_MainScreen.to(screen_1_ppt, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");		
-				exportRoot.TL_MainScreen.to(screen_2_ppt, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");		
-		
+
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_ppt, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+
 				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
-				
+
 				exportRoot.TL_MainScreen.add('0>3_end');
-				
+
 				exportRoot.TL_MainScreen.add('3>1_start');
-				
-				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_1_excel, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_excel, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});		
-		
-				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});		
-						
-				exportRoot.TL_MainScreen.to(screen_1_ppt, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");		
-				exportRoot.TL_MainScreen.to(screen_2_ppt, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");		
-		
-				exportRoot.TL_MainScreen.to(screen_1_excel, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");		
-				exportRoot.TL_MainScreen.to(screen_2_excel, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");		
-		
+
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_excel, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_excel, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_ppt, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_ppt, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_excel, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_excel, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+
 				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
-				
+
 				exportRoot.TL_MainScreen.add('3>1_end');
-				
+
 				exportRoot.TL_MainScreen.add('1>3_start');
-				
-				exportRoot.TL_MainScreen.to(screen_1_excel, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_excel, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});		
-		
-				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});		
-						
-				exportRoot.TL_MainScreen.to(screen_1_excel, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");		
-				exportRoot.TL_MainScreen.to(screen_2_excel, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");		
-		
-				exportRoot.TL_MainScreen.to(screen_1_ppt, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");		
-				exportRoot.TL_MainScreen.to(screen_2_ppt, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");		
-		
+
+				exportRoot.TL_MainScreen.to(screen_1_excel, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_excel, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_excel, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_excel, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_ppt, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+
 				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
-				
-				exportRoot.TL_MainScreen.add('1>3_end');		
-		
+
+				exportRoot.TL_MainScreen.add('1>3_end');
+
 				exportRoot.TL_MainScreen.add('3>2_start');
-				
-				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_word, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});		
-		
-				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});		
-						
-				exportRoot.TL_MainScreen.to(screen_1_ppt, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");		
-				exportRoot.TL_MainScreen.to(screen_2_ppt, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");		
-		
-				exportRoot.TL_MainScreen.to(screen_1_word, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");		
-				exportRoot.TL_MainScreen.to(screen_2_word, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");		
-		
+
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_word, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_ppt, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_ppt, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_word, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_word, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+
 				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
-				
+
 				exportRoot.TL_MainScreen.add('3>2_end');
-				
+
 				exportRoot.TL_MainScreen.add('2>3_start');
-				
-				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_word, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});			
-		
-				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});		
-						
-				exportRoot.TL_MainScreen.to(screen_1_word, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");		
-				exportRoot.TL_MainScreen.to(screen_2_word, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");		
-		
-				exportRoot.TL_MainScreen.to(screen_1_ppt, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");		
-				exportRoot.TL_MainScreen.to(screen_2_ppt, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");		
-		
+
+				exportRoot.TL_MainScreen.to(screen_1_word, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_word, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1});
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn});
+
+				exportRoot.TL_MainScreen.to(screen_1_word, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_word, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_ppt, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
+
 				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
-				
+
 				exportRoot.TL_MainScreen.add('2>3_end');
-				
+
 				exportRoot.TL_MainScreen.add('frame3_start');
-				
-				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});		
-				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});		
-		
-				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0.01, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1, ease:Power2.easeOut});		
-				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0.01, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1, ease:Power3.easeOut}, "-=0.01");		
-		
-				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn}, "-=0.01");		
-						
-				exportRoot.TL_MainScreen.to(screen_1_ppt, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");		
-				exportRoot.TL_MainScreen.to(screen_2_ppt, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");		
-		
-				exportRoot.TL_MainScreen.to(screen_1_onedrive, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");		
-				exportRoot.TL_MainScreen.to(screen_2_onedrive, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");		
+
+				exportRoot.TL_MainScreen.to(screen_1_ppt, 0, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1});
+				exportRoot.TL_MainScreen.to(screen_2_ppt, 0, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1});
+
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, 0.01, {x:init_onedrive_s1_x+240, y:init_onedrive_s1_y+360, alpha:1, ease:Power2.easeOut});
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, 0.01, {x:init_onedrive_s2_x+240, y:init_onedrive_s2_y+360, alpha:1, ease:Power3.easeOut}, "-=0.01");
+
+				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn}, "-=0.01");
+
+				exportRoot.TL_MainScreen.to(screen_1_ppt, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power1.easeIn}, "=-0.4");
+				exportRoot.TL_MainScreen.to(screen_2_ppt, .6, {x: "-=120", y: "-=180", alpha:0, ease:Power2.easeIn}, "-=.55");
+
+				exportRoot.TL_MainScreen.to(screen_1_onedrive, 1.1, {x:init_onedrive_s1_x, y:init_onedrive_s1_y, alpha:1, ease:Power2.easeOut}, "-=0.6");
+				exportRoot.TL_MainScreen.to(screen_2_onedrive, 1, {x:init_onedrive_s2_x, y:init_onedrive_s2_y, alpha:1, ease:Power3.easeOut}, "-=0.85");
 				exportRoot.TL_MainScreen.to(btn_expand, 0.6, {scaleX: 1, scaleY: 1, ease:Power3.easeOut}, "-=0.6");
-				
+
 				exportRoot.TL_MainScreen.add('frame3_end');
-				
+
 				exportRoot.TL_MainScreen.pause();
-				
+
 				//EXPAND ANIMATION
-				
+
 				exportRoot.TL_MainExpand = new TimelineMax();
-				
+
 				exportRoot.TL_MainExpand.add('menu');
-				
+
 				exportRoot.TL_MainExpand.to(hit1, 0.1, {scaleX: 0,scaleY: 0, ease:Power3.easeIn}, "-=0");
 				exportRoot.TL_MainExpand.to(no_hit, 0.1, {x: "+=130", ease:Power3.easeIn}, "-=0.1");
 				exportRoot.TL_MainExpand.to(hit2, 0.1, {scaleX: 0,scaleY: 0, ease:Power3.easeIn}, "-=0.1");
 				exportRoot.TL_MainExpand.to(mc.hit_expand, 0.1, {scaleX: 0,scaleY: 0, ease:Power3.easeIn}, "-=0.1");
-		
-				exportRoot.TL_MainExpand.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn}, "-=0.1");		
-				
+
+				exportRoot.TL_MainExpand.to(btn_expand, 0.6, {scaleX: 0,scaleY: 0, ease:Power3.easeIn}, "-=0.1");
+
 				exportRoot.TL_MainExpand.to(main_screen, .6, {x: "-=60",y: "-=90", alpha:0, ease:Power2.easeIn});
 				exportRoot.TL_MainExpand.to(indicator, .4, {alpha:0, ease:Power2.easeIn}, "-=.8");
-				//exportRoot.TL_MainExpand.to(snowflakes_1, .8, {alpha:0, y: "+=50", ease:Power2.easeIn}, "-=.4");		
-		
-				
-				exportRoot.TL_MainExpand.from(mc.Enlarged.obj2, 1, {x: "-=60",y: "+=300", ease:Power2.easeOut}, "-=0.4");		
+				//exportRoot.TL_MainExpand.to(snowflakes_1, .8, {alpha:0, y: "+=50", ease:Power2.easeIn}, "-=.4");
+
+
+				exportRoot.TL_MainExpand.from(mc.Enlarged.obj2, 1, {x: "-=60",y: "+=300", ease:Power2.easeOut}, "-=0.4");
 				exportRoot.TL_MainExpand.from(mc.Enlarged.obj1, 1, {x: "+=150",y: "-=50", ease:Power3.easeOut}, "-=0.8");
-				//exportRoot.TL_MainExpand.from(snowflakes_2, .8, {alpha:0, y: "-=50", ease:Power2.easeOut}, "-=1");		
-		
-				exportRoot.TL_MainExpand.from(mc.Enlarged.Btn_return, .6, {scaleX: 0,scaleY: 0, ease:Power3.easeOut}, "-=0.8");		
-				exportRoot.TL_MainExpand.from(mc.hit_shrink, .6, {scaleX: 0,scaleY: 0, ease:Power3.easeOut}, "-=0.6");		
-		
+				//exportRoot.TL_MainExpand.from(snowflakes_2, .8, {alpha:0, y: "-=50", ease:Power2.easeOut}, "-=1");
+
+				exportRoot.TL_MainExpand.from(mc.Enlarged.Btn_return, .6, {scaleX: 0,scaleY: 0, ease:Power3.easeOut}, "-=0.8");
+				exportRoot.TL_MainExpand.from(mc.hit_shrink, .6, {scaleX: 0,scaleY: 0, ease:Power3.easeOut}, "-=0.6");
+
 				exportRoot.TL_MainExpand.add('expanded');
-							
+
 				exportRoot.TL_MainExpand.pause();
-				
+
 				mc.logo_intro.gotoAndPlay(1)
-				
+
 				//TEXT ANIMATION
-				
+
 				exportRoot.TL_MainText = new TimelineMax();
 				exportRoot.TL_MainText.add('In');
-				
+
 				for (var i = 0; i < exportRoot.headline1.length; i++) {
 					if (i==0) exportRoot.TL_MainText.from(exportRoot.headline1[i], 0.6, { x: "+=100", alpha: 0, ease:Power3.easeOut}, "+=0");
 					if (i!=0) exportRoot.TL_MainText.from(exportRoot.headline1[i], 0.6, { x: "+=100", alpha: 0, ease:Power3.easeOut}, "-=0.5");
 				}
-				
+
 				for (var i = 0; i < exportRoot.headline2.length; i++) {
 					if (i==0) exportRoot.TL_MainText.from(exportRoot.headline2[i], 0.6, { x: "+=100", alpha: 0, ease:Power3.easeOut}, "-=0.2");
 					if (i!=0) exportRoot.TL_MainText.from(exportRoot.headline2[i], 0.6, { x: "+=100", alpha: 0, ease:Power3.easeOut}, "-=0.5");
 				}
-				
+
 				exportRoot.TL_MainText.add('Out');
-				
+
 				for (var i = 0; i < exportRoot.headline1.length; i++) {
 					if (i==0) exportRoot.TL_MainText.to(exportRoot.headline1[i], 0.3, { alpha: 0, ease:Power3.easeIn}, "+=0");
 					if (i!=0) exportRoot.TL_MainText.to(exportRoot.headline1[i], 0.3, { alpha: 0, ease:Power3.easeIn}, "-=0.3");
@@ -2361,15 +2361,15 @@ if (reversed == null) { reversed = false; }
 					if (i==0) exportRoot.TL_MainText.to(exportRoot.headline2[i], 0.3, { alpha: 0, ease:Power3.easeIn}, "-=0.3");
 					if (i!=0) exportRoot.TL_MainText.to(exportRoot.headline2[i], 0.3, { alpha: 0, ease:Power3.easeIn}, "-=0.3");
 				}
-				
-				exportRoot.TL_MainText.add('End');		
-				
+
+				exportRoot.TL_MainText.add('End');
+
 				exportRoot.TL_MainText.pause();
-				
+
 				exportRoot.TL_MainText1 = new TimelineMax();
-				
+
 				exportRoot.TL_MainText1.add('In');
-				
+
 				for (var i = 0; i < exportRoot.headline1.length; i++) {
 					if (i==0) exportRoot.TL_MainText1.to(exportRoot.headline1[i], 0.3, { alpha: 0, ease:Power3.easeIn}, "+=0.5");
 					if (i!=0) exportRoot.TL_MainText1.to(exportRoot.headline1[i], 0.3, { alpha: 0, ease:Power3.easeIn}, "-=0.3");
@@ -2378,38 +2378,38 @@ if (reversed == null) { reversed = false; }
 					if (i==0) exportRoot.TL_MainText1.to(exportRoot.headline2[i], 0.3, { alpha: 0, ease:Power3.easeIn}, "-=0.3");
 					if (i!=0) exportRoot.TL_MainText1.to(exportRoot.headline2[i], 0.3, { alpha: 0, ease:Power3.easeIn}, "-=0.3");
 				}
-				
+
 				for (var i = 0; i < exportRoot.enlarged_1_1.length; i++) {
 					if (i==0) exportRoot.TL_MainText1.from(exportRoot.enlarged_1_1[i], 0.6, { x: "+=100", alpha: 0, ease:Power3.easeOut}, "+=0.2");
 					if (i!=0) exportRoot.TL_MainText1.from(exportRoot.enlarged_1_1[i], 0.6, { x: "+=100", alpha: 0, ease:Power3.easeOut}, "-=0.5");
 				}
-			
+
 				for (var i = 0; i < exportRoot.enlarged_1_2.length; i++) {
 					if (i==0) exportRoot.TL_MainText1.from(exportRoot.enlarged_1_2[i], 0.6, { x: "+=100", alpha: 0, ease:Power3.easeOut}, "-=0.4");
 					if (i!=0) exportRoot.TL_MainText1.from(exportRoot.enlarged_1_2[i], 0.6, { x: "+=100", alpha: 0, ease:Power3.easeOut}, "-=0.5");
 				}
-				
+
 				exportRoot.TL_MainText1.add('Out');
-				
+
 				for (var i = 0; i < exportRoot.enlarged_1_1.length; i++) {
 					if (i==0) exportRoot.TL_MainText1.to(exportRoot.enlarged_1_1[i], 0.3, {  alpha: 0, ease:Power3.easeOut}, "+=.5");
 					if (i!=0) exportRoot.TL_MainText1.to(exportRoot.enlarged_1_1[i], 0.3, {  alpha: 0, ease:Power3.easeOut}, "-=0.3");
 				}
-				
+
 				for (var i = 0; i < exportRoot.enlarged_1_2.length; i++) {
 					if (i==0) exportRoot.TL_MainText1.to(exportRoot.enlarged_1_2[i], 0.3, { alpha: 0, ease:Power3.easeOut}, "-=0.3");
 					if (i!=0) exportRoot.TL_MainText1.to(exportRoot.enlarged_1_2[i], 0.3, { alpha: 0, ease:Power3.easeOut}, "-=0.3");
 				}
 				exportRoot.TL_MainText1.to(mc, 0.1, {onComplete:function(){exportRoot.TL_MainText.tweenFromTo("In", "Out");}}, "-=0");
-				
+
 				exportRoot.TL_MainText1.add('End');
-				
+
 				exportRoot.TL_MainText1.pause();
-				
-				exportRoot.TL_MainText2 = new TimelineMax();		
-				
+
+				exportRoot.TL_MainText2 = new TimelineMax();
+
 				exportRoot.TL_MainText2.add('In');
-				
+
 				for (var i = 0; i < exportRoot.headline1.length; i++) {
 					if (i==0) exportRoot.TL_MainText2.to(exportRoot.headline1[i], 0.3, { alpha: 0, ease:Power3.easeIn}, "+=0.5");
 					if (i!=0) exportRoot.TL_MainText2.to(exportRoot.headline1[i], 0.3, { alpha: 0, ease:Power3.easeIn}, "-=0.3");
@@ -2418,38 +2418,38 @@ if (reversed == null) { reversed = false; }
 					if (i==0) exportRoot.TL_MainText2.to(exportRoot.headline2[i], 0.3, { alpha: 0, ease:Power3.easeIn}, "-=0.3");
 					if (i!=0) exportRoot.TL_MainText2.to(exportRoot.headline2[i], 0.3, { alpha: 0, ease:Power3.easeIn}, "-=0.3");
 				}
-				
+
 				for (var i = 0; i < exportRoot.enlarged_2_1.length; i++) {
 					if (i==0) exportRoot.TL_MainText2.from(exportRoot.enlarged_2_1[i], 0.6, { x: "+=100", alpha: 0, ease:Power3.easeOut}, "+=0.2");
 					if (i!=0) exportRoot.TL_MainText2.from(exportRoot.enlarged_2_1[i], 0.6, { x: "+=100", alpha: 0, ease:Power3.easeOut}, "-=0.5");
 				}
-			
+
 				for (var i = 0; i < exportRoot.enlarged_2_2.length; i++) {
 					if (i==0) exportRoot.TL_MainText2.from(exportRoot.enlarged_2_2[i], 0.6, { x: "+=100", alpha: 0, ease:Power3.easeOut}, "-=0.4");
 					if (i!=0) exportRoot.TL_MainText2.from(exportRoot.enlarged_2_2[i], 0.6, { x: "+=100", alpha: 0, ease:Power3.easeOut}, "-=0.5");
 				}
-				
+
 				exportRoot.TL_MainText2.add('Out');
-				
+
 				for (var i = 0; i < exportRoot.enlarged_2_1.length; i++) {
 					if (i==0) exportRoot.TL_MainText2.to(exportRoot.enlarged_2_1[i], 0.3, {  alpha: 0, ease:Power3.easeOut}, "+=.5");
 					if (i!=0) exportRoot.TL_MainText2.to(exportRoot.enlarged_2_1[i], 0.3, {  alpha: 0, ease:Power3.easeOut}, "-=0.3");
 				}
-				
+
 				for (var i = 0; i < exportRoot.enlarged_2_2.length; i++) {
 					if (i==0) exportRoot.TL_MainText2.to(exportRoot.enlarged_2_2[i], 0.3, { alpha: 0, ease:Power3.easeOut}, "-=0.3");
 					if (i!=0) exportRoot.TL_MainText2.to(exportRoot.enlarged_2_2[i], 0.3, { alpha: 0, ease:Power3.easeOut}, "-=0.3");
 				}
 				exportRoot.TL_MainText2.to(mc, 0.1, {onComplete:function(){exportRoot.TL_MainText.tweenFromTo("In", "Out");}}, "-=0");
-				
+
 				exportRoot.TL_MainText2.add('End');
-				
-				exportRoot.TL_MainText2.pause();	
-				
-				exportRoot.TL_MainText3 = new TimelineMax();		
-				
+
+				exportRoot.TL_MainText2.pause();
+
+				exportRoot.TL_MainText3 = new TimelineMax();
+
 				exportRoot.TL_MainText3.add('In');
-				
+
 				for (var i = 0; i < exportRoot.headline1.length; i++) {
 					if (i==0) exportRoot.TL_MainText3.to(exportRoot.headline1[i], 0.3, { alpha: 0, ease:Power3.easeIn}, "+=0.5");
 					if (i!=0) exportRoot.TL_MainText3.to(exportRoot.headline1[i], 0.3, { alpha: 0, ease:Power3.easeIn}, "-=0.3");
@@ -2458,38 +2458,38 @@ if (reversed == null) { reversed = false; }
 					if (i==0) exportRoot.TL_MainText3.to(exportRoot.headline2[i], 0.3, { alpha: 0, ease:Power3.easeIn}, "-=0.3");
 					if (i!=0) exportRoot.TL_MainText3.to(exportRoot.headline2[i], 0.3, { alpha: 0, ease:Power3.easeIn}, "-=0.3");
 				}
-				
+
 				for (var i = 0; i < exportRoot.enlarged_3_1.length; i++) {
 					if (i==0) exportRoot.TL_MainText3.from(exportRoot.enlarged_3_1[i], 0.6, { x: "+=100", alpha: 0, ease:Power3.easeOut}, "+=0.2");
 					if (i!=0) exportRoot.TL_MainText3.from(exportRoot.enlarged_3_1[i], 0.6, { x: "+=100", alpha: 0, ease:Power3.easeOut}, "-=0.5");
 				}
-			
+
 				for (var i = 0; i < exportRoot.enlarged_3_2.length; i++) {
 					if (i==0) exportRoot.TL_MainText3.from(exportRoot.enlarged_3_2[i], 0.6, { x: "+=100", alpha: 0, ease:Power3.easeOut}, "-=0.4");
 					if (i!=0) exportRoot.TL_MainText3.from(exportRoot.enlarged_3_2[i], 0.6, { x: "+=100", alpha: 0, ease:Power3.easeOut}, "-=0.5");
 				}
-				
+
 				exportRoot.TL_MainText3.add('Out');
-				
+
 				for (var i = 0; i < exportRoot.enlarged_3_1.length; i++) {
 					if (i==0) exportRoot.TL_MainText3.to(exportRoot.enlarged_3_1[i], 0.3, {  alpha: 0, ease:Power3.easeOut}, "+=.5");
 					if (i!=0) exportRoot.TL_MainText3.to(exportRoot.enlarged_3_1[i], 0.3, {  alpha: 0, ease:Power3.easeOut}, "-=0.3");
 				}
-				
+
 				for (var i = 0; i < exportRoot.enlarged_3_2.length; i++) {
 					if (i==0) exportRoot.TL_MainText3.to(exportRoot.enlarged_3_2[i], 0.3, { alpha: 0, ease:Power3.easeOut}, "-=0.3");
 					if (i!=0) exportRoot.TL_MainText3.to(exportRoot.enlarged_3_2[i], 0.3, { alpha: 0, ease:Power3.easeOut}, "-=0.3");
 				}
 				exportRoot.TL_MainText3.to(mc, 0.1, {onComplete:function(){exportRoot.TL_MainText.tweenFromTo("In", "Out");}}, "-=0");
-		
-				exportRoot.TL_MainText3.add('End');		
-				
-				exportRoot.TL_MainText3.pause();	
-				
+
+				exportRoot.TL_MainText3.add('End');
+
+				exportRoot.TL_MainText3.pause();
+
 				exportRoot.TL_MainText4 = new TimelineMax();
-				
+
 				exportRoot.TL_MainText4.add('In');
-				
+
 				for (var i = 0; i < exportRoot.headline1.length; i++) {
 					if (i==0) exportRoot.TL_MainText4.to(exportRoot.headline1[i], 0.3, { alpha: 0, ease:Power3.easeIn}, "+=0.5");
 					if (i!=0) exportRoot.TL_MainText4.to(exportRoot.headline1[i], 0.3, { alpha: 0, ease:Power3.easeIn}, "-=0.3");
@@ -2498,42 +2498,42 @@ if (reversed == null) { reversed = false; }
 					if (i==0) exportRoot.TL_MainText4.to(exportRoot.headline2[i], 0.3, { alpha: 0, ease:Power3.easeIn}, "-=0.3");
 					if (i!=0) exportRoot.TL_MainText4.to(exportRoot.headline2[i], 0.3, { alpha: 0, ease:Power3.easeIn}, "-=0.3");
 				}
-				
+
 				for (var i = 0; i < exportRoot.enlarged_4_1.length; i++) {
 					if (i==0) exportRoot.TL_MainText4.from(exportRoot.enlarged_4_1[i], 0.6, { x: "+=100", alpha: 0, ease:Power3.easeOut}, "+=0.2");
 					if (i!=0) exportRoot.TL_MainText4.from(exportRoot.enlarged_4_1[i], 0.6, { x: "+=100", alpha: 0, ease:Power3.easeOut}, "-=0.5");
 				}
-			
+
 				for (var i = 0; i < exportRoot.enlarged_4_2.length; i++) {
 					if (i==0) exportRoot.TL_MainText4.from(exportRoot.enlarged_4_2[i], 0.6, { x: "+=100", alpha: 0, ease:Power3.easeOut}, "-=0.4");
 					if (i!=0) exportRoot.TL_MainText4.from(exportRoot.enlarged_4_2[i], 0.6, { x: "+=100", alpha: 0, ease:Power3.easeOut}, "-=0.5");
 				}
-				
+
 				exportRoot.TL_MainText4.add('Out');
-				
+
 				for (var i = 0; i < exportRoot.enlarged_4_1.length; i++) {
 					if (i==0) exportRoot.TL_MainText4.to(exportRoot.enlarged_4_1[i], 0.3, {  alpha: 0, ease:Power3.easeOut}, "+=.5");
 					if (i!=0) exportRoot.TL_MainText4.to(exportRoot.enlarged_4_1[i], 0.3, {  alpha: 0, ease:Power3.easeOut}, "-=0.3");
 				}
-				
+
 				for (var i = 0; i < exportRoot.enlarged_4_2.length; i++) {
 					if (i==0) exportRoot.TL_MainText4.to(exportRoot.enlarged_4_2[i], 0.3, { alpha: 0, ease:Power3.easeOut}, "-=0.3");
 					if (i!=0) exportRoot.TL_MainText4.to(exportRoot.enlarged_4_2[i], 0.3, { alpha: 0, ease:Power3.easeOut}, "-=0.3");
 				}
 				exportRoot.TL_MainText4.to(mc, 0.1, {onComplete:function(){exportRoot.TL_MainText.tweenFromTo("In", "Out");}}, "-=0");
-				
+
 				exportRoot.TL_MainText4.add('End');
-				
-				exportRoot.TL_MainText4.pause();	
-				
-				
+
+				exportRoot.TL_MainText4.pause();
+
+
 			//
 			//   CONTROL
 			//
-		
+
 			exportRoot.subMenuClick = function (id) {
-		
-		
+
+
 				// Check ID is within RANGE
 				if (ClickID < 0) {
 					ClickID = 3;
@@ -2544,7 +2544,7 @@ if (reversed == null) { reversed = false; }
 				id = ClickID;
 				exportRoot.selectedOption(id)
 			}
-		
+
 			exportRoot.jumpMenuClick = function (id, PrevID) {
 				// Check ID is within RANGE
 				if (ClickID < 0) {
@@ -2561,15 +2561,15 @@ if (reversed == null) { reversed = false; }
 				}
 				exportRoot.jumpOption(ClickID, PrevID)
 			}
-			
+
 			exportRoot.subMenuExpand = function (subID) {
 				exportRoot.selectedExpand(subID)
 			}
-		
+
 			exportRoot.subMenuShrink = function (subID) {
 				exportRoot.selectedShrink(subID)
 			}
-		
+
 			exportRoot.setMenu1 = function () {
 				ClickID--;
 				amoAdInteraction('Previous Click', ClickID);
@@ -2618,18 +2618,18 @@ if (reversed == null) { reversed = false; }
 				exportRoot.subMenuShrink(subID);
 				menuPos = "shrunk"
 			}
-		
+
 			exportRoot.mainMC.hit1.addEventListener("click", exportRoot.setMenu1)
 			exportRoot.mainMC.hit2.addEventListener("click", exportRoot.setMenu2)
-		
+
 			exportRoot.mainMC.dot1.addEventListener("click", exportRoot.jumpMenu1)
 			exportRoot.mainMC.dot2.addEventListener("click", exportRoot.jumpMenu2)
 			exportRoot.mainMC.dot3.addEventListener("click", exportRoot.jumpMenu3)
 			exportRoot.mainMC.dot4.addEventListener("click", exportRoot.jumpMenu4)
-		
+
 			exportRoot.mainMC.hit_expand.addEventListener("click", exportRoot.expandMenu)
 			exportRoot.mainMC.hit_shrink.addEventListener("click", exportRoot.shrinkMenu)
-			
+
 			exportRoot.selectedOption = function (subID) {
 				if (direction=="next") {
 					if (subID==0) {exportRoot.TL_MainScreen.tweenFromTo("frame3_start", "frame3_end"),dot_4.gotoAndPlay("deselected"),dot_1.gotoAndPlay("selected");}
@@ -2644,12 +2644,12 @@ if (reversed == null) { reversed = false; }
 				}
 				exportRoot.selectedScreenIn(subID)
 			}
-			
+
 			exportRoot.jumpOption = function (ClickID, PrevID) {
 					if (ClickID==0&&PrevID==1) {exportRoot.TL_MainScreen.tweenFromTo("1>0_start", "1>0_end"),dot_2.gotoAndPlay("deselected"),dot_1.gotoAndPlay("selected");}
 					if (ClickID==0&&PrevID==2) {exportRoot.TL_MainScreen.tweenFromTo("2>0_start", "2>0_end"),dot_3.gotoAndPlay("deselected"),dot_1.gotoAndPlay("selected");}
 					if (ClickID==0&&PrevID==3) {exportRoot.TL_MainScreen.tweenFromTo("3>0_start", "3>0_end"),dot_4.gotoAndPlay("deselected"),dot_1.gotoAndPlay("selected");}
-					
+
 					if (ClickID==1&&PrevID==0) {exportRoot.TL_MainScreen.tweenFromTo("0>1_start", "0>1_end"),dot_1.gotoAndPlay("deselected"),dot_2.gotoAndPlay("selected");}
 					if (ClickID==1&&PrevID==2) {exportRoot.TL_MainScreen.tweenFromTo("2>1_start", "2>1_end"),dot_3.gotoAndPlay("deselected"),dot_2.gotoAndPlay("selected");}
 					if (ClickID==1&&PrevID==3) {exportRoot.TL_MainScreen.tweenFromTo("3>1_start", "3>1_end"),dot_4.gotoAndPlay("deselected"),dot_2.gotoAndPlay("selected");}
@@ -2657,7 +2657,7 @@ if (reversed == null) { reversed = false; }
 					if (ClickID==2&&PrevID==0) {exportRoot.TL_MainScreen.tweenFromTo("0>2_start", "0>2_end"),dot_1.gotoAndPlay("deselected"),dot_3.gotoAndPlay("selected");}
 					if (ClickID==2&&PrevID==1) {exportRoot.TL_MainScreen.tweenFromTo("1>2_start", "1>2_end"),dot_2.gotoAndPlay("deselected"),dot_3.gotoAndPlay("selected");}
 					if (ClickID==2&&PrevID==3) {exportRoot.TL_MainScreen.tweenFromTo("3>2_start", "3>2_end"),dot_4.gotoAndPlay("deselected"),dot_3.gotoAndPlay("selected");}
-		
+
 					if (ClickID==3&&PrevID==0) {exportRoot.TL_MainScreen.tweenFromTo("0>3_start", "0>3_end"),dot_1.gotoAndPlay("deselected"),dot_4.gotoAndPlay("selected");}
 					if (ClickID==3&&PrevID==1) {exportRoot.TL_MainScreen.tweenFromTo("1>3_start", "1>3_end"),dot_2.gotoAndPlay("deselected"),dot_4.gotoAndPlay("selected");}
 					if (ClickID==3&&PrevID==2) {exportRoot.TL_MainScreen.tweenFromTo("2>3_start", "2>3_end"),dot_3.gotoAndPlay("deselected"),dot_4.gotoAndPlay("selected");}
@@ -2669,37 +2669,37 @@ if (reversed == null) { reversed = false; }
 				if (ClickID==0) {exportRoot.TL_MainText1.tweenFromTo("In", "Out");}
 				if (ClickID==1) {exportRoot.TL_MainText2.tweenFromTo("In", "Out");}
 				if (ClickID==2) {exportRoot.TL_MainText3.tweenFromTo("In", "Out");}
-				if (ClickID==3) {exportRoot.TL_MainText4.tweenFromTo("In", "Out");}	
+				if (ClickID==3) {exportRoot.TL_MainText4.tweenFromTo("In", "Out");}
 			}
-		
+
 			exportRoot.selectedShrink = function (subID) {
 				exportRoot.TL_MainExpand.timeScale(1.5)
 				exportRoot.TL_MainExpand.tweenFromTo("expanded", "menu");
 				if (ClickID==0) {exportRoot.TL_MainText1.tweenFromTo("Out", "End");}
 				if (ClickID==1) {exportRoot.TL_MainText2.tweenFromTo("Out", "End");}
 				if (ClickID==2) {exportRoot.TL_MainText3.tweenFromTo("Out", "End");}
-				if (ClickID==3) {exportRoot.TL_MainText4.tweenFromTo("Out", "End");}	
+				if (ClickID==3) {exportRoot.TL_MainText4.tweenFromTo("Out", "End");}
 			}
-		
+
 			exportRoot.selectedScreenIn = function (subID) {
 				mc.Enlarged.obj2.gotoAndStop(subID)
 				mc.Enlarged.obj1.gotoAndStop(subID)
 			}
-			
+
 			exportRoot.mainMC.hit.addEventListener("mouseover", mainOver.bind(this));
-			exportRoot.mainMC.hit.addEventListener("mouseout", mainOut.bind(this));	
-		
+			exportRoot.mainMC.hit.addEventListener("mouseout", mainOut.bind(this));
+
 			function mainOver() {
 				exportRoot.mainMC.cta.arrow.gotoAndStop(1);
 			}
 			function mainOut() {
 				exportRoot.mainMC.cta.arrow.gotoAndStop(0);
 			}
-		
-		
+
+
 			var swipe = new Swipe(exportRoot.mainMC.hit, 50, 100); // distance 50 pixels, duration 100 ms
-		
-		
+
+
 			// 4. add an event to capture swipe
 			swipe.on("swipe", function() {
 				var dir = swipe.direction;
@@ -2716,7 +2716,7 @@ if (reversed == null) { reversed = false; }
 				}
 				console.log(swipe.direction)
 			});
-		
+
 		}
 	}
 
@@ -2800,41 +2800,41 @@ an.getComposition = function(id) {
 }
 
 
-an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {		
-	var lastW, lastH, lastS=1;		
-	window.addEventListener('resize', resizeCanvas);		
-	resizeCanvas();		
-	function resizeCanvas() {			
-		var w = lib.properties.width, h = lib.properties.height;			
-		var iw = window.innerWidth, ih=window.innerHeight;			
-		var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;			
-		if(isResp) {                
-			if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
-				sRatio = lastS;                
-			}				
-			else if(!isScale) {					
-				if(iw<w || ih<h)						
-					sRatio = Math.min(xRatio, yRatio);				
-			}				
-			else if(scaleType==1) {					
-				sRatio = Math.min(xRatio, yRatio);				
-			}				
-			else if(scaleType==2) {					
-				sRatio = Math.max(xRatio, yRatio);				
-			}			
+an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {
+	var lastW, lastH, lastS=1;
+	window.addEventListener('resize', resizeCanvas);
+	resizeCanvas();
+	function resizeCanvas() {
+		var w = lib.properties.width, h = lib.properties.height;
+		var iw = window.innerWidth, ih=window.innerHeight;
+		var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;
+		if(isResp) {
+			if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {
+				sRatio = lastS;
+			}
+			else if(!isScale) {
+				if(iw<w || ih<h)
+					sRatio = Math.min(xRatio, yRatio);
+			}
+			else if(scaleType==1) {
+				sRatio = Math.min(xRatio, yRatio);
+			}
+			else if(scaleType==2) {
+				sRatio = Math.max(xRatio, yRatio);
+			}
 		}
-		domContainers[0].width = w * pRatio * sRatio;			
+		domContainers[0].width = w * pRatio * sRatio;
 		domContainers[0].height = h * pRatio * sRatio;
-		domContainers.forEach(function(container) {				
-			container.style.width = w * sRatio + 'px';				
-			container.style.height = h * sRatio + 'px';			
+		domContainers.forEach(function(container) {
+			container.style.width = w * sRatio + 'px';
+			container.style.height = h * sRatio + 'px';
 		});
-		stage.scaleX = pRatio*sRatio;			
+		stage.scaleX = pRatio*sRatio;
 		stage.scaleY = pRatio*sRatio;
-		lastW = iw; lastH = ih; lastS = sRatio;            
-		stage.tickOnUpdate = false;            
-		stage.update();            
-		stage.tickOnUpdate = true;		
+		lastW = iw; lastH = ih; lastS = sRatio;
+		stage.tickOnUpdate = false;
+		stage.update();
+		stage.tickOnUpdate = true;
 	}
 }
 an.handleSoundStreamOnTick = function(event) {

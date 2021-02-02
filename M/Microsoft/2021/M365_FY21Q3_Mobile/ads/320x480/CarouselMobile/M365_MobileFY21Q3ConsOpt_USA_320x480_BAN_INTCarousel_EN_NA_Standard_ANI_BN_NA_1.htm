@@ -51,8 +51,8 @@ function init() {
 	loader.loadManifest(lib.properties.manifest);
 }
 function handleFileLoad(evt, comp) {
-	var images=comp.getImages();	
-	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+	var images=comp.getImages();
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }
 }
 function handleComplete(evt,comp) {
 	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
@@ -64,18 +64,18 @@ function handleComplete(evt,comp) {
 		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
 	}
 	exportRoot = new lib.M365_MobileFY21Q3ConsOpt_USA_320x480_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1();
-	stage = new lib.Stage(canvas);	
+	stage = new lib.Stage(canvas);
 	//Registers the "tick" event listener.
 	fnStartAnimation = function() {
 		stage.addChild(exportRoot);
 		createjs.Ticker.framerate = lib.properties.fps;
 		createjs.Ticker.addEventListener("tick", stage);
-	}	    
+	}
 	//Code to support hidpi screens and responsive scaling.
-	AdobeAn.makeResponsive(false,'both',false,2,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.makeResponsive(false,'both',false,2,[canvas,anim_container,dom_overlay_container]);
 	AdobeAn.compositionLoaded(lib.properties.id);
 	fnStartAnimation();
-	
+
 	 if (!initReady) {
         startBanner()
     }
@@ -105,28 +105,21 @@ function handleComplete(evt,comp) {
 						layer.x = ctaWidth - 20;
 					}
 				}
-        alignArrow(layers.cta.arrow0);
-				alignArrow(layers.cta.arrow1);
-				alignArrow(layers.cta.arrow2);
-				alignArrow(layers.cta.arrow3);
-				alignArrow(layers.cta.arrow4);
+        alignArrow(layers.cta.arrow);
 				var alignBackground = function(layer) {
 					if(layer) {
-						var ctaBackgroundColor = layer.shape.graphics._fill.style;
+						var ctaBackgroundColor = layer.graphics._fill.style;
 						layer.x = 0;
 		        layer.y = 0;
 		        layer.scaleX = 1;
 		        layer.scaleY = 1;
 		        layer.regX = 0;
 		        layer.regY = 0;
-						layer.shape.x = 0;
-						layer.shape.y = 0;
-		        layer.shape.graphics.clear();
-		        layer.shape.graphics.beginFill(ctaBackgroundColor).drawRect(0, -15, ctaWidth, 30);
+		        layer.graphics.clear();
+		        layer.graphics.beginFill(ctaBackgroundColor).drawRect(0, -20, ctaWidth, 40);
 					}
 				}
-				alignBackground(layers.cta.ctaBg1);
-				alignBackground(layers.cta.ctaBg2);
+				alignBackground(layers.cta.children[0]);
         if(position == 'right') {
           layers.cta.x = adWidth - ctaWidth;
           layers.txtCta.x = adWidth - ctaWidth + 15;
@@ -148,7 +141,7 @@ function handleComplete(evt,comp) {
 			bannerData.enlarged_3_2 = eval(bannerData.textField4.split('^')[1]);
 			bannerData.enlarged_4_1 = eval(bannerData.textField5.split('^')[0]);
 			bannerData.enlarged_4_2 = eval(bannerData.textField5.split('^')[1]);
-			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "11px" : (bannerData.ctaText.length >= 12 ? "12px" : "13.8px")),0,0,"50","300", "center"] : '';
+			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "10px" : (bannerData.ctaText.length >= 12 ? "12px" : "13.8px")),0,0,"50","300", "center"] : '';
 			window.smartNames = [];
 			if(bannerData.textField2.split('^').length >= 2) {
 				window.smartNames.push(bannerData.textField2.split('^')[1]);
@@ -185,12 +178,12 @@ function handleComplete(evt,comp) {
 				});
 			}
         exportRoot.initBanner(bannerData)
-				// ctaAlignment('left');
+				ctaAlignment('left');
         exportRoot.runBanner()
     })
 	initReady=true
 }
-	
+
 var loadFont = false
 	var loadBody = false
 	function loaded(type) {
@@ -198,7 +191,7 @@ var loadFont = false
 		if (type=='body') loadBody=true
 		if (loadFont && loadBody) init()
 	}
-	
+
 	(function() {
 		// Optimization for Repeat Views
 
@@ -241,21 +234,21 @@ var loadFont = false
 <script>
 var startBanner = function(){
 	           createjs.Touch.enable(stage);
-	
+
 				var varInt
 				//var ClickID	= 0
-				
-				//exportRoot.mainMC.hit.addEventListener("click", mainHit.bind(this));
-								
-				var rHit = document.getElementById("rHit");
-				rHit.addEventListener("mouseover", rHitOver.bind(this));  
-				function rHitOver()  {  exportRoot.mainMC.replay_btn.gotoAndStop(1)	}  
 
-				rHit.addEventListener("mouseout", rHitOut.bind(this));  
-				function rHitOut()   {  exportRoot.mainMC.replay_btn.gotoAndStop(0)	}  
+				//exportRoot.mainMC.hit.addEventListener("click", mainHit.bind(this));
+
+				var rHit = document.getElementById("rHit");
+				rHit.addEventListener("mouseover", rHitOver.bind(this));
+				function rHitOver()  {  exportRoot.mainMC.replay_btn.gotoAndStop(1)	}
+
+				rHit.addEventListener("mouseout", rHitOut.bind(this));
+				function rHitOut()   {  exportRoot.mainMC.replay_btn.gotoAndStop(0)	}
 
 				rHit.addEventListener("click", replay.bind(this));
-				
+
 				function replay() {
 					if (exportRoot.isReplay == true){
 
@@ -274,11 +267,11 @@ var startBanner = function(){
 
                         // Restore the transform
                         context.restore(); //CLEARS THE SPECIFIC CANVAS COMPLETELY FOR NEW DRAWING
-                        
+
 						gsap.delayedCall(0.1,init)
 					}
 				}
 		}
 </script>
-</body>	
+</body>
 </html>
