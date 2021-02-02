@@ -1185,6 +1185,20 @@ if (reversed == null) { reversed = false; }
 
 	this.timeline.addTween(cjs.Tween.get(this.txt_mc).wait(1));
 
+	// CTA
+	this.txtCta = new lib.cta();
+	this.txtCta.name = "txtCta";
+	this.txtCta.setTransform(52.8,219.75,1,1,0,0,0,0.7,0.1);
+
+	this.timeline.addTween(cjs.Tween.get(this.txtCta).wait(1));
+
+	// CTA_BG
+	this.cta = new lib.CTA_btn();
+	this.cta.name = "cta";
+	this.cta.setTransform(97.45,219.8,0.9433,0.9433);
+
+	this.timeline.addTween(cjs.Tween.get(this.cta).wait(1));
+
 	// screens
 	this.screens = new lib.laptop_anim();
 	this.screens.name = "screens";
@@ -1199,20 +1213,6 @@ if (reversed == null) { reversed = false; }
 	this.bg.setTransform(150,125,1,1,0,0,0,150,125);
 
 	this.timeline.addTween(cjs.Tween.get(this.bg).wait(1));
-
-	// CTA
-	this.txtCta = new lib.cta();
-	this.txtCta.name = "txtCta";
-	this.txtCta.setTransform(52.8,219.75,1,1,0,0,0,0.7,0.1);
-
-	this.timeline.addTween(cjs.Tween.get(this.txtCta).wait(1));
-
-	// CTA_BG
-	this.cta = new lib.CTA_btn();
-	this.cta.name = "cta";
-	this.cta.setTransform(97.45,219.8,0.9433,0.9433);
-
-	this.timeline.addTween(cjs.Tween.get(this.cta).wait(1));
 
 	// txt
 	this.txt = new lib.txt();
@@ -1256,14 +1256,14 @@ if (reversed == null) { reversed = false; }
 		}
 		var mc = exportRoot.mainMC
 		exportRoot.replayAnim = "inProgress"
-		
+
 		this.initBanner = function (data) {
 			exportRoot.isReplay = false;
 			exportRoot.shadowReplay = false;
-			
+
 			Object.keys = function(obj) {
 				var keys = [];
-		
+
 				for (var i in obj) {
 				  if (obj.hasOwnProperty(i)) {
 					keys.push(i);
@@ -1272,7 +1272,7 @@ if (reversed == null) { reversed = false; }
 				return keys
 			}
 			var keys = Object.keys(data)
-			
+
 				for (var i in keys) {
 					var id = keys[i].substr(0, 4);
 						if (id == "head") {
@@ -1290,8 +1290,8 @@ if (reversed == null) { reversed = false; }
 						}
 				}
 		}
-		
-		
+
+
 		this.fillHead = function (txtDetails, aVar) {
 			var text = txtDetails[0]
 			var size = txtDetails[1]
@@ -1300,16 +1300,16 @@ if (reversed == null) { reversed = false; }
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += parseInt(size)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -1334,16 +1334,16 @@ if (reversed == null) { reversed = false; }
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += parseInt(size)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -1360,9 +1360,9 @@ if (reversed == null) { reversed = false; }
 				aVar.push(mc)
 			}
 		}
-		
-		
-		
+
+
+
 		this.fillCta = function (txtDetails) {
 			var text = txtDetails[0]
 			var size = txtDetails[1]
@@ -1371,17 +1371,17 @@ if (reversed == null) { reversed = false; }
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
-		
+
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += (parseInt(size) * 0.90)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -1398,7 +1398,7 @@ if (reversed == null) { reversed = false; }
 				this.mainMC.txtCta.addChild(mc);
 			}
 		}
-		
+
 		this.getTheSentences = function (text, size, xOffset, yOffset, lineSpacing, lineWidth, align) {
 			var sentences = new Array()
 			var aSentenceLine = new Array()
@@ -1406,16 +1406,16 @@ if (reversed == null) { reversed = false; }
 			sentences = aStr.split("|");
 			var lastColor = "#000000"
 			// Figure out the setence lines
-		
+
 			for (var i = 0; i < sentences.length; i++) {
 				var aS = sentences[i].substr(0);
 				var aSplit = new Array()
 				aSplit = aS.split("<");
 				aSplit = aSplit.filter(Boolean)
 				var wholeSentence = new Array()
-		
+
 				for (var j = 0; j < aSplit.length; j++) {
-		
+
 					var checkColor = aSplit[j].indexOf("#")
 					var color = (checkColor == -1) ? lastColor : aSplit[j].substr(0, 7);
 					lastColor = color
@@ -1430,82 +1430,82 @@ if (reversed == null) { reversed = false; }
 			}
 			return aSentenceLine
 		}
-		
-		
+
+
 		var mc = exportRoot.mainMC
-		
-		
-		
+
+
+
 		this.runBanner = function() {
-			
+
 			this.tl1 = new TimelineLite();
-			
+
 				exportRoot.tl1.to(mc.bg, 1, { alpha:0,	ease:Quart.easeInOut}, "=0");
-						
+
 				for (var i = 0; i < exportRoot.headline1.length; i++) {
 				if (i==0) exportRoot.tl1.from(exportRoot.headline1[i], 0.8, { x: "-=100", alpha: 0, ease:Power4.easeOut}, "-=0");
 				if (i!=0) exportRoot.tl1.from(exportRoot.headline1[i], 0.8, { x: "-=100", alpha: 0, ease:Power4.easeOut}, "-=0.7");
 				}
-				
+
 				for (var i = 0; i < exportRoot.headline2.length; i++) {
 				if (i==0) exportRoot.tl1.from(exportRoot.headline2[i], 0.8, { x: "-=100", alpha: 0, ease:Power4.easeOut}, "+=0.3");
 				if (i!=0) exportRoot.tl1.from(exportRoot.headline2[i], 0.8, { x: "-=100", alpha: 0, ease:Power4.easeOut}, "-=0.7");
 				}
-				
+
 				exportRoot.tl1.from(mc.txtCta, 0.7, { alpha: 0, x: "-=100",	ease:Power4.easeOut}, "-=0.5");
 				exportRoot.tl1.from(mc.cta, 0.7, {alpha: 0, x: "-=100", ease:Power4.easeOut}, "-=0.7");
-				exportRoot.tl1.from(mc.replay_btn, 0.7, { alpha: 0,ease:Power4.easeOut, onStart:function(){exportRoot.isReplay = true;}}, "-=.6");	
-		
-				exportRoot.tl1.stop();		
-				
-		this.tlicons = new TimelineLite();		
-				
+				exportRoot.tl1.from(mc.replay_btn, 0.7, { alpha: 0,ease:Power4.easeOut, onStart:function(){exportRoot.isReplay = true;}}, "-=.6");
+
+				exportRoot.tl1.stop();
+
+		this.tlicons = new TimelineLite();
+
 				exportRoot.tlicons.to(mc.screens, 0.1, {alpha:1}, "=0");
-			
+
 				exportRoot.tlicons.from(mc.screens.screen_outlook, 4, {scaleX: .4, scaleY:.4, x: "-=350",  y: "+=250",	ease:Quart.easeOut}, "-=0");
-				
+
 				exportRoot.tlicons.from(mc.screens, 3, {scaleX: 1.4, scaleY:1.5, y: "-=50",	ease:Power4.easeOut}, "-=4");
-		
+
 				exportRoot.tlicons.from(mc.screens.screen_onedrive, 4, {x: "-=300", y: "+=250",	ease:Quart.easeOut}, "-=3.9");
-				
+
 				exportRoot.tlicons.from(mc.screens.screen_excel, 4, {scaleX: .5, scaleY:.5, x: "-=375",  y: "+=200",	ease:Quart.easeOut}, "-=3.9");
-		
+
 				exportRoot.tlicons.from(mc.screens.screen_word, 4, {scaleX: .8, scaleY:.8, x: "-=450",  y: "+=200",	ease:Quart.easeOut}, "-=3.8");
-		
+
 				exportRoot.tlicons.from(mc.screens.screen_powerpoint, 4, {scaleX: 1.1, scaleY:1.1, x: "-=600",  y: "+=150",	ease:Quart.easeOut}, "-=3.8");
-		
-		
-				
+
+
+
 				/*
-				
+
 				exportRoot.tlicons.to(mc.screens, 0.1, {alpha:1}, "=0");
-			
+
 				exportRoot.tlicons.from(mc.screens.screen_outlook, 4, {scaleX: .4, scaleY:.4, x: "-=350",  y: "+=250",	ease:Quart.easeOut}, "-=0");
 				//exportRoot.tlicons.from(mc.screens.screen_outlook.shad, 4, {x: "+=40",  y: "+=80",	ease:Quart.easeOut}, "-=4");
 				//exportRoot.tlicons.to(mc.screens.screen_outlook.blur, 4, { alpha:0,	ease:Quart.easeInOut}, "-=4");
-				
+
 				exportRoot.tlicons.from(mc.screens, 3, {scaleX: 1.4, scaleY:1.5, y: "-=50",	ease:Power4.easeOut}, "-=4");
-				
+
 				exportRoot.tlicons.from(mc.screens.screen_onedrive, 4, {x: "-=300", y: "+=250",	ease:Quart.easeOut}, "-=3.9");
 				//exportRoot.tlicons.from(mc.screens.screen_onedrive.shad, 4, {y: "+=28",	ease:Quart.easeOut}, "-=4");
 				//exportRoot.tlicons.to(mc.screens.screen_onedrive.blur, 4, { alpha:0,	ease:Quart.easeInOut}, "-=4");
-				
+
 				exportRoot.tlicons.from(mc.screens.screen_excel, 4, {scaleX: .5, scaleY:.5, x: "-=375",  y: "+=200",	ease:Quart.easeOut}, "-=3.9");
 				//exportRoot.tlicons.from(mc.screens.screen_excel.shad, 4, {alpha:40, x: "+=60",  y: "+=120",	ease:Quart.easeOut}, "-=4");
 				//exportRoot.tlicons.to(mc.screens.screen_excel.blur, 4, { alpha:0,	ease:Quart.easeInOut}, "-=4");
-				
+
 				exportRoot.tlicons.from(mc.screens.screen_powerpoint, 4, {scaleX: .8, scaleY:.8, x: "-=450",  y: "+=200",	ease:Quart.easeOut}, "-=3.8");
 				//exportRoot.tlicons.from(mc.screens.screen_powerpoint.shad, 4, {alpha:60, x: "+=70",  y: "+=140",	ease:Quart.easeOut}, "-=4");
 				//exportRoot.tlicons.to(mc.screens.screen_powerpoint.blur, 4, { alpha:0,	ease:Quart.easeInOut}, "-=4");
-			
+
 				exportRoot.tlicons.from(mc.screens.screen_word, 4, {scaleX: 1.1, scaleY:1.1, x: "-=600",  y: "+=150",	ease:Quart.easeOut}, "-=3.8");
-				//exportRoot.tlicons.from(mc.screens.screen_word.shad, 4, {alpha:20, x: "+=150",  y: "+=300",	ease:Quart.easeOut}, "-=4");		
+				//exportRoot.tlicons.from(mc.screens.screen_word.shad, 4, {alpha:20, x: "+=150",  y: "+=300",	ease:Quart.easeOut}, "-=4");
 				*/
-				
+
 				exportRoot.tlicons.stop();
-				
+
 			mc.logo_intro.gotoAndPlay(1);
-			
+
 		}
 	}
 
@@ -1589,41 +1589,41 @@ an.getComposition = function(id) {
 }
 
 
-an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {		
-	var lastW, lastH, lastS=1;		
-	window.addEventListener('resize', resizeCanvas);		
-	resizeCanvas();		
-	function resizeCanvas() {			
-		var w = lib.properties.width, h = lib.properties.height;			
-		var iw = window.innerWidth, ih=window.innerHeight;			
-		var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;			
-		if(isResp) {                
-			if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
-				sRatio = lastS;                
-			}				
-			else if(!isScale) {					
-				if(iw<w || ih<h)						
-					sRatio = Math.min(xRatio, yRatio);				
-			}				
-			else if(scaleType==1) {					
-				sRatio = Math.min(xRatio, yRatio);				
-			}				
-			else if(scaleType==2) {					
-				sRatio = Math.max(xRatio, yRatio);				
-			}			
+an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {
+	var lastW, lastH, lastS=1;
+	window.addEventListener('resize', resizeCanvas);
+	resizeCanvas();
+	function resizeCanvas() {
+		var w = lib.properties.width, h = lib.properties.height;
+		var iw = window.innerWidth, ih=window.innerHeight;
+		var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;
+		if(isResp) {
+			if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {
+				sRatio = lastS;
+			}
+			else if(!isScale) {
+				if(iw<w || ih<h)
+					sRatio = Math.min(xRatio, yRatio);
+			}
+			else if(scaleType==1) {
+				sRatio = Math.min(xRatio, yRatio);
+			}
+			else if(scaleType==2) {
+				sRatio = Math.max(xRatio, yRatio);
+			}
 		}
-		domContainers[0].width = w * pRatio * sRatio;			
+		domContainers[0].width = w * pRatio * sRatio;
 		domContainers[0].height = h * pRatio * sRatio;
-		domContainers.forEach(function(container) {				
-			container.style.width = w * sRatio + 'px';				
-			container.style.height = h * sRatio + 'px';			
+		domContainers.forEach(function(container) {
+			container.style.width = w * sRatio + 'px';
+			container.style.height = h * sRatio + 'px';
 		});
-		stage.scaleX = pRatio*sRatio;			
+		stage.scaleX = pRatio*sRatio;
 		stage.scaleY = pRatio*sRatio;
-		lastW = iw; lastH = ih; lastS = sRatio;            
-		stage.tickOnUpdate = false;            
-		stage.update();            
-		stage.tickOnUpdate = true;		
+		lastW = iw; lastH = ih; lastS = sRatio;
+		stage.tickOnUpdate = false;
+		stage.update();
+		stage.tickOnUpdate = true;
 	}
 }
 an.handleSoundStreamOnTick = function(event) {
