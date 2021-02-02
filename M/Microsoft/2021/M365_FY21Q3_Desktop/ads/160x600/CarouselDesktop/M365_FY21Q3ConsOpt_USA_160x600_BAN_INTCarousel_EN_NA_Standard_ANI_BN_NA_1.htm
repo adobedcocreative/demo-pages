@@ -105,28 +105,21 @@ function handleComplete(evt,comp) {
 						layer.x = ctaWidth - 20;
 					}
 				}
-        alignArrow(layers.cta.arrow0);
-				alignArrow(layers.cta.arrow1);
-				alignArrow(layers.cta.arrow2);
-				alignArrow(layers.cta.arrow3);
-				alignArrow(layers.cta.arrow4);
+        alignArrow(layers.cta.arrow);
 				var alignBackground = function(layer) {
 					if(layer) {
-						var ctaBackgroundColor = layer.shape.graphics._fill.style;
+						var ctaBackgroundColor = layer.graphics._fill.style;
 						layer.x = 0;
 		        layer.y = 0;
 		        layer.scaleX = 1;
 		        layer.scaleY = 1;
 		        layer.regX = 0;
 		        layer.regY = 0;
-						layer.shape.x = 0;
-						layer.shape.y = 0;
-		        layer.shape.graphics.clear();
-		        layer.shape.graphics.beginFill(ctaBackgroundColor).drawRect(0, -15, ctaWidth, 30);
+		        layer.graphics.clear();
+		        layer.graphics.beginFill(ctaBackgroundColor).drawRect(0, -15, ctaWidth, 30);
 					}
 				}
-				alignBackground(layers.cta.ctaBg1);
-				alignBackground(layers.cta.ctaBg2);
+				alignBackground(layers.cta.children[0]);
         if(position == 'right') {
           layers.cta.x = adWidth - ctaWidth;
           layers.txtCta.x = adWidth - ctaWidth + 15;
@@ -148,7 +141,8 @@ function handleComplete(evt,comp) {
 			bannerData.enlarged_3_2 = eval(bannerData.textField4.split('^')[1]);
 			bannerData.enlarged_4_1 = eval(bannerData.textField5.split('^')[0]);
 			bannerData.enlarged_4_2 = eval(bannerData.textField5.split('^')[1]);
-			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "10px" : (bannerData.ctaText.length >= 12 ? "11px" : "13px")),0,0,"50","300", "center"] : '';
+			bannerData.ctaText = bannerData.ctaText.replace('<br>', '\n');
+			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "9.5px" : (bannerData.ctaText.length >= 12 ? "11px" : "13px")),0,0,"50","300", "center"] : '';
 			window.smartNames = [];
 			if(bannerData.textField2.split('^').length >= 2) {
 				window.smartNames.push(bannerData.textField2.split('^')[1]);
@@ -185,7 +179,7 @@ function handleComplete(evt,comp) {
 				});
 			}
         exportRoot.initBanner(bannerData)
-				// ctaAlignment('left');
+				ctaAlignment('left');
         exportRoot.runBanner()
     })
 	initReady=true
