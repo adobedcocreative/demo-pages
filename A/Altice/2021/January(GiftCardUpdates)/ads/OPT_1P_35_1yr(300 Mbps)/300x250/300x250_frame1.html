@@ -179,9 +179,9 @@ amo.registerAttribute("frameText1", "TEXT", "Get a Fresh Start<div style='font-s
 amo.registerAttribute("frameText21", "TEXT", "<div style='top: 54px;left: 42px;font-size: 19.5px;line-height: 0.95;color: #fff;'>300 Mbps<br>Internet</div>");
 amo.registerAttribute("frameText22", "TEXT", "<div style='top: 92px;left: 37px;width: 160px;color: #fff;line-height: 1;'><font style='font-size: 65px;letter-spacing: -1.2px;'>$35</font><font style='margin-left: 4px;font-size: 10px;display: inline-block;vertical-align: 27px;line-height: 1.1;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 2px 0 0 6px;font-size: 8.7px;line-height: 1.1;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
 amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText31", "TEXT", "<div style='top: 112px;left: 20px;width: 260px;font-size: 20px;line-height: 1.05;text-align: center;'>300 Mbps Internet<br>+ Smart WiFi coverage</div>");
-amo.registerAttribute("frameText32", "TEXT", "<div class='AlticeRegular' style='top: 178px;left: 24px;font-size: 9px;line-height: 1.15;'>Wired connection up to 300 Mbps.<br>WiFi speeds may vary.</div>");
-amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
+amo.registerAttribute("frameText31", "TEXT", "<div style='top: 57px;left: 23px;font-size: 55px;line-height: 1;' class='coloredText'>$200</div>");
+amo.registerAttribute("frameText32", "TEXT", "<div style='top: 108px;left: 24px;font-size: 20px;line-height: 1.05;'>Visa<span style='vertical-align: 50%;font-size: 60%;'>®</span> Prepaid<br>Card on us!</div><div class='AlticeRegular' style='position: absolute;top: 150px;left: 24px;font-size: 10px;line-height: 1.15;'>Terms apply.</div>");
+amo.registerAttribute("frameText33", "TEXT", "<div class='AlticeRegular' style='top: 178px;left: 24px;font-size: 9px;line-height: 1.15;'>Wired connection up to 300 Mbps.<br>WiFi speeds may vary.</div>");
 amo.registerAttribute("frameText41", "TEXT", "<div style='top: 112px;left: 20px;width: 260px;font-size: 20px;line-height: 1.05;text-align: center;'>Free installation<br>for a limited time!</div>");
 amo.registerAttribute("frameText42", "TEXT", "<div class='AlticeRegular' style='top: 178px;left: 24px;font-size: 9px;line-height: 1.15;'>Speeds, prices &<br>availability vary by area.</div>");
 amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
@@ -213,8 +213,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 171px;left: 21px;
     <div id="frameText21" class="frameText">!{frameText21}</div>
     <div id="frameText22" class="frameText">!{frameText22}</div>
     <div id="frameText23" class="frameText">!{frameText23}</div>
-    <!-- <div id="frameImage3" class="asset frameImage" data-image="frameImage3"></div> -->
-    <div id="frameImage3" class="frameImage" style="top: 29px;left: 58px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width: 152px;"></video></div>
+    <div id="frameImage3" class="asset frameImage" data-image="frameImage3"></div>
     <div id="frameText31" class="frameText">!{frameText31}</div>
     <div id="frameText32" class="frameText">!{frameText32}</div>
     <div id="frameText33" class="frameText">!{frameText33}</div>
@@ -327,9 +326,9 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 171px;left: 21px;
           introLogoImage: 'images/300x250_Logo_Optimum_White.png',
           frameBackground: '1x1.png',
           frameVideo1: "300x250_lady_kitchen.mp4",
-          frameVideo3: "Animate_300_Mbps_Arrow.mp4",
           frameVideo4: "Animate_House_Gear.mp4",
           frameImage2: "300x250_OPT_JAN_ACQ_FIB_300Mb_35Yr1_NonSub_Fiber1P_Img_Frame_02.png",
+          frameImage3: "300x250_OPT-200-Reward-Card.png",
           frameImage5: "300x250_OPT_JAN_ACQ_FIB_300Mb_35Yr1_NonSub_Fiber1P_Img_Frame_05.png",
         },
         beforeLoad: function(data){
@@ -360,7 +359,6 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 171px;left: 21px;
           }
         }
         loadVideo(ad.layers.frameVideo1.querySelector('video'), adData.frameVideo1, true);
-        loadVideo(ad.layers.frameImage3.querySelector('video'), adData.frameVideo3);
         loadVideo(ad.layers.frameImage4.querySelector('video'), adData.frameVideo4);
 
         textUpdate();
@@ -456,7 +454,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 171px;left: 21px;
           var frameId = 3;
           ad.layers.cta.classList.remove('ctaWhite');
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[frameId]})
+          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame4}))
         }
         var animateFrame2 = function(flag){
