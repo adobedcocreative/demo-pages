@@ -150,8 +150,8 @@ amo.registerAttribute("frameText21", "TEXT", "<div style='top: 12px;left: 23px;f
 amo.registerAttribute("frameText22", "TEXT", "<div style='top: 3px;left: 127px;width: 300px;line-height: 1;'><font style='font-size: 86px;letter-spacing: -2px;padding-right: 2px;' class='coloredText'>$35</font><font style='margin-left: 6px;font-size: 13px;display: inline-block;vertical-align: 36px;line-height: 1.05;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='position: absolute;top: 52px;left: 150px;font-size: 10px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
 amo.registerAttribute("frameText23", "TEXT","&nbsp;");
 amo.registerAttribute("frameText31", "TEXT","&nbsp;");
-amo.registerAttribute("frameText32", "TEXT", "<div style='top: 16px;left: 131px;font-size: 22px;line-height: 1;'>300 Mbps Fiber Internet<br>+ Smart WiFi coverage</div>");
-amo.registerAttribute("frameText33", "TEXT", "<div class='AlticeRegular' style='top: 63px;left: 131px;font-size: 10.8px;line-height: 1.1;'>Wired connection up to 300 Mbps. WiFi speeds may vary.</div>");
+amo.registerAttribute("frameText32", "TEXT", "<div style='top: 5px;left: 203px;font-size: 47px;line-height: 1;' class='coloredText'>$200</div><div style='top: 49px;left: 203px;font-size: 21px;line-height: 1.05;'>Visa<span style='vertical-align: 50%;font-size: 60%;'>®</span> Prepaid Card on us!<span class='AlticeRegular' style='font-size:10px;margin-left:3px;'>Terms apply.</span></div>");
+amo.registerAttribute("frameText33", "TEXT", "<div class='AlticeRegular' style='top: 72px;left: 203px;font-size: 10.8px;line-height: 1.1;'>Wired connection up to 300 Mbps. WiFi speeds may vary.</div>");
 amo.registerAttribute("frameText41", "TEXT","&nbsp;");
 amo.registerAttribute("frameText42", "TEXT", "<div style='top: 26px;left: 129px;font-size: 21px;line-height: 1.1;'>Free installation for a limited time!</div>");
 amo.registerAttribute("frameText43", "TEXT", "<div class='AlticeRegular' style='top: 52px;left: 131px;font-size: 10.8px;line-height: 1;'>Speeds, prices & availability vary by area.</div>");
@@ -184,8 +184,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 371px;
     <div id="frameText21" class="frameText">!{frameText21}</div>
     <div id="frameText22" class="frameText">!{frameText22}</div>
     <div id="frameText23" class="frameText">!{frameText23}</div>
-    <!-- <div id="frameImage3" class="asset frameImage" data-image="frameImage3"></div> -->
-    <div id="frameImage3" class="frameImageLeft" style="top: 14px;left: 0px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width: 117px;"></video></div>
+    <div id="frameImage3" class="asset frameImage" data-image="frameImage3"></div>
     <div id="frameText31" class="frameText">!{frameText31}</div>
     <div id="frameText32" class="frameText">!{frameText32}</div>
     <div id="frameText33" class="frameText">!{frameText33}</div>
@@ -297,9 +296,9 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 371px;
           introLogoImage: 'images/728x90_Logo_Optimum_Black.png',
           frameBackground: '1x1.png',
           frameVideo1: "728x90_lady_kitchen.mp4",
-          frameVideo3: "Animate_300_Mbps_Arrow.mp4",
           frameVideo4: "Animate_House_Gear.mp4",
           frameImage2: "728x90_OPT_JAN_ACQ_FIB_300Mb_35Yr1_NonSub_Fiber1P_Img_Frame_02.png",
+          frameImage3: "728x90_OPT-200-Reward-Card.png",
           frameImage5: "1x1.png",
         },
         beforeLoad: function(data){
@@ -330,7 +329,6 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 371px;
           }
         }
         loadVideo(ad.layers.frameVideo1.querySelector('video'), adData.frameVideo1, true);
-        loadVideo(ad.layers.frameImage3.querySelector('video'), adData.frameVideo3);
         loadVideo(ad.layers.frameImage4.querySelector('video'), adData.frameVideo4);
 
         textUpdate();
@@ -404,7 +402,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 371px;
         var animateFrame3 = function(flag){
           var frameId = 3;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[frameId]})
+          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame4}));
         }
         var animateFrame2 = function(flag){
