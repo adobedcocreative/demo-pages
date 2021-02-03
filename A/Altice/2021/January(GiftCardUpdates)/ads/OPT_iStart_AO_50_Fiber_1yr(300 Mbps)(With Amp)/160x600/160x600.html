@@ -164,9 +164,9 @@ amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText31", "TEXT", "<div style='top: 175px;left: 5px;width: 150px;font-size: 20px;line-height: 1.05;text-align: center;'>Live,<br>streaming,<br>and<br>On Demand TV</div>");
 amo.registerAttribute("frameText32", "TEXT", "<div class='AlticeRegular' style='top: 457px;left: 18px;width: 124px;font-size: 9.8px;line-height: 1.2;'>Speeds, prices & availability vary by area.</div>");
 amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText41", "TEXT", "<div style='top: 79px;left: 10px;width: 140px;font-size: 20px;line-height: 0.95;'>Optimum<br>Amplify smart<br>speaker deal!</div>");
-amo.registerAttribute("frameText42", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
+amo.registerAttribute("frameText41", "TEXT", "<div style='top: 244px;left: 31px;font-size: 40px;line-height: 1;' class='coloredText'>$100</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div style='top: 281px;left: 10px;width: 140px;font-size: 20px;line-height: 1.05;text-align: center;'>Visa<span style='vertical-align: 50%;font-size: 60%;'>®</span> Prepaid<br>Card on us!</div>");
+amo.registerAttribute("frameText43", "TEXT", "<div class='AlticeRegular' style='position: absolute;top: 322px;left: 10px;width: 140px;font-size: 10px;line-height: 1.15;text-align: center;'>Terms apply.</div>");
 amo.registerAttribute("frameText51", "TEXT", "<div style='top: 78px;left: 13px;font-size: 18px;line-height:1;'>300 Mbps Fiber Internet & TV</div>");
 amo.registerAttribute("frameText52", "TEXT", "<div style='top: 118px;left: 9px;width: 150px;line-height: 1;'><div style='font-size: 15px;margin-left: 5px;' class='strikeText'>$55/mo.</div><font style='font-size: 65px;letter-spacing: -2px;padding-right: 2px;' class='coloredText'>$50</font><font style='margin-left: 0px;font-size: 11px;display: inline-block;vertical-align: 25px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 2px 0 0 5px;font-size: 10px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
 amo.registerAttribute("frameText53", "TEXT", "<div style='top: 235px;width:170px;left: 13px;transform: scale(0.81);transform-origin: top left;'><div class='bulletedText'>$200 Visa<span style='vertical-align:5px;font-size:9px;'>®</span> Prepaid Card. <span class='AlticeRegular' style='font-size: 12px;line-height:1;'>Terms apply.</span></div></div>");
@@ -200,7 +200,6 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 235px;width:170px
     <div id="frameText32" class="frameText">!{frameText32}</div>
     <div id="frameText33" class="frameText">!{frameText33}</div>
     <div id="frameImage4" class="asset frameImage" data-image="frameImage4"></div>
-    <div id="frameImage41" class="asset adSizeContainer" data-image="frameImage41" style="opacity:0;"></div>
     <div id="frameText41" class="frameText">!{frameText41}</div>
     <div id="frameText42" class="frameText">!{frameText42}</div>
     <div id="frameText43" class="frameText">!{frameText43}</div>
@@ -310,8 +309,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 235px;width:170px
           frameVideo1: "160x600_yoga.mp4",
           frameVideo2: "Animate_300_Mbps_Arrow.mp4",
           frameVideo3: "Animate_HolidayBanners_PlayButton.mp4",
-          frameImage4: "160x600_OPT_JAN_ACQ_iStart_AmpPC_50Yr1_NonSub_NY_Img_Amplify_Frame_04.png",
-          frameImage41: "160x600_OPT_JAN_ACQ_iStart_AmpPC_50Yr1_NonSub_NY_Img_Frame_04.png",
+          frameImage4: "160x600_OPT-200-Reward-Card.png",
           frameImage5: "160x600_OPT_JAN_ACQ_iStart_AmpPC_50Yr1_NonSub_NY_Img_Frame_05.png",
         },
         beforeLoad: function(data){
@@ -419,10 +417,8 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 235px;width:170px
           var frameId = 4;
           gsap.set('#frameBackground', {display: 'block'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage41', {delay:0.2, autoAlpha:1})
-          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
-          .to('#frameImage'+frameId+', #frameImage41, div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame5}));
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame5}));
         }
         var animateFrame3 = function(flag){
           var frameId = 3;
