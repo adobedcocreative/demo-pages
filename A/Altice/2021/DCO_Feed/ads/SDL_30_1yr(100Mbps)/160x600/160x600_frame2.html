@@ -314,7 +314,7 @@
           "frameText1": "Pilot Point^just got faster",
           "frameText2": "<div style='top: 80px;left: 14px;width: 140px;font-size: 22px;line-height: 1;'>Suddenlink’s next generation network<br>is here</div>^<div class='AlticeRegular' style='top: 456px;width: 127px;left:18px;font-size: 9.7px;line-height: 1.25;'>Speeds, prices & availability vary by area.</div>^&nbsp;",
           "frameText3": "<div style='top: 163px;left: 10px;width: 140px;font-size: 20px;line-height: 1.05;text-align: center;'>Get<br>100 Mbps Internet</div>^<div class='AlticeRegular' style='top: 456px;width: 127px;left:18px;font-size: 9.7px;line-height: 1.25;'>Wired connection<br>up to 100 Mbps.</div>^&nbsp;",
-          "frameText4": "<div style='top: 80px;left: 13px;font-size: 18px;line-height:1;'><div style='color: #0084d6;height: 37px;font-size: 83%;line-height: 1.1;'>Fast Internet<br>has arrived</div>100 Mbps<br>Internet</div>^<div style='top: 152px;left: 9px;width: 150px;line-height: 1;'><font style='font-size: 63px;letter-spacing: -2px;padding-right: 2px;' class='coloredText'>$30</font><font style='margin-left: 2px;font-size: 11px;display: inline-block;vertical-align: 25px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 4px 0 0 5px;font-size: 9px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>^<div style='top: 255px;width:170px;left: 13px;transform: scale(0.88);transform-origin: top left;'><div class='bulletedText' style='line-height: 1.1;'>$100 Visa<span style='vertical-align:5px;font-size:9px;'>®</span><br>Prepaid Card. <div class='AlticeRegular' style='font-size: 11.5px;line-height:1;margin-top: 2px;margin-left: 1px;'>Terms apply.</div></div></div>",
+          "frameText4": "<div style='top: 80px;left: 13px;font-size: 18px;line-height:1;'><div style='color: #0084d6;height: 37px;font-size: 83%;line-height: 1.1;'>Fast Internet<br>has arrived</div>100 Mbps<br>Internet</div>^<div style='top: 152px;left: 9px;width: 150px;line-height: 1;'><font style='font-size: 63px;letter-spacing: -2px;padding-right: 2px;' class='coloredText'>$30</font><font style='margin-left: 2px;font-size: 11px;display: inline-block;vertical-align: 25px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 4px 0 0 5px;font-size: 9px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>^<div style='top: 255px;width:170px;left: 13px;transform: scale(0.81);transform-origin: top left;'><div class='bulletedText'><font style='color:#0084d6;'>New!</font> $200 Visa<span style='vertical-align:5px;font-size:9px;'>®</span> Prepaid Card. <div class='AlticeRegular' style='font-size: 12px;margin-top:2px;line-height:1;'>Terms apply.</div></div></div>",
           "ctaText": "Shop now",
           "clickUrl": "https://www.altice.com",
         },
@@ -391,7 +391,8 @@
         gsap.set('#beam3',{top:234,left:160,width:140,height:23,x:-300});gsap.set('#beam3 div',{width:23});
         gsap.set('#beam4',{top:230,left:160,width:170,height:14,x:-330});gsap.set('#beam4 div',{width:14});
         gsap.set('#beam5',{top:30,left:160,width:180,height:22,x:-340});gsap.set('#beam5 div',{width:22});
-        gsap.set('#frameText1, #frameText12', {x:'-120%'});
+        gsap.set('#frameText1', {x:'-120%'});
+        gsap.set('#frameText12', {autoAlpha:0});
         gsap.set('.frameImage', {x:'100%'});
         gsap.set('.frameText, #priceLabel', {x:'-100%'});
         // gsap.set('.frameImageLeft', {x:'-100%', y:0});
@@ -474,11 +475,11 @@
         }
         var animateFrame1 = function(flag){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameText1', {x:0,y:0})
-          .to('#loadBarImage', {width: '100%', duration: 1.2, delay:0.5})
-          .to('#frameText1', {x:'120%',y:0}, '-=0.5')
-          .to('#frameText12', {x:0,y:0})
-          .to('#frame1', (flag==true?{}:{delay:1.7, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          .to('#frameText1', {x:0, y:0})
+          .to('#frameText1', {autoAlpha: 0, delay:2})
+          .to('#frameText12', {autoAlpha: 1})
+          .to('#loadBarImage', {width: '100%', duration: 1.7}, '-=0.3')
+          .to('#frame1', (flag==true?{}:{delay:0.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
         if('frame1' in ad.layers) ad.layers.frame1.remove();
                     gsap.delayedCall(1.2, animateFrame2, [true]);

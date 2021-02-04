@@ -383,7 +383,8 @@
         gsap.set('.frameText', {y:'100%'});
         gsap.set('div[id^="frameText"][id$="1"], #priceLabel', {x:'-100%',y:0});
         gsap.set('.frameImageLeft', {x:'-100%', y:0});
-        gsap.set('#frameText1, #frameText12', {x:'-120%', y:0});
+        gsap.set('#frameText1', {x:'-120%', y:0});
+        gsap.set('#frameText12', {autoAlpha:0});
 
         var loadBarImage = ad.root.querySelector('#loadBarImage img');
         loadBarImage.style.width = loadBarImage.parentNode.style.maxWidth;
@@ -455,11 +456,11 @@
         }
         var animateFrame1 = function(flag){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameText1', {x:0,y:0})
-          .to('#loadBarImage', {width: '100%', duration: 1.2, delay:0.5})
-          .to('#frameText1', {x:'-120%',y:0}, '-=0.5')
-          .to('#frameText12', {x:0,y:0})
-          .to('#frame1', (flag==true?{}:{delay:1.7, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          .to('#frameText1', {x:0, y:0})
+          .to('#frameText1', {autoAlpha: 0, delay:2})
+          .to('#frameText12', {autoAlpha: 1})
+          .to('#loadBarImage', {width: 300, duration: 1.7}, '-=0.3')
+          .to('#frame1', (flag==true?{}:{delay:0.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
         if('frame1' in ad.layers) ad.layers.frame1.remove();
                     gsap.delayedCall(1.2, animateFrame4, [true]);

@@ -387,7 +387,8 @@
         gsap.set('#beam3',{top:250,left:300,width:220,height:30,x:-520});gsap.set('#beam3 div',{width:30});
         gsap.set('#beam4',{top:313,left:300,width:230,height:18,x:-530});gsap.set('#beam4 div',{width:18});
         gsap.set('#beam5',{top:30,left:300,width:240,height:28,x:-540});gsap.set('#beam5 div',{width:28});
-        gsap.set('#frameText1, #frameText12', {x:'-120%'});
+        gsap.set('#frameText1', {x:'-120%'});
+        gsap.set('#frameText12', {autoAlpha:0});
         gsap.set('.frameImage', {x:'100%'});
         gsap.set('.frameText, #priceLabel', {x:'-100%'});
         // gsap.set('.frameImageLeft', {x:'-100%', y:0});
@@ -470,11 +471,11 @@
         }
         var animateFrame1 = function(flag){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameText1', {x:0,y:0})
-          .to('#loadBarImage', {width: '100%', duration: 1.2, delay:0.5})
-          .to('#frameText1', {x:'120%',y:0}, '-=0.5')
-          .to('#frameText12', {x:0,y:0})
-          .to('#frame1', (flag==true?{}:{delay:1.7, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          .to('#frameText1', {x:0, y:0})
+          .to('#frameText1', {autoAlpha: 0, delay:2})
+          .to('#frameText12', {autoAlpha: 1})
+          .to('#loadBarImage', {width: '100%', duration: 1.7}, '-=0.3')
+          .to('#frame1', (flag==true?{}:{delay:0.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
         if('frame1' in ad.layers) ad.layers.frame1.remove();
                     gsap.delayedCall(1.2, animateFrame4, [true]);
