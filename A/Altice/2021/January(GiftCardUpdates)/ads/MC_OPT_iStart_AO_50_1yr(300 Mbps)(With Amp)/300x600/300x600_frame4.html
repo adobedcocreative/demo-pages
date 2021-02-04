@@ -165,9 +165,9 @@ amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText31", "TEXT", "<div style='top: 199px;left: 10px;width: 280px;font-size: 28px;line-height: 1.1;text-align: center;'>Streaming, TV en vivo y On Demand</div>");
 amo.registerAttribute("frameText32", "TEXT", "<div class='AlticeRegular' style='top: 492px;left: 22px;font-size: 13px;line-height: 1.1;'>Velocidades, precios y disponibilidad<br>varían según el área.</div>");
 amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText41", "TEXT", "<div style='top: 93px;left: 19px;width: 260px;font-size: 28px;line-height: 1;'>¡Altavoz inteligente Optimum Amplify<br><font class='coloredText'>en oferta!</font></div>");
-amo.registerAttribute("frameText42", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
+amo.registerAttribute("frameText41", "TEXT", "<div style='top: 249px;left: 83px;font-size: 60px;line-height: 1;' class='coloredText'>$200</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div style='top: 305px;left: 30px;width: 240px;font-size: 28px;line-height: 1.05;text-align: center;'>¡Tarjeta prepagada Visa<span style='vertical-align: 50%;font-size: 60%;'>®</span>!</div>");
+amo.registerAttribute("frameText43", "TEXT", "<div class='AlticeRegular' style='position: absolute;top: 364px;left: 30px;width: 240px;font-size: 14px;line-height: 1.15;text-align: center;'>Aplican términos.</div>");
 amo.registerAttribute("frameText51", "TEXT", "<div style='top: 87.32px;left: 21.54px;font-size: 28px;line-height:1;'>Internet de<br>300 megas y TV</div>");
 amo.registerAttribute("frameText52", "TEXT", "<div style='top: 146px;left: 14px;width: 260px;line-height: 1;'><div style='font-size: 23px;margin-left: 8px;' class='strikeText'>$55/mo.</div><font style='font-size: 117px;letter-spacing: -3px;padding-right: 3px;line-height: 0.9;' class='coloredText'>$50</font><font style='margin-left: 5px;font-size: 19px;display: inline-block;vertical-align: 49px;line-height: 0.95;'>/mes<br>1 año</font><div class='AlticeRegular' style='margin: 1px 0 0 8px;font-size: 14px;'>con pago automático<br>y facturación electrónica<br>más tarifas, imptos. y cargos.</div></div>");
 amo.registerAttribute("frameText53", "TEXT", "<div style='top: 332px;width:420px;left: 21px;transform: scale(0.68);transform-origin: top left;'><div class='bulletedText'>¡Obtén la tarjeta prepagada<br>Visa<span style='vertical-align:11px;font-size:14px;'>®</span> de $200! <font class='AlticeRegular' style='font-size: 20.5px;line-height:1;'>Aplican términos.</font></div></div>");
@@ -201,7 +201,6 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 332px;width:420px
     <div id="frameText32" class="frameText">!{frameText32}</div>
     <div id="frameText33" class="frameText">!{frameText33}</div>
     <div id="frameImage4" class="asset frameImage" data-image="frameImage4"></div>
-    <div id="frameImage41" class="asset adSizeContainer" data-image="frameImage41" style="opacity:0;"></div>
     <div id="frameText41" class="frameText">!{frameText41}</div>
     <div id="frameText42" class="frameText">!{frameText42}</div>
     <div id="frameText43" class="frameText">!{frameText43}</div>
@@ -310,8 +309,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 332px;width:420px
           frameVideo1: "300x600_yoga.mp4",
           frameVideo2: "Animate_300_Mbps_Arrow.mp4",
           frameVideo3: "Animate_HolidayBanners_PlayButton.mp4",
-          frameImage4: "300x600_OPT_JAN_ACQ_iStart_AmpPC_50Yr1_NonSub_NY_Img_Amplify_Frame_04.png",
-          frameImage41: "300x600_OPT_Mov_ACQ_iStart_NYVsAmp_50Yr1_NonSub_Generic_Img_Frame_04.png",
+          frameImage4: "300x600_OPT-200-Reward-Card.png",
           frameImage5: "300x600_OPT_JAN_ACQ_iStart_AmpPC_50Yr1_NonSub_NY_Img_Frame_05.png",
         },
         beforeLoad: function(data){
@@ -419,10 +417,8 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 332px;width:420px
           var frameId = 4;
           gsap.set('#frameBackground', {display: 'block'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage41', {delay:0.2, autoAlpha:1})
-          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
-          .to('#frameImage'+frameId+', #frameImage41, div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame5}));
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame5}));
         }
         var animateFrame3 = function(flag){
           var frameId = 3;
