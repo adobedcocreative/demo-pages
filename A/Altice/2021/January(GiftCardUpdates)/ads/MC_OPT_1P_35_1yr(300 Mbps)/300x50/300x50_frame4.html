@@ -307,7 +307,8 @@ amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frame1', (flag==true?{}:{delay:2.5, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
-        gsap.delayedCall(.8, animateFrame1, [true]);
+        if('frame1' in ad.layers) ad.layers.frame1.remove();
+                    gsap.delayedCall(1.2, animateFrame4, [true]);
       });
     }, 2000);
   </script>
