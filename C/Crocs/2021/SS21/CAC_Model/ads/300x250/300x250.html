@@ -46,21 +46,16 @@
     <div class="" id="ad">
       <div id="backgroundImage1" class="asset frame" data-image="backgroundImage1"></div>
       <div id="backgroundImage2" class="asset frame" data-image="backgroundImage2"></div>
-      <div class="maskHeadlines" style="width:180px;height:inherit;overflow:hidden;">
-        <div class="" style="position:absolute;top:0px;left:0px;width:300px;height: inherit;">
-          <div id="headlineImage1" class="asset frame" data-image="headlineImage1"></div>
-          <div id="headlineImage2" class="asset frame" data-image="headlineImage2"></div>
-        </div>
-      </div>
-      <div id="headlineImage3" class="asset frame" data-image="headlineImage3"></div>
+      <div id="headlineImage1" class="asset frame" data-image="headlineImage1"></div>
+      <div id="headlineImage2" class="asset frame" data-image="headlineImage2"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="cta" class="asset frame"
         data-image="ctaImage"
-        style="top: 156px;
-          left: 126px;
-          width: 20px;
-          height: 25px;">
+        style="top: 162px;
+          left: 181px;
+          width: 77px;
+          height: 15px;">
       </div>
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
@@ -97,15 +92,15 @@
           staticData: {
             // ref: 'ref.png'
             ctaBtnColor: '#fff',
-            logoImage: 'images/300x250_Crocs_Logo.png',
+            logoImage: 'images/300x250_Crocs_SS21_Logo.png',
           },
           beforeLoad: function(data){
             data.map(function(content){
               // content.ctaBtn = content.ctaBtnColor.split('^')[0];
               // content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
               var changePosition = function(flag){
-                gsap.set('#cta', {left:176, top:197, width: 102, height:34});
-                if(!flag) content.logoImage = 'images/300x250_Crocs_Logo_NoShadow.png';
+                // gsap.set('#cta', {left:176, top:197, width: 102, height:34});
+                // if(!flag) content.logoImage = 'images/300x250_Crocs_Logo_NoShadow.png';
               }
               var addIcon = function(color){
                 color = color ? color : '#fff';
@@ -116,10 +111,10 @@
                 }
               }
               switch(content.ctaSelect){
-                case 'en_text': content.ctaImage = 'images/cta/CTA_EN_Show_Now.png'; changePosition(); break;
-                case 'jp_text': content.ctaImage = 'images/cta/CTA_JP_Show_Now.png'; changePosition(); break;
-                case 'de_text': content.ctaImage = 'images/cta/CTA_DE_Show_Now.png'; changePosition(); break;
-                case 'kr_text': content.ctaImage = 'images/cta/CTA_KR_Show_Now.png'; changePosition(); break;
+                case 'en_text': content.ctaImage = 'images/cta/CTA_EN_Shop_Now.png'; changePosition(); break;
+                case 'jp_text': content.ctaImage = 'images/cta/CTA_JP_Shop_Now.png'; changePosition(); break;
+                case 'de_text': content.ctaImage = 'images/cta/CTA_DE_Shop_Now.png'; changePosition(); break;
+                case 'kr_text': content.ctaImage = 'images/cta/CTA_KR_Shop_Now.png'; changePosition(); break;
                 case 'en_text_green': content.ctaImage = 'images/cta/CTA_Green_EN_Shop_Now.png'; changePosition(); break;
                 case 'de_text_green': content.ctaImage = 'images/cta/CTA_Green_DE_Shop_Now.png'; changePosition(); break;
                 case 'kr_text_green': content.ctaImage = 'images/cta/CTA_Green_KO_Shop_Now.png'; changePosition(); break;
@@ -160,13 +155,13 @@
               }
             } catch(e) {  }
           }
-          var adWidth = 300;
-          gsap.timeline({defaults:{ease: Power1.easeOut, duration: 0.3}})
-          .from('#backgroundImage1', { scale: 1.14, duration: 8})
-          gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.7}})
-          .from('#headlineImage1', { x: -180,delay:0.5})
-          .from('#headlineImage2', { x: 180}, '-=0.7')
-          .from('#headlineImage3', { autoAlpha: 0, delay:0.5})
+          var adWidth = 300, adHeight = 250;
+          gsap.timeline({defaults:{ease: Power2.Out, duration: 0.2}})
+          .from('#backgroundImage2', { x: '-100%', duration:0.5, delay:0.5})
+          .from('#headlineImage1', { y: '100%'})
+          .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
+          .from('#logoImage', { y: '100%'})
+          .from('#cta', { y: adHeight})
         });
       }, 2000);
     </script>

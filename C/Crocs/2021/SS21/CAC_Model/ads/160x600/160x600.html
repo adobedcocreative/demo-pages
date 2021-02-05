@@ -91,7 +91,7 @@
           staticData: {
             // ref: 'ref.png'
             ctaBtnColor: '#fff',
-            logoImage: 'images/160x600_Crocs_Logo.png',
+            logoImage: 'images/160x600_Crocs_SS21_Logo.png',
 
           },
           beforeLoad: function(data){
@@ -99,10 +99,10 @@
               // content.ctaBtn = content.ctaBtnColor.split('^')[0];
               // content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
               switch(content.ctaSelect){
-                case 'en_text': content.ctaImage = 'images/cta/CTA_EN_Show_Now.png'; break;
-                case 'jp_text': content.ctaImage = 'images/cta/CTA_JP_Show_Now.png'; break;
-                case 'de_text': content.ctaImage = 'images/cta/CTA_DE_Show_Now.png'; break;
-                case 'kr_text': content.ctaImage = 'images/cta/CTA_KR_Show_Now.png'; break;
+                case 'en_text': content.ctaImage = 'images/cta/CTA_EN_Shop_Now.png'; break;
+                case 'jp_text': content.ctaImage = 'images/cta/CTA_JP_Shop_Now.png'; break;
+                case 'de_text': content.ctaImage = 'images/cta/CTA_DE_Shop_Now.png'; break;
+                case 'kr_text': content.ctaImage = 'images/cta/CTA_KR_Shop_Now.png'; break;
                 case 'en_text_green': content.ctaImage = 'images/cta/CTA_Green_EN_Shop_Now.png'; break;
                 case 'de_text_green': content.ctaImage = 'images/cta/CTA_Green_DE_Shop_Now.png'; break;
                 case 'kr_text_green': content.ctaImage = 'images/cta/CTA_Green_KO_Shop_Now.png'; break;
@@ -113,7 +113,7 @@
                 case 'jp_text_grey': case 'jp_text_gray': content.ctaImage = 'images/cta/CTA_Grey_JP_Shop_Now.png'; content.logoImage = 'images/160x600_Crocs_Logo_Grey.png'; break;
                 case 'de_text_grey': case 'de_text_gray': content.ctaImage = 'images/cta/CTA_Grey_DE_Shop_Now.png'; content.logoImage = 'images/160x600_Crocs_Logo_Grey.png'; break;
                 case 'kr_text_grey': case 'kr_text_gray': content.ctaImage = 'images/cta/CTA_Grey_KR_Shop_Now.png'; content.logoImage = 'images/160x600_Crocs_Logo_Grey.png'; break;
-                default: content.ctaImage = 'images/cta/CTA_EN_Show_Now.png';
+                default: content.ctaImage = 'images/cta/CTA_EN_Shop_Now.png';
               }
             });
             return data;
