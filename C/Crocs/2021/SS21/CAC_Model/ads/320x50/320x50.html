@@ -36,8 +36,9 @@
       }
       /* #cta { background-color: !{ctaBtnColor}; } */
       /* #cta:hover { background-color: !{ctaBtnHover}; } */
-      #cta svg { transition: all ease-out 0.2s; -webkit-transition: all ease-out 0.2s; }
-      #cta svg:hover { transform: scale(1.2); }
+      /* #cta svg { transition: all ease-out 0.2s; -webkit-transition: all ease-out 0.2s; }
+      #cta svg:hover { transform: scale(1.2); } */
+      #cta img:hover,#cta svg:hover { opacity: 0.7; }
     </style>
   </head>
   <body>
@@ -45,21 +46,13 @@
       <div id="backgroundImage1" class="asset frame" data-image="backgroundImage1"></div>
       <div id="backgroundImage2" class="asset frame" data-image="backgroundImage2"></div>
       <!-- <div id="backgroundImage" class="asset frame" data-image="backgroundImage"></div> -->
-      <div id="dividerLine" style="top: 0;left: 105px;width: 3px;height: inherit;background-color: #444;"></div>
-      <div class="maskHeadlines" style="width:180px;height:inherit;overflow:hidden;">
-        <div class="" style="position:absolute;top:0px;left:0px;width:320px;height: inherit;">
-          <div id="headlineImage1" class="asset frame" data-image="headlineImage1"></div>
-          <div id="headlineImage2" class="asset frame" data-image="headlineImage2"></div>
-        </div>
-      </div>
-      <div id="headlineImage3" class="asset frame" data-image="headlineImage3"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="cta" class="asset frame"
         data-image="ctaImage"
-        style="top: 13px;
-          left: 290px;
-          width: 20px;
+        style="top: 12px;
+          left: 287px;
+          width: 23px;
           height: 25px;">
       </div>
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
@@ -83,7 +76,6 @@
             backgroundImage2: 'assets/320x50_SS20_Crocs_DCO_ClassicPillar-Clogs_PriyankaChopraJonas_Background_Anim_02.png',
             headlineImage1: 'assets/1x1.png',
             headlineImage2: 'assets/1x1.png',
-            headlineImage3: 'assets/1x1.png',
             styleProperties: "na",//{'#dividerLine':{backgroundColor:'#fff'}}
             ctaSelect: 'icon_white',
             clickURL: 'https://www.adobe.com/#Crocs',
@@ -113,7 +105,8 @@
                 }
               }
               switch(content.ctaSelect){
-                case 'icon_white': addIcon('#fff'); break;//content.ctaImage = 'images/cta/320x50_CTA_Icon.png'; break;
+                case 'icon_white': content.ctaImage = 'images/cta/CTA Arrow.png'; break;
+                // case 'icon_white': addIcon('#fff'); break;//content.ctaImage = 'images/cta/320x50_CTA_Icon.png'; break;
                 case 'icon_orange': addIcon('#f36c3e'); break;
                 case 'icon_gray': case 'icon_grey': addIcon('#444'); content.logoImage = 'images/320x50_Crocs_Logo_Grey.png'; break; //content.ctaImage = 'images/cta/320x50_CTA_Icon_Gray.png'; content.logoImage = 'images/320x50_Crocs_SS21_Logo.png'; break;
                 case 'icon_green': addIcon('#4f660b'); content.logoImage = 'images/320x50_Crocs_Logo_Green.png'; content.backgroundImage = 'images/320x50_Crocs_ClassicPillar_Vertical_Line_Background_03_White.png'; break; //content.ctaImage = 'images/cta/320x50_CTA_Icon_Green.png'; content.logoImage = 'images/320x50_Crocs_Logo_Green.png'; break;
@@ -122,7 +115,7 @@
             });
             return data;
           }
-        }, function(data){
+        }, function(data, images){
           var adData = data[0], adClickUrl = adData['clickURL'];
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
@@ -137,27 +130,73 @@
               }
             } catch(e) {  }
           }
-          var adWidth = 320;
-          if(ad.layers.overlay.style.color == 'transparent') {
-            gsap.set('#backgroundImage2', { scale: 1.14 });
-            gsap.set('#backgroundImage2', { css:{transformOrigin:'20% 50%', zIndex:-1} });
-            gsap.timeline({defaults:{ease: Power1.ease, duration: 0.9}})
-            .from('#backgroundImage1', { x: adWidth})
-            .from('#backgroundImage2', { x: -adWidth}, '-=0.9')
-            .to('#backgroundImage2', { scale: 1, duration: 8})
-          } else {
-            gsap.set('#backgroundImage1', { scale: 1.14 });
-            gsap.timeline({defaults:{ease: Power1.ease, duration: 0.9}})
-            .from('#backgroundImage1', { x: adWidth})
-            .from('#backgroundImage2', { x: -adWidth}, '-=0.9')
-            .to('#backgroundImage1', { scale: 1, duration: 8})
+          function insertAfter(newNode, referenceNode) {
+              referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
           }
-          // gsap.timeline({defaults:{ease: Power1.easeOut, duration: 0.3}})
-          // .from('#backgroundImage1', { x:-5, scale: 1.14, duration: 8})
-          // gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.7}})
-          // .from('#headlineImage1', { x: -180,delay:0.5})
-          // .from('#headlineImage2', { x: 180}, '-=0.7')
-          // .from('#headlineImage3', { autoAlpha: 0, delay:0.5})
+          var adWidth = 320, adHeight = 50;
+          var imageCount = 1;
+          var modelImagePath = ad.layers.backgroundImage2.querySelector('img').src;
+          var modelImage = images.find(function(image){ return image.src == modelImagePath; });
+          if(modelImage) {
+            // ad.layers.backgroundImage2.classList.remove('asset');
+            var imageWidth = modelImage.naturalWidth, imageHeight = modelImage.naturalHeight;
+            if(imageWidth > adWidth) {
+              var scale = imageWidth/adWidth;
+              imageWidth = adWidth;
+              imageHeight /= scale;
+            }
+            if(!(imageHeight == adHeight)) {
+              imageCount = imageHeight/adHeight, imagePositions = [];
+              for(var i=0; i<=100;i+=100/(imageCount-1)) { imagePositions.push(i); }
+              var lastNode = ad.layers.backgroundImage2;
+              imagePositions.forEach(function(position, i){
+                var div = document.createElement('div');
+                div.id =  'backgroundImage' + (i + 2);
+                div.classList.add('frame');
+                div.style.backgroundImage = 'url(' + modelImage.src + ')';
+                div.style.backgroundSize = '100%';
+                div.style.backgroundPositionY = position + '%';
+                insertAfter(div, lastNode);
+                lastNode = div;
+              });
+              ad.layers.backgroundImage2.parentNode.removeChild(ad.layers.backgroundImage2);
+            } else { ad.layers.backgroundImage2.classList.add('asset'); }
+          }
+          if(imageCount == 1) {
+            gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
+            .from('#backgroundImage2', { y: '-100%', duration:0.5, delay:0.8})
+            .from('#logoImage', { y: '100%'})
+            .from('#cta', { y: adHeight})
+          } else if(imageCount == 2) {
+            gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
+            .from('#backgroundImage2', { y: '-100%', delay:0.8})
+            .from('#backgroundImage3', { y: '100%'})
+            .from('#logoImage', { y: '100%'})
+            .from('#cta', { y: adHeight})
+          } else if(imageCount == 3) {
+            gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
+            .from('#backgroundImage2', { y: '-100%', delay:0.8})
+            .from('#backgroundImage3', { y: '100%'})
+            .from('#backgroundImage4', { y: '-100%'})
+            .from('#logoImage', { y: '100%'})
+            .from('#cta', { y: adHeight})
+          }
+
+
+          // if(ad.layers.overlay.style.color == 'transparent') {
+          //   gsap.set('#backgroundImage2', { scale: 1.14 });
+          //   gsap.set('#backgroundImage2', { css:{transformOrigin:'20% 50%', zIndex:-1} });
+          //   gsap.timeline({defaults:{ease: Power1.ease, duration: 0.9}})
+          //   .from('#backgroundImage1', { x: adWidth})
+          //   .from('#backgroundImage2', { x: -adWidth}, '-=0.9')
+          //   .to('#backgroundImage2', { scale: 1, duration: 8})
+          // } else {
+          //   gsap.set('#backgroundImage1', { scale: 1.14 });
+          //   gsap.timeline({defaults:{ease: Power1.ease, duration: 0.9}})
+          //   .from('#backgroundImage1', { x: adWidth})
+          //   .from('#backgroundImage2', { x: -adWidth}, '-=0.9')
+          //   .to('#backgroundImage1', { scale: 1, duration: 8})
+          // }
         });
       }, 2000);
     </script>
