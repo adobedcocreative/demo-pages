@@ -78,7 +78,6 @@
             backgroundImage2: 'assets/1x1.png',
             headlineImage1: 'assets/300x250_SS20_Crocs_DCO_ClassicPillar-Clogs_PriyankaChopraJonas_Headline_Make_It_A_Classic1.png',
             headlineImage2: 'assets/300x250_SS20_Crocs_DCO_ClassicPillar-Clogs_PriyankaChopraJonas_Headline_Make_It_A_Classic2.png',
-            headlineImage3: 'assets/300x250_SS20_Crocs_DCO_ClassicPillar-Clogs_PriyankaChopraJonas_Headline_Make_It_A_Classic3.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
             ctaSelect: 'icon_white',
             clickURL: 'https://www.adobe.com/#Crocs',
@@ -156,8 +155,8 @@
             } catch(e) {  }
           }
           var adWidth = 300, adHeight = 250;
-          gsap.timeline({defaults:{ease: Power2.Out, duration: 0.2}})
-          .from('#backgroundImage2', { x: '-100%', duration:0.5, delay:0.5})
+          gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
+          .from('#backgroundImage2', { x: '-100%', duration:0.5, delay:0.8})
           .from('#headlineImage1', { y: '100%'})
           .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
           .from('#logoImage', { y: '100%'})
