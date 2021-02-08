@@ -125,7 +125,7 @@
       .switch.on .switch-button {
         left: 62px;
       }
-      #cta::before, #introCta::before {
+      /* #cta::before, #introCta::before {
         content: ' ';
         position: absolute;
         top: 3px;
@@ -135,6 +135,10 @@
         border-radius: 15px;
         box-sizing: content-box;
         background: #fff;
+      } */
+      #cta, #introCta {
+        color: #fff;
+        background: #0084d6;
       }
       #cta:hover {
         opacity: 0.7 !important;
@@ -151,13 +155,13 @@ amo.registerAttribute("frameImage1", "IMAGE", "160x600_OPT_Add_HBO_Max_HDM_Poste
 amo.registerAttribute("frameImage12", "IMAGE", "160x600_OPT_Add_HBO_Max_Logo_HBO_Max_Frame_01.png");
 amo.registerAttribute("frameImage2", "IMAGE", "160x600_OPT_Add_HBO_Max_Logo_HBO_CHANNELS_OnDemand_HBO_MAX_Frame_02.png");
 amo.registerAttribute("frameImage3", "IMAGE", "160x600_OPT_Add_HBO_Max_Laptop_Tablet_Frame_03.png");
-amo.registerAttribute("frameText1", "TEXT", "All of your favorites,<br>plus so much more");
+amo.registerAttribute("frameText1", "TEXT", "Watch<br>award-winning specials, movies & more");
 amo.registerAttribute("frameText21", "TEXT", "<div style='top: 100px;left: 10px;width: 140px;font-size: 23px;text-align: center;line-height: 1.05;'>HBO Max gives<br>you more</div>");
 amo.registerAttribute("frameText22", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText31", "TEXT", "<div style='top: 90px;left: 14px;font-size: 18px;line-height:1;'>Add<br>HBO Max<sup style='vertical-align: 75%;font-size: 50%;'>™</sup></div>");
 amo.registerAttribute("frameText32", "TEXT", "<div style='top: 126px;left: 9px;width: 140px;line-height: 1;'><font style='font-size: 73px;letter-spacing: -3.5px;' class='coloredText'>$14</font><font style='margin-left: 2px;font-size: 11px;display: inline-block;vertical-align: 31px;'>99/<br>mo.</font><div class='AlticeRegular' style='margin: 0px 0 0 5px;font-size: 8px;'>Plus taxes and fees.</div></div>");
-amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
+amo.registerAttribute("frameText33", "TEXT", "<div style='top: 215px;left: 15px;transform: scale(1.02);transform-origin: top left;'><div style='font-size: 15px;margin-bottom: 3px;'>Includes:</div><div class='bulletedText AlticeRegular' style='line-height: 0.95;'>HBO channels</div><div class='bulletedText AlticeRegular' style='line-height: 0.95;'>On Demand</div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -200,7 +204,8 @@ amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
         overflow: hidden;
         border-radius: 18px;
         padding: 3px;
-        background-image: linear-gradient(to right, #24d9c3, #0084d6);">
+        /* background-image: linear-gradient(to right, #24d9c3, #0084d6); */
+        ">
     </div>
     <div id="frame1" class="frame"
       style="transform-origin:bottom center;
@@ -231,12 +236,12 @@ amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
       <div id="frameText1" class="text AlticeBold"
         data-text="frameText1"
         data-style="text-align:center;"
-        style="top: 266px;
-          left: 12px;
-          width: 136px;
+        style="top: 256px;
+          left: 10px;
+          width: 140px;
           height: 140px;
-          font-size: 23px;
-          line-height: 1.05;">
+          font-size: 18px;
+          line-height: 1.1;">
       </div>
       <!-- <div id="switch" class="switch"
         style="top: 63px;
@@ -263,7 +268,8 @@ amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
           overflow: hidden;
           border-radius: 18px;
           padding: 3px;
-          background-image: linear-gradient(to right, #24d9c3, #0084d6);">
+          /* background-image: linear-gradient(to right, #24d9c3, #0084d6); */
+          ">
       </div>
     </div>
 
