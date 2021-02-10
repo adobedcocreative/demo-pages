@@ -98,7 +98,7 @@
         background-color: #0084d6;
         border-radius: 50%;
       }
-      #cta::before, #introCta::before {
+      /* #cta::before, #introCta::before {
         content: ' ';
         position: absolute;
         top: 2px;
@@ -108,6 +108,10 @@
         border-radius: 10px;
         box-sizing: content-box;
         background: #fff;
+      } */
+      #cta, #introCta {
+        color: #fff;
+        background: #0084d6;
       }
       #cta:hover {
         opacity: 0.7 !important;
@@ -125,12 +129,12 @@ amo.registerAttribute("frameImage2", "IMAGE", "1x1.png");
 amo.registerAttribute("frameImage3", "IMAGE", "1x1.png");
 amo.registerAttribute("frameText1", "TEXT", "ADD SHOWTIME<sup style='font-size: 50%;'>®</sup>");
 amo.registerAttribute("frameText12", "TEXT", "And discover new favorites.");
-amo.registerAttribute("frameText21", "TEXT", "<div style='top: 11px;left:7px;font-size: 13.3px;line-height: 1.1;'>Original series, latest movies<br>and comedies...its all there!</div>");
+amo.registerAttribute("frameText21", "TEXT", "<div style='top: 11px;left:7px;font-size: 13.3px;line-height: 1.1;'>Original series, hit movies, action<br>packed sports...it’s all there!</div>");
 amo.registerAttribute("frameText22", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText31", "TEXT", "<div style='top: 8px;left: 10px;font-size: 12px;'>Add SHOWTIME<sup style='font-size: 50%;'>®</sup></div>");
 amo.registerAttribute("frameText32", "TEXT", "<div style='top: 22px;left: 10px;font-size: 12px;line-height: 1;'><font class='coloredText'>$10.99</font> mo./1 yr.<div class='AlticeRegular' style='margin: 3px 0 0 1px;font-size: 5.5px;'>Plus taxes.</div></div>");
-amo.registerAttribute("frameText33", "TEXT", "<div style='top: 8px;left: 116px;transform: scale(0.55);transform-origin: top left;width: 320px;'><div style='font-size: 14px;margin-bottom: 5px;'>Included with this subscription:</div><div class='bulletedText'>SHOWTIME ON DEMAND<sup style='font-size: 50%;'>®</sup></div><div class='bulletedText'>SHOWTIME ANYTIME<sup style='font-size: 50%;'>®</sup></div></div>");
+amo.registerAttribute("frameText33", "TEXT", "<div style='top: 10px;left: 126px;transform: scale(0.5);transform-origin: top left;width: 320px;'><div style='font-size: 16px;margin-bottom: 3px;'>Includes:</div><div class='bulletedText AlticeRegular'>SHOWTIME ON DEMAND<sup style='font-size: 65%;'>®</sup></div><div class='bulletedText AlticeRegular'>SHOWTIME ANYTIME<sup style='font-size: 65%;'>®</sup></div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -172,7 +176,8 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top: 8px;left: 116px;t
         border-radius: 10px;
         line-height: 0.9;
         padding: 2px;
-        background-image: linear-gradient(to right, #24d9c3, #0084d6);">
+        /* background-image: linear-gradient(to right, #24d9c3, #0084d6); */
+        ">
     </div>
     <div id="frame1" class="frame"
       style="transform-origin:bottom center;
@@ -213,7 +218,8 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top: 8px;left: 116px;t
           border-radius: 10px;
           line-height: 0.9;
           padding: 2px;
-          background-image: linear-gradient(to right, #24d9c3, #0084d6);">
+          /* background-image: linear-gradient(to right, #24d9c3, #0084d6); */
+          ">
       </div>
     </div>
     <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all 0.5s ease 1s;transition:all 0.5s ease 1s;"></div>

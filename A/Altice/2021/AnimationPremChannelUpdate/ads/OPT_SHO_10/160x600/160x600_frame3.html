@@ -125,7 +125,7 @@
       .switch.on .switch-button {
         left: 62px;
       }
-      #cta::before, #introCta::before {
+      /* #cta::before, #introCta::before {
         content: ' ';
         position: absolute;
         top: 3px;
@@ -135,6 +135,10 @@
         border-radius: 15px;
         box-sizing: content-box;
         background: #fff;
+      } */
+      #cta, #introCta {
+        color: #fff;
+        background: #0084d6;
       }
       #cta:hover {
         opacity: 0.7 !important;
@@ -154,12 +158,12 @@ amo.registerAttribute("frameImage23", "IMAGE", "160x600_Logo_Showtime_Anytime.pn
 amo.registerAttribute("frameImage3", "IMAGE", "160x600_OPT_UPGQ1_ANI_Video_UPGSHORR_10_99mo_Devices_Frame_04.png");
 amo.registerAttribute("frameText1", "TEXT", "Add SHOWTIME<sup style='font-size: 50%;'>®</sup>");
 amo.registerAttribute("frameText12", "TEXT", "And discover new favorites.");
-amo.registerAttribute("frameText21", "TEXT", "<div style='top: 72px;left: 10px;width: 140px;font-size: 22px;text-align: center;line-height: 1.15;'>Original series, latest movies and comedies...<br>its all there!</div>");
+amo.registerAttribute("frameText21", "TEXT", "<div style='top: 109px;left: 10px;width: 140px;font-size: 17px;text-align: center;line-height: 1.1;'>Original series, hit movies, action packed sports...it’s<br>all there!</div>");
 amo.registerAttribute("frameText22", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText31", "TEXT", "<div style='top: 76px;left: 14px;font-size: 21px;line-height:1;'>Add<br>SHOWTIME<sup style='font-size: 50%;'>®</sup></div>");
 amo.registerAttribute("frameText32", "TEXT", "<div style='top: 115px;left: 9px;width: 144px;line-height: 1;'><font style='font-size: 76px;letter-spacing: -3.5px;padding-right: 4px;' class='coloredText'>$10</font><font style='margin-left: 2px;font-size: 12.5px;display: inline-block;vertical-align: 28px;line-height: 1.2;'>99/<br>mo.</font><div class='AlticeRegular' style='margin: 1px 0 0 5px;font-size: 8.5px;'>Plus taxes.</div></div>");
-amo.registerAttribute("frameText33", "TEXT", "<div style='top: 216px;left: 14px;transform: scale(0.62);transform-origin: top left;width: 240px;'><div style='font-size: 15px;margin-bottom: 5px;'>Included with this subscription:</div><div class='bulletedText'>SHOWTIME ON DEMAND<sup style='font-size: 50%;'>®</sup></div><div class='bulletedText'>SHOWTIME ANYTIME<sup style='font-size: 50%;'>®</sup></div></div>");
+amo.registerAttribute("frameText33", "TEXT", "<div style='top: 217px;left: 15px;transform: scale(0.64);transform-origin: top left;width: 240px;'><div style='font-size: 15px;margin-bottom: 4px;'>Includes:</div><div class='bulletedText AlticeRegular'>SHOWTIME ON DEMAND<sup style='font-size: 50%;'>®</sup></div><div class='bulletedText AlticeRegular'>SHOWTIME ANYTIME<sup style='font-size: 50%;'>®</sup></div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -204,7 +208,8 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top: 216px;left: 14px;
         overflow: hidden;
         border-radius: 18px;
         padding: 3px;
-        background-image: linear-gradient(to right, #24d9c3, #0084d6);">
+        /* background-image: linear-gradient(to right, #24d9c3, #0084d6); */
+        ">
     </div>
     <div id="frame1" class="frame"
       style="transform-origin:bottom center;
@@ -276,7 +281,8 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top: 216px;left: 14px;
           overflow: hidden;
           border-radius: 18px;
           padding: 3px;
-          background-image: linear-gradient(to right, #24d9c3, #0084d6);">
+          /* background-image: linear-gradient(to right, #24d9c3, #0084d6); */
+          ">
       </div>
     </div>
 
@@ -413,7 +419,7 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top: 216px;left: 14px;
           .to('#frameImage'+frameId+'3', {delay:-0.2, x:0,y:0})
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           // .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
-          .to('#frameImage'+frameId+', #gradientRule, div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}));
+          .to('div[id^="frameImage'+frameId+'"], #gradientRule, div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}));
         }
         var animateFrame1 = function(flag){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
