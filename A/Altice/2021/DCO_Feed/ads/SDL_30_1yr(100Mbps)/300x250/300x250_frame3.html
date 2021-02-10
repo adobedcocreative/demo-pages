@@ -330,7 +330,7 @@
           "endFrameImage": "300x250_Altice_SDL_NewBuild_Img_Frame_05.png",
           "frameText1": "Pilot Point^just got faster",
           "frameText2": "<div style='top: 55px;left: 20px;width: 260px;font-size: 28px;line-height: 1;text-align: center;'>Suddenlink’s<br>next generation network is here</div>^<div class='AlticeRegular' style='top:178px;left:30px;font-size:8.6px;top:178px;left:30px;font-size:8.6px;line-height:1.2;'>Speeds, prices &<br>availability vary by area.</div>^&nbsp;",
-          "frameText3": "<div style='top: 114px;left: 20px;width: 260px;font-size: 24px;line-height: 1;text-align: center;'>Get 100 Mbps Internet</div>^<div class='AlticeRegular' style='top:178px;left:30px;font-size:8.6px;line-height:1.2;'>Wired connection<br>up to 100 Mbps.</div>^&nbsp;",
+          "frameText3": "<div style='top: 114px;left: 20px;width: 260px;font-size: 24px;line-height: 1;text-align: center;'>Get 100 Mbps Internet</div>^<div class='AlticeRegular' style='top:178px;left:30px;font-size:8.6px;line-height:1.2;'>Wired connection<br>up to 100 Mbps.</div>^&nbsp;^400",
           "frameText4": "<div style='top: 13px;left: 24px;font-size: 21.5px;line-height: 1;'><div style='color: #0084d6;height: 17px;font-size: 68%;'>Fast Internet has arrived</div>100 Mbps<br>Internet</div><div style='top: 13px;left: 24px;font-size: 21.5px;line-height: 1;'><div style='color: #0084d6;height: 17px;font-size: 68%;'>Fast Internet has arrived</div>100 Mbps<br>Internet</div>^<div style='top: 75px;left: 18px;width: 160px;line-height: 1;'><font style='font-size: 64px;letter-spacing: -0.5px;padding-right: 2px;line-height: 0.92;' class='coloredText'>$30</font><font style='margin-left: 2px;font-size: 10px;display: inline-block;vertical-align: 26px;line-height: 1.1;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 5px 0 0 6px;font-size: 9px;line-height: 1.1;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>^<div style='top: 171px;left: 21px;width:360px;transform: scale(0.77);transform-origin: top left;'><div class='bulletedText'><font style='color:#0084d6;'>New!</font> $200 Visa<span style='vertical-align:5px;font-size:9px;'>®</span> Prepaid Card. <div class='AlticeRegular' style='font-size: 12px;margin-top:2px;'>Terms apply.</div></div></div>",
           "ctaText": "Shop now",
           "clickUrl": "https://www.altice.com",
@@ -364,6 +364,10 @@
             content.frameText31 = content.frameText3.split('^')[0];
             content.frameText32 = content.frameText3.split('^').length > 1 ? content.frameText3.split('^')[1] : '&nbsp;';
             content.frameText33 = content.frameText3.split('^').length > 2 ? content.frameText3.split('^')[2] : '&nbsp;';
+            var arrowAnimation = content.frameText3.split('^').length > 3 ? content.frameText3.split('^')[3] : '';
+            if(arrowAnimation && arrowAnimation == '400') {
+              content.frameVideo3 = "Animate_400_Mbps_Arrow.mp4";
+            }
 
             content.frameText41 = content.frameText4.split('^')[0];
             content.frameText42 = content.frameText4.split('^').length > 1 ? content.frameText4.split('^')[1] : '&nbsp;';
