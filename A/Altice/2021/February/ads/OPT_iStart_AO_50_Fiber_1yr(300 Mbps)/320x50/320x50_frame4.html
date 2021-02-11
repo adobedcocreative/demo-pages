@@ -112,15 +112,12 @@ amo.registerAttribute("frameText1", "TEXT", "Our best offer<br>just got better")
 amo.registerAttribute("frameText21", "TEXT", "<div style='top:7px;left:8px;'><div class='bulletedText'>Up to 300 Mbps Fiber Internet</div></div>");
 amo.registerAttribute("frameText22", "TEXT", "<div style='top:22px;left:8px;'><div class='bulletedText'>Live & On Demand TV</div></div>");
 amo.registerAttribute("frameText23", "TEXT", "<div class='AlticeRegular' style='top:35px;left:20px;font-size:9px;'>Speeds, prices & availability vary by area.</div>");
-amo.registerAttribute("frameText31", "TEXT", "<div style='top: 10px;left: 8px;font-size: 12.2px;line-height: 1.3;'>Optimum Amplify smart speaker<br>deal! <font style='color:#0084d6;'>$1/mo. for first 3 mos.</font></div>");
-amo.registerAttribute("frameText32", "TEXT", "&nbsp;");
+amo.registerAttribute("frameText31", "TEXT", "<div style='top: 12px;left: 9px;font-size: 12.2px;'>NEW! <font style='color:#0084d6;'>$200</font> Visa<sup style='font-size: 64%;vertical-align: 40%;'>®</sup> Prepaid Card.</div>");
+amo.registerAttribute("frameText32", "TEXT", "<div style='top:25px;left:9px;font-size:9px;' class='AlticeRegular'>Terms apply.</div>");
 amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText41", "TEXT", "<div style='top: 12px;left: 9px;font-size: 12.2px;'>NEW! <font style='color:#0084d6;'>$200</font> Visa<sup style='font-size: 64%;vertical-align: 40%;'>®</sup> Prepaid Card.</div>");
-amo.registerAttribute("frameText42", "TEXT", "<div style='top:25px;left:9px;font-size:9px;' class='AlticeRegular'>Terms apply.</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div style='top:2px;left:8px;font-size:13px;'>300 Mbps Fiber Internet & TV</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div style='top: 18px;left: 6px;width: 220px;line-height: 1;'><font style='font-size: 27.5px;' class='coloredText'>$50</font><font style='margin-left: 3px;font-size: 9px;display: inline-block;vertical-align: 3px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: -23px 0 0 77px;font-size: 9px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
 amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText51", "TEXT", "<div style='top:2px;left:8px;font-size:13px;'>300 Mbps Fiber Internet & TV</div>");
-amo.registerAttribute("frameText52", "TEXT", "<div style='top: 18px;left: 6px;width: 220px;line-height: 1;'><font style='font-size: 27.5px;' class='coloredText'>$50</font><font style='margin-left: 3px;font-size: 9px;display: inline-block;vertical-align: 3px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: -23px 0 0 77px;font-size: 9px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
-amo.registerAttribute("frameText53", "TEXT", "&nbsp;");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -149,10 +146,6 @@ amo.registerAttribute("frameText53", "TEXT", "&nbsp;");
     <div id="frameText41" class="frameText">!{frameText41}</div>
     <div id="frameText42" class="frameText">!{frameText42}</div>
     <div id="frameText43" class="frameText">!{frameText43}</div>
-    <div id="frameImage5" class="asset frameImage" data-image="frameImage5"></div>
-    <div id="frameText51" class="frameText">!{frameText51}</div>
-    <div id="frameText52" class="frameText">!{frameText52}</div>
-    <div id="frameText53" class="frameText">!{frameText53}</div>
     <div id="cta" class="text AlticeBold"
       data-text="ctaText"
       style="top: 5px;
@@ -297,7 +290,7 @@ amo.registerAttribute("frameText53", "TEXT", "&nbsp;");
           var frameId = 4;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[4]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame5}));
+          // .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame5}));
         }
         var animateFrame3 = function(flag){
           var frameId = 3;
