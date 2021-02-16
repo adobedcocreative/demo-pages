@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
     <title>Ad</title>
-    <link rel="stylesheet" href="https://ct.tubemogul.com/web/static/css/style.min.css">
-    <script type="text/javascript" src="https://cmp-as-tm.everesttech.net/ads/static/local/AMOLibrary.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
-    <script src="https://ct.tubemogul.com/web/static/js/script.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="css/style.min.css">
+    <script type="text/javascript" src="https://ads.everesttech.net/ads/static/local/AMOLibrary.js"></script>
+    <script src="js/gsap.min.js" charset="utf-8"></script>
+    <script src="js/script.min.js" charset="utf-8"></script>
     <script type="text/javascript">var addTypingContent=function(d){if(d){var a=d.innerHTML;a&&a.length&&(a=a.split("&amp;").join("&").split("&lt;").join("<").split("&gt;").join(">"));var b=a.match(/<.*?>/g);b=b&&b.length?b:[];a=a.split(/<.*?>/g);a=a.map(function(a){return a.split("").map(function(a){return'<type class="transparent">'+a+"</type>"}).join("")});var c=b;a.length<c&&(b=a,a=c,c=b);c.push("");d.innerHTML=a.map(function(a,b){return a+c[b]}).join("")}};</script>
     <style media="screen">
       @font-face {
@@ -349,6 +349,10 @@
             content.frameText31 = content.frameText3.split('^')[0];
             content.frameText32 = content.frameText3.split('^').length > 1 ? content.frameText3.split('^')[1] : '&nbsp;';
             content.frameText33 = content.frameText3.split('^').length > 2 ? content.frameText3.split('^')[2] : '&nbsp;';
+            var arrowAnimation = content.frameText3.split('^').length > 3 ? content.frameText3.split('^')[3] : '';
+            if(arrowAnimation && arrowAnimation == '400') {
+              content.frameVideo3 = "Animate_400_Mbps_Arrow.mp4";
+            }
 
             content.frameText41 = content.frameText4.split('^')[0];
             content.frameText42 = content.frameText4.split('^').length > 1 ? content.frameText4.split('^')[1] : '&nbsp;';
