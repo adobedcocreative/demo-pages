@@ -302,7 +302,8 @@ var startBanner = function(){
 						var parentWindows = window.parent.parent.window;
 						if (parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
 							try {
-								parentWindows.amoUtils.onInteraction(parentWindow.layout, parentWindow.adData.feedData);
+								var productId = ('id' in parentWindow.adData.feedData ? ('|' + parentWindow.adData.feedData.id) : '')
+								parentWindows.amoUtils.onInteraction(parentWindow.layout + '|' + parentWindow.smartName + '|' + bannerData.ctaText + productId, parentWindow.adData.feedData);
 							} catch (e) {}
 						}
 					}
