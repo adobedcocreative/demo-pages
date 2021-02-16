@@ -218,6 +218,7 @@
           width: 97px;
           height: 30px;
           font-size: 12px;
+          white-space: nowrap;
           color:#fff;">
       </div>
 
@@ -310,6 +311,8 @@
                   if(hiltonCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'hilton';
                     document.querySelector("#logoImage").style.top = '2px';
+
+                    document.querySelector("#ad").style.fontFamily = "LoewBlack";
                   }else if(hiltonHotelResortCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'hhr';
                     document.querySelector("#logoImage").style.top = '16px';
