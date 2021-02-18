@@ -324,7 +324,6 @@
                     document.querySelector("#ad").style.fontFamily = "LoewBlack";
                   }else if(waldorfCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'waldorf';
-                    whitePatchColor = '#000';
                     // document.querySelector("#logoImage").style.height = '95px';
                     // document.querySelector("#logoImage").style.top = '157px';
 
@@ -389,7 +388,6 @@
                     document.querySelector("#ad").style.fontFamily = "DINBold";
                   }else if(lxrCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'lxr';
-                    whitePatchColor = '#000';
                     document.querySelector("#logoImage").style.top = '168px';
                     document.querySelector("#logoImage").style.left = '28px';
                     document.querySelector("#logoImage").style.height = '83px';
@@ -397,7 +395,6 @@
                     document.querySelector("#ad").style.fontFamily = "DidotBold";
                   }else if(canopyCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'canopy';
-                    whitePatchColor = '#000';
                     document.querySelector("#logoImage").style.top = '162px';
                     document.querySelector("#logoImage").style.left = '18px';
                     document.querySelector("#logoImage").style.width = '127px';
@@ -437,6 +434,10 @@
                     document.querySelector("#logoImage").style.top = '164px';
                   }
                 }
+              }
+
+              if(content['logoColor'].toLowerCase() == 'black'){
+                whitePatchColor = '#000';
               }
               document.querySelector("#whitePatch").style.backgroundColor = whitePatchColor;
               

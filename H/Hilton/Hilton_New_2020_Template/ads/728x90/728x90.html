@@ -321,7 +321,6 @@
                     document.querySelector("#ad").style.fontFamily = "LoewBlack";
                   }else if(waldorfCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'waldorf';
-                    whitePatchColor = '#000';
                     document.querySelector("#logoImage").style.top = '-3px';
 
                     document.querySelector("#ad").style.fontFamily = "NobelBold";
@@ -342,7 +341,6 @@
                     document.querySelector("#ad").style.fontFamily = "StagLCGBold";
                   }else if(conradCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'conrad';
-                    whitePatchColor = '#000';
                     document.querySelector("#logoImage").style.top = '-8px';
                     document.querySelector("#logoImage").style.left = '476px';
                     document.querySelector("#logoImage").style.width = '107px';
@@ -380,14 +378,12 @@
                     document.querySelector("#ad").style.fontFamily = "DINBold";
                   }else if(lxrCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'lxr';
-                    whitePatchColor = '#000';
                     document.querySelector("#logoImage").style.left = '518px';
                     document.querySelector("#logoImage").style.width = '64px';
 
                     document.querySelector("#ad").style.fontFamily = "DidotBold";
                   }else if(canopyCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'canopy';
-                    whitePatchColor = '#000';
                     document.querySelector("#logoImage").style.top = '-4px';
                     document.querySelector("#logoImage").style.left = '486px';
                     document.querySelector("#logoImage").style.width = '96px';
@@ -402,7 +398,6 @@
                     document.querySelector("#ad").style.fontFamily = "GothamBlack";
                   }else if(mottoCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'motto';
-                    whitePatchColor = '#000';
                     document.querySelector("#logoImage").style.left = '1px';
                     document.querySelector("#logoImage").style.left = '498px';
                     document.querySelector("#logoImage").style.width = '86px';
@@ -426,6 +421,9 @@
                     document.querySelector("#logoImage").style.left = '504px';
                   }
                 }
+              }
+              if(content['logoColor'].toLowerCase() == 'black'){
+                whitePatchColor = '#000';
               }
               document.querySelector("#whitePatch").style.backgroundColor = whitePatchColor;
               
