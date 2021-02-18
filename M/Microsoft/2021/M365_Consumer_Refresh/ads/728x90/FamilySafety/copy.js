@@ -1,0 +1,28 @@
+// JavaScript Document
+	//  TEXT, TEXTSIZE, XPOS, YPOS, LINE SPACING, LINE WIDTH, JUSTIFYTEXT
+	// use | for new line.  Use <#FFFFFF> for color change.
+	// when this occurs you can use line height to adjust line spacing.
+	// lineWidth is no longer needed.
+	var bannerData = new Object()
+	['<#29AA9F>Stay connected^to your^loved ones^with^driving reports','16px',364, 35,'18','350', 'center']
+	bannerData.headline1 = ['<#29AA9F>Stay','16px',311, 35,'18','350', 'left']
+	bannerData.headline2 = ['<#29AA9F>connected','16px',344, 35,'18','3 50', 'left']
+	
+    bannerData.headline3 = ['<#29AA9F>to','16px',336, 35,'18','350', 'left']
+	bannerData.headline4 = ['<#29AA9F>your','16px',357, 35,'18','350', 'left']
+
+	bannerData.headline5 = ['<#29AA9F>loved','16px',325, 35,'18','350', 'left']
+	bannerData.headline6 = ['<#29AA9F>ones','16px',369, 35,'18','350', 'left']
+
+	bannerData.headline7 = ['<#29AA9F>with','16px',364, 35,'18','350', 'center']
+
+	bannerData.headline8 = ['<#29AA9F>driving','16px',309, 35,'18','350', 'left']
+	bannerData.headline9 = ['<#29AA9F>reports','16px',365, 35,'18','350', 'left']
+	
+	bannerData.headline10 = ['<#505050>Magic in peace of mind','16px',310, 20,'18','3 50', 'left']
+	bannerData.headline11 = ['<#505050>Build better habits behind the wheel with driving |reports in the Microsoft Family Safety mobile app*','10px',310, 44,'12','3 50', 'left']
+    bannerData.headline12 = ['<#505050>*App available free; |Microsoft 365 Family subscription |unlocks premium features. Location |permissions must be active','7.7px',602, 7,'9','3 50', 'left']
+
+	bannerData.CTA = ['<#FFFFFF>LEARN MORE','14px',0,-1,'19','300', 'center']
+	
+	bannerData.CTAarrowVisible = [true, 0,0]
