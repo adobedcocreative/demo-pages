@@ -396,6 +396,14 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 293px;left: 22px;
           .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
           .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
         }
+        var generalDisclaimerFrameAnimation = function(frame){
+          gsap.set('#frameImage'+frame +', #frameText'+frame+'3', {x:0, y:0, autoAlpha:0});
+          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+          .to('#frameImage'+frame, {autoAlpha:1,delay:0.2})
+          .to('#frameText'+frame+'1', {x:0,y:0})
+          .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
+          .to('#frameText'+frame+'3', {delay:-0.2, autoAlpha:1});
+        }
         var animateFrame5 = function(flag){
           var frameId = 5;
           gsap.set('#frameBackground', {display: 'none'});
@@ -419,7 +427,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 293px;left: 22px;
         var animateFrame2 = function(flag){
           var frameId = 2;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: generalLeftFrameAnimation, onCompleteParams:[2]})
+          .to('#frameImage'+frameId, {duration:0, onComplete: generalDisclaimerFrameAnimation, onCompleteParams:[2]})
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 3.7, opacity:0, onComplete: animateFrame3}));
         }
         var animateFrame1 = function(flag){
