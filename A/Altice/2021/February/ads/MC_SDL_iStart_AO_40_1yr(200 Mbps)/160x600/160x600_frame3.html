@@ -158,7 +158,7 @@
 amo.registerClick("clickUrl","https://www.altice.com");
 amo.registerAttribute("ctaText","TEXT","Compra");
 amo.registerAttribute("frameText1", "TEXT", "Nuestra mejor oferta se puso mejor");
-amo.registerAttribute("frameText21", "TEXT", "<div style='top: 175px;left: 10px;width: 140px;font-size: 20px;line-height: 1.05;text-align: center;'>Internet de 200 megas</div>");
+amo.registerAttribute("frameText21", "TEXT", "<div style='top: 204px;left: 10px;width: 140px;font-size: 20px;line-height: 1.05;text-align: center;'>Internet de 200 megas</div>");
 amo.registerAttribute("frameText22", "TEXT", "<div class='AlticeRegular' style='top: 444px;width: 136px;left:18px;font-size:9.8px;line-height: 1.2;'>Conexión por cable de hasta 200 megas. Velocidades WiFi podrían variar.</div>");
 amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText31", "TEXT", "<div style='top: 175px;left: 5px;width: 150px;font-size: 20px;line-height: 1.05;text-align: center;'>Streaming, TV en vivo y On Demand</div>");
@@ -191,7 +191,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 235px;width:150px
     <div id="beam4" class="beam" style="border-radius: 30px;background-image: linear-gradient(to left, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
     <div id="beam5" class="beam" style="border-radius: 30px;background-image: linear-gradient(to right, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
     <div id="frameBackground" class="asset adSizeContainer" data-image="frameBackground" style="display:none;"></div>
-    <div id="frameImage2" class="frameImage" style="top: 80px;left: 0px;width: inherit;height: inherit;overflow: hidden;"><video muted playsinline autoplay style="width: 140px;margin-left:-3px;"></video></div>
+    <div id="frameImage2" class="asset frameImage" data-image="frameImage2"></div>
     <div id="frameText21" class="frameText">!{frameText21}</div>
     <div id="frameText22" class="frameText">!{frameText22}</div>
     <div id="frameText23" class="frameText">!{frameText23}</div>
@@ -307,7 +307,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 235px;width:150px
           introLogoImage: 'images/160x600_Logo_Suddenlink_Black.png',
           frameBackground: '1x1.png',
           frameVideo1: "160x600_iStart.mp4",
-          frameVideo2: "Animate_300_Mbps_Arrow.mp4",
+          frameImage2: "160x600_SDL_iStart_AO_40_1Yr_200Mbps_Gig_Icon_Frame_02.png",
           frameVideo3: "Animate_HolidayBanners_PlayButton.mp4",
           frameImage4: "160x600_SDL-200-Reward-Card.png",
           frameImage5: "160x600_OPT_JAN_ACQ_iStart_AmpPC_50Yr1_NonSub_NY_Img_Frame_05.png",
@@ -342,7 +342,6 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 235px;width:150px
           }
         }
         loadVideo(ad.layers.frameVideo1.querySelector('video'), adData.frameVideo1, true);
-        loadVideo(ad.layers.frameImage2.querySelector('video'), adData.frameVideo2);
         loadVideo(ad.layers.frameImage3.querySelector('video'), adData.frameVideo3);
 
         textUpdate();
@@ -430,7 +429,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 235px;width:150px
         var animateFrame2 = function(flag){
           var frameId = 2;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[frameId]})
+          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}))
         }
         var animateFrame1 = function(flag){
