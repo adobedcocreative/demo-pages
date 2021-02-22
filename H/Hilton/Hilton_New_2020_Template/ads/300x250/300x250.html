@@ -441,9 +441,9 @@
               }
               document.querySelector("#whitePatch").style.backgroundColor = whitePatchColor;
               
-              if(content['name'].toLowerCase().indexOf('default') != -1){
+              // if(content['name'].toLowerCase().indexOf('default') != -1){
                 content['logoImage'] = 'images/' + logoImageName  + '_' + content['logoColor'].toLowerCase() + '.png';
-              } else {
+              /*} else {
                 try{
                   content['logoImage'] = content['logoImage'];
                   document.querySelector("#logoImage").style.width = '300px';
@@ -466,7 +466,7 @@
                   document.querySelector("#cta").style.left = "165px";
                   document.querySelector("#cta").style.fontSize = "15px";
                 } catch (e) {}
-              }
+              }*/
 
               function splitCodes(str){
                 if(str && str.length > 0){
