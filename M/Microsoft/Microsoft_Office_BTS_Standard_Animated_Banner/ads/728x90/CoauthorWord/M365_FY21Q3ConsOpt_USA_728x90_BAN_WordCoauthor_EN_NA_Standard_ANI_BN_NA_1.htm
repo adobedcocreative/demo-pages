@@ -11,7 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="authoring-tool" content="Adobe_Animate_CC">
-<title>M365_FY21Q1_BTS_USA_300x600_BAN_CoauthorWord_English_NA_NA_ANI_BN_NA_1</title>
+<title>M365_FY21Q3ConsOpt_USA_728x90_BAN_WordCoauthor_EN_NA_Standard_ANI_BN_NA_1</title>
 <style>
 	@font-face {
 		font-family: 'Segoe Pro';
@@ -27,10 +27,10 @@
 </style>
 <!-- <script>var clickTag = "http://www.google.com";</script>
 <script src="copy.js"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
-<script src="M365_FY21Q1_BTS_USA_300x600_BAN_CoauthorWord_English_NA_NA_ANI_BN_NA_1.js?1501171107836"></script>
-<meta name="ad.size" content="width=300,height=600">
+<script src="M365_FY21Q3ConsOpt_USA_728x90_BAN_WordCoauthor_EN_NA_Standard_ANI_BN_NA_1.js?1501171107836"></script>
+<meta name="ad.size" content="width=728,height=90">
 <script>
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation, initReady
 initReady=false
@@ -59,7 +59,7 @@ function handleComplete(evt,comp) {
 	for(i=0; i<ssMetadata.length; i++) {
 		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
 	}
-	exportRoot = new lib.M365_FY21Q1_BTS_USA_300x600_BAN_CoauthorWord_English_NA_NA_ANI_BN_NA_1();
+	exportRoot = new lib.M365_FY21Q3ConsOpt_USA_728x90_BAN_WordCoauthor_EN_NA_Standard_ANI_BN_NA_1();
 	stage = new lib.Stage(canvas);
 	//Registers the "tick" event listener.
 	fnStartAnimation = function() {
@@ -75,72 +75,72 @@ function handleComplete(evt,comp) {
 	 if (!initReady) {
         startBanner()
     }
-		TweenMax.delayedCall(0.2,function(){
-        var ctaAlignment = function(position){
-			position = position ? position : 'left';
-			var layers = exportRoot.mainMC;
-			var adWidth = document.querySelector('#animation_container').offsetWidth;
-			var ctaBackgroundColor = layers.cta.children[0].graphics._fill.style;
-			var ctaWidth = layers.txtCta.children[0].children[0].getBounds().width + 45;
-			layers.txtCta.regX = 0;
-			layers.txtCta.children[0].x = 0;
-			layers.txtCta.children[0].y -= 2.5;
-			layers.cta.regX = 0;
-			layers.cta.regY = 0;
-			layers.cta.scaleX = 1;
-			layers.cta.scaleY = 1;
-			layers.cta.arrow.scaleX = 0.9;
-			layers.cta.arrow.scaleY = 0.9;
-			layers.cta.arrow.regY = 12;
-			layers.cta.arrow.arrow_1.x = 0;
-			layers.cta.arrow.arrow.x = 0;
-			layers.cta.arrow.arrow_1.regX = 0;
-			layers.cta.arrow.arrow.regX = 0;
-			layers.cta.arrow.regX = 0;
-			layers.cta.children[0].x = 0;
-			layers.cta.children[0].y = 0;
-			layers.cta.children[0].regX = 0;
-			layers.cta.children[0].regY = 0;
-			layers.cta.children[0].graphics.clear();
-			layers.cta.children[0].graphics.beginFill(ctaBackgroundColor).drawRect(0, -15, ctaWidth, 30);
-			if(position == 'right') {
-				layers.cta.x = adWidth - ctaWidth;
-				layers.txtCta.x = adWidth - ctaWidth + 15;
-				layers.cta.arrow.x = ctaWidth - 20;
-			} else {
-				layers.cta.x = 0;
-				layers.txtCta.x = 15;
-				layers.cta.arrow.x = ctaWidth - 20;
+    gsap.delayedCall(0.2,function(){
+			var ctaAlignment = function(position){
+				position = position ? position : 'left';
+				var layers = exportRoot.mainMC;
+				var adWidth = document.querySelector('#animation_container').offsetWidth;
+				var ctaBackgroundColor = layers.cta.children[0].graphics._fill.style;
+				var ctaWidth = layers.txtCta.children[0].children[0].getBounds().width + 45;
+				layers.txtCta.regX = 0;
+				layers.txtCta.children[0].x = 0;
+				layers.txtCta.children[0].y -= 2;
+				layers.cta.regX = 0;
+				layers.cta.regY = 0;
+				layers.cta.scaleX = 1;
+				layers.cta.scaleY = 1;
+				layers.cta.arrow.scaleX = 0.7;
+				layers.cta.arrow.scaleY = 0.7;
+				layers.cta.arrow.regY = 13.5;
+				layers.cta.arrow.arrow_1.x = 0;
+				layers.cta.arrow.arrow.x = 0;
+				layers.cta.arrow.arrow_1.regX = 0;
+				layers.cta.arrow.arrow.regX = 0;
+				layers.cta.arrow.regX = 0;
+				layers.cta.children[0].x = 0;
+				layers.cta.children[0].y = 0;
+				layers.cta.children[0].regX = 0;
+				layers.cta.children[0].regY = 0;
+				layers.cta.children[0].graphics.clear();
+				layers.cta.children[0].graphics.beginFill(ctaBackgroundColor).drawRect(0, -15, ctaWidth, 30);
+				if(position == 'right') {
+					layers.cta.x = adWidth - ctaWidth;
+					layers.txtCta.x = adWidth - ctaWidth + 15;
+					layers.cta.arrow.x = ctaWidth - 20;
+				} else {
+					layers.cta.x = 0;
+					layers.txtCta.x = 15;
+					layers.cta.arrow.x = ctaWidth - 20;
+				}
 			}
-		}
-        var iframe = window.frameElement;
-		var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
-		var bannerData = parentWindow.getBannerData();
-		bannerData.headline1 = eval(bannerData.textField1);
-		bannerData.headline2 = eval(bannerData.textField2);
-		bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,"14px",0,0,"50","300", "center"] : '';
-		animation_container.addEventListener("click", function(){
-			parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl, bannerData.layout + '|' + bannerData.ctaText);
-			if(bannerData.clickTracker) {
-				var clickTrackers = bannerData.clickTracker.split('^');
-				clickTrackers.forEach(function(url){
+					var iframe = window.frameElement;
+			var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
+			var bannerData = parentWindow.getBannerData();
+			bannerData.headline1 = eval(bannerData.textField1);
+			bannerData.headline2 = eval(bannerData.textField2);
+			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "9px" : "11px"),0,0,"50","300", "center"] : '';
+			animation_container.addEventListener("click", function(){
+				parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl, bannerData.layout + '|' + bannerData.ctaText);
+				if(bannerData.clickTracker) {
+					var clickTrackers = bannerData.clickTracker.split('^');
+					clickTrackers.forEach(function(url){
+						if(url && url.toLowerCase() != 'na') {
+								(new Image()).src = url;
+						}
+					});
+				}
+			});
+			if(bannerData.impressionTracker) {
+				var impressionTrackers = bannerData.impressionTracker.split('^');
+				impressionTrackers.forEach(function(url){
 					if(url && url.toLowerCase() != 'na') {
 							(new Image()).src = url;
 					}
 				});
 			}
-		});
-		if(bannerData.impressionTracker) {
-			var impressionTrackers = bannerData.impressionTracker.split('^');
-			impressionTrackers.forEach(function(url){
-				if(url && url.toLowerCase() != 'na') {
-						(new Image()).src = url;
-				}
-			});
-		}
-        exportRoot.initBanner(bannerData)
-        ctaAlignment('right')
-        exportRoot.runBanner()
+			exportRoot.initBanner(bannerData)
+			ctaAlignment('right')
+			exportRoot.runBanner()
     })
 	initReady=true
 }
@@ -182,10 +182,10 @@ var loadFont = false
 <!-- write your code here -->
 </head>
 <body onload="loaded('body')" style="margin:0px;">
-<div id="rHit" style="display:block; position:absolute; top:0px; left:278px; width:22px; height:22px; z-index:100000 !important; cursor:pointer; "></div>
-<div id="animation_container" style="background-color:#0078D4; width:300px; height:600px">
-  <canvas id="canvas" width="300" height="600" style="position: absolute; display: block; background-color:#FFFFFF; cursor:pointer;" aria-label="Microsoft 3 6 5. Work in real time, together. Co author documents and communicate in real time across your favorite apps, plus 1 terabyte of one drive cloud storage. Buy now." role="img"></canvas>
-		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:300px; height:600px; position: absolute; left: 0px; top: 0px; display: block;">
+<div id="rHit" style="display:block; position:absolute; top:0px; left:706px; width:22px; height:22px; z-index:100000 !important; cursor:pointer; "></div>
+<div id="animation_container" style="background-color:#0078D4; width:728px; height:90px">
+  <canvas id="canvas" width="728" height="90" style="position: absolute; display: block; background-color:#FFFFFF; cursor:pointer;" aria-label="Microsoft 3 6 5. Work in real time, together. Co author documents and communicate in real time across your favorite apps, plus 1 terabyte of one drive cloud storage. Buy now." role="img"></canvas>
+		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:728px; height:90px; position: absolute; left: 0px; top: 0px; display: block;">
 		<div style="position: absolute; border: 1px solid black; box-sizing: border-box; background-color:transparent; top: 0; left: 0; width: 100%; bottom: 0;"></div>
 		</div>
 	</div>
@@ -223,8 +223,9 @@ var startBanner = function(){
 
 				function replay() {
 					if (exportRoot.isReplay == true){
+                        //initDiv.style.visibility='visible'
 
-						TweenMax.killAll();
+                        gsap.defaults({overwrite: "auto"}); //new line
 						stage.removeAllChildren();
 						stage.update();
                         var canvas = document.getElementById('canvas');
@@ -240,7 +241,7 @@ var startBanner = function(){
                         // Restore the transform
                         context.restore(); //CLEARS THE SPECIFIC CANVAS COMPLETELY FOR NEW DRAWING
 
-						TweenMax.delayedCall(0.1,init)
+                        gsap.delayedCall(0.1,init) //new line
 					}
 				}
 
