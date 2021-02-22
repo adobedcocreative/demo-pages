@@ -1126,7 +1126,7 @@ if (reversed == null) { reversed = false; }
 					if (!exportRoot.animInProgress) {
 						prevSelection = exportRoot.currentSelection;
 						exportRoot.currentSelection = 1;
-						amoAdInteraction('Dot1 Click', exportRoot.currentSelection);
+						amoAdInteraction('Dot1 Click', exportRoot.currentSelection-1);
 						if (exportRoot.currentSelection != prevSelection){
 							exportRoot.animInProgress=true
 							gsap.delayedCall(0.2,function(){
@@ -1146,7 +1146,7 @@ if (reversed == null) { reversed = false; }
 					if (!exportRoot.animInProgress) {
 						prevSelection = exportRoot.currentSelection;
 						exportRoot.currentSelection = 2;
-						amoAdInteraction('Dot2 Click', exportRoot.currentSelection);
+						amoAdInteraction('Dot2 Click', exportRoot.currentSelection-1);
 						if (exportRoot.currentSelection != prevSelection){
 							exportRoot.animInProgress=true
 							gsap.delayedCall(0.2,function(){
@@ -1166,7 +1166,7 @@ if (reversed == null) { reversed = false; }
 					if (!exportRoot.animInProgress) {
 						prevSelection = exportRoot.currentSelection;
 						exportRoot.currentSelection = 3;
-						amoAdInteraction('Dot3 Click', exportRoot.currentSelection);
+						amoAdInteraction('Dot3 Click', exportRoot.currentSelection-1);
 						if (exportRoot.currentSelection != prevSelection){
 							exportRoot.animInProgress=true
 							gsap.delayedCall(0.2,function(){
@@ -1186,7 +1186,7 @@ if (reversed == null) { reversed = false; }
 					if (!exportRoot.animInProgress) {
 						prevSelection = exportRoot.currentSelection;
 						exportRoot.currentSelection = 4;
-						amoAdInteraction('Dot4 Click', exportRoot.currentSelection);
+						amoAdInteraction('Dot4 Click', exportRoot.currentSelection-1);
 						if (exportRoot.currentSelection != prevSelection){
 							exportRoot.animInProgress=true
 							gsap.delayedCall(0.2,function(){
@@ -1206,7 +1206,7 @@ if (reversed == null) { reversed = false; }
 					if (!exportRoot.animInProgress) {
 						exportRoot.animInProgress=true
 						exportRoot.getSelectionId("next")
-						amoAdInteraction('Next Click', exportRoot.currentSelection);
+						amoAdInteraction('Next Click', exportRoot.currentSelection-1);
 						gsap.delayedCall(0.2,function(){
 							exportRoot.subHeadMoveCheck(exportRoot.currentSelection);
 						})
@@ -1219,12 +1219,12 @@ if (reversed == null) { reversed = false; }
 					if (!exportRoot.animInProgress) {
 						exportRoot.animInProgress=true
 						exportRoot.getSelectionId("prev")
-						amoAdInteraction('Previous Click', exportRoot.currentSelection);
+						amoAdInteraction('Previous Click', exportRoot.currentSelection-1);
 						exportRoot.subHeadMoveCheck(exportRoot.currentSelection);
 						exportRoot.gotoNextNav();
 						exportRoot.prevScene();
 					}
-				});		
+				});
 
 				exportRoot.gotoNextNav = function() {
 					for (var i=1;i<=maxNav;i++) {

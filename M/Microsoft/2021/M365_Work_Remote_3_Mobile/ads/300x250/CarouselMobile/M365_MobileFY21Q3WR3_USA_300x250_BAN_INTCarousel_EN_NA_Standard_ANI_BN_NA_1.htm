@@ -130,10 +130,10 @@ function handleComplete(evt,comp) {
         			var iframe = window.frameElement;
         			var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
         			var bannerData = parentWindow.getBannerData();
-        			bannerData.headline1 = eval(bannerData.textField1);
-        			bannerData.headline2 = eval(bannerData.textField2);
-              bannerData.headline3 = eval(bannerData.textField3);
-        			bannerData.headline4 = eval(bannerData.textField4);
+              bannerData.headline1 = eval(bannerData.textField1.split('^')[0]);
+              bannerData.headline2 = eval(bannerData.textField2.split('^')[0]);
+              bannerData.headline3 = eval(bannerData.textField3.split('^')[0]);
+              bannerData.headline4 = eval(bannerData.textField4.split('^')[0]);
               bannerData.subheadline1 = eval(bannerData.textField5);
         			bannerData.ctaText = bannerData.ctaText.replace('<br>', '\n');
         			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "8.5px" : (bannerData.ctaText.length >= 12 ? "10px" : "13px")),0,0,"50","300", "center"] : '';
