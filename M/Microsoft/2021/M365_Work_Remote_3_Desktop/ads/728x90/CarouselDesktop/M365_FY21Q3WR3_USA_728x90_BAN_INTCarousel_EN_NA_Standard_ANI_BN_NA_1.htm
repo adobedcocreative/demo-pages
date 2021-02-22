@@ -85,8 +85,10 @@ function handleComplete(evt,comp) {
       window.ctaWidth = layers.txtCta.children[0].children[0].getBounds().width + 45;
       layers.txtCta.regX = 0;
       layers.txtCta.children[0].x = 0;
-      layers.txtCta.children[0].y -= 3;
-      layers.cta.y += 10;
+      // layers.txtCta.children[0].y -= 1;
+      layers.cta.y += 13;
+      layers.scaleX = 1;
+      layers.scaleY = 1;
       layers.txtCta.scaleX = 1;
       layers.txtCta.scaleY = 1;
       layers.cta.regX = 0;
@@ -115,7 +117,7 @@ function handleComplete(evt,comp) {
           layer.regX = 0;
           layer.regY = 0;
           layer.graphics.clear();
-          layer.graphics.beginFill(ctaBackgroundColor).drawRect(0, -20, ctaWidth, 40);
+          layer.graphics.beginFill(ctaBackgroundColor).drawRect(0, -14, ctaWidth, 28);
         }
       }
       alignBackground(layers.cta.children[0]);
@@ -174,7 +176,7 @@ function handleComplete(evt,comp) {
     }
     startBanner();
     exportRoot.initBanner(bannerData)
-    ctaAlignment('left');
+    ctaAlignment('right');
     exportRoot.runBanner()
     initReady=true
   })

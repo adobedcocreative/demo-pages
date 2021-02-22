@@ -1057,9 +1057,6 @@ if (reversed == null) { reversed = false; }
 						amoAdInteraction('Dot1 Click', exportRoot.currentSelection-1);
 						if (exportRoot.currentSelection != prevSelection){
 							exportRoot.animInProgress=true
-							gsap.delayedCall(0.2,function(){
-								exportRoot.subHeadMoveCheck(exportRoot.currentSelection);
-							})
 							if(exportRoot.currentSelection > prevSelection) {
 								exportRoot.nextScene();
 							} else {
@@ -1077,9 +1074,6 @@ if (reversed == null) { reversed = false; }
 						amoAdInteraction('Dot2 Click', exportRoot.currentSelection-1);
 						if (exportRoot.currentSelection != prevSelection){
 							exportRoot.animInProgress=true
-							gsap.delayedCall(0.2,function(){
-								exportRoot.subHeadMoveCheck(exportRoot.currentSelection);
-							})
 							if(exportRoot.currentSelection > prevSelection) {
 								exportRoot.nextScene();
 							} else {
@@ -1097,9 +1091,6 @@ if (reversed == null) { reversed = false; }
 						amoAdInteraction('Dot3 Click', exportRoot.currentSelection-1);
 						if (exportRoot.currentSelection != prevSelection){
 							exportRoot.animInProgress=true
-							gsap.delayedCall(0.2,function(){
-								exportRoot.subHeadMoveCheck(exportRoot.currentSelection);
-							})
 							if(exportRoot.currentSelection > prevSelection) {
 								exportRoot.nextScene();
 							} else {
@@ -1117,9 +1108,6 @@ if (reversed == null) { reversed = false; }
 						amoAdInteraction('Dot4 Click', exportRoot.currentSelection-1);
 						if (exportRoot.currentSelection != prevSelection){
 							exportRoot.animInProgress=true
-							gsap.delayedCall(0.2,function(){
-								exportRoot.subHeadMoveCheck(exportRoot.currentSelection);
-							})
 							if(exportRoot.currentSelection > prevSelection) {
 								exportRoot.nextScene();
 							} else {
@@ -1135,9 +1123,6 @@ if (reversed == null) { reversed = false; }
 						exportRoot.animInProgress=true
 						exportRoot.getSelectionId("next")
 						amoAdInteraction('Next Click', exportRoot.currentSelection-1);
-						gsap.delayedCall(0.2,function(){
-							exportRoot.subHeadMoveCheck(exportRoot.currentSelection);
-						})
 						exportRoot.gotoNextNav()
 						exportRoot.nextScene();
 					}
@@ -1148,7 +1133,6 @@ if (reversed == null) { reversed = false; }
 						exportRoot.animInProgress=true
 						exportRoot.getSelectionId("prev")
 						amoAdInteraction('Previous Click', exportRoot.currentSelection-1);
-						exportRoot.subHeadMoveCheck(exportRoot.currentSelection);
 						exportRoot.gotoNextNav();
 						exportRoot.prevScene();
 					}

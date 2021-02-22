@@ -85,8 +85,8 @@ function handleComplete(evt,comp) {
       window.ctaWidth = layers.txtCta.children[0].children[0].getBounds().width + 45;
       layers.txtCta.regX = 0;
       layers.txtCta.children[0].x = 0;
-      layers.txtCta.children[0].y -= 3;
-      layers.cta.y += 10;
+      // layers.txtCta.children[0].y -= 1;
+      layers.cta.y += 13;
       layers.txtCta.scaleX = 1;
       layers.txtCta.scaleY = 1;
       layers.cta.regX = 0;
@@ -115,7 +115,7 @@ function handleComplete(evt,comp) {
           layer.regX = 0;
           layer.regY = 0;
           layer.graphics.clear();
-          layer.graphics.beginFill(ctaBackgroundColor).drawRect(0, -20, ctaWidth, 40);
+          layer.graphics.beginFill(ctaBackgroundColor).drawRect(0, -18, ctaWidth, 36);
         }
       }
       alignBackground(layers.cta.children[0]);
@@ -136,7 +136,7 @@ function handleComplete(evt,comp) {
     bannerData.headline4 = eval(bannerData.textField4.split('^')[0]);
     bannerData.subheadline1 = eval(bannerData.textField5);
     bannerData.ctaText = bannerData.ctaText.replace('<br>', '\n');
-    bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "9px" : (bannerData.ctaText.length >= 12 ? "11px" : "13.9px")),0,0,"50","300", "center"] : '';
+    bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "11px" : (bannerData.ctaText.length >= 12 ? "12px" : "13.9px")),0,0,"50","300", "center"] : '';
     window.smartNames = [];
     if(bannerData.textField2.split('^').length >= 2) {
       window.smartNames.push(bannerData.textField1.split('^')[1]);
