@@ -1586,16 +1586,16 @@ if (reversed == null) { reversed = false; }
 		}
 		var mc = exportRoot.mainMC
 		exportRoot.replayAnim = "inProgress"
-		
-		
+
+
 		this.initBanner = function (data) {
-			
+
 			exportRoot.isReplay = false;
 			exportRoot.shadowReplay = false;
-			
+
 			Object.keys = function(obj) {
 				var keys = [];
-		
+
 				for (var i in obj) {
 				  if (obj.hasOwnProperty(i)) {
 					keys.push(i);
@@ -1604,7 +1604,7 @@ if (reversed == null) { reversed = false; }
 				return keys
 			}
 			var keys = Object.keys(data)
-			
+
 				for (var i in keys) {
 					var id = keys[i].substr(0, 4);
 						if (id == "head") {
@@ -1622,8 +1622,8 @@ if (reversed == null) { reversed = false; }
 						}
 				}
 		}
-		
-		
+
+
 		this.fillHead = function (txtDetails, aVar) {
 			var text = txtDetails[0]
 			var size = txtDetails[1]
@@ -1632,16 +1632,16 @@ if (reversed == null) { reversed = false; }
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += parseInt(size)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -1666,16 +1666,16 @@ if (reversed == null) { reversed = false; }
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += parseInt(size)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -1692,9 +1692,9 @@ if (reversed == null) { reversed = false; }
 				aVar.push(mc)
 			}
 		}
-		
-		
-		
+
+
+
 		this.fillCta = function (txtDetails) {
 			var text = txtDetails[0]
 			var size = txtDetails[1]
@@ -1703,17 +1703,17 @@ if (reversed == null) { reversed = false; }
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
-		
+
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += (parseInt(size) * 0.90)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -1730,7 +1730,7 @@ if (reversed == null) { reversed = false; }
 				this.mainMC.txtCta.addChild(mc);
 			}
 		}
-		
+
 		this.getTheSentences = function (text, size, xOffset, yOffset, lineSpacing, lineWidth, align) {
 			var sentences = new Array()
 			var aSentenceLine = new Array()
@@ -1738,16 +1738,16 @@ if (reversed == null) { reversed = false; }
 			sentences = aStr.split("|");
 			var lastColor = "#000000"
 			// Figure out the setence lines
-		
+
 			for (var i = 0; i < sentences.length; i++) {
 				var aS = sentences[i].substr(0);
 				var aSplit = new Array()
 				aSplit = aS.split("<");
 				aSplit = aSplit.filter(Boolean)
 				var wholeSentence = new Array()
-		
+
 				for (var j = 0; j < aSplit.length; j++) {
-		
+
 					var checkColor = aSplit[j].indexOf("#")
 					var color = (checkColor == -1) ? lastColor : aSplit[j].substr(0, 7);
 					lastColor = color
@@ -1762,20 +1762,20 @@ if (reversed == null) { reversed = false; }
 			}
 			return aSentenceLine
 		}
-		
-		
+
+
 		var mc = exportRoot.mainMC;
-		
+
 		//var blur1 = mc.img1_blur
-		
-		
+
+
 		mc.cta.alpha = 0;
 		mc.replay_btn.alpha = 0;
-		
-		
-		
+
+
+
 		this.runBanner = function() {
-			
+
 				mc.s_logo.alpha = 0;
 				mc.s_logo_w.alpha = 0;
 				mc.cta.alpha = 1;
@@ -1786,139 +1786,139 @@ if (reversed == null) { reversed = false; }
 				mc.BG2.f2_blur_bg.alpha = 1;
 				mc.f3.FG3.f3_blur_fg.alpha = 1;
 				mc.f3.BG3.f3_blur_bg.alpha = 1;
-				
-						
+
+
 				this.tl1 = new TimelineLite();
-				
+
 				this.tl1.to(mc.FG1.f1_blur_fg, 2, {alpha:0, ease:Power2.easeInOut}, "-=0.5");
 				this.tl1.to(mc.BG1.f1_blur_bg, 2, {alpha:0, ease:Power2.easeInOut}, "-=2");
 				this.tl1.to(mc.s_logo_w, 0.5, {alpha:1, ease:Power2.easeInOut}, "-=1");
 				this.tl1.from(mc.FG1, 2, {x: "+=35", ease:Power2.easeOut}, "-=1.5");
 				this.tl1.from(mc.BG1, 2, {x: "+=15", ease:Power2.easeOut}, "-=2");
-				
+
 				this.tl1.from(mc.sliders.front, 1, {x: "+=400", ease:Power4.easeOut}, "+=0.4");
 				this.tl1.from(mc.sliders.back, 1, {x: "+=400", ease:Power4.easeOut}, "-=0.9");
 				this.tl1.to(mc.s_logo, 0.5, {alpha:1, ease:Power2.easeInOut}, "-=1");
 				this.tl1.to(mc.s_logo_w, 0.5, {alpha:0, ease:Power2.easeInOut}, "-=1");
-		
+
 				this.tl1.to(mc.FG1, 1, {x: "-=208", ease:Power2.easeInOut}, "-=1.5");
 				this.tl1.to(mc.BG1, 1, {x: "-=200", ease:Power2.easeInOut}, "-=1.5");
 				this.tl1.to(mc.FG1.f1_blur_fg, 1, {alpha:1, ease:Power2.easeInOut}, "-=1.5");
 				this.tl1.to(mc.BG1.f1_blur_bg, 1, {alpha:1, ease:Power2.easeInOut}, "-=1.5");
-				
-				
-		
-				
+
+
+
+
 		// 1st text
-		
+
 				this.tl1.from(exportRoot.headline1, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "-=0.6");
 				this.tl1.to(exportRoot.headline1, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "-=0.2");
-					
+
 				this.tl1.from(exportRoot.headline2, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "-=0.2");
 				this.tl1.to(exportRoot.headline2, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "+=0.2");
-			
+
 				this.tl1.from(exportRoot.headline3, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "-=0.2");
 				this.tl1.from(exportRoot.headline3a, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "-=0.2");
 				this.tl1.to(exportRoot.headline3, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "+=0.5");
 				this.tl1.to(exportRoot.headline3a, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "-=0.2");
-				
+
 				this.tl1.from(exportRoot.headline4, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "-=0.2");
 				this.tl1.to(exportRoot.headline4, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "+=0.2");
-				
+
 				this.tl1.from(exportRoot.headline5, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "-=0.2");
 				this.tl1.from(exportRoot.headline5a, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "-=0.2");
 				this.tl1.to(exportRoot.headline5, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "+=0.8");
 				this.tl1.to(exportRoot.headline5a, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "-=0.2");
-		
+
 		////////////////
 				this.tl1.to(mc.FG1, 1.5, {alpha:0, ease:Power2.easeOut}, "-=1.5");
 				this.tl1.to(mc.BG1, 1.5, {alpha:0, ease:Power2.easeOut}, "-=1.5");
-				
+
 				this.tl1.to(mc.FG2, 1.5, {alpha:1, ease:Power2.easeInOut}, "-=1.6");
 				this.tl1.to(mc.BG2, 1.5, {alpha:1, ease:Power2.easeInOut}, "-=1.6");
-				
+
 				this.tl1.to(mc.sliders.front, 1, {x: "-=400", ease:Power4.easeIn}, "-=0.4");
 				this.tl1.to(mc.sliders.back, 1, {x: "-=400", ease:Power4.easeIn}, "-=0.9");
 				this.tl1.to(mc.s_logo, 0.5, {alpha:0, ease:Power2.easeInOut}, "-=0.35");
 				this.tl1.to(mc.s_logo_w, 0.5, {alpha:1, ease:Power2.easeInOut}, "-=0.5");
-		
+
 				this.tl1.to(mc.FG2, 1.5, {x: "-=18", ease:Power2.easeInOut}, "-=1");
 				this.tl1.to(mc.BG2, 1.5, {x: "-=10", ease:Power2.easeInOut}, "-=1.5");
-				
+
 				this.tl1.to(mc.FG2.f2_blur_fg, 1, {alpha:0, ease:Power4.easeOut}, "-=1");
 				this.tl1.to(mc.BG2.f2_blur_bg, 1, {alpha:0, ease:Power4.easeOut}, "-=1");
-		
-				
+
+
 				this.tl1.from(mc.sliders2.front, 1, {x: "+=400", ease:Power4.easeOut}, "+=1");
 				this.tl1.from(mc.sliders2.back, 1, {x: "+=400", ease:Power4.easeOut}, "-=0.9");
 				this.tl1.to(mc.s_logo, 0.5, {alpha:1, ease:Power2.easeInOut}, "-=1");
 				this.tl1.to(mc.s_logo_w, 0.5, {alpha:0, ease:Power2.easeInOut}, "-=1");
-		
+
 				this.tl1.to(mc.FG2, 1, {x: "-=18", ease:Power2.easeInOut}, "-=1.5");
 				this.tl1.to(mc.BG2, 1, {x: "-=10", ease:Power2.easeInOut}, "-=1.5");
 				this.tl1.to(mc.FG2.f2_blur_fg, 1, {alpha:1, ease:Power2.easeInOut}, "-=1.5");
 				this.tl1.to(mc.BG2.f2_blur_bg, 1, {alpha:1, ease:Power2.easeInOut}, "-=1.5");
-		
-				
-		// 2nd text	
+
+
+		// 2nd text
 				this.tl1.from(exportRoot.headline6, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "-=0.6");
 				this.tl1.to(exportRoot.headline6, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "-=0.2");
-					
+
 				this.tl1.from(exportRoot.headline7, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "-=0.2");
 				this.tl1.to(exportRoot.headline7, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "+=0.2");
-			
+
 				this.tl1.from(exportRoot.headline8, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "-=0.2");
 				this.tl1.to(exportRoot.headline8, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "+=0.5");
-				
+
 				this.tl1.from(exportRoot.headline9, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "-=0.2");
 				this.tl1.to(exportRoot.headline9, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "+=0.2");
-				
+
 				this.tl1.from(exportRoot.headline10, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "-=0.2");
 				this.tl1.from(exportRoot.headline10a, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "-=0.2");
 				this.tl1.to(exportRoot.headline10, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "+=0.2");
 				this.tl1.to(exportRoot.headline10a, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "-=0.2");
-				
+
 				this.tl1.from(exportRoot.headline11, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "-=0.2");
 				this.tl1.to(exportRoot.headline11, 0.2, { y: "+=0", alpha: 0, ease:Power4.easeOut}, "+=0.8");
 		/////////////
-				
-				
+
+
 				this.tl1.to(mc.FG2, 1.5, {alpha:0, ease:Power2.easeOut}, "-=1.5");
 				this.tl1.to(mc.BG2, 1.5, {alpha:0, ease:Power2.easeOut}, "-=1.5");
-				
+
 				this.tl1.to(mc.f3.FG3, 1.5, {alpha:1, ease:Power2.easeInOut}, "-=1.6");
 				this.tl1.to(mc.f3.BG3, 1.5, {alpha:1, ease:Power2.easeInOut}, "-=1.6");
-				
+
 				this.tl1.to(mc.sliders2.front, 1, {x: "-=400", ease:Power4.easeIn}, "-=0.4");
 				this.tl1.to(mc.sliders2.back, 1, {x: "-=400", ease:Power4.easeIn}, "-=0.9");
 				this.tl1.to(mc.s_logo, 0.5, {alpha:0, ease:Power2.easeInOut}, "-=0.4");
 				this.tl1.to(mc.s_logo_w, 0.5, {alpha:1, ease:Power2.easeInOut}, "-=0.5");
-		
+
 				this.tl1.from(mc.f3.FG3, 1.5, {x: "+=18", ease:Power2.easeInOut}, "-=1");
 				this.tl1.from(mc.f3.BG3, 1.5, {x: "+=10", ease:Power2.easeInOut}, "-=1.5");
-				
+
 				this.tl1.to(mc.f3.FG3.f3_blur_fg, 1, {alpha:0, ease:Power4.easeOut}, "-=1");
 				this.tl1.to(mc.f3.BG3.f3_blur_bg, 1, {alpha:0, ease:Power4.easeOut}, "-=1");
-				
+
 				this.tl1.to(mc.f3, 0.6, {ease:Power4.easeOut, onComplete:function(){ mc.f3.gotoAndPlay(0);}}, "+=0.5");
 				this.tl1.to(mc.s_logo, 0.5, {alpha:1, ease:Power2.easeInOut}, "+=0.35");
 				this.tl1.to(mc.s_logo_w, 0.5, {alpha:0, ease:Power2.easeInOut}, "-=0.5");
-		
+
 				this.tl1.from(exportRoot.headline20,{duration:0.8, y: "+=30", alpha: 0, stagger :0.1, ease:Power4.easeOut}, "+=0.7");
 				this.tl1.from(exportRoot.headline30,{duration:0.8, y: "+=30", alpha: 0, stagger :0.05,ease:Power4.easeOut}, "-=0.6");
-			
-				
-				this.tl1.from(mc.cta, 0.6, { x: "+=150", ease:Power4.easeOut}, "-=1");
-				this.tl1.from(mc.txtCta, 0.6, { x: "+=150", ease:Power4.easeOut}, "-=1");
+
+
+				this.tl1.from(mc.cta, 0.6, { x: "+=250", ease:Power4.easeOut}, "-=1");
+				this.tl1.from(mc.txtCta, 0.6, { x: "+=250", ease:Power4.easeOut}, "-=1");
 				this.tl1.from(mc.replay_btn, 1, { alpha: 0, onStart:function(){exportRoot.isReplay = true;}}, "-=0.4");
-				
+
 				this.tl1.pause();
-				
+
 				mc.logo_intro.gotoAndPlay(1);
-				
-		
-			
-			
+
+
+
+
 		}
 	}
 
@@ -2002,41 +2002,41 @@ an.getComposition = function(id) {
 }
 
 
-an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {		
-	var lastW, lastH, lastS=1;		
-	window.addEventListener('resize', resizeCanvas);		
-	resizeCanvas();		
-	function resizeCanvas() {			
-		var w = lib.properties.width, h = lib.properties.height;			
-		var iw = window.innerWidth, ih=window.innerHeight;			
-		var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;			
-		if(isResp) {                
-			if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
-				sRatio = lastS;                
-			}				
-			else if(!isScale) {					
-				if(iw<w || ih<h)						
-					sRatio = Math.min(xRatio, yRatio);				
-			}				
-			else if(scaleType==1) {					
-				sRatio = Math.min(xRatio, yRatio);				
-			}				
-			else if(scaleType==2) {					
-				sRatio = Math.max(xRatio, yRatio);				
-			}			
+an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {
+	var lastW, lastH, lastS=1;
+	window.addEventListener('resize', resizeCanvas);
+	resizeCanvas();
+	function resizeCanvas() {
+		var w = lib.properties.width, h = lib.properties.height;
+		var iw = window.innerWidth, ih=window.innerHeight;
+		var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;
+		if(isResp) {
+			if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {
+				sRatio = lastS;
+			}
+			else if(!isScale) {
+				if(iw<w || ih<h)
+					sRatio = Math.min(xRatio, yRatio);
+			}
+			else if(scaleType==1) {
+				sRatio = Math.min(xRatio, yRatio);
+			}
+			else if(scaleType==2) {
+				sRatio = Math.max(xRatio, yRatio);
+			}
 		}
-		domContainers[0].width = w * pRatio * sRatio;			
+		domContainers[0].width = w * pRatio * sRatio;
 		domContainers[0].height = h * pRatio * sRatio;
-		domContainers.forEach(function(container) {				
-			container.style.width = w * sRatio + 'px';				
-			container.style.height = h * sRatio + 'px';			
+		domContainers.forEach(function(container) {
+			container.style.width = w * sRatio + 'px';
+			container.style.height = h * sRatio + 'px';
 		});
-		stage.scaleX = pRatio*sRatio;			
+		stage.scaleX = pRatio*sRatio;
 		stage.scaleY = pRatio*sRatio;
-		lastW = iw; lastH = ih; lastS = sRatio;            
-		stage.tickOnUpdate = false;            
-		stage.update();            
-		stage.tickOnUpdate = true;		
+		lastW = iw; lastH = ih; lastS = sRatio;
+		stage.tickOnUpdate = false;
+		stage.update();
+		stage.tickOnUpdate = true;
 	}
 }
 an.handleSoundStreamOnTick = function(event) {
