@@ -116,8 +116,8 @@ function handleComplete(evt,comp) {
 		var iframe = window.frameElement;
 		var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
 		var bannerData = parentWindow.getBannerData();
-		bannerData.headline1 = eval(bannerData.textField1);
-		bannerData.headline2 = eval(bannerData.textField2);
+		bannerData.headline1 = eval(bannerData.textField2);
+		bannerData.headline2 = eval(bannerData.textField3);
 		bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "9px" : "12px"),0,0,"50","300", "center"] : '';
 		animation_container.addEventListener("click", function(){
 			parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl);
