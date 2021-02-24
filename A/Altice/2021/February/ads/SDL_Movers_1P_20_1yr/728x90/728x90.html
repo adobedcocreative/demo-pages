@@ -217,7 +217,8 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 378px;
       background-color:#efeeef;
       opacity:1;">
       <!-- <div id="ref" class="asset adSizeContainer"data-image="ref"></div> -->
-      <div id="frameVideo1" style="top: 0px;left: 0px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width:211px;"></video></div>
+      <div id="frameImage1" class="asset adSizeContainer" data-image="frameImage1"></div>
+      <!-- <div id="frameVideo1" style="top: 0px;left: 0px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width:211px;"></video></div> -->
       <!-- <div id="shape1"
         style="top: 0;
           left: -23px;
@@ -296,7 +297,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 378px;
           logoImage: 'images/728x90_Logo_Suddenlink_Black.png',
           introLogoImage: 'images/728x90_Logo_Suddenlink_Black.png',
           frameBackground: '1x1.png',
-          frameVideo1: "728x90_Dissolve.mp4",
+          frameImage1: "728x90_OPT_2P_300M_INT_iStart_TV_50mo_1year_Img_Frame_1.png",
           frameVideo3: "Animate_Blank_Arrow.mp4",
           frameImage2: "728x90_OPT_JAN_ACQ_FIB_300Mb_35Yr1_NonSub_Fiber1P_Img_Frame_02.png",
           frameImage4: "1x1.png",
@@ -329,7 +330,6 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 378px;
             setTimeout(function(){ video.src = path; },(flag ? 800 : 500));
           }
         }
-        loadVideo(ad.layers.frameVideo1.querySelector('video'), adData.frameVideo1, true);
         loadVideo(ad.layers.frameImage3.querySelector('video'), adData.frameVideo3);
 
         textUpdate();
@@ -413,16 +413,11 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 378px;
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}));
         }
         var animateFrame1 = function(flag){
-          ad.layers.frameVideo1.querySelector('video').onplay = function(){
-            gsap.to('#shape1', {x:'0',ease:'none', duration:0.7,delay:0.8})
-            gsap.to('#shape2', {x:'0',ease:'none', duration:0.7,delay:1.2})
-            gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frameText1', {x:0,y:0})
-          }
-          ad.layers.frameVideo1.querySelector('video').onended = function(){
-            gsap.timeline({defaults:{ease: "power2.Out", duration:0.2}})
-            .to('#frame1', (flag==true?{}:{delay:0, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
-          }
+          gsap.to('#shape1', {x:'0',ease:'none', duration:0.7,delay:0.8})
+          gsap.to('#shape2', {x:'0',ease:'none', duration:0.7,delay:1.2})
+          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+          .to('#frameText1', {x:0,y:0})
+          .to('#frame1', (flag==true?{}:{delay:3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
         gsap.delayedCall(.8, animateFrame1);
       });
