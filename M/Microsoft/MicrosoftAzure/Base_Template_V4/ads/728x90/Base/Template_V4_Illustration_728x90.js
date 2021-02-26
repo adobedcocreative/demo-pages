@@ -903,6 +903,7 @@ if(layout) {
 		case 'Illustration_ML' :
 		case 'Illustration_Migration' :
 		case 'Illustration_OpenSource' :
+		case 'Illustration_VM' :
 		case 'Lifestyle_Male' :
 		case 'Lifestyle_Female' :
 		case 'UI_AI' :
@@ -910,7 +911,8 @@ if(layout) {
 		case 'UI_Hybrid' :
 		case 'UI_ML' :
 		case 'UI_Migration' :
-		case 'UI_OpenSource' : frameImage1 = layout+'/' + adSize + '_' + layout + '_F1.png';frameImage2 = layout+'/' + adSize + '_' + layout + '_F2.png'; break;
+		case 'UI_OpenSource' :
+		case 'UI_VM' : frameImage1 = layout+'/' + adSize + '_' + layout + '_F1.png';frameImage2 = layout+'/' + adSize + '_' + layout + '_F2.png'; break;
 		default:
 	}
 	switch (layout) {
