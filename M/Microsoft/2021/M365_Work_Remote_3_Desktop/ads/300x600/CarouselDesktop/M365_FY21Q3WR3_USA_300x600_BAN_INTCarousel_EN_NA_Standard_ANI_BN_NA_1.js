@@ -846,12 +846,12 @@ if (reversed == null) { reversed = false; }
 			this.isSingleFrame = true;
 		}
 		var mc = exportRoot.mainMC
-		
+
 		this.initBanner = function (data) {
-				
+
 			Object.keys = function(obj) {
 				var keys = [];
-		
+
 				for (var i in obj) {
 				  if (obj.hasOwnProperty(i)) {
 					keys.push(i);
@@ -860,7 +860,7 @@ if (reversed == null) { reversed = false; }
 				return keys
 			}
 			var keys = Object.keys(data)
-			
+
 				for (var i in keys) {
 					var id = keys[i].substr(0, 4);
 						if (id == "head") {
@@ -878,8 +878,8 @@ if (reversed == null) { reversed = false; }
 						}
 				}
 		}
-		
-		
+
+
 		this.fillHead = function (txtDetails, aVar) {
 			var text = txtDetails[0]
 			var size = txtDetails[1]
@@ -888,16 +888,16 @@ if (reversed == null) { reversed = false; }
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += parseInt(size)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -914,7 +914,7 @@ if (reversed == null) { reversed = false; }
 				aVar.push(mc)
 			}
 		}
-		
+
 		this.fillSubHead = function (txtDetails, aVar) {
 			var text = txtDetails[0]
 			var size = txtDetails[1]
@@ -923,16 +923,16 @@ if (reversed == null) { reversed = false; }
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += parseInt(size)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -949,7 +949,7 @@ if (reversed == null) { reversed = false; }
 				aVar.push(mc)
 			}
 		}
-		
+
 		this.fillCta = function (txtDetails) {
 			var text = txtDetails[0]
 			var size = txtDetails[1]
@@ -958,17 +958,17 @@ if (reversed == null) { reversed = false; }
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
-		
+
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += (parseInt(size) * 0.90)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -985,7 +985,7 @@ if (reversed == null) { reversed = false; }
 				this.mainMC.txtCta.addChild(mc);
 			}
 		}
-		
+
 		this.getTheSentences = function (text, size, xOffset, yOffset, lineSpacing, lineWidth, align) {
 			var sentences = new Array()
 			var aSentenceLine = new Array()
@@ -993,16 +993,16 @@ if (reversed == null) { reversed = false; }
 			sentences = aStr.split("|");
 			var lastColor = "#000000"
 			// Figure out the setence lines
-		
+
 			for (var i = 0; i < sentences.length; i++) {
 				var aS = sentences[i].substr(0);
 				var aSplit = new Array()
 				aSplit = aS.split("<");
 				aSplit = aSplit.filter(Boolean)
 				var wholeSentence = new Array()
-		
+
 				for (var j = 0; j < aSplit.length; j++) {
-		
+
 					var checkColor = aSplit[j].indexOf("#")
 					var color = (checkColor == -1) ? lastColor : aSplit[j].substr(0, 7);
 					lastColor = color
@@ -1017,112 +1017,116 @@ if (reversed == null) { reversed = false; }
 			}
 			return aSentenceLine
 		}
-		
+
 		var img1 = mc.screens.img1
-		
+
 		exportRoot.init_img1_x = img1.x;
 		exportRoot.init_img2_x = mc.screens.img2.x;
 		exportRoot.init_img3_x = mc.screens.img3.x;
 		exportRoot.init_img4_x = mc.screens.img4.x;
-		
-		var init_headline_x 
-		
+
+		var init_headline_x
+
 		this.runBanner = function() {
-			
-				var maxNav = 4	
+
+				var maxNav = 4
 				mc.cta.alpha=1
 				mc.logoEnd.alpha=1
-			
+
 				var nxt = mc.hitNext
 				var prv = mc.hitPrev
 				var hit1 = mc.hit1
 				var hit2 = mc.hit2
 				var hit3 = mc.hit3
 				var hit4 = mc.hit4
-			
+
 				var initXpos = 0
 				var initOffset = 300
-					
+
 				var subHeadPos = exportRoot.headline1.x
-			
+
 				var prevSelection = 0
 				exportRoot.currentSelection = 1
-			
+
 				var nav = mc.nav
-			
+
 				hit1.on("click", function(evt) {
 					if (!exportRoot.animInProgress) {
 						prevSelection = exportRoot.currentSelection;
-						exportRoot.currentSelection = 1;				
+						exportRoot.currentSelection = 1;
+						amoAdInteraction('Dot1 Click', exportRoot.currentSelection-1);
 						if (exportRoot.currentSelection != prevSelection){
 							exportRoot.animInProgress=true
 							gsap.delayedCall(0.2,function(){
 								exportRoot.subHeadMoveCheck(exportRoot.currentSelection);
-							})				
+							})
 							if(exportRoot.currentSelection > prevSelection) {
 								exportRoot.nextScene();
 							} else {
 								exportRoot.prevScene();
-							}							
+							}
 							exportRoot.gotoNextNav()
 						}
 					}
 				});
-				
+
 				hit2.on("click", function(evt) {
 					if (!exportRoot.animInProgress) {
 						prevSelection = exportRoot.currentSelection;
-						exportRoot.currentSelection = 2;				
+						exportRoot.currentSelection = 2;
+						amoAdInteraction('Dot2 Click', exportRoot.currentSelection-1);
 						if (exportRoot.currentSelection != prevSelection){
 							exportRoot.animInProgress=true
 							gsap.delayedCall(0.2,function(){
 								exportRoot.subHeadMoveCheck(exportRoot.currentSelection);
-							})				
+							})
 							if(exportRoot.currentSelection > prevSelection) {
 								exportRoot.nextScene();
 							} else {
 								exportRoot.prevScene();
-							}								
+							}
 							exportRoot.gotoNextNav()
 						}
 					}
 				});
-				
+
 				hit3.on("click", function(evt) {
 					if (!exportRoot.animInProgress) {
 						prevSelection = exportRoot.currentSelection;
-						exportRoot.currentSelection = 3;				
+						exportRoot.currentSelection = 3;
+						amoAdInteraction('Dot3 Click', exportRoot.currentSelection-1);
 						if (exportRoot.currentSelection != prevSelection){
 							exportRoot.animInProgress=true
 							gsap.delayedCall(0.2,function(){
 								exportRoot.subHeadMoveCheck(exportRoot.currentSelection);
-							})				
+							})
 							if(exportRoot.currentSelection > prevSelection) {
 								exportRoot.nextScene();
 							} else {
 								exportRoot.prevScene();
-							}				
+							}
 							exportRoot.gotoNextNav()
 						}
 					}
 				});
-				
+
 				hit4.on("click", function(evt) {
 					if (!exportRoot.animInProgress) {
 						prevSelection = exportRoot.currentSelection;
-						exportRoot.currentSelection = 4;				
+						exportRoot.currentSelection = 4;
+						amoAdInteraction('Dot4 Click', exportRoot.currentSelection-1);
 						if (exportRoot.currentSelection != prevSelection){
 							exportRoot.animInProgress=true
 							gsap.delayedCall(0.2,function(){
 								exportRoot.subHeadMoveCheck(exportRoot.currentSelection);
-							})				
+							})
 							if(exportRoot.currentSelection > prevSelection) {
 								exportRoot.nextScene();
 							} else {
 								exportRoot.prevScene();
-							}							
+							}
 							exportRoot.gotoNextNav()
-		
+
 						}
 					}
 				});
@@ -1130,6 +1134,7 @@ if (reversed == null) { reversed = false; }
 					if (!exportRoot.animInProgress) {
 						exportRoot.animInProgress=true
 						exportRoot.getSelectionId("next")
+						amoAdInteraction('Next Click', exportRoot.currentSelection-1);
 						gsap.delayedCall(0.2,function(){
 							exportRoot.subHeadMoveCheck(exportRoot.currentSelection);
 						})
@@ -1137,24 +1142,25 @@ if (reversed == null) { reversed = false; }
 						exportRoot.nextScene();
 					}
 				});
-				
+
 				prv.on("click", function(evt) {
 					if (!exportRoot.animInProgress) {
 						exportRoot.animInProgress=true
 						exportRoot.getSelectionId("prev")
+						amoAdInteraction('Previous Click', exportRoot.currentSelection-1);
 						exportRoot.subHeadMoveCheck(exportRoot.currentSelection);
 						exportRoot.gotoNextNav();
 						exportRoot.prevScene();
 					}
-				});			
-				
+				});
+
 				exportRoot.gotoNextNav = function() {
 					for (var i=1;i<=maxNav;i++) {
 						if (nav["dot_"+i].currentFrame > 15) nav["dot_"+i].gotoAndPlay("deselected")
 					}
 					nav["dot_"+exportRoot.currentSelection].gotoAndPlay("selected")
 				}
-				
+
 				exportRoot.getSelectionId = function(direction) {
 					prevSelection = exportRoot.currentSelection
 					if (direction == "next") {
@@ -1164,72 +1170,72 @@ if (reversed == null) { reversed = false; }
 							exportRoot.currentSelection++
 						}
 					} else if (direction == "prev") {
-						if (exportRoot.currentSelection == 1) {					
+						if (exportRoot.currentSelection == 1) {
 							exportRoot.currentSelection = maxNav
 						} else {
 							exportRoot.currentSelection--
 						}
 					}
 				}
-				
+
 				exportRoot.subHeadMoveCheck = function() {
 						if (exportRoot.currentSelection==3){
 							gsap.delayedCall(0.2,function(){
 								exportRoot.tlSubHeadMove.tweenTo("in");
-							})					
-						} else {					
+							})
+						} else {
 							gsap.delayedCall(0,function(){
 								exportRoot.tlSubHeadMove.tweenTo("out");
-							})	
+							})
 						}
 				}
-				
+
 				exportRoot.tlSubHeadMove = gsap.timeline();
-		
-				exportRoot.tlSubHeadMove.add("out");		
-				exportRoot.tlSubHeadMove.to(exportRoot.subheadline1, .4, { y: "-=22", ease:Power2.easeInOut});	
+
+				exportRoot.tlSubHeadMove.add("out");
+				exportRoot.tlSubHeadMove.to(exportRoot.subheadline1, .4, { y: "-=22", ease:Power2.easeInOut});
 				exportRoot.tlSubHeadMove.add("in");
-				
+
 				exportRoot.tlSubHeadMove.pause();
-				
+
 				init_headline_x = exportRoot.headline1[0].x
 				exportRoot.nextScene = function() {
 					exportRoot.tlNext = gsap.timeline();
-					exportRoot.tlNext.to(mc.screens["img"+exportRoot.currentSelection], 0, { x:exportRoot["init_img"+exportRoot.currentSelection+"_x"]+initOffset, alpha: 0});		
-					exportRoot.tlNext.to(exportRoot["headline"+exportRoot.currentSelection], 0, { x:init_headline_x+initOffset, alpha: 0});		
-					
+					exportRoot.tlNext.to(mc.screens["img"+exportRoot.currentSelection], 0, { x:exportRoot["init_img"+exportRoot.currentSelection+"_x"]+initOffset, alpha: 0});
+					exportRoot.tlNext.to(exportRoot["headline"+exportRoot.currentSelection], 0, { x:init_headline_x+initOffset, alpha: 0});
+
 					exportRoot.tlNext.to(exportRoot["headline"+prevSelection], 0.6, { x:init_headline_x-initOffset, alpha: 0, ease:Power2.easeIn, stagger:0.03});
-					exportRoot.tlNext.to(mc.screens["img"+prevSelection], 0.6, { x:exportRoot["init_img"+exportRoot.currentSelection+"_x"]-initOffset, alpha: 0, ease:Power2.easeIn, onStart:function(){initDiv.style.visibility='hidden';}},"<+0.1");			
-					
+					exportRoot.tlNext.to(mc.screens["img"+prevSelection], 0.6, { x:exportRoot["init_img"+exportRoot.currentSelection+"_x"]-initOffset, alpha: 0, ease:Power2.easeIn, onStart:function(){initDiv.style.visibility='hidden';}},"<+0.1");
+
 					exportRoot.tlNext.to(exportRoot["headline"+exportRoot.currentSelection], 0.6, { x:init_headline_x, alpha: 1, ease:Power2.easeOut, stagger:0.03},"<+0.15");
 					exportRoot.tlNext.to(mc.screens["img"+exportRoot.currentSelection], 0.6, { x:exportRoot["init_img"+exportRoot.currentSelection+"_x"], alpha: 1, ease:Power2.easeOut,onComplete:function(){exportRoot.animInProgress=false}},"<+0.1");
 				}
-				
+
 				exportRoot.prevScene = function() {
 					exportRoot.tlBack = gsap.timeline();
-					exportRoot.tlNext.to(mc.screens["img"+exportRoot.currentSelection], 0, { x:exportRoot["init_img"+exportRoot.currentSelection+"_x"]-initOffset, alpha: 0});		
-					exportRoot.tlNext.to(exportRoot["headline"+exportRoot.currentSelection], 0, { x:init_headline_x-initOffset, alpha: 0});		
-					
+					exportRoot.tlNext.to(mc.screens["img"+exportRoot.currentSelection], 0, { x:exportRoot["init_img"+exportRoot.currentSelection+"_x"]-initOffset, alpha: 0});
+					exportRoot.tlNext.to(exportRoot["headline"+exportRoot.currentSelection], 0, { x:init_headline_x-initOffset, alpha: 0});
+
 					exportRoot.tlNext.to(exportRoot["headline"+prevSelection], 0.6, { x:init_headline_x+initOffset, alpha: 0, ease:Power2.easeIn, stagger:0.03});
-					exportRoot.tlNext.to(mc.screens["img"+prevSelection], 0.6, { x:exportRoot["init_img"+exportRoot.currentSelection+"_x"]+initOffset, alpha: 0, ease:Power2.easeIn},"<+0.1");			
-					
+					exportRoot.tlNext.to(mc.screens["img"+prevSelection], 0.6, { x:exportRoot["init_img"+exportRoot.currentSelection+"_x"]+initOffset, alpha: 0, ease:Power2.easeIn},"<+0.1");
+
 					exportRoot.tlNext.to(exportRoot["headline"+exportRoot.currentSelection], 0.6, { x:init_headline_x, alpha: 1, ease:Power2.easeOut, stagger:0.03},"<+0.15");
 					exportRoot.tlNext.to(mc.screens["img"+exportRoot.currentSelection], 0.6, { x:exportRoot["init_img"+exportRoot.currentSelection+"_x"], alpha: 1, ease:Power2.easeOut,onComplete:function(){exportRoot.animInProgress=false}},"<+0.1");
 				}
-				
+
 				exportRoot.gotoNextNav()
-						
-				exportRoot.tlText = gsap.timeline();		
-				
+
+				exportRoot.tlText = gsap.timeline();
+
 				exportRoot.tlText.to([exportRoot.headline1,exportRoot.headline2,exportRoot.headline3,exportRoot.headline4,mc.screens.img1,mc.screens.img2,mc.screens.img3,mc.screens.img4], 0, { alpha: 0, onStart:function(){exportRoot.nextScene();}});
-				exportRoot.tlText.to(exportRoot.subheadline1, 0, {x:"+=150", alpha: 0});	
+				exportRoot.tlText.to(exportRoot.subheadline1, 0, {x:"+=150", alpha: 0});
 				exportRoot.tlText.to(exportRoot.subheadline1, .8, { x: "-=150", alpha: 1, ease:Power4.easeOut, stagger:0.05},">+.45");
 				//exportRoot.tlText.from(exportRoot.mainMC.screens.bg1_1, .8, { x: "+=300", ease:Power4.easeOut},"<-.1");
 				//exportRoot.tlText.from(exportRoot.mainMC.screens.bg1_2, .8, { x: "+=300", ease:Power4.easeOut},"<");
 				//exportRoot.tlText.from(exportRoot.mainMC.screens.bg2_1, .8, { x: "+=300", ease:Power4.easeOut},"<+.1");
 				exportRoot.tlText.from(exportRoot.mainMC.nav, .8, { alpha:0, ease:Power4.easeOut},"<+.1");
 				exportRoot.tlText.from([mc.cta,mc.txtCta], { duration: 0.8, x: "-=200", ease:Power4.easeOut}, "-=0.3");
-				
+
 		}
 	}
 
@@ -1313,41 +1319,41 @@ an.getComposition = function(id) {
 }
 
 
-an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {		
-	var lastW, lastH, lastS=1;		
-	window.addEventListener('resize', resizeCanvas);		
-	resizeCanvas();		
-	function resizeCanvas() {			
-		var w = lib.properties.width, h = lib.properties.height;			
-		var iw = window.innerWidth, ih=window.innerHeight;			
-		var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;			
-		if(isResp) {                
-			if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
-				sRatio = lastS;                
-			}				
-			else if(!isScale) {					
-				if(iw<w || ih<h)						
-					sRatio = Math.min(xRatio, yRatio);				
-			}				
-			else if(scaleType==1) {					
-				sRatio = Math.min(xRatio, yRatio);				
-			}				
-			else if(scaleType==2) {					
-				sRatio = Math.max(xRatio, yRatio);				
-			}			
+an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {
+	var lastW, lastH, lastS=1;
+	window.addEventListener('resize', resizeCanvas);
+	resizeCanvas();
+	function resizeCanvas() {
+		var w = lib.properties.width, h = lib.properties.height;
+		var iw = window.innerWidth, ih=window.innerHeight;
+		var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;
+		if(isResp) {
+			if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {
+				sRatio = lastS;
+			}
+			else if(!isScale) {
+				if(iw<w || ih<h)
+					sRatio = Math.min(xRatio, yRatio);
+			}
+			else if(scaleType==1) {
+				sRatio = Math.min(xRatio, yRatio);
+			}
+			else if(scaleType==2) {
+				sRatio = Math.max(xRatio, yRatio);
+			}
 		}
-		domContainers[0].width = w * pRatio * sRatio;			
+		domContainers[0].width = w * pRatio * sRatio;
 		domContainers[0].height = h * pRatio * sRatio;
-		domContainers.forEach(function(container) {				
-			container.style.width = w * sRatio + 'px';				
-			container.style.height = h * sRatio + 'px';			
+		domContainers.forEach(function(container) {
+			container.style.width = w * sRatio + 'px';
+			container.style.height = h * sRatio + 'px';
 		});
-		stage.scaleX = pRatio*sRatio;			
+		stage.scaleX = pRatio*sRatio;
 		stage.scaleY = pRatio*sRatio;
-		lastW = iw; lastH = ih; lastS = sRatio;            
-		stage.tickOnUpdate = false;            
-		stage.update();            
-		stage.tickOnUpdate = true;		
+		lastW = iw; lastH = ih; lastS = sRatio;
+		stage.tickOnUpdate = false;
+		stage.update();
+		stage.tickOnUpdate = true;
 	}
 }
 an.handleSoundStreamOnTick = function(event) {
