@@ -980,6 +980,7 @@ if (reversed == null) { reversed = false; }
 				exportRoot.tlText.pause();
 				
 				mc.logo_intro.gotoAndPlay(1);
+				setTimeout(function(){ vid.style.opacity = 1; }, 10);
 		}
 	}
 
