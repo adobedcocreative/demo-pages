@@ -65,7 +65,7 @@ var vis = (function(){
 })();
 vis(function(){
   var checkState = vis() ? 'Visible' : 'Not visible';
-    console.log(checkState+"  videoState:"+exportRoot.videoState)
+    // console.log(checkState+"  videoState:"+exportRoot.videoState)
     if (checkState=='Visible' && exportRoot.videoState!="reset") {
         vid.play()
     } else if (checkState=='Not visible' && exportRoot.videoState!="reset") {
@@ -125,6 +125,7 @@ function handleComplete(evt,comp) {
                 vid.currentTime = 0;
             })
             TweenMax.delayedCall(0.4,function(){
+                exportRoot.videoState="reset"
                 var ctaAlignment = function(position){
                   position = position ? position : 'left';
                   var layers = exportRoot.mainMC;
@@ -207,11 +208,13 @@ function handleComplete(evt,comp) {
                 exportRoot.initBanner(bannerData)
                 ctaAlignment('right')
                 exportRoot.runBanner()
-                                initReady=true
+	initReady=true
+
                 vid.muted = true;
-                vid.currentTime = 0;
+
                 vid.pause()
                 vid.style.visibility = "visible";
+                vid.currentTime = 0;
             })
 
 }
@@ -269,7 +272,7 @@ function handleComplete(evt,comp) {
 <div id="rHit" style="display:block; position:absolute; top:0px; left:278px; width:22px; height:22px; z-index:100000 !important; cursor:pointer; "></div>
 
 <div id="animation_container" style="background-color:transparent; width:300px; height:600px;">
-    <video id="vid" preload="auto" src="./video/Family_Safety_Desktop_Display_300x600.mp4" autoplay="false" webkit-playsinline="" playsinline type="video/mp4" width="300" height="600" muted="muted" style="position: absolute;  z-index:-5; opacity:0.1;"></video>
+    <video id="vid" preload="auto" src="./video/Family_Safety_Desktop_Display_300x600.mp4" autoplay="false" webkit-playsinline="" playsinline type="video/mp4" width="300" height="600" muted="muted" style="position: absolute;  z-index:-5;  opacity:0.1;"></video>
   <canvas id="canvas" width="300" height="600" style="position: absolute; display: block; background-color:transparent; cursor:pointer;" aria-label="Microsoft 3 6 5. Stay connected even when you're apart with location sharing and alerts. Protect what matters most. Empower your family to create healthy habits online and im the real world with Microsoft Family Safety. Learn more." role="img"></canvas>
 
 		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:300px; height:600px; position: absolute; left: 0px; top: 0px; display: block;">
@@ -279,8 +282,13 @@ function handleComplete(evt,comp) {
 
 
 <script>
+
 var vid = document.getElementById("vid")
+vid.onended = function() {
+    exportRoot.videoState="reset"
+};
 var video = document.querySelector('video');
+
 enableInlineVideo(video);
 video.pause();
 vid.pause();
@@ -296,12 +304,12 @@ xhrReq.onload = function() {
     }
 }
 xhrReq.onerror = function() {
-    console.log('err' ,arguments);
+    // console.log('err' ,arguments);
 }
 xhrReq.onprogress = function(e){
     if(e.lengthComputable) {
         var percentComplete = ((e.loaded/e.total)*100|0) + '%';
-        console.log('progress: ', percentComplete);
+        // console.log('progress: ', percentComplete);
         if (percentComplete=='100%' && !loadVideo) loaded('video')
     }
 }
@@ -309,7 +317,7 @@ xhrReq.send();
 
 
 var startBanner = function(){
-                console.log("startBanner")
+                // console.log("startBanner")
 
 
 				var varInt

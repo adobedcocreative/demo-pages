@@ -65,7 +65,7 @@ var vis = (function(){
 })();
 vis(function(){
   var checkState = vis() ? 'Visible' : 'Not visible';
-   // console.log(checkState+"  videoState:"+exportRoot.videoState)
+   // // console.log(checkState+"  videoState:"+exportRoot.videoState)
     if (checkState=='Visible' && exportRoot.videoState!="reset") {
         vid.play()
     } else if (checkState=='Not visible' && exportRoot.videoState!="reset") {
@@ -288,12 +288,12 @@ xhrReq.onload = function() {
     }
 }
 xhrReq.onerror = function() {
-   // console.log('err' ,arguments);
+   // // console.log('err' ,arguments);
 }
 xhrReq.onprogress = function(e){
     if(e.lengthComputable) {
         var percentComplete = ((e.loaded/e.total)*100|0) + '%';
-       // console.log('progress: ', percentComplete);
+       // // console.log('progress: ', percentComplete);
         if (percentComplete=='100%' && !loadVideo) loaded('video')
     }
 }
