@@ -34,7 +34,7 @@
   </head>
   <body>
     <div class="" id="ad">
-      <div id="bgImage" class="asset" data-image="bgImage" style="top:0px;left:0px;width:inherit;height:inherit;"></div>
+      <div id="backgroundImage" class="asset" data-image="backgroundImage" style="top:0px;left:0px;width:inherit;height:inherit;"></div>
       <!-- <div id="ref" class="asset"
         data-image="ref"
         style="top:0px;
@@ -96,6 +96,7 @@
       setTimeout(function() {
         ad.contentSetup({
           cam: {
+            backgroundImage: 'assets/FreeAccount_160x600.png',
             headline: "Build containerized apps with toold you love",
             subHeadline: "Quisque suscipit suscipit accumsan. Morbi gravida hendrerit massa.",
             ctaText: "Continue signing up &#x276F;",//"Your $200 credit awaits",
@@ -108,7 +109,6 @@
             }
           ],
           staticData: {
-            bgImage: 'images/FreeAccount_160x600.png',
             // ref:'ref.png',
           },
           beforeLoad: function(data){

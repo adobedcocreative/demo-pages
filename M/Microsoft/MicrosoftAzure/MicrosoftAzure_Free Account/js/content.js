@@ -18,6 +18,7 @@ var getFeed1 = function(){
               "Country": data['gsx$country']['$t'],
               "Language": data['gsx$language']['$t'],
               "Smart Names": data['gsx$smartnames']['$t'],
+              "backgroundImage": data['gsx$backgroundimage']['$t'],
               "headline": data['gsx$headline']['$t'],
               "subHeadline": data['gsx$subheadline']['$t'],
             });

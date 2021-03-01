@@ -32,7 +32,7 @@
   </head>
   <body>
     <div class="" id="ad">
-      <div id="bgImage" class="asset" data-image="bgImage" style="top:0px;left:0px;width:inherit;height:inherit;"></div>
+      <div id="backgroundImage" class="asset" data-image="backgroundImage" style="top:0px;left:0px;width:inherit;height:inherit;"></div>
       <!-- <div id="ref" class="asset"
         data-image="ref"
         style="top:0px;
@@ -84,6 +84,7 @@
       setTimeout(function() {
         ad.contentSetup({
           cam: {
+            backgroundImage: 'assets/FreeAccount_728x90.png',
             headline: "Ready when you are—let’s set up your free account",
             subHeadline: "Your Azure free account awaits",
             ctaText: 'Finish signing up for Azure &#x276F;',//"Your $200 credit awaits",
@@ -96,7 +97,6 @@
             }
           ],
           staticData: {
-            bgImage: 'images/FreeAccount_728x90.png',
             // ref:'ref.png',
           },
           beforeLoad: function(data){
@@ -134,7 +134,7 @@
             if(trackingCode.length){ impressionTracker = impressionTracker.replace('$(t_qp_TC_5)', trackingCode); }
             ad.loadAssets(impressionTracker, function(assets){ });
           }
-          
+
           if(adData['subHeadline'].toLowerCase() == 'na' || adData['subHeadline'].toLowerCase() == '&#32;') {
             ad.layers.headline.querySelector('span font:nth-child(2)').style.visibility = 'hide';
             ad.layers.headline.style.top = ((ad.layers.headline.querySelector('span').offsetHeight - ad.layers.headline.querySelector('font').offsetHeight)/2) + 'px';
