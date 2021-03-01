@@ -18,7 +18,7 @@
 		font-style: Regular;
 		text-rendering: geometricPrecision;
 	}
-  body {
+	body {
 		background-color:#FFFFFF;
 		overflow: hidden;
 	}
@@ -65,7 +65,7 @@ var vis = (function(){
 })();
 vis(function(){
   var checkState = vis() ? 'Visible' : 'Not visible';
-   // console.log(checkState+"  videoState:"+exportRoot.videoState)
+    // console.log(checkState+"  videoState:"+exportRoot.videoState)
     if (checkState=='Visible' && exportRoot.videoState!="reset") {
         vid.play()
     } else if (checkState=='Not visible' && exportRoot.videoState!="reset") {
@@ -125,6 +125,7 @@ function handleComplete(evt,comp) {
                 vid.currentTime = 0;
             })
             gsap.delayedCall(0.4,function(){
+                exportRoot.videoState="reset"
                 var ctaAlignment = function(position){
                   position = position ? position : 'left';
                   var layers = exportRoot.mainMC;
@@ -281,8 +282,13 @@ function handleComplete(evt,comp) {
 
 
 <script>
+
 var vid = document.getElementById("vid")
+vid.onended = function() {
+    exportRoot.videoState="reset"
+};
 var video = document.querySelector('video');
+
 enableInlineVideo(video);
 video.pause();
 vid.pause();
@@ -298,12 +304,12 @@ xhrReq.onload = function() {
     }
 }
 xhrReq.onerror = function() {
-   // console.log('err' ,arguments);
+    // console.log('err' ,arguments);
 }
 xhrReq.onprogress = function(e){
     if(e.lengthComputable) {
         var percentComplete = ((e.loaded/e.total)*100|0) + '%';
-       // console.log('progress: ', percentComplete);
+        // console.log('progress: ', percentComplete);
         if (percentComplete=='100%' && !loadVideo) loaded('video')
     }
 }
@@ -311,7 +317,7 @@ xhrReq.send();
 
 var initDiv = document.getElementById("init");
 var startBanner = function(){
-               // console.log("startBanner")
+                // console.log("startBanner")
 
 
 				var varInt
