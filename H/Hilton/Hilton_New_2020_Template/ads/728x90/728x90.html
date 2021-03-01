@@ -243,7 +243,6 @@
           cam: {
             layoutCode: 'HI',
             backgroundImage: 'assets/728x90_Hilton_New_BackgroundImage.png',
-            logoColor: 'white',
             frameText1: "HERE’S TO YOUR<br>NEXT MEMORY",
             frameText2: "WHENEVER<br>YOU’RE READY",
             frameText3: "na", //<div class='LoewBold'>SOUTH BEACH</div>FROM $XX//<div class='LoewBold'>HILTON<br>SANTA MONICA</div>FROM $XX
@@ -422,13 +421,13 @@
                   }
                 }
               }
-              if(content['logoColor'].toLowerCase() == 'black'){
+              if(content.ctaBtnColor.split('^')[2].toLowerCase() == 'black'){
                 whitePatchColor = '#000';
               }
               document.querySelector("#whitePatch").style.backgroundColor = whitePatchColor;
               
               // if(content['name'].toLowerCase().indexOf('default') != -1){
-                content['logoImage'] = 'images/' + logoImageName  + '_' + content['logoColor'].toLowerCase() + '.png';
+                content['logoImage'] = 'images/' + logoImageName  + '_' + content.ctaBtnColor.split('^')[2].toLowerCase() + '.png';
               /*} else {
                 try{
                   content['logoImage'] = content['logoImage'];

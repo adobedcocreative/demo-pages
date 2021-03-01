@@ -15,7 +15,6 @@ var getFeed1 = function(){
               "CTA": data['gsx$cta']['$t'],
               "Country": data['gsx$country']['$t'],
               "Language": data['gsx$language']['$t'],
-              "logoColor": data['gsx$logocolor']['$t'],
               "Segment": data['gsx$segment']['$t'],
               "Smart Names": data['gsx$smartnames']['$t'],
               "layoutCode": data['gsx$layoutcode']['$t'],
