@@ -23,8 +23,8 @@
     </style>
     <style media="screen" data-dynamic="style">
       #ad {
-        width: 160px;
-        height: 600px;
+        width: 300px;
+        height: 250px;
         font-family: Arial,Helvetica,sans-serif;
         color: #000;
       }
@@ -76,17 +76,17 @@
       }
       .bulletedText {
         position: relative;
-        padding-left: 13px;
-        font-size: 15px;
-        line-height: 1.2;
-        margin-bottom: 6px;
+        padding-left: 20px;
+        font-size: 18px;
+        line-height: 1;
+        margin-bottom: 5px;
       }
       .bulletedText::before {
         content: '+';
         position: absolute;
-        top: -1px;
+        top: 1px;
         left: 0px;
-        font-size: 15px;
+        font-size: 17px;
         color: #0084d6;
       }
       .beam div:first-child {
@@ -138,16 +138,34 @@
       #cta::before, #introCta::before {
         content: ' ';
         position: absolute;
-        top: 3px;
-        left: 3px;
+        top: 2px;
+        left: 2px;
         width: inherit;
         height: inherit;
         border-radius: 15px;
         box-sizing: content-box;
         background: #efeeef;
       }
+      #cta.ctaWhite {
+        background: none !important;
+        border: 2px solid #fff;
+        padding: 0 !important;
+        color: #fff;
+      }
+      #cta.ctaWhite::before {
+        background: none;
+      }
       #cta:hover {
         opacity: 0.7 !important;
+      }
+      #introCta {
+        background: none !important;
+        border: 2px solid #fff;
+        padding: 0 !important;
+        color: #fff;
+      }
+      #introCta::before {
+        background: none;
       }
       #introCta:hover {
         opacity: 0.7 !important;
@@ -170,13 +188,14 @@
     <div id="beam2" class="beam" style="border-radius: 30px;background-image: linear-gradient(to left, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
     <div id="beam3" class="beam" style="border-radius: 50px;background-image: linear-gradient(to left, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
     <div id="beam4" class="beam" style="border-radius: 30px;background-image: linear-gradient(to left, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
-    <div id="beam5" class="beam" style="border-radius: 30px;background-image: linear-gradient(to right, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
+    <div id="beam5" class="beam" style="border-radius: 30px;background-image: linear-gradient(to left, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
     <div id="frameBackground" class="asset adSizeContainer" data-image="frameBackground" style="display:none;"></div>
     <div id="frameImage2" class="asset frameImage" data-image="frameImage2"></div>
     <div id="frameText21" class="frameText">!{frameText21}</div>
     <div id="frameText22" class="frameText">!{frameText22}</div>
     <div id="frameText23" class="frameText">!{frameText23}</div>
-    <div id="frameImage3" class="frameImage" style="top: 85px;left: 0px;width: inherit;height: inherit;overflow: hidden;"><video muted playsinline autoplay style="width: 140px;margin-left:-3px;"></video></div>
+    <!-- <div id="frameImage3" class="asset frameImage" data-image="frameImage3"></div> -->
+    <div id="frameImage3" class="frameImage" style="top: 29px;left: 47px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width: 170px;"></video></div>
     <div id="frameText31" class="frameText">!{frameText31}</div>
     <div id="frameText32" class="frameText">!{frameText32}</div>
     <div id="frameText33" class="frameText">!{frameText33}</div>
@@ -188,14 +207,14 @@
     <!-- <div id="priceLabel" class="asset adSizeContainer" data-image="priceLabel"></div> -->
     <div id="cta" class="text AlticeBold"
       data-text="ctaText"
-      style="top: 493px;
-        left: 17px;
-        width: 117px;
-        height: 31px;
-        font-size: 14.5px;
+      style="top: 205px;
+        left: 26px;
+        width: 67px;
+        height: 20px;
+        font-size: 10.5px;
         overflow: hidden;
-        border-radius: 18px;
-        padding: 3px;
+        border-radius: 15px;
+        padding: 2px;
         background-image: linear-gradient(to right, #24d9c3, #0084d6);">
     </div>
     <div id="frame1" class="frame"
@@ -208,87 +227,85 @@
       <div id="frameImage1" class="asset adSizeContainer" data-image="frameImage1"></div>
       <div id="loadBarContainer" class="asset"
         data-image="loadBarContainer"
-        style="top: 241px;
-          left: 12px;
+        style="top: 126px;
+          left: 34px;
           width: 232px;
-          height: 26px;
-          transform: scale(0.592);
-          transform-origin: top left;">
+          height: 26px;">
       </div>
       <div id="loadBarImage"
         data-image="loadBarImage"
-        style="top: 242.5px;
-          left: 15px;
-          width: 14px;
-          max-width: 160px;
-          height: 13px;
-          overflow: hidden;
-          border-radius: 10px;
-          transform-origin: top left;
-          transform: scale(0.82);">
+        style="top: 130px;
+          left: 38px;
+          width: 18px;
+          max-width: 223px;
+          height: 17.5px;
+          overflow:hidden;
+          border-radius:15px;">
       </div>
-      <!-- <div id="frameVideo1" style="top: 0px;left: 0px;width: inheritheight: inherit;"><video muted playsinline autoplay style="width:auto;"></video></div> -->
+      <!-- <div id="frameVideo1" style="top: 0px;left: 0px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width:inherit;;"></video></div>
+      <div id="videoOverlay" class="adSizeContainer" style="background-color:rgba(0,0,0,0.15);"></div> -->
       <!-- <div id="shape1"
         style="top: 0;
-          left: -23px;
-          width: 40px;
-          height: 520px;
-          border-radius: 20px;
+          left: -28px;
+          width: 70px;
+          height: 220px;
+          border-radius: 50px;
           background-image: linear-gradient(to top, #24d9c3, #0084d6);">
       </div>
       <div id="shape2"
         style="top: 0;
-          left: 108px;
-          width: 44px;
-          height: 450px;
-          border-radius: 30px;
+          left: 241px;
+          width: 56px;
+          height: 180px;
+          border-radius: 50px;
           background-image: linear-gradient(to bottom, #24d9c3, #0084d6);">
       </div> -->
-      <div id="frameText1" class="text-top AlticeBold"
+      <div id="frameText1" class="text AlticeBold"
         data-text="frameText1"
         data-style="text-align:center;"
-        style="top: 273px;
-          left: 5px;
-          width: 150px;
-          height: 120px;
-          font-size: 24px;
-          line-height: 1.05;">
+        style="top: 151px;
+          left: 20px;
+          width: 260px;
+          height: 40px;
+          font-size: 23px;
+          line-height: 1;
+          color:#fff;">
       </div>
-      <div id="frameText12" class="text-top AlticeBold"
+      <div id="frameText12" class="text AlticeBold"
         data-text="frameText12"
         data-style="text-align:center;"
-        style="top: 273px;
-          left: 5px;
-          width: 150px;
-          height: 120px;
-          font-size: 24px;
-          line-height: 1.05;">
+        style="top: 151px;
+          left: 20px;
+          width: 260px;
+          height: 40px;
+          font-size: 23px;
+          line-height: 1;
+          color:#fff;">
       </div>
       <!-- <div id="switch" class="switch"
-        style="top: 63px;
-          left: 34px;
+        style="top: 95px;
+          left: 104px;
           width: 92px;
           height: 36px;
-          transform: scale(0.82);
-          opacity:0;">
+          opacity: 0;">
         <div class="asset" data-image="switchImage" style="position: relative;width: inherit;height: inherit;"></div>
         <div class="switch-button"></div>
       </div> -->
-      <div id="shape1" class="shape" style="border-radius: 30px;background-image: linear-gradient(to left, #24d9c3, #0084d6);"></div>
-      <div id="shape2" class="shape" style="border-radius: 30px;background-image: linear-gradient(to left, #24d9c3, #0084d6);"></div>
-      <div id="shape3" class="shape" style="border-radius: 30px;background-image: linear-gradient(to bottom, #24d9c3, #0084d6);"></div>
-      <div id="shape4" class="shape" style="border-radius: 30px;background-image: linear-gradient(to bottom, #24d9c3, #0084d6);"></div>
+      <div id="shape1" class="shape" style="border-radius: 50px;background-image: linear-gradient(to left, #24d9c3, #0084d6);"></div>
+      <div id="shape2" class="shape" style="border-radius: 50px;background-image: linear-gradient(to left, #24d9c3, #0084d6);"></div>
+      <div id="shape3" class="shape" style="border-radius: 50px;background-image: linear-gradient(to bottom, #24d9c3, #0084d6);"></div>
+      <div id="shape4" class="shape" style="border-radius: 50px;background-image: linear-gradient(to bottom, #24d9c3, #0084d6);"></div>
       <div id="introLogoImage" class="asset adSizeContainer" data-image="introLogoImage"></div>
-      <div id="introCta" class="text AlticeBold"
+      <div id="introCta" class="text AlticeBold ctaWhite"
         data-text="ctaText"
-        style="top: 493px;
-          left: 17px;
-          width: 117px;
-          height: 31px;
-          font-size: 14.5px;
+        style="top: 205px;
+          left: 26px;
+          width: 67px;
+          height: 20px;
+          font-size: 10.5px;
           overflow: hidden;
-          border-radius: 18px;
-          padding: 3px;
+          border-radius: 15px;
+          padding: 2px;
           background-image: linear-gradient(to right, #24d9c3, #0084d6);">
       </div>
     </div>
@@ -302,42 +319,40 @@
   <script type="text/javascript">
     var ad = new Ad({
       root: document.querySelector('#ad'),
-      width: 160,
-      height: 600,
+      width: 300,
+      height: 250,
       borderWidth: 1,
       borderColor: '#000'
     });
     setTimeout(function() {
       ad.contentSetup({
         cam: {
-          "endFrameImage": "160x600_Altice_SDL_NewBuild_Img_Frame_05.png",
+          "endFrameImage": "300x250_Altice_SDL_NewBuild_Img_Frame_05.png",
           "frameText1": "Pilot Point^just got faster",
-          "frameText2": "<div style='top: 80px;left: 14px;width: 140px;font-size: 22px;line-height: 1;'>Suddenlink’s next generation network<br>is here</div>^<div class='AlticeRegular' style='top: 456px;width: 127px;left:18px;font-size: 9.7px;line-height: 1.25;'>Speeds, prices & availability vary by area.</div>^&nbsp;",
-          "frameText3": "<div style='top: 163px;left: 10px;width: 140px;font-size: 20px;line-height: 1.05;text-align: center;'>Get<br>100 Mbps Internet</div>^<div class='AlticeRegular' style='top: 456px;width: 127px;left:18px;font-size: 9.7px;line-height: 1.25;'>Wired connection<br>up to 100 Mbps.</div>^&nbsp;",
-          "frameText4": "<div style='top: 80px;left: 13px;font-size: 18px;line-height:1;'><div style='color: #0084d6;height: 37px;font-size: 83%;line-height: 1.1;'>Fast Internet<br>has arrived</div>100 Mbps<br>Internet</div>^<div style='top: 152px;left: 9px;width: 150px;line-height: 1;'><font style='font-size: 63px;letter-spacing: -2px;padding-right: 2px;' class='coloredText'>$30</font><font style='margin-left: 2px;font-size: 11px;display: inline-block;vertical-align: 25px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 4px 0 0 5px;font-size: 9px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>^<div style='top: 255px;width:170px;left: 13px;transform: scale(0.81);transform-origin: top left;'><div class='bulletedText'><font style='color:#0084d6;'>New!</font> $200 Visa<span style='vertical-align:5px;font-size:9px;'>®</span> Prepaid Card. <div class='AlticeRegular' style='font-size: 12px;margin-top:2px;line-height:1;'>Terms apply.</div></div></div>",
+          "frameText2": "<div style='top: 55px;left: 20px;width: 260px;font-size: 28px;line-height: 1;text-align: center;'>Suddenlink’s<br>next generation network is here</div>^<div class='AlticeRegular' style='top:178px;left:30px;font-size:8.6px;top:178px;left:30px;font-size:8.6px;line-height:1.2;'>Speeds, prices &<br>availability vary by area.</div>^&nbsp;",
+          "frameText3": "<div style='top: 114px;left: 20px;width: 260px;font-size: 24px;line-height: 1;text-align: center;'>Get 100 Mbps Internet</div>^<div class='AlticeRegular' style='top:178px;left:30px;font-size:8.6px;line-height:1.2;'>Wired connection<br>up to 100 Mbps.</div>^&nbsp;^400",
+          "frameText4": "<div style='top: 13px;left: 24px;font-size: 21.5px;line-height: 1;'><div style='color: #0084d6;height: 17px;font-size: 68%;'>Fast Internet has arrived</div>100 Mbps<br>Internet</div><div style='top: 13px;left: 24px;font-size: 21.5px;line-height: 1;'><div style='color: #0084d6;height: 17px;font-size: 68%;'>Fast Internet has arrived</div>100 Mbps<br>Internet</div>^<div style='top: 75px;left: 18px;width: 160px;line-height: 1;'><font style='font-size: 64px;letter-spacing: -0.5px;padding-right: 2px;line-height: 0.92;' class='coloredText'>$30</font><font style='margin-left: 2px;font-size: 10px;display: inline-block;vertical-align: 26px;line-height: 1.1;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 5px 0 0 6px;font-size: 9px;line-height: 1.1;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>^<div style='top: 171px;left: 21px;width:360px;transform: scale(0.77);transform-origin: top left;'><div class='bulletedText'><font style='color:#0084d6;'>New!</font> $200 Visa<span style='vertical-align:5px;font-size:9px;'>®</span> Prepaid Card. <div class='AlticeRegular' style='font-size: 12px;margin-top:2px;'>Terms apply.</div></div></div>",
           "ctaText": "Shop now",
           "clickUrl": "https://www.altice.com",
         },
         feed: [
           {
-            name: "Altice",
+            name: 'Altice',
           },
         ],
         staticData: {
-          logoImage: 'images/160x600_Logo_Suddenlink_Black.png',
-          introLogoImage: 'images/160x600_Logo_Suddenlink_Black.png',
+          logoImage: 'images/300x250_Logo_Suddenlink_Black.png',
+          introLogoImage: 'images/300x250_Logo_Suddenlink_White.png',
           frameBackground: '1x1.png',
           loadBarContainer: 'Animate_Load-Bar-Container.png',
           loadBarImage: 'Animate_Load-Bar.png',
           frameVideo3: "Animate_100_Mbps_Arrow.mp4",
-          frameImage1: "160x600_Altice_SDL_NewBuild_Img_Frame_01.png",
+          frameImage1: "300x250_Altice_SDL_NewBuild_Img_Frame_01.png",
           frameImage2: "1x1.png",
+
         },
         beforeLoad: function(data){
           data.map(function(content){
-            var daysLeft = Math.ceil((new Date('5 July 2020') - new Date())/(24*60*60*1000));
-            var urgencyMessage =  daysLeft > 0 ? daysLeft + ' Day' + (daysLeft == 1 ? '' : 's') + ' Left!' : '';
-            for(var i in content) { if(typeof content[i] == 'string' && content[i].indexOf('(urgencyMessage)') > 0) { content[i] = content[i].split('(urgencyMessage)').join(urgencyMessage); } }
             var frameText1 = content.frameText1.split('^')[0];
             content.frameText12 = content.frameText1.split('^').length > 1 ? content.frameText1.split('^')[1] : '&nbsp;';
             content.frameText1 = frameText1;
@@ -350,9 +365,8 @@
             content.frameText32 = content.frameText3.split('^').length > 1 ? content.frameText3.split('^')[1] : '&nbsp;';
             content.frameText33 = content.frameText3.split('^').length > 2 ? content.frameText3.split('^')[2] : '&nbsp;';
             var arrowAnimation = content.frameText3.split('^').length > 3 ? content.frameText3.split('^')[3] : '';
-            if(arrowAnimation && arrowAnimation == '400') {
-              content.frameVideo3 = "Animate_400_Mbps_Arrow.mp4";
-            }
+            if(arrowAnimation && arrowAnimation == '400') { content.frameVideo3 = "Animate_400_Mbps_Arrow.mp4"; }
+            else if(arrowAnimation && arrowAnimation == '200') { content.frameVideo3 = "Animate_200_Mbps_Arrow.mp4"; }
 
             content.frameText41 = content.frameText4.split('^')[0];
             content.frameText42 = content.frameText4.split('^').length > 1 ? content.frameText4.split('^')[1] : '&nbsp;';
@@ -380,26 +394,26 @@
               }
               video.src = path;
             }
-            setTimeout(function(){ video.src = path; }, (flag ? 800 : 500));
+            setTimeout(function(){ video.src = path; },(flag ? 800 : 500));
           }
         }
         loadVideo(ad.layers.frameImage3.querySelector('video'), adData.frameVideo3);
 
         textUpdate();
-        gsap.set('#shape1',{top:28,left:160,width:130,height:28,x:-290});
-        gsap.set('#shape2',{top:140,left:-110,width:110,height:22,x:270});
-        gsap.set('#shape3',{top:-480,left:115,width:36,height:480,y:1080});
-        gsap.set('#shape4',{top:-480,left:5,width:32,height:480,y:1080});
-        gsap.set('#beam1',{top:26,left:160,width:150,height:25,x:-310});gsap.set('#beam1 div',{width:25});
-        gsap.set('#beam2',{top:203,left:160,width:150,height:13,x:-310});gsap.set('#beam2 div',{width:13});
-        gsap.set('#beam3',{top:234,left:160,width:140,height:23,x:-300});gsap.set('#beam3 div',{width:23});
-        gsap.set('#beam4',{top:230,left:160,width:170,height:14,x:-330});gsap.set('#beam4 div',{width:14});
-        gsap.set('#beam5',{top:30,left:160,width:180,height:22,x:-340});gsap.set('#beam5 div',{width:22});
-        gsap.set('#frameText1', {x:'-120%'});
+        gsap.set('#shape1',{top:16,left:300,width:200,height:35,x:-500});
+        gsap.set('#shape2',{top:153,left:-180,width:180,height:28,x:480});
+        gsap.set('#shape3',{top:-280,left:210,width:60,height:280,y:530});
+        gsap.set('#shape4',{top:-280,left:20,width:55,height:280,y:530});
+        gsap.set('#beam1',{top:144,left:300,width:220,height:22,x:-520});gsap.set('#beam1 div',{width:22});
+        gsap.set('#beam2',{top:30,left:300,width:200,height:20,x:-500});gsap.set('#beam2 div',{width:20});
+        gsap.set('#beam3',{top:144,left:300,width:180,height:22,x:-480});gsap.set('#beam3 div',{width:22});
+        gsap.set('#beam4',{top:145,left:300,width:150,height:14,x:-530});gsap.set('#beam4 div',{width:14});
+        gsap.set('#beam5',{top:25,left:300,width:240,height:20,x:-540});gsap.set('#beam5 div',{width:20});
+        gsap.set('#frameText1', {x:'-120%', y:0});
         gsap.set('#frameText12', {autoAlpha:0});
         gsap.set('.frameImage', {x:'100%'});
         gsap.set('.frameText, #priceLabel', {x:'-100%'});
-        // gsap.set('.frameImageLeft', {x:'-100%', y:0});
+        // gsap.set('.frameImageLeft', {x:'-100%'});
 
         var loadBarImage = ad.root.querySelector('#loadBarImage img');
         loadBarImage.style.width = loadBarImage.parentNode.style.maxWidth;
@@ -410,10 +424,10 @@
           .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
           .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
           gsap.to('#beam1', {x:'0',ease:'none', duration:0.5,delay:0.8})
-          gsap.to('#beam2', {x:'0',ease:'none',duration:0.5,delay:1.3})
-          gsap.to('#beam3', {x:'0',ease:'none',duration:0.5,delay:1.8})
-          // gsap.to('#beam4', {x:'0',ease:'none',duration:0.5,delay:1.8})
-          // gsap.to('#beam5', {x:'0',ease:'none',duration:0.5,delay:2.1})
+          gsap.to('#beam2', {x:'0',ease:'none',duration:0.5,delay:1.1})
+          gsap.to('#beam3', {x:'0',ease:'none',duration:0.5,delay:1.3})
+          // gsap.to('#beam4', {x:'0',ease:'none',duration:0.5,delay:1.7})
+          // gsap.to('#beam5', {x:'0',ease:'none',duration:0.5,delay:2})
         }
         var priceFrameAnimation = function(frame){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
@@ -429,6 +443,18 @@
           .to('#frameText'+frame+'2', {delay:0.4, x:0,y:0})
           .to('#frameText'+frame+'3', {delay:0.4, x:0,y:0});
         }
+        // var videoFrameTopAnimation = function(frame){
+        //   var video = ad.root.querySelector('#frameImage' + frame + ' video');
+        //   var playVideo = function() { if(video) { video.play(); } }
+        //   video.onplay = function() {
+        //     gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+        //     .to('#frameImage'+frame, {x:0,y:0, delay: 1})
+        //   }
+        //   gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+        //   .to('#frameText'+frame+'1', {x:0,y: 0, onComplete:playVideo})
+        //   .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
+        //   .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
+        // }
         var videoFrameAnimation = function(frame){
           var video = ad.root.querySelector('#frameImage' + frame + ' video');
           var playVideo = function() { if(video) { video.play(); } }
@@ -453,6 +479,7 @@
         }
         var animateFrame5 = function(flag){
           var frameId = 5;
+          ad.layers.cta.classList.remove('ctaWhite');
           gsap.set('#frameBackground', {display: 'none'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[5]})
@@ -460,6 +487,7 @@
         }
         var animateFrame4 = function(flag){
           var frameId = 4;
+          ad.layers.cta.classList.remove('ctaWhite');
           gsap.set('#frameBackground', {display: 'block'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[4]})
@@ -467,12 +495,14 @@
         }
         var animateFrame3 = function(flag){
           var frameId = 3;
+          ad.layers.cta.classList.remove('ctaWhite');
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[frameId]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame4}));
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame4}))
         }
         var animateFrame2 = function(flag){
           var frameId = 2;
+          ad.layers.cta.classList.remove('ctaWhite');
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: beamFrameAnimation, onCompleteParams:[2]})
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}));
@@ -485,7 +515,7 @@
           .to('#loadBarImage', {width: '100%', duration: 1.7}, '-=0.3')
           .to('#frame1', (flag==true?{}:{delay:0.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
-        gsap.delayedCall(.8, animateFrame1, [true]);
+        gsap.delayedCall(.8, animateFrame1);
       });
     }, 2000);
   </script>
