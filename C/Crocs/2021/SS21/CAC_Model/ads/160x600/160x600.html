@@ -117,7 +117,7 @@
             });
             return data;
           }
-        }, function(data){
+        }, function(data, images){
           var adData = data[0], adClickUrl = adData['clickURL'];
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
@@ -132,13 +132,62 @@
               }
             } catch(e) {  }
           }
+          function insertAfter(newNode, referenceNode) {
+              referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+          }
           var adWidth = 160, adHeight = 600;
-          gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
-          .from('#backgroundImage2', { y: '-100%', duration:0.5, delay:0.8})
-          .from('#headlineImage1', { y: '100%'})
-          .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
-          .from('#logoImage', { y: '100%'})
-          .from('#cta', { y: adHeight})
+          var imageCount = 1;
+          var modelImagePath = ad.layers.backgroundImage2.querySelector('img').src;
+          var modelImage = images.find(function(image){ return image.src == modelImagePath; });
+          if(modelImage) {
+            // ad.layers.backgroundImage2.classList.remove('asset');
+            var imageWidth = modelImage.naturalWidth, imageHeight = modelImage.naturalHeight;
+            if(imageHeight > adHeight) {
+              var scale = imageHeight/adHeight;
+              imageHeight = adHeight;
+              imageWidth /= scale;
+            }
+            if(!(imageWidth == adWidth)) {
+              imageCount = imageWidth/adWidth, imagePositions = [];
+              for(var i=0; i<=100;i+=100/(imageCount-1)) { imagePositions.push(i); }
+              var lastNode = ad.layers.backgroundImage2;
+              imagePositions.forEach(function(position, i){
+                var div = document.createElement('div');
+                div.id =  'backgroundImage' + (i + 2);
+                div.classList.add('frame');
+                div.style.backgroundImage = 'url(' + modelImage.src + ')';
+                div.style.backgroundSize = 'cover';
+                div.style.backgroundPositionX = position + '%';
+                insertAfter(div, lastNode);
+                lastNode = div;
+              });
+              ad.layers.backgroundImage2.parentNode.removeChild(ad.layers.backgroundImage2);
+            } else { ad.layers.backgroundImage2.classList.add('asset'); }
+          }
+          if(imageCount == 1) {
+            gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
+            .from('#backgroundImage2', { y: '-100%', duration:0.5, delay:0.8})
+            .from('#headlineImage1', { y: '100%'})
+            .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
+            .from('#logoImage', { y: '100%'})
+            .from('#cta', { y: adHeight})
+          } else if(imageCount == 2) {
+            gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
+            .from('#backgroundImage2', { y: '-100%', duration:0.5, delay:0.8})
+            .from('#backgroundImage3', { y: '100%', duration:0.5})
+            .from('#headlineImage1', { autoAlpha: 0})
+            .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
+            .from('#logoImage', { y: '100%'})
+            .from('#cta', { y: adHeight})
+          }
+
+          // var adWidth = 160, adHeight = 600;
+          // gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
+          // .from('#backgroundImage2', { y: '-100%', duration:0.5, delay:0.8})
+          // .from('#headlineImage1', { y: '100%'})
+          // .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
+          // .from('#logoImage', { y: '100%'})
+          // .from('#cta', { y: adHeight})
         });
       }, 2000);
     </script>
