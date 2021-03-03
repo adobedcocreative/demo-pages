@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ad</title>
+    <script type="text/javascript" src="https://ads.everesttech.net/ads/static/local/AMOLibrary.js"></script>
+    <link rel="stylesheet" href="css/style.min.css">
+    <!-- <link rel="stylesheet" href="https://use.typekit.net/tag1rnw.css"> -->
+    <script src="js/gsap.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/script.min.js"></script>
+    <style media="screen">
+      /* @font-face {
+          font-family: SegoeUISemibold;
+          src: url('fonts/SegoeUI_Semibold.woff') format("woff");
+      }
+      @font-face {
+          font-family: SegoeUI;
+          src: url('fonts/SegoeUI.woff') format("woff");
+      }
+      .SegoeUISemibold { font-family: SegoeUISemibold; }
+      .SegoeUI { font-family: SegoeUI; } */
+    </style>
+    <style media="screen" data-dynamic="style">
+      #ad {
+        width: 970px;
+        height: 250px;
+        font-family: SegoeUI, Arial, sans-serif;
+        color: #fff;
+      }
+      .frame {
+        position: absolute;
+        top:0px;
+        left:0px;
+        width:inherit;
+        height:inherit;
+      }
+      /* #cta { background-color: !{ctaBtnColor}; } */
+      /* #cta:hover { background-color: !{ctaBtnHover}; } */
+      #cta img { transition: all ease-out 0.2s; -webkit-transition: all ease-out 0.2s; }
+      #cta img:hover { transform: translate(-50%,-50%) scale(1.1); }
+      /* #cta img:hover { opacity: 0.7; } */
+    </style>
+  </head>
+  <body>
+    <div class="" id="ad">
+      <div id="backgroundImage1" class="asset frame" data-image="backgroundImage1"></div>
+      <div id="backgroundImage2" class="asset frame" data-image="backgroundImage2"></div>
+      <div id="headlineImage1" class="asset frame" data-image="headlineImage1"></div>
+      <div id="headlineImage2" class="asset frame" data-image="headlineImage2"></div>
+      <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
+      <div id="logoImage" class="asset frame" data-image="logoImage"></div>
+      <div id="cta" class="asset"
+        data-image="ctaImage"
+        style="top: 162px;
+          left: 840px;
+          width: 77px;
+          height: 15px;">
+      </div>
+      <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
+    </div>
+    <div id="loadFont" style="width:0;height:0;overflow:hidden;">
+      <!-- <div class="SegoeUI">SegoeUI</div>
+      <div class="SegoeUISemibold">SegoeUISemibold</div> -->
+    </div>
+    <script type="text/javascript">
+      var ad = new Ad({
+        root: document.querySelector('#ad'),
+        width: 970,
+        height: 250,
+        borderWidth: 1,
+        borderColor: '#000'
+      });
+      setTimeout(function() {
+        ad.contentSetup({
+          cam: {
+            backgroundImage1: 'assets/970x250_Crocs_ClassicPillar_CLASSIC_CLOG_H2T_PriyankaChopra_Background_01.png',
+            backgroundImage2: 'assets/970x250_Crocs_ClassicPillar_CLASSIC_CLOG_H2T_PriyankaChopra_Background_02.png',
+            headlineImage1: 'assets/970x250_SS20_Crocs_DCO_ClassicPillar-Clogs_PriyankaChopraJonas_Headline_Make_It_A_Classic1.png',
+            headlineImage2: 'assets/970x250_SS20_Crocs_DCO_ClassicPillar-Clogs_PriyankaChopraJonas_Headline_Make_It_A_Classic2.png',
+            styleProperties: "na",
+            ctaSelect: 'en_text',
+            clickURL: 'https://www.adobe.com/#Crocs',
+            impressionTracker: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII='
+          },
+          feed: [
+            {
+              name: 'Crocs',
+            }
+          ],
+          staticData: {
+            // ref: 'ref.png'
+            ctaBtnColor: '#fff',
+            logoImage: 'images/970x250_Crocs_SS21_Logo.png',
+          },
+          beforeLoad: function(data){
+            data.map(function(content){
+              // content.ctaBtn = content.ctaBtnColor.split('^')[0];
+              // content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
+              switch(content.ctaSelect){
+                case 'en_text': content.ctaImage = 'images/cta/CTA_EN_Shop_Now.png'; break;
+                case 'en_text_black': content.ctaImage = 'images/cta/CTA_English_Black.png'; break;
+                case 'de_text_black': content.ctaImage = 'images/cta/CTA_German_Black.png'; break;
+                case 'kr_text_black': content.ctaImage = 'images/cta/CTA_Korean_Black.png'; break;
+
+                case 'jp_text': content.ctaImage = 'images/cta/CTA_JP_Shop_Now.png'; break;
+                case 'de_text': content.ctaImage = 'images/cta/CTA_DE_Shop_Now.png'; break;
+                case 'kr_text': content.ctaImage = 'images/cta/CTA_KR_Shop_Now.png'; break;
+                case 'en_text_green': content.ctaImage = 'images/cta/CTA_Green_EN_Shop_Now.png'; break;
+                case 'de_text_green': content.ctaImage = 'images/cta/CTA_Green_DE_Shop_Now.png'; break;
+                case 'kr_text_green': content.ctaImage = 'images/cta/CTA_Green_KO_Shop_Now.png'; break;
+                case 'en_text_orange': content.ctaImage = 'images/cta/CTA_Orange_EN_Shop_Now.png'; break;
+                case 'de_text_orange': content.ctaImage = 'images/cta/CTA_Orange_DE_Shop_Now.png'; break;
+                case 'kr_text_orange': content.ctaImage = 'images/cta/CTA_Orange_KR_Shop_Now.png'; break;
+                case 'en_text_grey': case 'en_text_gray': content.ctaImage = 'images/cta/CTA_Grey_EN_Shop_Now.png'; content.logoImage = 'images/970x250_Crocs_Logo_Grey.png'; break;
+                case 'jp_text_grey': case 'jp_text_gray': content.ctaImage = 'images/cta/CTA_Grey_JP_Shop_Now.png'; content.logoImage = 'images/970x250_Crocs_Logo_Grey.png'; break;
+                case 'de_text_grey': case 'de_text_gray': content.ctaImage = 'images/cta/CTA_Grey_DE_Shop_Now.png'; content.logoImage = 'images/970x250_Crocs_Logo_Grey.png'; break;
+                case 'kr_text_grey': case 'kr_text_gray': content.ctaImage = 'images/cta/CTA_Grey_KR_Shop_Now.png'; content.logoImage = 'images/970x250_Crocs_Logo_Grey.png'; break;
+
+                default: content.ctaImage = 'images/cta/CTA_EN_Shop_Now.png';
+              }
+            });
+            return data;
+          }
+        }, function(data, images){
+          var adData = data[0], adClickUrl = adData['clickURL'];
+          ad.root.addEventListener("click", function(e) {
+            if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
+          });
+          if(adData.impressionTracker.toLowerCase() != 'na'){ ad.loadAssets(adData.impressionTracker, function(assets){ }); }
+          if(adData.styleProperties && adData.styleProperties.toLowerCase() != 'na') {
+            try {
+              eval('var styleProperties = ' + adData.styleProperties);
+              if(styleProperties && typeof styleProperties == 'object')
+              for(var i in styleProperties) {
+                gsap.set(i, styleProperties[i]);
+              }
+            } catch(e) {  }
+          }
+          function insertAfter(newNode, referenceNode) {
+              referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+          }
+          var adWidth = 970, adHeight = 250;
+          var imageCount = 1;
+          var modelImagePath = ad.layers.backgroundImage2.querySelector('img').src;
+          var modelImage = images.find(function(image){ return image.src == modelImagePath; });
+          if(modelImage) {
+            // ad.layers.backgroundImage2.classList.remove('asset');
+            var imageWidth = modelImage.naturalWidth, imageHeight = modelImage.naturalHeight;
+            if(imageWidth > adWidth) {
+              var scale = imageWidth/adWidth;
+              imageWidth = adWidth;
+              imageHeight /= scale;
+            }
+            if(!(imageHeight == adHeight)) {
+              imageCount = imageHeight/adHeight, imagePositions = [];
+              for(var i=0; i<=100;i+=100/(imageCount-1)) { imagePositions.push(i); }
+              var lastNode = ad.layers.backgroundImage2;
+              imagePositions.forEach(function(position, i){
+                var div = document.createElement('div');
+                div.id =  'backgroundImage' + (i + 2);
+                div.classList.add('frame');
+                div.style.backgroundImage = 'url(' + modelImage.src + ')';
+                div.style.backgroundSize = '100%';
+                div.style.backgroundPositionY = position + '%';
+                insertAfter(div, lastNode);
+                lastNode = div;
+              });
+              ad.layers.backgroundImage2.parentNode.removeChild(ad.layers.backgroundImage2);
+            } else { ad.layers.backgroundImage2.classList.add('asset'); }
+          }
+          if(imageCount == 1) {
+            gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
+            .from('#backgroundImage2', { y: '-100%', duration:0.5, delay:0.8})
+            .from('#headlineImage1', { y: '100%'})
+            .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
+            .from('#logoImage', { y: '100%'})
+            .from('#cta', { y: adHeight})
+          } else if(imageCount == 2) {
+            gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
+            .from('#backgroundImage2', { y: '-100%', delay:0.8})
+            .from('#backgroundImage3', { y: '100%'})
+            .from('#headlineImage1', { y: '100%'})
+            .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
+            .from('#logoImage', { y: '100%'})
+            .from('#cta', { y: adHeight})
+          } else if(imageCount == 3) {
+            gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
+            .from('#backgroundImage2', { y: '-100%', delay:0.8})
+            .from('#backgroundImage3', { y: '100%'})
+            .from('#backgroundImage4', { y: '-100%'})
+            .from('#headlineImage1', { y: '100%'})
+            .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
+            .from('#logoImage', { y: '100%'})
+            .from('#cta', { y: adHeight})
+          } else if(imageCount == 4) {
+            gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
+            .from('#backgroundImage2', { y: '-100%', delay:0.8})
+            .from('#backgroundImage3', { y: '100%'})
+            .from('#backgroundImage4', { y: '-100%'})
+            .from('#backgroundImage5', { y: '100%'})
+            .from('#headlineImage1', { y: '100%'})
+            .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
+            .from('#logoImage', { y: '100%'})
+            .from('#cta', { y: adHeight})
+          }
+          // gsap.set('#backgroundImage1', { x: -1});
+          // gsap.timeline({defaults:{ease: Power1.easeOut, duration: 0.3}})
+          // .from('#backgroundImage1', { x: -30, scale: 1.14, duration: 8})
+          // gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.7}})
+          // .from('#headlineImage1', { x: -330,delay:0.5})
+          // .from('#headlineImage2', { x: 330}, '-=0.7')
+          // .from('#headlineImage3', { autoAlpha: 0, delay:0.5})
+        });
+      }, 2000);
+    </script>
+  </body>
+</html>
