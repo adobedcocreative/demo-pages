@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ad</title>
+    <script type="text/javascript" src="https://ads.everesttech.net/ads/static/local/AMOLibrary.js"></script>
+    <link rel="stylesheet" href="css/style.min.css">
+    <!-- <link rel="stylesheet" href="https://use.typekit.net/tag1rnw.css"> -->
+    <script src="js/gsap.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/script.min.js"></script>
+    <style media="screen">
+      /* @font-face {
+          font-family: SegoeUISemibold;
+          src: url('fonts/SegoeUI_Semibold.woff') format("woff");
+      }
+      @font-face {
+          font-family: SegoeUI;
+          src: url('fonts/SegoeUI.woff') format("woff");
+      }
+      .SegoeUISemibold { font-family: SegoeUISemibold; }
+      .SegoeUI { font-family: SegoeUI; } */
+    </style>
+    <style media="screen" data-dynamic="style">
+      #ad {
+        width: 300px;
+        height: 250px;
+        font-family: SegoeUI, Arial, sans-serif;
+        color: #fff;
+      }
+      .frame {
+        position: absolute;
+        top:0px;
+        left:0px;
+        width:inherit;
+        height:inherit;
+      }
+      /* #cta { background-color: !{ctaBtnColor}; } */
+      /* #cta:hover { background-color: !{ctaBtnHover}; } */
+      #cta img { transition: all ease-out 0.2s; -webkit-transition: all ease-out 0.2s; }
+      #cta img:hover { transform: translate(-50%,-50%) scale(1.1); }
+      #cta svg { transition: all ease-out 0.2s; -webkit-transition: all ease-out 0.2s; }
+      #cta svg:hover { transform: scale(1.2); }
+      /* #cta img:hover,#cta svg:hover { opacity: 0.7; } */
+    </style>
+  </head>
+  <body>
+    <div class="" id="ad">
+      <div id="backgroundImage1" class="asset frame" data-image="backgroundImage1"></div>
+      <div id="backgroundImage2" class="asset frame" data-image="backgroundImage2"></div>
+      <div id="headlineImage1" class="asset frame" data-image="headlineImage1"></div>
+      <div id="headlineImage2" class="asset frame" data-image="headlineImage2"></div>
+      <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
+      <div id="logoImage" class="asset frame" data-image="logoImage"></div>
+      <div id="cta" class="asset frame"
+        data-image="ctaImage"
+        style="top: 162px;
+          left: 181px;
+          width: 77px;
+          height: 15px;">
+      </div>
+      <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
+    </div>
+    <div id="loadFont" style="width:0;height:0;overflow:hidden;">
+      <!-- <div class="SegoeUI">SegoeUI</div>
+      <div class="SegoeUISemibold">SegoeUISemibold</div> -->
+    </div>
+    <script type="text/javascript">
+      var ad = new Ad({
+        root: document.querySelector('#ad'),
+        width: 300,
+        height: 250,
+        borderWidth: 1,
+        borderColor: '#000'
+      });
+      setTimeout(function() {
+        ad.contentSetup({
+          cam: {
+            backgroundImage1: 'assets/300x250_SS20_Crocs_DCO_ClassicPillar-Clogs_PriyankaChopraJonas_Background.png',
+            backgroundImage2: 'assets/1x1.png',
+            headlineImage1: 'assets/300x250_SS20_Crocs_DCO_ClassicPillar-Clogs_PriyankaChopraJonas_Headline_Make_It_A_Classic1.png',
+            headlineImage2: 'assets/300x250_SS20_Crocs_DCO_ClassicPillar-Clogs_PriyankaChopraJonas_Headline_Make_It_A_Classic2.png',
+            styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
+            ctaSelect: 'icon_white',
+            clickURL: 'https://www.adobe.com/#Crocs',
+            impressionTracker: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII='
+          },
+          feed: [
+            {
+              name: 'Crocs',
+            }
+          ],
+          staticData: {
+            // ref: 'ref.png'
+            ctaBtnColor: '#fff',
+            logoImage: 'images/300x250_Crocs_SS21_Logo.png',
+          },
+          beforeLoad: function(data){
+            data.map(function(content){
+              // content.ctaBtn = content.ctaBtnColor.split('^')[0];
+              // content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
+              var changePosition = function(flag){
+                // gsap.set('#cta', {left:176, top:197, width: 102, height:34});
+                // if(!flag) content.logoImage = 'images/300x250_Crocs_Logo_NoShadow.png';
+              }
+              var addIcon = function(color){
+                color = color ? color : '#fff';
+                var ctaElement = ad.root.querySelector('#cta');
+                if(ctaElement) {
+                  ctaElement.removeAttribute('data-image')
+                  ctaElement.innerHTML = `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 369.69" style="width:100%;height:100%;enable-background:new 0 0 300 369.69;" xml:space="preserve"><style type="text/css">.st0{fill-rule:evenodd;clip-rule:evenodd;fill:${color};}</style><path class="st0" d="M253.85,0H46.16C20.67,0,0,20.69,0,46.21v277.27c0,25.52,20.67,46.21,46.16,46.21h207.69 c25.49,0,46.15-20.69,46.15-46.21V46.21C300,20.69,279.34,0,253.85,0z M117.2,326.8l-54.98-55.05l80.8-87.74L62.3,97.39l54.65-54.5 l129.91,141.12L117.2,326.8z"/></svg>`;
+                }
+              }
+              switch(content.ctaSelect){
+                case 'en_text': content.ctaImage = 'images/cta/CTA_EN_Shop_Now.png'; changePosition(); break;
+                case 'en_text_black': content.ctaImage = 'images/cta/CTA_English_Black.png'; changePosition(); content.logoImage = 'images/300x250_Crocs_SS21_Logo_Black.png'; break;
+                case 'de_text_black': content.ctaImage = 'images/cta/CTA_German_Black.png'; changePosition(); content.logoImage = 'images/300x250_Crocs_SS21_Logo_Black.png'; break;
+                case 'kr_text_black': content.ctaImage = 'images/cta/CTA_Korean_Black.png'; changePosition(); content.logoImage = 'images/300x250_Crocs_SS21_Logo_Black.png'; break;
+
+                case 'jp_text': content.ctaImage = 'images/cta/CTA_JP_Shop_Now.png'; changePosition(); break;
+                case 'de_text': content.ctaImage = 'images/cta/CTA_DE_Shop_Now.png'; changePosition(); break;
+                case 'kr_text': content.ctaImage = 'images/cta/CTA_KR_Shop_Now.png'; changePosition(); break;
+                case 'en_text_green': content.ctaImage = 'images/cta/CTA_Green_EN_Shop_Now.png'; changePosition(); break;
+                case 'de_text_green': content.ctaImage = 'images/cta/CTA_Green_DE_Shop_Now.png'; changePosition(); break;
+                case 'kr_text_green': content.ctaImage = 'images/cta/CTA_Green_KO_Shop_Now.png'; changePosition(); break;
+                case 'en_text_orange': content.ctaImage = 'images/cta/CTA_Orange_EN_Shop_Now.png'; changePosition(); break;
+                case 'de_text_orange': content.ctaImage = 'images/cta/CTA_Orange_DE_Shop_Now.png'; changePosition(); break;
+                case 'kr_text_orange': content.ctaImage = 'images/cta/CTA_Orange_KR_Shop_Now.png'; changePosition(); break;
+                case 'en_text_grey': case 'en_text_gray': content.ctaImage = 'images/cta/CTA_Grey_EN_Shop_Now.png'; content.logoImage = 'images/300x250_Crocs_Logo_Grey_Text.png'; changePosition(true); break;
+                case 'jp_text_grey': case 'jp_text_gray': content.ctaImage = 'images/cta/CTA_Grey_JP_Shop_Now.png'; content.logoImage = 'images/300x250_Crocs_Logo_Grey_Text.png'; changePosition(true); break;
+                case 'de_text_grey': case 'de_text_gray': content.ctaImage = 'images/cta/CTA_Grey_DE_Shop_Now.png'; content.logoImage = 'images/300x250_Crocs_Logo_Grey_Text.png'; changePosition(true); break;
+                case 'kr_text_grey': case 'kr_text_gray': content.ctaImage = 'images/cta/CTA_Grey_KR_Shop_Now.png'; content.logoImage = 'images/300x250_Crocs_Logo_Grey_Text.png'; changePosition(true); break;
+                case 'icon_white': addIcon('#fff'); break;//content.ctaImage = 'images/cta/300x250_CTA_Icon.png'; break;
+                case 'icon_orange': addIcon('#f36c3e'); gsap.set('#cta', {top:168}); content.logoImage = 'images/300x250_Crocs_Logo_Orange.png'; break;
+                case 'icon_gray': case 'icon_grey': addIcon('#444'); content.logoImage = 'images/300x250_Crocs_Logo_Gray.png'; break; //content.ctaImage = 'images/cta/300x250_CTA_Icon_Gray.png'; content.logoImage = 'images/300x250_Crocs_Logo_Gray.png'; break;
+                case 'icon_green': addIcon('#4f660b'); gsap.set('#cta', {left:236, top:184}); content.logoImage = 'images/300x250_Crocs_Logo_Green.png'; break; //content.ctaImage = 'images/cta/300x250_CTA_Icon_Green.png'; content.logoImage = 'images/300x250_Crocs_Logo_Green.png'; break;
+                default: addIcon('#fff'); //content.ctaImage = 'images/cta/300x250_CTA_Icon.png';
+              }
+              /*
+              top: 156px;
+                  left: 126px;
+                  width: 20px;
+                  height: 25px;
+              */
+            });
+            return data;
+          }
+        }, function(data){
+          var adData = data[0], adClickUrl = adData['clickURL'];
+          ad.root.addEventListener("click", function(e) {
+            if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
+          });
+          if(adData.impressionTracker.toLowerCase() != 'na'){ ad.loadAssets(adData.impressionTracker, function(assets){ }); }
+          if(adData.styleProperties && adData.styleProperties.toLowerCase() != 'na') {
+            try {
+              eval('var styleProperties = ' + adData.styleProperties);
+              if(styleProperties && typeof styleProperties == 'object')
+              for(var i in styleProperties) {
+                gsap.set(i, styleProperties[i]);
+              }
+            } catch(e) {  }
+          }
+          var adWidth = 300, adHeight = 250;
+          gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
+          .from('#backgroundImage2', { x: '-100%', duration:0.5, delay:0.8})
+          .from('#headlineImage1', { y: '100%'})
+          .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
+          .from('#logoImage', { y: '100%'})
+          .from('#cta', { y: adHeight})
+        });
+      }, 2000);
+    </script>
+  </body>
+</html>
