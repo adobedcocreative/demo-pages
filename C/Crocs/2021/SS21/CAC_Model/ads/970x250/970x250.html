@@ -96,29 +96,19 @@
             data.map(function(content){
               // content.ctaBtn = content.ctaBtnColor.split('^')[0];
               // content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
+              var changePosition = function(flag){
+                gsap.set('#cta', {left:829, top:154, width: 99, height:30});
+              }
               switch(content.ctaSelect){
                 case 'en_text': content.ctaImage = 'images/cta/CTA_English_White.png'; break;
                 case 'de_text': content.ctaImage = 'images/cta/CTA_German_White.png'; break;
+                case 'jp_text': content.ctaImage = 'images/cta/CTA_Japan_White.png'; changePosition(); break;
                 case 'kr_text': content.ctaImage = 'images/cta/CTA_Korean_White.png'; break;
                 case 'en_text_black': content.ctaImage = 'images/cta/CTA_English_Black.png'; content.logoImage = 'images/970x250_Crocs_SS21_Logo_Black.png'; break;
                 case 'de_text_black': content.ctaImage = 'images/cta/CTA_German_Black.png'; content.logoImage = 'images/970x250_Crocs_SS21_Logo_Black.png'; break;
+                case 'jp_text_black': content.ctaImage = 'images/cta/CTA_Japan_Black.png'; content.logoImage = 'images/970x250_Crocs_SS21_Logo_Black.png'; changePosition(); break;
                 case 'kr_text_black': content.ctaImage = 'images/cta/CTA_Korean_Black.png'; content.logoImage = 'images/970x250_Crocs_SS21_Logo_Black.png'; break;
-
-                case 'jp_text': content.ctaImage = 'images/cta/CTA_JP_Shop_Now.png'; break;
-                case 'de_text': content.ctaImage = 'images/cta/CTA_DE_Shop_Now.png'; break;
-                case 'kr_text': content.ctaImage = 'images/cta/CTA_KR_Shop_Now.png'; break;
-                case 'en_text_green': content.ctaImage = 'images/cta/CTA_Green_EN_Shop_Now.png'; break;
-                case 'de_text_green': content.ctaImage = 'images/cta/CTA_Green_DE_Shop_Now.png'; break;
-                case 'kr_text_green': content.ctaImage = 'images/cta/CTA_Green_KO_Shop_Now.png'; break;
-                case 'en_text_orange': content.ctaImage = 'images/cta/CTA_Orange_EN_Shop_Now.png'; break;
-                case 'de_text_orange': content.ctaImage = 'images/cta/CTA_Orange_DE_Shop_Now.png'; break;
-                case 'kr_text_orange': content.ctaImage = 'images/cta/CTA_Orange_KR_Shop_Now.png'; break;
-                case 'en_text_grey': case 'en_text_gray': content.ctaImage = 'images/cta/CTA_Grey_EN_Shop_Now.png'; content.logoImage = 'images/970x250_Crocs_Logo_Grey.png'; break;
-                case 'jp_text_grey': case 'jp_text_gray': content.ctaImage = 'images/cta/CTA_Grey_JP_Shop_Now.png'; content.logoImage = 'images/970x250_Crocs_Logo_Grey.png'; break;
-                case 'de_text_grey': case 'de_text_gray': content.ctaImage = 'images/cta/CTA_Grey_DE_Shop_Now.png'; content.logoImage = 'images/970x250_Crocs_Logo_Grey.png'; break;
-                case 'kr_text_grey': case 'kr_text_gray': content.ctaImage = 'images/cta/CTA_Grey_KR_Shop_Now.png'; content.logoImage = 'images/970x250_Crocs_Logo_Grey.png'; break;
-
-                default: content.ctaImage = 'images/cta/CTA_EN_Shop_Now.png';
+                default: content.ctaImage = 'images/cta/CTA_English_White.png';
               }
             });
             return data;
