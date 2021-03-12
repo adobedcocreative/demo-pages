@@ -164,24 +164,27 @@
     <script type="text/javascript">
       var bannerData = [], bannerData1 = [];
       var getCAMData = function(data, selector) {
-          var templates = {
-            'Celebrity': `var cam = {
-              adSize: data.AD_SIZE,
-              language: data.LANGUAGE,
-              backgroundImage1: '../../assets/'+ data.MODEL + '/' + data.IMAGE_URL1,
-              backgroundImage2: '../../assets/'+ data.MODEL + '/' + data.IMAGE_URL2,
-              headlineImage1: '../../assets/'+ data.MODEL + '/' + data.IMAGE_URL3,
-              headlineImage2: '../../assets/'+ data.MODEL + '/' + data.IMAGE_URL4,
-              headlineImage3: '../../assets/'+ data.MODEL + '/' + data.IMAGE_URL5,
-              title: data.TEXT_1 + data.TEXT_2,
-              styleProperties: data.TEXT_3,
-              ctaSelect: data.TEXT_4,
-              clickURL: data.PRODUCT_URL,
-              impressionTracker: 'na',
-            }`,
-          }
-          eval(templates[selector]);
-          return JSON.stringify(cam);
+        var folderName = location.pathname.split('/');
+        folderName = folderName[folderName.length - 2];
+        var folderPath = '../../'+ folderName +'/assets/'+ data.MODEL + '/';
+        var templates = {
+          'Celebrity': `var cam = {
+            adSize: data.AD_SIZE,
+            language: data.LANGUAGE,
+            backgroundImage1: '${folderPath}' + data.IMAGE_URL1,
+            backgroundImage2: '${folderPath}' + data.IMAGE_URL2,
+            headlineImage1: '${folderPath}' + data.IMAGE_URL3,
+            headlineImage2: '${folderPath}' + data.IMAGE_URL4,
+            headlineImage3: '${folderPath}' + data.IMAGE_URL5,
+            title: data.TEXT_1 + ' ' + data.TEXT_2,
+            styleProperties: data.TEXT_3,
+            ctaSelect: data.TEXT_4,
+            clickURL: data.PRODUCT_URL,
+            impressionTracker: 'na',
+          }`,
+        }
+        eval(templates[selector]);
+        return JSON.stringify(cam);
       }
       var loadContent = function(queryString){
         bannerData = [];
@@ -295,7 +298,7 @@ this.onAdClick=function(a,c){var b;a?(0==a.indexOf("http://")||0==a.indexOf("htt
           document.querySelector('#ad' + adSize).parentNode.style.display = 'inline-block';
           var iframeDoc = iframe.contentWindow ? iframe.contentWindow : iframe.contentDocument && iframe.contentDocument.document ? iframe.contentDocument.document : iframe.contentDocument;
         	iframeDoc.document.open();
-          iframeDoc.document.write('<iframe src="ads/'+adSize+'/'+adSize+'.html" width="'+adWidth+'" height="'+adHeight+'" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe>');
+          iframeDoc.document.write('<iframe src="../ads/'+adSize+'/'+adSize+'.html" width="'+adWidth+'" height="'+adHeight+'" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe>');
         	iframeDoc.document.close();
           iframeDoc.document.body.style.margin = 0;
           iframeDoc.document.head.appendChild(scriptTag);
