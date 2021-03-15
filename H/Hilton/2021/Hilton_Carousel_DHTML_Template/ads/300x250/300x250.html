@@ -146,8 +146,8 @@
     <script type="text/javascript">
       var selectedProduct = {}, selectProductTimer = 0, disclaimerTimer = 0, animationIndex = 0;
       function textUpdate() {
-        var textElements = ad.root.querySelectorAll('.text, .text-left, .text-right, .text-top-left');
-        var clipTextElements = ad.root.querySelectorAll('.text.clip, .text-left.clip, .text-right.clip, .text-top-left.clip');
+        var textElements = ad.root.querySelectorAll('.text:not(.clip), .text-left:not(.clip), .text-right:not(.clip), .text-bottom:not(.clip), .text-bottom-left:not(.clip), .text-top-left:not(.clip)');
+        var clipTextElements = ad.root.querySelectorAll('.text.clip, .text-left.clip, .text-right.clip, .text-bottom.clip, .text-bottom-left.clip, .text-top-left.clip');
         if(clipTextElements && clipTextElements.length) {
           for(var k = 0; k < clipTextElements.length; k++) {
             var element = clipTextElements[k];
@@ -157,7 +157,8 @@
               if(span.offsetHeight > height) {
                 var content = span.innerHTML;
                 var words = content.split(' ');
-                for(var i = 0; i < words.length; i++) {
+                var wordLength = words.length;
+                for(var i = 0; i < wordLength; i++) {
                   words.pop();
                   span.innerHTML = words.join(' ') + '...';
                   if(span.offsetHeight <= height) { break; }
@@ -169,7 +170,8 @@
               if(element.offsetHeight > height) {
                 var content = element.innerHTML;
                 var words = content.split(' ');
-                for(var i = 0; i < words.length; i++) {
+                var wordLength = words.length;
+                for(var i = 0; i < wordLength; i++) {
                   words.pop();
                   element.innerHTML = words.join(' ') + '...';
                   if(element.offsetHeight <= height) { break; }
@@ -184,21 +186,22 @@
           var style = window.getComputedStyle(element, null).getPropertyValue('font-size');
           var fontSize = parseInt(style);
           var height = element.offsetHeight;
+          var width = element.offsetWidth;
           var span = element.querySelector('span');
           if(span) {
-            if(span.offsetHeight > height) {
+            if(span.offsetHeight > height || span.offsetWidth > width) {
               for(var i = fontSize - 1; i > 0; i--) {
                 element.style.fontSize = i + 'px';
-                if(span.offsetHeight <= height) { break; }
+                if(span.offsetHeight <= height && span.offsetWidth <= width) { break; }
               }
             }
           } else {
             var assignedHeight = element.style.height;
             element.style.height = 'auto';
-            if(element.offsetHeight > height) {
+            if(element.offsetHeight > height || element.offsetWidth > width) {
               for(var i = fontSize - 1; i > 0; i--) {
                 element.style.fontSize = i + 'px';
-                if(element.offsetHeight <= height) { break; }
+                if(element.offsetHeight <= height && element.offsetWidth <= width) { break; }
               }
             }
             element.style.height = assignedHeight;
@@ -396,7 +399,7 @@
       var getCarouselContent = function(data, id, assets) {
         return ('<div data-id="' + id + '" style="position:relative;display:inline-block;width:' + carouselWidth + 'px;height:' + carouselHeight + 'px;vertical-align:top;">'+
             '<div class="asset" style="position:absolute;top:0px;left:0px;width:inherit;height:inherit;"><img src="' + data.headlineImage + '" /></div>'+
-            '<div class="text-top-left LOEW_BLACK" style="position:absolute;top: 16px;left: 16px;width: 186px;height: 100px;font-size: 23px;font-weight:bold;color: #fff;line-height: 1;"><span>' + data.headlineText + '</span></div>'+
+            '<div class="text-top-left LOEW_BLACK" style="position:absolute;top: 16px;left: 16px;width: 186px;height: 100px;font-size: 23px;font-weight:bold;color: #fff;line-height: 1;text-shadow: 0 0 1px rgba(0, 0, 0, 0.65);"><span>' + data.headlineText + '</span></div>'+
           '</div>');
           //26, 77
       }
@@ -429,7 +432,7 @@
                 '<div id="logoImage" class="asset" style="position:absolute;top:0px;left:0px;width:inherit;height:inherit;"><img src="' + adData.logoImage + '" /></div>'+
                 '<div id="frameText" class="text LOEW_MEDIUM" style="position: absolute;top: 141px;left: 26px;width: 248px;height: 36px;font-size: 15px;line-height: 1.1;color:#fff;"><span>' + adData.frameText + '</span></div>'+
                 '<div id="disclaimerText" class="text LOEW_MEDIUM" style="position: absolute;top: 231px;left: 20px;width: 260px;height: 14px;font-size: 8px;color:#fff;"><span>' + adData.disclaimerText + '</span></div>'+
-                '<div id="cta" class="text LOEW_EXTRABOLD" style="position:absolute;position: absolute;top: 194px;left: 129px;width: 148px;height: 29px;font-size: 13px;background-color:' + adData.ctaBtnColor + ';color:#fff;" onmouseover="javascript:this.style.backgroundColor=\'' + adData.ctaBtnHoverColor + '\';" onmouseout="javascript:this.style.backgroundColor=\'' + adData.ctaBtnColor + '\';"><span>' + adData.ctaText + '</span></div>'+
+                '<div id="cta" class="text LOEW_EXTRABOLD" style="position:absolute;position: absolute;top: 194px;left: 129px;width: 148px;height: 29px;font-size: 13px;background-color:' + adData.ctaBtnColor + ';color:#fff;" onmouseover="javascript:this.style.backgroundColor=\'' + adData.ctaBtnHoverColor + '\';" onmouseout="javascript:this.style.backgroundColor=\'' + adData.ctaBtnColor + '\';"><span style="padding:2px 5px;">' + adData.ctaText + '</span></div>'+
               '</div>'+
             '</div>'+
             '<div id="disclaimerContainer" style="top:0px;left:0px;width:inherit;height:inherit;overflow:hidden;display:none;">'+
