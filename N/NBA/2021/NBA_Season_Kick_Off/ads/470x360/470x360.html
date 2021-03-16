@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ad</title>
+    <link rel="stylesheet" href="css/style.min.css">
+    <!-- <link rel="stylesheet" href="https://use.typekit.net/qgz2kzw.css"> -->
+    <script type="text/javascript" src="https://ads.everesttech.net/ads/static/local/AMOLibrary.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
+    <script src="js/script.min.js" charset="utf-8"></script>
+    <style media="screen">
+
+      @font-face {
+          font-family: ActionNBACondensedBold;
+          src: url('fonts/Action NBA Condensed-Bold.woff') format("woff");
+      }
+      .ActionNBACondensedBold { font-family: ActionNBACondensedBold; }
+
+      /* .RobotoMedium{
+        font-family: roboto, sans-serif;
+        font-weight: 500;
+        font-style: normal;
+      } */
+    </style>
+    <!--
+      Available Classes:-
+        For Images :-
+          .asset        -Image Center Align(Image can shrink according to the container but will expand beyond its original size)
+          .asset-top    -Image Top Center Align(Image can shrink according to the container but will expand beyond its original size)
+          .asset-left
+
+    -->
+    <style media="screen">
+      #ad {
+        width: 470px;
+        height: 360px;
+        font-family: Arial,Helvetica,sans-serif;
+        background-color: #fff;
+        color: #b80324;
+      }
+      .frame {
+        top:0px;
+        left:0px;
+        width:inherit;
+        height:inherit;
+      }
+      #cta {  }
+      #cta:hover { opacity: 0.8 !important;}
+    </style>
+  </head>
+  <body>
+    <div class="" id="ad">
+      <div id="backgroundImage" class="asset frame" data-image="backgroundImage"></div>
+      <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
+      <div id="playerImage" class="asset frame" data-image="playerImage"></div>
+      <div id="logoImage" class="asset frame" data-image="logoImage"></div>
+      <div id="headlineText" dir="auto" class="text-left ActionNBACondensedBold"
+        data-text="headlineText"
+        style="top: 155px;
+          left: 10px;
+          width: 250px;
+          height: 120px;
+          font-size: 55px;
+          letter-spacing: 0.4px;
+          line-height: 0.80;">
+      </div>
+      <div id="cta" dir="auto" class="text ActionNBACondensedBold"
+        data-style="text-align:center;padding:0px 42px 10px 10px;"
+        data-text="ctaText"
+        style="top: 270px;
+          left: 4px;
+          width: 235px;
+          height: 65px;
+          font-size: 46px;
+          letter-spacing: 1.8px;
+          line-height: 1;
+          color:#fff;
+          background-repeat: no-repeat;
+          background-size: contain;">
+      </div>
+
+      <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
+    </div>
+    <div id="loadFont" style="width:0;height:0;overflow:hidden;">
+      <!-- <div class="RobotoMedium" style="color:transparent;">RobotoMedium</div> -->
+      <div class="ActionNBACondensedBold" style="color:transparent;">ActionNBACondensedBold</div>
+    </div>
+    <script type="text/javascript">
+      var ad = new Ad({
+        root: document.querySelector('#ad'),
+        width: 470,
+        height: 360,
+        borderWidth: 1,
+        borderColor: '#000'
+      });
+      setTimeout(function() {
+        ad.contentSetup({
+          cam: {
+            backgroundImage: 'assets/470x360_NBA_SOS_League_Pass_Background.png',
+            logoImage: 'assets/470x360_NBA_SOS_League_Pass_Logo.png',
+            playerImage: 'assets/470x360_NBA_SOS_League_Pass_Img_Player_01.png',
+            headlineText: "MORE GAMES THAN ANYWHERE ELSE",
+            ctaText: 'WATCH NOW',
+            styleProperties: "na",
+            clickURL: 'https://www.adobe.com/#NBA'
+          },
+          feed: [
+            {
+              name: 'NBA',
+            }
+          ],
+          staticData: {
+            ctaImage: 'images/CTA.png',
+          },
+          beforeLoad: function(data){
+            var replaceMacro = function(text, data) {
+              var macros = text.match(/\!\{(.*?)\}/g);
+              if(macros) {
+                macros.forEach(function(macro){
+                  var macroText = macro.split('!{').join('').split('}').join('');
+                  for(var key in data) { if(key == macroText) { macroText = data[key]; } }
+                  text = text.split(macro).join(macroText);
+                });
+              }
+              return text;
+            }
+            data.map(function(content){
+
+            });
+            return data;
+          }
+        }, function(data){
+          var adData = data[0], adClickUrl = adData['clickURL'];
+          ad.root.addEventListener("click", function(e) {
+            if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
+          });
+          ad.layers.cta.style.backgroundImage = 'url(' + adData.ctaImage + ')';
+          if(adData.styleProperties && adData.styleProperties.toLowerCase() != 'na') {
+            try {
+              eval('var styleProperties = ' + adData.styleProperties);
+              if(styleProperties && typeof styleProperties == 'object')
+              for(var i in styleProperties) {
+                gsap.set(i, styleProperties[i]);
+              }
+            } catch(e) {  }
+          }
+          gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.5}})
+          .from('#playerImage', {autoAlpha:0, scale:1.1})
+          .from('#headlineText', {delay:0.5,autoAlpha:0, y:'20%'},'-=0.5')
+          .from('#cta', {autoAlpha:0, y:'20%'})
+        });
+      }, 2000);
+    </script>
+  </body>
+</html>
