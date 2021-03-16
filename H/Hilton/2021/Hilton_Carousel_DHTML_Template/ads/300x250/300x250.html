@@ -452,15 +452,25 @@
             ad.root.onmouseenter = function(e) {
                 if(selectProductTimer) { clearInterval(selectProductTimer); selectProductTimer = false; }
             }
-            ad.root.onmouseover = function(e) {
-                if(ad.layers.disclaimerContainer.style.display == 'none' && e.target.dataset.disclaimer == "true")  {
-                  ad.layers.disclaimerContainer.style.display = 'block';
-                  disclaimerTimer = setTimeout(function() { ad.layers.disclaimerContainer.style.display = 'none'; disclaimerTimer = false; }, 3000);
-                }
+            // ad.root.onmouseover = function(e) {
+            //     if(ad.layers.disclaimerContainer.style.display == 'none' && e.target.dataset.disclaimer == "true")  {
+            //       ad.layers.disclaimerContainer.style.display = 'block';
+            //       disclaimerTimer = setTimeout(function() { ad.layers.disclaimerContainer.style.display = 'none'; disclaimerTimer = false; }, 3000);
+            //     }
+            // }
+            // ad.root.onmouseleave = function() {
+            //   ad.layers.disclaimerContainer.style.display = 'none';
+            //   if(disclaimerTimer) { clearTimeout(disclaimerTimer); disclaimerTimer = false; }
+            // }
+            ad.root.querySelector('[data-disclaimer]').onmouseenter = function() {
+              if(ad.layers.disclaimerContainer.style.display == 'none')  {
+                ad.layers.disclaimerContainer.style.display = 'block';
+                // disclaimerTimer = setTimeout(function() { ad.layers.disclaimerContainer.style.display = 'none'; disclaimerTimer = false; }, 3000);
+              }
             }
-            ad.root.onmouseleave = function() {
+            ad.root.querySelector('[data-disclaimer]').onmouseleave = function(){
               ad.layers.disclaimerContainer.style.display = 'none';
-              if(disclaimerTimer) { clearTimeout(disclaimerTimer); disclaimerTimer = false; }
+              // if(disclaimerTimer) { clearTimeout(disclaimerTimer); disclaimerTimer = false; }
             }
             setTimeout(function(){ document.querySelector('#overlay').style.opacity = 0; ad.addBorder(); }, 10);
             setTimeout(function(){ document.querySelector('#overlay').style.visibility = 'hidden'; }, 510);
