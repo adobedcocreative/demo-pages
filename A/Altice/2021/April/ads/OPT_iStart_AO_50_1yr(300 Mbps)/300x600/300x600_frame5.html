@@ -423,8 +423,8 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 311px;width:400px
         }
         var animateFrame1 = function(flag){
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
-            gsap.to('#shape1', {x:'0',ease:'none', duration:0.7,delay:0.8})
-            gsap.to('#shape2', {x:'0',ease:'none', duration:0.7,delay:1.2})
+            // gsap.to('#shape1', {x:'0',ease:'none', duration:0.7,delay:0.8})
+            // gsap.to('#shape2', {x:'0',ease:'none', duration:0.7,delay:1.2})
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
             .to('#frameText1', {x:0,y:0})
           }
