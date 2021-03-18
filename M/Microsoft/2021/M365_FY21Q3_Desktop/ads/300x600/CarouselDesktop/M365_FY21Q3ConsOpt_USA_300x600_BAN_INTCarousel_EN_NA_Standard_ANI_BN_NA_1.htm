@@ -142,7 +142,7 @@ function handleComplete(evt,comp) {
 			bannerData.enlarged_4_1 = eval(bannerData.textField5.split('^')[0]);
 			bannerData.enlarged_4_2 = eval(bannerData.textField5.split('^')[1]);
 			bannerData.ctaText = bannerData.ctaText.replace('<br>', '\n');
-			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 12 ? "11px" : (bannerData.ctaText.length >= 10 ? "13px" : "15px")),0,0,"50","300", "center"] : '';
+			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 12 ? "10px" : (bannerData.ctaText.length >= 10 ? "13px" : "15px")),0,0,"50","300", "center"] : '';
 			window.smartNames = [];
 			if(bannerData.textField2.split('^').length >= 2) {
 				window.smartNames.push(bannerData.textField2.split('^')[2]);

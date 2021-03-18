@@ -608,7 +608,8 @@ if (reversed == null) { reversed = false; }
 	this.instance.setTransform(222.5,-45.85,0.5,0.5);
 
 	this.instance_1 = new lib.plant();
-	this.instance_1.setTransform(166.75,9.45,0.7,0.7);
+	// this.instance_1.setTransform(166.75,9.45,0.7,0.7);
+	this.instance_1.setTransform(190,9.45,0.7,0.7);
 
 	this.instance_2 = new lib.tray();
 	this.instance_2.setTransform(171.4,-30.55,0.85,0.85);
