@@ -191,11 +191,11 @@ amo.registerAttribute("frameText31", "TEXT", "<div style='top: 57px;left: 24px;f
 amo.registerAttribute("frameText32", "TEXT", "<div style='top: 111px;left: 27px;font-size: 20px;line-height: 1;'>Visa<span style='vertical-align: 50%;font-size: 60%;'>®</span> Prepaid<br>Card on us!</div><div class='AlticeRegular' style='position: absolute;top: 153px;left: 28px;font-size: 9px;line-height: 1.15;'>Terms apply.</div>");
 amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText41", "TEXT", "<div style='top: 123px;left: 20px;width: 260px;font-size: 20px;line-height: 1.05;text-align: center;'>Built-in Internet<br>Security included</div>");
-amo.registerAttribute("frameText42", "TEXT", "<div class='AlticeRegular' style='top: 179px;left: 27px;font-size: 8.6px;line-height: 1.15;'>Restrictions apply. Speed,<br>prices & availability vary by area.</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div class='AlticeRegular' style='top: 179px;left: 27px;font-size: 8.6px;line-height: 1.15;'>Restrictions apply. Speeds,<br>prices & availability vary by area.</div>");
 amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText51", "TEXT", "<div style='top: 21px;left: 23px;font-size: 19.5px;line-height: 1.05;'>300 Mbps<br>Internet</div>");
 amo.registerAttribute("frameText52", "TEXT", "<div style='top: 63px;left: 18px;width: 160px;line-height: 1;'><font style='font-size: 64px;letter-spacing: -0.5px;padding-right: 2px;line-height: 0.92;' class='coloredText'>$35</font><font style='margin-left: 1px;font-size: 11px;display: inline-block;vertical-align: 25px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 5px 0 0 5px;font-size: 9px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
-amo.registerAttribute("frameText53", "TEXT", "<div style='top: 159px;left: 24px;width:360px;transform: scale(0.77);transform-origin: top left;'><div class='bulletedText'>$200 Visa<span style='vertical-align:5px;font-size:9px;'>®</span> Prepaid Card.</div></div>");
+amo.registerAttribute("frameText53", "TEXT", "<div style='top: 159px;left: 24px;width:360px;transform: scale(0.77);transform-origin: top left;'><div class='bulletedText'>$200 Visa<span style='vertical-align:5px;font-size:9px;'>®</span> Prepaid Card!</div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -476,8 +476,8 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 159px;left: 24px;
         }
         var animateFrame1 = function(flag){
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
-            gsap.to('#shape1', {x:'0',ease:'none', duration:0.7,delay:0.8})
-            gsap.to('#shape2', {x:'0',ease:'none', duration:0.7,delay:1.2})
+            // gsap.to('#shape1', {x:'0',ease:'none', duration:0.7,delay:0.8})
+            // gsap.to('#shape2', {x:'0',ease:'none', duration:0.7,delay:1.2})
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
             .to('#frameText1', {x:0,y:0})
           }
