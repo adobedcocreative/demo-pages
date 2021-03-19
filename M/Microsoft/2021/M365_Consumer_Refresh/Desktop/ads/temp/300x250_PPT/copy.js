@@ -5,8 +5,7 @@
 	// lineWidth is no longer needed.
 	var bannerData = new Object()
 	
-	bannerData.headline1 = ['<#505050>Nail your next presentation','18.2px',16, 44,'18','3 50', 'left']
-	bannerData.headline2 = ['<#505050>Premium Office apps|plus 1 TB of OneDrive|cloud storage','12px',16, 71,'14','3 50', 'left']
+	bannerData.headline1 = ['<#505050>Nail your next presentation','18.2px',16, 44,'18','3 50', 'left']	['<#505050>Premium Office apps|plus 1 TB of OneDrive|cloud storage','12px',16, 71,'14','3 50', 'left']
 	bannerData.CTA = ['<#FFFFFF>Learn more','12px',0,0,'50','300', 'left']
 	
 	bannerData.CTAarrowVisible = [true, 0,0]
