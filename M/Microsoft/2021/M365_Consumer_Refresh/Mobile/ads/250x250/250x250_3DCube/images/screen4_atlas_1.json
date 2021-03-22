@@ -1,0 +1,27 @@
+﻿{"frames": {
+
+"excelDesktop":
+{
+	"frame": {"x":0,"y":0,"w":311,"h":239},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":311,"h":239},
+	"sourceSize": {"w":311,"h":239}
+},
+"excelMobile300x6002x":
+{
+	"frame": {"x":313,"y":0,"w":189,"h":317},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":189,"h":317},
+	"sourceSize": {"w":189,"h":317}
+}},
+"meta": {
+	"app": "Adobe Animate",
+	"version": "21.0.3.38773",
+	"image": "screen4_atlas_1.png",
+	"format": "undefined",
+	"size": {"w":512,"h":512},
+	"scale": "1"
+}
+}
