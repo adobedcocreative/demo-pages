@@ -7,6 +7,7 @@ var getFeed1 = function(){
   var sheetID = "1eIt9CWxGuViwREqDjGtL3kDJQVLLo2fBNlkEuLpqHzE/1";
   var searchID = location.search.split('?')[1];
   sheetID = searchID && searchID.length == 46 && searchID.indexOf('/') > 1 ? searchID : sheetID;
+  sheetID = searchID && searchID.length <= 2 && Boolean(parseInt(searchID)) ? sheetID.split('/')[0] + '/' + parseInt(searchID) : sheetID;
   var url = "https://spreadsheets.google.com/feeds/list/" + sheetID + "/public/values?alt=json";
 
   xmlhttp.onreadystatechange = function() {
