@@ -84,7 +84,7 @@
       .bulletedText::before {
         content: '+';
         position: absolute;
-        top: -2px;
+        top: 0px;
         left: 0px;
         font-size: 26px;
         color: #0084d6;
@@ -148,13 +148,12 @@
 <script type="text/javascript">
 amo.registerClick("clickUrl","https://www.altice.com");
 amo.registerAttribute("ctaText", "TEXT", "Learn more");
-amo.registerAttribute("frameText1", "TEXT", "Get entertainment that deserves an ovation");
-amo.registerAttribute("frameText21", "TEXT", "<div style='top: 198px;left: 20px;width: 260px;font-size: 28px;line-height: 1.1;text-align: center;'>Save up to <font class='coloredText'>$50/mo.</font> on your Internet</div>");
-amo.registerAttribute("frameText22", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText31", "TEXT", "<div style='top: 88px;left: 21px;font-size: 28px;line-height:1;'><div style='color:#0084d6;margin-top: -26px;margin-left: 2px;height: 18px;font-size: 73%;'>COVID-19 Internet Relief</div>Get Internet<br>as low as</div>");
-amo.registerAttribute("frameText32", "TEXT", "<div style='top: 146px;left: 14px;width: 260px;line-height: 1;'><font style='font-size: 117px;letter-spacing: -3px;padding-right: 3px;line-height: 0.9;' class='coloredText'>$50</font><font style='margin-left: 5px;font-size: 19px;display: inline-block;vertical-align: 46px;line-height: 0.95;'>/mo.</font><div class='AlticeRegular' style='margin: 9px 0 0 8px;font-size: 14px;'>Plus taxes, fees &<br>other charges</div></div>");
-amo.registerAttribute("frameText33", "TEXT", "<div style='top: 311px;width:400px;left: 21px;transform: scale(0.7);transform-origin: top left;'><div class='bulletedText'>Save up to $50/mo.!<div class='AlticeRegular' style='font-size: 12px;margin-top:2px;'>Must meet eligibly criteria. Restrictions apply.</div></div></div>");
+amo.registerAttribute("frameText1", "TEXT", "We’ll help you<br>stay connected");
+amo.registerAttribute("frameText12", "TEXT", "With the Optimum COVID-19 Internet Relief Program");
+amo.registerAttribute("frameText13", "TEXT", "Save up to<br><font class='coloredText'>$50/mo.</font> on<br>your Internet");
+amo.registerAttribute("frameText21", "TEXT", "<div style='top: 88px;left: 25px;font-size: 30.5px;line-height: 1;'><div style='color:#0084d6;margin-left: -2px;height: 30px;font-size: 76%;'>COVID-19 Internet Relief</div>Get Internet<br>as low as</div>");
+amo.registerAttribute("frameText22", "TEXT", "<div style='top: 184px;left: 15px;width: 260px;line-height: 1;'><font style='font-size: 116px;letter-spacing: -5px;padding-right: 5px;line-height: 0.9;' class='coloredText'>$0</font><font style='margin-left: 4px;font-size: 21.5px;display: inline-block;vertical-align: 65px;line-height: 0.95;'>/mo.</font><div class='AlticeRegular' style='margin: 5px 0 0 9px;font-size: 14px;'>Plus taxes, fees & other charges</div></div>");
+amo.registerAttribute("frameText23", "TEXT", "<div style='top: 322px;width:400px;left: 22px;transform: scale(0.74);transform-origin: top left;'><div class='bulletedText'>Save up to $50/mo.!</div></div><div class='AlticeRegular' style='top: 494px;left: 23px;font-size: 14px;width: 240px;line-height: 1;'>Must meet eligibly criteria. Restrictions apply.</div>");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -180,10 +179,7 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top: 311px;width:400px
     <div id="frameText21" class="frameText">!{frameText21}</div>
     <div id="frameText22" class="frameText">!{frameText22}</div>
     <div id="frameText23" class="frameText">!{frameText23}</div>
-    <div id="frameImage3" class="asset frameImage" data-image="frameImage3"></div>
-    <div id="frameText31" class="frameText">!{frameText31}</div>
-    <div id="frameText32" class="frameText">!{frameText32}</div>
-    <div id="frameText33" class="frameText">!{frameText33}</div>
+
     <div id="logoImage" class="asset adSizeContainer" data-image="logoImage"></div>
     <!-- <div id="priceLabel" class="asset adSizeContainer" data-image="priceLabel"></div> -->
     <div id="cta" class="text AlticeBold"
@@ -228,8 +224,28 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top: 311px;width:400px
           left: 15px;
           width: 270px;
           height: 180px;
-          font-size: 30px;
-          line-height: 1.08;">
+          font-size: 28px;
+          line-height: 1;">
+      </div>
+      <div id="frameText12" class="text-top AlticeBold"
+        data-text="frameText12"
+        data-style="text-align:center;"
+        style="top: 312px;
+          left: 15px;
+          width: 270px;
+          height: 180px;
+          font-size: 28px;
+          line-height: 1;">
+      </div>
+      <div id="frameText13" class="text-top AlticeBold"
+        data-text="frameText13"
+        data-style="text-align:center;"
+        style="top: 312px;
+          left: 15px;
+          width: 270px;
+          height: 180px;
+          font-size: 28px;
+          line-height: 1;">
       </div>
       <!-- <div id="switch" class="switch"
         style="top: 101px;
@@ -281,8 +297,7 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top: 311px;width:400px
           introLogoImage: 'images/300x600_Logo_Optimum_Black.png',
           frameBackground: '1x1.png',
           frameVideo1: "300x600_Covid_InternetRelief.mp4",
-          frameImage2: "1x1.png",
-          frameImage3: "300x600_COVID_Relief_Frame04.png",
+          frameImage2: "300x600_COVID_Relief_Frame04.png",
         },
         beforeLoad: function(data){
           data.map(function(content){
@@ -316,8 +331,8 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top: 311px;width:400px
         loadVideo(ad.layers.frameVideo1.querySelector('video'), adData.frameVideo1, true);
 
         textUpdate();
-        gsap.set('#shape1',{top:30,left:300,width:200,height:35,x:-500});
-        gsap.set('#shape2',{top:173,left:-180,width:180,height:28,x:480});
+        gsap.set('#shape1',{top:59,left:300,width:200,height:36,x:-500});
+        gsap.set('#shape2',{top:219,left:-180,width:180,height:36,x:480});
         gsap.set('#shape3',{top:-480,left:210,width:60,height:480,y:1080});
         gsap.set('#shape4',{top:-480,left:20,width:55,height:480,y:1080});
         gsap.set('#beam1',{top:410,left:300,width:220,height:26,x:-520});gsap.set('#beam1 div',{width:26});
@@ -325,7 +340,7 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top: 311px;width:400px
         gsap.set('#beam3',{top:355,left:300,width:220,height:30,x:-520});gsap.set('#beam3 div',{width:30});
         gsap.set('#beam4',{top:313,left:300,width:230,height:18,x:-530});gsap.set('#beam4 div',{width:18});
         gsap.set('#beam5',{top:30,left:300,width:240,height:28,x:-540});gsap.set('#beam5 div',{width:28});
-        gsap.set('#frameText1, #frameText12', {x:'-120%'});
+        gsap.set('#frameText1, #frameText12, #frameText13', {x:'-120%'});
         gsap.set('.frameImage', {x:'100%'});
         gsap.set('.frameText, #priceLabel', {x:'-100%'});
         // gsap.set('.frameImageLeft', {x:'-100%', y:0});
@@ -394,27 +409,29 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top: 311px;width:400px
           var frameId = 3;
           gsap.set('#frameBackground', {display: 'block'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[frameId]})
+          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
           // .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame4}));
         }
         var animateFrame2 = function(flag){
           var frameId = 2;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[frameId]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}))
+          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
+          // .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}))
         }
         var animateFrame1 = function(flag){
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
-            gsap.to('#shape1', {x:'0',ease:'none', duration:0.7,delay:0.8})
-            gsap.to('#shape2', {x:'0',ease:'none', duration:0.7,delay:1.2})
+            gsap.to('#shape1', {x:'0',ease:'none', duration:0.7,delay:2.2})
+            gsap.to('#shape2', {x:'0',ease:'none', duration:0.7,delay:2.5})
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
             .to('#frameText1', {x:0,y:0})
             .to('#frameText1', {autoAlpha:0, delay:2.5})
             .to('#frameText12', {x:0,y:0})
+            .to('#frameText12', {autoAlpha:0, delay:2.5})
+            .to('#frameText13', {x:0,y:0})
           }
           ad.layers.frameVideo1.querySelector('video').onended = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.2}})
-            .to('#frame1', (flag==true?{}:{delay:0, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+            .to('#frame1', (flag==true?{}:{delay:2.5, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
           }
         }
         gsap.delayedCall(.8, animateFrame1, [true]);
