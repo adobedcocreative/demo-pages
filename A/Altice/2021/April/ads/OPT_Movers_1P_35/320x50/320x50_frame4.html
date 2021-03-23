@@ -97,7 +97,7 @@ amo.registerAttribute("frameImage1", "IMAGE", "1x1.png");
 amo.registerAttribute("frameImage2", "IMAGE", "1x1.png");
 amo.registerAttribute("frameImage3", "IMAGE", "1x1.png");
 amo.registerAttribute("frameImage4", "IMAGE", "1x1.png");
-amo.registerAttribute("frameText1", "TEXT", "Internet so fast you'd swear it was magic");
+amo.registerAttribute("frameText1", "TEXT", "Moving? Get Internet so fast you'd swear it was magic");
 amo.registerAttribute("frameText21", "TEXT", "<div style='top:7px;left:8px;'><div class='bulletedText'>Up to 300 Mbps Internet</div></div>");
 amo.registerAttribute("frameText22", "TEXT", "<div style='top:22px;left:8px;'><div class='bulletedText'>Built-In Security included</div></div>");
 amo.registerAttribute("frameText23", "TEXT", "<div class='AlticeRegular' style='top:35px;left:20px;font-size:9px;'>Speeds, prices & availability vary by area.</div>");
@@ -163,7 +163,7 @@ amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
           width: 200px;
           height: 40px;
           font-size: 18px;
-          line-height: 0.95;">
+          line-height: 1;">
       </div>
       <div id="introLogoImage" class="asset adSizeContainer" data-image="introLogoImage"></div>
       <div id="introCta" class="text AlticeBold"
@@ -291,9 +291,9 @@ amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame3}));
         }
         var animateFrame1 = function(flag){
-          setTimeout(function(){ gsap.set('#frameText1', {x: '0', autoAlpha: 1}); typingAnimation(ad.layers.frameText1.querySelector('span'), 30, function(){ }); },500);
+          setTimeout(function(){ gsap.set('#frameText1', {x: '0', autoAlpha: 1}); typingAnimation(ad.layers.frameText1.querySelector('span'), 25, function(){ }); },500);
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frame1', (flag==true?{}:{delay:2.5, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          .to('#frame1', (flag==true?{}:{delay:3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
         if('frame1' in ad.layers) ad.layers.frame1.remove();
                     gsap.delayedCall(1.2, animateFrame4, [true]);
