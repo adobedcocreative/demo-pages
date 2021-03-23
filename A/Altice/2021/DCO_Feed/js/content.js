@@ -4,8 +4,11 @@ var adData = [];
 var loadTemplateFlag1 = false;
 var getFeed1 = function(){
   var xmlhttp = new XMLHttpRequest();
-  // var url = "https://spreadsheets.google.com/feeds/list/1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/3/public/values?alt=json";
-  var url = "https://spreadsheets.google.com/feeds/list/1i564DiRU35eN8CpRMm-_dmIUUSHgm6oyAxMWEtfFtpI/1/public/values?alt=json";
+  var sheetID = "1i564DiRU35eN8CpRMm-_dmIUUSHgm6oyAxMWEtfFtpI/1";
+  var searchID = location.search.split('?')[1];
+  sheetID = searchID && searchID.length == 46 && searchID.indexOf('/') > 1 ? searchID : sheetID;
+  sheetID = searchID && searchID.length <= 2 && Boolean(parseInt(searchID)) ? sheetID.split('/')[0] + '/' + parseInt(searchID) : sheetID;
+  var url = "https://spreadsheets.google.com/feeds/list/" + sheetID + "/public/values?alt=json";
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
