@@ -135,12 +135,12 @@
 amo.registerClick("clickUrl","https://www.altice.com");
 
 amo.registerAttribute("ctaText","TEXT","Shop now");
-amo.registerAttribute("frameText1", "TEXT", "Moving? Get entertainment that deserves an ovation");
+amo.registerAttribute("frameText1", "TEXT", "<div style='font-size:80%;color:#0084d6;'>Exclusive offer!</div>Get entertainment that deserves an ovation");
 amo.registerAttribute("frameText21", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText22", "TEXT", "<div style='top: 15px;left: 131px;font-size: 21.1px;line-height: 1.05;'>500 Mbps Internet +<br>Built-in Security included</div>");
-amo.registerAttribute("frameText23", "TEXT", "<div class='AlticeRegular' style='top: 61px;left: 131px;font-size: 10px;line-height: 1.1;'>Wired connection up to 500 Mbps. WiFi speeds may vary. Restrictions apply.</div>");
+amo.registerAttribute("frameText22", "TEXT", "<div style='top: 26px;left: 131px;font-size: 21.1px;line-height: 1.05;'>500 Mbps Internet</div>");
+amo.registerAttribute("frameText23", "TEXT", "<div class='AlticeRegular' style='top: 52px;left: 131px;font-size: 10px;line-height: 1.1;'>Wired connection up to 500 Mbps. WiFi speeds may vary. Restrictions apply.</div>");
 amo.registerAttribute("frameText31", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText32", "TEXT", "<div style='top: 26px;left: 132px;font-size: 21.1px;line-height: 1.1;'>Live, streaming, and On Demand TV</div>");
+amo.registerAttribute("frameText32", "TEXT", "<div style='top: 26px;left: 131px;font-size: 21.1px;line-height: 1.1;'>Live, streaming, and On Demand TV</div>");
 amo.registerAttribute("frameText33", "TEXT", "<div class='AlticeRegular' style='top: 52px;left: 131px;font-size: 10px;line-height: 1;'>Speeds, prices & availability vary by area.</div>");
 amo.registerAttribute("frameText41", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText42", "TEXT", "<div style='top: 19px;left: 131px;font-size: 30px;line-height: 1.05;'><font class='coloredText'>$200</font></div>");
@@ -170,7 +170,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 377px;
     <div id="beam5" class="beam" style="border-radius: 30px;background-image: linear-gradient(to right, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
     <div id="logoImage" class="asset adSizeContainer" data-image="logoImage"></div>
     <div id="frameBackground" class="asset adSizeContainer" data-image="frameBackground" style="display:none;"></div>
-    <div id="frameImage2" class="frameImageLeft" style="top: 15px;left: -9px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width: 128px;"></video></div>
+    <div id="frameImage2" class="asset frameImage" data-image="frameImage2"></div>
     <div id="frameText21" class="frameText">!{frameText21}</div>
     <div id="frameText22" class="frameText">!{frameText22}</div>
     <div id="frameText23" class="frameText">!{frameText23}</div>
@@ -284,9 +284,8 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 377px;
           introLogoImage: 'images/728x90_Logo_Optimum_Black.png',
           frameBackground: '1x1.png',
           frameVideo1: "728x90_Entertainment_Peter.mp4",
-          frameVideo2: "300Mbps Internet_Speedometer_Icon.mp4",
           frameVideo3: "Animate_HolidayBanners_PlayButton.mp4",
-          frameImage2: "1x1.png",
+          frameImage2: "728x90_OPT_iStart_50_1yr_500 Mbps_Hyper_Competitive_Icon_Frame_05.png",
           frameImage4: "728x90_OPT_SPRING_ACQ_iStart_500Mb_50Yr1_Img_Frame_04.png",
           frameImage5: "1x1.png",
         },
@@ -318,7 +317,6 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 377px;
           }
         }
         loadVideo(ad.layers.frameVideo1.querySelector('video'), adData.frameVideo1, true);
-        loadVideo(ad.layers.frameImage2.querySelector('video'), adData.frameVideo2);
         loadVideo(ad.layers.frameImage3.querySelector('video'), adData.frameVideo3);
 
         textUpdate();
@@ -399,7 +397,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 377px;
         var animateFrame2 = function(flag){
           var frameId = 2;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[frameId]})
+          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}))
         }
         var animateFrame1 = function(flag){
