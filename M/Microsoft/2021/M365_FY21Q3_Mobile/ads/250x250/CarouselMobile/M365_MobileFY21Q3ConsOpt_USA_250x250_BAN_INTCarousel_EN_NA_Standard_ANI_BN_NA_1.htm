@@ -143,6 +143,21 @@ function handleComplete(evt,comp) {
 			bannerData.enlarged_4_2 = eval(bannerData.textField5.split('^')[1]);
 			bannerData.ctaText = bannerData.ctaText.replace('<br>', '\n');
 			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "9.5px" : (bannerData.ctaText.length >= 12 ? "9.5px" : (bannerData.ctaText.length >= 9 ? "10.5px" : "12.8px"))),0,0,"50","300", "center"] : '';
+			var ctaMaxWidth = 110;
+			var ctaElement = document.createElement('font');
+			ctaElement.textContent = bannerData.ctaText;
+			ctaElement.style.fontFamily = 'Segoe Pro';
+			ctaElement.style.fontSize = bannerData.CTA[1];
+			ctaElement.style.padding = '0px 30px 0px 15px';
+			document.body.appendChild(ctaElement);
+			if(ctaElement.offsetWidth > ctaMaxWidth) {
+				for(var i = parseFloat(bannerData.CTA[1]); i > 0; i-=0.1) {
+          ctaElement.style.fontSize = i + 'px';
+          if(ctaElement.offsetWidth <= ctaMaxWidth) { break; }
+        }
+				bannerData.CTA[1] = i + 'px';
+			}
+			document.body.removeChild(ctaElement);
 			window.smartNames = [];
 			if(bannerData.textField2.split('^').length >= 2) {
 				window.smartNames.push(bannerData.textField2.split('^')[2]);
