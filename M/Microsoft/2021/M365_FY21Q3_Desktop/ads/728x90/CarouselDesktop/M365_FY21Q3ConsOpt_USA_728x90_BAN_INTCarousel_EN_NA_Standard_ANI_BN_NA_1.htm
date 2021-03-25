@@ -142,18 +142,24 @@ function handleComplete(evt,comp) {
 			bannerData.enlarged_4_1 = eval(bannerData.textField5.split('^')[0]);
 			bannerData.enlarged_4_2 = eval(bannerData.textField5.split('^')[1]);
 			bannerData.ctaText = bannerData.ctaText.replace('<br>', '\n');
-			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "9px" : (bannerData.ctaText.length >= 12 ? "10px" : "13px")),0,0,"50","300", "center"] : '';
-			var ctaMaxWidth = 140;
-			var ctaElement = document.createElement('font');
-			ctaElement.textContent = bannerData.ctaText;
+			var CTAFont = bannerData.ctaText.split('|').length > 1 ? bannerData.ctaText.split('|')[1] : '0';
+			CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 13) + 'px';
+			bannerData.ctaText = bannerData.ctaText.split('|')[0];
+			// (bannerData.ctaText.length >= 15 ? "9px" : (bannerData.ctaText.length >= 12 ? "10px" : "13px"))
+			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,CTAFont,0,0,"50","300", "center"] : '';
+			var ctaMaxWidth = 140, ctaMaxHeight = 20;
+			var ctaElement = document.createElement('div');
+			ctaElement.innerHTML = bannerData.ctaText.replace('\n', '<br>');
+			ctaElement.style.display = 'inline-block';
 			ctaElement.style.fontFamily = 'Segoe Pro';
 			ctaElement.style.fontSize = bannerData.CTA[1];
+			ctaElement.style.lineHeight = 1.2;
 			ctaElement.style.padding = '0px 30px 0px 15px';
 			document.body.appendChild(ctaElement);
-			if(ctaElement.offsetWidth > ctaMaxWidth) {
+			if(ctaElement.offsetWidth > ctaMaxWidth || ctaElement.offsetHeight > ctaMaxHeight) {
 				for(var i = parseFloat(bannerData.CTA[1]); i > 0; i-=0.1) {
           ctaElement.style.fontSize = i + 'px';
-          if(ctaElement.offsetWidth <= ctaMaxWidth) { break; }
+          if(ctaElement.offsetWidth <= ctaMaxWidth && ctaElement.offsetHeight <= ctaMaxHeight) { break; }
         }
 				bannerData.CTA[1] = i + 'px';
 			}
