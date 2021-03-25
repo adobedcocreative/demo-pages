@@ -423,14 +423,14 @@ amo.registerAttribute("frameText23", "TEXT", "<div style='top: 250px;width:170px
             gsap.to('#shape2', {x:'0',ease:'none', duration:0.7,delay:2.5})
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
             .to('#frameText1', {x:0,y:0})
-            .to('#frameText1', {autoAlpha:0, delay:2.5})
+            .to('#frameText1', {autoAlpha:0, delay:2.2})
             .to('#frameText12', {x:0,y:0})
-            .to('#frameText12', {autoAlpha:0, delay:2.5})
+            .to('#frameText12', {autoAlpha:0, delay:2.2})
             .to('#frameText13', {x:0,y:0})
           }
           ad.layers.frameVideo1.querySelector('video').onended = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.2}})
-            .to('#frame1', (flag==true?{}:{delay:2.5, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+            .to('#frame1', (flag==true?{}:{delay:0, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
           }
         }
         gsap.delayedCall(.8, animateFrame1);
