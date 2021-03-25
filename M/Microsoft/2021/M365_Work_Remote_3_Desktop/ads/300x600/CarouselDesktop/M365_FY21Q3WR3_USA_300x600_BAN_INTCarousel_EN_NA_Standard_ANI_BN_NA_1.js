@@ -1179,15 +1179,15 @@ if (reversed == null) { reversed = false; }
 				}
 
 				exportRoot.subHeadMoveCheck = function() {
-						if (exportRoot.currentSelection==3){
-							gsap.delayedCall(0.2,function(){
-								exportRoot.tlSubHeadMove.tweenTo("in");
-							})
-						} else {
+						// if (exportRoot.currentSelection==3){
+						// 	gsap.delayedCall(0.2,function(){
+						// 		exportRoot.tlSubHeadMove.tweenTo("in");
+						// 	})
+						// } else {
 							gsap.delayedCall(0,function(){
 								exportRoot.tlSubHeadMove.tweenTo("out");
 							})
-						}
+						// }
 				}
 
 				exportRoot.tlSubHeadMove = gsap.timeline();

@@ -1115,15 +1115,15 @@ if (reversed == null) { reversed = false; }
 				}
 
 				exportRoot.subHeadMoveCheck = function() {
-						if (exportRoot.currentSelection >2 && exportRoot.currentSelection <4){
-							gsap.delayedCall(0.23,function(){
-								exportRoot.tlSubHeadMove.tweenTo("in");
-							})
-						} else {
+						// if (exportRoot.currentSelection >2 && exportRoot.currentSelection <4){
+						// 	gsap.delayedCall(0.23,function(){
+						// 		exportRoot.tlSubHeadMove.tweenTo("in");
+						// 	})
+						// } else {
 							gsap.delayedCall(0, function(){
 								exportRoot.tlSubHeadMove.tweenTo("out");
 							})
-						}
+						// }
 				}
 
 				exportRoot.tlSubHeadMove = gsap.timeline();
