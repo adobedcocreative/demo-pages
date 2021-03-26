@@ -165,6 +165,7 @@
     <div id="frameText22" class="frameText">!{frameText22}</div>
     <div id="frameText23" class="frameText">!{frameText23}</div>
     <!-- <div id="frameImage3" class="asset frameImage" data-image="frameImage3"></div> -->
+    <div id="frameImage31" class="asset frameImage" data-image="frameImage3"></div>
     <div id="frameImage3" class="frameImageLeft" style="top: 17px;left: 1px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width: 117px;"></video></div>
     <div id="frameText31" class="frameText">!{frameText31}</div>
     <div id="frameText32" class="frameText">!{frameText32}</div>
@@ -320,6 +321,7 @@
           frameVideo3: "Animate_100_Mbps_Arrow.mp4",
           frameImage1: "728x90_Altice_SDL_NewBuild_Img_Frame_01.png",
           frameImage2: "1x1.png",
+          frameImage3: "1x1.png",
         },
         beforeLoad: function(data){
           data.map(function(content){
@@ -341,6 +343,11 @@
             if(arrowAnimation && arrowAnimation == '400') { content.frameVideo3 = "Animate_400_Mbps_Arrow.mp4"; }
             else if(arrowAnimation && arrowAnimation == '200') { content.frameVideo3 = "Animate_200_Mbps_Arrow.mp4"; }
             else if(arrowAnimation && arrowAnimation == '1') { content.frameVideo3 = "Animate_1Gig_Mbps_Arrow.mp4"; }
+            else if(arrowAnimation && arrowAnimation.toLowerCase() == '2x') { content.frameImage3 = "728x90_Altice_Circle_Burst_2x.png"; }
+            if(content.frameImage3 != '1x1.png') {
+              document.querySelector('#ad').removeChild(document.querySelector('#frameImage3'));
+              document.querySelector('#frameImage31').id = 'frameImage3';
+            }
 
             content.frameText41 = content.frameText4.split('^')[0];
             content.frameText42 = content.frameText4.split('^').length > 1 ? content.frameText4.split('^')[1] : '&nbsp;';
@@ -371,7 +378,7 @@
             setTimeout(function(){ video.src = path; },(flag ? 800 : 500));
           }
         }
-        loadVideo(ad.layers.frameImage3.querySelector('video'), adData.frameVideo3);
+        if(adData.frameImage3 == '1x1.png') { loadVideo(ad.layers.frameImage3.querySelector('video'), adData.frameVideo3); }
 
         textUpdate();
         gsap.set('#shape1',{top:10,left:210,width:160,height:18,x:-370});
@@ -449,7 +456,7 @@
         var animateFrame3 = function(flag){
           var frameId = 3;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[frameId]})
+          .to('#frameImage'+frameId, {duration:0, onComplete: (adData.frameImage3 == '1x1.png' ? videoFrameAnimation : generalFrameAnimation), onCompleteParams:[frameId]})
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame4}));
         }
         var animateFrame2 = function(flag){
