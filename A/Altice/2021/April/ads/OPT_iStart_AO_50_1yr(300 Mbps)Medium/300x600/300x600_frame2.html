@@ -89,7 +89,22 @@
         font-size: 26px;
         color: #0084d6;
       }
-
+      .bulletedText1 {
+        position: relative;
+        display: inline-block;
+        padding-left: 22px;
+        font-size: 25px;
+        line-height: 0.9;
+        margin-bottom: 5px;
+      }
+      .bulletedText1::before {
+        content: '+';
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        font-size: 25px;
+        color: #0084d6;
+      }
       .beam div:first-child {
         position: absolute;
         top: 0px;
@@ -149,9 +164,9 @@
 amo.registerClick("clickUrl","https://www.altice.com");
 amo.registerAttribute("ctaText","TEXT","Shop now");
 amo.registerAttribute("frameText1", "TEXT", "Get entertainment that deserves an ovation");
-amo.registerAttribute("frameText21", "TEXT", "<div style='top: 198px;left: 20px;width: 260px;font-size: 28px;line-height: 1.1;text-align: center;'>300 Mbps Internet + Built-in Security included</div>");
-amo.registerAttribute("frameText22", "TEXT", "<div class='AlticeRegular' style='top:462px;width: 250px;left:22px;font-size:14px;line-height:1.1;'>Wired connection up to 300 Mbps.<br>WiFi speeds may vary. Speeds,<br>prices & availability vary by area.<br>Restrictions apply.</div>");
-amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
+amo.registerAttribute("frameText21", "TEXT", "<div style='top: 199px;left: 13px;width: 260px;text-align: center;'><div class='bulletedText1'>300 Mbps Internet</div></div><div class='AlticeRegular' style='top:462px;width: 250px;left:22px;font-size:14px;line-height:1.1;'>Wired connection up to 300 Mbps.<br>WiFi speeds may vary. Speeds,<br>prices & availability vary by area.<br>Restrictions apply.</div>");
+amo.registerAttribute("frameText22", "TEXT", "<div style='top: 231px;left: 38px;width: 211px;text-align: center;'><div class='bulletedText1'>Built-in Security included</div></div>");
+amo.registerAttribute("frameText23", "TEXT", "<div style='top: 285px;left: 10px;width: 265px;text-align: center;'><div class='bulletedText1'>Live & streaming TV</div></div>");
 amo.registerAttribute("frameText31", "TEXT", "<div style='top: 88px;left: 21px;font-size: 28px;line-height:1;'>300 Mbps<br>Internet & TV</div>");
 amo.registerAttribute("frameText32", "TEXT", "<div style='top: 146px;left: 14px;width: 260px;line-height: 1;'><font style='font-size: 117px;letter-spacing: -3px;padding-right: 3px;line-height: 0.9;' class='coloredText'>$50</font><font style='margin-left: 5px;font-size: 19px;display: inline-block;vertical-align: 46px;line-height: 0.95;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 9px 0 0 8px;font-size: 14px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
 amo.registerAttribute("frameText33", "TEXT", "<div style='top: 311px;width:400px;left: 21px;transform: scale(0.7);transform-origin: top left;'><div class='bulletedText'><font style='color: #0084d6;'>$200</font> Visa<span style='vertical-align:11px;font-size:14px;'>®</span> Prepaid Card!<div class='AlticeRegular' style='margin-top: 2px;font-size: 19px;line-height:1;'>Terms apply.</div></div></div>");
@@ -176,7 +191,7 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top: 311px;width:400px
     <div id="beam4" class="beam" style="border-radius: 30px;background-image: linear-gradient(to left, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
     <div id="beam5" class="beam" style="border-radius: 30px;background-image: linear-gradient(to right, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
     <div id="frameBackground" class="asset adSizeContainer" data-image="frameBackground" style="display:none;"></div>
-    <div id="frameImage2" class="frameImage" style="top: 86px;left: 39px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width:180px;"></video></div>
+    <div id="frameImage2" class="frameImage" style="top: 83px;left: 108px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width:83px;"></video></div>
     <div id="frameText21" class="frameText">!{frameText21}</div>
     <div id="frameText22" class="frameText">!{frameText22}</div>
     <div id="frameText23" class="frameText">!{frameText23}</div>
@@ -281,7 +296,7 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top: 311px;width:400px
           introLogoImage: 'images/300x600_Logo_Optimum_Black.png',
           frameBackground: '1x1.png',
           frameVideo1: "300x600_Entertainment_Peter.mp4",
-          frameVideo2: "300Mbps Internet_Speedometer_Icon.mp4",
+          frameVideo2: "Icons.mp4",
           frameImage3: "300x600_OPT_iStart_50_1Yr_300 Mbps_Medium_Img_Frame_03.png",
         },
         beforeLoad: function(data){
@@ -363,6 +378,14 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top: 311px;width:400px
           .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
           .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
         }
+        var videoNBulletFrameAnimation = function(frame){
+          var video = ad.root.querySelector('#frameImage' + frame + ' video');
+          var playVideo = function() { if(video) { video.play(); } }
+          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+          .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0, onComplete:playVideo})
+          .to('#frameText'+frame+'2', {delay:3, x:0,y:0})
+          .to('#frameText'+frame+'3', {delay:3, x:0,y:0});
+        }
         var generalFrameAnimation = function(frame){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0})
@@ -401,8 +424,8 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top: 311px;width:400px
         var animateFrame2 = function(flag){
           var frameId = 2;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[frameId]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}))
+          .to('#frameImage'+frameId, {duration:0, onComplete: videoNBulletFrameAnimation, onCompleteParams:[frameId]})
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 9, opacity:0, onComplete: animateFrame3}))
         }
         var animateFrame1 = function(flag){
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
