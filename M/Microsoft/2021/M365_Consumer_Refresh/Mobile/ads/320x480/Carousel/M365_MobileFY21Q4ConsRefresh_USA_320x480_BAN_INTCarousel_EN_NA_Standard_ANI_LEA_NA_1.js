@@ -1823,15 +1823,15 @@ if (reversed == null) { reversed = false; }
 				}
 
 				exportRoot.subHeadMoveCheck = function() {
-						if (exportRoot.currentSelection==3 || exportRoot.currentSelection==4 || exportRoot.currentSelection==7 ){
-							gsap.delayedCall(0.4,function(){
-								exportRoot.tlSubHeadMove.tweenTo("in");
-							})
-						} else {
+						// if (exportRoot.currentSelection==3 || exportRoot.currentSelection==4 || exportRoot.currentSelection==7 ){
+						// 	gsap.delayedCall(0.4,function(){
+						// 		exportRoot.tlSubHeadMove.tweenTo("in");
+						// 	})
+						// } else {
 							gsap.delayedCall(0.2,function(){
 								exportRoot.tlSubHeadMove.tweenTo("out");
 							})
-						}
+						// }
 				}
 
 				exportRoot.smallPrintCheck = function() {
