@@ -31,10 +31,13 @@
         ];
 
         if(contentD && contentD.length) { contentD.forEach(function(data) { amo.registerContent(data); }); }
-        amo.registerVariation("layout", "AllUpAccessLifestyle");
-        amo.registerVariation("textField1", "['<#2f2f2f>Access your|world','18.75px',17,71,'20','350', 'left']");
-        amo.registerVariation("textField2", "['<#737373>Your best ideas can|come from anywhere|with access to 1 TB of|OneDrive cloud storage','11.5px',17,125,'13','350','left']");
-        amo.registerVariation("ctaText", "LEARN MORE");
+        amo.registerVariation("layout", "CliftonCoffee");
+        amo.registerVariation("textField1", "['<#505050>“Microsoft 365|allows me to take my|office with me.”','19px',125, 72,'23','3 50', 'center']");
+        amo.registerVariation("textField2", "['<#505050>Ed Buston, Director','15px',124, 162,'17','3 50', 'center']");
+        amo.registerVariation("textField3", "['<#505050>Grow your|business|remotely with|Microsoft 365','17.2px',16, 42,'20','3 50', 'left']");
+        amo.registerVariation("textField4", "na");
+        amo.registerVariation("textField5", "na");
+        amo.registerVariation("ctaText", "Watch now");
         // amo.registerVariation("ctaArrowVisibleFlag", "!{passthroughfield2}");
         amo.registerVariation("impressionTracker", "../../../../1x1.png?impressionTracker=" + Math.random());
         amo.registerVariation("clickTracker", "../../../../1x1.png?clickTracker=" + Math.random());
@@ -103,9 +106,10 @@
         }
         var adUrl = '';
         switch(adData.layout){
-          case '3DCube' : adURL = '3DCube/M365_MobileFY21Q4ConsRefresh_USA_250x250_BAN_3DCube_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
-          case 'AllUp' : adURL = 'AllUp/M365_MobileFY21Q4ConsRefresh_USA_250x250_BAN_AllUp_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
-          case 'Carousel' : adURL = 'Carousel/M365_MobileFY21Q4ConsRefresh_USA_250x250_BAN_INTCarousel_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
+          case 'CliftonCoffee' : adURL = 'CliftonCoffee/M365_MobileFY21Q4SMBCustStories_USA_250x250_BAN_CliftonCoffee_EN_NA_Standard_ANI_WACM_NA_1.htm';break;
+          case 'HouseLilac' : adURL = 'HouseLilac/M365_MobileFY21Q4SMBCustStories_USA_250x250_BAN_HouseLilac_EN_NA_Standard_ANI_WACM_NA_1.htm';break;
+          case 'ThinkUp' : adURL = 'ThinkUp/M365_MobileFY21Q4SMBCustStories_USA_250x250_BAN_ThinkUp_EN_NA_Standard_ANI_WACM_NA_1.htm';break;
+          case 'TonysChoco' : adURL = 'TonysChoco/M365_MobileFY21Q4SMBCustStories_USA_250x250_BAN_TonysChoco_EN_NA_Standard_ANI_WACM_NA_1.htm';break;
         }
         var iframe = document.createElement('iframe');
         iframe.src = adURL;

@@ -126,9 +126,9 @@ function handleComplete(evt,comp) {
           gsap.delayedCall(0.4,function(){
             exportRoot.videoState="reset"
             amoAd.init();
-            exportRoot.initBanner(bannerData)
-            amoAd.ctaAlignment();
-            exportRoot.runBanner()
+	        exportRoot.initBanner(bannerData)
+	        amoAd.ctaAlignment();
+	        exportRoot.runBanner()
             initDiv.style.visibility='hidden'
             initReady=true
             //vid.muted = true;
