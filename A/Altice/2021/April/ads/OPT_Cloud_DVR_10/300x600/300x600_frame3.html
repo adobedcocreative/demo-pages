@@ -158,7 +158,7 @@ amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText41", "TEXT", "<div style='top: 200px;left: 10px;width: 280px;font-size: 28px;line-height: 1;text-align: center;'>Built-in Internet Security included</div>");
 amo.registerAttribute("frameText42", "TEXT", "<div class='AlticeRegular' style='top: 492px;left: 22px;font-size: 14px;line-height: 1.1;'>Restrictions apply. Speeds,<br>prices & availability vary by area.</div>");
 amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText51", "TEXT", "<div style='top: 88px;left: 21px;font-size: 28px;line-height:1;'>300 Mbps<br>Internet</div>");
+amo.registerAttribute("frameText51", "TEXT", "<div style='top: 88px;left: 21px;font-size: 28px;line-height:1;'><div style='color:#0084d6;margin-left: 0px;height: 25px;font-size: 65%;'>More speed, same price!</div>500 Mbps Internet</div>");
 amo.registerAttribute("frameText52", "TEXT", "<div style='top: 142px;left: 14px;width: 260px;line-height: 1;'><font style='font-size: 117px;letter-spacing: -3px;padding-right: 3px;line-height: 1;' class='coloredText'>$10</font><font style='margin-left: 0px;font-size: 19px;display: inline-block;vertical-align: 49px;line-height: 0.95;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 1px 0 0 8px;font-size: 14px;'>w/Auto Pay &amp; Paperless Bill<br>Plus taxes, fees &amp; charges</div></div>");
 amo.registerAttribute("frameText53", "TEXT", "<div style='top: 311px;width:400px;left: 21px;transform: scale(0.7);transform-origin: top left;'><div class='bulletedText'>$200 Visa<span style='vertical-align:11px;font-size:14px;'>®</span> Prepaid Card!</div></div>");
 </script>
@@ -295,10 +295,10 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 311px;width:400px
           introLogoImage: 'images/300x600_Logo_Optimum_Black.png',
           frameBackground: '1x1.png',
           frameVideo1: "300x600_Women.mp4",
-          frameVideo4: "Built-in Internet Security Included_Icon.mp4",
-          frameImage2: "300x600_OPT_JAN_ACQ_FIB_300Mb_35Yr1_NonSub_Fiber1P_Img_Frame_02.png",
-          frameImage3: "300x600_OPT_SPRING_ACQ_INT_300Mb_35Yr1_Img_Frame_03.png",
-          frameImage5: "300x600_OPT_SPRING_ACQ_INT_300Mb_35Yr1_Img_Frame_05.png",
+          frameVideo3: "Animate_3_buttons_smaller.mp4",
+          frameVideo4: "Animate_DVR_smaller.mp4",
+          frameImage2: "300x600_OPT_UPGQ2_ANI_Video_CLDVR_10_Subs_GM_Beam_Img_Frame_02.png",
+          frameImage5: "300x600_OPT_UPGQ2_ANI_Video_CLDVR_10_Subs_GM_iPad_Img_Frame_05.png",
         },
         beforeLoad: function(data){
           data.map(function(content){
@@ -330,6 +330,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 311px;width:400px
           }
         }
         loadVideo(ad.layers.frameVideo1.querySelector('video'), adData.frameVideo1, true);
+        loadVideo(ad.layers.frameImage3.querySelector('video'), adData.frameVideo3);
         loadVideo(ad.layers.frameImage4.querySelector('video'), adData.frameVideo4);
 
         textUpdate();
@@ -418,7 +419,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 311px;width:400px
         var animateFrame3 = function(flag){
           var frameId = 3;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
+          .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[frameId]})
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame4}));
         }
         var animateFrame2 = function(flag){
