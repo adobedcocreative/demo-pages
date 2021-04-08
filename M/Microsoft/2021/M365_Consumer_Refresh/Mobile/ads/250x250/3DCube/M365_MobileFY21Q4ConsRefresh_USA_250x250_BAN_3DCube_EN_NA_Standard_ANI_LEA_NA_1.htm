@@ -204,7 +204,7 @@ function handleComplete(evt,comp) {
 			bannerData.subhead3 = eval(bannerData.textField3.split('^')[1]);
 			bannerData.headline4 = eval(bannerData.textField4.split('^')[0]);
 			bannerData.subhead4 = eval(bannerData.textField4.split('^')[1]);
-			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,"10px",0,0,"50","300", "center"] : '';
+			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,"13px",0,0,"50","300", "center"] : '';
 			bannerData.CTAarrowVisible = [true, 0,0];
 			amoAdClick = function(id) {
 				parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl.split('^').length > 1 ? parentWindow.adClickUrl.split('^')[id] : parentWindow.adClickUrl, (parentWindow.smartName[id] + '|' + bannerData.ctaText));
