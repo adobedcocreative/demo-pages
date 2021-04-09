@@ -206,8 +206,12 @@ function handleComplete(evt,comp) {
 			bannerData.subhead4 = eval(bannerData.textField4.split('^')[1]);
 			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,"13px",0,0,"50","300", "center"] : '';
 			bannerData.CTAarrowVisible = [true, 0,0];
+			window.smartNames = [];
+      if(bannerData.textField5.split('^').length == 7) {
+        window.smartNames = bannerData.textField5.split('^');
+      }
 			amoAdClick = function(id) {
-				parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl.split('^').length > 1 ? parentWindow.adClickUrl.split('^')[id] : parentWindow.adClickUrl, (parentWindow.smartName[id] + '|' + bannerData.ctaText));
+				parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl.split('^').length > 1 ? parentWindow.adClickUrl.split('^')[id] : parentWindow.adClickUrl, ((window.smartNames && window.smartNames.length == 4 ? window.smartNames[id] + '|' : '') + bannerData.ctaText));
 				if(bannerData.clickTracker) {
 					var clickTrackers = bannerData.clickTracker.split('^');
 					clickTrackers.forEach(function(url){
@@ -226,7 +230,7 @@ function handleComplete(evt,comp) {
 					if (parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
 						try {
 							var productId = ('id' in parentWindow.adData.feedData ? ('|' + parentWindow.adData.feedData.id) : '');
-							parentWindows.amoUtils.onInteraction(parentWindow.smartName[id] + '|' + bannerData.ctaText + ' - ' + text + productId, parentWindow.adData.feedData);
+							parentWindows.amoUtils.onInteraction((window.smartNames && window.smartNames.length == 4 ? window.smartNames[id] + '|' : '') + bannerData.ctaText + ' - ' + text + productId, parentWindow.adData.feedData);
 						} catch (e) {}
 					}
 				}
