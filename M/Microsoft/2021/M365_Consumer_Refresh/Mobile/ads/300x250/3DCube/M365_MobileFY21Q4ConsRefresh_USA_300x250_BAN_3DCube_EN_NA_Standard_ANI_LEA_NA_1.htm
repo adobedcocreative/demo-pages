@@ -206,9 +206,12 @@ function handleComplete(evt,comp) {
 			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,"13px",0,0,"50","300", "center"] : '';
 			bannerData.CTAarrowVisible = [true, 0,0];
 			window.smartNames = [];
-      if(bannerData.textField5.split('^').length == 7) {
-        window.smartNames = bannerData.textField5.split('^');
-      }
+			if(bannerData.textField1.split('^').length == 3) {
+				window.smartNames.push(bannerData.textField1.split('^')[2]);
+				window.smartNames.push(bannerData.textField2.split('^')[2]);
+				window.smartNames.push(bannerData.textField3.split('^')[2]);
+				window.smartNames.push(bannerData.textField4.split('^')[2]);
+			}
 			amoAdClick = function(id) {
 				parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl.split('^').length > 1 ? parentWindow.adClickUrl.split('^')[id] : parentWindow.adClickUrl, ((window.smartNames && window.smartNames.length == 4 ? window.smartNames[id] + '|' : '') + bannerData.ctaText));
 				if(bannerData.clickTracker) {
