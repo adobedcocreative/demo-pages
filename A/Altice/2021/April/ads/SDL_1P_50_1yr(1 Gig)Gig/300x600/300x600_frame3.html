@@ -152,7 +152,7 @@ amo.registerAttribute("frameText1", "TEXT", "Internet so fast you'd swear it was
 amo.registerAttribute("frameText21", "TEXT", "<div style='top: 112px;left: 29px;font-size: 28px;line-height:1;color: #fff;'>1 Gig Internet</div>");
 amo.registerAttribute("frameText22", "TEXT", "<div style='top: 138px;left: 20px;width: 280px;color: #fff;line-height: 1;'><font style='font-size: 117px;letter-spacing: -3px;padding-right: 3px;line-height: 1;'>$50</font><font style='margin-left: 3px;font-size: 19px;display: inline-block;vertical-align: 48px;line-height: 1;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 3px 0 0 10px;font-size: 14px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
 amo.registerAttribute("frameText23", "TEXT", "<div class='AlticeRegular' style='top: 492px;left: 160px;font-size:14px;line-height:1.1;'>Wired connection<br>up to 940 Mbps.</div>");
-amo.registerAttribute("frameText31", "TEXT", "<div style='top: 200px;left: 10px;width: 280px;font-size: 25px;line-height: 1;text-align: center;'>Now with Smart WiFi 6</div>");
+amo.registerAttribute("frameText31", "TEXT", "<div style='top: 200px;left: 10px;width: 280px;font-size: 25px;line-height: 1;text-align: center;'>Now with<br>Smart WiFi 6</div>");
 amo.registerAttribute("frameText32", "TEXT", "<div style='top: 200px;left: 10px;width: 280px;font-size: 25px;line-height: 1;text-align: center;'>For up to <font class='coloredText'>3X faster speeds</font> & <font class='coloredText'>more reliable</font> WiFi experience</div>");
 amo.registerAttribute("frameText33", "TEXT", "<div class='AlticeRegular' style='top: 492px;left: 22px;font-size: 14px;line-height: 1.1;'>Speeds, prices &<br>availability vary by area.</div>");
 amo.registerAttribute("frameText41", "TEXT", "<div style='top: 200px;left: 20px;width: 260px;font-size: 60px;text-align: center;line-height: 1;' class='coloredText'>$200</div>");
@@ -384,11 +384,11 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 311px;width:400px
         }
         var videoCustomFrameAnimation = function(frame){
           var video = ad.root.querySelector('#frameImage' + frame + ' video');
-          var playVideo = function() { if(video) { video.play(); } }
+          var playVideo = function() { if(video) {   gsap.delayedCall(.5, function(){ video.play(); }); } }
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0, onComplete:playVideo})
           .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0})
-          .to('#frameText'+frame+'1', {delay:1.2, autoAlpha:0})
+          .to('#frameText'+frame+'1', {delay:1.7, autoAlpha:0})
           .to('#frameText'+frame+'2', {delay:0, x:0,y:0});
         }
         var generalFrameAnimation = function(frame){
@@ -440,7 +440,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 311px;width:400px
           var frameId = 3;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: videoCustomFrameAnimation, onCompleteParams:[frameId]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 3.5, opacity:0, onComplete: animateFrame4}));
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 4, opacity:0, onComplete: animateFrame4}));
         }
         var animateFrame2 = function(flag){
           var frameId = 2;

@@ -98,16 +98,19 @@ amo.registerAttribute("frameImage2", "IMAGE", "1x1.png");
 amo.registerAttribute("frameImage3", "IMAGE", "1x1.png");
 amo.registerAttribute("frameImage4", "IMAGE", "1x1.png");
 amo.registerAttribute("frameImage5", "IMAGE", "1x1.png");
-amo.registerAttribute("frameText1", "TEXT", "<div style='font-size: 72%;color:#0084d6;margin-bottom: 1px;'>Exclusive offer!</div>Internet so fast you'd<br>swear it was magic");
-amo.registerAttribute("frameText21", "TEXT", "<div style='top:7px;left:8px;'><div class='bulletedText'><font style='color:#0084d6;'>1 Gig</font> Internet</div></div>");
-amo.registerAttribute("frameText22", "TEXT", "<div style='top:22px;left:8px;'><div class='bulletedText'>Now with <font style='color:#0084d6;'>Smart WiFi 6</font></div></div>");
-amo.registerAttribute("frameText23", "TEXT", "<div class='AlticeRegular' style='top:35px;left:20px;font-size:9px;'>Wired connection up to 940 Mbps.</div>");
-amo.registerAttribute("frameText31", "TEXT", "<div style='top: 9px;left: 9px;font-size: 12.2px;'><font style='color:#0084d6;'>$200</font> Visa<sup style='font-size: 64%;vertical-align: 40%;'>®</sup> Prepaid Card!</div>");
-amo.registerAttribute("frameText32", "TEXT", "<div style='top:22px;left:9px;font-size:9px;' class='AlticeRegular'>Terms apply.</div>");
-amo.registerAttribute("frameText33", "TEXT", "<div class='AlticeRegular' style='top:35px;left:9px;font-size:9px;'>Speeds, prices & availability vary by area.</div>");
-amo.registerAttribute("frameText41", "TEXT", "<div style='top:2px;left:8px;font-size:13px;'>1 Gig Internet</div>");
-amo.registerAttribute("frameText42", "TEXT", "<div style='top: 18px;left: 6px;width: 220px;line-height: 1;'><font style='font-size: 27.5px;' class='coloredText'>$50</font><font style='margin-left: 3px;font-size: 9px;display: inline-block;vertical-align: 3px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: -23px 0 0 80px;font-size: 9px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
-amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
+amo.registerAttribute("frameText1", "TEXT", "Internet so fast you'd swear it was magic");
+amo.registerAttribute("frameText21", "TEXT", "<div style='top: 8px;left: 9px;font-size: 16px;color:#0084d6;'>Exclusive offer!</div>");
+amo.registerAttribute("frameText22", "TEXT", "<div style='top: 26px;left:9px;font-size:12px;'>On our fastest speed</div>");
+amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
+amo.registerAttribute("frameText31", "TEXT", "<div style='top:7px;left:8px;'><div class='bulletedText'><font style='color:#0084d6;'>1 Gig</font> Internet</div></div>");
+amo.registerAttribute("frameText32", "TEXT", "<div style='top:22px;left:8px;'><div class='bulletedText'>Now with <font style='color:#0084d6;'>Smart WiFi 6</font></div></div>");
+amo.registerAttribute("frameText33", "TEXT", "<div class='AlticeRegular' style='top:35px;left:20px;font-size:9px;'>Wired connection up to 940 Mbps.</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div style='top: 9px;left: 9px;font-size: 12.2px;'><font style='color:#0084d6;'>$200</font> Visa<sup style='font-size: 64%;vertical-align: 40%;'>®</sup> Prepaid Card!</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div style='top:22px;left:9px;font-size:9px;' class='AlticeRegular'>Terms apply.</div>");
+amo.registerAttribute("frameText43", "TEXT", "<div class='AlticeRegular' style='top:35px;left:9px;font-size:9px;'>Speeds, prices & availability vary by area.</div>");
+amo.registerAttribute("frameText51", "TEXT", "<div style='top:2px;left:8px;font-size:13px;'>1 Gig Internet</div>");
+amo.registerAttribute("frameText52", "TEXT", "<div style='top: 18px;left: 6px;width: 220px;line-height: 1;'><font style='font-size: 27.5px;' class='coloredText'>$50</font><font style='margin-left: 3px;font-size: 9px;display: inline-block;vertical-align: 3px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: -23px 0 0 80px;font-size: 9px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
+amo.registerAttribute("frameText53", "TEXT", "&nbsp;");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -136,6 +139,10 @@ amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
     <div id="frameText41" class="frameText">!{frameText41}</div>
     <div id="frameText42" class="frameText">!{frameText42}</div>
     <div id="frameText43" class="frameText">!{frameText43}</div>
+    <div id="frameImage5" class="asset frameImage" data-image="frameImage5"></div>
+    <div id="frameText51" class="frameText">!{frameText51}</div>
+    <div id="frameText52" class="frameText">!{frameText52}</div>
+    <div id="frameText53" class="frameText">!{frameText53}</div>
     <div id="cta" class="text AlticeBold"
       data-text="ctaText"
       style="top: 5px;
@@ -277,7 +284,7 @@ amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
           var frameId = 4;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[4]})
-          // .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame5}));
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame5}));
         }
         var animateFrame3 = function(flag){
           var frameId = 3;

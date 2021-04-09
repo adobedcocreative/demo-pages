@@ -226,7 +226,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 367px;
         data-text="frameText1"
         style="top: 5px;
           left: 225px;
-          width: 330px;
+          width: 300px;
           height: 80px;
           font-size: 24px;
           line-height: 1;">
@@ -285,7 +285,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 367px;
           frameBackground: '1x1.png',
           frameVideo1: "728x90_BalloonMagician.mp4",
           frameVideo3: "Smart WiFi 6_Icon.mp4",
-          frameImage2: "1x1.png",
+          frameImage2: "728x90_SDL_1P_40_1yr_1Gig_HC_Icon_Frame_02.png",
           frameImage4: "728x90_SDL_Visa_Card.png",
           frameImage5: "1x1.png",
         },
@@ -369,12 +369,12 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 367px;
         }
         var videoCustomFrameAnimation = function(frame){
           var video = ad.root.querySelector('#frameImage' + frame + ' video');
-          var playVideo = function() { if(video) { video.play(); } }
+          var playVideo = function() { if(video) {   gsap.delayedCall(.5, function(){ video.play(); }); } }
           gsap.set('#frameText'+frame+'2', {x:0, y:0, autoAlpha:0});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0, onComplete:playVideo})
           .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0})
-          .to('#frameText'+frame+'1', {delay:1.2, autoAlpha:0})
+          .to('#frameText'+frame+'1', {delay:1.7, autoAlpha:0})
           .to('#frameText'+frame+'2', {delay:0, autoAlpha:1});
         }
         var generalFrameAnimation = function(frame){
@@ -401,7 +401,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 367px;
           var frameId = 3;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: videoCustomFrameAnimation, onCompleteParams:[frameId]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 3.5, opacity:0, onComplete: animateFrame4}));
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 4, opacity:0, onComplete: animateFrame4}));
         }
         var animateFrame2 = function(flag){
           var frameId = 2;

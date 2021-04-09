@@ -435,11 +435,11 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 167px;left: 24px;
         }
         var videoCustomFrameAnimation = function(frame){
           var video = ad.root.querySelector('#frameImage' + frame + ' video');
-          var playVideo = function() { if(video) { video.play(); } }
+          var playVideo = function() { if(video) {   gsap.delayedCall(.5, function(){ video.play(); }); } }
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0, onComplete:playVideo})
           .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0})
-          .to('#frameText'+frame+'1', {delay:1.2, autoAlpha:0})
+          .to('#frameText'+frame+'1', {delay:1.7, autoAlpha:0})
           .to('#frameText'+frame+'2', {delay:0, x:0,y:0});
         }
         var generalFrameAnimation = function(frame){
@@ -486,7 +486,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 167px;left: 24px;
           ad.layers.cta.classList.remove('ctaWhite');
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: videoCustomFrameAnimation, onCompleteParams:[frameId]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 3.5, opacity:0, onComplete: animateFrame4}))
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 4, opacity:0, onComplete: animateFrame4}))
         }
         var animateFrame2 = function(flag){
           var frameId = 2;
