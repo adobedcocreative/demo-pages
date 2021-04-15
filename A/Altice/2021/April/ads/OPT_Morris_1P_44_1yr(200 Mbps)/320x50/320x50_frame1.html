@@ -92,18 +92,22 @@
   <!-- Start of overrode asset attributes values -->
 <script type="text/javascript">
 amo.registerClick("clickUrl","https://www.altice.com");
-amo.registerAttribute("ctaText","TEXT","Shop now");
+amo.registerAttribute("ctaText","TEXT","Learn more");
 amo.registerAttribute("frameImage1", "IMAGE", "1x1.png");
 amo.registerAttribute("frameImage2", "IMAGE", "1x1.png");
 amo.registerAttribute("frameImage3", "IMAGE", "1x1.png");
-amo.registerAttribute("frameText1", "TEXT", "Morris Broadband has joined the Optimum family!");
-amo.registerAttribute("frameText12", "TEXT", "Stay up to speed with our fast Internet");
-amo.registerAttribute("frameText21", "TEXT", "<div style='top: 6px;left: 9px;font-size: 12.2px;line-height: 1.2;'>Plus <font style='color:#0084d6;'>900 Mbps</font><br>Internet available!</div>");
-amo.registerAttribute("frameText22", "TEXT", "<div class='AlticeRegular' style='top:33px;left:9px;font-size:9px;'>Wired connection up to 900 Mbps.</div>");
+amo.registerAttribute("frameImage4", "IMAGE", "1x1.png");
+amo.registerAttribute("frameText1", "TEXT", "Morris Broadband<br>has joined the Optimum family!");
+amo.registerAttribute("frameText12", "TEXT", "Stay up to speed<br>with our fast Internet");
+amo.registerAttribute("frameText21", "TEXT", "<div style='top:2px;left:8px;font-size:13px;'>200 Mbps Internet</div>");
+amo.registerAttribute("frameText22", "TEXT", "<div style='top: 18px;left: 6px;width: 220px;line-height: 1;'><font style='font-size: 27.5px;' class='coloredText'>$44</font><font style='margin-left: 3px;font-size: 7px;display: inline-block;vertical-align: 1px;'>95/<br>mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: -25px 0 0 74px;font-size: 8px;'>Plus taxes & fees<br>Wired connection up to 200<br>Mbps. WiFi speeds may vary.</div></div>");
 amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText31", "TEXT", "<div style='top:2px;left:8px;font-size:13px;'>200 Mbps Internet</div>");
-amo.registerAttribute("frameText32", "TEXT", "<div style='top: 18px;left: 6px;width: 220px;line-height: 1;'><font style='font-size: 27.5px;' class='coloredText'>$44</font><font style='margin-left: 3px;font-size: 7px;display: inline-block;vertical-align: 1px;'>95/<br>mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: -13px 0 0 74px;font-size: 9px;'>Plus taxes & fees</div></div>");
+amo.registerAttribute("frameText31", "TEXT", "<div style='top: 6px;left: 9px;font-size: 12.2px;line-height: 1.2;'>Plus <font style='color:#0084d6;'>900 Mbps</font><br>Internet available!</div>");
+amo.registerAttribute("frameText32", "TEXT", "<div class='AlticeRegular' style='top:33px;left:9px;font-size:9px;'>Wired connection up to 900 Mbps.</div>");
 amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
+amo.registerAttribute("frameText41", "TEXT", "<div style='top:2px;left:8px;font-size:13px;'>200 Mbps Internet</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div style='top: 18px;left: 6px;width: 220px;line-height: 1;'><font style='font-size: 27.5px;' class='coloredText'>$44</font><font style='margin-left: 3px;font-size: 7px;display: inline-block;vertical-align: 1px;'>95/<br>mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: -25px 0 0 74px;font-size: 8px;'>Plus taxes & fees<br>Speeds, prices &<br>availability vary by area.</div></div>");
+amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -128,13 +132,17 @@ amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
     <div id="frameText31" class="frameText">!{frameText31}</div>
     <div id="frameText32" class="frameText">!{frameText32}</div>
     <div id="frameText33" class="frameText">!{frameText33}</div>
+    <div id="frameImage4" class="asset frameImage" data-image="frameImage4"></div>
+    <div id="frameText41" class="frameText">!{frameText41}</div>
+    <div id="frameText42" class="frameText">!{frameText42}</div>
+    <div id="frameText43" class="frameText">!{frameText43}</div>
     <div id="cta" class="text AlticeBold"
       data-text="ctaText"
       style="top: 26px;
         right: 5px;
         width: 65px;
         height: 14px;
-        font-size: 10px;
+        font-size: 9px;
         overflow: hidden;
         border-radius: 10px;
         line-height: 0.9;
@@ -153,19 +161,19 @@ amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
         data-text="frameText1"
         style="top: 5px;
           left: 8px;
-          width: 200px;
+          width: 220px;
           height: 40px;
-          font-size: 18px;
-          line-height: 0.95;">
+          font-size: 13.5px;
+          line-height: 1.2;">
       </div>
       <div id="frameText12" class="text-left AlticeBold"
         data-text="frameText12"
         style="top: 5px;
           left: 8px;
-          width: 200px;
+          width: 220px;
           height: 40px;
-          font-size: 18px;
-          line-height: 0.95;">
+          font-size: 13.5px;
+          line-height: 1.2;">
       </div>
       <div id="introLogoImage" class="asset adSizeContainer" data-image="introLogoImage"></div>
       <div id="introCta" class="text AlticeBold"
@@ -174,7 +182,7 @@ amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
           right: 5px;
           width: 65px;
           height: 14px;
-          font-size: 10px;
+          font-size: 9px;
           overflow: hidden;
           border-radius: 10px;
           line-height: 0.9;
@@ -284,7 +292,7 @@ amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
           var frameId = 3;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[3]})
-          // .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame4}));
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame4}));
         }
         var animateFrame2 = function(flag){
           var frameId = 2;
