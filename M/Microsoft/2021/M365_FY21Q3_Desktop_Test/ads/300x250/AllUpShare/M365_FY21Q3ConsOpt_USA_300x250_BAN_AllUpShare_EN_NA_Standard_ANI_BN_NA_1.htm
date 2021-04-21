@@ -128,7 +128,7 @@ function handleComplete(evt,comp) {
       // bannerData.headline1 = texts[0];
       // bannerData.headline2 = texts[1];
 			bannerData.headline1 = eval(bannerData.textField1);
-      bannerData.headline2 = eval(bannerData.textField1);
+      bannerData.headline2 = eval(bannerData.textField2);
 			bannerData.ctaText = bannerData.ctaText.replace('<br>', '\n');
       bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "8.5px" : "12px"),0,0,"50","300", "center"] : '';
       animation_container.addEventListener("click", function(){
