@@ -78,7 +78,216 @@ function handleComplete(evt,comp) {
     TweenMax.delayedCall(0.2,function(){
 			var getText = function(texts, refTexts, bound) {
 				if(typeof texts[0] == 'string') {
+					var polygonPoints = '16,40 140,40 170,100 122,120 147,170 90,195 16,195';
+					var div = document.createElement('div');
+					div.style.position = 'absolute';
+					div.style.width = '100%';
+					div.style.top = 0;
+					div.style.left = 0;
+					div.style.bottom = 0;
+					// div.innerHTML = '<svg width="100%" height="100%"><polygon points="20,40 280,40 250,110 160,150 160,200 20,200" style="fill:#e5e5e5;stroke:#ccc;stroke-width:1" /></svg>'
+					div.innerHTML = '<svg width="100%" height="100%"><polygon points="16,40 140,40 170,100 122,120 147,170 90,195 16,195" style="fill:#ff000080;stroke:#000;stroke-width:1" /></svg>'
+					document.body.appendChild(div);
+					var sampleText = texts[0];
+		      var points = polygonPoints.trim().split(' ');
+		      points = points.map(function(point){
+		        return {x: +point.split(',')[0],y: +point.split(',')[1]}
+		      });
+		      points.push(points[0])
+		      var lines = [];
+		      for(var i = 0; i < points.length - 1; i++) {
+		        var A = points[i]; //startPoint
+		        var B = points[i + 1]; //endPoint
+		        var m = (B.y - A.y)/(B.x - A.x); //Slope = (change in y)/(change in x)
+		        var x = Math.abs(m) == Infinity ? A.x : (m == 0 ? 0 : (1/m) + ' * y + ' + (A.x - (A.y/m))); //Point Slope Formula: (y - y1) =  m(x - x1); x = [(y - y1) + mx1]/m;
+		        var yRange = [A.y, B.y].sort(function(a,b){ return a - b; });
+		        lines.push({A: A, B: B, m: m, x: x, yRange: yRange});
+		      }
+		      var style = document.createElement('style');
+		      var head = document.head || document.getElementsByTagName('head')[0]
+		      style.type = 'text/css';
+		      var css = 't.br::before { content: "\\a"; white-space: pre; }';
+		      if (style.styleSheet){
+		        // This is required for IE8 and below.
+		        style.styleSheet.cssText = css;
+		      } else {
+		        style.appendChild(document.createTextNode(css));
+		      }
+		      head.appendChild(style);
+		      var getXRange = function(y){
+		        var xRange = [];
+		        var intersectingLines = lines.filter(function(line){ return line.yRange[0] <= y && line.yRange[1] >= y })
+		        if(intersectingLines && intersectingLines.length) {
+		          intersectingLines.map(function(line){ xRange.push(eval(line.x)) });
+		        }
+		        return xRange.sort(function(a, b){ return a - b; });
+		      }
+		      var blockToWords = function(element){
+		        if(element) {
+		          element.dataset.content = element.innerHTML;
+		          element.dataset.height = element.style.height;
+		          var htmlTags = element.innerHTML.match(/\<.*?\>/g);
+		          htmlTags = htmlTags && htmlTags.length ? htmlTags : [];
+		          var text = element.innerHTML.split(/\<.*?\>/g);
+		          text = text.map(function(subText){
+		            return subText.split(' ').map(function(word){ return word ? ('<t>' + word + '</t>') : ''; }).join(' ');
+		          });
+		          var longList = text, shortList = htmlTags, temp;
+		          if(longList.length < shortList) { temp = longList; longList = shortList; shortList = temp; }
+		          shortList.push('');
+		          element.innerHTML = longList.map(function(text1, i) { return text1 + shortList[i]; }).join('');
+		        }
+		      }
+		      var wordsToBlock = function(element) {
+		        if(element) {
+		          var wordChanges = element.querySelectorAll('t.br');
+		          if(wordChanges && wordChanges.length) {
+		            wordChanges.forEach(function(word){
+		              word.parentNode.insertBefore(document.createElement('br'), word);
+		              word.removeAttribute('class');
+		            });
+		          }
+		          element.innerHTML = element.innerHTML.split(/\<t\>/g).join('').split(/\<\/t\>/g).join('');
+		        }
+		      }
+		      var resizeText = function(element){
+		        if(element) {
+		          var fontSize = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-size'));
+		          var width = element.offsetWidth;
+		          var height = element.offsetHeight;
+		          var span = element.querySelector('span');
+		          if(span) {
+		            if(span.offsetHeight > height || span.offsetWidth > width) {
+		              for(var i = fontSize; i > 0; i-=0.1) {
+		                element.style.fontSize = i + 'px';
+		                if(span.offsetHeight <= height && span.offsetWidth <= width) { break; }
+		              }
+		            }
+		          }
+		        }
+		      }
+		      var alignWords = function(element) {
+		        if(element) {
+		          var words1 = words = element.querySelectorAll('t');
+		          var span = element.querySelector('span');
+		          if(words && words.length) { words.forEach(function(word, i){ word.removeAttribute('class'); }); }
+		          if( span.offsetHeight > element.offsetHeight || span.offsetWidth > element.offsetWidth) { resizeText(element); }
+		          var elementY = element.offsetTop;
+		          var elementX = element.offsetLeft;
+		          if(words && words.length) {
+		            words.forEach(function(word, i){
+		              // word.removeAttribute('class');
+		              var x = word.offsetLeft + elementX;
+		              var y = word.offsetTop;
+		              var width = word.offsetWidth;
+		              var height = word.offsetHeight;
+		              var lineY = elementY + y + height/2;
+		              var xRange = getXRange(lineY);
+		              var wordText = word.innerHTML;
+		              if(x < xRange[0] || (x + width) > xRange[1]) {
+		                var availableWidth = xRange[1] - xRange[0];
+		                if(width > availableWidth) {
+		//////////////////
+		                }
+		                if(word.offsetLeft != 0) { word.classList.add('br'); }
+		              }
+		              else if(i > 0 && word.offsetTop != words1[i-1].offsetTop && !words1[i-1].classList.contains('br')) { word.classList.add('br'); }
+		            });
+		          }
+		          element.innerHTML = element.innerHTML.split('<br>').join('');
+		          if(element.style.height) {
+		            var span = element.querySelector('span');
+		            if(element.offsetHeight < span.offsetHeight || element.offsetWidth < span.offsetWidth) {
+		              var fontSize = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-size'));
+		              element.style.fontSize = (fontSize - 0.1) + 'px';
+		              alignWords(element);
+		            }
+		          }
+		        }
+		      }
+		      var levelWords = function(element, flag) {
+		        if(element) {
+		          var words1 = words = element.querySelectorAll('t');
+		          var span = element.querySelector('span');
+							span.style.display = 'inline-block';
+		          if(!span.dataset.height) { span.dataset.height = span.offsetHeight; }
+		          var spanHeight = parseFloat(span.dataset.height);
+		          span.style.width = (flag ? (span.offsetWidth + 1) : (span.offsetWidth - 5)) + 'px';
+		          var elementY = element.offsetTop;
+		          var elementX = element.offsetLeft;
+		          if(words && words.length) {
+		            words.forEach(function(word, i){
+		              word.removeAttribute('class');
+		              var x = word.offsetLeft + elementX;
+		              var y = word.offsetTop;
+		              var width = word.offsetWidth;
+		              var height = word.offsetHeight;
+		              var lineY = elementY + y + height/2;
+		              var xRange = getXRange(lineY);
+		              var wordText = word.innerHTML;
+		              if(x < xRange[0] || (x + width) > xRange[1]) {
+		                var availableWidth = xRange[1] - xRange[0];
+		                if(width > availableWidth) {
+		//////////////////
+		                }
+		                if(word.offsetLeft != 0) { word.classList.add('br'); }
+		              }
+		              else if(i > 0 && word.offsetTop != words1[i-1].offsetTop && !words1[i-1].classList.contains('br')) { word.classList.add('br'); }
+		            });
+		          }
+		          if(spanHeight == span.offsetHeight && !flag) {
+		            levelWords(element);
+		          } else if(spanHeight != span.offsetHeight) {
+		            levelWords(element, true);
+		          } else {
+		            span.removeAttribute('style');
+		            span.removeAttribute('data-height');
+		          }
+		        }
+		      }
 
+					var textField = document.createElement('div');
+					textField.style.position = 'absolute';
+					textField.style.top = refTexts[0][3] + 'px';
+					textField.style.left = refTexts[0][2] + 'px';
+					textField.style.height = '155px';
+					textField.style.fontFamily = 'Segoe Pro';
+					textField.style.fontSize = refTexts[0][1];
+					textField.style.lineHeight = 1.1;
+
+					div.appendChild(textField);
+		      // var textField = document.querySelector('#textField');
+		      textField.innerHTML = sampleText;
+		      if(!(textField.childElementCount == 1 && textField.firstChild.tagName == 'SPAN')) {
+		        var span = document.createElement('span');
+		        span.innerHTML = textField.innerHTML;
+		        textField.innerHTML = '';
+		        textField.appendChild(span);
+		      }
+		      var textAlignment = window.getComputedStyle(textField).textAlign;
+		      var xValues = [];
+		      points.forEach(function(point) { xValues.push(point.x) });
+		      var xMin = xValues.sort(function(a, b) { return a - b; })[0];
+		      var xMax = xValues.sort(function(a, b) { return b - a; })[0];
+		      if(textAlignment == 'start' || textAlignment == 'left') {
+
+		        if(textField.style.right){
+		          //Pending
+		        } else if(textField.style.left && xMin > parseFloat(textField.style.left)){
+		          textField.style.left = xMin + 'px';
+		          if((xMax - xMin) < textField.offsetWidth) {
+		            textField.style.width = (xMax - xMin) + 'px';
+		          }
+		        }
+		      } else if(textAlignment == 'right') {
+		        //Pending
+		      } else if(textAlignment == 'center') {
+		        //Pending
+		      }
+		      blockToWords(textField);
+		      alignWords(textField);
+		      levelWords(textField);
+		      // wordsToBlock(textField);
 				}
 				return texts;
 			}
@@ -119,16 +328,18 @@ function handleComplete(evt,comp) {
           layers.cta.arrow.x = ctaWidth - 20;
         }
       }
-			['<#505050>It’s like 6|subscriptions|in one','19px',16,41,'20','100', 'left']
-			['<#505050>Everyone you share |Microsoft 365 Family |with gets 1 TB |of OneDrive |cloud storage​','11px',16,110,'15','350','left']
+			// ['<#505050>It’s like 6|subscriptions|in one','19px',16,41,'20','100', 'left']
+			// ['<#505050>Everyone you share |Microsoft 365 Family |with gets 1 TB |of OneDrive |cloud storage​','11px',16,110,'15','350','left']
       var iframe = window.frameElement;
       var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
       var bannerData = parentWindow.getBannerData();
-			// var texts = getText([eval(bannerData.textField1), eval(bannerData.textField2)], [['<#505050>dummyText','19px',16,41,'20','100', 'left'],['<#505050>dummyText​','11px',16,110,'15','350','left']], );
+			var texts = getText([bannerData.textField1, bannerData.textField2], [['<#505050>dummyText','19px',16,41,'20','100', 'left'],['<#505050>dummyText​','11px',16,110,'15','350','left']], );
       // bannerData.headline1 = texts[0];
       // bannerData.headline2 = texts[1];
-			bannerData.headline1 = eval(bannerData.textField1);
-      bannerData.headline2 = eval(bannerData.textField2);
+			// bannerData.headline1 = eval(bannerData.textField1);
+      // bannerData.headline2 = eval(bannerData.textField2);
+			bannerData.headline1 = eval("['<#505050>It’s like 6|subscriptions|in one','19px',16,41,'20','100', 'left']");
+      bannerData.headline2 = eval("['<#505050>Every Microsoft 365|Family user can use|it on multiple|devices at the|same time','11px',16,110,'15','350','left']");
 			bannerData.ctaText = bannerData.ctaText.replace('<br>', '\n');
       bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "8.5px" : "12px"),0,0,"50","300", "center"] : '';
       animation_container.addEventListener("click", function(){
