@@ -427,11 +427,11 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 167px;left: 24px;
         }
         var videoCustomFrameAnimation = function(frame){
           var video = ad.root.querySelector('#frameImage' + frame + ' video');
-          var playVideo = function() { if(video) {   gsap.delayedCall(1.2, function(){ video.play(); }); } }
+          var playVideo = function() { if(video) {   gsap.delayedCall(1, function(){ video.play(); }); } }
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0, onComplete:playVideo})
           .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0})
-          .to('#frameText'+frame+'1', {delay:2.4, autoAlpha:0})
+          .to('#frameText'+frame+'1', {delay:2.2, autoAlpha:0})
           .to('#frameText'+frame+'2', {delay:0, x:0,y:0});
         }
         var generalFrameAnimation = function(frame){
