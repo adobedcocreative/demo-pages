@@ -78,7 +78,7 @@ function handleComplete(evt,comp) {
     TweenMax.delayedCall(0.2,function(){
 			var getText = function(texts, refTexts, bound) {
 				if(typeof texts[0] == 'string') {
-					var polygonPoints = '16,40 140,40 170,100 122,120 147,170 90,195 16,195';
+					var polygonPoints = bound;
 					var div = document.createElement('div');
 					div.style.position = 'absolute';
 					div.style.width = '100%';
@@ -86,9 +86,8 @@ function handleComplete(evt,comp) {
 					div.style.left = 0;
 					div.style.bottom = 0;
 					// div.innerHTML = '<svg width="100%" height="100%"><polygon points="20,40 280,40 250,110 160,150 160,200 20,200" style="fill:#e5e5e5;stroke:#ccc;stroke-width:1" /></svg>'
-					div.innerHTML = '<svg width="100%" height="100%"><polygon points="16,40 140,40 170,100 122,120 147,170 90,195 16,195" style="fill:#ff000080;stroke:#000;stroke-width:1" /></svg>'
+					div.innerHTML = '<svg width="100%" height="100%"><polygon points="' + polygonPoints + '" style="fill:#ff000080;stroke:#000;stroke-width:1" /></svg>'
 					document.body.appendChild(div);
-					var sampleText = texts[0];
 		      var points = polygonPoints.trim().split(' ');
 		      points = points.map(function(point){
 		        return {x: +point.split(',')[0],y: +point.split(',')[1]}
@@ -187,11 +186,12 @@ function handleComplete(evt,comp) {
 		              if(x < xRange[0] || (x + width) > xRange[1]) {
 		                var availableWidth = xRange[1] - xRange[0];
 		                if(width > availableWidth) {
-		//////////////////
+											//////////////////
 		                }
 		                if(word.offsetLeft != 0) { word.classList.add('br'); }
 		              }
-		              else if(i > 0 && word.offsetTop != words1[i-1].offsetTop && !words1[i-1].classList.contains('br')) { word.classList.add('br'); }
+		              // else if(i > 0 && word.offsetTop != words1[i-1].offsetTop && !words1[i-1].classList.contains('br')) { word.classList.add('br'); }
+									else if(i > 0 && word.offsetTop != word.previousElementSibling.offsetTop && !word.previousElementSibling.classList.contains('br')) { word.classList.add('br'); }
 		            });
 		          }
 		          element.innerHTML = element.innerHTML.split('<br>').join('');
@@ -211,8 +211,26 @@ function handleComplete(evt,comp) {
 		          var span = element.querySelector('span');
 							span.style.display = 'inline-block';
 		          if(!span.dataset.height) { span.dataset.height = span.offsetHeight; }
+							if(!span.dataset.maxWidth) {
+								var maxWidth = 0;
+								if(words && words.length) {
+								 words.forEach(function(word, i){
+									 var brFlag = word.classList.contains('br');
+									 if(brFlag) { word.classList.remove('br'); }
+									 var wordWidth = word.offsetWidth;
+									 word.dataset.width = wordWidth
+									 maxWidth = maxWidth < wordWidth ? wordWidth : maxWidth;
+									 if(brFlag) { word.classList.add('br'); }
+								 });
+							 	}
+								span.dataset.maxWidth = maxWidth;
+							}
 		          var spanHeight = parseFloat(span.dataset.height);
-		          span.style.width = (flag ? (span.offsetWidth + 1) : (span.offsetWidth - 5)) + 'px';
+							var spanMaxWidth = parseFloat(span.dataset.maxWidth);
+							var spanWidth = (flag ? (span.offsetWidth + 1) : (span.offsetWidth - 5));
+							spanWidth = spanWidth < spanMaxWidth ? spanMaxWidth : spanWidth;
+							flag = Boolean(spanWidth <= spanMaxWidth);
+		          span.style.width = spanWidth + 'px';
 		          var elementY = element.offsetTop;
 		          var elementX = element.offsetLeft;
 		          if(words && words.length) {
@@ -220,7 +238,7 @@ function handleComplete(evt,comp) {
 		              word.removeAttribute('class');
 		              var x = word.offsetLeft + elementX;
 		              var y = word.offsetTop;
-		              var width = word.offsetWidth;
+		              var width = parseFloat(word.dataset.width); //word.offsetWidth;
 		              var height = word.offsetHeight;
 		              var lineY = elementY + y + height/2;
 		              var xRange = getXRange(lineY);
@@ -228,11 +246,12 @@ function handleComplete(evt,comp) {
 		              if(x < xRange[0] || (x + width) > xRange[1]) {
 		                var availableWidth = xRange[1] - xRange[0];
 		                if(width > availableWidth) {
-		//////////////////
+											//////////////////
 		                }
 		                if(word.offsetLeft != 0) { word.classList.add('br'); }
 		              }
-		              else if(i > 0 && word.offsetTop != words1[i-1].offsetTop && !words1[i-1].classList.contains('br')) { word.classList.add('br'); }
+		              // else if((i > 0 && word.offsetTop != words1[i-1].offsetTop && !words1[i-1].classList.contains('br'))) { word.classList.add('br'); }
+									else if(i > 0 && word.offsetTop != word.previousElementSibling.offsetTop && (!word.previousElementSibling.classList.contains('br') || (width + parseFloat(word.previousElementSibling.dataset.width)) > spanMaxWidth)) { word.classList.add('br'); }
 		            });
 		          }
 		          if(spanHeight == span.offsetHeight && !flag) {
@@ -242,6 +261,9 @@ function handleComplete(evt,comp) {
 		          } else {
 		            span.removeAttribute('style');
 		            span.removeAttribute('data-height');
+								words.forEach(function(word, i){
+		              word.removeAttribute('data-width');
+								});
 		          }
 		        }
 		      }
@@ -257,7 +279,7 @@ function handleComplete(evt,comp) {
 
 					div.appendChild(textField);
 		      // var textField = document.querySelector('#textField');
-		      textField.innerHTML = sampleText;
+		      textField.innerHTML = texts[0];
 		      if(!(textField.childElementCount == 1 && textField.firstChild.tagName == 'SPAN')) {
 		        var span = document.createElement('span');
 		        span.innerHTML = textField.innerHTML;
@@ -287,7 +309,7 @@ function handleComplete(evt,comp) {
 		      blockToWords(textField);
 		      alignWords(textField);
 		      levelWords(textField);
-		      // wordsToBlock(textField);
+		      wordsToBlock(textField);
 				}
 				return texts;
 			}
@@ -333,7 +355,7 @@ function handleComplete(evt,comp) {
       var iframe = window.frameElement;
       var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
       var bannerData = parentWindow.getBannerData();
-			var texts = getText([bannerData.textField1, bannerData.textField2], [['<#505050>dummyText','19px',16,41,'20','100', 'left'],['<#505050>dummyText​','11px',16,110,'15','350','left']], );
+			var texts = getText([bannerData.textField1, bannerData.textField2], [['<#505050>dummyText','19px',16,41,'20','100', 'left'],['<#505050>dummyText​','11px',16,110,'15','350','left']], '16,40 140,40 170,100 122,120 147,170 90,195 16,195');
       // bannerData.headline1 = texts[0];
       // bannerData.headline2 = texts[1];
 			// bannerData.headline1 = eval(bannerData.textField1);
