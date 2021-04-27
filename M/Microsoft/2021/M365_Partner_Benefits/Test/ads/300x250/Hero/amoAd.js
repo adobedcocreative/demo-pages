@@ -233,7 +233,7 @@ var amoAd = (function(){
           textField.style.position = 'absolute';
           textField.style.top = refText[3] + 'px';
           textField.style.left = refText[2] + 'px';
-          textField.style.height = '155px';
+          textField.style.height = (pointLimits.yMax - parseFloat(refText[3])) + 'px';// '155px';
           textField.style.fontFamily = 'Segoe Pro';
           textField.style.fontSize = refText[1];
           textField.style.lineHeight = Math.ceil((parseFloat(refText[4])/parseFloat(refText[1]))*100)/100;
@@ -347,7 +347,7 @@ var amoAd = (function(){
     // ['<#FFFFFF>Unlock more with |a Microsoft 365 |subscription','12px',16,112,'14','350','left']
     // var introText1 = getText(['Unlock added|benefits'], [['<#FFFFFF>dummyText','18px',16,43,'20','100', 'left']], '16,40 140,40 170,100 122,120 147,170 90,195 16,195');
     // var introText2 = getText(['from brands|we love'], [['<#FFFFFF>dummyText','18px',16,43,'20','100', 'left']], '16,40 140,40 170,100 122,120 147,170 90,195 16,195');
-    var texts = getText(['Access benefits from brands |we love', 'Unlock more with a Microsoft 365 subscription'], [['<#FFFFFF>dummyText','18px',16,44,'20','100', 'left'], ['<#FFFFFF>dummyText','12px',16,112,'14','350','left']], '16,40 280,40 175,96 166,120 92,180 90,234 16,234');
+    var texts = getText(['Access benefits from brands |we love', 'Unlock more with a Microsoft 365 subscription'], [['<#FFFFFF>Access benefits |from brands |we love','18px',16,44,'20','100', 'left'], ['<#FFFFFF>Unlock more with |a Microsoft 365 |subscription','12px',16,112,'14','350','left']], '16,40 280,40 175,96 166,120 92,180 90,234 16,234');
     // var texts = getText([bannerData.textField1, bannerData.textField2], [['<#505050>dummyText','19px',16,41,'20','100', 'left'],['<#505050>dummyText​','11px',16,110,'15','350','left']], '16,40 140,40 170,100 122,120 147,170 90,195 16,195');
     bannerData.headline1 = eval(bannerData.textField1);
     bannerData.headline2 = eval(bannerData.textField2);
