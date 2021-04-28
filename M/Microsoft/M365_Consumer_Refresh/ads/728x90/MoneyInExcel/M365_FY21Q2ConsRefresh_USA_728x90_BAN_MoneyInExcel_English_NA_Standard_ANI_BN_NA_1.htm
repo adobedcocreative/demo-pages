@@ -26,7 +26,7 @@
 <!-- <script>var clickTag = "http://www.google.com";</script> -->
 <script src="iphone-inline-video.min.js"></script>
 <!-- <script src="copy.js"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
 <script src="M365_FY21Q2ConsRefresh_USA_728x90_BAN_MoneyInExcel_English_NA_Standard_ANI_BN_NA_1.js?1501171107836"></script>
 <meta name="ad.size" content="width=728,height=90">
@@ -65,7 +65,7 @@ var vis = (function(){
 })();
 vis(function(){
   var checkState = vis() ? 'Visible' : 'Not visible';
-    console.log(checkState+"  videoState:"+exportRoot.videoState)
+   // // console.log(checkState+"  videoState:"+exportRoot.videoState)
     if (checkState=='Visible' && exportRoot.videoState!="reset") {
         vid.play()
     } else if (checkState=='Not visible' && exportRoot.videoState!="reset") {
@@ -158,24 +158,23 @@ function handleComplete(evt,comp) {
                 var iframe = window.frameElement;
                 var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
                 var bannerData = parentWindow.getBannerData();
-                var introText = eval(bannerData.textField1)[0];
-                var introColor = introText.match(/\<(.*?)\>/g)[0];
-                var introContent = introText.split(introColor)[1];
-                var introValues = introContent.split('^');
-                var getValue = function(index) { return eval(bannerData.textField1.split(introContent).join((typeof index != 'undefined' && index in introValues ? introValues[index] : ' '))); }
-                bannerData.headline1 = getValue(0);
-                bannerData.headline2 = getValue(1);
-                bannerData.headline3 = getValue();
-                bannerData.headline4 = getValue();
-                bannerData.headline5 = getValue(2);
-                bannerData.headline6 = getValue();
-                bannerData.headline7 = getValue();
-                bannerData.headline8 = getValue();
-                bannerData.headline9 = getValue(3);
-                bannerData.headline10 = getValue();
-                bannerData.headline11 = getValue(4);
-                bannerData.headline12 = getValue();
-                bannerData.headline13 = getValue();
+                // var introText = eval(bannerData.textField1)[0];
+                // var introColor = introText.match(/\<(.*?)\>/g)[0];
+                // var introContent = introText.split(introColor)[1];
+                // var introValues = introContent.split('^');
+                // var getValue = function(index) { return eval(bannerData.textField1.split(introContent).join((typeof index != 'undefined' && index in introValues ? introValues[index] : ' '))); }
+                // bannerData.headline1 = getValue(0);
+                // bannerData.headline2 = getValue(1);
+                // bannerData.headline3 = getValue();
+                // bannerData.headline4 = getValue();
+                // bannerData.headline5 = getValue(2);
+                // bannerData.headline6 = getValue();
+                bannerData.headline1 = eval(bannerData.textField1.split('^')[0]);
+                bannerData.headline2 = eval(bannerData.textField1.split('^')[1]);
+                bannerData.headline3 = eval(bannerData.textField1.split('^')[2]);
+                bannerData.headline4 = eval(bannerData.textField1.split('^')[3]);
+                bannerData.headline5 = eval(bannerData.textField1.split('^')[4]);
+                bannerData.headline6 = eval(bannerData.textField1.split('^')[5]);
                 bannerData.headline14 = eval(bannerData.textField2);
                 bannerData.headline15 = eval(bannerData.textField3);
                 bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "9px" : "12px"),0,0,"50","300", "center"] : '';
@@ -207,7 +206,6 @@ function handleComplete(evt,comp) {
                 vid.pause()
                 vid.style.visibility = "visible";
             })
-
 }
 
 
@@ -240,7 +238,6 @@ function handleComplete(evt,comp) {
     var loadBanner = false
 	var loadVideo = false
 	function loaded(type) {
-        console.log("loaded"+type)
 		if (type=='font') loadFont=true
 		if (type=='body') loadBody=true
         if (type=='banner') loadBanner=true
@@ -256,7 +253,6 @@ function handleComplete(evt,comp) {
                 vid.style.visibility = "visible";
         }
 	}
-
 </script>
 <!-- write your code here -->
 </head>
@@ -266,7 +262,7 @@ function handleComplete(evt,comp) {
 
 <div id="animation_container" style="background-color:transparent; width:728px; height:90px;">
     <video id="vid" preload="auto" src="./video/excel_728x90.mp4" autoplay="false" webkit-playsinline="" type="video/mp4" width="728" height="90" muted="muted" style="position: absolute;  z-index:-5; opacity:0.1;"></video>
-  <canvas id="canvas" width="728" height="90" style="position: absolute; display: block; background-color:transparent; cursor:pointer;" aria-label="Microsoft 3 6 5. Explore Money in Excel. Connect your financial accounts. Track spending. Get personalized alerts. Your money, in focus. Track, organize, and plan your finances with Money in Excel. Buy now." role="img"></canvas>
+  <canvas id="canvas" width="728" height="90" style="position: absolute; display: block; background-color:transparent; cursor:pointer;" aria-label="Experience the benefit of Microsoft 3 6 5. A smart way to track your money. Track, organize, and plan your finances with Money in Excel. Buy now." role="img"></canvas>
 
 		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:728px; height:90px; position: absolute; left: 0px; top: 0px; display: block;">
 		<div style="position: absolute; border: 1px solid black; box-sizing: border-box; background-color:transparent; top: 0; left: 0; width: 100%; bottom: 0;"></div>
@@ -276,13 +272,10 @@ function handleComplete(evt,comp) {
 
 <script>
 var vid = document.getElementById("vid")
-
-
 var video = document.querySelector('video');
 enableInlineVideo(video);
 video.pause();
 vid.pause();
-
 
 var xhrReq = new XMLHttpRequest();
 xhrReq.open('GET', './video/excel_728x90.mp4', true);
@@ -295,12 +288,12 @@ xhrReq.onload = function() {
     }
 }
 xhrReq.onerror = function() {
-    console.log('err' ,arguments);
+   // // console.log('err' ,arguments);
 }
 xhrReq.onprogress = function(e){
     if(e.lengthComputable) {
         var percentComplete = ((e.loaded/e.total)*100|0) + '%';
-        console.log('progress: ', percentComplete);
+       // // console.log('progress: ', percentComplete);
         if (percentComplete=='100%' && !loadVideo) loaded('video')
     }
 }
@@ -340,7 +333,7 @@ var startBanner = function(){
 				function replay() {
 					if (exportRoot.isReplay == true){
 
-						TweenMax.killAll();
+						gsap.defaults({overwrite: "auto"});
 						stage.removeAllChildren();
 						stage.update();
                         var canvas = document.getElementById('canvas');
@@ -358,7 +351,7 @@ var startBanner = function(){
                         vid.currentTime = 0;
                         vid.pause()
                         vid.style.opacity = 0.1;
-						TweenMax.delayedCall(0.1,init)
+						gsap.delayedCall(0.1,init);
 					}
 				}
 

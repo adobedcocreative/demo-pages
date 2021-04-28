@@ -9,6 +9,7 @@ lib.ssMetadata = [
 
 (lib.AnMovieClip = function(){
 	this.actionFrames = [];
+	this.ignorePause = false;
 	this.gotoAndPlay = function(positionOrLabel){
 		cjs.MovieClip.prototype.gotoAndPlay.call(this,positionOrLabel);
 	}
@@ -133,29 +134,6 @@ if (reversed == null) { reversed = false; }
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(-386,-1426.4,769.5,2853);
-
-
-(lib.test = function(mode,startPosition,loop,reversed) {
-if (loop == null) { loop = true; }
-if (reversed == null) { reversed = false; }
-	var props = new Object();
-	props.mode = mode;
-	props.startPosition = startPosition;
-	props.labels = {};
-	props.loop = loop;
-	props.reversed = reversed;
-	cjs.MovieClip.apply(this,[props]);
-
-	// Layer_1
-	this.shape = new cjs.Shape();
-	this.shape.graphics.f("#FFFFFF").s().p("EgQxAwZMAAAhgxMAhjAAAMAAABgxg");
-	this.shape.setTransform(107.35,309.675);
-
-	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
-
-	this._renderFirstFrame();
-
-}).prototype = getMCSymbolPrototype(lib.test, new cjs.Rectangle(0,0,214.7,619.4), null);
 
 
 (lib.screen = function(mode,startPosition,loop,reversed) {
@@ -698,14 +676,6 @@ if (reversed == null) { reversed = false; }
 
 	this.timeline.addTween(cjs.Tween.get(this.logo_intro).wait(1));
 
-	// Layer_3
-	this.test = new lib.test();
-	this.test.name = "test";
-	this.test.setTransform(89.35,299.7,1,1,0,0,0,107.4,309.7);
-	this.test.alpha = 0;
-
-	this.timeline.addTween(cjs.Tween.get(this.test).wait(1));
-
 	// replay
 	this.replay_btn = new lib.replay_btn();
 	this.replay_btn.name = "replay_btn";
@@ -743,13 +713,13 @@ if (reversed == null) { reversed = false; }
 	// CTA_BG
 	this.cta = new lib.CTA_btn();
 	this.cta.name = "cta";
-	this.cta.setTransform(175.9,567.7,1.136,1.136,0,0,0,0.2,0.3);
+	this.cta.setTransform(175.9,567.6,1.136,1.136,0,0,0,0.2,0.2);
 
 	this.timeline.addTween(cjs.Tween.get(this.cta).wait(1));
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.mainMC, new cjs.Rectangle(-18,-13.5,299.9,627.6), null);
+}).prototype = getMCSymbolPrototype(lib.mainMC, new cjs.Rectangle(-4.7,-13.5,286.59999999999997,627.6), null);
 
 
 // stage content:
@@ -979,7 +949,6 @@ if (reversed == null) { reversed = false; }
 				for (var i = 0; i < exportRoot.headline2.length; i++) {
 					if (i==0) this.tlText.from(exportRoot.headline2[i], 0.1, {ScaleX:0.2, alpha: 0, ease:Power4.easeOut}, "+=0.1");
 				}
-				this.tlText.from(mc.test, 0.1, { alpha: 1, ease:Power4.easeOut}, "-=0.1");
 		
 				for (var i = 0; i < exportRoot.headline1.length; i++) {
 					if (i==0) this.tlText.to(exportRoot.headline1[i], 0.1, { alpha: 0, ease:Power4.easeOut}, "+=0.5");
@@ -1106,7 +1075,7 @@ if (reversed == null) { reversed = false; }
 	this._renderFirstFrame();
 
 }).prototype = p = new lib.AnMovieClip();
-p.nominalBounds = new cjs.Rectangle(62.1,286.5,218.9,327.29999999999995);
+p.nominalBounds = new cjs.Rectangle(75.4,286.5,205.6,327.29999999999995);
 // library properties:
 lib.properties = {
 	id: '90A26FE74B042E4A89CA750D1DA2DF1F',
@@ -1116,7 +1085,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/M365_FY21Q2ConsRefresh_USA_160x600_BAN_FamilySafety_English_NA_Standard_ANI_BN_NA_1_atlas_1.png?1600789735806", id:"M365_FY21Q2ConsRefresh_USA_160x600_BAN_FamilySafety_English_NA_Standard_ANI_BN_NA_1_atlas_1"}
+		{src:"images/M365_FY21Q2ConsRefresh_USA_160x600_BAN_FamilySafety_English_NA_Standard_ANI_BN_NA_1_atlas_1.png?1614253055686", id:"M365_FY21Q2ConsRefresh_USA_160x600_BAN_FamilySafety_English_NA_Standard_ANI_BN_NA_1_atlas_1"}
 	],
 	preloads: []
 };
@@ -1213,7 +1182,7 @@ an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers)
 an.handleSoundStreamOnTick = function(event) {
 	if(!event.paused){
 		var stageChild = stage.getChildAt(0);
-		if(!stageChild.paused){
+		if(!stageChild.paused || stageChild.ignorePause){
 			stageChild.syncStreamSounds();
 		}
 	}

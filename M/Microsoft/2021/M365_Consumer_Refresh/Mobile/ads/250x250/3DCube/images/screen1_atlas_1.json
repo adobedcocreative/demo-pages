@@ -1,0 +1,51 @@
+﻿{"frames": {
+
+"excelMobile300x6002x":
+{
+	"frame": {"x":202,"y":0,"w":189,"h":317},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":189,"h":317},
+	"sourceSize": {"w":189,"h":317}
+},
+"oneDriveMobile300x6002x":
+{
+	"frame": {"x":585,"y":0,"w":187,"h":312},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":187,"h":312},
+	"sourceSize": {"w":187,"h":312}
+},
+"outlookMobile300x6002x":
+{
+	"frame": {"x":0,"y":0,"w":200,"h":340},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":340},
+	"sourceSize": {"w":200,"h":340}
+},
+"pptMobile300x6002x":
+{
+	"frame": {"x":393,"y":0,"w":190,"h":313},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":190,"h":313},
+	"sourceSize": {"w":190,"h":313}
+},
+"wordMobile300x6002x":
+{
+	"frame": {"x":774,"y":0,"w":182,"h":306},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":182,"h":306},
+	"sourceSize": {"w":182,"h":306}
+}},
+"meta": {
+	"app": "Adobe Animate",
+	"version": "21.0.3.38773",
+	"image": "screen1_atlas_1.png",
+	"format": "undefined",
+	"size": {"w":1024,"h":512},
+	"scale": "1"
+}
+}

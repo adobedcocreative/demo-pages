@@ -1055,8 +1055,8 @@ if (reversed == null) { reversed = false; }
 					if (i!=0) this.tlText.from(exportRoot.headline14[i], 0.8, { x: "+=150", alpha: 0, ease:Power4.easeOut}, "-=0.7");
 				}
 
-				this.tlText.from(mc.txtCta, 0.6, { x: "+=300", ease:Power4.easeOut, onComplete:function(){exportRoot.videoState="reset"}}, "-=0.6");
-				this.tlText.from(mc.cta, 0.6, { x: "+=300", ease:Power4.easeOut}, "-=0.6");
+				this.tlText.from(mc.txtCta, 0.6, { x: "+=200", ease:Power4.easeOut, onComplete:function(){exportRoot.videoState="reset"}}, "-=0.6");
+				this.tlText.from(mc.cta, 0.6, { x: "+=200", ease:Power4.easeOut}, "-=0.6");
 				this.tlText.from(mc.replay_btn, 1, { alpha: 0, onStart:function(){exportRoot.isReplay = true;}}, "-=0.4");
 
 				exportRoot.tlText.stop();

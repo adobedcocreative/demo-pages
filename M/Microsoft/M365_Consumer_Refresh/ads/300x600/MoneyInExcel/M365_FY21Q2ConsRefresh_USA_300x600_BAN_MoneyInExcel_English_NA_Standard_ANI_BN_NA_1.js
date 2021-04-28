@@ -7,6 +7,7 @@ lib.ssMetadata = [];
 
 (lib.AnMovieClip = function(){
 	this.actionFrames = [];
+	this.ignorePause = false;
 	this.gotoAndPlay = function(positionOrLabel){
 		cjs.MovieClip.prototype.gotoAndPlay.call(this,positionOrLabel);
 	}
@@ -680,7 +681,7 @@ if (reversed == null) { reversed = false; }
 	// CTA_BG
 	this.cta = new lib.CTA_btn();
 	this.cta.name = "cta";
-	this.cta.setTransform(313.7,557.4,1.136,1.136,0,0,0,0.2,0.3);
+	this.cta.setTransform(313.7,557.3,1.136,1.136,0,0,0,0.2,0.2);
 
 	this.timeline.addTween(cjs.Tween.get(this.cta).wait(1));
 
@@ -900,137 +901,51 @@ if (reversed == null) { reversed = false; }
 				mc.cta.alpha=1
 				mc.replay_btn.alpha=1
 
-				this.tlText = new TimelineLite();
+				this.tlText = gsap.timeline({defaults:{ease:"power4.out", duration:0.1}});
 
-			//Explore
-				for (var i = 0; i < exportRoot.headline1.length; i++) {
-					if (i==0) this.tlText.from(exportRoot.headline1[i], 0.1, {ScaleX:0.2,alpha: 0, ease:Power4.easeOut}, "+=0.2");
-				}
+			//Experience
 
-						for (var i = 0; i < exportRoot.headline1.length; i++) {
-					if (i==0) this.tlText.to(exportRoot.headline1[i], 0.1, { alpha: 0, ease:Power4.easeOut}, "+=0.4");
-				}
+				this.tlText.from(exportRoot.headline1, {scaleX:0.2,alpha: 0}, "+=0.2");
+				this.tlText.to(exportRoot.headline1, {alpha: 0}, "+=0.6");
 
-				// money in excel
-				for (var i = 0; i < exportRoot.headline2.length; i++) {
-					if (i==0) this.tlText.from(exportRoot.headline2[i], 0.1, {ScaleX:0.2, alpha: 0, ease:Power4.easeOut}, "-=0.1");
-				}
-				for (var i = 0; i < exportRoot.headline3.length; i++) {
-					if (i==0) this.tlText.from(exportRoot.headline3[i], 0.1, { alpha: 0, ease:Power4.easeOut}, "+=0.1");
-				}
-				for (var i = 0; i < exportRoot.headline4.length; i++) {
-					if (i==0) this.tlText.from(exportRoot.headline4[i], 0.1, { alpha: 0, ease:Power4.easeOut}, "+=0.1");
-				}
-
+			//the benefit of
+				this.tlText.from([
+					exportRoot.headline2,
+					exportRoot.headline3,
+					exportRoot.headline4
+				],{alpha: 0, stagger:0.1}, "+=0.1");
 
 			//out
-				for (var i = 0; i < exportRoot.headline2.length; i++) {
-					if (i==0) this.tlText.to(exportRoot.headline2[i], 0.1, { alpha: 0, ease:Power4.easeOut}, "+=0.6");
-				}
-				for (var i = 0; i < exportRoot.headline3.length; i++) {
-					if (i==0) this.tlText.to(exportRoot.headline3[i], 0.1, { alpha: 0, ease:Power4.easeOut}, "-=0.1");
-				}
-
-						for (var i = 0; i < exportRoot.headline4.length; i++) {
-					if (i==0) this.tlText.to(exportRoot.headline4[i], 0.1, { alpha: 0, ease:Power4.easeOut}, "-=0.1");
-				}
-
-
-			// Connect your
-				for (var i = 0; i < exportRoot.headline5.length; i++) {
-					if (i==0) this.tlText.from(exportRoot.headline5[i], 0.1, { alpha: 0, ease:Power4.easeOut}, "-=0.1");
-				}
-				for (var i = 0; i < exportRoot.headline6.length; i++) {
-					if (i==0) this.tlText.from(exportRoot.headline6[i], 0.1, { alpha: 0, ease:Power4.easeOut}, "+=0.1");
-				}
+				this.tlText.to([
+					exportRoot.headline2,
+					exportRoot.headline3,
+					exportRoot.headline4
+				], {alpha: 0}, "+=0.4");
+			// Microsoft 365
+				this.tlText.from(exportRoot.headline5, { scaleX:0.2, alpha: 0}, "+=0.1");
+				this.tlText.from(exportRoot.headline6, { alpha: 0}, "+=0.1");
 
 			//out
-				for (var i = 0; i < exportRoot.headline5.length; i++) {
-					if (i==0) this.tlText.to(exportRoot.headline5[i], 0.1, { alpha: 0, ease:Power4.easeOut}, "+=0.6");
-				}
-				for (var i = 0; i < exportRoot.headline6.length; i++) {
-					if (i==0) this.tlText.to(exportRoot.headline6[i], 0.1, { alpha: 0, ease:Power4.easeOut}, "-=0.1");
-				}
 
-			// financial accounts
+				this.tlText.to([
+					exportRoot.headline5,
+					exportRoot.headline6
+				], {
+					duration: 0.6,
+					alpha: 0,
+					onStart:function(){exportRoot.videoState="playing"; vid.play();}
+					}, "+=1");
 
-				for (var i = 0; i < exportRoot.headline7.length; i++) {
-					if (i==0) this.tlText.from(exportRoot.headline7[i], 0.1, { alpha: 0, ease:Power4.easeOut}, "-=0.1");
-				}
-				for (var i = 0; i < exportRoot.headline8.length; i++) {
-					if (i==0) this.tlText.from(exportRoot.headline8[i], 0.1, { alpha: 0, ease:Power4.easeOut}, "+=0.1");
-				}
+			//final frame
 
-			//out
-				for (var i = 0; i < exportRoot.headline7.length; i++) {
-					if (i==0) this.tlText.to(exportRoot.headline7[i], 0.1, { alpha: 0, ease:Power4.easeOut}, "+=0.6");
-				}
-				for (var i = 0; i < exportRoot.headline8.length; i++) {
-					if (i==0) this.tlText.to(exportRoot.headline8[i], 0.1, { alpha: 0, ease:Power4.easeOut}, "-=0.1");
-				}
+				this.tlText.from(exportRoot.headline14, { duration:0.8, x: "-=150", alpha: 0, stagger:0.1}, "+=10.5");
+				this.tlText.from(exportRoot.headline15, { duration:0.8, x: "-=150", alpha: 0, stagger:0.1}, "-=0.7");
 
+				this.tlText.from([mc.txtCta, mc.cta], { duration:0.6, x: "+=150", onComplete:function(){exportRoot.videoState="reset"}}, "-=0.6");
+				this.tlText.from(mc.replay_btn, { duration:1, alpha: 0, onStart:function(){exportRoot.isReplay = true;}}, "-=0.4");
 
-			// track spending
-				for (var i = 0; i < exportRoot.headline9.length; i++) {
-					if (i==0) this.tlText.from(exportRoot.headline9[i], 0.1, { alpha: 0, ease:Power4.easeOut}, "-=0.1");
-				}
-				for (var i = 0; i < exportRoot.headline10.length; i++) {
-					if (i==0) this.tlText.from(exportRoot.headline10[i], 0.1, { alpha: 0, ease:Power4.easeOut}, "+=0.1");
-				}
+				this.tlText.pause();
 
-			//out
-				for (var i = 0; i < exportRoot.headline9.length; i++) {
-					if (i==0) this.tlText.to(exportRoot.headline9[i], 0.1, { alpha: 0, ease:Power4.easeOut}, "+=0.6");
-				}
-				for (var i = 0; i < exportRoot.headline10.length; i++) {
-					if (i==0) this.tlText.to(exportRoot.headline10[i], 0.1, { alpha: 0, ease:Power4.easeOut}, "-=0.1");
-				}
-
-
-			// Get personalized alerts
-
-				for (var i = 0; i < exportRoot.headline11.length; i++) {
-					if (i==0) this.tlText.from(exportRoot.headline11[i], 0.1, { alpha: 0, ease:Power4.easeOut}, "-=0.1");
-				}
-					for (var i = 0; i < exportRoot.headline12.length; i++) {
-					if (i==0) this.tlText.from(exportRoot.headline12[i], 0.1, { alpha: 0, ease:Power4.easeOut}, "+=0.1");
-				}
-					for (var i = 0; i < exportRoot.headline13.length; i++) {
-					if (i==0) this.tlText.from(exportRoot.headline13[i], 0.1, { alpha: 0, ease:Power4.easeOut}, "+=0.1");
-				}
-
-			//out
-				for (var i = 0; i < exportRoot.headline11.length; i++) {
-					if (i==0) this.tlText.to(exportRoot.headline11[i], 0.6, { alpha: 0, ease:Power4.easeOut}, "+=1");
-				}
-				for (var i = 0; i < exportRoot.headline12.length; i++) {
-					if (i==0) this.tlText.to(exportRoot.headline12[i], 0.6, { alpha: 0, ease:Power4.easeOut}, "-=0.6");
-				}
-				for (var i = 0; i < exportRoot.headline13.length; i++) {
-					if (i==0) this.tlText.to(exportRoot.headline13[i], 0.6, { alpha: 0, ease:Power4.easeOut, onStart:function(){exportRoot.videoState="playing"; vid.play(); }}, "-=0.6");
-				}
-
-
-
-				//final frame
-
-				for (var i = 0; i < exportRoot.headline14.length; i++) {
-					if (i==0) this.tlText.from(exportRoot.headline14[i], 0.8, { x: "-=150", alpha: 0, ease:Power4.easeOut}, "+=10.5");
-					if (i!=0) this.tlText.from(exportRoot.headline14[i], 0.8, { x: "-=150", alpha: 0, ease:Power4.easeOut}, "-=0.7");
-				}
-				for (var i = 0; i < exportRoot.headline15.length; i++) {
-					if (i==0) this.tlText.from(exportRoot.headline15[i], 0.8, { x: "-=150", alpha: 0, ease:Power4.easeOut}, "-=0.7");
-					if (i!=0) this.tlText.from(exportRoot.headline15[i], 0.8, { x: "-=150", alpha: 0, ease:Power4.easeOut}, "-=0.7");
-				}
-
-				//this.tlText.from(mc.screens, 1, { x: "+=250", ease:Power4.easeOut}, "-=0.6");
-
-
-				this.tlText.from(mc.txtCta, 0.6, { x: "+=300", ease:Power4.easeOut, onComplete:function(){exportRoot.videoState="reset"}}, "-=0.6");
-				this.tlText.from(mc.cta, 0.6, { x: "+=300", ease:Power4.easeOut}, "-=0.6");
-				this.tlText.from(mc.replay_btn, 1, { alpha: 0, onStart:function(){exportRoot.isReplay = true;}}, "-=0.4");
-
-				exportRoot.tlText.stop();
 
 				mc.logo_intro.gotoAndPlay(1);
 				setTimeout(function(){ vid.style.opacity = 1; }, 10);
@@ -1156,7 +1071,7 @@ an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers)
 an.handleSoundStreamOnTick = function(event) {
 	if(!event.paused){
 		var stageChild = stage.getChildAt(0);
-		if(!stageChild.paused){
+		if(!stageChild.paused || stageChild.ignorePause){
 			stageChild.syncStreamSounds();
 		}
 	}
