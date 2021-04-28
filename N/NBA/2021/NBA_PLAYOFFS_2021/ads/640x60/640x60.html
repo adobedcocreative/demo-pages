@@ -79,20 +79,20 @@
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="frameText1" dir="auto" class="text-left ActionNBACondensedBold"
         data-text="frameText1"
-        style="top: 4px;
+        style="top: 10px;
           left: 13px;
           width: 210px;
-          height: 50px;
-          font-size: 36px;
+          height: 40px;
+          font-size: 30px;
           line-height: 0.9;">
       </div>
       <div id="frameText2" dir="auto" class="text-left ActionNBACondensedBold"
           data-text="frameText2"
-          style="top: 4px;
+          style="top: 10px;
             left: 13px;
             width: 210px;
-            height: 50px;
-            font-size: 36px;
+            height: 40px;
+            font-size: 30px;
             line-height: 0.9;">
         </div>
         <div id="frameText3" dir="auto" class="text ActionNBACondensedBold"
@@ -102,6 +102,7 @@
             left: 136px;
             width: 260px;
             height: 56px;
+            color: #1d428a;
             font-size: 40px;">
         </div>
         <div id="cta" dir="auto" class="text ActionNBACondensedBold"
@@ -113,7 +114,7 @@
             height: 32px;
             font-size: 28px;
             line-height: 1;
-            color:#b72d2c;
+            color:#fff;
             background-size:cover;">
         </div>
 
@@ -136,15 +137,14 @@
       setTimeout(function() {
         ad.contentSetup({
           cam: {
-            backgroundImage: 'assets/640x60_NBA_TV_AllStar21_Display_DR_Background.png',
-            frameImage1: 'assets/640x60_NBA_TTV_AllStar21_Display_DR_Expert_F1.png',
-            frameImage2: 'assets/640x60_NBA_TTV_AllStar21_Display_DR_Expert_F2.png',
-            frameImage3: 'assets/640x60_NBA_TV_AllStar21_Display_DR_AS21_Logo.png',
-            frameText1: "立即開始 7 天免費試用",
-            frameText2: "串流直播及重溫賽事",
-            frameText3: "NBA 全明星賽周末派對 整個賽季",
-            ctaText: '免費試用',
-            styleProperties: "na",
+            backgroundImage: 'assets/640x60_NBA_LP_AllStar21_Display_DR_Background.png',
+            frameImage1: 'assets/640x60_NBA_LP_AllStar21_Display_DR_Player_F1.png',
+            frameImage2: 'assets/640x60_NBA_LP_AllStar21_Display_DR_Player_F2.png',
+            frameImage3: 'assets/640x60_NBA_LP_AllStar21_Display_DR_AS21_Logo.png',
+            frameText1: "PARTIDOS DE LA NBA EN VIVO Y ON-DEMAND",
+            frameText2: "Regardez des matchs en direct et à la demande",
+            frameText3: "Tous les All-Stars Toute la saison",
+            ctaText: 'GRATIS AUSPROBIEREN',
             clickURL: 'https://www.adobe.com/#NBA'
           },
           feed: [
@@ -153,11 +153,11 @@
             }
           ],
           staticData: {
-            logoImage: 'images/640x60_NBA_TV_AllStar21_Display_DR_Logo.png',
+            logoImage: 'images/640x60_NBA_LP_AllStar21_Display_DR_Logo.png',
             ctaBackgroundImage: 'images/CTA_Background.png',
             shadowImage: 'images/1x1.png',
-            topCornerImage: 'images/640x60_NBA_TV_AllStar21_Display_DR_Background_Frame03.png',
-            bottomCornerImage: 'images/640x60_NBA_TV_AllStar21_Display_DR_Foreground.png',
+            topCornerImage: 'images/640x60_NBA_LP_AllStar21_Display_DR_Background_Frame03.png',
+            bottomCornerImage: 'images/640x60_NBA_LP_AllStar21_Display_DR_Foreground.png',
           },
           beforeLoad: function(data){
             var replaceMacro = function(text, data) {
@@ -193,15 +193,6 @@
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });
-          if(adData.styleProperties && adData.styleProperties.toLowerCase() != 'na') {
-            try {
-              eval('var styleProperties = ' + adData.styleProperties);
-              if(styleProperties && typeof styleProperties == 'object')
-              for(var i in styleProperties) {
-                gsap.set(i, styleProperties[i]);
-              }
-            } catch(e) {  }
-          }
           gsap.set('#cta', {css:{backgroundImage:'url('+adData.ctaBackgroundImage+')'}});
           // gsap.set('#frameImage1,#frameImage2', {scale:0.9});
           gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.5}})

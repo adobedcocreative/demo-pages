@@ -56,10 +56,10 @@
         height:inherit;
       }
       .frameImage {
-        top:0px;
-        left:0px;
-        width:180px;
-        height:150px;
+        top:-10px;
+        left:-10px;
+        width:200px;
+        height:170px;
         transform-origin: bottom;
       }
       #cta {  }
@@ -81,18 +81,18 @@
         data-text="frameText1"
         style="top: 7px;
           left: 7px;
-          width: 75px;
-          height: 40px;
-          font-size: 50px;
+          width: 60px;
+          height: 60px;
+          font-size: 20px;
           line-height: 0.85;">
       </div>
       <div id="frameText2" dir="auto" class="text-left ActionNBACondensedBold"
         data-text="frameText2"
         style="top: 7px;
           left: 7px;
-          width: 75px;
-          height: 40px;
-          font-size: 50px;
+          width: 60px;
+          height: 60px;
+          font-size: 20px;
           line-height: 0.85;">
         </div>
         <div id="frameText3" dir="auto" class="text ActionNBACondensedBold"
@@ -102,20 +102,20 @@
             left: 10px;
             width: 160px;
             height: 40px;
-            color: #fff;
+            color: #1d428a;
             font-size: 26px;
             line-height: 1.2;">
         </div>
         <div id="cta" dir="auto" class="text ActionNBACondensedBold"
           data-style="text-align:center;padding:1px 2px 1px 2px;"
           data-text="ctaText"
-          style="top: 126px;
+          style="top: 124px;
             left: 8px;
-            width: 70px;
-            height: 15px;
+            width: 90px;
+            height: 19px;
             font-size: 30px;
             line-height: 1;
-            color:#b72d2c;
+            color:#fff;
             background-size:cover;
             white-space: nowrap;
             letter-spacing: 0.2px;">
@@ -140,15 +140,14 @@
       setTimeout(function() {
         ad.contentSetup({
           cam: {
-            backgroundImage: 'assets/180x150_NBA_TV_AllStar21_Display_DR_Background.png',
-            frameImage1: 'assets/180x150_NBA_TV_AllStar21_Display_DR_Expert_F1.png',
-            frameImage2: 'assets/180x150_NBA_TV_AllStar21_Display_DR_Expert_F2.png',
-            frameImage3: 'assets/180x150_NBA_TV_AllStar21_Display_DR_AS21_Logo.png',
-            frameText1: "TRY IT</br>FREE",
-            frameText2: "ALL-STAR COVERAGE",
-            frameText3: "UNLOCK EXPERT ANALYSIS",
-            ctaText: 'WATCH NOW',
-            styleProperties: "na",
+            backgroundImage: 'assets/180x150_NBA_LP_AllStar21_Display_DR_Background.png',
+            frameImage1: 'assets/180x150_NBA_LP_AllStar21_Display_DR_Player_F1.png',
+            frameImage2: 'assets/180x150_NBA_LP_AllStar21_Display_DR_Player_F2.png',
+            frameImage3: 'assets/180x150_NBA_LP_AllStar21_Display_DR_AS21_Logo.png',
+            frameText1: "7 TAGE LANG GRATIS TESTEN",
+            frameText2: "STREAME SPIELE LIVE UND ON-DEMAND",
+            frameText3: "ALL-STARS</BR>ALL SEASON",
+            ctaText: 'PRUÉBALO GRATIS',
             clickURL: 'https://www.adobe.com/#NBA'
           },
           feed: [
@@ -158,11 +157,11 @@
           ],
           staticData: {
             // ref:'NBA_EOY_Awareness_970x250_F3.jpg',
-            logoImage: 'images/180x150_NBA_TV_AllStar21_Display_DR_Logo.png',
+            logoImage: 'images/180x150_NBA_LP_AllStar21_Display_DR_Logo.png',
             ctaBackgroundImage: 'images/CTA_Background.png',
-            shadowImage: 'images/180x150_NBA_TV_AllStar21_Display_DR_Shadow.png',
-            topCornerImage: 'images/180x150_NBA_TV_AllStar21_Display_DR_Background_Frame03.png',
-            bottomCornerImage: 'images/180x150_NBA_TV_AllStar21_Display_DR_Foreground.png',
+            shadowImage: 'images/180x150_NBA_LP_AllStar21_Display_DR_Shadow.png',
+            topCornerImage: 'images/180x150_NBA_LP_AllStar21_Display_DR_Background_Frame03.png',
+            bottomCornerImage: 'images/180x150_NBA_LP_AllStar21_Display_DR_Foreground.png',
           },
           beforeLoad: function(data){
             var replaceMacro = function(text, data) {
@@ -177,7 +176,7 @@
               return text;
             }
             data.map(function(content){
-              var countryCode = "";
+              var countryCode = "es";
               try{
                 countryCode = content['country'].toUpperCase();
               } catch (e) {}
@@ -198,15 +197,6 @@
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });
-          if(adData.styleProperties && adData.styleProperties.toLowerCase() != 'na') {
-            try {
-              eval('var styleProperties = ' + adData.styleProperties);
-              if(styleProperties && typeof styleProperties == 'object')
-              for(var i in styleProperties) {
-                gsap.set(i, styleProperties[i]);
-              }
-            } catch(e) {  }
-          }
           gsap.set('#cta', {css:{backgroundImage:'url('+adData.ctaBackgroundImage+')'}});
           // gsap.set('#frameImage1,#frameImage2', {scale:0.9});
           gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.5}})

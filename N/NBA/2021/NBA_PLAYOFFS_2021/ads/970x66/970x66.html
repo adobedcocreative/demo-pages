@@ -103,6 +103,7 @@
             width: 300px;
             height: 60px;
             font-size: 61.5px;
+            color: #1d428a;
             line-height:1;">
         </div>
         <div id="cta" dir="auto" class="text ActionNBACondensedBold"
@@ -114,7 +115,7 @@
             height: 37px;
             font-size: 28px;
             line-height: 1;
-            color:#b72d2c;
+            color:#fff;
             background-size:cover;">
         </div>
 
@@ -137,15 +138,14 @@
       setTimeout(function() {
         ad.contentSetup({
           cam: {
-            backgroundImage: 'assets/970x66_NBA_TV_AllStar21_Display_DR_Background.png',
-            frameImage1: 'assets/970x66_NBA_TV_AllStar21_Display_DR_Expert_F1.png',
-            frameImage2: 'assets/970x66_NBA_TV_AllStar21_Display_DR_Expert_F2.png',
-            frameImage3: 'assets/970x66_NBA_TV_AllStar21_Display_DR_AS21_Logo.png',
-            frameText1: "CELEBRATE WITH EXTRA SAVINGS.",
-            frameText2: "ALL-STARS. ALL SEASON.",
-            frameText3: "SAVE AN EXTRA 30%",
-            ctaText: 'WATCH FREE',
-            styleProperties: "na",
+            backgroundImage: 'assets/970x66_NBA_LP_AllStar21_Display_DR_Background.png',
+            frameImage1: 'assets/970x66_NBA_LP_AllStar21_Display_DR_Player_F1.png',
+            frameImage2: 'assets/970x66_NBA_LP_AllStar21_Display_DR_Player_F2.png',
+            frameImage3: 'assets/970x66_NBA_LP_AllStar21_Display_DR_AS21_Logo.png',
+            frameText1: "立即開始 7 天免費試用",
+            frameText2: "串流直播及重溫賽事",
+            frameText3: "NBA 全明星賽周末派對 整個賽季",
+            ctaText: '免費試用',
             clickURL: 'https://www.adobe.com/#NBA'
           },
           feed: [
@@ -154,11 +154,11 @@
             }
           ],
           staticData: {
-            logoImage: 'images/970x66_NBA_TV_AllStar21_Display_DR_Logo.png',
+            logoImage: 'images/970x66_NBA_LP_AllStar21_Display_DR_Logo.png',
             ctaBackgroundImage: 'images/CTA_Background.png',
             shadowImage: 'images/1x1.png',
-            topCornerImage: 'images/970x66_NBA_TV_AllStar21_Display_DR_Background_Frame03.png',
-            bottomCornerImage: 'images/970x66_NBA_TV_AllStar21_Display_DR_Foreground.png',
+            topCornerImage: 'images/970x66_NBA_LP_AllStar21_Display_DR_Background_Frame03.png',
+            bottomCornerImage: 'images/970x66_NBA_LP_AllStar21_Display_DR_Foreground.png',
           },
           beforeLoad: function(data){
             var replaceMacro = function(text, data) {
@@ -173,7 +173,7 @@
               return text;
             }
             data.map(function(content){
-              var countryCode = "";
+              var countryCode = "tw";
               try{
                 countryCode = content['country'].toUpperCase();
               } catch (e) {}
@@ -181,7 +181,7 @@
                 document.querySelector("#frameText1").style.lineHeight = "1";
                 document.querySelector("#frameText2").style.lineHeight = "1";
                 document.querySelector("#frameText3").style.lineHeight = "1";
-                document.querySelector("#cta").style.lineHeight = "1.6";
+                document.querySelector("#cta").style.lineHeight = "1.3";
               }
               if(content['name'].toLowerCase().indexOf('default') != -1){
                 document.querySelector("#backgroundImage").style.zIndex = 1;
@@ -194,15 +194,6 @@
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });
-          if(adData.styleProperties && adData.styleProperties.toLowerCase() != 'na') {
-            try {
-              eval('var styleProperties = ' + adData.styleProperties);
-              if(styleProperties && typeof styleProperties == 'object')
-              for(var i in styleProperties) {
-                gsap.set(i, styleProperties[i]);
-              }
-            } catch(e) {  }
-          }
           gsap.set('#cta', {css:{backgroundImage:'url('+adData.ctaBackgroundImage+')'}});
           // gsap.set('#frameImage1,#frameImage2', {scale:0.9});
           gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.5}})

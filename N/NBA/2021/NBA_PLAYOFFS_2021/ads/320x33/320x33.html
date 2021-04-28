@@ -114,7 +114,7 @@
             height: 18px;
             font-size: 15px;
             line-height: 1;
-            color:#b72d2c;
+            color:#fff;
             background-size:cover;
             white-space: nowrap;">
         </div>
@@ -138,15 +138,14 @@
       setTimeout(function() {
         ad.contentSetup({
           cam: {
-            backgroundImage: 'assets/320x33_NBA_TV_AllStar21_Display_DR_Background.png',
+            backgroundImage: 'assets/320x33_NBA_LP_AllStar21_Display_DR_Background.png',
             frameImage1: 'assets/1x1.png',
             frameImage2: 'assets/1x1.png',
-            frameImage3: 'assets/320x33_NBA_TV_AllStar21_Display_DR_AS21_Logo.png',
+            frameImage3: 'assets/320x33_NBA_LP_AllStar21_Display_DR_AS21_Logo.png',
             frameText1: "WATCH FREE FOR 7 DAYS",
             frameText2: "LIVE AND ON-DEMAND",
             frameText3: "ALL-STARS. ALL SEASON.",
-            ctaText: 'GRATIS AUSPROBIEREN',
-            styleProperties: "na",
+            ctaText: 'WATCH FREE',
             clickURL: 'https://www.adobe.com/#NBA'
           },
           feed: [
@@ -155,11 +154,11 @@
             }
           ],
           staticData: {
-            logoImage: 'images/320x33_NBA_TV_AllStar21_Display_DR_Logo.png',
+            logoImage: 'images/320x33_NBA_LP_AllStar21_Display_DR_Logo.png',
             ctaBackgroundImage: 'images/CTA_Background.png',
             shadowImage: 'images/1x1.png',
-            topCornerImage: 'images/320x33_NBA_TV_AllStar21_Display_DR_Foreground.png',
-            bottomCornerImage: 'images/320x33_NBA_TV_AllStar21_Display_DR_Foreground.png',
+            topCornerImage: 'images/320x33_NBA_LP_AllStar21_Display_DR_Foreground.png',
+            bottomCornerImage: 'images/320x33_NBA_LP_AllStar21_Display_DR_Foreground.png',
           },
           beforeLoad: function(data){
             var replaceMacro = function(text, data) {
@@ -174,7 +173,7 @@
               return text;
             }
             data.map(function(content){
-              var countryCode = "TW";
+              var countryCode = "";
               try{
                 countryCode = content['country'].toUpperCase();
               } catch (e) {}
@@ -195,15 +194,6 @@
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });
-          if(adData.styleProperties && adData.styleProperties.toLowerCase() != 'na') {
-            try {
-              eval('var styleProperties = ' + adData.styleProperties);
-              if(styleProperties && typeof styleProperties == 'object')
-              for(var i in styleProperties) {
-                gsap.set(i, styleProperties[i]);
-              }
-            } catch(e) {  }
-          }
           gsap.set('#cta', {css:{backgroundImage:'url('+adData.ctaBackgroundImage+')'}});
           // gsap.set('#frameImage1,#frameImage2', {scale:0.9});
           gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.5}})

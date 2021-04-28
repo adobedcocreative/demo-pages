@@ -74,8 +74,9 @@
       <div id="frameImage1" class="asset frameImage" data-image="frameImage1"></div>
       <div id="frameImage2" class="asset frameImage" data-image="frameImage2"></div>
       <div id="frameImage3" class="asset frame" data-image="frameImage3"></div>
-      <div id="shadowImage" class="asset frame" data-image="shadowImage"></div>
+      
       <div id="bottomCornerImage" class="asset frame" data-image="bottomCornerImage"></div>
+      <div id="shadowImage" class="asset frame" data-image="shadowImage"></div>
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="frameText1" dir="auto" class="text-left ActionNBACondensedBold"
         data-text="frameText1"
@@ -102,6 +103,7 @@
             left: 24px;
             width: 430px;
             height: 90px;
+            color: #1d428a;
             font-size: 65px;">
         </div>
         <div id="cta" dir="auto" class="text ActionNBACondensedBold"
@@ -113,7 +115,7 @@
             height: 40px;
             font-size: 50px;
             line-height: 1;
-            color:#b72d2c;
+            color:#fff;
             background-size:cover;">
         </div>
 
@@ -136,15 +138,14 @@
       setTimeout(function() {
         ad.contentSetup({
           cam: {
-            backgroundImage: 'assets/470x360_NBA_TV_AllStar21_Display_DR_Background.png',
-            frameImage1: 'assets/470x360_NBA_TV_AllStar21_Display_DR_Expert_F1.png',
-            frameImage2: 'assets/470x360_NBA_TV_AllStar21_Display_DR_Expert_F2.png',
-            frameImage3: 'assets/470x360_NBA_TV_AllStar21_Display_DR_AS21_Logo.png',
+            backgroundImage: 'assets/470x360_NBA_LP_AllStar21_Display_DR_Background.png',
+            frameImage1: 'assets/470x360_NBA_LP_AllStar21_Display_DR_Player_F1.png',
+            frameImage2: 'assets/470x360_NBA_LP_AllStar21_Display_DR_Player_F2.png',
+            frameImage3: 'assets/470x360_NBA_LP_AllStar21_Display_DR_AS21_Logo.png',
             frameText1: "立即開始 7 天免費試用",
             frameText2: "串流直播及重溫賽事",
             frameText3: "NBA 全明星賽周末派對 整個賽季",
             ctaText: '免費試用',
-            styleProperties: "na",
             clickURL: 'https://www.adobe.com/#NBA'
           },
           feed: [
@@ -154,11 +155,11 @@
           ],
           staticData: {
             // ref:'NBA_EOY_Awareness_970x250_F3.jpg',
-            logoImage: 'images/470x360_NBA_TV_AllStar21_Display_DR_Logo.png',
+            logoImage: 'images/470x360_NBA_LP_AllStar21_Display_DR_Logo.png',
             ctaBackgroundImage: 'images/CTA_Background.png',
-            shadowImage: 'images/1x1.png',
-            topCornerImage: 'images/470x360_NBA_TV_AllStar21_Display_DR_Background_Frame03.png',
-            bottomCornerImage: 'images/470x360_NBA_TV_AllStar21_Display_DR_Foreground.png',
+            shadowImage: 'images/470x360_NBA_LP_AllStar21_Display_DR_Shadow.png',
+            topCornerImage: 'images/470x360_NBA_LP_AllStar21_Display_DR_Background_Frame03.png',
+            bottomCornerImage: 'images/470x360_NBA_LP_AllStar21_Display_DR_Foreground.png',
           },
           beforeLoad: function(data){
             var replaceMacro = function(text, data) {
@@ -194,15 +195,6 @@
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });
-          if(adData.styleProperties && adData.styleProperties.toLowerCase() != 'na') {
-            try {
-              eval('var styleProperties = ' + adData.styleProperties);
-              if(styleProperties && typeof styleProperties == 'object')
-              for(var i in styleProperties) {
-                gsap.set(i, styleProperties[i]);
-              }
-            } catch(e) {  }
-          }
           gsap.set('#cta', {css:{backgroundImage:'url('+adData.ctaBackgroundImage+')'}});
           // gsap.set('#frameImage1,#frameImage2', {scale:0.9});
           gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.5}})
@@ -216,7 +208,7 @@
           .from('#frameImage3', {autoAlpha:0, scale:0.9})
           .from('#frameText3', {autoAlpha:0, y:'20%'},'-=0.5')
           .from('#topCornerImage', {autoAlpha:0, duration:0.2,},'-=0.5')
-          .to('#shadowImage', {autoAlpha:0},'-=0.5')
+          //.to('#shadowImage', {autoAlpha:0},'-=0.5')
 
         });
       }, 2000);

@@ -112,7 +112,7 @@
             height: 20px;
             font-size: 17px;
             line-height: 1;
-            color:#b72d2c;
+            color:#fff;
             background-size:cover;">
         </div>
 
@@ -135,15 +135,14 @@
       setTimeout(function() {
         ad.contentSetup({
           cam: {
-            backgroundImage: 'assets/200x90_NBA_TV_AllStar21_Display_DR_Background.png',
+            backgroundImage: 'assets/200x90_NBA_LP_AllStar21_Display_DR_Background.png',
             frameImage1: 'assets/1x1.png',
             frameImage2: 'assets/1x1.png',
             frameImage3: 'assets/1x1.png',
-            frameText1: "立即開始 7 天免費試用",
-            frameText2: "串流直播及重溫賽事",
-            frameText3: "NBA 全明星賽周末派對 整個賽季",
-            ctaText: '免費試用',
-            styleProperties: "na",
+            frameText1: "Essayez gratuitement pendant 7 jours",
+            frameText2: "Regardez des matchs en direct et à la demande",
+            frameText3: "Tous les All-Stars </br>Toute la saison",
+            ctaText: 'GRATIS AUSPROBIEREN',
             clickURL: 'https://www.adobe.com/#NBA'
           },
           feed: [
@@ -152,11 +151,11 @@
             }
           ],
           staticData: {
-            logoImage: 'images/200x90_NBA_TV_AllStar21_Display_DR_Logo.png',
+            logoImage: 'images/200x90_NBA_LP_AllStar21_Display_DR_Logo.png',
             ctaBackgroundImage: 'images/CTA_Background.png',
             shadowImage: 'images/1x1.png',
-            topCornerImage: 'images/200x90_NBA_TV_AllStar21_Display_DR_Foreground.png',
-            bottomCornerImage: 'images/200x90_NBA_TV_AllStar21_Display_DR_Foreground.png',
+            topCornerImage: 'images/200x90_NBA_LP_AllStar21_Display_DR_Foreground.png',
+            bottomCornerImage: 'images/200x90_NBA_LP_AllStar21_Display_DR_Foreground.png',
           },
           beforeLoad: function(data){
             var replaceMacro = function(text, data) {
@@ -192,15 +191,6 @@
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });
-          if(adData.styleProperties && adData.styleProperties.toLowerCase() != 'na') {
-            try {
-              eval('var styleProperties = ' + adData.styleProperties);
-              if(styleProperties && typeof styleProperties == 'object')
-              for(var i in styleProperties) {
-                gsap.set(i, styleProperties[i]);
-              }
-            } catch(e) {  }
-          }
           gsap.set('#cta', {css:{backgroundImage:'url('+adData.ctaBackgroundImage+')'}});
           // gsap.set('#frameImage1,#frameImage2', {scale:0.9});
           gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.5}})
