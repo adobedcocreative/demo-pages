@@ -144,6 +144,7 @@
             frameText2: "串流直播及重溫賽事",
             frameText3: "NBA 全明星賽周末派對 整個賽季",
             ctaText: '免費試用',
+            styleProperties: "na",
             clickURL: 'https://www.adobe.com/#NBA'
           },
           feed: [
@@ -193,6 +194,15 @@
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });
+          if(adData.styleProperties && adData.styleProperties.toLowerCase() != 'na') {
+            try {
+              eval('var styleProperties = ' + adData.styleProperties);
+              if(styleProperties && typeof styleProperties == 'object')
+              for(var i in styleProperties) {
+                gsap.set(i, styleProperties[i]);
+              }
+            } catch(e) {  }
+          }
           gsap.set('#cta', {css:{backgroundImage:'url('+adData.ctaBackgroundImage+')'}});
           // gsap.set('#frameImage1,#frameImage2', {scale:0.9});
           gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.5}})
