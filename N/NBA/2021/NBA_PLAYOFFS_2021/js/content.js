@@ -23,6 +23,7 @@ var getFeed1 = function(){
             // });
             feedTemplate1.push({
               "Ad Size": data['gsx$adsize']['$t'],
+              "ctaBackgroundImage": data['gsx$ctabackgroundimage']['$t'],
               "CTA": data['gsx$cta']['$t'],
               "Country": data['gsx$country']['$t'],
               "Smart Names": data['gsx$smartnames']['$t'],
