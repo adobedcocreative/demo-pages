@@ -68,12 +68,12 @@
   </head>
   <body>
     <div class="" id="ad">
+      <div id="foregroundImage" class="asset frame" data-image="foregroundImage"></div>
       <div id="backgroundImage" class="asset frame" data-image="backgroundImage"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
       <div id="frameImage1" class="asset frameImage" data-image="frameImage1"></div>
       <div id="frameImage2" class="asset frameImage" data-image="frameImage2"></div>
       <div id="frameImage3" class="asset frame" data-image="frameImage3"></div>
-      <div id="foregroundImage" class="asset frame" data-image="foregroundImage"></div>
       <div id="shadowImage" class="asset frame" data-image="shadowImage"></div>
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="frameText1" dir="auto" class="text ActionNBACondensedBold"
@@ -205,7 +205,7 @@
           .to('#frameImage1,#frameText1', {autoAlpha:0, duration:0.3, delay:2})
           .from('#frameImage2', {autoAlpha:0, scale:0.95})
           .from('#frameText2', {autoAlpha:0, y:'20%'},'-=0.5')
-          .to('#frameImage2,#frameText2', {autoAlpha:0, duration:0.3, delay:2})
+          .to('#frameImage2,#frameText2,#backgroundImage', {autoAlpha:0, duration:0.3, delay:2})
           .from('#frameImage3', {autoAlpha:0, scale:0.95})
           .from('#frameText3', {autoAlpha:0, y:'20%'},'-=0.5')
           .from('#topCornerImage', {autoAlpha:0, duration:0.2,},'-=0.5')
