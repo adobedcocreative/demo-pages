@@ -43,7 +43,8 @@
         /* min-height: 65px; */
         vertical-align: top;
         padding: 10px 5px 2px 5px;
-        margin: 0px 5px 2px 5px;
+        /* margin: 0px 5px 2px 5px; */
+        margin-right: -1px;
         color:#333;
         text-align: center;
         /* -webkit-transition: all ease-out 0.2s;
@@ -51,16 +52,18 @@
         cursor: pointer;
       }
       #header > div:hover {
-        margin: 0px;
-        margin: 0px 5px 0px 5px;
+        /* margin: 0px; */
+        /* margin: 0px 5px 0px 5px; */
         border-bottom: 2px solid;
         color:#104c97;
+        background-color: #e5e5e5;
       }
       #header > div.selected {
-        margin: 0px;
-        margin: 0px 5px 0px 5px;
+        /* margin: 0px; */
+        /* margin: 0px 5px 0px 5px; */
         border-bottom: 2px solid;
         color:#104c97;
+        background-color: #e5e5e5;
       }
       #subheader {
         display: inline-block;
@@ -206,7 +209,9 @@
         var country = adContent.data[0].Country;
         var layoutName = "adContent.name";
         location.hash = btoa(country+'|'+layoutName).replace('==','');
-        htmlContent += adData.map(function(data){ return '<div '+(country == data.name ? 'class="selected"' : '')+' data-id="' + data.name + '">'+data.name + '</div>' }).join('');
+        htmlContent += adData.map(function(data){
+          return '<div '+(country == data.name ? 'class="selected"' : '')+' data-id="' + data.name + '" style="text-align: center;border: 1px solid #000;"><img src="assets/0LogoIcons/' + data.data[0].data[0]['Preview Logos'] + '" style="width: 80px;" /><div style="padding:5px 0;border-top: 1px solid;">'+data.name + '</div></div>'
+        }).join('');
         document.querySelector('#header').innerHTML = htmlContent;
         htmlContent = '';
         var countryData = adData.find(function(data){ return data.name == country; });

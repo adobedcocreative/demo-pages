@@ -14,6 +14,7 @@ var getFeed1 = function(){
               "Ad Size": data['gsx$adsize']['$t'],
               "CTA": data['gsx$cta']['$t'],
               "Country": data['gsx$country']['$t'],
+              "Preview Logos": data['gsx$previewlogos']['$t'],
               "Language": data['gsx$language']['$t'],
               "Segment": data['gsx$segment']['$t'],
               "Smart Names": data['gsx$smartnames']['$t'],
