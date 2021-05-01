@@ -259,7 +259,7 @@
           ],
           staticData: {
             layout: 'generic',
-            // ref:'728x90.png',
+            // ref:'ref.png',
           },
           beforeLoad: function(data){
             var replaceMacro = function(text, data) {
@@ -364,8 +364,10 @@
                     }
                   }else if(homewoodCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'homewood';
-                    document.querySelector("#logoImage").style.width = '78px';
-                    document.querySelector("#logoImage").style.left = '503px';
+                     document.querySelector("#logoImage").style.width = '103px';
+                    document.querySelector("#logoImage").style.height = '103px';
+                    document.querySelector("#logoImage").style.left = '476px';
+                    document.querySelector("#logoImage").style.top = '-5px';
 
                     document.querySelector("#ad").style.fontFamily = "BrandonGrotesqueBlack";
                   }else if(home2Codes.indexOf(matchingCodes[matchIndex]) != -1){
