@@ -237,7 +237,7 @@
         document.querySelector('#subsubheader').innerHTML = htmlContent;
         htmlContent = '';
         htmlContent = adContent.data[0].Country + ' | ' + filterString.split('|').join(' | ');
-        document.querySelector('#title').innerHTML = htmlContent;
+        // document.querySelector('#title').innerHTML = htmlContent;
         var headers = document.querySelectorAll('#header > div');
         for(var i = 0; i < headers.length; i++) {
             headers[i].onclick = function() {
