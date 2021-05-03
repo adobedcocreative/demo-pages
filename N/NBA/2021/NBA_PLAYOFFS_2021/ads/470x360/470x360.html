@@ -68,6 +68,7 @@
   </head>
   <body>
     <div class="" id="ad">
+      <div id="foregroundImage" class="asset frame" data-image="foregroundImage"></div>
       <div id="backgroundImage" class="asset frame" data-image="backgroundImage"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
       <div id="topCornerImage" class="asset frame" data-image="topCornerImage"></div>
@@ -103,7 +104,7 @@
             left: 24px;
             width: 430px;
             height: 90px;
-            color: #1d428a;
+            color: #fff;
             font-size: 65px;">
         </div>
         <div id="cta" dir="auto" class="text ActionNBACondensedBold"
@@ -139,6 +140,7 @@
         ad.contentSetup({
           cam: {
             backgroundImage: 'assets/470x360_NBA_LP_AllStar21_Display_DR_Background.png',
+            foregroundImage: 'assets/160x600_NBA_LP_AllStar21_Display_DR_Foreground.png',
             frameImage1: 'assets/470x360_NBA_LP_AllStar21_Display_DR_Player_F1.png',
             frameImage2: 'assets/470x360_NBA_LP_AllStar21_Display_DR_Player_F2.png',
             frameImage3: 'assets/470x360_NBA_LP_AllStar21_Display_DR_AS21_Logo.png',
@@ -158,8 +160,8 @@
             // ref:'NBA_EOY_Awareness_970x250_F3.jpg',
             logoImage: 'images/470x360_NBA_LP_AllStar21_Display_DR_Logo.png',
             shadowImage: 'images/470x360_NBA_LP_AllStar21_Display_DR_Shadow.png',
-            topCornerImage: 'images/470x360_NBA_LP_AllStar21_Display_DR_Background_Frame03.png',
-            bottomCornerImage: 'images/470x360_NBA_LP_AllStar21_Display_DR_Foreground.png',
+            topCornerImage: 'images/1x1.png',
+            bottomCornerImage: 'images/1x1.png',
           },
           beforeLoad: function(data){
             var replaceMacro = function(text, data) {
@@ -204,7 +206,7 @@
           .to('#frameImage1,#frameText1', {autoAlpha:0, duration:0.3, delay:2})
           .from('#frameImage2', {autoAlpha:0, scale:0.9})
           .from('#frameText2', {autoAlpha:0, y:'20%'},'-=0.5')
-          .to('#frameImage2,#frameText2', {autoAlpha:0, duration:0.3, delay:2})
+          .to('#frameImage2,#frameText2, #backgroundImage', {autoAlpha:0, duration:0.3, delay:2})
           .from('#frameImage3', {autoAlpha:0, scale:0.9})
           .from('#frameText3', {autoAlpha:0, y:'20%'},'-=0.5')
           .from('#topCornerImage', {autoAlpha:0, duration:0.2,},'-=0.5')

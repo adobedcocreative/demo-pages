@@ -68,6 +68,7 @@
   </head>
   <body>
     <div class="" id="ad">
+      <div id="foregroundImage" class="asset frame" data-image="foregroundImage"></div>
       <div id="backgroundImage" class="asset frame" data-image="backgroundImage"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
       <div id="topCornerImage" class="asset frame" data-image="topCornerImage"></div>
@@ -138,6 +139,7 @@
         ad.contentSetup({
           cam: {
             backgroundImage: 'assets/1280x100_NBA_LP_AllStar21_Display_DR_Background.png',
+            foregroundImage: 'assets/1280x100_NBA_LP_AllStar21_Display_DR_Foreground.png',
             frameImage1: 'assets/1280x100_NBA_LP_AllStar21_Display_DR_Player_F1.png',
             frameImage2: 'assets/1280x100_NBA_LP_AllStar21_Display_DR_Player_F1.png',
             frameImage3: 'assets/1280x100_NBA_LP_AllStar21_Display_DR_AS21_Logo.png',
@@ -156,8 +158,8 @@
           staticData: {
             logoImage: 'images/1280x100_NBA_LP_AllStar21_Display_DR_Logo.png',
             shadowImage: 'images/1x1.png',
-            topCornerImage: 'images/1280x100_NBA_LP_AllStar21_Display_DR_Background_Frame03.png',
-            bottomCornerImage: 'images/1280x100_NBA_LP_AllStar21_Display_DR_Foreground.png',
+            topCornerImage: 'images/1x1.png',
+            bottomCornerImage: 'images/1x1.png',
           },
           beforeLoad: function(data){
             var replaceMacro = function(text, data) {
@@ -202,7 +204,7 @@
           .to('#frameImage1,#frameText1', {autoAlpha:0, duration:0.3, delay:2})
           .from('#frameImage2', {autoAlpha:0, scale:0.9})
           .from('#frameText2', {autoAlpha:0, y:'20%'},'-=0.5')
-          .to('#frameImage2,#frameText2', {autoAlpha:0, duration:0.3, delay:2})
+          .to('#frameImage2,#frameText2, #backgroundImage', {autoAlpha:0, duration:0.3, delay:2})
           .from('#frameImage3', {autoAlpha:0, scale:0.9})
           .from('#frameText3', {autoAlpha:0, y:'20%'},'-=0.5')
           .from('#topCornerImage', {autoAlpha:0, duration:0.2,},'-=0.5')
