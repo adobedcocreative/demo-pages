@@ -93,7 +93,7 @@
         width: 9px;
         height: 9px;
         border-radius: 50%;
-        margin: 0px 6px;
+        margin: 0px 3px;
         box-sizing: border-box;
         border: 1px solid #013aab;
       }
@@ -103,11 +103,11 @@
       .strike::after {
         content: '';
         position: absolute;
-        top: 50%;
+        top: 55%;
         left: -2px;
         border-bottom: 1px solid #f00;
         width: inherit;
-        padding: 0px 2px;
+        padding: 0px 0px;
       }
       [data-button="description"] {
         text-decoration: underline;
@@ -406,7 +406,9 @@
             ad.layers.priceText.style.display = next.discount_price == next.price ? 'none' : 'block';
             var price = ad.layers.priceText.querySelector('span');
             price.style.width = 'auto';
-            price.style.width = price.offsetWidth + 'px';
+            price.style.width = (price.offsetWidth + 4) + 'px';
+            ad.layers.discountPrice.style.left = (ad.layers.priceText.offsetLeft + ad.layers.priceText.offsetWidth + 6) + 'px';
+            if(next.discount_price == next.price) { ad.layers.discountPrice.style.left = '98px'; }
             ad.layers.discountPrice.querySelector('span').innerHTML = next.discountPrice;
             ad.layers.cta.querySelector('span').innerHTML = next.ctaText;
             ad.layers.cta.style.backgroundColor = next.ctaColor;
@@ -465,18 +467,18 @@
                 content.map(function(data, i) { return getCarouselContent(data, i, assets); }).join('') +
                 getCarouselContent(content[0], content.length, assets) +
               '</div>' +
-              '<div class="carousel-dots" style="display:none;position:absolute;top: 68px;left: 292px;width:200px;text-align:center;-webkit-transition:opacity ease-out 0.5s;transition:opacity ease-out 0.5s;opacity:0;">'+ content.map(function(data, i) { return '<div class="dot' + (i == 0 ? ' selected' : '') + '" data-index="' + i + '" data-button=""></div>'; }).join('') +'</div>'+
+              '<div class="carousel-dots" style="display: block;position: absolute;top: 26px;left: auto;right: 7px;width: 75px;text-align: right;-webkit-transition:opacity ease-out 0.5s;transition:opacity ease-out 0.5s;opacity:0;">'+ content.map(function(data, i) { return '<div class="dot' + (i == 0 ? ' selected' : '') + '" data-index="' + i + '" data-button=""></div>'; }).join('') +'</div>'+
             '</div>' +
             '</div>'+
             (content.length > 1 ?
             '<div id="leftArrow" class="asset" data-button="left" style="top:177px;left:-100px;width:20px;height:20px;"><img src="' + staticImages.leftArrow + '" /></div>'+
             '<div id="rightArrow" class="asset" data-button="right" style="top:177px;right:-100px;width:20px;height:20px;"><img src="' + staticImages.rightArrow + '" /></div>' : '') +
             '<div id="headline" class="text-top-left SegoeUISemibold" style="top: 3px;left: 98px;width: 194px;height: 14px;font-size: 10px;font-weight:bold;"><span>' + data.productName + '</span></div>'+
-            '<div id="subHeadline" class="text-top-left SegoeUIRegular" style="top: 40px;left: 124px;width: 172px;height: 44px;line-height: 1.2;font-size: 16.5px;font-weight: bold;"><span>' + data.productDescription + '</span></div>'+
-            '<div id="priceText" class="text-left SegoeUIRegular" style="top: 22px;left: 499px;width: 100px;height: 20px;font-size: 12.5px;color:#666666;"><span class="strike">' + data.priceText + '</span></div>'+
-            '<div id="discountPrice" class="text-left SegoeUIRegular" style="top: 40px;left: 498px;width: 100px;height: 30px;font-size: 18.5px;color:#666666;"><span>' + data.discountPrice + '</span></div>'+
+            '<div id="subHeadline" class="text-top-left SegoeUIRegular" style="top: 17px;left: 98px;width: 194px;height: 14px;line-height: 1.1;font-size: 9.45px;font-weight: bold;"><span>' + data.productDescription + '</span></div>'+
+            '<div id="priceText" class="text-left SegoeUIRegular" style="top: 30px;left: 101px;width: auto;height: 16px;font-size: 10.5px;color:#666666;"><span class="strike">' + data.priceText + '</span></div>'+
+            '<div id="discountPrice" class="text-left SegoeUIRegular" style="top: 29px;left: 160px;width: auto;height: 18px;font-size: 12px;color:#666666;"><span>' + data.discountPrice + '</span></div>'+
             // (displayOfferFlag ? '<div id="offerImage" class="asset" style="display:'+('offerValue' in data && data.offerValue ? 'block' : 'none')+';top:155px;left:92px;width:60px;height:24px;"><img src="' + staticImages.offerImage + '" /></div><div id="offerValue" class="text-left SegoeUIRegular" style="display:'+('offerValue' in data && data.offerValue ? 'block' : 'none')+';top: 154px;left: 99px;width: 55px;height: 25px;font-size: 10px;line-height: 1;color:#fff;"><span style="text-align:left;">NOW ' + data.offerValue + '% OFF</span></div>' : '')+
-            '<div id="disclaimerText" class="text-left SegoeUIRegular" style="top: 43px;left: 12px;width: 82px;height: 40px;font-size: 12.2px;color:#fff;line-height:1.1;"><span>' + data.disclaimerText + '</span></div>'+
+            '<div id="disclaimerText" class="text-left SegoeUIRegular" style="top: 26px;left: 10px;width: 76px;height: 20px;font-size: 9px;color:#fff;line-height:1.1;"><span>' + data.disclaimerText + '</span></div>'+
             '<div id="cta" class="text SegoeUIRegular" style="top:30px;left:608px;width:100px;height:30px;font-size:12px;color:#fff;background-color:' + data.ctaColor + ';"><span style="padding: 2px 10px 3px;">' + data.ctaText + '</span></div>'+
             '<div id="overlayContainer" data-button="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;"></div>'+
             // '<style> #cta { background-color:' + data.ctaColor + '; } #cta:hover { background-color: #333; } </style>'+
@@ -539,7 +541,9 @@
             }
             ad.layers.priceText.style.display = adData.discount_price == adData.price ? 'none' : 'block';
             var price = ad.layers.priceText.querySelector('span');
-            price.style.width = price.offsetWidth + 'px';
+            price.style.width = (price.offsetWidth + 4) + 'px';
+            ad.layers.discountPrice.style.left = (ad.layers.priceText.offsetLeft + ad.layers.priceText.offsetWidth + 6) + 'px';
+            if(adData.discount_price == adData.price) { ad.layers.discountPrice.style.left = '98px'; }
             if(adData.overlayDescription.toLowerCase() != 'na' && adData.overlayImage) {
               var themeAssets = [];
               themeAssets.push(adData.overlayImage);
