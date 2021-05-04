@@ -87,7 +87,7 @@ function handleComplete(evt,comp) {
                 window.ctaWidth = layers.txtCta.children[0].children[0].getBounds().width + 45;
                 layers.txtCta.regX = 0;
                 layers.txtCta.children[0].x = 0;
-                layers.txtCta.children[0].y += 1;
+                layers.txtCta.children[0].y += 2;
                 layers.txtCta.scaleX = 1;
                 layers.txtCta.scaleY = 1;
                 layers.cta.regX = 0;
@@ -141,7 +141,7 @@ function handleComplete(evt,comp) {
               bannerData.smallPrint1 = eval(bannerData.textField3);
               bannerData.smallPrint2 = eval(bannerData.textField4);
               bannerData.ctaText = bannerData.ctaText.replace('<br>', '\n');
-              bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "9px" : (bannerData.ctaText.length >= 12 ? "10px" : "12.2px")),0,0,"50","300", "center"] : '';
+              bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "9px" : (bannerData.ctaText.length >= 12 ? "9px" : "9.6px")),0,0,"50","300", "center"] : '';
               window.smartNames = [];
               if(bannerData.textField5.split('^').length == 7) {
                 window.smartNames = bannerData.textField5.split('^');
