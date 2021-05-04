@@ -1,0 +1,14 @@
+NAME	DESCRIPTION	DATA_TYPE	MAX_LENGTH	DEFAULT_VALUE	ALLOWED_VALUES
+overlayDescription	text	TEXT	1	1	1
+overlayImage	IMAGE	GRAPHIC	1	1	1
+overlayImpressionTracker	text	TEXT	1	1	1
+overlayClickUrl	text	TEXT	1	1	1
+productName	text	TEXT	1	1	1
+carousel_image_1	text	TEXT	1	1	1
+carousel_image_2	text	TEXT	1	1	1
+carousel_image_3	text	TEXT	1	1	1
+productDescription	text	TEXT	1	1	1
+disclaimerText	text	TEXT	1	1	1
+ctaText	text	TEXT	1	1	1
+productClickurl	text	TEXT	1	1	1
+impressionTracker	text	TEXT	1	1	1
