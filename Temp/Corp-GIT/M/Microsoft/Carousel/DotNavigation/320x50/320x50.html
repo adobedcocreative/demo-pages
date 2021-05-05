@@ -25,7 +25,7 @@
       }
       #ad {
         position: relative;
-        width: 300px;
+        width: 320px;
         height: 50px;
         margin: 0;
         padding: 0;
@@ -292,10 +292,10 @@
       };
       var ad = new Ad({
         root: document.querySelector('#ad'),
-        width: 300,
+        width: 320,
         height: 50
       });
-      var carouselWidth = 300, carouselHeight = 50, adClickUrl = '', adContent = [], adDescriptionUrl = '', adData = '', carouselClickFlag = true;
+      var carouselWidth = 320, carouselHeight = 50, adClickUrl = '', adContent = [], adDescriptionUrl = '', adData = '', carouselClickFlag = true;
       var carousel = (function(){
         var carouselIndex = 0, carouselData, autoplay = false;;
         var onBeforeChange;
@@ -441,7 +441,7 @@
           '</div>');
       }
       var staticContent = {}, staticImages = {
-        logoImage: 'images/300x50_Template_Surface_Promise_MSFT_Logo.png',
+        logoImage: 'images/320x50_Template_Surface_Promise_MSFT_Logo.png',
         leftArrow: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII=',//'images/prevArrow.png',
         rightArrow: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII=',//'images/nextArrow.png',
         offerImage: 'images/off.png'
@@ -614,11 +614,11 @@
               var themeAssets = [];
               themeAssets.push(adData.overlayImage);
               switch(adData.overlayDescription.split('|')[0].toLowerCase()) {
-                case 'layout1':   themeAssets.push('js/300x50_layout1.js');
+                case 'layout1':   themeAssets.push('js/320x50_layout1.js');
                                   break;
-                case 'layout2':   themeAssets.push('js/300x50_layout2.js');
+                case 'layout2':   themeAssets.push('js/320x50_layout2.js');
                                   break;
-                default:          themeAssets.push('js/300x50_layout3.js');
+                default:          themeAssets.push('js/320x50_layout3.js');
 
                 var parentWindow = window.parent.window;
                 if (parentWindow && 'amoUtils' in parentWindow && 'onInteraction' in parentWindow.amoUtils) {
@@ -759,7 +759,7 @@
           productDescription: "!{description}",
           disclaimerText: "Promotext-4|Up to 12 months free tech support|Up to 2 months free tech support|Up to 1 months free tech support|Interest-free financing",
           overlayDescription: "true|2",
-          overlayImage:	"assets/300x50-Affiliate-Xbox-Evergreen.jpg",
+          overlayImage:	"assets/320x50-Affiliate-Xbox-Evergreen.jpg",
           overlayImpressionTracker: "assets/1x1.png?v=overlayImpressionTracker",
           overlayClickUrl: "https://www.microsoft.com",
           ctaText: "!{passthroughfield1}",
