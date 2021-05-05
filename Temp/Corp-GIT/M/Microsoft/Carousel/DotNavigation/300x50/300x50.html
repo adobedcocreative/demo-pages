@@ -403,12 +403,12 @@
             if(!fixedHeadlineFlag) ad.layers.headline.querySelector('span').innerHTML = next.productName;
             ad.layers.subHeadline.querySelector('span').innerHTML = next.productDescription;
             ad.layers.priceText.querySelector('span').innerHTML = next.priceText;
-            ad.layers.priceText.style.display = next.discount_price == next.price ? 'none' : 'block';
+            ad.layers.priceText.style.display = next.discount_price == next.price || next.price == 0 ? 'none' : 'block';
             var price = ad.layers.priceText.querySelector('span');
             price.style.width = 'auto';
             price.style.width = (price.offsetWidth + 4) + 'px';
             ad.layers.discountPrice.style.left = (ad.layers.priceText.offsetLeft + ad.layers.priceText.offsetWidth + 6) + 'px';
-            if(next.discount_price == next.price) { ad.layers.discountPrice.style.left = '98px'; }
+            if(next.discount_price == next.price || next.price == 0) { ad.layers.discountPrice.style.left = '98px'; }
             ad.layers.discountPrice.querySelector('span').innerHTML = next.discountPrice;
             ad.layers.cta.querySelector('span').innerHTML = next.ctaText;
             ad.layers.cta.style.backgroundColor = next.ctaColor;
@@ -605,11 +605,11 @@
             ad.layers.cta.onmouseout = function(){
               this.style.backgroundColor = this.dataset.color;
             }
-            ad.layers.priceText.style.display = adData.discount_price == adData.price ? 'none' : 'block';
+            ad.layers.priceText.style.display = adData.discount_price == adData.price || adData.price == 0 ? 'none' : 'block';
             var price = ad.layers.priceText.querySelector('span');
             price.style.width = (price.offsetWidth + 4) + 'px';
             ad.layers.discountPrice.style.left = (ad.layers.priceText.offsetLeft + ad.layers.priceText.offsetWidth + 6) + 'px';
-            if(adData.discount_price == adData.price) { ad.layers.discountPrice.style.left = '98px'; }
+            if(adData.discount_price == adData.price || adData.price == 0) { ad.layers.discountPrice.style.left = '98px'; }
             if(adData.overlayDescription.toLowerCase() != 'na' && adData.overlayImage) {
               var themeAssets = [];
               themeAssets.push(adData.overlayImage);
@@ -740,7 +740,7 @@
               "passthroughfield1": "#000^Buy Now",
               "passthroughfield5": "MSFT_India_EN_CAD",
               "passthroughfield3": "$",
-              "price": "5299.99",
+              "price": "0.00",//"5299.99",
               "discount_price": "4799.99",//"54.99",
               "image_url1": "assets/SurfaceBook3 - Processor.png",
               "image_url2": "assets/SurfaceBook3 - 13.5 & 15.png",
