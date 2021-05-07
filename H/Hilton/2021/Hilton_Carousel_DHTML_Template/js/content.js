@@ -2,9 +2,14 @@ var feedTemplate1 = [] = [];
 var feedContent = [], feedData = {}, getData;
 var adData = [];
 var loadTemplateFlag1 = false;
+var sheetID = '';
 var getFeed1 = function(){
   var xmlhttp = new XMLHttpRequest();
-  var url = "https://spreadsheets.google.com/feeds/list/1DcynOMHEQ6Sh5li1xd2TCjLASomZLPGtLv9YmhGfAQw/1/public/values?alt=json";
+  sheetID = "1DcynOMHEQ6Sh5li1xd2TCjLASomZLPGtLv9YmhGfAQw/1";
+  var searchID = location.search.split('?')[1];
+  sheetID = searchID && searchID.length == 46 && searchID.indexOf('/') > 1 ? searchID : sheetID;
+  sheetID = searchID && searchID.length <= 2 && Boolean(parseInt(searchID)) ? sheetID.split('/')[0] + '/' + parseInt(searchID) : sheetID;
+  var url = "https://spreadsheets.google.com/feeds/list/" + sheetID + "/public/values?alt=json";
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
