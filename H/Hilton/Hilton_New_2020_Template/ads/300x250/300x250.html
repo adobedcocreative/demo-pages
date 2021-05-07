@@ -120,6 +120,12 @@
           src: url('fonts/BrandonGrotesque-BoldItalic.woff') format("woff");
       }
       .BrandonGrotesqueBoldItalic { font-family: BrandonGrotesqueBoldItalic; }
+
+      @font-face {
+          font-family: FeijoaDisplay;
+          src: url('fonts/Feijoa-Display.woff') format("woff");
+      }
+      .FeijoaDisplay { font-family: FeijoaDisplay; }
     </style>
     <!--
       Available Classes:-
@@ -378,7 +384,7 @@
                     document.querySelector("#logoImage").style.top = '153px';
                     document.querySelector("#logoImage").style.left = '8px';
 
-                    document.querySelector("#ad").style.fontFamily = "BrandonGrotesqueBlack";
+                    document.querySelector("#ad").style.fontFamily = "FeijoaDisplay";
                   }else if(home2Codes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'home2';
                     document.querySelector("#logoImage").style.height = '65px';
