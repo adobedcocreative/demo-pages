@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ad</title>
+    <link rel="stylesheet" href="css/style.min.css">
+    <!-- <link rel="stylesheet" href="https://use.typekit.net/qgz2kzw.css"> -->
+    <script type="text/javascript" src="https://ads.everesttech.net/ads/static/local/AMOLibrary.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
+    <script src="js/script.min.js" charset="utf-8"></script>
+    <style media="screen">
+
+      /* @font-face {
+          font-family: ActionNBACondensedBoldItalic;
+          src: url('fonts/Action NBA Condensed-BoldItalic.woff') format("woff");
+      }
+      .ActionNBACondensedBoldItalic { font-family: ActionNBACondensedBoldItalic; }
+
+      @font-face {
+          font-family: ActionNBACondensedMediumItalic;
+          src: url('fonts/Action NBA Condensed-MediumItalic.woff') format("woff");
+      }
+      .ActionNBACondensedMediumItalic { font-family: ActionNBACondensedMediumItalic; }
+
+      .RobotoMedium{
+        font-family: roboto, sans-serif;
+        font-weight: 500;
+        font-style: normal;
+      } */
+    </style>
+    <!--
+      Available Classes:-
+        For Images :-
+          .asset        -Image Center Align(Image can shrink according to the container but will expand beyond its original size)
+          .asset-top    -Image Top Center Align(Image can shrink according to the container but will expand beyond its original size)
+          .asset-left
+
+    -->
+    <style media="screen">
+      #ad {
+        width: 728px;
+        height: 90px;
+        font-family: Helvetica,Arial,sans-serif;
+        background-color: #0074a7;
+        color: #fff;
+      }
+      .frame {
+        top:0px;
+        left:0px;
+        width:inherit;
+        height:inherit;
+      }
+      .frameImage {
+        top:0px;
+        left:0px;
+        width:inherit;
+        height:inherit;
+        transform-origin: bottom;
+      }
+      #cta {  }
+      #cta:hover { opacity: 0.8 !important;}
+      #disclaimerLayout {
+        -webkit-transform:translateY(150%);
+        transform:translateY(150%);
+        -webkit-transition: transform cubic-bezier(.65,-0.24,.31,1.29) 0.5s;
+        transition: transform cubic-bezier(.65,-0.24,.31,1.29) 0.5s;
+      }
+      #disclaimerLayout.active {
+        -webkit-transform:translateY(0%);
+        transform:translateY(0%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="" id="ad">
+      <!-- <div id="backgroundImage" class="asset-top"
+        data-image="backgroundImage"
+        style="top:0px;
+          left:-50px;
+          width:400px;
+          height:400px;
+          opacity: 0.8;">
+      </div> -->
+      <div id="backgroundImage"
+        style="top:100%;
+          left:0px;
+          width:inherit;
+          height:350px;
+          background-position:center;
+          background-size: cover;">
+      </div>
+      <div id="backgroundOverlay"
+        style="top:100%;
+          left:0px;
+          width:inherit;
+          height:350px;
+          background-color:rgba(0,0,0,0.4)">
+      </div>
+      <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
+      <div id="boxContainer"
+        style="top: 100px;
+          left: 22px;
+          width: 256px;
+          height: 256px;">
+      </div>
+      <div id="logoImage" class="asset"
+        data-image="logoImage"
+        style="top: 28px;
+          left: 605px;
+          width: 107px;
+          height: 34px;">
+      </div>
+      <div id="frameText1" dir="auto" class="text-left"
+        data-text="frameText1"
+        style="top: 10px;
+          left: 34px;
+          width: 350px;
+          height: 70px;
+          font-size: 22px;
+          line-height: 1;
+          word-break: break-all;
+          font-weight: bold;">
+      </div>
+      <div id="frameText2" dir="auto" class="text-left"
+        data-text="frameText2"
+        style="top: 10px;
+          left: 34px;
+          width: 350px;
+          height: 70px;
+          font-size: 22px;
+          line-height: 1;
+          word-break: break-all;
+          font-weight: bold;">
+        </div>
+        <div id="disclaimerText" dir="auto" class="text"
+          data-text="disclaimerText"
+          style="top: 73px;
+            left: 602px;
+            width: 120px;
+            height: 12px;
+            font-size: 9px;
+            font-weight: bold;
+            line-height: 1;">
+        </div>
+        <div id="cta" dir="auto" class="text"
+          data-style="text-align:center;padding:5px 10px"
+          data-text="ctaText"
+          style="top: 25px;
+            left: 410px;
+            width: 160px;
+            height: 40px;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 1;
+            color:#fff;
+            background-color:#82c823;">
+        </div>
+        <div id="disclaimerLayout" style="top:0px;left:280px;width:320px;height:inherit;background:#fff;">
+          <div id="disclaimerMessage" class="text"
+            data-text="disclaimerMessage"
+            style="position:absolute;
+              top:5px;
+              left:5px;
+              width:310px;
+              height:80px;
+              font-size:12px;
+              color:#666;">
+          </div>
+        </div>
+
+      <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
+    </div>
+    <div id="loadFont" style="width:0;height:0;overflow:hidden;">
+      <!-- <div class="RobotoMedium" style="color:transparent;">RobotoMedium</div>
+      <div class="ActionNBACondensedBoldItalic" style="color:transparent;">ActionNBACondensedBoldItalic</div>
+      <div class="ActionNBACondensedMediumItalic" style="color:transparent;">ActionNBACondensedMediumItalic</div> -->
+    </div>
+    <script type="text/javascript">
+      var disclaimerActiveFlag = false;
+      var ad = new Ad({
+        root: document.querySelector('#ad'),
+        width: 728,
+        height: 90,
+        borderWidth: 1,
+        borderColor: '#000'
+      });
+      setTimeout(function() {
+        ad.contentSetup({
+          cam: {
+            backgroundImage: 'https://www.fidelity.de/static/germany/images/funds-in-focus/3_d_hand_technology.jpg',
+            frameText1: "Mit nachhaltigem Management durch die Coronakrise",
+            frameText2: "Die Zinsen verharren im Dauertief, die Konsumenten bleiben in Kauflaune, die Unternehmensgewinne ziehen noch mal an. Unsere Prognose f√ºr 2020: Die Wirtschaft kann noch weiter wachsen. Dabei kehrt die Inflation zur√ºck.",
+            disclaimerText: "Wichtige Informationen",
+            disclaimerMessage: 'Chancen bergen Risiken.Dies ist eine Marketinginformation. Die FIL Investment Services GmbH veröffentlicht ausschließlich produktbezogene Informationen, erteilt keine Anlageempfehlung/Anlageberatung und nimmt keine Kundenklassifizierung vor. Fidelity, Fidelity International, das Fidelity International Logo und das „F-Symbol” sind Markenzeichen von FIL Limited. Herausgeber: FIL Investment Services GmbH, Kastanienhöhe 1, 61476 Kronberg im Taunus. Stand Mai 2020',
+            ctaText: 'Mehr erfahren',
+            clickURL: 'https://www.adobe.com/#Fidelity'
+          },
+          feed: [
+            {
+              name: 'Fidelity',
+            }
+          ],
+          staticData: {
+            logoImage: 'images/fidelity_international_rgb_fc.svg',
+            // ref: 'ref.png',
+          },
+          beforeLoad: function(data){
+            var replaceMacro = function(text, data) {
+              var macros = text.match(/\!\{(.*?)\}/g);
+              if(macros) {
+                macros.forEach(function(macro){
+                  var macroText = macro.split('!{').join('').split('}').join('');
+                  for(var key in data) { if(key == macroText) { macroText = data[key]; } }
+                  text = text.split(macro).join(macroText);
+                });
+              }
+              return text;
+            }
+            data.map(function(content){
+
+            });
+            return data;
+          }
+        }, function(data){
+          var adData = data[0], adClickUrl = adData['clickURL'];
+          ad.root.addEventListener("click", function(e) {
+            if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
+          });
+          ad.layers.backgroundImage.style.backgroundImage = 'url(' + adData.backgroundImage + ')';
+          var container = ad.layers.boxContainer;
+          container.style.overflow = 'hidden';
+          var bottomDiv1 = document.createElement('div');
+          var bottomDiv2 = document.createElement('div');
+          var bottomDiv22 = document.createElement('div');
+          var topDiv1 = document.createElement('div');
+          var topDiv2 = document.createElement('div');
+          container.appendChild(bottomDiv1);
+          container.appendChild(bottomDiv2);
+          container.appendChild(bottomDiv22);
+          container.appendChild(topDiv1);
+          container.appendChild(topDiv2);
+          ad.root.querySelector('#disclaimerText').addEventListener('mouseover', function(){
+            if(adData['disclaimerMessage'] != ""){
+              ad.layers.disclaimerLayout.classList.add('active');
+              disclaimerActiveFlag = true;
+            }
+          });
+          ad.root.querySelector('#disclaimerText').addEventListener('mouseleave', function(){
+            ad.layers.disclaimerLayout.classList.remove('active');
+            disclaimerActiveFlag = false;
+          });
+          gsap.set(bottomDiv1, {css:{position:'absolute',left:'50%', width:'50%', scaleX:0, bottom:0, borderLeft:'1px solid #fff',borderBottom:'1px solid #fff'}})
+          gsap.set(bottomDiv2, {css:{position:'absolute',left:'50%', width:'50%', scaleX:0, bottom:0, borderRight:'1px solid #fff',borderBottom:'1px solid #fff',boxSizing: 'border-box'}})
+          gsap.set(bottomDiv22, {css:{position:'absolute',right:0, bottom:0, borderRight:'1px solid #fff'}})
+          gsap.set(topDiv1, {css:{position:'absolute',top:0, left:0, borderTop:'1px solid #fff'}})
+          gsap.set(topDiv2, {css:{position:'absolute',top:0, left:'100%', width:'50%', borderTop:'1px solid #fff'}})
+          gsap.timeline({defaults:{ease: 'none', duration:0.5}})
+            .from('#frameText1', {autoAlpha:0,delay:0.5})
+            .from([bottomDiv1,bottomDiv2], {autoAlpha:0,duration:0.01})
+            .to(bottomDiv1, {css:{left:'0%'}, duration:0.25})
+            .to(bottomDiv1, {scaleX:1, duration:0.25},'-=0.25')
+            .to(bottomDiv2, {scaleX:1, duration:0.25},'-=0.25')
+            .to(bottomDiv1, {css:{height:'100%'}, duration:0.5})
+            .to([bottomDiv2, bottomDiv22], {css:{height:'100%'}, duration:0.5},'-=0.5')
+            .to(topDiv1, {css:{width:'50%'}, duration:0.25})
+            .to(topDiv2, {css:{left:'50%'}, duration:0.25},'-=0.25')
+            .to('#frameText1', {autoAlpha:0,delay:2})
+            .from('#frameText2', {autoAlpha:0},'-=0.25')
+            .to('#backgroundImage,#backgroundOverlay', {autoAlpha:0, duration:0.5, delay:1})
+            .from('#cta', {autoAlpha:0, duration:0.7, delay:0.5})
+          // var secondFrameAnimation = function(){
+          //   gsap.timeline({defaults:{ease: 'none', duration: 4}})
+          //   .from('#frameImage2', {scale:1.1})
+          // }
+          // gsap.timeline({defaults:{ease: 'none', duration: 4}})
+          // .from('#frameImage1', {scale:1.1})
+          // gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.5}})
+          // .from('#frameText1', {delay:0.5,autoAlpha:0, y:'20%'},'-=0.5')
+          // .from('#cta', {autoAlpha:0, y:'20%'},'-=0.5')
+          // .to('#frameImage1,#frameText1', {autoAlpha:0, duration:0.3, delay:2, onComplete:secondFrameAnimation})
+          // .from('#frameImage2', {autoAlpha:0})
+          // .from('#frameText2', {autoAlpha:0, y:'20%'},'-=0.5')
+          // .to('#frameImage2,#frameText2', {autoAlpha:0, duration:0.3, delay:2})
+          // .to('#cta', {x:-9, y:247}).to('#cta', {x:-9, y:247})
+          // .from('#frameText3', {autoAlpha:0, y:'20%'})
+
+        });
+      }, 2000);
+    </script>
+  </body>
+</html>
