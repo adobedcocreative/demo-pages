@@ -15,6 +15,12 @@
       }
       .ActionNBACondensedBold { font-family: ActionNBACondensedBold; }
 
+      @font-face {
+          font-family: PoppinsExtraBold;
+          src: url('fonts/Poppins-ExtraBold.woff') format("woff");
+      }
+      .PoppinsExtraBold { font-family: PoppinsExtraBold; }
+
       /* @font-face {
           font-family: ActionNBACondensedLightItalic;
           src: url('fonts/Action NBA Condensed-LightItalic.woff') format("woff");
@@ -107,17 +113,18 @@
             color: #fff;
             font-size: 65px;">
         </div>
-        <div id="cta" dir="auto" class="text ActionNBACondensedBold"
-          data-style="text-align:center;padding:2px 10px 2px 10px;"
+        <div id="cta" dir="auto" class="text PoppinsExtraBold"
+          data-style="padding:0px 10px 1px;"
           data-text="ctaText"
           style="top: 299px;
             left: 17px;
             width: 171px;
             height: 40px;
-            font-size: 50px;
-            line-height: 1;
+            font-size: 19px;
             color:#fff;
-            background-size:cover;">
+            background-size:cover;
+            line-height: 0.9;
+            text-align: center;">
         </div>
 
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
@@ -125,6 +132,7 @@
     <div id="loadFont" style="width:0;height:0;overflow:hidden;">
       <div class="RobotoMedium" style="color:transparent;">RobotoMedium</div>
       <div class="ActionNBACondensedBold" style="color:transparent;">ActionNBACondensedBold</div>
+      <div class="PoppinsExtraBold" style="color:transparent;">PoppinsExtraBold</div>
       <!-- <div class="ActionNBACondensedLightItalic" style="color:transparent;">ActionNBAvCondensedLightItalic</div>
       <div class="ActionNBACondensedBoldItalic" style="color:transparent;">ActionNBACondensedBoldItalic</div> -->
     </div>
@@ -184,7 +192,7 @@
                 document.querySelector("#frameText1").style.lineHeight = "1";
                 document.querySelector("#frameText2").style.lineHeight = "1";
                 document.querySelector("#frameText3").style.lineHeight = "1";
-                document.querySelector("#cta").style.lineHeight = "1.2";
+                // document.querySelector("#cta").style.lineHeight = "1.2";
               }
               if(content['name'].toLowerCase().indexOf('default') != -1){
                 document.querySelector("#backgroundImage").style.zIndex = 1;
