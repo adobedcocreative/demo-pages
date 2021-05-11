@@ -2,9 +2,10 @@ var feedTemplate1 = [];
 var feedContent = [], feedData = {}, getData;
 var adData = [];
 var loadTemplateFlag1 = false;
+var sheetID = '';
 var getFeed1 = function(){
   var xmlhttp = new XMLHttpRequest();
-  var sheetID = "1vWqNla0ZrAT_qAp6McFMrbJNBPGkQL2u36l-_wx4h9g/1";
+  sheetID = "1vWqNla0ZrAT_qAp6McFMrbJNBPGkQL2u36l-_wx4h9g/1";
   var searchID = location.search.split('?')[1];
   sheetID = searchID && searchID.length == 46 && searchID.indexOf('/') > 1 ? searchID : sheetID;
   sheetID = searchID && searchID.length <= 2 && Boolean(parseInt(searchID)) ? sheetID.split('/')[0] + '/' + parseInt(searchID) : sheetID;
