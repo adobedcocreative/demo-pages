@@ -187,6 +187,9 @@
                 document.querySelector("#frameText1").style.lineHeight = "1";
                 document.querySelector("#frameText2").style.lineHeight = "1";
                 document.querySelector("#frameText3").style.lineHeight = "1";
+
+                var CTAFontSize = Number(document.querySelector("#cta").style.fontSize.split('px')[0]);
+                document.querySelector("#cta").style.fontSize = CTAFontSize + (CTAFontSize/2) + "px";
                 // document.querySelector("#cta").style.lineHeight = "0.8";
               }
               if(content['name'].toLowerCase().indexOf('default') != -1){
