@@ -257,8 +257,8 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 246px;width:170px
       </div> -->
       <div id="shape1" class="shape" style="border-radius: 30px;background-image: linear-gradient(to right, #24d9c3, #0084d6);"></div>
       <div id="shape2" class="shape" style="border-radius: 30px;background-image: linear-gradient(to right, #24d9c3, #0084d6);"></div>
-      <div id="shape3" class="shape" style="border-radius: 30px;background-image: linear-gradient(to bottom, #24d9c3, #0084d6);"></div>
-      <div id="shape4" class="shape" style="border-radius: 30px;background-image: linear-gradient(to bottom, #24d9c3, #0084d6);"></div>
+      <div id="shape3" class="shape" style="border-radius: 30px;background-image: linear-gradient(to right, #24d9c3, #0084d6);"></div>
+      <div id="shape4" class="shape" style="border-radius: 30px;background-image: linear-gradient(to right, #24d9c3, #0084d6);"></div>
       <div id="introLogoImage" class="asset adSizeContainer" data-image="introLogoImage"></div>
       <div id="introCta" class="text AlticeBold"
         data-text="ctaText"
@@ -335,16 +335,16 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 246px;width:170px
         loadVideo(ad.layers.frameImage3.querySelector('video'), adData.frameVideo3);
 
         textUpdate();
-        gsap.set('#shape1',{top:64,left:160,width:130,height:27,x:-290});
-        gsap.set('#shape2',{top:258,left:-120,width:120,height:27,x:280});
-        gsap.set('#shape3',{top:-480,left:115,width:36,height:480,y:1080});
-        gsap.set('#shape4',{top:-480,left:5,width:32,height:480,y:1080});
+        gsap.set('#shape1',{top:107,left:160,width:160,height:34,x:-320});
+        gsap.set('#shape2',{top:142,left:-160,width:160,height:34,x:320});
+        gsap.set('#shape3',{top:178,left:160,width:160,height:34,x:-320});
+        gsap.set('#shape4',{top:214,left:-160,width:160,height:34,x:320});
         gsap.set('#beam1',{top:360,left:160,width:150,height:20,x:-310});gsap.set('#beam1 div',{width:20});
         gsap.set('#beam2',{top:190,left:160,width:150,height:18,x:-310});gsap.set('#beam2 div',{width:18});
         gsap.set('#beam3',{top:260,left:160,width:140,height:20,x:-300});gsap.set('#beam3 div',{width:20});
         gsap.set('#beam4',{top:230,left:160,width:170,height:14,x:-330});gsap.set('#beam4 div',{width:14});
         gsap.set('#beam5',{top:30,left:160,width:180,height:22,x:-340});gsap.set('#beam5 div',{width:22});
-        gsap.set('#frameText1', {x:'-120%'});
+        gsap.set('#frameText1', {autoAlpha:0});
         gsap.set('.frameImage', {x:'100%'});
         gsap.set('.frameText, #priceLabel', {x:'-100%'});
         // gsap.set('.frameImageLeft', {x:'-100%', y:0});
@@ -423,11 +423,13 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 246px;width:170px
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}))
         }
         var animateFrame1 = function(flag){
-          gsap.to('#shape1', {x:'0',ease:'none', duration:0.7,delay:1.2})
-          gsap.to('#shape2', {x:'0',ease:'none',duration:0.7,delay:1.2})
+          gsap.to('#shape1', {x:'0',ease:'none', duration:0.9,delay:0.3})
+          gsap.to('#shape2', {x:'0',ease:'none',duration:0.7,delay:0.3})
+          gsap.to('#shape3', {x:'0',ease:'none',duration:0.7,delay:0.4})
+          gsap.to('#shape4', {x:'0',ease:'none',duration:0.9,delay:0.3})
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameText1', {x:0, delay:0.5})
-          .to('#frame1', (flag==true?{}:{delay:2.5, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          .to('#frameText1', {autoAlpha:1, duration:0, delay:0.8})
+          .to('#frame1', (flag==true?{}:{delay:2.15, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
         if('frame1' in ad.layers) ad.layers.frame1.remove();
                     gsap.delayedCall(1.2, animateFrame4, [true]);

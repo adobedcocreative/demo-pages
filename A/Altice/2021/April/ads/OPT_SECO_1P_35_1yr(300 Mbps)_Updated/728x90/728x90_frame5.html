@@ -139,7 +139,7 @@
 amo.registerClick("clickUrl","https://www.altice.com");
 
 amo.registerAttribute("ctaText","TEXT","Shop now");
-amo.registerAttribute("frameText1", "TEXT", "<font>Northwest, NJ</font> New Optimum deals<br>now available for you!");
+amo.registerAttribute("frameText1", "TEXT", "<font class='ft1'>Northwest, NJ</font> <font class='ft2'>New Optimum deals</font><br><font class='ft3'>now available for you!</font>");
 amo.registerAttribute("frameText21", "TEXT", "<div style='top: 12px;left: 23px;font-size: 21px;line-height: 1;'>300 Mbps<br>Internet</div>");
 amo.registerAttribute("frameText22", "TEXT", "<div style='top: 3px;left: 120px;width: 500px;line-height: 1;'><font style='font-size: 86px;letter-spacing: -2px;padding-right: 2px;' class='coloredText'>$35</font><font style='margin-left: 6px;font-size: 13px;display: inline-block;vertical-align: 36px;line-height: 1.05;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='position: absolute;top: 42px;left: 150px;font-size: 10px;line-height: 1.1;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges<br>Wired connection up to 300 Mbps. WiFi speeds may vary.</div></div>");
 amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
@@ -326,8 +326,8 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 392px;
         loadVideo(ad.layers.frameImage3.querySelector('video'), adData.frameVideo3);
 
         textUpdate();
-        gsap.set('#shape1',{top:-1,left:580,width:200,height:18,x:-780});
-        gsap.set('#shape2',{top:56,left:-200,width:200,height:17,x:780});
+        gsap.set('#shape1',{top:26,left:580,width:252,height:22,x:-990});
+        gsap.set('#shape2',{top:51,left:-410,width:252,height:22,x:990});
         gsap.set('#shape3',{top:-160,left:370,width:36,height:160,y:250});
         gsap.set('#shape4',{top:-160,left:40,width:32,height:160,y:250});
         gsap.set('#beam1',{top:74,left:728,width:270,height:17,x:-998});gsap.set('#beam1 div',{width:18});
@@ -339,6 +339,8 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 392px;
         gsap.set('.frameText', {y:'100%'});
         gsap.set('div[id^="frameText"][id$="1"], #priceLabel', {x:'-100%',y:0});
         gsap.set('.frameImageLeft', {x:'-100%', y:0});
+        gsap.set('#frameText1', {x:0, y:0});
+        gsap.set('.ft1, .ft2, .ft3', {autoAlpha:0});
         var beamFrameAnimation = function(frame){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0})
@@ -405,11 +407,13 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 392px;
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}));
         }
         var animateFrame1 = function(flag){
-          gsap.to('#shape1', {x:'0',ease:'none', duration:1,delay:1})
-          gsap.to('#shape2', {x:'0',ease:'none',duration:1,delay:1})
+          gsap.to('#shape1', {x:'0',ease:'none', duration:1.2,delay:0.3})
+          gsap.to('#shape2', {x:'0',ease:'none',duration:1.2,delay:0.3})
+          gsap.delayedCall(0.8, function(){gsap.set('.ft1', {autoAlpha:1})});
+          gsap.delayedCall(1, function(){gsap.set('.ft2', {autoAlpha:1})});
+          gsap.delayedCall(1, function(){gsap.set('.ft3', {autoAlpha:1})});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameText1', {x:0, delay:0.5})
-          .to('#frame1', (flag==true?{}:{delay:2.5, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          .to('#frame1', (flag==true?{}:{delay:3.5, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
         if('frame1' in ad.layers) ad.layers.frame1.remove();
                     gsap.delayedCall(1.2, animateFrame5, [true]);
