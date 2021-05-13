@@ -1,8 +1,0 @@
-NAME	DESCRIPTION	DATA_TYPE	MAX_LENGTH	DEFAULT_VALUE	ALLOWED_VALUES
-backgroundImage	text	TEXT	1	1	1
-frameText1	text	TEXT	1	1	1
-frameText2	text	TEXT	1	1	1
-disclaimerText	text	TEXT	1	1	1
-disclaimerMessage	text	TEXT	1	1	1
-ctaText	text	TEXT	1	1	1
-clickURL	text	TEXT	1	1	1
