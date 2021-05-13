@@ -330,7 +330,7 @@
             if(autoplay && carouselData.length > 1) {
               var count = 0;
               var timer = setInterval(function() {
-                if(count == carouselData.length) { removeTimer(); } else { move('next'); }
+                if(count == (carouselData.length - 1)) { removeTimer(); } else { move('next'); }
                 count++;
               }, 2000);
               var removeTimer = function() {
