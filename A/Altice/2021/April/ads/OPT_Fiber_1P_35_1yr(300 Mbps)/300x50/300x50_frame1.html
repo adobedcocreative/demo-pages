@@ -98,23 +98,24 @@
 amo.registerClick("clickUrl","https://www.altice.com");
 amo.registerAttribute("ctaText","TEXT","Shop now");
 amo.registerAttribute("frameImage1", "IMAGE", "1x1.png");
-amo.registerAttribute("frameImage2", "IMAGE", "1x1.png");
-amo.registerAttribute("frameImage3", "IMAGE", "300x50_Optimum_BlueBg_Img_Frame_03.png");
+amo.registerAttribute("frameImage2", "IMAGE", "300x50_Optimum_BlueBg_Img_Frame_03.png");
+amo.registerAttribute("frameImage3", "IMAGE", "1x1.png");
 amo.registerAttribute("frameImage4", "IMAGE", "1x1.png");
 amo.registerAttribute("frameImage5", "IMAGE", "1x1.png");
-amo.registerAttribute("frameText1", "TEXT", "<div class='coloredText'>Meet your brand new neighbor</div>");
-amo.registerAttribute("frameText21", "TEXT", "<div style='top: 4px;left: 8px;width: 160px;font-size: 16px;line-height: 1;'>1 Gig Fiber Internet is now here!</div>");
-amo.registerAttribute("frameText22", "TEXT", "<div class='AlticeRegular' style='top:35px;left:8px;font-size:7px;'>Wired connection up to 940 Mbps. WiFi speeds may vary.</div>");
+amo.registerAttribute("frameText1", "TEXT", "<div class='coloredText'>Meet your brand<br>new neighbor</div>");
+amo.registerAttribute("frameText21", "TEXT", "<div style='top: 7px;left: 8px;width: 190px;line-height: 1;font-size: 18px;color: #fff;'>The new, 100% Fiber<br>Gig network is here!</div>");
+amo.registerAttribute("frameText22", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText31", "TEXT", "<div style='top: 7px;left: 8px;width: 190px;line-height: 1;font-size: 18px;color: #fff;'>Upgrade to the fastest fiber network.</div>");
-amo.registerAttribute("frameText32", "TEXT", "&nbsp;");
+amo.registerAttribute("frameText31", "TEXT", "<div class='coloredText' style='top: 5px;left: 8px;width: 200px;font-size: 16px;line-height: 1;'>It’s time for faster<br>Internet & wire-free TV.</div>");
+amo.registerAttribute("frameText32", "TEXT", "<div class='AlticeRegular' style='top:36px;left:8px;font-size:7px;'>Speeds, prices & availability vary by area.</div>");
 amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText41", "TEXT", "<div class='coloredText' style='top: 4px;left: 8px;width: 200px;font-size: 16px;line-height: 1;'>Enjoy faster and more reliable Internet!</div>");
-amo.registerAttribute("frameText42", "TEXT", "<div class='AlticeRegular' style='top:35px;left:8px;font-size:7px;'>Speeds, prices & availability vary by area.</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div style='top: 13px;left: 8px;width: 200px;font-size: 16px;line-height: 1;'>$200 Visa<span style='vertical-align:5px;font-size: 60%;'>®</span> Prepaid Card.</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div class='AlticeRegular' style='top:28px;left:8px;font-size:7px;'>Terms apply.</div>");
 amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText51", "TEXT", "<div style='top:2px;left:8px;font-size:13px;'>1 Gig Fiber Internet</div>");
-amo.registerAttribute("frameText52", "TEXT", "<div style='top: 18px;left: 6px;width: 220px;line-height: 1;'><font style='font-size: 29.5px;' class='coloredText'>$35</font><font style='margin-left: 3px;font-size: 8px;display: inline-block;vertical-align: -1px;'>99<br>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: -18px 0 0 77px;font-size: 7px;line-height: 1.2;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
+amo.registerAttribute("frameText51", "TEXT", "<div style='top:2px;left:8px;font-size:13px;'>300 Mbps Fiber Internet & TV</div>");
+amo.registerAttribute("frameText52", "TEXT", "<div style='top: 18px;left: 6px;width: 220px;line-height: 1;'><font style='font-size: 29.5px;' class='coloredText'>$35</font><font style='margin-left: 2px;font-size: 8px;display: inline-block;vertical-align: 6px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: -26px 0 0 77px;font-size: 7px;line-height: 1.2;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges<br>Wired connection up to 300 Mbps.</div></div>");
 amo.registerAttribute("frameText53", "TEXT", "&nbsp;");
+//Meet your brand<br>new neighbor//Hasbrouk Heights, meet<br>your brand new neighbor
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -148,7 +149,7 @@ amo.registerAttribute("frameText53", "TEXT", "&nbsp;");
     <div id="frameText53" class="frameText">!{frameText53}</div>
     <div id="logoImage" class="asset adSizeContainer" data-image="logoImage"></div>
     <div id="logoWhite" class="asset adSizeContainer" data-image="logoWhite"></div>
-    <div id="cta" class="text AlticeBold"
+    <div id="cta" class="text AlticeBold ctaWhite"
       data-text="ctaText"
       style="top: 5px;
         right: 15px;
@@ -173,7 +174,7 @@ amo.registerAttribute("frameText53", "TEXT", "&nbsp;");
         data-text="frameText1"
         style="top: 5px;
           left: 8px;
-          width: 180px;
+          width: 190px;
           height: 40px;
           font-size: 18px;
           line-height: 0.95;">
@@ -296,6 +297,7 @@ amo.registerAttribute("frameText53", "TEXT", "&nbsp;");
         }
         var animateFrame5 = function(flag){
           var frameId = 5;
+          changeLogo('black');
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[5]})
           // .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.2, opacity:0, onComplete: animateFrame5}));
@@ -309,13 +311,14 @@ amo.registerAttribute("frameText53", "TEXT", "&nbsp;");
         }
         var animateFrame3 = function(flag){
           var frameId = 3;
-          changeLogo();
+          changeLogo('black');
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[3]})
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame4}));
         }
         var animateFrame2 = function(flag){
           var frameId = 2;
+          changeLogo();
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame3}));
