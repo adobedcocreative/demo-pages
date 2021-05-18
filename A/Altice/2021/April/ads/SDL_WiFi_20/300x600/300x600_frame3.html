@@ -154,7 +154,7 @@ amo.registerAttribute("frameText13", "TEXT", "Smart<br>WiFi 6");
 amo.registerAttribute("frameText21", "TEXT", "<div style='top: 287px;left: 30px;width: 240px;font-size: 24px;line-height: 1.1;text-align: center;'>For up to <div style='color: #0084d6;'>3x faster speeds</div> & a more reliable WiFi experience</div>");
 amo.registerAttribute("frameText22", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText31", "TEXT", "<div style='top: 288px;left: 30px;width: 240px;font-size: 23.6px;text-align: center;line-height: 1.12;'>Now available<br>with Optimum's<br>new Gateway 6</div>");
+amo.registerAttribute("frameText31", "TEXT", "<div style='top: 288px;left: 30px;width: 240px;font-size: 23.6px;text-align: center;line-height: 1.12;'>Now available<br>with Suddenlink's<br>new Gateway 6</div>");
 amo.registerAttribute("frameText32", "TEXT", "<div class='AlticeRegular' style='top: 488px;width: 250px;left: 16px;font-size: 11.7px;line-height: 1.15;'>Speeds, prices & availability<br>vary by area.</div>");
 amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText41", "TEXT", "<div style='top: 88px;left: 21px;font-size: 28px;line-height:1;'>Internet<br>starting at</div>");
@@ -449,6 +449,7 @@ amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
             .to('#frameText1, #frameText13', {x:0, y:0})
             .to('#frameText1', {x: '120%', delay: 2.2})
+            .to('#frameText13', {autoAlpha: 0}, '-=0.3')
             .to('#frameText12', {x:0, y:0})
           }
           ad.layers.frameVideo1.querySelector('video').onended = function(){

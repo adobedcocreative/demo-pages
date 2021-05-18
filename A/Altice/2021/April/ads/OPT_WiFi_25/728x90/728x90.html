@@ -432,7 +432,7 @@ amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
             // gsap.to('#shape2', {x:'0',ease:'none', duration:0.7,delay:1.2})
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
             .to('#frameText1, #frameText13', {x:0, y:0})
-            .to('#frameText1', {autoAlpha: 0, delay: 2.2})
+            .to('#frameText1, #frameText13', {autoAlpha: 0, delay: 2.2})
             .to('#frameText12', {x:0, y:0})
           }
           ad.layers.frameVideo1.querySelector('video').onended = function(){
