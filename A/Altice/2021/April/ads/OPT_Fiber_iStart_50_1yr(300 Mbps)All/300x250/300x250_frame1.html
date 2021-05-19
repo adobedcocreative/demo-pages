@@ -184,18 +184,18 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 158px;left: 29px;
     <div id="beam4" class="beam" style="border-radius: 30px;background-image: linear-gradient(to left, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
     <div id="beam5" class="beam" style="border-radius: 30px;background-image: linear-gradient(to left, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
     <div id="frameBackground" class="asset adSizeContainer" data-image="frameBackground" style="display:none;"></div>
-    <div id="frameImage2" class="asset frameImage" data-image="frameImage2"></div>
-    <div id="frameText21" class="frameText">!{frameText21}</div>
-    <div id="frameText22" class="frameText">!{frameText22}</div>
-    <div id="frameText23" class="frameText">!{frameText23}</div>
-    <div id="frameImage3" class="asset frameImage" data-image="frameImage3"></div>
-    <div id="frameText31" class="frameText">!{frameText31}</div>
-    <div id="frameText32" class="frameText">!{frameText32}</div>
-    <div id="frameText33" class="frameText">!{frameText33}</div>
     <div id="frameImage4" class="asset frameImage" data-image="frameImage4"></div>
     <div id="frameText41" class="frameText">!{frameText41}</div>
     <div id="frameText42" class="frameText">!{frameText42}</div>
     <div id="frameText43" class="frameText">!{frameText43}</div>
+    <div id="frameImage3" class="asset frameImage" data-image="frameImage3"></div>
+    <div id="frameText31" class="frameText">!{frameText31}</div>
+    <div id="frameText32" class="frameText">!{frameText32}</div>
+    <div id="frameText33" class="frameText">!{frameText33}</div>
+    <div id="frameImage2" class="asset frameImage" data-image="frameImage2"></div>
+    <div id="frameText21" class="frameText">!{frameText21}</div>
+    <div id="frameText22" class="frameText">!{frameText22}</div>
+    <div id="frameText23" class="frameText">!{frameText23}</div>
     <div id="logoImage" class="asset adSizeContainer" data-image="logoImage"></div>
     <div id="logoWhite" class="asset adSizeContainer" data-image="introLogoImage"></div>
     <!-- <div id="priceLabel" class="asset adSizeContainer" data-image="priceLabel"></div> -->
@@ -445,20 +445,22 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 158px;left: 29px;
         }
         var animateFrame3 = function(flag){
           var frameId = 3;
+          gsap.set('#frameImage3', {x:0, y:0, autoAlpha: 1});
           ad.layers.cta.classList.add('ctaWhite');
           changeLogo();
           gsap.set('#frameBackground', {display: 'block'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
+          .to('#frameImage'+frameId, {duration:0, delay: 0.3, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame4}));
         }
         var animateFrame2 = function(flag){
           var frameId = 2;
+          gsap.set('#frameImage2', {x:0, y:0, autoAlpha: 1});
           ad.layers.cta.classList.add('ctaWhite');
           changeLogo();
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}))
+          .to('#frameImage'+frameId, {duration:0, delay: 0.3, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onStart: animateFrame3}))
         }
         var animateFrame1 = function(flag){
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
@@ -471,7 +473,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 158px;left: 29px;
           }
           ad.layers.frameVideo1.querySelector('video').onended = function(){
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.2}})
-            .to('#frame1', (flag==true?{}:{delay:0, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+            .to('#frame1', (flag==true?{}:{delay:0, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onStart: animateFrame2}));
           }
         }
         gsap.delayedCall(.8, animateFrame1, [true]);
