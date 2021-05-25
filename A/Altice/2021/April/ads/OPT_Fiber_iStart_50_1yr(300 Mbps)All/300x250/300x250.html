@@ -152,7 +152,7 @@
 amo.registerClick("clickUrl","https://www.altice.com");
 amo.registerAttribute("ctaText","TEXT","Shop now");
 amo.registerAttribute("frameText1", "TEXT", "<div class='coloredText' style='padding: 2px 0;'>Meet your brand new neighbor</div>");
-amo.registerAttribute("frameText21", "TEXT", "<div style='top: 26px;left: 20px;width: 260px;font-size: 36px;line-height: 1;text-align: center;color: #fff;'><div style='font-size: 67%;margin-bottom: 17px;'>Optimum Fiber</div><div class='AlticeRegular' style='font-size: 73%;'>Our new</div>All Fiber<br>Gig network<div class='AlticeRegular' style='font-size: 73%;'>is here!</div></div>");
+amo.registerAttribute("frameText21", "TEXT", "<div style='top: 67px;left: 20px;width: 260px;font-size: 36px;line-height: 1;text-align: center;color: #fff;'><div class='AlticeRegular' style='font-size: 73%;'>Our new</div>All Fiber<br>Gig network<div class='AlticeRegular' style='font-size: 73%;'>is here!</div></div>");
 amo.registerAttribute("frameText22", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText31", "TEXT", "<div class='coloredText' style='top: 66px;left: 25px;width: 250px;font-size: 32px;line-height: 1;text-align: center;'>It’s time for faster Internet<br>& wire-free TV.</div>");
@@ -193,6 +193,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 158px;left: 29px;
     <div id="frameText32" class="frameText">!{frameText32}</div>
     <div id="frameText33" class="frameText">!{frameText33}</div>
     <div id="frameImage2" class="asset frameImage" data-image="frameImage2"></div>
+    <div id="frameImage21" class="asset frameImage" data-image="frameImage21"></div>
     <div id="frameText21" class="frameText">!{frameText21}</div>
     <div id="frameText22" class="frameText">!{frameText22}</div>
     <div id="frameText23" class="frameText">!{frameText23}</div>
@@ -308,6 +309,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 158px;left: 29px;
           frameBackground: '1x1.png',
           frameVideo1: "300x250_City.mp4",
           frameImage2: "300x250_OPT_iStart_Fiber_50_1Yr_300_Mbps_BlueBg_Img_Frame_03.png",
+          frameImage21: "300x250_OPT_Fiber_Logo.png",
           frameImage3: "300x250_OPT_iStart_Fiber_50_1Yr_300_Mbps_Img_Frame_04.png",
           frameImage4: "300x250_OPT_iStart_Fiber_50_1Yr_300_Mbps_iPad_Img_Frame_05.png",
         },
@@ -355,6 +357,7 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 158px;left: 29px;
         gsap.set('#frameText1', {x:'-120%'});
         gsap.set('.frameImage', {x:'100%'});
         gsap.set('.frameText, #priceLabel', {x:'-100%'});
+        gsap.set('#frameImage21', {x:'-100%'});
         // gsap.set('.frameImageLeft', {x:'-100%'});
         gsap.set('#logoWhite', {autoAlpha: 0});
         var changeLogo = function(color){
@@ -418,6 +421,12 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 158px;left: 29px;
           .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
           .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
         }
+        var generalFrameAnimation1 = function(frame){
+          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+          .to('#frameText'+frame+'1, #frameImage'+frame + ', #frameImage'+frame + '1', {x:0,y:0})
+          .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
+          .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
+        }
         var generalLeftFrameAnimation = function(frame){
           gsap.set('#frameImage'+frame, {x:'0'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
@@ -459,8 +468,8 @@ amo.registerAttribute("frameText43", "TEXT", "<div style='top: 158px;left: 29px;
           ad.layers.cta.classList.add('ctaWhite');
           changeLogo();
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, delay: 0.3, onComplete: generalFrameAnimation, onCompleteParams:[frameId]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onStart: animateFrame3}))
+          .to('#frameImage'+frameId, {duration:0, delay: 0.3, onComplete: generalFrameAnimation1, onCompleteParams:[frameId]})
+          .to('#frameImage'+frameId+', #frameImage'+frameId+'1, div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onStart: animateFrame3}))
         }
         var animateFrame1 = function(flag){
           ad.layers.frameVideo1.querySelector('video').onplay = function(){
