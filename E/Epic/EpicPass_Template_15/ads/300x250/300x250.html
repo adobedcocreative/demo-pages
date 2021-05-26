@@ -170,7 +170,7 @@
           gsap.set('#cta, #overlay_image, #Frame_2_BgImage, #Frame_2_LogoImage, #Frame_2_Text, #Frame_3_BgImage, #Frame_3_LogoImage, #Frame_3_Text, #Frame_4_Text', {autoAlpha:0});
           
           function parallaxAnimation(frame) {
-            gsap.timeline({defaults:{ease:Linear.easeNone, duration:3}})
+            gsap.timeline({defaults:{ease:Linear.easeNone, duration:2}})
             .to(frame, {left:-75})
             .to(frame, {scale:1.2, transformOrigin:"right"})
           }
@@ -263,6 +263,7 @@
               document.body.removeChild(canvas);
             }
             image.src = adData['Frame_3_LogoImage'];
+            gsap.to('#Frame_3_BgImage', {scale: 1, left:0, duration:0.1});
           }
 
         });
