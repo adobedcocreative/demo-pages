@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ad</title>
+    <link rel="stylesheet" href="css/style.min.css">
+    <!-- <link rel="stylesheet" href="https://use.typekit.net/qgz2kzw.css"> -->
+    <script type="text/javascript" src="https://ads.everesttech.net/ads/static/local/AMOLibrary.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
+    <script src="js/script.min.js" charset="utf-8"></script>
+    <style media="screen">
+      @font-face {
+          font-family: BrandonGrotesqueMedium;
+          src: url('fonts/BrandonGrotesque Medium.woff') format("woff");
+      }
+      .BrandonGrotesqueMedium { font-family: BrandonGrotesqueMedium; }
+      @font-face {
+          font-family: BrandonGrotesqueBold;
+          src: url('fonts/BrandonGrotesque Bold.woff') format("woff");
+      }
+      .BrandonGrotesqueBold { font-family: BrandonGrotesqueBold; }
+      @font-face {
+          font-family: BrandonGrotesqueBlack;
+          src: url('fonts/BrandonGrotesque Black.woff') format("woff");
+      }
+      .BrandonGrotesqueBlack { font-family: BrandonGrotesqueBlack; }
+    </style>
+    <!--
+      Available Classes:-
+        For Images :-
+          .asset        -Image Center Align(Image can shrink according to the container but will expand beyond its original size)
+          .asset-top    -Image Top Center Align(Image can shrink according to the container but will expand beyond its original size)
+          .asset-left
+
+    -->
+    <style media="screen" data-dynamic="style">
+      #ad {
+        width: 300px;
+        height: 250px;
+        font-family: BrandonGrotesqueBlack,Helvetica,sans-serif;
+        background-color: #20285e;
+        color: #fff;
+      }
+      .frame {
+        position: absolute;
+        top:0px;
+        left:0px;
+        width:inherit;
+        height:inherit;
+      }
+      .frameText {
+        top:0px;
+        left:0px;
+        width:inherit;
+        height:inherit;
+      }
+      .frameText > div {
+        position: absolute;
+      }
+      .frameImage {
+        top:0px;
+        left:0px;
+        width:inherit;
+        height:inherit;
+      }
+      #cta { background-color: !{ctaBtn}; }
+      #cta:hover { background-color: !{ctaBtnHover}; }
+    </style>
+  </head>
+  <body>
+    <div class="" id="ad">
+      <div id="bgColor" class="frame" style="background:#20285e;"></div>
+      <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
+      <div id="Frame_1_LogoImage" class="asset frameImage" data-image="Frame_1_LogoImage"></div>
+      <div id="Frame_2_BgImage" class="frame" data-image="Frame_2_BgImage"></div>
+      <div id="Frame_2_LogoImage" class="asset frameImage" data-image="Frame_2_LogoImage"></div>
+      <div id="Frame_2_Text" class="frameText">!{Frame_2_Text}</div>
+      <div id="Frame_3_BgImage" class="frame" data-image="Frame_3_BgImage"></div>
+      <div id="Frame_3_LogoImage" class="asset frameImage" data-image="Frame_3_LogoImage"></div>
+      <div id="Frame_3_Text" class="frameText">!{Frame_3_Text}</div>
+      <div id="Frame_4_Text" class="frameText">!{Frame_4_Text}</div>
+
+      
+      <div id="cta" dir="auto" class="text BrandonGrotesqueBold"
+        data-text="ctaText"
+        data-style="text-align:center;"
+        style="top: 209px;
+          left: 100px;
+          width: 100px;
+          height: 26px;
+          font-size: 14px;
+          color: #001e62;
+          border-radius:20px;
+          box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);">
+      </div>
+
+      <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
+    </div>
+    <div id="loadFont" style="width:0;height:0;overflow:hidden;">
+      <div class="BrandonGrotesqueBlack" style="color:transparent;">BrandonGrotesqueBlack</div>
+      <div class="BrandonGrotesqueBold" style="color:transparent;">BrandonGrotesqueBold</div>
+    </div>
+    <script type="text/javascript">
+      var ad = new Ad({
+        root: document.querySelector('#ad'),
+        width: 300,
+        height: 250,
+        borderWidth: 1,
+        borderColor: '#000'
+      });
+      setTimeout(function() {
+        ad.contentSetup({
+          cam: {
+            Frame_1_LogoImage: 'assets/300x250_epic.png',
+            Frame_2_BgImage: 'assets/300x250_20170405_BR_Cohen_003.png',
+            Frame_2_LogoImage: 'assets/300x250_Northeast_Orange.png',
+            Frame_2_Text: "<div style='top:95px;left:10px;width:280px;font-size:24px;letter-spacing:3px;text-align:center;color:#f8951f;'>PASS PRICES<div style='color:#fff;'>REDUCED 20%</div></div>",
+            Frame_3_BgImage: 'assets/300x250_20170405_BR_Maguire_009.png',
+            Frame_3_LogoImage: 'assets/300x250_Northeast_Orange.png',
+            Frame_3_Text: "<div style='top:83px;left:10px;width:280px;font-size:33px;letter-spacing:3px;text-align:center;color:#b8bbd4;font-family:BrandonGrotesqueMedium'>WAS <strike>$599</strike><div style='color:#fff;font-family:BrandonGrotesqueBlack'>NOW $479</div></div>",
+            Frame_4_Text: "<div style='top:95px;left:10px;width:280px;font-size:24px;letter-spacing:3px;text-align:center;color:#f8951f;'>LAST CHANCE FOR<br><div style='color:#fff;'>THE LOWEST PRICE</div><div style='color:#fff;font-size:15px;'>XXXX</div></div>",
+            ctaText: 'BUY NOW',
+            ctaBtnColor: '#f8951f^#fc8901',
+            clickURL: 'https://www.adobe.com/'
+          },
+          feed: [
+            {
+              name: 'Default',
+            }
+          ],
+          staticData: {
+            // ref:'ref.png',
+            overlay_image: 'images/overlay.png',
+          },
+          beforeLoad: function(data){
+            var replaceMacro = function(text, data) {
+              var macros = text.match(/\!\{(.*?)\}/g);
+              if(macros) {
+                macros.forEach(function(macro){
+                  var macroText = macro.split('!{').join('').split('}').join('');
+                  for(var key in data) { if(key == macroText) { macroText = data[key]; } }
+                  text = text.split(macro).join(macroText);
+                });
+              }
+              return text;
+            }
+            data.map(function(content){
+              content.ctaBtn = content.ctaBtnColor.split('^')[0];
+              content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
+            });
+            return data;
+          }
+        }, function(data){
+          var adData = data[0], adClickUrl = adData['clickURL'];
+          ad.root.addEventListener("click", function(e) {
+            if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
+          });
+          if(adData.styleProperties && adData.styleProperties.toLowerCase() != 'na') {
+            try {
+              eval('var styleProperties = ' + adData.styleProperties);
+              if(styleProperties && typeof styleProperties == 'object')
+              for(var i in styleProperties) {
+                gsap.set(i, styleProperties[i]);
+              }
+            } catch(e) {  }
+          }
+
+          textUpdate();
+
+          gsap.set('#cta, #overlay_image, #Frame_2_BgImage, #Frame_2_LogoImage, #Frame_2_Text, #Frame_3_BgImage, #Frame_3_LogoImage, #Frame_3_Text, #Frame_4_Text', {autoAlpha:0});
+          
+          function parallaxAnimation(frame) {
+            gsap.timeline({defaults:{ease:Linear.easeNone, duration:4}})
+            .to(frame, {left:-100})
+          }
+
+          animateFrame1();
+
+          function animateFrame1() {
+            gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 2}})
+            .to('#Frame_1_LogoImage', {delay:1, scale:10, opacity:0, onComplete: animateFrame2})
+          }
+          
+          function animateFrame2() {
+            gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.3}})
+            .to('#Frame_2_BgImage', {autoAlpha:0.1})
+            .to('#Frame_2_LogoImage', {autoAlpha:1, onComplete: parallaxAnimation, onCompleteParams:['#Frame_2_BgImage']})
+            .to('#Frame_2_Text', {autoAlpha:1})
+            .to('#cta', {autoAlpha:1})
+            .to('#Frame_2_Text', {delay:2, autoAlpha:0, onComplete: animateFrame3})
+            .to('#Frame_2_BgImage', {autoAlpha:1})
+          }
+
+          
+          function animateFrame3() {
+            var image = new Image();
+            image.crossOrigin = 'Anonymous';
+            image.onload = function() {
+              var canvas = document.createElement('canvas');
+              var ctx = canvas.getContext('2d');
+              canvas.width = this.width;
+              canvas.height = this.height;
+              document.body.appendChild(canvas);
+              ctx.fillStyle = "#20285e";
+              ctx.fillRect(0, 0, canvas.width, canvas.height);
+              ctx.globalCompositeOperation = 'destination-in';
+              ctx.drawImage(this, 0, 0);
+              var imageURL = canvas.toDataURL();
+              ad.layers.Frame_2_LogoImage.querySelector('img').src = imageURL;
+              document.body.removeChild(canvas);
+            }
+            image.src = adData['Frame_2_LogoImage'];
+
+            gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.3}})
+            .to('#Frame_2_BgImage, #Frame_2_LogoImage', {delay:1, autoAlpha:0})
+            .to('#Frame_3_BgImage', {autoAlpha:0.1})
+            .to('#Frame_3_LogoImage', {autoAlpha:1, onComplete: parallaxAnimation, onCompleteParams:['#Frame_3_BgImage']})
+            .to('#Frame_3_Text', {autoAlpha:1})
+            .to('#Frame_3_Text', {delay:2, autoAlpha:0, onComplete: animateFrame4})
+            .to('#Frame_3_BgImage', {autoAlpha:1})
+          }
+
+          function animateFrame4() {
+            var image = new Image();
+            image.crossOrigin = 'Anonymous';
+            image.onload = function() {
+              var canvas = document.createElement('canvas');
+              var ctx = canvas.getContext('2d');
+              canvas.width = this.width;
+              canvas.height = this.height;
+              document.body.appendChild(canvas);
+              ctx.fillStyle = "#20285e";
+              ctx.fillRect(0, 0, canvas.width, canvas.height);
+              ctx.globalCompositeOperation = 'destination-in';
+              ctx.drawImage(this, 0, 0);
+              var imageURL = canvas.toDataURL();
+              ad.layers.Frame_3_LogoImage.querySelector('img').src = imageURL;
+              document.body.removeChild(canvas);
+            }
+            image.src = adData['Frame_3_LogoImage'];
+
+            gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.3}})
+            .to('#Frame_3_BgImage', {delay:1, autoAlpha:0.1, onComplete: endFrame})
+            .to('#Frame_4_Text', {autoAlpha:1})
+          }
+
+          function endFrame() {
+            var image = new Image();
+            image.crossOrigin = 'Anonymous';
+            image.onload = function() {
+              var canvas = document.createElement('canvas');
+              var ctx = canvas.getContext('2d');
+              canvas.width = this.width;
+              canvas.height = this.height;
+              document.body.appendChild(canvas);
+              ctx.fillStyle = "#f8951f";
+              ctx.fillRect(0, 0, canvas.width, canvas.height);
+              ctx.globalCompositeOperation = 'destination-in';
+              ctx.drawImage(this, 0, 0);
+              var imageURL = canvas.toDataURL();
+              ad.layers.Frame_3_LogoImage.querySelector('img').src = imageURL;
+              document.body.removeChild(canvas);
+            }
+            image.src = adData['Frame_3_LogoImage'];
+          }
+
+        });
+      }, 1000);
+    </script>
+  </body>
+</html>
