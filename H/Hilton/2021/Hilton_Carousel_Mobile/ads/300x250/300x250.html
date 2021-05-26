@@ -457,8 +457,20 @@
             adData = content[0];
       			ad.root.addEventListener("click", function(e) {
               if('button' in e.target.parentNode.dataset || 'button' in e.target.dataset) {
-                if(e.target.parentNode.dataset.button == 'left' && carouselClickFlag) { carousel.move('prev'); }
-                else if(e.target.parentNode.dataset.button == 'right' && carouselClickFlag) { carousel.move('next'); }
+                if(e.target.parentNode.dataset.button == 'left' && carouselClickFlag) { carousel.move('prev');
+                  if (parentWindow && 'amoUtils' in parentWindow && 'onInteraction' in parentWindow.amoUtils) {
+                      try {
+                          parentWindow.amoUtils.onInteraction('BROWSE PREVIOUS' + '|' + adData.feedData.id, adData.feedData);
+                      } catch (e) {}
+                  }
+                }
+                else if(e.target.parentNode.dataset.button == 'right' && carouselClickFlag) { carousel.move('next');
+                  if (parentWindow && 'amoUtils' in parentWindow && 'onInteraction' in parentWindow.amoUtils) {
+                      try {
+                          parentWindow.amoUtils.onInteraction('BROWSE NEXT' + '|' + adData.feedData.id, adData.feedData);
+                      } catch (e) {}
+                  }
+                }
               } else if('disclaimer' in e.target.dataset) {
                 if(ad.layers.disclaimerContainer.style.display == 'none')  {
                   ad.layers.disclaimerContainer.style.display = 'block';
