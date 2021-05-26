@@ -170,14 +170,15 @@
           gsap.set('#cta, #overlay_image, #Frame_2_BgImage, #Frame_2_LogoImage, #Frame_2_Text, #Frame_3_BgImage, #Frame_3_LogoImage, #Frame_3_Text, #Frame_4_Text', {autoAlpha:0});
           
           function parallaxAnimation(frame) {
-            gsap.timeline({defaults:{ease:Linear.easeNone, duration:4}})
-            .to(frame, {left:-100})
+            gsap.timeline({defaults:{ease:Linear.easeNone, duration:3}})
+            .to(frame, {left:-75})
+            .to(frame, {scale:1.2, transformOrigin:"right"})
           }
 
           animateFrame1();
 
           function animateFrame1() {
-            gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 2}})
+            gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 1}})
             .to('#Frame_1_LogoImage', {delay:1, scale:10, opacity:0, onComplete: animateFrame2})
           }
           
