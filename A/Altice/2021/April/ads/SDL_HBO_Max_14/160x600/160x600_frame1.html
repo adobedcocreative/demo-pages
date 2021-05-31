@@ -156,7 +156,7 @@ amo.registerAttribute("frameImage12", "IMAGE", "160x600_OPT_UPGQ2_ANI_Video_UPGH
 amo.registerAttribute("frameImage2", "IMAGE", "160x600_OPT_UPGQ2_ANI_Video_UPGHBORR_14_99mo_Subs_GM_Logos_Frame_03.png");
 amo.registerAttribute("frameImage3", "IMAGE", "160x600_OPT_UPGQ2_ANI_Video_UPGHBORR_14_99mo_Subs_GM_Devices_Frame_04.png");
 amo.registerAttribute("frameText1", "TEXT", "All the laughs.<br>All in one place!");
-amo.registerAttribute("frameText21", "TEXT", "<div style='top: 100px;left: 10px;width: 140px;font-size: 23px;text-align: center;line-height: 1.05;'>HBO Max gives<br>you more</div>");
+amo.registerAttribute("frameText21", "TEXT", "<div style='top: 100px;left: 10px;width: 140px;font-size: 23px;text-align: center;line-height: 1.05;'>HBO Max<sup style='vertical-align: 75%;font-size: 50%;'>™</sup> gives<br>you more</div>");
 amo.registerAttribute("frameText22", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText31", "TEXT", "<div style='top: 90px;left: 14px;font-size: 18px;line-height:1;'>Add<br>HBO Max<sup style='vertical-align: 75%;font-size: 50%;'>™</sup></div>");
@@ -408,9 +408,9 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top: 215px;left: 15px;
         }
         var animateFrame1 = function(flag){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage12', {delay:1.3, x:'100%'})
+          .to('#frameImage12', {delay:2, x:'100%'})
           .to('#frameText1', {x:0},'-=0.3')
-          .to('#frame1', (flag==true?{}:{delay:1.3, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          .to('#frame1', (flag==true?{}:{delay:2, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
         }
         gsap.delayedCall(.8, animateFrame1, [true]);
       });
