@@ -446,16 +446,16 @@
       			ad.root.addEventListener("click", function(e) {
               if('button' in e.target.parentNode.dataset || 'button' in e.target.dataset) {
                 if(e.target.parentNode.dataset.button == 'left' && carouselClickFlag) { carousel.move('prev');
-                  if (parentWindow && 'amoUtils' in parentWindow && 'onInteraction' in parentWindow.amoUtils) {
+                  if (window && 'amoUtils' in window && 'onInteraction' in window.amoUtils) {
                       try {
-                          parentWindow.amoUtils.onInteraction('BROWSE PREVIOUS' + '|' + adData.feedData.id, adData.feedData);
+                          window.amoUtils.onInteraction('BROWSE PREVIOUS' + '|' + adData.feedData.id, adData.feedData);
                       } catch (e) {}
                   }
                 }
                 else if(e.target.parentNode.dataset.button == 'right' && carouselClickFlag) { carousel.move('next');
-                  if (parentWindow && 'amoUtils' in parentWindow && 'onInteraction' in parentWindow.amoUtils) {
+                  if (window && 'amoUtils' in window && 'onInteraction' in window.amoUtils) {
                       try {
-                          parentWindow.amoUtils.onInteraction('BROWSE NEXT' + '|' + adData.feedData.id, adData.feedData);
+                          window.amoUtils.onInteraction('BROWSE NEXT' + '|' + adData.feedData.id, adData.feedData);
                       } catch (e) {}
                   }
                 }
@@ -503,38 +503,47 @@
       				return string;
       			}).join('');
       		}
-      		return text.split('^').join(' ');
+      		return text;
       	}
-      	var contentD = [
+        var contentD = [
           {
-            "name": "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR",
-            "image_url1": "assets/300x250_Big_Dreams.jpg",
-            "product_url": "https://www.adobe.com/#Hilton_1",
-          }, {
-            "name": "DALLAS FROM $80",
-            "image_url1": "assets/300x250_Dallas.jpg",
-            "product_url": "https://www.adobe.com/#Hilton_2",
-          }, {
-            "name": "AUSTIN FROM $90",
-            "image_url1": "assets/300x250_AUSTIN.jpg",
-            "product_url": "https://www.adobe.com/#Hilton_3",
-          }, {
-            "name": "HOUSTON FROM $100",
-            "image_url1": "assets/300x250_HOUSTON.jpg",
-            "product_url": "https://www.adobe.com/#Hilton_4",
-          }, {
-            "name": "OKLAHOMA CITY FROM $100",
-            "image_url1": "assets/300x250_OKLAHOMA_CITY.jpg",
-            "product_url": "https://www.adobe.com/#Hilton_5",
+            "name": "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR^DALLAS FROM $80^AUSTIN FROM $90^HOUSTON FROM $100^OKLAHOMA CITY FROM $100",
+            "passthroughfield3": "#00a8e1^#2fc4f6^#114d97",
+            "image_url1": "assets/300x250_Big_Dreams.jpg^assets/300x250_Dallas.jpg^assets/300x250_AUSTIN.jpg^assets/300x250_HOUSTON.jpg^assets/300x250_OKLAHOMA_CITY.jpg",
+            "product_url": "https://www.adobe.com/#Hilton_1^https://www.adobe.com/#Hilton_2^https://www.adobe.com/#Hilton_3^https://www.adobe.com/#Hilton_4^https://www.adobe.com/#Hilton_5",
           }
         ];
+      	// var contentD = [
+        //   {
+        //     "name": "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR",
+        //     "image_url1": "assets/300x250_Big_Dreams.jpg",
+        //     "product_url": "https://www.adobe.com/#Hilton_1",
+        //   }, {
+        //     "name": "DALLAS FROM $80",
+        //     "image_url1": "assets/300x250_Dallas.jpg",
+        //     "product_url": "https://www.adobe.com/#Hilton_2",
+        //   }, {
+        //     "name": "AUSTIN FROM $90",
+        //     "image_url1": "assets/300x250_AUSTIN.jpg",
+        //     "product_url": "https://www.adobe.com/#Hilton_3",
+        //   }, {
+        //     "name": "HOUSTON FROM $100",
+        //     "image_url1": "assets/300x250_HOUSTON.jpg",
+        //     "product_url": "https://www.adobe.com/#Hilton_4",
+        //   }, {
+        //     "name": "OKLAHOMA CITY FROM $100",
+        //     "image_url1": "assets/300x250_OKLAHOMA_CITY.jpg",
+        //     "product_url": "https://www.adobe.com/#Hilton_5",
+        //   }
+        // ];
       	if(contentD && contentD.length) { contentD.forEach(function(data) { amo.registerContent(data); }); }
         amo.registerVariation("logoImage", 'assets/300x250_Hilton_Logo_Image.png');
         amo.registerVariation("headlineImage", '!{image_url1}');
         amo.registerVariation("headlineText", '!{name}');
         amo.registerVariation("frameText", 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed');
         amo.registerVariation("ctaText", 'PLAN A GETAWAY');
-        amo.registerVariation("ctaBtnColor", '#00a8e1^#2fc4f6^#114d97');
+        amo.registerVariation("ctaBtnColor", "!{passthroughfield3}");//'#00a8e1^#2fc4f6^#114d97');
+        // amo.registerVariation("ctaBtnColor", '#00a8e1^#2fc4f6^#114d97');
         amo.registerVariation("disclaimerImage", 'assets/300x250_Brandbar_Roll_over.png');
         amo.registerVariation("disclaimerText", 'Roll over for Hilton brands.');
         amo.registerVariation("clickUrl", '!{product_url}');
@@ -559,9 +568,10 @@
               headlineText: cam.headlineText,
               frameText: cam.frameText,
               ctaText: cam.ctaText,
-              ctaBtnColor: cam.ctaBtnColor.split('^')[0],
-              ctaBtnHoverColor: cam.ctaBtnColor.split('^')[1],
-              backgroundColor: (cam.ctaBtnColor.split('^').length > 2 ? cam.ctaBtnColor.split('^')[2] : '#114d97'),
+              ctaBtnColor: cam.ctaBtnColor,
+              // ctaBtnColor: cam.ctaBtnColor.split('^')[0],
+              // ctaBtnHoverColor: cam.ctaBtnColor.split('^')[1],
+              // backgroundColor: (cam.ctaBtnColor.split('^').length > 2 ? cam.ctaBtnColor.split('^')[2] : '#114d97'),
               disclaimerImage: cam.disclaimerImage,
               disclaimerText: cam.disclaimerText,
       				url: cam.url
@@ -570,7 +580,24 @@
           if(content && content.length) {
       			content.map(function(data){
       				for(var key in data) { data[key] = typeof data[key] == 'string' ? replaceMacro(data[key], data.feedData) : data[key]; }
+              data.ctaBtnHoverColor = data.ctaBtnColor.split('^')[1];
+              data.backgroundColor = (data.ctaBtnColor.split('^').length > 2 ? data.ctaBtnColor.split('^')[2] : '#114d97');
+              data.ctaBtnColor = data.ctaBtnColor.split('^')[0];
       			});
+            if(content.length == 1 && content[0].headlineText.indexOf('^') != -1) {
+              var length = content[0].headlineText.split('^').length;
+              for(var i=1; i < length; i++) {
+                var obj = {};
+                for(var j in content[0]) { obj[j] = content[0][j]; }
+                obj.headlineText = content[0].headlineText.split('^')[i];
+                obj.headlineImage = content[0].headlineImage.split('^')[i];
+                obj.url = content[0].url.split('^')[i];
+                content.push(obj);
+              }
+              content[0].headlineText = content[0].headlineText.split('^')[0];
+              content[0].headlineImage = content[0].headlineImage.split('^')[0];
+              content[0].url = content[0].url.split('^')[0];
+            }
             if(content.length == 2) { content.push(content[0]); content.push(content[1]); }
       		}
       	}
