@@ -314,7 +314,7 @@
           "endFrameImage": "160x600_Altice_SDL_NewBuild_Img_Frame_05.png",
           "frameText1": "Pilot Point^just got faster",
           "frameText2": "<div style='top: 80px;left: 14px;width: 140px;font-size: 22px;line-height: 1;'>Suddenlink’s next generation network<br>is here</div>^<div class='AlticeRegular' style='top: 456px;width: 127px;left:18px;font-size: 9.7px;line-height: 1.25;'>Speeds, prices & availability vary by area.</div>^&nbsp;",
-          "frameText3": "<div style='top: 163px;left: 10px;width: 140px;font-size: 20px;line-height: 1.05;text-align: center;'>Get<br>100 Mbps Internet</div>^<div class='AlticeRegular' style='top: 456px;width: 127px;left:18px;font-size: 9.7px;line-height: 1.25;'>Wired connection<br>up to 100 Mbps.</div>^&nbsp;",
+          "frameText3": "<div style='top: 163px;left: 10px;width: 140px;font-size: 20px;line-height: 1.05;text-align: center;'>Get<br>100 Mbps Internet</div>^<div class='AlticeRegular' style='top: 456px;width: 127px;left:18px;font-size: 9.7px;line-height: 1.25;'>Wired connection<br>up to 100 Mbps.</div>^&nbsp;^50",
           "frameText4": "<div style='top: 80px;left: 13px;font-size: 18px;line-height:1;'><div style='color: #0084d6;height: 37px;font-size: 83%;line-height: 1.1;'>Fast Internet<br>has arrived</div>100 Mbps<br>Internet</div>^<div style='top: 152px;left: 9px;width: 150px;line-height: 1;'><font style='font-size: 63px;letter-spacing: -2px;padding-right: 2px;' class='coloredText'>$30</font><font style='margin-left: 2px;font-size: 11px;display: inline-block;vertical-align: 25px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 4px 0 0 5px;font-size: 9px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>^<div style='top: 255px;width:170px;left: 13px;transform: scale(0.81);transform-origin: top left;'><div class='bulletedText'><font style='color:#0084d6;'>New!</font> $200 Visa<span style='vertical-align:5px;font-size:9px;'>®</span> Prepaid Card. <div class='AlticeRegular' style='font-size: 12px;margin-top:2px;line-height:1;'>Terms apply.</div></div></div>",
           "ctaText": "Shop now",
           "clickUrl": "https://www.altice.com",
@@ -354,6 +354,7 @@
             var arrowAnimation = content.frameText3.split('^').length > 3 ? content.frameText3.split('^')[3] : '';
             if(arrowAnimation && arrowAnimation == '400') { content.frameVideo3 = "Animate_400_Mbps_Arrow.mp4"; }
             else if(arrowAnimation && arrowAnimation == '200') { content.frameVideo3 = "Animate_200_Mbps_Arrow.mp4"; }
+            else if(arrowAnimation && arrowAnimation == '50') { content.frameVideo3 = "Animate_50_Mbps_Arrow.mp4"; }
             else if(arrowAnimation && arrowAnimation == '1') { content.frameVideo3 = "Animate_1Gig_Mbps_Arrow.mp4"; }
             else if(arrowAnimation && arrowAnimation.toLowerCase() == '2x') { content.frameImage3 = "160x600_Altice_Circle_Burst_2x.png"; }
             if(content.frameImage3 != '1x1.png') {

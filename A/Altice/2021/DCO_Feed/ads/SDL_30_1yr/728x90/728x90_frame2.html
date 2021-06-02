@@ -302,7 +302,7 @@
           "endFrameImage": "1x1.png",
           "frameText1": "Pilot Point^just got faster",
           "frameText2": "<div style='top: 29px;left: 23px;font-size: 21.3px;line-height: 1;'>Suddenlink’s next generation network is here</div>^<div class='AlticeRegular' style='top: 54px;left: 24px;font-size: 10.8px;line-height: 1;'>Speeds, prices & availability vary by area.</div>^&nbsp;",
-          "frameText3": "&nbsp;^<div style='top: 27px;left: 131px;font-size: 21.5px;line-height: 1;'>Get 100 Mbps Internet</div>^<div class='AlticeRegular' style='top: 53px;left: 131px;font-size: 10.8px;line-height: 1;'>Wired connection up to 100 Mbps.</div>",
+          "frameText3": "&nbsp;^<div style='top: 27px;left: 131px;font-size: 21.5px;line-height: 1;'>Get 100 Mbps Internet</div>^<div class='AlticeRegular' style='top: 53px;left: 131px;font-size: 10.8px;line-height: 1;'>Wired connection up to 100 Mbps.</div>^50",
           "frameText4": "<div style='top: 8px;left: 23px;font-size: 21px;line-height: 1;'><div style='color: #0084d6;height: 30px;font-size: 66%;line-height: 1.05;'>Fast Internet<br>has arrived</div>100 Mbps<br>Internet</div>^<div style='top: 6px;left: 128px;width: 300px;line-height: 1;'><font style='font-size: 86px;letter-spacing: -2px;padding-right: 2px;' class='coloredText'>$30</font><font style='margin-left: 4px;font-size: 13px;display: inline-block;vertical-align: 36px;line-height: 1.05;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='position: absolute;top: 52px;left: 152px;font-size: 10px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>^<div style='top: 10px;left: 371px;transform: scale(0.615);transform-origin: top left;'><div class='bulletedText' style='line-height: 1.15;'><font style='color:#0084d6;'>New!</font> $200 Visa<sup style='font-size:50%;'>®</sup> Prepaid Card.<div class='AlticeRegular' style='font-size: 16px;margin-top: 0px;'>Terms apply.</div></div></div>",
           "ctaText": "Shop now",
           "clickUrl": "https://www.altice.com",
@@ -342,6 +342,7 @@
             var arrowAnimation = content.frameText3.split('^').length > 3 ? content.frameText3.split('^')[3] : '';
             if(arrowAnimation && arrowAnimation == '400') { content.frameVideo3 = "Animate_400_Mbps_Arrow.mp4"; }
             else if(arrowAnimation && arrowAnimation == '200') { content.frameVideo3 = "Animate_200_Mbps_Arrow.mp4"; }
+            else if(arrowAnimation && arrowAnimation == '50') { content.frameVideo3 = "Animate_50_Mbps_Arrow.mp4"; }
             else if(arrowAnimation && arrowAnimation == '1') { content.frameVideo3 = "Animate_1Gig_Mbps_Arrow.mp4"; }
             else if(arrowAnimation && arrowAnimation.toLowerCase() == '2x') { content.frameImage3 = "728x90_Altice_Circle_Burst_2x.png"; }
             if(content.frameImage3 != '1x1.png') {
