@@ -606,7 +606,7 @@
               data.backgroundColor = (data.ctaBtnColor.split('^').length > 2 ? data.ctaBtnColor.split('^')[2] : '#114d97');
               data.ctaBtnColor = data.ctaBtnColor.split('^')[0];
       			});
-            if(content.length == 1 && content[0].headlineText.indexOf('^') != -1) {
+            if(content.length == 1/*&& content[0].headlineText.indexOf('^') != -1*/) {
               var length = content[0].headlineText.split('^').length;
               for(var i=1; i < length; i++) {
                 var obj = {};
