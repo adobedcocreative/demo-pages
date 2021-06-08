@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ad</title>
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="https://use.typekit.net/sdk7wfp.css">
+    <script type="text/javascript" src="https://ads.everesttech.net/ads/static/local/AMOLibrary.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
+    <script src="js/script.min.js" charset="utf-8"></script>
+    <style media="screen">
+      /* @font-face {
+          font-family: BrandonGrotesqueMedium;
+          src: url('fonts/BrandonGrotesque Medium.woff') format("woff");
+      }
+      .BrandonGrotesqueMedium { font-family: BrandonGrotesqueMedium; }
+      @font-face {
+          font-family: BrandonGrotesqueBold;
+          src: url('fonts/BrandonGrotesque Bold.woff') format("woff");
+      }
+      .BrandonGrotesqueBold { font-family: BrandonGrotesqueBold; }
+      @font-face {
+          font-family: BrandonGrotesqueBlack;
+          src: url('fonts/BrandonGrotesque Black.woff') format("woff");
+      }
+      .BrandonGrotesqueBlack { font-family: BrandonGrotesqueBlack; } */
+      .BrandonGrotesqueRegular {
+        font-family: brandon-grotesque,sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+      .BrandonGrotesqueBold {
+        font-family: brandon-grotesque,sans-serif;
+        font-weight: 700;
+        font-style: normal;
+      }
+      .BrandonGrotesqueBlack {
+        font-family: brandon-grotesque,sans-serif;
+        font-weight: 900;
+        font-style: normal;
+      }
+    </style>
+    <!--
+      Available Classes:-
+        For Images :-
+          .asset        -Image Center Align(Image can shrink according to the container but will expand beyond its original size)
+          .asset-top    -Image Top Center Align(Image can shrink according to the container but will expand beyond its original size)
+          .asset-left
+
+    -->
+    <style media="screen" data-dynamic="style">
+      #ad {
+        width: 300px;
+        height: 250px;
+        font-family: brandon-grotesque,Helvetica,sans-serif;
+        font-weight: 900;
+        background-color: #20285e;
+        color: #fff;
+      }
+      .frame {
+        position: absolute;
+        top:0px;
+        left:0px;
+        width:inherit;
+        height:inherit;
+      }
+      .frameText {
+        top:0px;
+        left:0px;
+        width:inherit;
+        height:inherit;
+      }
+      .frameText > div {
+        position: absolute;
+      }
+      .frameImage {
+        top:0px;
+        left:0px;
+        width:inherit;
+        height:inherit;
+      }
+      t {
+        display: inline-flex;
+        overflow: hidden;
+        line-height: 0.85;
+      }
+      t v {
+        display: inline-block;
+      }
+      .blue { color: #20285e; }
+      .orange { color: #f8951f; }
+      #cta { background-color: !{ctaBtn}; }
+      #cta:hover { background-color: !{ctaBtnHover}; }
+    </style>
+  </head>
+  <body>
+    <div class="" id="ad">
+      <div id="bgColor" class="frame" style="background:#20285e;"></div>
+      <div id="introLogoImage" class="asset frameImage" data-image="introLogoImage"></div>
+      <div id="frameVideo2" style="top: 0px;left: 0px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width:inherit;;"></video></div>
+      <div id="frameText2" class="frameText">!{frameText2}</div>
+      <div id="frameVideo3" style="top: 0px;left: 0px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width:inherit;;"></video></div>
+      <div id="frameText3" class="frameText">!{frameText3}</div>
+      <div id="frameText4" class="frameText">!{frameText4}</div>
+      <div id="logoImage" class="asset frameImage" data-image="logoImage"></div>
+
+      <div id="cta" dir="auto" class="text"
+        data-text="ctaText"
+        data-style="text-align:center;"
+        style="top: 209px;
+          left: 100px;
+          width: 100px;
+          height: 26px;
+          font-size: 14px;
+          font-weight: 700;
+          color: #001e62;
+          border-radius:20px;
+          box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);">
+      </div>
+
+      <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
+    </div>
+    <div id="loadFont" style="width:0;height:0;overflow:hidden;">
+      <div class="BrandonGrotesqueBlack" style="color:transparent;">BrandonGrotesqueBlack</div>
+      <div class="BrandonGrotesqueBold" style="color:transparent;">BrandonGrotesqueBold</div>
+      <div class="BrandonGrotesqueRegular" style="color:transparent;">BrandonGrotesqueRegular</div>
+    </div>
+    <script type="text/javascript">
+      var ad = new Ad({
+        root: document.querySelector('#ad'),
+        width: 300,
+        height: 250,
+        borderWidth: 1,
+        borderColor: '#000'
+      });
+      setTimeout(function() {
+        ad.contentSetup({
+          cam: {
+            introLogoImage: 'assets/300x250_Epic_Logo.png',
+            frameVideo2: 'assets/300x250_BR_Cohen.mp4',
+            logoImage: 'assets/300x250_Northeast_Orange.png',
+            frameText2: "<div style='top:95px;left:10px;width:280px;font-size:24px;letter-spacing:3px;text-align:center;color:#f8951f;'>PASS PRICES<div style='color:#fff;'>REDUCED 20%</div></div>",
+            frameVideo3: 'assets/300x250_BR_Dodds.mp4',
+            frameText3: "<div style='top:83px;left:10px;width:280px;font-size:33px;letter-spacing:3px;text-align:center;color:#b8bbd4;font-weight:400'>WAS&nbsp;<strike>$599</strike><div style='color:#fff;font-weight:900;'>NOW $479</div></div>",
+            frameText4: "<div style='top:95px;left:10px;width:280px;font-size:24px;letter-spacing:3px;text-align:center;color:#f8951f;'>LAST CHANCE FOR<div style='color:#fff;'>THE LOWEST PRICE</div><div style='color:#fff;font-size:15px;'>XXXX</div></div>",
+            ctaText: 'BUY NOW',
+            ctaBtnColor: '#f8951f^#fc8901',
+            clickURL: 'https://www.adobe.com/#EpicPass'
+          },
+          feed: [
+            {
+              name: 'Default',
+            }
+          ],
+          staticData: {
+            // ref:'ref.png',
+          },
+          beforeLoad: function(data){
+            var replaceMacro = function(text, data) {
+              var macros = text.match(/\!\{(.*?)\}/g);
+              if(macros) {
+                macros.forEach(function(macro){
+                  var macroText = macro.split('!{').join('').split('}').join('');
+                  for(var key in data) { if(key == macroText) { macroText = data[key]; } }
+                  text = text.split(macro).join(macroText);
+                });
+              }
+              return text;
+            }
+            data.map(function(content){
+              content.ctaBtn = content.ctaBtnColor.split('^')[0];
+              content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
+            });
+            return data;
+          }
+        }, function(data){
+          var adData = data[0], adClickUrl = adData['clickURL'];
+          ad.root.addEventListener("click", function(e) {
+            if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
+          });
+          var loadVideo = function(video, path, flag) {
+            if(video && path) {
+              if(!flag) {
+                var videoLoadFlag = false
+                video.onplay = function() {
+                  if(!videoLoadFlag) {
+                    this.pause();
+                    this.currentTime = 0;
+                  }
+                  videoLoadFlag = true;
+                }
+                video.src = path;
+              }
+              // setTimeout(function(){ video.src = path; },(flag ? 800 : 500));
+            }
+          }
+          var playVideo = function(video) { if(video) { video.play(); } }
+          loadVideo(ad.layers.frameVideo2.querySelector('video'), adData.frameVideo2);
+          loadVideo(ad.layers.frameVideo3.querySelector('video'), adData.frameVideo3);
+          var imageColorOverlay = function(imageElement, color){
+            color = color ? color : '#20285e';
+            if(imageElement) {
+              imageElement.defaultImage = imageElement.src;
+              var image = new Image();
+              image.crossOrigin = 'Anonymous';
+              image.onload = function() {
+                var canvas = document.createElement('canvas');
+                var ctx = canvas.getContext('2d');
+                canvas.width = this.width;
+                canvas.height = this.height;
+                document.body.appendChild(canvas);
+                ctx.fillStyle = color;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.globalCompositeOperation = 'destination-in';
+                ctx.drawImage(this, 0, 0);
+                var imageURL = canvas.toDataURL();
+                imageElement.newImage = imageURL;
+                document.body.removeChild(canvas);
+              }
+              image.src = imageElement.src;
+            }
+          }
+          var changeImage = function(imageElement, selection) {
+            if(imageElement && 'newImage' in  imageElement) {
+              imageElement.src = selection && selection.toLowerCase() === 'default' ? imageElement.defaultImage : imageElement.newImage;
+            }
+          }
+          imageColorOverlay(ad.root.querySelector('#logoImage img'));
+          var addTypingContent = function(element) {
+            if(element) {
+              var htmlTags = element.innerHTML.match(/\<.*?\>/g);
+              htmlTags = htmlTags && htmlTags.length ? htmlTags : [];
+              var text = element.innerHTML.split(/\<.*?\>/g);
+              var textCount = 0, limitFlag = true;
+              text = text.map(function(subText){
+                return subText.split(' ').map(function(character){ return character == '' ? '' : '<t><v>' + character + '</v></t>'; }).join(' ');
+              });
+              var longList = text, shortList = htmlTags, temp;
+              if(longList.length < shortList) { temp = longList; longList = shortList; shortList = temp; }
+              shortList.push('');
+              element.innerHTML = longList.map(function(text1, i) { return text1 + shortList[i]; }).join(' ');
+            }
+          }
+          var removeTypingContent = function(element) {
+            if(element) {
+              var ts = element.querySelectorAll('t');
+              ts.forEach(function(t){ t.removeAttribute('style') });
+              var vs = element.querySelectorAll('v');
+              vs.forEach(function(v){ v.removeAttribute('style') });
+              element.innerHTML = element.innerHTML.split(/\<t\>\<v\>/g).join('').split(/\<t\>\<v style=""\>/g).join('').split(/\<\/v\>\<\/t\>/g).join('');
+            }
+          }
+          addTypingContent(ad.root.querySelector('#frameText2'));
+          addTypingContent(ad.root.querySelector('#frameText3'));
+          addTypingContent(ad.root.querySelector('#frameText4'));
+          var strike = ad.root.querySelector('#frameText3 strike');
+          if(strike) {
+            strike.children[0].children[0].innerHTML = '<strike>' + strike.children[0].children[0].innerHTML + '</strike>';
+            strike.outerHTML = strike.children[0].outerHTML;
+          }
+          if(adData.styleProperties && adData.styleProperties.toLowerCase() != 'na') {
+            try {
+              eval('var styleProperties = ' + adData.styleProperties);
+              if(styleProperties && typeof styleProperties == 'object')
+              for(var i in styleProperties) {
+                gsap.set(i, styleProperties[i]);
+              }
+            } catch(e) {  }
+          }
+          textUpdate();
+          gsap.set('#cta, #frameVideo2, #logoImage, #frameText2, #frameVideo3, #frameText3, #frameText4', {autoAlpha:0});
+          gsap.set('#introLogoImage', {css: {transformOrigin: '128px 100px'}});
+          gsap.set('#logoImage, #cta', {y: 20});
+          gsap.set('#frameText2 v, #frameText3 v, #frameText4 v', {y: '100%'});
+          var animateFrame4 = function() {
+            changeImage(ad.root.querySelector('#logoImage img'), 'default');
+            gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+            .to('#frameVideo3', {autoAlpha: 0.1, duration: 0})
+            .to('#frameText4, #frameText4 v', {x:0, y:0, autoAlpha: 1, duration: 0.5, onComplete: removeTypingContent, onCompleteParams: [ad.root.querySelector('#frameText4')]})
+          }
+          var animateFrame3 = function() {
+            changeImage(ad.root.querySelector('#logoImage img'), 'default');
+            gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+            .to('#frameVideo3', {autoAlpha: 0.1, duration: 0})
+            .to('#frameText3, #frameText3 v', {x:0, y:0, autoAlpha: 1, duration: 0.5, onComplete: removeTypingContent, onCompleteParams: [ad.root.querySelector('#frameText3')]})
+            .to('#frameText3', {autoAlpha: 0, delay: 2, duration: 0.2, onComplete: changeImage, onCompleteParams:[ad.root.querySelector('#logoImage img')]})
+            .to('#frameVideo3', {autoAlpha: 1, duration: 0.1, onStart:playVideo, onStartParams: [ad.root.querySelector('#frameVideo3 video')]})
+            .to('#frameVideo3', {autoAlpha: 0, delay: 2, onComplete: animateFrame4})
+          }
+          var animateFrame2 = function() {
+            gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+            .to('#frameVideo2', {autoAlpha: 0.1, duration: 0})
+            .to('#logoImage', {x:0, y:0, autoAlpha: 1})
+            .to('#frameText2, #frameText2 v', {x:0, y:0, autoAlpha: 1, duration: 0.5, onComplete: removeTypingContent, onCompleteParams: [ad.root.querySelector('#frameText2')]})
+            .to('#cta', {x:0, y:0, autoAlpha: 1})
+            .to('#frameText2', {autoAlpha: 0, delay: 1.5, duration: 0.2, onComplete: changeImage, onCompleteParams:[ad.root.querySelector('#logoImage img')]})
+            .to('#frameVideo2', {autoAlpha: 1, duration: 0.1, onStart:playVideo, onStartParams: [ad.root.querySelector('#frameVideo2 video')]})
+            .to('#frameVideo2', {autoAlpha: 0, delay: 2, onComplete: (adData.frameText3.toLowerCase() != 'na' ? animateFrame3 : animateFrame4)})
+          }
+          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+          .to('#introLogoImage', {x:70, scale: 5, ease: 'Power2.easeIn', duration:1, delay: 1})
+          .to('#introLogoImage', {x:100, scale: 7, autoAlpha: 0, duration:0.2, onComplete: animateFrame2},'-=0.1');
+        });
+      }, 1000);
+    </script>
+  </body>
+</html>
