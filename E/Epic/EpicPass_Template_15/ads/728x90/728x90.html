@@ -50,8 +50,8 @@
     -->
     <style media="screen" data-dynamic="style">
       #ad {
-        width: 300px;
-        height: 250px;
+        width: 728px;
+        height: 90px;
         font-family: brandon-grotesque,Helvetica,sans-serif;
         font-weight: 900;
         background-color: #20285e;
@@ -107,14 +107,16 @@
       <div id="cta" dir="auto" class="text"
         data-text="ctaText"
         data-style="text-align:center;"
-        style="top: 209px;
-          left: 100px;
-          width: 100px;
+        style="top: 32px;
+          right: 0;
+          width: 107px;
           height: 26px;
           font-size: 14px;
           font-weight: 700;
+          letter-spacing: 0.1em;
           color: #001e62;
-          border-radius:20px;
+          border-top-left-radius: 20px;
+          border-bottom-left-radius: 20px;
           box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);">
       </div>
 
@@ -128,21 +130,21 @@
     <script type="text/javascript">
       var ad = new Ad({
         root: document.querySelector('#ad'),
-        width: 300,
-        height: 250,
+        width: 728,
+        height: 90,
         borderWidth: 1,
         borderColor: '#000'
       });
       setTimeout(function() {
         ad.contentSetup({
           cam: {
-            introLogoImage: 'assets/300x250_Epic_Logo.png',
-            frameVideo2: 'assets/300x250_BR_Cohen.mp4',
-            logoImage: 'assets/300x250_Northeast_Orange.png',
-            frameText2: "<div style='top:95px;left:10px;width:280px;font-size:24px;letter-spacing:3px;text-align:center;color:#f8951f;'>PASS PRICES<div style='color:#fff;'>REDUCED 20%</div></div>",
-            frameVideo3: 'assets/300x250_BR_Dodds.mp4',
-            frameText3: "<div style='top:83px;left:10px;width:280px;font-size:33px;letter-spacing:3px;text-align:center;color:#b8bbd4;font-weight:400'>WAS&nbsp;<strike>$599</strike><div style='color:#fff;font-weight:900;'>NOW $479</div></div>",
-            frameText4: "<div style='top:95px;left:10px;width:280px;font-size:24px;letter-spacing:3px;text-align:center;color:#f8951f;'>LAST CHANCE FOR<div style='color:#fff;'>THE LOWEST PRICE</div><div style='color:#fff;font-size:15px;'>XXXX</div></div>",
+            introLogoImage: 'assets/728x90_Epic_Logo.png',
+            logoImage: 'assets/728x90_Local_Pass_Orange.png',
+            frameVideo2: 'assets/728x90_BR_Cohen.mp4',
+            frameText2: "<div style='top: 20px;left: 20px;width:280px;font-size: 26px;letter-spacing: 0.15em;line-height: 1;color:#f8951f;'>PASS PRICES<div style='color:#fff;'>REDUCED 20%</div></div>",
+            frameVideo3: 'assets/728x90_BR_Dodds.mp4',
+            frameText3: "<div style='top: 20px;left: 20px;width:280px;font-size: 26px;letter-spacing: 0.15em;line-height: 1;color:#b8bbd4;font-weight:400;'>WAS&nbsp;<strike>$599</strike><div style='color:#fff;font-weight:900;'>NOW $479</div></div>",
+            frameText4: "<div style='top: 11px;left: 10px;width: 310px;font-size: 26px;letter-spacing: 0.15em;line-height: 1;text-align:center;color:#f8951f;'>LAST CHANCE FOR<div style='color:#fff;'>THE LOWEST PRICE</div><div style='color:#fff;font-size: 45%;margin-top: 4px;'>XXXX</div></div>",
             ctaText: 'BUY NOW',
             ctaBtnColor: '#f8951f^#fc8901',
             clickURL: 'https://www.adobe.com/#EpicPass'
@@ -269,21 +271,21 @@
           }
           textUpdate();
           gsap.set('#cta, #frameVideo2, #logoImage, #frameText2, #frameVideo3, #frameText3, #frameText4', {autoAlpha:0});
-          gsap.set('#introLogoImage', {css: {transformOrigin: '128px 100px'}});
-          gsap.set('#logoImage, #cta', {y: 20});
+          gsap.set('#logoImage', {y: 20});
+          gsap.set('#cta', {x: 20});
           gsap.set('#frameText2 v, #frameText3 v, #frameText4 v', {y: '100%'});
           var animateFrame4 = function() {
             changeImage(ad.root.querySelector('#logoImage img'), 'default');
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
             .to('#frameVideo3', {autoAlpha: 0.1, duration: 0})
-            .to('#frameText4, #frameText4 v', {x:0, y:0, autoAlpha: 1, duration: 0.5, onComplete: removeTypingContent, onCompleteParams: [ad.root.querySelector('#frameText4')]})
+            .to('#frameText4, #frameText4 v, #logoImage', {x:0, y:0, autoAlpha: 1, duration: 0.5, onComplete: removeTypingContent, onCompleteParams: [ad.root.querySelector('#frameText4')]})
           }
           var animateFrame3 = function() {
             changeImage(ad.root.querySelector('#logoImage img'), 'default');
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
             .to('#frameVideo3', {autoAlpha: 0.1, duration: 0})
-            .to('#frameText3, #frameText3 v', {x:0, y:0, autoAlpha: 1, duration: 0.5, onComplete: removeTypingContent, onCompleteParams: [ad.root.querySelector('#frameText3')]})
-            .to('#frameText3', {autoAlpha: 0, delay: 2, duration: 0.2, onComplete: changeImage, onCompleteParams:[ad.root.querySelector('#logoImage img')]})
+            .to('#frameText3, #frameText3 v, #logoImage', {x:0, y:0, autoAlpha: 1, duration: 0.5, onComplete: removeTypingContent, onCompleteParams: [ad.root.querySelector('#frameText3')]})
+            .to('#frameText3, #logoImage', {autoAlpha: 0, delay: 2, duration: 0.2})
             .to('#frameVideo3', {autoAlpha: 1, duration: 0.1, onStart:playVideo, onStartParams: [ad.root.querySelector('#frameVideo3 video')]})
             .to('#frameVideo3', {autoAlpha: 0, delay: 2, onComplete: animateFrame4})
           }
@@ -293,13 +295,13 @@
             .to('#logoImage', {x:0, y:0, autoAlpha: 1})
             .to('#frameText2, #frameText2 v', {x:0, y:0, autoAlpha: 1, duration: 0.5, onComplete: removeTypingContent, onCompleteParams: [ad.root.querySelector('#frameText2')]})
             .to('#cta', {x:0, y:0, autoAlpha: 1})
-            .to('#frameText2', {autoAlpha: 0, delay: 1.5, duration: 0.2, onComplete: changeImage, onCompleteParams:[ad.root.querySelector('#logoImage img')]})
+            .to('#frameText2, #logoImage', {autoAlpha: 0, delay: 1.5, duration: 0.2})
             .to('#frameVideo2', {autoAlpha: 1, duration: 0.1, onStart:playVideo, onStartParams: [ad.root.querySelector('#frameVideo2 video')]})
             .to('#frameVideo2', {autoAlpha: 0, delay: 2, onComplete: (adData.frameText3.toLowerCase() != 'na' ? animateFrame3 : animateFrame4)})
           }
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#introLogoImage', {x:70, scale: 5, ease: 'Power2.easeIn', duration:1, delay: 1})
-          .to('#introLogoImage', {x:100, scale: 7, autoAlpha: 0, duration:0.2, onComplete: animateFrame2},'-=0.1');
+          .to('#introLogoImage', {scale: 5, ease: 'Power2.easeIn', duration:1, delay: 1})
+          .to('#introLogoImage', {scale: 7, autoAlpha: 0, duration:0.2, onComplete: animateFrame2},'-=0.1');
         });
       }, 1000);
     </script>

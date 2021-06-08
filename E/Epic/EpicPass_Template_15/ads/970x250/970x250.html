@@ -50,7 +50,7 @@
     -->
     <style media="screen" data-dynamic="style">
       #ad {
-        width: 300px;
+        width: 970px;
         height: 250px;
         font-family: brandon-grotesque,Helvetica,sans-serif;
         font-weight: 900;
@@ -107,12 +107,13 @@
       <div id="cta" dir="auto" class="text"
         data-text="ctaText"
         data-style="text-align:center;"
-        style="top: 209px;
-          left: 100px;
-          width: 100px;
-          height: 26px;
-          font-size: 14px;
+        style="top: 169px;
+          left: 47px;
+          width: 144px;
+          height: 34px;
+          font-size: 17px;
           font-weight: 700;
+          letter-spacing: 0.18em;
           color: #001e62;
           border-radius:20px;
           box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);">
@@ -128,7 +129,7 @@
     <script type="text/javascript">
       var ad = new Ad({
         root: document.querySelector('#ad'),
-        width: 300,
+        width: 970,
         height: 250,
         borderWidth: 1,
         borderColor: '#000'
@@ -136,13 +137,13 @@
       setTimeout(function() {
         ad.contentSetup({
           cam: {
-            introLogoImage: 'assets/300x250_Epic_Logo.png',
-            frameVideo2: 'assets/300x250_BR_Cohen.mp4',
-            logoImage: 'assets/300x250_Northeast_Orange.png',
-            frameText2: "<div style='top:95px;left:10px;width:280px;font-size:24px;letter-spacing:3px;text-align:center;color:#f8951f;'>PASS PRICES<div style='color:#fff;'>REDUCED 20%</div></div>",
-            frameVideo3: 'assets/300x250_BR_Dodds.mp4',
-            frameText3: "<div style='top:83px;left:10px;width:280px;font-size:33px;letter-spacing:3px;text-align:center;color:#b8bbd4;font-weight:400'>WAS&nbsp;<strike>$599</strike><div style='color:#fff;font-weight:900;'>NOW $479</div></div>",
-            frameText4: "<div style='top:95px;left:10px;width:280px;font-size:24px;letter-spacing:3px;text-align:center;color:#f8951f;'>LAST CHANCE FOR<div style='color:#fff;'>THE LOWEST PRICE</div><div style='color:#fff;font-size:15px;'>XXXX</div></div>",
+            introLogoImage: 'assets/970x250_Epic_Logo.png',
+            logoImage: 'assets/970x250_Local_Pass_Orange.png',
+            frameVideo2: 'assets/970x250_BR_Cohen.mp4',
+            frameText2: "<div style='top: 68px;left: 413px;width: 480px;font-size: 41px;letter-spacing: 0.15em;line-height: 1.45;text-align:center;color:#f8951f;'>PASS PRICES<div style='color:#fff;'>REDUCED 20%</div></div>",
+            frameVideo3: 'assets/970x250_BR_Dodds.mp4',
+            frameText3: "<div style='top: 38px;left: 390px;width: 450px;font-size: 62px;letter-spacing: 0.15em;line-height: 1.4;text-align:center;color:#b8bbd4;font-weight:400;'>WAS&nbsp;<strike>$599</strike><div style='color:#fff;font-weight:900;'>NOW $479</div></div>",
+            frameText4: "<div style='top: 50px;left: 320px;width: 547px;font-size: 40px;letter-spacing: 0.17em;text-align:center;color:#f8951f;'>LAST CHANCE FOR<div style='color:#fff;'>THE LOWEST PRICE</div><div style='color:#fff;font-size: 53%;margin-top: 10px;'>XXXX</div></div>",
             ctaText: 'BUY NOW',
             ctaBtnColor: '#f8951f^#fc8901',
             clickURL: 'https://www.adobe.com/#EpicPass'
@@ -269,7 +270,6 @@
           }
           textUpdate();
           gsap.set('#cta, #frameVideo2, #logoImage, #frameText2, #frameVideo3, #frameText3, #frameText4', {autoAlpha:0});
-          gsap.set('#introLogoImage', {css: {transformOrigin: '128px 100px'}});
           gsap.set('#logoImage, #cta', {y: 20});
           gsap.set('#frameText2 v, #frameText3 v, #frameText4 v', {y: '100%'});
           var animateFrame4 = function() {
@@ -298,8 +298,8 @@
             .to('#frameVideo2', {autoAlpha: 0, delay: 2, onComplete: (adData.frameText3.toLowerCase() != 'na' ? animateFrame3 : animateFrame4)})
           }
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#introLogoImage', {x:70, scale: 5, ease: 'Power2.easeIn', duration:1, delay: 1})
-          .to('#introLogoImage', {x:100, scale: 7, autoAlpha: 0, duration:0.2, onComplete: animateFrame2},'-=0.1');
+          .to('#introLogoImage', {scale: 5, ease: 'Power2.easeIn', duration:1, delay: 1})
+          .to('#introLogoImage', {scale: 7, autoAlpha: 0, duration:0.2, onComplete: animateFrame2},'-=0.1');
         });
       }, 1000);
     </script>
