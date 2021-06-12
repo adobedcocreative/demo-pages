@@ -54,8 +54,8 @@ function init() {
 	loader.loadManifest(lib.properties.manifest);
 }
 function handleFileLoad(evt, comp) {
-	var images=comp.getImages();	
-	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+	var images=comp.getImages();
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }
 }
 function handleComplete(evt,comp) {
 	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
@@ -67,18 +67,18 @@ function handleComplete(evt,comp) {
 		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
 	}
 	exportRoot = new lib.M365_FY22Q1BTS_USA_728x90_BAN_Editor_EN_NA_Standard_ANI_LEA_NA_2();
-	stage = new lib.Stage(canvas);	
+	stage = new lib.Stage(canvas);
 	//Registers the "tick" event listener.
 	fnStartAnimation = function() {
 		stage.addChild(exportRoot);
 		createjs.Ticker.framerate = lib.properties.fps;
 		createjs.Ticker.addEventListener("tick", stage);
-	}	    
+	}
 	//Code to support hidpi screens and responsive scaling.
-	AdobeAn.makeResponsive(false,'both',false,2,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.makeResponsive(false,'both',false,2,[canvas,anim_container,dom_overlay_container]);
 	AdobeAn.compositionLoaded(lib.properties.id);
 	fnStartAnimation();
-	
+
 	 if (!initReady) {
         startBanner()
     }
@@ -92,7 +92,7 @@ function handleComplete(evt,comp) {
     })
 	initReady=true
 }
-	
+
 var loadFont = false
 	var loadBody = false
 	function loaded(type) {
@@ -100,7 +100,7 @@ var loadFont = false
 		if (type=='body') loadBody=true
 		if (loadFont && loadBody) init()
 	}
-	
+
 	(function() {
 		// Optimization for Repeat Views
 
@@ -135,10 +135,10 @@ var loadFont = false
 <div id="rHit" style="display:block; position:absolute; top:0px; left:706px; width:22px; height:22px; z-index:100000 !important; cursor:pointer; "></div>
 <div id="init" style="background-color:#FFFFFF; position: absolute; display: block; z-index:10; width:100%; height:100%; "></div>
 <div id="animation_container" style="background-color:#0078D4; width:728px; height:90px">
-<canvas id="canvas" width="728" height="90" style="position: absolute; display: block; background-color:#FFFFFF; cursor:pointer;" aria-label="Microsoft 3 6 5. Write with confidence where you write most. More polish in less time. Learn more." role="img"></canvas>			
+<canvas id="canvas" width="728" height="90" style="position: absolute; display: block; background-color:#FFFFFF; cursor:pointer;" aria-label="Microsoft 3 6 5. Write with confidence where you write most. More polish in less time. Learn more." role="img"></canvas>
 		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:728px; height:90px; position: absolute; left: 0px; top: 0px; display: block;">
-		<div style="position: absolute; border: 1px solid black; box-sizing: border-box; background-color:transparent; top: 0; left: 0; width: 100%; bottom: 0;"></div>			
-	
+		<div style="position: absolute; border: 1px solid black; box-sizing: border-box; background-color:transparent; top: 0; left: 0; width: 100%; bottom: 0;"></div>
+
 		</div>
 	</div>
 
@@ -147,38 +147,38 @@ var loadFont = false
 var initDiv = document.getElementById("init");
 var startBanner = function(){
 				var varInt
-								
-				var rHit = document.getElementById("rHit");
-				rHit.addEventListener("mouseover", rHitOver.bind(this));  
-				function rHitOver()  {  exportRoot.mainMC.replay_btn.gotoAndStop(1)	}  
 
-				rHit.addEventListener("mouseout", rHitOut.bind(this));  
-				function rHitOut()   {  exportRoot.mainMC.replay_btn.gotoAndStop(0)	}  
+				var rHit = document.getElementById("rHit");
+				rHit.addEventListener("mouseover", rHitOver.bind(this));
+				function rHitOver()  {  exportRoot.mainMC.replay_btn.gotoAndStop(1)	}
+
+				rHit.addEventListener("mouseout", rHitOut.bind(this));
+				function rHitOut()   {  exportRoot.mainMC.replay_btn.gotoAndStop(0)	}
 
 				var animation_container = document.getElementById("animation_container");
-				animation_container.addEventListener("mouseover", over.bind(this));  
+				animation_container.addEventListener("mouseover", over.bind(this));
 				function over() {
 				exportRoot.mainMC.cta.arrow.gotoAndStop(1);
 					if (exportRoot.shadowReplay == true){
 									 	exportRoot.mainMC.anim_1.finalman.shadow.gotoAndPlay("loop");
 									 	}
-				}  
+				}
 
-				animation_container.addEventListener("mouseout", out.bind(this));  
+				animation_container.addEventListener("mouseout", out.bind(this));
 				function out() {
 						exportRoot.mainMC.cta.arrow.gotoAndStop(0);
-				}  
-				animation_container.addEventListener("click", exitHandler.bind(this));  
+				}
+				animation_container.addEventListener("click", exitHandler.bind(this));
 				function exitHandler() {
 				  // window.open(clickTag);
 				  amoAd.click();
 				}
 				rHit.addEventListener("click", replay.bind(this));
-				
+
 				function replay() {
 					if (exportRoot.isReplay == true){
-             			initDiv.style.visibility='visible'				
-						
+             			initDiv.style.visibility='visible'
+
 						//TweenMax.killAll();
 						stage.removeAllChildren();
 						stage.update();
@@ -194,15 +194,146 @@ var startBanner = function(){
 
                         // Restore the transform
                         context.restore(); //CLEARS THE SPECIFIC CANVAS COMPLETELY FOR NEW DRAWING
-						
+
                         gsap.delayedCall(0.1,init)
 						//TweenMax.delayedCall(0.1,init)
 					}
 				}
-				
+
 
 
 		}
 </script>
-</body>	
+<script type="text/javascript">
+	var amoAd = (function(){
+    var ctaAlignment = function(position){
+      var layers = exportRoot.mainMC;
+      var adWidth = document.querySelector('#animation_container').offsetWidth;
+			var ctaScaleX = layers.cta.scaleX, ctaScaleY = layers.cta.scaleY;
+      var ctaBackgroundColor = layers.cta.children[0].children[0].graphics._fill.style;
+      var yPoints = layers.cta.children[0].children[0].graphics._activeInstructions.map(function(point){ return(point.y) });
+      var yTemp = [];
+      yPoints.forEach(function(y){
+          if(y && (!yTemp.length || !Boolean(Math.abs(yTemp.find(function(z){return y == z}))))) {
+      				yTemp.push(y);
+          }
+      });
+      var ctaHeight = Math.ceil(Math.abs(yTemp[0]) + Math.abs(yTemp[1]));
+      ctaHeight *= ctaScaleY * layers.cta.children[0].scaleY;
+			var xPoints = layers.cta.children[0].children[0].graphics._activeInstructions.map(function(point){ return(point.x) });
+      var xTemp = [];
+      xPoints.forEach(function(x){
+          if(x && (!xTemp.length || !Boolean(Math.abs(xTemp.find(function(z){return x == z}))))) {
+      				xTemp.push(x);
+          }
+      });
+      var ctaCalculatedWidth = Math.ceil(Math.abs(xTemp[0]) + Math.abs(xTemp[1]));
+      ctaCalculatedWidth *= ctaScaleX * layers.cta.children[0].scaleX;
+      var ctaWidth = layers.txtCta.children[0].children[0].getBounds().width + 45;
+      position = position ? position : ((layers.cta.x + layers.cta.regX + ctaCalculatedWidth)  >= adWidth ? 'right' : 'left');
+			if(position == 'left' && (layers.cta.x + layers.cta.regX)/adWidth > 0.05) position = 'center';
+			var resetElement = function(el, flag){ if(el) { if(flag) el.scaleX = el.scaleY = 1; el.regX = 0; el.x = 0; } }
+			var list = [layers.cta, layers.cta.children[0], layers.cta.children[0].children[0], layers.cta.arrow.arrow, layers.cta.arrow.arrow_1, layers.txtCta], list1 = [layers.cta.arrow];
+			list.forEach(function(el) { resetElement(el, true); });
+			list1.forEach(function(el) { resetElement(el); });
+			layers.cta.arrow.arrow.scaleX = layers.cta.arrow.arrow_1.scaleX = ctaScaleX;
+      layers.cta.arrow.arrow.scaleY = layers.cta.arrow.arrow_1.scaleY = ctaScaleY;
+      layers.cta.children[0].children[0].graphics.clear();
+      layers.cta.children[0].children[0].graphics.beginFill(ctaBackgroundColor).drawRect(0, -ctaHeight/2, ctaWidth, ctaHeight);//(0, -15, ctaWidth, 30)
+			if(position == 'center') {
+				layers.cta.x = adWidth/2;
+				layers.cta.regX = ctaWidth/2;
+				layers.txtCta.x = (adWidth - ctaWidth)/2 + 15;
+			} else {
+				layers.cta.x = position == 'right' ? (adWidth - ctaWidth) : 0;
+				layers.txtCta.x = layers.cta.x + 15;
+			}
+			layers.cta.arrow.x = ctaWidth - 20;
+			if('popLeft' in layers.cta) layers.cta.popLeft.x = -15;
+			if('popRight' in layers.cta) layers.cta.popRight.x = ctaWidth + 15;
+		}
+    var iframe = window.frameElement;
+    var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
+    var bannerData = parentWindow.getBannerData();
+    function init() {
+      bannerData.intro1 = eval(bannerData.textField1);
+			bannerData.headline1 = eval(bannerData.textField2);
+      bannerData.ctaText = bannerData.ctaText.replace('<br>', '\n');
+  		var CTAFont = bannerData.ctaText.split('|').length > 1 ? bannerData.ctaText.split('|')[1] : '0';
+  		CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 12.2) + 'px';
+  		bannerData.ctaText = bannerData.ctaText.split('|')[0];
+  		bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,CTAFont,0,0,"50","300", "left"] : '';
+      resizeCTA();
+      fireImpression();
+      window.bannerData = bannerData;
+    }
+    function fireImpression() {
+      if(bannerData.impressionTracker) {
+        var impressionTrackers = bannerData.impressionTracker.split('^');
+        impressionTrackers.forEach(function(url){
+          if(url && url.toLowerCase() != 'na') {
+              (new Image()).src = url;
+          }
+        });
+      }
+    }
+    function resizeCTA() {
+      var layers = exportRoot.mainMC;
+			var yPoints = layers.cta.children[0].children[0].graphics._activeInstructions.map(function(point){ return(point.y) });
+			var yTemp = [];
+			yPoints.forEach(function(y){
+			    if(y && (!yTemp.length || !Boolean(Math.abs(yTemp.find(function(z){return y == z}))))) {
+							yTemp.push(y);
+			    }
+			});
+			var ctaScaleX = layers.cta.scaleX, ctaScaleY = layers.cta.scaleY;
+			var ctaHeight = Math.ceil(Math.abs(yTemp[0]) + Math.abs(yTemp[1]));
+			ctaHeight *= ctaScaleY * layers.cta.children[0].scaleY;
+      var ctaMaxWidth = 180, ctaMaxHeight = ctaHeight;
+      var ctaElement = document.createElement('div');
+      ctaElement.innerHTML = bannerData.ctaText.replace('\n', '<br>');
+      ctaElement.style.display = 'inline-block';
+      ctaElement.style.fontFamily = 'Segoe Pro';
+      var ctaFont = ctaElement.style.fontSize = bannerData.CTA[1];
+      ctaElement.style.lineHeight = 1.2;
+      ctaElement.style.padding = '0px 30px 0px 15px';
+      document.body.appendChild(ctaElement);
+      if(ctaElement.offsetWidth > ctaMaxWidth || ctaElement.offsetHeight > ctaMaxHeight) {
+        for(var i = parseFloat(bannerData.CTA[1]); i > 0; i-=0.1) {
+          ctaElement.style.fontSize = i + 'px';
+          if(ctaElement.offsetWidth <= ctaMaxWidth && ctaElement.offsetHeight <= ctaMaxHeight) { break; }
+        }
+        bannerData.CTA[1] = i + 'px';
+      }
+      document.body.removeChild(ctaElement);
+    }
+    function click(id) {
+      parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl.split('^').length > 1 && id >= 0 ? parentWindow.adClickUrl.split('^')[id] : parentWindow.adClickUrl, parentWindow.layout + '|' + bannerData.ctaText);
+      if(bannerData.clickTracker) {
+        var clickTrackers = bannerData.clickTracker.split('^');
+        clickTrackers.forEach(function(url){
+          if(url && url.toLowerCase() != 'na') {
+              (new Image()).src = url;
+          }
+        });
+      }
+    }
+		function onInteraction(text, id) {
+			var parentWindows = window.parent.parent.window;
+			if (parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
+				try {
+          var productId = ('id' in parentWindow.adData.feedData ? ('|' + parentWindow.adData.feedData.id) : '')
+					parentWindows.amoUtils.onInteraction(parentWindow.layout + '|' + bannerData.ctaText + ' - ' + text + productId, parentWindow.adData.feedData);
+				} catch (e) {}
+			}
+		}
+		return {
+      init: function(){ init(); },
+			click: function(id) { click(id); },
+			ctaAlignment: function(position){ ctaAlignment(position); },
+			onInteraction: function(id) { onInteraction(text, id); }
+		};
+	})();
+</script>
+</body>
 </html>

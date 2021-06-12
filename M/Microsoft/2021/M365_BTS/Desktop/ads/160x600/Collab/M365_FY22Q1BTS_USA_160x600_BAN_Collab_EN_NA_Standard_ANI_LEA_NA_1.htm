@@ -209,6 +209,7 @@ var startBanner = function(){
     var ctaAlignment = function(position){
       var layers = exportRoot.mainMC;
       var adWidth = document.querySelector('#animation_container').offsetWidth;
+			var ctaScaleX = layers.cta.scaleX, ctaScaleY = layers.cta.scaleY;
       var ctaBackgroundColor = layers.cta.children[0].children[0].graphics._fill.style;
       var yPoints = layers.cta.children[0].children[0].graphics._activeInstructions.map(function(point){ return(point.y) });
       var yTemp = [];
@@ -217,11 +218,19 @@ var startBanner = function(){
       				yTemp.push(y);
           }
       });
-      var ctaScaleX = layers.cta.scaleX, ctaScaleY = layers.cta.scaleY;
       var ctaHeight = Math.ceil(Math.abs(yTemp[0]) + Math.abs(yTemp[1]));
       ctaHeight *= ctaScaleY * layers.cta.children[0].scaleY;
+			var xPoints = layers.cta.children[0].children[0].graphics._activeInstructions.map(function(point){ return(point.x) });
+      var xTemp = [];
+      xPoints.forEach(function(x){
+          if(x && (!xTemp.length || !Boolean(Math.abs(xTemp.find(function(z){return x == z}))))) {
+      				xTemp.push(x);
+          }
+      });
+      var ctaCalculatedWidth = Math.ceil(Math.abs(xTemp[0]) + Math.abs(xTemp[1]));
+      ctaCalculatedWidth *= ctaScaleX * layers.cta.children[0].scaleX;
       var ctaWidth = layers.txtCta.children[0].children[0].getBounds().width + 45;
-      position = position ? position : (layers.cta.x > adWidth ? 'right' : 'left');
+      position = position ? position : ((layers.cta.x + layers.cta.regX + ctaCalculatedWidth)  >= adWidth ? 'right' : 'left');
 			if(position == 'left' && (layers.cta.x + layers.cta.regX)/adWidth > 0.05) position = 'center';
 			var resetElement = function(el, flag){ if(el) { if(flag) el.scaleX = el.scaleY = 1; el.regX = 0; el.x = 0; } }
 			var list = [layers.cta, layers.cta.children[0], layers.cta.children[0].children[0], layers.cta.arrow.arrow, layers.cta.arrow.arrow_1, layers.txtCta], list1 = [layers.cta.arrow];
