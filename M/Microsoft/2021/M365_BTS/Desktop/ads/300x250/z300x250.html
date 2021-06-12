@@ -31,11 +31,11 @@
         ];
 
         if(contentD && contentD.length) { contentD.forEach(function(data) { amo.registerContent(data); }); }
-        amo.registerVariation("layout", "CliftonCoffee");
-        amo.registerVariation("textField1", "['<#505050>“Microsoft 365 allows me to|take my office with me.”','17px',150, 89,'19','3 50', 'center']");
-        amo.registerVariation("textField2", "['<#505050>Ed Buston, Director','11.8px',150, 133,'20','3 50', 'center']");
-        amo.registerVariation("textField3", "['<#505050>Stay in touch |on the go','17.4px',15, 47,'19','3 50', 'left']");
-        amo.registerVariation("textField4", "['<#505050>Discover how a |coffee company |used Microsoft 365 |to improve |communication','11.2px',15, 96,'14','3 50', 'left']");
+        amo.registerVariation("layout", "Collab");
+        amo.registerVariation("textField1", "['<#505050>Tools to get|homework done together','17.8px',150,88,'20','350', 'center']");
+        amo.registerVariation("textField2", "['<#737373>Finish group|projects in a flash','30px',150,33,'32','50', 'center']");
+        amo.registerVariation("textField3", "na");
+        amo.registerVariation("textField4", "na");
         amo.registerVariation("textField5", "na");
         amo.registerVariation("ctaText", "Watch now");
         // amo.registerVariation("ctaArrowVisibleFlag", "!{passthroughfield2}");
@@ -106,10 +106,15 @@
         }
         var adUrl = '';
         switch(adData.layout){
-          case 'CliftonCoffee' : adURL = 'CliftonCoffee/M365_FY21Q4SMBCustStories_USA_300x250_BAN_CliftonCoffee_EN_NA_Standard_ANI_WACM_NA_1.htm';break;
-          case 'HouseLilac' : adURL = 'HouseLilac/M365_FY21Q4SMBCustStories_USA_300x250_BAN_HouseLilac_EN_NA_Standard_ANI_WACM_NA_1.htm';break;
-          case 'ThinkUp' : adURL = 'ThinkUp/M365_FY21Q4SMBCustStories_USA_300x250_BAN_ThinkUp_EN_NA_Standard_ANI_WACM_NA_1.htm';break;
-          case 'TonysChoco' : adURL = 'TonysChoco/M365_FY21Q4SMBCustStories_USA_300x250_BAN_TonysChoco_EN_NA_Standard_ANI_WACM_NA_1.htm';break;
+          case 'Carousel' : adURL = 'Carousel/M365_FY22Q1BTS_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_LEA_NA_2.htm';break;
+          case 'Carousel_US' : adURL = 'Carousel_US/M365_FY22Q1BTS_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
+          case 'Collab' : adURL = 'Collab/M365_FY22Q1BTS_USA_300x250_BAN_Collab_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
+          case 'Editor' : adURL = 'Editor/M365_FY22Q1BTS_USA_300x250_BAN_Editor_EN_NA_Standard_ANI_LEA_NA_2.htm';break;
+          case 'Editor_US' : adURL = 'Editor_US/M365_FY22Q1BTS_USA_300x250_BAN_Editor_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
+          case 'Excel' : adURL = 'Excel/M365_FY22Q1BTS_USA_300x250_BAN_Excel_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
+          case 'OD' : adURL = 'OD/M365_FY22Q1BTS_USA_300x250_BAN_OD_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
+          case 'Outlook' : adURL = 'Outlook/M365_FY22Q1BTS_USA_300x250_BAN_Outlook_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
+          case 'PPT' : adURL = 'PPT/M365_FY22Q1BTS_USA_300x250_BAN_PPT_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
         }
         var iframe = document.createElement('iframe');
         iframe.src = adURL;
