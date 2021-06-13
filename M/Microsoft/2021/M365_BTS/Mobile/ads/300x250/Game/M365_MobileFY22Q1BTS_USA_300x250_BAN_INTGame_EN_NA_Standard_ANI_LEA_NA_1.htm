@@ -23,10 +23,11 @@
 
 			body {
 				background-color: #909090;
+				overflow: hidden;
 			}
 		</style>
-		<script>var clickTag = "http://www.google.com";</script>
-		<script src="copy.js"></script>
+		<!-- <script>var clickTag = "http://www.google.com";</script>
+		<script src="copy.js"></script> -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
 		<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
 
@@ -102,10 +103,12 @@
 					// play button
 					exportRoot.mainMC.playBtn.addEventListener('click', function (event) {
 						startGame();
+						amoAd.onInteraction('PLAY');
 					}, false);
 					// cta1 *******************
 					exportRoot.mainMC.cta1.addEventListener('click', function (event) {
-						window.open(clickTag);
+						// window.open(clickTag);
+						amoAd.click();
 					}, false);
 				})
 				initReady = true
@@ -181,7 +184,8 @@
 
 			function exitHandler() {
 				if (exportRoot.isClick == true) {
-					window.open(clickTag);
+					// window.open(clickTag);
+					amoAd.click();
 				}
 			}
 
@@ -210,9 +214,110 @@
 					context.restore(); //CLEARS THE SPECIFIC CANVAS COMPLETELY FOR NEW DRAWING
 
 					gsap.delayedCall(0.1, init)
+					amoAd.onInteraction('PLAY AGAIN');
 				}
 			}
 		}
+	</script>
+	<script type="text/javascript">
+		var amoAd = (function(){
+			var ctaAlignment = function() {
+				var layers = exportRoot.mainMC;
+	      // var adWidth = document.querySelector('#animation_container').offsetWidth;
+				var ctaWidth = layers.playTxt.children[0].children[0].getBounds().width + 30;
+				var width = Math.ceil(ctaWidth/2);
+				layers.playBtn.shape.graphics._activeInstructions.map(function(data){ if('x' in data) { data.x = width * (data.x > 0 ? 1 : (-1)); } return data; });
+				exportRoot.mainMC.cta1.arrow.regY += 1;
+			}
+	    var iframe = window.frameElement;
+	    var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
+	    var bannerData = parentWindow.getBannerData();
+	    function init() {
+	      bannerData.headline1 = eval(bannerData.textField1);
+				bannerData.headline2 = eval(bannerData.textField2);
+				bannerData.replaybtn = addDynamicText(bannerData.textField4,['<#FFFFFF>Play again','14px',0,0,'19','300', 'left',''])
+				bannerData.playTxt = addDynamicText(bannerData.textField3,['<#FFFFFF>PLAY NOW','12px',0,0,'16','300', 'center',''])
+				bannerData.CTA1 = addDynamicText(bannerData.textField5,['<#0E7FE0>Learn more','12px',0,0,'8','300', 'right',''])
+				bannerData.CTA = addDynamicText(bannerData.ctaText,['<#FFFFFF>Learn more','14px',0,0,'19','300', 'right',''])
+	      // resizeCTA();
+	      fireImpression();
+	      window.bannerData = bannerData;
+	    }
+			var addDynamicText = function(value, data){
+				value = value.replace('<br>', '\n');
+	  		var font = value.split('|').length > 1 ? value.split('|')[1] : '0';
+				if(Boolean(parseFloat(font))) data[1] = parseFloat(font) + 'px';
+	  		value = value.split('|')[0];
+				data[0] = data[0].match(/\<.*?\>/g)[0] + value;
+				return data;
+			}
+	    function fireImpression() {
+	      if(bannerData.impressionTracker) {
+	        var impressionTrackers = bannerData.impressionTracker.split('^');
+	        impressionTrackers.forEach(function(url){
+	          if(url && url.toLowerCase() != 'na') {
+	              (new Image()).src = url;
+	          }
+	        });
+	      }
+	    }
+	    function resizeCTA() {
+	      var layers = exportRoot.mainMC;
+				var yPoints = layers.cta.children[0].children[0].graphics._activeInstructions.map(function(point){ return(point.y) });
+				var yTemp = [];
+				yPoints.forEach(function(y){
+				    if(y && (!yTemp.length || !Boolean(Math.abs(yTemp.find(function(z){return y == z}))))) {
+								yTemp.push(y);
+				    }
+				});
+				var ctaScaleX = layers.cta.scaleX, ctaScaleY = layers.cta.scaleY;
+				var ctaHeight = Math.ceil(Math.abs(yTemp[0]) + Math.abs(yTemp[1]));
+				ctaHeight *= ctaScaleY * layers.cta.children[0].scaleY;
+	      var ctaMaxWidth = 180, ctaMaxHeight = ctaHeight;
+	      var ctaElement = document.createElement('div');
+	      ctaElement.innerHTML = bannerData.ctaText.replace('\n', '<br>');
+	      ctaElement.style.display = 'inline-block';
+	      ctaElement.style.fontFamily = 'Segoe Pro';
+	      var ctaFont = ctaElement.style.fontSize = bannerData.CTA[1];
+	      ctaElement.style.lineHeight = 1.2;
+	      ctaElement.style.padding = '0px 30px 0px 15px';
+	      document.body.appendChild(ctaElement);
+	      if(ctaElement.offsetWidth > ctaMaxWidth || ctaElement.offsetHeight > ctaMaxHeight) {
+	        for(var i = parseFloat(bannerData.CTA[1]); i > 0; i-=0.1) {
+	          ctaElement.style.fontSize = i + 'px';
+	          if(ctaElement.offsetWidth <= ctaMaxWidth && ctaElement.offsetHeight <= ctaMaxHeight) { break; }
+	        }
+	        bannerData.CTA[1] = i + 'px';
+	      }
+	      document.body.removeChild(ctaElement);
+	    }
+	    function click(id) {
+	      parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl.split('^').length > 1 && id >= 0 ? parentWindow.adClickUrl.split('^')[id] : parentWindow.adClickUrl, parentWindow.layout + '|' + bannerData.ctaText);
+	      if(bannerData.clickTracker) {
+	        var clickTrackers = bannerData.clickTracker.split('^');
+	        clickTrackers.forEach(function(url){
+	          if(url && url.toLowerCase() != 'na') {
+	              (new Image()).src = url;
+	          }
+	        });
+	      }
+	    }
+			function onInteraction(text, id) {
+				var parentWindows = window.parent.parent.window;
+				if (parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
+					try {
+	          var productId = ('id' in parentWindow.adData.feedData ? ('|' + parentWindow.adData.feedData.id) : '')
+						parentWindows.amoUtils.onInteraction(parentWindow.layout + '|' + bannerData.ctaText + ' - ' + text + productId, parentWindow.adData.feedData);
+					} catch (e) {}
+				}
+			}
+			return {
+	      init: function(){ init(); },
+				click: function(id) { click(id); },
+				ctaAlignment: function(){ ctaAlignment(); },
+				onInteraction: function(text, id) { onInteraction(text, id); }
+			};
+		})();
 	</script>
 	</body>
 </html>
