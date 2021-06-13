@@ -5260,102 +5260,109 @@ if (reversed == null) { reversed = false; }
 				hit1.on("click", function(evt) {
 					if (!exportRoot.animInProgress) {
 						prevSelection = exportRoot.currentSelection;
-						exportRoot.currentSelection = 1;				
+						exportRoot.currentSelection = 1;
+						amoAd.onInteraction('Dot1 Click', exportRoot.currentSelection-1);
 						if (exportRoot.currentSelection != prevSelection){
 							exportRoot.animInProgress=true
 							if(exportRoot.currentSelection > prevSelection) {
 								exportRoot.nextScene();
 							} else {
 								exportRoot.prevScene();
-							}							
+							}
 							exportRoot.gotoNextNav()
 							exportRoot.scribbleAnim()
 						}
 					}
 				});
-				
+
 				hit2.on("click", function(evt) {
 					if (!exportRoot.animInProgress) {
 						prevSelection = exportRoot.currentSelection;
-						exportRoot.currentSelection = 2;				
+						exportRoot.currentSelection = 2;
+						amoAd.onInteraction('Dot2 Click', exportRoot.currentSelection-1);
 						if (exportRoot.currentSelection != prevSelection){
 							exportRoot.animInProgress=true
 							if(exportRoot.currentSelection > prevSelection) {
 								exportRoot.nextScene();
 							} else {
 								exportRoot.prevScene();
-							}								
+							}
 							exportRoot.gotoNextNav()
 							exportRoot.scribbleAnim()
 						}
 					}
 				});
-				
+
 				hit3.on("click", function(evt) {
 					if (!exportRoot.animInProgress) {
 						prevSelection = exportRoot.currentSelection;
-						exportRoot.currentSelection = 3;				
+						exportRoot.currentSelection = 3;
+						amoAd.onInteraction('Dot3 Click', exportRoot.currentSelection-1);
 						if (exportRoot.currentSelection != prevSelection){
 							exportRoot.animInProgress=true
 							if(exportRoot.currentSelection > prevSelection) {
 								exportRoot.nextScene();
 							} else {
 								exportRoot.prevScene();
-							}				
+							}
 							exportRoot.gotoNextNav()
 							exportRoot.scribbleAnim()
 						}
 					}
 				});
-				
+
 				hit4.on("click", function(evt) {
 					if (!exportRoot.animInProgress) {
 						prevSelection = exportRoot.currentSelection;
-						exportRoot.currentSelection = 4;				
+						exportRoot.currentSelection = 4;
+						amoAd.onInteraction('Dot4 Click', exportRoot.currentSelection-1);
 						if (exportRoot.currentSelection != prevSelection){
 							exportRoot.animInProgress=true
 							if(exportRoot.currentSelection > prevSelection) {
 								exportRoot.nextScene();
 							} else {
 								exportRoot.prevScene();
-							}							
+							}
 							exportRoot.gotoNextNav()
 							exportRoot.scribbleAnim()
 						}
 					}
 				});
-				
+
 				hit5.on("click", function(evt) {
 					if (!exportRoot.animInProgress) {
 						prevSelection = exportRoot.currentSelection;
-						exportRoot.currentSelection = 5;				
+						exportRoot.currentSelection = 5;
+						amoAd.onInteraction('Dot5 Click', exportRoot.currentSelection-1);
 						if (exportRoot.currentSelection != prevSelection){
 							exportRoot.animInProgress=true
 							if(exportRoot.currentSelection > prevSelection) {
 								exportRoot.nextScene();
 							} else {
 								exportRoot.prevScene();
-							}							
+							}
 							exportRoot.gotoNextNav()
 							exportRoot.scribbleAnim()
 						}
 					}
 				});
-						
+
 				nxt.on("click", function(evt) {
 					if (!exportRoot.animInProgress) {
 						exportRoot.animInProgress=true
 						exportRoot.getSelectionId("next")
+						amoAd.onInteraction('Next Click', exportRoot.currentSelection-1);
 						exportRoot.gotoNextNav()
 						exportRoot.scribbleAnim()
 						exportRoot.nextScene();
 					}
 				});
-				
+
 				prv.on("click", function(evt) {
 					if (!exportRoot.animInProgress) {
 						exportRoot.animInProgress=true
 						exportRoot.getSelectionId("prev")
+						amoAd.onInteraction('Prev Click', exportRoot.currentSelection-1);
 						exportRoot.gotoNextNav();
 						exportRoot.scribbleAnim()
 						exportRoot.prevScene();
