@@ -5437,12 +5437,12 @@ if (reversed == null) { reversed = false; }
 			this.isSingleFrame = true;
 		}
 		var mc = exportRoot.mainMC
-		
+
 		this.initBanner = function (data) {
-				
+
 			Object.keys = function(obj) {
 				var keys = [];
-		
+
 				for (var i in obj) {
 				  if (obj.hasOwnProperty(i)) {
 					keys.push(i);
@@ -5451,7 +5451,7 @@ if (reversed == null) { reversed = false; }
 				return keys
 			}
 			var keys = Object.keys(data)
-			
+
 				for (var i in keys) {
 					var id = keys[i].substr(0, 4);
 						if (id == "head") {
@@ -5473,19 +5473,19 @@ if (reversed == null) { reversed = false; }
 							stage.update();
 							newWidth = (ctaMC.nominalBounds.width/100)*sclX
 							ctaMC.x -= (newWidth-oldWidth)/2
-							
+
 							var scale = newWidth / ctaMC.nominalBounds.width;
-							
+
 							//popL.x = mc.cta.CTAbg.x
 							//popL.x -= 15
 							popR1.x = mc.cta.CTAbg.x+newWidth
 							popR2.x = mc.cta.CTAbg.x+newWidth
 							popR1.x += 8
 							popR2.x += 8
-							
+
 							mc.cta.x +=data[keys[i]][1]
 							mc.cta.y +=data[keys[i]][2]
-		
+
 						} else if (id == "CTAa") {
 							mc.cta.arrow.visible = data[keys[i]][0]
 							mc.cta.arrow.x += data[keys[i]][1]
@@ -5493,7 +5493,7 @@ if (reversed == null) { reversed = false; }
 						}
 				}
 		}
-		
+
 		this.fillHead = function (txtDetails, aVar) {
 			var text = txtDetails[0]
 			var size = txtDetails[1]
@@ -5502,16 +5502,16 @@ if (reversed == null) { reversed = false; }
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += parseInt(size)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -5528,7 +5528,7 @@ if (reversed == null) { reversed = false; }
 				aVar.push(mc)
 			}
 		}
-		
+
 		this.fillSubHead = function (txtDetails, aVar) {
 			var text = txtDetails[0]
 			var size = txtDetails[1]
@@ -5537,16 +5537,16 @@ if (reversed == null) { reversed = false; }
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += parseInt(size)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -5563,7 +5563,7 @@ if (reversed == null) { reversed = false; }
 				aVar.push(mc)
 			}
 		}
-		
+
 		this.fillSmallPrint = function (txtDetails, aVar) {
 			var text = txtDetails[0]
 			var size = txtDetails[1]
@@ -5572,16 +5572,16 @@ if (reversed == null) { reversed = false; }
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += parseInt(size)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -5598,8 +5598,8 @@ if (reversed == null) { reversed = false; }
 				aVar.push(mc)
 			}
 		}
-		
-		
+
+
 		this.fillCta = function (txtDetails) {
 			var text = txtDetails[0]
 			var size = txtDetails[1]
@@ -5608,17 +5608,17 @@ if (reversed == null) { reversed = false; }
 			var lineSpacing = txtDetails[4]
 			var lineWidth = txtDetails[5]
 			var align = txtDetails[6]
-		
-		
+
+
 			var aSentenceLine = this.getTheSentences(text, size, xOffset, yOffset, lineSpacing, lineWidth, align)
-		
+
 			for (var i = 0; i < aSentenceLine.length; i++) {
 				var mc = new createjs.MovieClip();
 				mc.y = (i * parseInt(lineSpacing))
 				mc.y += yOffset
 				mc.y += (parseInt(size) * 0.90)
 				mc.x += xOffset
-		
+
 				var txtWidth = 0
 				for (var j = 0; j < aSentenceLine[i].length; j++) {
 					var text = new createjs.Text(aSentenceLine[i][j].txt, "normal " + size + " Segoe Pro", aSentenceLine[i][j].color);
@@ -5635,7 +5635,7 @@ if (reversed == null) { reversed = false; }
 				this.mainMC.txtCta.addChild(mc);
 			}
 		}
-		
+
 		this.getTheSentences = function (text, size, xOffset, yOffset, lineSpacing, lineWidth, align) {
 			var sentences = new Array()
 			var aSentenceLine = new Array()
@@ -5643,16 +5643,16 @@ if (reversed == null) { reversed = false; }
 			sentences = aStr.split("|");
 			var lastColor = "#000000"
 			// Figure out the setence lines
-		
+
 			for (var i = 0; i < sentences.length; i++) {
 				var aS = sentences[i].substr(0);
 				var aSplit = new Array()
 				aSplit = aS.split("<");
 				aSplit = aSplit.filter(Boolean)
 				var wholeSentence = new Array()
-		
+
 				for (var j = 0; j < aSplit.length; j++) {
-		
+
 					var checkColor = aSplit[j].indexOf("#")
 					var color = (checkColor == -1) ? lastColor : aSplit[j].substr(0, 7);
 					lastColor = color
@@ -5667,22 +5667,22 @@ if (reversed == null) { reversed = false; }
 			}
 			return aSentenceLine
 		}
-		
+
 		var img1 = mc.screens.img1
-		
+
 		exportRoot.init_img1_x = mc.screens.img1.x;
 		exportRoot.init_img2_x = mc.screens.img2.x;
 		exportRoot.init_img3_x = mc.screens.img3.x;
 		exportRoot.init_img4_x = mc.screens.img4.x;
 		exportRoot.init_img5_x = mc.screens.img5.x;
-		
-		var init_headline_x 
-		
+
+		var init_headline_x
+
 		this.runBanner = function() {
-			
-				var maxNav = 5	
+
+				var maxNav = 5
 				mc.cta.alpha=1
-			
+
 				var nxt = mc.hitNext
 				var prv = mc.hitPrev
 				var hit1 = mc.hit1
@@ -5691,129 +5691,136 @@ if (reversed == null) { reversed = false; }
 				var hit4 = mc.hit4
 				var hit5 = mc.hit5
 				var hit6 = mc.hit6
-			
+
 				var initXpos = 0
 				var initOffset = 325
-					
+
 				var subHeadPos = exportRoot.headline1.x
-			
+
 				var prevSelection = 0
 				exportRoot.currentSelection = 1
-			
+
 				var nav = mc.nav
-			
+
 				hit1.on("click", function(evt) {
 					if (!exportRoot.animInProgress) {
 						prevSelection = exportRoot.currentSelection;
-						exportRoot.currentSelection = 1;				
+						exportRoot.currentSelection = 1;
+						amoAd.onInteraction('Dot1 Click', exportRoot.currentSelection-1);
 						if (exportRoot.currentSelection != prevSelection){
 							exportRoot.animInProgress=true
 							if(exportRoot.currentSelection > prevSelection) {
 								exportRoot.nextScene();
 							} else {
 								exportRoot.prevScene();
-							}							
+							}
 							exportRoot.gotoNextNav()
 							exportRoot.scribbleAnim()
 						}
 					}
 				});
-				
+
 				hit2.on("click", function(evt) {
 					if (!exportRoot.animInProgress) {
 						prevSelection = exportRoot.currentSelection;
-						exportRoot.currentSelection = 2;				
+						exportRoot.currentSelection = 2;
+						amoAd.onInteraction('Dot2 Click', exportRoot.currentSelection-1);
 						if (exportRoot.currentSelection != prevSelection){
 							exportRoot.animInProgress=true
 							if(exportRoot.currentSelection > prevSelection) {
 								exportRoot.nextScene();
 							} else {
 								exportRoot.prevScene();
-							}								
+							}
 							exportRoot.gotoNextNav()
 							exportRoot.scribbleAnim()
 						}
 					}
 				});
-				
+
 				hit3.on("click", function(evt) {
 					if (!exportRoot.animInProgress) {
 						prevSelection = exportRoot.currentSelection;
-						exportRoot.currentSelection = 3;				
+						exportRoot.currentSelection = 3;
+						amoAd.onInteraction('Dot3 Click', exportRoot.currentSelection-1);
 						if (exportRoot.currentSelection != prevSelection){
 							exportRoot.animInProgress=true
 							if(exportRoot.currentSelection > prevSelection) {
 								exportRoot.nextScene();
 							} else {
 								exportRoot.prevScene();
-							}				
+							}
 							exportRoot.gotoNextNav()
 							exportRoot.scribbleAnim()
 						}
 					}
 				});
-				
+
 				hit4.on("click", function(evt) {
 					if (!exportRoot.animInProgress) {
 						prevSelection = exportRoot.currentSelection;
-						exportRoot.currentSelection = 4;				
+						exportRoot.currentSelection = 4;
+						amoAd.onInteraction('Dot4 Click', exportRoot.currentSelection-1);
 						if (exportRoot.currentSelection != prevSelection){
 							exportRoot.animInProgress=true
 							if(exportRoot.currentSelection > prevSelection) {
 								exportRoot.nextScene();
 							} else {
 								exportRoot.prevScene();
-							}							
+							}
 							exportRoot.gotoNextNav()
 							exportRoot.scribbleAnim()
 						}
 					}
 				});
-				
+
 				hit5.on("click", function(evt) {
 					if (!exportRoot.animInProgress) {
 						prevSelection = exportRoot.currentSelection;
-						exportRoot.currentSelection = 5;				
+						exportRoot.currentSelection = 5;
+						amoAd.onInteraction('Dot5 Click', exportRoot.currentSelection-1);
 						if (exportRoot.currentSelection != prevSelection){
 							exportRoot.animInProgress=true
 							if(exportRoot.currentSelection > prevSelection) {
 								exportRoot.nextScene();
 							} else {
 								exportRoot.prevScene();
-							}							
+							}
 							exportRoot.gotoNextNav()
 							exportRoot.scribbleAnim()
 						}
 					}
 				});
-						
+
 				nxt.on("click", function(evt) {
 					if (!exportRoot.animInProgress) {
 						exportRoot.animInProgress=true
 						exportRoot.getSelectionId("next")
+						amoAd.onInteraction('Next Click', exportRoot.currentSelection-1);
 						exportRoot.gotoNextNav()
 						exportRoot.scribbleAnim()
 						exportRoot.nextScene();
 					}
 				});
-				
+
 				prv.on("click", function(evt) {
 					if (!exportRoot.animInProgress) {
 						exportRoot.animInProgress=true
 						exportRoot.getSelectionId("prev")
+						amoAd.onInteraction('Prev Click', exportRoot.currentSelection-1);
 						exportRoot.gotoNextNav();
 						exportRoot.scribbleAnim()
 						exportRoot.prevScene();
 					}
 				});
-				
+
 				exportRoot.gotoNextNav = function() {
 					for (var i=1;i<=maxNav;i++) {
 						if (nav["dot_"+i].currentFrame > 15) nav["dot_"+i].gotoAndPlay("deselected")
 					}
-					nav["dot_"+exportRoot.currentSelection].gotoAndPlay("selected");			
+					nav["dot_"+exportRoot.currentSelection].gotoAndPlay("selected");
 				}
-				
+
 				exportRoot.getSelectionId = function(direction) {
 					prevSelection = exportRoot.currentSelection
 					if (direction == "next") {
@@ -5830,7 +5837,7 @@ if (reversed == null) { reversed = false; }
 						}
 					}
 				}
-				
+
 				exportRoot.subHeadMoveCheck = function() {
 						/*if (exportRoot.currentSelection==3){
 							gsap.delayedCall(0.3,function(){
@@ -5842,7 +5849,7 @@ if (reversed == null) { reversed = false; }
 							})
 						}*/
 				}
-				
+
 				exportRoot.scribbleAnim = function() {
 						if (prevSelection > 0) {
 							mc.scribble["scribble"+prevSelection].gotoAndPlay("out");
@@ -5855,21 +5862,21 @@ if (reversed == null) { reversed = false; }
 						gsap.delayedCall(0.5,function(){
 							mc.scribble["scribble"+exportRoot.currentSelection].gotoAndPlay("in");
 							mc.doodle["doodle"+exportRoot.currentSelection].gotoAndPlay("in");
-							if (exportRoot.currentSelection==1 || exportRoot.currentSelection==2){					
+							if (exportRoot.currentSelection==1 || exportRoot.currentSelection==2){
 								mc.cta["pop"+exportRoot.currentSelection].gotoAndPlay("in");
-								
+
 							}
 						})
 				}
-				
-				
-						
+
+
+
 			exportRoot.tl0 = gsap.timeline({defaults:{ease:Power0.easeNone}});
 			exportRoot.tl0.add("left");
 			exportRoot.tl0.add("mid");
 			exportRoot.tl0.add("right");
 			exportRoot.tl0.pause();
-			
+
 			exportRoot.tl1 = gsap.timeline({defaults:{ease:Power0.easeNone}});
 			exportRoot.tl1.add("right");
 			exportRoot.tl1.from(mc.screens.img1.sub1, 1, { x: "+=80", alpha: 0});
@@ -5879,9 +5886,9 @@ if (reversed == null) { reversed = false; }
 			exportRoot.tl1.to(mc.screens.img1.sub3, 1, { x:  "-=80", alpha: 0});
 			exportRoot.tl1.to(mc.screens.img1.sub2, 1, { x:  "-=140", alpha: 0},"<");
 			exportRoot.tl1.to(mc.screens.img1.sub1, 1, { x:  "-=200", alpha: 0},"<");
-			exportRoot.tl1.add("left");	
+			exportRoot.tl1.add("left");
 			exportRoot.tl1.pause();
-			
+
 			exportRoot.tl2 = gsap.timeline({defaults:{ease:Power0.easeNone}});
 			exportRoot.tl2.add("right");
 			exportRoot.tl2.from(mc.screens.img2.sub1, 1, { x: "+=80", alpha: 0});
@@ -5893,7 +5900,7 @@ if (reversed == null) { reversed = false; }
 			exportRoot.tl2.to(mc.screens.img2.sub1, 1, { x:  "-=200", alpha: 0},"<");
 			exportRoot.tl2.add("left");
 			exportRoot.tl2.pause();
-			
+
 			exportRoot.tl3 = gsap.timeline({defaults:{ease:Power0.easeNone}});
 			exportRoot.tl3.add("right");
 			exportRoot.tl3.from(mc.screens.img3.sub1, 1, { x: "+=80", alpha: 0});
@@ -5905,7 +5912,7 @@ if (reversed == null) { reversed = false; }
 			exportRoot.tl3.to(mc.screens.img3.sub1, 1, { x:  "-=200", alpha: 0},"<");
 			exportRoot.tl3.add("left");
 			exportRoot.tl3.pause();
-			
+
 			exportRoot.tl4 = gsap.timeline({defaults:{ease:Power0.easeNone}});
 			exportRoot.tl4.add("right");
 			exportRoot.tl4.from(mc.screens.img4.sub1, 1, { x: "+=80", alpha: 0});
@@ -5917,7 +5924,7 @@ if (reversed == null) { reversed = false; }
 			exportRoot.tl4.to(mc.screens.img4.sub1, 1, { x:  "-=200", alpha: 0},"<");
 			exportRoot.tl4.add("left");
 			exportRoot.tl4.pause();
-			
+
 			exportRoot.tl5 = gsap.timeline({defaults:{ease:Power0.easeNone}});
 			exportRoot.tl5.add("right");
 			exportRoot.tl5.from(mc.screens.img5.sub1, 1, { x: "+=80", alpha: 0});
@@ -5933,49 +5940,49 @@ if (reversed == null) { reversed = false; }
 			exportRoot.tl5.to(mc.screens.img5.sub3, .4, { rotation:"+=10"}, "<+.2");
 			exportRoot.tl5.add("left");
 			exportRoot.tl5.pause();
-			
+
 				exportRoot.tlSubHeadMove = gsap.timeline();
-		
+
 				exportRoot.tlSubHeadMove.add("out");
-				exportRoot.tlSubHeadMove.to(exportRoot.subheadline1, .5, { y: "-=20", ease:Power2.easeInOut});	
+				exportRoot.tlSubHeadMove.to(exportRoot.subheadline1, .5, { y: "-=20", ease:Power2.easeInOut});
 				exportRoot.tlSubHeadMove.add("in");
-				
-				exportRoot.tlSubHeadMove.pause();		
-				
+
+				exportRoot.tlSubHeadMove.pause();
+
 				init_headline_x = exportRoot.headline1[0].x
-				
+
 				exportRoot.nextScene = function() {
 					exportRoot.subHeadMoveCheck(exportRoot.currentSelection);
-								
+
 					exportRoot.tlNext = gsap.timeline();
-					exportRoot.tlNext.to(mc.screens["img"+exportRoot.currentSelection], 0, { x:exportRoot["init_img"+exportRoot.currentSelection+"_x"]+initOffset/6, alpha: 0});		
-					exportRoot.tlNext.to(exportRoot["headline"+exportRoot.currentSelection], 0, { x:init_headline_x+initOffset/3, alpha: 0});		
-					
+					exportRoot.tlNext.to(mc.screens["img"+exportRoot.currentSelection], 0, { x:exportRoot["init_img"+exportRoot.currentSelection+"_x"]+initOffset/6, alpha: 0});
+					exportRoot.tlNext.to(exportRoot["headline"+exportRoot.currentSelection], 0, { x:init_headline_x+initOffset/3, alpha: 0});
+
 					if(prevSelection==0) {prevSelection=5;}
 					exportRoot.tlNext.to(exportRoot["headline"+prevSelection], 0.6, { x:init_headline_x-initOffset/3, alpha: 0, ease:Power2.easeIn, stagger:0.03});
-					exportRoot.tlNext.to(mc.screens["img"+prevSelection], 0.6, { x:exportRoot["init_img"+exportRoot.currentSelection+"_x"]-initOffset/6, alpha: 0, ease:Power2.easeIn, onStart:function(){exportRoot["tl"+prevSelection].tweenFromTo("mid","left", {duration:0.6, ease:Power2.easeIn});}},"<+0.1");			
-						
+					exportRoot.tlNext.to(mc.screens["img"+prevSelection], 0.6, { x:exportRoot["init_img"+exportRoot.currentSelection+"_x"]-initOffset/6, alpha: 0, ease:Power2.easeIn, onStart:function(){exportRoot["tl"+prevSelection].tweenFromTo("mid","left", {duration:0.6, ease:Power2.easeIn});}},"<+0.1");
+
 					exportRoot.tlNext.to(exportRoot["headline"+exportRoot.currentSelection], 0.6, { x:init_headline_x, alpha: 1, ease:Power2.easeOut, stagger:0.03},"<+0.3");
 					exportRoot.tlNext.to(mc.screens["img"+exportRoot.currentSelection], 0.6, { x:exportRoot["init_img"+exportRoot.currentSelection+"_x"], alpha: 1, ease:Power2.easeOut, onStart:function(){exportRoot["tl"+exportRoot.currentSelection].tweenFromTo("right","mid", {duration:0.6, ease:Power2.easeOut});}, onComplete:function(){exportRoot.animInProgress=false;}},"<+0.2");
 				}
-				
+
 				exportRoot.prevScene = function() {
 					exportRoot.subHeadMoveCheck(exportRoot.currentSelection);
-					
+
 					exportRoot.tlBack = gsap.timeline();
-					exportRoot.tlBack.to(mc.screens["img"+exportRoot.currentSelection], 0, { x:exportRoot["init_img"+exportRoot.currentSelection+"_x"]-initOffset/6, alpha: 0});		
-					exportRoot.tlBack.to(exportRoot["headline"+exportRoot.currentSelection], 0, { x:init_headline_x-initOffset/3, alpha: 0});		
-					
-					exportRoot.tlBack.to(mc.screens["img"+prevSelection], 0.6, { x:exportRoot["init_img"+exportRoot.currentSelection+"_x"]+initOffset/6, alpha: 0, ease:Power2.easeIn, onStart:function(){exportRoot["tl"+prevSelection].tweenFromTo("mid","right", {duration:0.6, ease:Power2.easeIn});}});			
+					exportRoot.tlBack.to(mc.screens["img"+exportRoot.currentSelection], 0, { x:exportRoot["init_img"+exportRoot.currentSelection+"_x"]-initOffset/6, alpha: 0});
+					exportRoot.tlBack.to(exportRoot["headline"+exportRoot.currentSelection], 0, { x:init_headline_x-initOffset/3, alpha: 0});
+
+					exportRoot.tlBack.to(mc.screens["img"+prevSelection], 0.6, { x:exportRoot["init_img"+exportRoot.currentSelection+"_x"]+initOffset/6, alpha: 0, ease:Power2.easeIn, onStart:function(){exportRoot["tl"+prevSelection].tweenFromTo("mid","right", {duration:0.6, ease:Power2.easeIn});}});
 					exportRoot.tlBack.to(exportRoot["headline"+prevSelection], 0.6, { x:init_headline_x+initOffset/3, alpha: 0, ease:Power2.easeIn, stagger:0.03},"<+0.1");
-						
+
 					exportRoot.tlBack.to(mc.screens["img"+exportRoot.currentSelection], 0.6, { x:exportRoot["init_img"+exportRoot.currentSelection+"_x"], alpha: 1, ease:Power2.easeOut, onStart:function(){exportRoot["tl"+exportRoot.currentSelection].tweenFromTo("left","mid", {duration:0.6, ease:Power2.easeOut});}, onComplete:function(){exportRoot.animInProgress=false}},"<+0.3");
 					exportRoot.tlBack.to(exportRoot["headline"+exportRoot.currentSelection], 0.6, { x:init_headline_x, alpha: 1, ease:Power2.easeOut, stagger:0.03},"<+0.2");
-		
+
 				}
-				
+
 				exportRoot.animStart = function() {
-					exportRoot.tlText = gsap.timeline();			
+					exportRoot.tlText = gsap.timeline();
 					exportRoot.tlText.to([exportRoot.headline1,exportRoot.headline2,exportRoot.headline3,exportRoot.headline4,exportRoot.headline5,mc.screens.img1,mc.screens.img2,mc.screens.img3,mc.screens.img4,mc.screens.img5], 0, { alpha: 0, onStart:function(){exportRoot.nextScene(), exportRoot.gotoNextNav();}});
 					exportRoot.tlText.to(exportRoot.subheadline1, 0, {x:"+=150", alpha: 0});
 					exportRoot.tlText.to(exportRoot.subheadline1, .8, { x: "-=150", alpha: 1, ease:Power4.easeOut, stagger:0.05},">+.45");
@@ -5983,9 +5990,9 @@ if (reversed == null) { reversed = false; }
 					exportRoot.tlText.from([mc.cta,mc.txtCta], { duration: 0.8, x: "-=200", ease:Power4.easeOut, onStart:function(){mc.scribble.scribble1.play(), mc.doodle.doodle1.play(), mc.cta.pop1.gotoAndPlay("in");}}, ">-0.6");
 					//exportRoot.tlText.pause();
 				}
-					
+
 				mc.logo_intro.gotoAndPlay(1);
-				
+
 		}
 	}
 
@@ -6069,41 +6076,41 @@ an.getComposition = function(id) {
 }
 
 
-an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {		
-	var lastW, lastH, lastS=1;		
-	window.addEventListener('resize', resizeCanvas);		
-	resizeCanvas();		
-	function resizeCanvas() {			
-		var w = lib.properties.width, h = lib.properties.height;			
-		var iw = window.innerWidth, ih=window.innerHeight;			
-		var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;			
-		if(isResp) {                
-			if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
-				sRatio = lastS;                
-			}				
-			else if(!isScale) {					
-				if(iw<w || ih<h)						
-					sRatio = Math.min(xRatio, yRatio);				
-			}				
-			else if(scaleType==1) {					
-				sRatio = Math.min(xRatio, yRatio);				
-			}				
-			else if(scaleType==2) {					
-				sRatio = Math.max(xRatio, yRatio);				
-			}			
+an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {
+	var lastW, lastH, lastS=1;
+	window.addEventListener('resize', resizeCanvas);
+	resizeCanvas();
+	function resizeCanvas() {
+		var w = lib.properties.width, h = lib.properties.height;
+		var iw = window.innerWidth, ih=window.innerHeight;
+		var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;
+		if(isResp) {
+			if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {
+				sRatio = lastS;
+			}
+			else if(!isScale) {
+				if(iw<w || ih<h)
+					sRatio = Math.min(xRatio, yRatio);
+			}
+			else if(scaleType==1) {
+				sRatio = Math.min(xRatio, yRatio);
+			}
+			else if(scaleType==2) {
+				sRatio = Math.max(xRatio, yRatio);
+			}
 		}
-		domContainers[0].width = w * pRatio * sRatio;			
+		domContainers[0].width = w * pRatio * sRatio;
 		domContainers[0].height = h * pRatio * sRatio;
-		domContainers.forEach(function(container) {				
-			container.style.width = w * sRatio + 'px';				
-			container.style.height = h * sRatio + 'px';			
+		domContainers.forEach(function(container) {
+			container.style.width = w * sRatio + 'px';
+			container.style.height = h * sRatio + 'px';
 		});
-		stage.scaleX = pRatio*sRatio;			
+		stage.scaleX = pRatio*sRatio;
 		stage.scaleY = pRatio*sRatio;
-		lastW = iw; lastH = ih; lastS = sRatio;            
-		stage.tickOnUpdate = false;            
-		stage.update();            
-		stage.tickOnUpdate = true;		
+		lastW = iw; lastH = ih; lastS = sRatio;
+		stage.tickOnUpdate = false;
+		stage.update();
+		stage.tickOnUpdate = true;
 	}
 }
 an.handleSoundStreamOnTick = function(event) {
