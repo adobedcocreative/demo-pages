@@ -227,6 +227,7 @@ function drag(myObject, tWidth, tHeight, eWidth, eHeight, tlimitY, tbagY) {
 
     mc.trackObject.addEventListener( 'mousedown', function( event ){
         event.nativeEvent.preventDefault();
+        amoAd.onInteraction('BACKPACK');
     }, false );
 
     stage.mouseMoveOutside = false;
