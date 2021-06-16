@@ -192,11 +192,11 @@ amo.registerAttribute("frameText31", "TEXT", "<div style='top: 38px;left: 20px;w
 amo.registerAttribute("frameText32", "TEXT", "<div class='AlticeRegular' style='top: 170px;left: 27px;font-size: 8.6px;line-height: 1.15;'>Free mo. Internet covers offer price<br>& Altice fees. Gov’t taxes & fees apply.<br>Click for add’l restrictions & details.</div>");
 amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText41", "TEXT", "<div style='top: 48px;left: 27px;width: 110px;font-size: 24px;line-height: 1;'>Get <div class='HBOMax' style='height: 25px;'></div> included on us!</div>");
-amo.registerAttribute("frameText42", "TEXT", "<div class='AlticeRegular' style='top: 150px;left: 159px;width: 120px;font-size: 9px;line-height: 1.15;text-align: center;'>Stream Wonder Woman 1984 on HBO Max.</div>");
-amo.registerAttribute("frameText43", "TEXT", "<div class='AlticeRegular' style='top: 174px;left: 29px;font-size: 11px;line-height: 1.05;'>Get 3 months included,<br>then only $14.99/mo.</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div class='AlticeRegular' style='top: 174px;left: 29px;font-size: 11px;line-height: 1.05;'>Get 3 months included,<br>then only $14.99/mo.</div>");
+amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText51", "TEXT", "<div style='top: 19px;left: 30px;font-size: 20.6px;line-height: 1;color:#fff;'>300 Mbps<br>Internet</div>");
 amo.registerAttribute("frameText52", "TEXT", "<div style='top: 63px;left: 23px;width: 160px;line-height: 1;color:#fff;'><font style='font-size: 64px;letter-spacing: -0.5px;padding-right: 2px;line-height: 0.92;'>$35</font><font style='margin-left: 1px;font-size: 11px;display: inline-block;vertical-align: 25px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 7px 0 0 3px;font-size: 8.6px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
-amo.registerAttribute("frameText53", "TEXT", "<div style='top: 157px;left: 24px;width: 360px;transform: scale(0.8);transform-origin: top left;color:#fff;'><div class='bulletedText'>FREE Internet for 1 mo.</div><div class='bulletedText'>HBO Max™ included on us!<div style='margin-top: 1px;font-size: 63%;'>3 mos. included, then only $14.99/mo.</div></div></div>");
+amo.registerAttribute("frameText53", "TEXT", "<div style='top: 157px;left: 24px;width: 360px;transform: scale(0.8);transform-origin: top left;color:#fff;'><div class='bulletedText'>FREE Internet for 1 mo.</div><div class='bulletedText'>HBO Max™ included on us!<div class='AlticeRegular' style='margin-top: 1px;font-size: 63%;'>3 mos. included, then only $14.99/mo.</div></div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -444,7 +444,8 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 157px;left: 24px;
         }
         var generalFrameAnimation1 = function(frame){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameText'+frame+'1,#frameText'+frame+'2, #frameImage'+frame + '1, #frameImage'+frame, {x:0,y:0})
+          .to('#frameText'+frame+'1, #frameImage'+frame + '1, #frameImage'+frame, {x:0,y:0})
+          .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
           .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
         }
         var generalLeftFrameAnimation = function(frame){
@@ -478,7 +479,6 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 157px;left: 24px;
         var animateFrame4 = function(flag){
           var frameId = 4;
           ad.layers.cta.classList.remove('ctaWhite');
-          gsap.set('#frameText' + frameId + '2', {x:'100%'});
           gsap.set('#frameBackground', {display: 'block'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation1, onCompleteParams:[4]})
