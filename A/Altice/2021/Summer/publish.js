@@ -41,7 +41,7 @@ files.forEach(function(file){
             fs.readFile(creativesLocation + creative, 'utf8', function(err, data) {
                 // console.log(data);
                 var obj = {};
-                if(data.indexOf('amo.registerAttribute("frameText1"') != -1 || data.indexOf('amo.registerAttribute("frameImage1"') != -1) {
+                if(data.indexOf('amo.registerAttribute("frameText1"') != -1 || data.indexOf('amo.registerAttribute("frameText11"') != -1 || data.indexOf('amo.registerAttribute("frameImage1"') != -1) {
                   // console.log('frame1 exist');
                   obj['frame1'] = creativeFolder + creative.split('.').join('_frame1.');
                   var htmlContent = data;
