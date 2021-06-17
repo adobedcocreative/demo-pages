@@ -446,7 +446,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 157px;left: 24px;
         }
         var animateFrame2 = function(flag){
           var frameId = 2;
-          ad.layers.cta.classList.add('ctaWhite');
+          ad.layers.cta.classList.remove('ctaWhite');
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[2]})
           .to('#frameImage'+frameId+',#frameImage'+frameId+'1, div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}));
