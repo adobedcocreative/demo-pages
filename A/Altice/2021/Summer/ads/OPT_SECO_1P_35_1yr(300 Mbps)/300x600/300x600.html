@@ -440,7 +440,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 306px;width:400px
           gsap.set('#frameBackground', {display: 'block'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation1, onCompleteParams:[4]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame5}));
+          .to('#frameImage'+frameId+', #frameImage'+frameId + '1, div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame5}));
         }
         var animateFrame3 = function(flag){
           var frameId = 3;
