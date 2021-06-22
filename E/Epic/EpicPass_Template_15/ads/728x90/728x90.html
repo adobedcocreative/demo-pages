@@ -89,8 +89,32 @@
       }
       .blue { color: #20285e; }
       .orange { color: #f8951f; }
-      #cta { background-color: !{ctaBtn}; }
-      #cta:hover { background-color: !{ctaBtnHover}; }
+      #cta {
+        background-position: -130px 0;
+        overflow: hidden;
+        -webkit-transition:opacity 0.7s ease-out 2s;
+        transition:opacity 0.7s ease-out 2s;
+        background-color: !{ctaBtn};
+      }
+      #cta::after{
+        content:'';
+        position: absolute;
+        top:0; left:0; right:0; bottom: 0;
+        background: radial-gradient(0 0,circle farthest-side, rgba(255,255,255,0) 90%,rgba(255,255,255,.8) 98%,rgba(255,255,255,0) 100%) no-repeat;
+        background: radial-gradient(circle farthest-side at 0 0, rgba(255,255,255,0) 90%,rgba(255,255,255,.8) 98%,rgba(255,255,255,0) 100%) no-repeat;
+        -webkit-transform: skew(-10deg) scale(2);
+        transform: skew(-10deg) scale(2);
+        -webkit-filter: blur(2px);
+        filter: blur(1px);
+        background-position: inherit;
+      }
+      #cta:hover{
+        background-position: 10px 0;
+        -webkit-transition: background-position ease 1s, opacity 0.7s ease-out 2s;
+        transition: background-position ease 1s, opacity 0.7s ease-out 2s;
+      }
+      /*#cta { background-color: !{ctaBtn}; }
+      #cta:hover { background-color: !{ctaBtnHover}; }*/
     </style>
   </head>
   <body>
