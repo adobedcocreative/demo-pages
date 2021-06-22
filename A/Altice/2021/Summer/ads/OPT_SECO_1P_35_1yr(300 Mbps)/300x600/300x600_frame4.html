@@ -155,7 +155,7 @@ amo.registerAttribute("ctaText","TEXT","Shop now");
 amo.registerAttribute("frameText1", "TEXT", "<div>Northwest, NJ</div>New<br>Optimum deals now available<br>for you!");
 amo.registerAttribute("frameText21", "TEXT", "<div style='top: 112px;left: 29px;font-size: 28px;line-height:1;color: #fff;'>300 Mbps<br>Internet</div>");
 amo.registerAttribute("frameText22", "TEXT", "<div style='top: 164px;left: 20px;width: 280px;color: #fff;line-height: 1;'><font style='font-size: 117px;letter-spacing: -2px;'>$35</font><font style='margin-left: 5px;font-size: 19px;display: inline-block;vertical-align: 48px;line-height: 1;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 3px 0 0 10px;font-size: 14px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
-amo.registerAttribute("frameText23", "TEXT", "<div class='AlticeRegular' style='top: 492px;left: 82px;font-size:14px;line-height:1.1;'>Wired connection up to 300<br>Mbps. WiFi speeds may vary.</div>");
+amo.registerAttribute("frameText23", "TEXT", "<div class='AlticeRegular' style='top: 499px;left: 122px;font-size: 11px;line-height: 1;'>Wired connection up to 300<br>Mbps. WiFi speeds may vary.</div>");
 amo.registerAttribute("frameText31", "TEXT", "<div style='top: 90px;left: 10px;width: 280px;font-size: 28px;line-height: 1.1;text-align: center;'><div class='coloredText'>FREE Internet</div>for 1 month!</div>");
 amo.registerAttribute("frameText32", "TEXT", "<div class='AlticeRegular' style='top: 488px;left: 22px;font-size: 11px;line-height: 1;'>Free mo. Internet covers offer price<br>& Altice fees. Gov’t taxes & fees apply.<br>Click for add’l restrictions & details.</div>");
 amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
@@ -415,18 +415,10 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 306px;width:400px
           gsap.set('#frameImage'+frame +', #frameText'+frame+'3', {x:0, y:0, autoAlpha:0});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frame, {autoAlpha:1,delay:0.2})
-          .to('#frameText'+frame+'1', {x:0,y:0})
-          .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
-          .to('#frameText'+frame+'3', {delay:-0.2, autoAlpha:1});
-        }
-        var generalLeftFrameAnimation1 = function(frame){
-          gsap.set('#frameImage'+frame, {x:'0'});
-          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .from('#frameImage'+frame, {autoAlpha:0,delay:0.2})
           .to('#frameImage'+frame+'1', {x:0, delay:-0.3})
           .to('#frameText'+frame+'1', {x:0,y:0})
           .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
-          .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
+          .to('#frameText'+frame+'3', {delay:-0.2, autoAlpha:1});
         }
         var animateFrame5 = function(flag){
           var frameId = 5;
@@ -451,7 +443,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 306px;width:400px
         var animateFrame2 = function(flag){
           var frameId = 2;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: generalLeftFrameAnimation1, onCompleteParams:[2]})
+          .to('#frameImage'+frameId, {duration:0, onComplete: generalDisclaimerFrameAnimation, onCompleteParams:[2]})
           .to('#frameImage'+frameId+',#frameImage'+frameId+'1, div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}));
         }
         var animateFrame1 = function(flag){
