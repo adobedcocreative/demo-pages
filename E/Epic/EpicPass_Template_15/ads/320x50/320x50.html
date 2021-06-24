@@ -235,22 +235,26 @@
               var text = element.innerHTML.split(/\<.*?\>/g);
               var textCount = 0, limitFlag = true;
               text = text.map(function(subText){
-                return subText.split(' ').map(function(character){ return character == '' ? '' : '<t><v>' + character + '</v></t>'; }).join(' ');
+                return subText.split(' ').map(function(character){ return character == '' ? '' : '<t><v>' + character + '</v></t>'; }).join('<space></space>');
               });
               var longList = text, shortList = htmlTags, temp;
               if(longList.length < shortList) { temp = longList; longList = shortList; shortList = temp; }
               shortList.push('');
               element.innerHTML = longList.map(function(text1, i) { return text1 + shortList[i]; }).join(' ');
+              var spaces = element.querySelectorAll('space');
+              spaces.forEach(function(space){
+                if(space.previousElementSibling && space.nextElementSibling && space.nextElementSibling.offsetTop == space.previousElementSibling.offsetTop) { space.outerHTML = ' '; }
+              });
             }
           }
           var removeTypingContent = function(element) {
-            // if(element) {
-            //   var ts = element.querySelectorAll('t');
-            //   ts.forEach(function(t){ t.removeAttribute('style') });
-            //   var vs = element.querySelectorAll('v');
-            //   vs.forEach(function(v){ v.removeAttribute('style') });
-            //   element.innerHTML = element.innerHTML.split(/\<t\>\<v\>/g).join('').split(/\<t\>\<v style=""\>/g).join('').split(/\<\/v\>\<\/t\>/g).join('');
-            // }
+            if(element) {
+              var ts = element.querySelectorAll('t');
+              ts.forEach(function(t){ t.removeAttribute('style') });
+              var vs = element.querySelectorAll('v');
+              vs.forEach(function(v){ v.removeAttribute('style') });
+              element.innerHTML = element.innerHTML.split(/\<t\>\<v\>/g).join('').split(/\<t\>\<v style=""\>/g).join('').split(/\<\/v\>\<\/t\>/g).join('').split('<space></space>').join(' ');
+            }
           }
           addTypingContent(ad.root.querySelector('#frameText2'));
           addTypingContent(ad.root.querySelector('#frameText3'));
