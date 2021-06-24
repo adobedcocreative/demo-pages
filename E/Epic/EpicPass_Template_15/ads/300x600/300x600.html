@@ -266,13 +266,13 @@
             }
           }
           var removeTypingContent = function(element) {
-            if(element) {
-              var ts = element.querySelectorAll('t');
-              ts.forEach(function(t){ t.removeAttribute('style') });
-              var vs = element.querySelectorAll('v');
-              vs.forEach(function(v){ v.removeAttribute('style') });
-              element.innerHTML = element.innerHTML.split(/\<t\>\<v\>/g).join('').split(/\<t\>\<v style=""\>/g).join('').split(/\<\/v\>\<\/t\>/g).join('');
-            }
+            // if(element) {
+            //   var ts = element.querySelectorAll('t');
+            //   ts.forEach(function(t){ t.removeAttribute('style') });
+            //   var vs = element.querySelectorAll('v');
+            //   vs.forEach(function(v){ v.removeAttribute('style') });
+            //   element.innerHTML = element.innerHTML.split(/\<t\>\<v\>/g).join('').split(/\<t\>\<v style=""\>/g).join('').split(/\<\/v\>\<\/t\>/g).join('');
+            // }
           }
           addTypingContent(ad.root.querySelector('#frameText2'));
           addTypingContent(ad.root.querySelector('#frameText3'));
