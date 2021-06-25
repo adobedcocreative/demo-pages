@@ -75,6 +75,7 @@ function handleComplete(evt,comp) {
 				var bannerData = parentWindow.getBannerData();
 				bannerData.headline1 = eval(bannerData.textField1);
 				bannerData.CTA = eval(bannerData.ctaText);
+		bannerData.CTA[0] = bannerData.CTA[0].split('<br>').join('\n');
 				bannerData.CTAarrowVisible = eval(bannerData.CTAarrowVisible);
 				// bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,(bannerData.ctaText.length >= 15 ? "9px" : "12px"),0,0,"50","300", "center"] : '';
 				var mainHit = document.getElementById("hit");
