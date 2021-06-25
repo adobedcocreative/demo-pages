@@ -308,15 +308,15 @@
           var animateFrame3 = function() {
             changeImage(ad.root.querySelector('#logoImage img'), 'default');
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frameVideo3', {autoAlpha: 0.1, duration: 0})
+            .to('#frameVideo3', {autoAlpha: 0.1, duration: 0, onStart:playVideo, onStartParams: [ad.root.querySelector('#frameVideo3 video')]})
             .to('#frameText3, #frameText3 v', {x:0, y:0, autoAlpha: 1, duration: 0.5, onComplete: removeTypingContent, onCompleteParams: [ad.root.querySelector('#frameText3')]})
             .to('#frameText3', {autoAlpha: 0, delay: 2, duration: 0.2, onComplete: changeImage, onCompleteParams:[ad.root.querySelector('#logoImage img')]})
-            .to('#frameVideo3', {autoAlpha: 1, duration: 0.1, onStart:playVideo, onStartParams: [ad.root.querySelector('#frameVideo3 video')]})
+            .to('#frameVideo3', {autoAlpha: 1, duration: 0.1})
             .to('#frameVideo3', {autoAlpha: 0, delay: 2, onComplete: animateFrame4})
           }
           var animateFrame2 = function() {
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frameVideo2', {autoAlpha: 0.1, duration: 0})
+            .to('#frameVideo2', {autoAlpha: 0.1, duration: 0, onStart:playVideo, onStartParams: [ad.root.querySelector('#frameVideo2 video')]})
             .to('#logoImage', {x:0, y:0, autoAlpha: 1})
             .to('#frameText2, #frameText2 v', {x:0, y:0, autoAlpha: 1, duration: 0.5, onComplete: removeTypingContent, onCompleteParams: [ad.root.querySelector('#frameText2')]})
             .to('#cta', {x:0, y:0, autoAlpha: 1})
