@@ -245,15 +245,14 @@
         var loadVideo = function(video, path, flag) {
           if(video && path) {
             if(!flag) {
-              var videoLoadFlag = false
               video.onplay = function() {
-                if(!videoLoadFlag) {
+                if(!video.flag) {
                   this.pause();
                   this.currentTime = 0;
                 }
-                videoLoadFlag = true;
               }
               video.src = path;
+              video.flag = false;
             }
             setTimeout(function(){ video.src = path; }, (flag ? 800 : 500));
           }
@@ -280,7 +279,7 @@
         }
         var videoFrameAnimation = function(frame){
           var video = ad.root.querySelector('#frameImage' + frame + ' video');
-          var playVideo = function() { if(video) { video.play(); } }
+          var playVideo = function() { video.flag = true; if(video) { video.play(); } }
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0, onComplete:playVideo})
           .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
