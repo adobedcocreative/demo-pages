@@ -359,17 +359,16 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 157px;left: 24px;
         var loadVideo = function(video, path, flag) {
           if(video && path) {
             if(!flag) {
-              var videoLoadFlag = false
               video.onplay = function() {
-                if(!videoLoadFlag) {
+                if(!video.flag) {
                   this.pause();
                   this.currentTime = 0;
                 }
-                videoLoadFlag = true;
               }
               video.src = path;
+              video.flag = false;
             }
-            setTimeout(function(){ video.src = path; },(flag ? 800 : 500));
+            setTimeout(function(){ video.src = path; }, (flag ? 800 : 500));
           }
         }
         loadVideo(ad.layers.frameVideo1.querySelector('video'), adData.frameVideo1, true);
