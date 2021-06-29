@@ -154,12 +154,9 @@ amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText31", "TEXT", "<div style='top: 78px;left: 8px;width: 144px;font-size: 20px;line-height: 1;text-align: center;'><div class='coloredText' style='line-height: 1.1;'>Plus 500 Mbps Internet</div>now available!</div>");
 amo.registerAttribute("frameText32", "TEXT", "<div class='AlticeRegular' style='top: 432px;left: 18px;width: 130px;font-size: 9.9px;line-height: 1.25;'>Wired connection up to 500 Mbps. WiFi speeds may vary. Speeds, prices & availability vary by area.</div>");
 amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText41", "TEXT", "<div style='top: 154px;left: 10px;width: 140px;font-size: 20px;line-height: 1;text-align: center;'>“Best<br><font class='coloredText'>Gigabit Deal</font>”</div>");
-amo.registerAttribute("frameText42", "TEXT", "<div style='position: absolute;top: 203px;left: 10px;width: 140px;font-size: 11px;line-height: 1.15;text-align: center;'>– CNET May 2021</div>");
-amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText51", "TEXT", "<div style='top: 78px;left: 13px;font-size: 18px;line-height:1;'><div style='color:#0084d6;margin-left: 0px;height: 16px;line-height: 1.2;font-size: 75%;'>New offer alert!</div>Internet<br>starting at</div>");
-amo.registerAttribute("frameText52", "TEXT", "<div style='top: 130px;left: 9px;width: 150px;line-height: 1;'><font style='font-size: 65px;letter-spacing: -2px;padding-right: 2px;' class='coloredText'>$25</font><font style='margin-left: -1px;font-size: 11px;display: inline-block;vertical-align: 25px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 3px 0 0 5px;font-size: 10px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
-amo.registerAttribute("frameText53", "TEXT", "<div style='top: 234px;width:170px;left: 13px;transform: scale(0.88);transform-origin: top left;'><div class='bulletedText' style='line-height:1.1;'>No annual<br>contract</div></div>");
+amo.registerAttribute("frameText41", "TEXT", "<div style='top: 78px;left: 13px;font-size: 18px;line-height:1;'><div style='color:#0084d6;margin-left: 0px;height: 16px;line-height: 1.2;font-size: 75%;'>New offer alert!</div>Internet<br>starting at</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div style='top: 130px;left: 9px;width: 150px;line-height: 1;'><font style='font-size: 65px;letter-spacing: -2px;padding-right: 2px;' class='coloredText'>$25</font><font style='margin-left: -1px;font-size: 11px;display: inline-block;vertical-align: 25px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 3px 0 0 5px;font-size: 10px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
+amo.registerAttribute("frameText43", "TEXT", "<div style='top: 234px;width:170px;left: 13px;transform: scale(0.88);transform-origin: top left;'><div class='bulletedText' style='line-height:1.1;'>No annual<br>contract</div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -194,10 +191,6 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 234px;width:170px
     <div id="frameText41" class="frameText">!{frameText41}</div>
     <div id="frameText42" class="frameText">!{frameText42}</div>
     <div id="frameText43" class="frameText">!{frameText43}</div>
-    <div id="frameImage5" class="asset frameImage" data-image="frameImage5"></div>
-    <div id="frameText51" class="frameText">!{frameText51}</div>
-    <div id="frameText52" class="frameText">!{frameText52}</div>
-    <div id="frameText53" class="frameText">!{frameText53}</div>
     <div id="logoImage" class="asset adSizeContainer" data-image="logoImage"></div>
     <!-- <div id="priceLabel" class="asset adSizeContainer" data-image="priceLabel"></div> -->
     <div id="cta" class="text AlticeBold"
@@ -301,8 +294,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 234px;width:170px
           frameVideo3: "Arrow.mp4",
           frameImage2: "160x600_OPT_JAN_ACQ_FIB_300Mb_35Yr1_NonSub_Fiber1P_Img_Frame_02.png",
           frameImage21: "160x600_OPT_1P_25_1Yr_StartingAt_Img_Frame_02.png",
-          frameImage4: "160x600_OPT_1P_25_1yr_StartingAt_Logo_cNet_Frame_04.png",
-          frameImage5: "160x600_Altice_Kitchen_iPad.png",
+          frameImage4: "160x600_Altice_Kitchen_iPad.png",
         },
         beforeLoad: function(data){
           data.map(function(content){
@@ -419,7 +411,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 234px;width:170px
           gsap.set('#frameBackground', {display: 'block'});
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[4]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame5}));
+          // .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame5}));
         }
         var animateFrame3 = function(flag){
           var frameId = 3;
