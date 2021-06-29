@@ -416,7 +416,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 173px;left: 24px;
         }
         // var videoFrameTopAnimation = function(frame){
         //   var video = ad.root.querySelector('#frameImage' + frame + ' video');
-        //   var playVideo = function() { if(video) { video.play(); } }
+        //   var playVideo = function() { video.flag = true; if(video) { video.play(); } }
         //   video.onplay = function() {
         //     gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
         //     .to('#frameImage'+frame, {x:0,y:0, delay: 1})
@@ -428,7 +428,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 173px;left: 24px;
         // }
         var videoFrameAnimation = function(frame){
           var video = ad.root.querySelector('#frameImage' + frame + ' video');
-          var playVideo = function() { if(video) { video.play(); } }
+          var playVideo = function() { video.flag = true; if(video) { video.play(); } }
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0, onComplete:playVideo})
           .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
