@@ -116,7 +116,12 @@
         transition: background-position ease 1s, opacity 0.7s ease-out 2s;
       } */
       #cta { background-color: !{ctaBtn}; }
-      #cta:hover { background-color: !{ctaBtnHover}; }
+      #cta:hover {
+        background-color: !{ctaBtnHover};
+        background-position: -15px 0;
+        -webkit-transition: background-position linear 0.8s;
+        transition: background-position linear 0.8s;
+      }
     </style>
   </head>
   <body>

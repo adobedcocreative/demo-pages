@@ -89,6 +89,27 @@
       }
       .blue { color: #20285e; }
       .orange { color: #f8951f; }
+      #cta {
+        background-position: -75px 0;
+        overflow: hidden;
+      }
+      #cta::after{
+        content:'';
+        position: absolute;
+        top:0; left:0; right:0; bottom: 0;
+        background: radial-gradient(0 0,circle farthest-side, rgba(255,255,255,0) 90%,rgba(255,255,255,.8) 98%,rgba(255,255,255,0) 100%) no-repeat;
+        background: radial-gradient(circle farthest-side at 0 0, rgba(255,255,255,0) 90%,rgba(255,255,255,.35) 95%,rgba(255,255,255,0) 100%) no-repeat;
+        -webkit-transform: skew(-10deg) scale(2);
+        transform: skew(-10deg) scale(2);
+        -webkit-filter: blur(2px);
+        filter: blur(1px);
+        background-position: inherit;
+      }
+      #cta.shine{
+        background-position: -5px 0;
+        -webkit-transition: background-position linear 0.8s;
+        transition: background-position linear 0.8s;
+      }
       #cta { background-color: !{ctaBtn}; }
       #cta:hover { background-color: !{ctaBtnHover}; }
     </style>
@@ -273,6 +294,12 @@
             } catch(e) {  }
           }
           textUpdate();
+          var shineCTA = function(){
+            ad.layers.cta.classList.add('shine');
+            gsap.delayedCall(1, function(){
+              ad.layers.cta.classList.remove('shine');
+            });
+          }
           gsap.set('#cta, #frameVideo2, #logoImage, #frameText2, #frameVideo3, #frameText3, #frameText4', {autoAlpha:0});
           gsap.set('#logoImage', {y: 20});
           gsap.set('#cta', {x: 20});
@@ -282,12 +309,15 @@
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
             .to('#frameVideo3', {autoAlpha: 0.1, duration: 0})
             .to('#frameText4, #frameText4 v, #logoImage', {x:0, y:0, autoAlpha: 1, duration: 0.5, onComplete: removeTypingContent, onCompleteParams: [ad.root.querySelector('#frameText4')]})
+            .to('#cta', {x:0, y:0, autoAlpha: 1, duration:0, onComplete: shineCTA})
+            .to('#cta', {x:0, y:0, autoAlpha: 1, delay:1, duration:0.5, onComplete: shineCTA})
           }
           var animateFrame3 = function() {
             changeImage(ad.root.querySelector('#logoImage img'), 'default');
             gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
             .to('#frameVideo3', {autoAlpha: 0.1, duration: 0, onStart:playVideo, onStartParams: [ad.root.querySelector('#frameVideo3 video')]})
             .to('#frameText3, #frameText3 v, #logoImage', {x:0, y:0, autoAlpha: 1, duration: 0.5, onComplete: removeTypingContent, onCompleteParams: [ad.root.querySelector('#frameText3')]})
+            .to('#cta', {x:0, y:0, autoAlpha: 1, duration:0, onComplete: shineCTA})
             .to('#frameText3, #logoImage', {autoAlpha: 0, delay: 2, duration: 0.2})
             .to('#frameVideo3', {autoAlpha: 1, duration: 0.1})
             .to('#frameVideo3', {autoAlpha: 0, delay: 2, onComplete: animateFrame4})
@@ -297,7 +327,7 @@
             .to('#frameVideo2', {autoAlpha: 0.1, duration: 0, onStart:playVideo, onStartParams: [ad.root.querySelector('#frameVideo2 video')]})
             .to('#logoImage', {x:0, y:0, autoAlpha: 1})
             .to('#frameText2, #frameText2 v', {x:0, y:0, autoAlpha: 1, duration: 0.5, onComplete: removeTypingContent, onCompleteParams: [ad.root.querySelector('#frameText2')]})
-            .to('#cta', {x:0, y:0, autoAlpha: 1})
+            .to('#cta', {x:0, y:0, autoAlpha: 1, onComplete: shineCTA})
             .to('#frameText2, #logoImage', {autoAlpha: 0, delay: 1.5, duration: 0.2})
             .to('#frameVideo2', {autoAlpha: 1, duration: 0.1, onStart:playVideo, onStartParams: [ad.root.querySelector('#frameVideo2 video')]})
             .to('#frameVideo2', {autoAlpha: 0, delay: 2, onComplete: (adData.frameText3.toLowerCase() != 'na' ? animateFrame3 : animateFrame4)})
