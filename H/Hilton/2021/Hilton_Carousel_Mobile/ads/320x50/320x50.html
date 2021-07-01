@@ -379,8 +379,7 @@
         }
         return {
           init: function(config){ return init(config); },
-          var frameId = carousel.getId() + 1;
-                amo.onDynAdClick(adData.feedData, 'FRAME ' + frameId + ' - CLICK', adClickUrl);,
+          move: function(action) { return move(action); },
           getId: function() { return carouselIndex; }
         }
       })();
@@ -461,7 +460,8 @@
                   amoAdInteraction('FRAME ' + frameId + ' - BROWSE NEXT' + '|' + adData.feedData.id, adData.feedData);
                 }
               } else {
-                amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl);
+                var frameId = carousel.getId() + 1;
+                amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl, 'FRAME ' + frameId + ' - CLICK');
              }
             });
 

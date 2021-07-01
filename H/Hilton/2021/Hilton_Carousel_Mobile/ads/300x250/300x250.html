@@ -389,8 +389,7 @@
         }
         return {
           init: function(config){ return init(config); },
-          var frameId = carousel.getId() + 1;
-                amo.onDynAdClick(adData.feedData, 'FRAME ' + frameId + ' - CLICK', adClickUrl);,
+          move: function(action) { return move(action); },
           getId: function() { return carouselIndex; }
         }
       })();
@@ -482,7 +481,10 @@
                 } else {
                   ad.layers.disclaimerContainer.style.display = 'none';
                 }
-              } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
+              } else {
+                var frameId = carousel.getId() + 1;
+                amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl, 'FRAME ' + frameId + ' - CLICK');
+              }
             });
 
             function swipedetect(el, callback){
