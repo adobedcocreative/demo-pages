@@ -443,23 +443,28 @@
             ad.update();
             adClickUrl = content[0].url;
             adData = content[0];
+            var amoAdInteraction = function(text, object) {
+              var parentWindow = window.parent.window;
+              if (parentWindow && 'amoUtils' in parentWindow && 'onInteraction' in parentWindow.amoUtils && text && object) {
+                try { parentWindow.amoUtils.onInteraction(text, object); } catch (e) {}
+              }
+            }
             ad.root.addEventListener("click", function(e) {
-              if('button' in e.target.parentNode.dataset || 'button' in e.target.dataset) {
-                if(e.target.parentNode.dataset.button == 'left' && carouselClickFlag) { carousel.move('prev');
-                  if (window && 'amoUtils' in window && 'onInteraction' in window.amoUtils) {
-                      try {
-                          window.amoUtils.onInteraction('BROWSE PREVIOUS' + '|' + adData.feedData.id, adData.feedData);
-                      } catch (e) {}
-                  }
+              var parentWindow = window.parent.window;
+              if('button' in e.target.parentNode.parentNode.dataset || 'button' in e.target.parentNode.dataset || 'button' in e.target.dataset) {
+                if((e.target.parentNode.parentNode.dataset.button == 'left' || e.target.parentNode.dataset.button == 'left' || e.target.dataset.button == 'left') && carouselClickFlag) {
+                  var frameId = carousel.getId() + 1;
+                  carousel.move('prev');
+                  amoAdInteraction('FRAME ' + frameId + ' - BROWSE PREVIOUS' + '|' + adData.feedData.id, adData.feedData);
                 }
-                else if(e.target.parentNode.dataset.button == 'right' && carouselClickFlag) { carousel.move('next');
-                  if (window && 'amoUtils' in window && 'onInteraction' in window.amoUtils) {
-                      try {
-                          window.amoUtils.onInteraction('BROWSE NEXT' + '|' + adData.feedData.id, adData.feedData);
-                      } catch (e) {}
-                  }
+                else if((e.target.parentNode.parentNode.dataset.button == 'right' || e.target.parentNode.dataset.button == 'right' || e.target.dataset.button == 'right') && carouselClickFlag) {
+                  var frameId = carousel.getId() + 1;
+                  carousel.move('next');
+                  amoAdInteraction('FRAME ' + frameId + ' - BROWSE NEXT' + '|' + adData.feedData.id, adData.feedData);
                 }
-              } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
+              } else {
+                amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl);
+             }
             });
             ad.root.onmouseenter = function(e) {
                 if(selectProductTimer) { clearInterval(selectProductTimer); selectProductTimer = false; }
