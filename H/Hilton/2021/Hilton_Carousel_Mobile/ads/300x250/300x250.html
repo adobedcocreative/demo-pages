@@ -389,7 +389,9 @@
         }
         return {
           init: function(config){ return init(config); },
-          move: function(action) { return move(action); }
+          var frameId = carousel.getId() + 1;
+                amo.onDynAdClick(adData.feedData, 'FRAME ' + frameId + ' - CLICK', adClickUrl);,
+          getId: function() { return carouselIndex; }
         }
       })();
       var initCarousel = function(content) {
