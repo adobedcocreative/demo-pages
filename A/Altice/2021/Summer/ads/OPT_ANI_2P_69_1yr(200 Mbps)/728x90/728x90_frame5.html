@@ -180,7 +180,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 377px;
     <div id="frameText21" class="frameText">!{frameText21}</div>
     <div id="frameText22" class="frameText">!{frameText22}</div>
     <div id="frameText23" class="frameText">!{frameText23}</div>
-    <div id="frameImage3" class="frameImageLeft" style="top: 14px;left: 0px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width: 117px;"></video></div>
+    <div id="frameImage3" class="frameImageLeft" style="top: 4px;left: 30px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width: 82px;"></video></div>
     <div id="frameText31" class="frameText">!{frameText31}</div>
     <div id="frameText32" class="frameText">!{frameText32}</div>
     <div id="frameText33" class="frameText">!{frameText33}</div>
@@ -293,7 +293,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 377px;
           introLogoImage: 'images/728x90_Logo_Optimum_Black.png',
           frameBackground: '1x1.png',
           frameVideo1: "728x90_Pool_Relax.mp4",
-          frameVideo3: "Animate_200_Mbps_Arrow.mp4",
+          frameVideo3: "Animate_TV_Tablet.mp4",
           frameImage2: "1x1.png",
           frameImage4: "728x90_OPT_SPRING_ACQ_iStart_500Mb_50Yr1_Img_Frame_04.png",
           frameImage5: "728x90_OPT_1P_35_1yr_300Mbps_Pool_Img_Frame_05.png",
@@ -427,7 +427,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 10px;left: 377px;
           var frameId = 3;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[frameId]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame4}));
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 4, opacity:0, onComplete: animateFrame4}));
         }
         var animateFrame2 = function(flag){
           var frameId = 2;
