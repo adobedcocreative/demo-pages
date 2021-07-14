@@ -53,8 +53,8 @@ function init() {
 	loader.loadManifest(lib.properties.manifest);
 }
 function handleFileLoad(evt, comp) {
-	var images=comp.getImages();	
-	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+	var images=comp.getImages();
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }
 }
 function handleComplete(evt,comp) {
 	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
@@ -66,17 +66,17 @@ function handleComplete(evt,comp) {
 		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
 	}
 	exportRoot = new lib.M365_FY22Q1BTS_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_LEA_NA_1();
-	stage = new lib.Stage(canvas);	
+	stage = new lib.Stage(canvas);
 	//Registers the "tick" event listener.
 	fnStartAnimation = function() {
 		stage.addChild(exportRoot);
 		createjs.Ticker.framerate = lib.properties.fps;
 		createjs.Ticker.addEventListener("tick", stage);
-	}	    
+	}
 	//Code to support hidpi screens and responsive scaling.
-	AdobeAn.makeResponsive(false,'both',false,2,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.makeResponsive(false,'both',false,2,[canvas,anim_container,dom_overlay_container]);
 	AdobeAn.compositionLoaded(lib.properties.id);
-	fnStartAnimation();							
+	fnStartAnimation();
 
     if (!initReady) {
         startBanner()
@@ -86,11 +86,11 @@ function handleComplete(evt,comp) {
         amoAd.init();
         exportRoot.initBanner(bannerData)
         amoAd.ctaAlignment();
-        exportRoot.runBanner()	
+        exportRoot.runBanner()
     })
 	initReady=true
 }
-	
+
 var loadFont = false
 	var loadBody = false
 	function loaded(type) {
@@ -98,7 +98,7 @@ var loadFont = false
 		if (type=='body') loadBody=true
 		if (loadFont && loadBody) init()
 	}
-	
+
 	(function() {
 		// Optimization for Repeat Views
 
@@ -139,24 +139,24 @@ var loadFont = false
 
 var initDiv = document.getElementById("init");
 var startBanner = function(){
-						
+
 				var varInt
-								
+
 				var animation_container = document.getElementById("animation_container");
-				animation_container.addEventListener("mouseover", over.bind(this));  
+				animation_container.addEventListener("mouseover", over.bind(this));
 				function over() {
 				exportRoot.mainMC.cta.arrow.gotoAndStop(1);
 				}
-				animation_container.addEventListener("mouseout", out.bind(this));  
+				animation_container.addEventListener("mouseout", out.bind(this));
 				function out() {
 						exportRoot.mainMC.cta.arrow.gotoAndStop(0);
-				}  
+				}
 				exportRoot.mainMC.hit.addEventListener("click", exitHandler.bind(this));
 
 				function exitHandler() {
 				  // window.open(window["clickTag" + exportRoot.currentSelection]);
           amoAd.click(exportRoot.currentSelection-1);
-				}	
+				}
 
 		}
 </script>
@@ -272,7 +272,7 @@ var startBanner = function(){
       document.body.removeChild(ctaElement);
     }
     function click(id) {
-      parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl.split('^').length > 1 && id >= 0 ? parentWindow.adClickUrl.split('^')[id] : parentWindow.adClickUrl, parentWindow.layout + '|' + bannerData.ctaText);
+      parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl.split('^').length > 1 && id >= 0 ? parentWindow.adClickUrl.split('^')[id] : parentWindow.adClickUrl, parentWindow.layout + (window.smartNames && window.smartNames.length == 5 ? '|' + window.smartNames[id] : '') + '|' + bannerData.ctaText);
       if(bannerData.clickTracker) {
         var clickTrackers = bannerData.clickTracker.split('^');
         clickTrackers.forEach(function(url){
