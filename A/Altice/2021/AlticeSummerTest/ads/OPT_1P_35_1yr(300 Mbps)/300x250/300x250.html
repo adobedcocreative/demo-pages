@@ -154,7 +154,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 157px;left: 24px;
         <div id="frameText43" class="text">!{frameText43}</div>
       </div>
       <div id="frame3" class="frame-container">
-        <div id="frameAsset3"><video muted playsinline autoplay class="frame" style="left: 118px;width: 64px;"></video></div>
+        <div id="frameAsset3" class="asset"><video muted playsinline autoplay class="frame" style="left: 118px;width: 64px;"></video></div>
         <div id="frameText31" class="text">!{frameText31}</div>
         <div id="frameText32" class="text">!{frameText32}</div>
         <div id="frameText33" class="text">!{frameText33}</div>  
@@ -326,69 +326,6 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 157px;left: 24px;
         gsap.set('#frameAsset41', {x:'-120%'});
         gsap.set('#logoWhite', {autoAlpha:0});
         // gsap.set('.start-left', {x:'-100%'});
-        var beamFrameAnimation = function(frame){
-          gsap.timeline(timelineProps)
-          .to('#frameText'+frame+'1, #frameAsset'+frame, {x:0,y:0})
-          .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
-          .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
-          gsap.to('#beam1', {x:'0',ease:'none', duration:0.5,delay:0.8})
-          gsap.to('#beam2', {x:'0',ease:'none',duration:0.5,delay:1.1})
-          gsap.to('#beam3', {x:'0',ease:'none',duration:0.5,delay:1.3})
-          // gsap.to('#beam4', {x:'0',ease:'none',duration:0.5,delay:1.7})
-          // gsap.to('#beam5', {x:'0',ease:'none',duration:0.5,delay:2})
-        }
-        var bulletFrameAnimation = function(frame){
-          gsap.timeline(timelineProps)
-          .to('#frameAsset'+frame, {x:0,y:0})
-          .to('#frameText'+frame+'1', {delay:-0.3, x:0,y:0})
-          .to('#frameText'+frame+'2', {delay:0.4, x:0,y:0})
-          .to('#frameText'+frame+'3', {delay:0.4, x:0,y:0});
-        }
-        // var videoFrameTopAnimation = function(frame){
-        //   var video = ad.root.querySelector('#frameAsset' + frame + ' video');
-        //   var playVideo = function() { video.flag = true; if(video) { video.play(); } }
-        //   video.onplay = function() {
-        //     gsap.timeline(timelineProps)
-        //     .to('#frameAsset'+frame, {x:0,y:0, delay: 1})
-        //   }
-        //   gsap.timeline(timelineProps)
-        //   .to('#frameText'+frame+'1', {x:0,y: 0, onComplete:playVideo})
-        //   .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
-        //   .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
-        // }
-        var videoFrameAnimation = function(frame){
-          var video = ad.root.querySelector('#frameAsset' + frame + ' video');
-          var playVideo = function() { video.flag = true; if(video) { video.play(); } }
-          gsap.timeline(timelineProps)
-          .to('#frameText'+frame+'1, #frameAsset'+frame, {x:0,y:0, onComplete:playVideo})
-          .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
-          .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
-        }
-        var generalFrameAnimation = function(frame){
-          gsap.timeline(timelineProps)
-          .to('#frameText'+frame+'1, #frameAsset'+frame, {x:0,y:0})
-          .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
-          .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
-        }
-        var generalFrameAnimation1 = function(frame){
-          gsap.timeline(timelineProps)
-          .to('#frameText'+frame+'1, #frameAsset'+frame + '1, #frameAsset'+frame, {x:0,y:0})
-          .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
-          .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
-        }
-        var generalLeftFrameAnimation = function(frame){          
-          gsap.set('#frameAsset'+frame, {x:0, autoAlpha:0});
-          // gsap.timeline(timelineProps)
-          // .to('#frameAsset'+frame, {autoAlpha:1,delay:0.2})
-          // .to('#frameText'+frame+'1', {x:0,y:0})
-          // .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
-          // .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
-          var tl = gsap.timeline(timelineProps);
-          tl.add(gsap.to('#frameAsset'+frame, destinationValues));
-          tl.add(gsap.to('#frameText'+frame+'1', destinationValues));
-          tl.add(gsap.to('#frameText'+frame+'2', destinationValues), '<0.1');
-          tl.add(gsap.to('#frameText'+frame+'3', destinationValues), '<0.1');
-        }
         const changeLogo = (color='') => {
           const white = color.toLowerCase() === 'white' ? 1 : 0;
           gsap.timeline(timelineProps)
@@ -400,17 +337,18 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 157px;left: 24px;
         changeCTA('white');
         const animationSequence = (frame, config) => {
           const frameElement = document.querySelector(frame);
-          const targets = frameElement.querySelectorAll('.asset, .text');
-          targets.forEach(target => {
-            if(target.querySelector('img')) target.dataset.type = 'image';
-            else if(target.querySelector('video')) target.dataset.type = 'video';
-            else target.dataset.type = 'text';
+          const elements = frameElement.querySelectorAll('.asset, .text');
+          elements.forEach(element => {
+            if(element.querySelector('img')) element.dataset.type = 'image';
+            else if(element.querySelector('video')) element.dataset.type = 'video';
+            else element.dataset.type = 'text';
           });
-          const delays = ['', '', '<0.1', '<0.1']; 
-          const video = targets[0];
-          var playVideo = () => { if(video) { video.flag = true; video.play(); } }
+          const delays = config && 'delays' in config ? config.delays : [...Array(elements.length - 2).fill(''), '<0.1', '<0.1']; 
+          const video = elements[0].querySelector('video');
+          const playVideo = () => {  if(video) { video.flag = true; video.play(); } }
+          config && 'beforeAnimation' in config && config.beforeAnimation(elements);
           var tl = gsap.timeline(timelineProps);
-          targets.forEach((target, i) => tl.add(gsap.to(target, (target.dataset.type === 'video' ? {...destinationValues, onComplete:playVideo} : destinationValues)), delays[i]));
+          elements.forEach((element, i) => tl.add(gsap.to(element, (element.dataset.type === 'video' ? {...destinationValues, onComplete:() => {  if(video) { video.flag = true; video.play(); }}} : destinationValues)), delays[i]));
           config && 'beams' in config && beams.animate();
         }
         const animate = (fn, ...args) => {
@@ -424,28 +362,28 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 157px;left: 24px;
           changeCTA('white');
           changeLogo('white');
           gsap.timeline(timelineProps)
-          .to('#frameAsset'+frameId, {duration:0, onComplete: generalLeftFrameAnimation, onCompleteParams:[5]})
+          .to('#frameAsset'+frameId, {duration:0, onComplete: animationSequence, onCompleteParams:['#frame5', {beforeAnimation: (elements) => {gsap.set(elements[0], {x:0, y:0, autoAlpha:0});}}]})
           // .to('#frameAsset'+frameId+', div[id^="frameText'+frameId+'"]', {delay: 2.2, autoAlpha:0});
         }
         var animateFrame4 = function(flag){
           var frameId = 4;
           changeCTA();
           gsap.timeline(timelineProps)
-          .to('#frameAsset'+frameId, {duration:0, onComplete: generalFrameAnimation1, onCompleteParams:[4]})
+          .to('#frameAsset'+frameId, {duration:0, onComplete: animationSequence, onCompleteParams:['#frame4', {delays:['', '<', '<', '<0.1', '<0.1']}]})
           .to('#frame'+frameId, (flag==true?{}:{delay: 2.7, autoAlpha:0, onComplete: animateFrame5}));
         }
         var animateFrame3 = function(flag){
           var frameId = 3;
           changeCTA();
           gsap.timeline(timelineProps)
-          .to('#frameAsset'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[frameId]})
+          .to('#frameAsset'+frameId, {duration:0, onComplete: animationSequence, onCompleteParams:['#frame3']})
           .to('#frame'+frameId, (flag==true?{}:{delay: 2.7, autoAlpha:0, onComplete: animateFrame4}))
         }
         var animateFrame2 = function(flag){
           var frameId = 2;
           changeCTA('white');
           gsap.timeline(timelineProps)
-          .to('#frameAsset'+frameId, {duration:0, onComplete: generalLeftFrameAnimation, onCompleteParams:[2]})
+          .to('#frameAsset'+frameId, {duration:0, onComplete: animationSequence, onCompleteParams:['#frame2', {beforeAnimation: (elements) => {gsap.set(elements[0], {x:0, y:0, autoAlpha:0});}}]})
           .to('#frame'+frameId, (flag==true?{}:{delay: 2.7, autoAlpha:0, onComplete: animateFrame3}));
         }
         var animateFrame1 = function(flag){
