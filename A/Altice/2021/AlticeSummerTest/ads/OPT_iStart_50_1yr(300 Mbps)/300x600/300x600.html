@@ -419,16 +419,11 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 306px;width:400px
           .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
           .to('#frameText'+frame+'3', {delay:-0.2, autoAlpha:1});
         }
-        var changeLogo = function(color){
-          if(color && color.toLowerCase() == 'white') {
-            gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#logoImage', {autoAlpha: 0})
-            .to('#logoImageWhite', {autoAlpha: 1}, '-=0.3')
-          } else {
-            gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#logoImage', {autoAlpha: 1})
-            .to('#logoImageWhite', {autoAlpha: 0}, '-=0.3')
-          }
+        const changeLogo = color => {
+          const white = color.toLowerCase() == 'white' ? 1 : 0;
+          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
+          .to('#logoImage', {autoAlpha: white^1})
+          .to('#logoImageWhite', {autoAlpha: white}, '-=0.3')
         }
         var animateFrame5 = function(flag){
           var frameId = 5;
