@@ -244,49 +244,44 @@
         var group = adContent.data[0].Group;
         var smartName = adContent.name;
         location.hash = btoa(group+'|'+smartName+'|'+adSize).replace('==','');
-        htmlContent += adData.map(function(data){ return '<div '+(group == data.name ? 'class="selected"' : '')+' data-id="' + data.name + '">' + data.name.split(' ')[0] + '<div style="font-size:14px;">' + data.name.split(' ')[1] + '</div></div>' }).join('');
-        document.querySelector('#header').innerHTML = htmlContent;
-        htmlContent = '';
+        // adNavigation(document.querySelector('#header'), adData, group, );
+        var navElement1 = document.querySelector('#header');
+        navElement1.innerHTML = '';
+        adData.forEach(data => {
+          var div = document.createElement('div');
+          div.dataset.id = data.name;
+          if(group === data.name) div.classList.add('selected');
+          div.onclick = (e) => loadContent(e.target.dataset.id);
+          div.innerHTML = data.name.split(' ')[0] + '<div style="font-size:14px;">' + data.name.split(' ')[1] + '</div>';
+          navElement1.appendChild(div);
+        });
         var groupData = adData.find(function(data){ return data.name == group; });
-        if(groupData) {
-          htmlContent += groupData.data.map(function(data){ return '<div '+(smartName == data.name ? 'class="selected"' : '')+' data-id="' + groupData.name + '|' + data.name + '" title="' + groupData.name + ' > ' + data.name + '">'+ data.name + '</div>' }).join('');
-        }
-        document.querySelector('#subheader').innerHTML = htmlContent;
-        htmlContent = '';
-        htmlContent += adContent.data[0].ads.map(function(ad){ return '<div '+(adSize == ad ? 'class="selected"' : '')+' data-id="' + groupData.name + '|' + adContent.name + '|' + ad + '" title="' + groupData.name + ' > ' + adContent.name + ' > ' + ad + '">'+ ad + '</div>' }).join('');
-        document.querySelector('#subsubheader').innerHTML = htmlContent;
-        htmlContent = '';
-        htmlContent = adContent.data[0].Group + ' | ' + adContent.name + ' | ' + adSize;
-        document.querySelector('#title').innerHTML = htmlContent;
-        var headers = document.querySelectorAll('#header > div');
-        for(var i = 0; i < headers.length; i++) {
-            headers[i].onclick = function() {
-              loadContent(this.dataset.id);
-            }
-        }
-        var subheaders = document.querySelectorAll('#subheader > div');
-        for(var i = 0; i < subheaders.length; i++) {
-            subheaders[i].onclick = function() {
-              loadContent(this.dataset.id);
-            }
-        }
-
-        var subheaders = document.querySelectorAll('#subsubheader > div');
-        for(var i = 0; i < subheaders.length; i++) {
-            subheaders[i].onclick = function() {
-              loadContent(this.dataset.id);
-            }
-        }
-
+        var navElement2 = document.querySelector('#subheader');
+        navElement2.innerHTML = '';
+        groupData.data.forEach(data => {
+          var div = document.createElement('div');
+          div.dataset.id = groupData.name + '|' + data.name;
+          div.dataset.title = groupData.name + ' > ' + data.name;
+          if(smartName === data.name) div.classList.add('selected');
+          div.onclick = (e) => loadContent(e.target.dataset.id);
+          div.innerHTML = data.name;
+          navElement2.appendChild(div);
+        });
+        var navElement3 = document.querySelector('#subsubheader');
+        navElement3.innerHTML = '';
+        adContent.data[0].ads.forEach(ad => {
+          var div = document.createElement('div');
+          div.dataset.id = groupData.name + '|' + adContent.name + '|' + ad;
+          div.dataset.title = groupData.name + ' > ' + adContent.name + ' > ' + ad;
+          if(adSize === ad) div.classList.add('selected');
+          div.onclick = (e) => loadContent(e.target.dataset.id);
+          div.innerHTML = ad;
+          navElement3.appendChild(div);
+        });
+        document.querySelector('#title').innerHTML = adContent.data[0].Group + ' | ' + adContent.name + ' | ' + adSize;;
         checkFooter();
       }
-      var loadPage = function(){
-        if(location.hash && location.hash.length) {
-          var selector = location.hash.split('#')[1];
-          loadContent(selector ? atob(selector) : 'OPT General');
-        } else { loadContent('OPT General'); }
-
-      }
+      const loadPage = () => loadContent(location.hash && location.hash.length && location.hash.split('#')[1] ? atob(location.hash.split('#')[1]) : 'OPT General');
     </script>
   </body>
 </html>

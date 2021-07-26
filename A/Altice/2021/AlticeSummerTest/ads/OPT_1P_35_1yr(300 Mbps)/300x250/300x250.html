@@ -8,7 +8,7 @@
     <script type="text/javascript" src="https://cmp-as-tm.everesttech.net/ads/static/local/AMOLibrary.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
     <script src="js/script.2.0.min.js" charset="utf-8"></script>
-    <script type="text/javascript">var addTypingContent=function(d){if(d){var a=d.innerHTML;a&&a.length&&(a=a.split("&amp;").join("&").split("&lt;").join("<").split("&gt;").join(">"));var b=a.match(/<.*?>/g);b=b&&b.length?b:[];a=a.split(/<.*?>/g);a=a.map(function(a){return a.split("").map(function(a){return'<type class="transparent">'+a+"</type>"}).join("")});var c=b;a.length<c&&(b=a,a=c,c=b);c.push("");d.innerHTML=a.map(function(a,b){return a+c[b]}).join("")}};</script>
+    <script type="text/javascript">var addTypingContent=function(d){if(d){let a=d.innerHTML;a&&a.length&&(a=a.split("&amp;").join("&").split("&lt;").join("<").split("&gt;").join(">"));let b=a.match(/<.*?>/g);b=b&&b.length?b:[];a=a.split(/<.*?>/g);a=a.map(function(a){return a.split("").map(function(a){return'<type class="transparent">'+a+"</type>"}).join("")});let c=b;a.length<c&&(b=a,a=c,c=b);c.push("");d.innerHTML=a.map(function(a,b){return a+c[b]}).join("")}};</script>
     <style media="screen">
       @font-face {
           font-family: Altice-Regular;
@@ -156,7 +156,6 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 157px;left: 24px;
           }
         }
       }
-
     },
     {
       name: 'frame3',
@@ -193,7 +192,6 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 157px;left: 24px;
           }
         }
       }
-
     },
     {
       name: 'frame5',
@@ -212,7 +210,6 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 157px;left: 24px;
           }
         }
       }
-
     },
   ];
   let adFrameId = 0;
@@ -223,39 +220,10 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 157px;left: 24px;
   
 </script>
 </head>
-
-
 <body>
   <div id="ad">
     <div id="backgroundColor"style="background-color:#efeeef;"></div>                
-    <div id="otherFrames" class="frame">
-      <!-- <div id="frame5" class="frame-container">
-        <div id="frameAsset5" class="asset" data-image="frameAsset5"></div>
-        <div class="text">!{frameText51}</div>
-        <div class="text">!{frameText52}</div>
-        <div class="text">!{frameText53}</div>
-      </div> 
-      <div id="frame4" class="frame-container">
-        <div id="frameAsset4" class="asset" data-image="frameAsset4"></div>
-        <div id="frameAsset41" class="asset" data-image="frameAsset41"></div>
-        <div class="text">!{frameText41}</div>
-        <div class="text">!{frameText42}</div>
-        <div class="text">!{frameText43}</div>
-      </div>
-      <div id="frame3" class="frame-container">
-        <div id="frameAsset3" class="asset"><video muted playsinline autoplay class="frame"></video></div>
-        <div class="text">!{frameText31}</div>
-        <div class="text">!{frameText32}</div>
-        <div class="text">!{frameText33}</div>  
-      </div> 
-      <div id="frame2" class="frame-container">
-        <div id="frameAsset2" class="asset" data-image="frameAsset2"></div>
-        <div class="text">!{frameText21}</div>
-        <div class="text">!{frameText22}</div>
-        <div class="text">!{frameText23}</div>
-      </div> -->
-    </div>
-    <div id="beams"></div>
+    <div id="otherFrames" class="frame"></div>
     <div id="logoBlack" class="asset" data-image="logoBlack"></div>
     <div id="logoWhite" class="asset" data-image="logoWhite"></div>
     <div id="cta" class="text AlticeBold ctaWhite"
@@ -284,7 +252,6 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 157px;left: 24px;
           line-height: 0.95;
           color:#fff;">
       </div>
-      <div id="shapes" class="frame"></div>
       <div id="introLogoImage" class="asset" data-image="logoWhite"></div>
       <div id="introCta" class="text AlticeBold ctaWhite"
         data-text="ctaText"
@@ -359,11 +326,11 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 157px;left: 24px;
       }, function(data){
         ad.load.end();
         console.log(ad.load.time());
-        var adData = data[0], adClickUrl = adData['clickURL'];
+        const adData = data[0], adClickUrl = adData['clickURL'];
         ad.root.addEventListener("click", function(e) {
           if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
         });
-        var loadVideo = function(video, path, flag) {
+        const loadVideo = function(video, path, flag) {
           if(video && path) {
             if(!flag) {
               video.onplay = function() {
@@ -383,9 +350,13 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 157px;left: 24px;
         textUpdate();
         const fn = { }
         fn.beams = (() => {
-          const load = () => {
+          const load = (selector='#ad') => {
             const x = 3;
-            ad.layers.beams.innerHTML = [...Array(x)].map((y,i) => '<div id="beam' + (i + 1) + '" class="beam"><div></div><div></div></div>').join('');
+            const parentElement = document.querySelector(selector);
+            const beams = document.createElement('div');
+            beams.id = 'beams';
+            beams.innerHTML = [...Array(x)].map((y,i) => '<div id="beam' + (i + 1) + '" class="beam"><div></div><div></div></div>').join('');
+            parentElement.appendChild(beams);
             gsap.set('#beam1',{top:174,left:300,width:220,height:22,x:-520});gsap.set('#beam1 div',{width:22});
             gsap.set('#beam2',{top:30,left:300,width:200,height:20,x:-500});gsap.set('#beam2 div',{width:20});
             gsap.set('#beam3',{top:174,left:300,width:180,height:22,x:-480});gsap.set('#beam3 div',{width:22});
@@ -401,14 +372,18 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 157px;left: 24px;
             // .to('#beam5', {x: 0, delay: -0.2})
           }
           return {
-            load: () => load(),
+            load: (selector) => load(selector),
             animate: () => animate()
           }
         })();
         fn.shapes = (() => {
-          const load = () => {
+          const load = (selector='#ad') => {
             const x = 3;
-            ad.root.querySelector('#shapes').innerHTML = [...Array(x)].map((y,i) => '<div id="shape' + (i + 1) + '" class="shape"></div>').join('');
+            const parentElement = document.querySelector(selector);
+            const shapes = document.createElement('div');
+            shapes.id = 'shapes';
+            shapes.innerHTML = [...Array(x)].map((y,i) => '<div id="shape' + (i + 1) + '" class="shape"></div>').join('');
+            parentElement.appendChild(shapes);
             gsap.set('#shape1',{top:16,left:300,width:200,height:35,x:-500});
             gsap.set('#shape2',{top:153,left:-180,width:180,height:28,x:480});
             gsap.set('#shape3',{top:-280,left:210,width:60,height:280,y:530});
@@ -422,12 +397,12 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 157px;left: 24px;
             .to('#shape4', {x: 0, delay: -0.2})
           }
           return {
-            load: () => load(),
+            load: (selector) => load(selector),
             animate: () => animate()
           }
         })();
-        fn.beams.load();
-        // fn.shapes.load();
+        // fn.beams.load('#otherFrames');
+        // fn.shapes.load('#frame1');
 
         // gsap.set('#frameText1', {x:'-120%'});
         gsap.set('#otherFrames .asset', {x:'100%'});
@@ -464,7 +439,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 157px;left: 24px;
           const video = elements[0].querySelector('video');
           const playVideo = () => {  if(video) { video.flag = true; video.play(); } }
           config && 'beforeAnimation' in config && config.beforeAnimation(fn, elements);
-          var tl = gsap.timeline(timelineProps);
+          const tl = gsap.timeline(timelineProps);
           elements.forEach((element, i) => tl.add(gsap.to(element, (element.dataset.type === 'video' ? {...destinationValues, onComplete:() => {  if(video) { video.flag = true; video.play(); }}} : destinationValues)), delays[i]));
           config && 'beams' in config && beams.animate();
           if(!flag) {
@@ -488,36 +463,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 157px;left: 24px;
             nextFrame: () => nextFrame()
           }
         })();
-        // var animateFrame5 = function(flag){
-        //   var frameId = 5;
-        //   changeCTA('white');
-        //   changeLogo('white');
-        //   gsap.timeline(timelineProps)
-        //   .to('#frameAsset'+frameId, {duration:0, onComplete: animationSequence, onCompleteParams:['#frame5', {beforeAnimation: (elements) => {gsap.set(elements[0], {x:0, y:0, autoAlpha:0});}}]})
-        //   // .to('#frameAsset'+frameId+', div[id^="frameText'+frameId+'"]', {delay: 2.2, autoAlpha:0});
-        // }
-        // var animateFrame4 = function(flag){
-        //   var frameId = 4;
-        //   changeCTA();
-        //   gsap.timeline(timelineProps)
-        //   .to('#frameAsset'+frameId, {duration:0, onComplete: animationSequence, onCompleteParams:['#frame4', {delays:['', '<', '<', '<0.1', '<0.1']}]})
-        //   .to('#frame'+frameId, (flag==true?{}:{delay: 2.7, autoAlpha:0, onComplete: animateFrame5}));
-        // }
-        // var animateFrame3 = function(flag){
-        //   var frameId = 3;
-        //   changeCTA();
-        //   gsap.timeline(timelineProps)
-        //   .to('#frameAsset'+frameId, {duration:0, onComplete: animationSequence, onCompleteParams:['#frame3']})
-        //   .to('#frame'+frameId, (flag==true?{}:{delay: 2.7, autoAlpha:0, onComplete: animateFrame4}))
-        // }
-        // var animateFrame2 = function(flag){
-        //   var frameId = 2;
-        //   changeCTA('white');
-        //   gsap.timeline(timelineProps)
-        //   .to('#frameAsset'+frameId, {duration:0, onComplete: animationSequence, onCompleteParams:['#frame2', {beforeAnimation: (elements) => {gsap.set(elements[0], {x:0, y:0, autoAlpha:0});}}]})
-        //   .to('#frame'+frameId, (flag==true?{}:{delay: 2.7, autoAlpha:0, onComplete: animateFrame3}));
-        // }
-        var animateFrame1 = function(flag){
+        const animateFrame1 = function(flag){
           ad.layers.frameAsset1.querySelector('video').onplay = function(){
             gsap.timeline(timelineProps)
             .to('#frameText1', {x:0,y:0})
@@ -533,17 +479,17 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 157px;left: 24px;
     }, loadDelay);
   </script>
   <script type="text/javascript">
-    var userAgentString = navigator.userAgent;
-    var browserFlag = userAgentString.indexOf("Mac") > -1 && (userAgentString.indexOf("Chrome") > -1 || userAgentString.indexOf("Safari") > -1);
+    const userAgentString = navigator.userAgent;
+    const browserFlag = userAgentString.indexOf("Mac") > -1 && (userAgentString.indexOf("Chrome") > -1 || userAgentString.indexOf("Safari") > -1);
     if(!browserFlag) {
-      var pixelDiv = document.createElement('div');
+      const pixelDiv = document.createElement('div');
       pixelDiv.style.left = '120%';
       pixelDiv.innerHTML = '<video muted playsinline autoplay></video><canvas></canvas>';
       document.querySelector('#ad').appendChild(pixelDiv);
-      var pixelCanvas = pixelDiv.querySelector('canvas');
-      var pixelctx = pixelCanvas.getContext('2d');
-      var pixelVideo = pixelDiv.querySelector("video");
-      var color = 'rgb(235, 235, 235)';
+      const pixelCanvas = pixelDiv.querySelector('canvas');
+      const pixelctx = pixelCanvas.getContext('2d');
+      const pixelVideo = pixelDiv.querySelector("video");
+      let color = 'rgb(235, 235, 235)';
       try {
         pixelVideo.src = "data:video/mp4;base64,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";
         pixelVideo.onplay = function(){ }
