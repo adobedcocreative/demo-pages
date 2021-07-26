@@ -220,6 +220,7 @@
 </script>
 <script type="text/javascript">
 	var amoAd = (function(){
+		var playClickFlag = false;
 		var ctaAlignment = function() {
 			var layers = exportRoot.mainMC;
 			// var adWidth = document.querySelector('#animation_container').offsetWidth;
@@ -303,6 +304,8 @@
 			}
 		}
 		function onInteraction(text, id) {
+			if(!playClickFlag && (text === 'PLAY' || text === 'PLAY AGAIN')) playClickFlag = true;
+			if(!playClickFlag && text === 'BACKPACK') text += ' - GAME AUTOPLAY';
 			var parentWindows = window.parent.parent.window;
 			if (parentWindows && 'amoUtils' in parentWindows && 'onInteraction' in parentWindows.amoUtils) {
 				try {
