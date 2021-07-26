@@ -200,121 +200,47 @@
       <div id="subsubheader" class=""></div>
       <div id="title" class=""></div>
     </div>
-    <div id="adContainer" class="ad-wrapper"></div>
+    <div id="adContainer" class="ad-wrapper">
+      <div id="mainAd"></div>
+      <div id="adFrames"></div>
+    </div>
     <footer>
       <!-- <div style="font-size: 14px;">Content: <a id="contentLink" href="https://adobe.com" target="_blank" style="text-decoration:none;"><img src="images/sheets-icon.svg" style="height: 14px;margin: 0px 4px;vertical-align:-5%;" /></a></div> -->
       <div style="font-size: 14px;">Developed by: <a href="https://adobe.com" target="_blank" style="text-decoration:none;"><img src="images/Adobe_Corporate_Horizontal_Red_HEX.svg" style="width: 14px;margin: 0px 4px;vertical-align:-5%;" /><font class="adobe-red" style="font-size:14px;">Adobe</font></a></div>
     </footer>
     <script type="text/javascript">
-    function init() {
-      // document.querySelector('#contentLink').href = "https://docs.google.com/spreadsheets/d/" + sheetID.split('/')[0];
-    }
-    var checkFooter = function() {
-      var bodyHeight = document.body.offsetHeight;
-      var footer = document.querySelector('footer');
-      if(window.innerHeight > bodyHeight) {
-        footer.style.position = 'fixed';
-        document.body.style.paddingBottom = '30px';
-      } else {
-        footer.style.position = 'static';
-        document.body.style.paddingBottom = '0px';
+      function init() {
+        // document.querySelector('#contentLink').href = "https://docs.google.com/spreadsheets/d/" + sheetID.split('/')[0];
       }
-    }
-    checkFooter();
-    window.onresize = checkFooter;
-      var bannerData = [], bannerData1 = [], feedData2 = [];
-      // var getCAMData = function(data) {
-      //     var templates = {
-      //       'Template 1': `var cam = {
-      //         layout: data.Layout,
-      //         headline1: data.headline1,
-      //         headline2: data.headline2,
-      //         costline3: data.costline3,
-      //         costline1: data.costline1,
-      //         costline2: data.costline2,
-      //         ctaText: data.CTA,
-      //         impressionTracker: "../../../../1x1.png?impressionTracker=" + Math.random(),
-      //         clickTracker: "../../../../1x1.png?clickTracker=" + Math.random(),
-      //         clickUrl: "https://office.com/",
-      //       }`,
-      //       'Template 2': `var cam = {
-      //         layout: data.Layout,
-      //         headline1: data.headline1,
-      //         headline2: data.headline2,
-      //         costline3: data.costline3,
-      //         costline1: data.costline1,
-      //         costline2: data.costline2,
-      //         ctaText: data.CTA,
-      //         impressionTracker: "../../../../1x1.png?impressionTracker=" + Math.random(),
-      //         clickTracker: "../../../../1x1.png?clickTracker=" + Math.random(),
-      //         clickUrl: "https://office.com/",
-      //       }`,
-      //       'Template 3': `var cam = {
-      //         layout: data.Layout,
-      //         headline1: data.headline1,
-      //         headline2: data.headline2,
-      //         headline3: data.headline3,
-      //         headline4: data.headline4,
-      //         ctaText: data.CTA,
-      //         impressionTracker: "../../../../1x1.png?impressionTracker=" + Math.random(),
-      //         clickTracker: "../../../../1x1.png?clickTracker=" + Math.random(),
-      //         clickUrl: "https://office.com/",
-      //       }`,
-      //       'Template 4': `var cam = {
-      //         layout: data.Layout,
-      //         headline1: data.headline1,
-      //         headline2: data.headline2,
-      //         ctaText: data.CTA,
-      //         impressionTracker: "../../../../1x1.png?impressionTracker=" + Math.random(),
-      //         clickTracker: "../../../../1x1.png?clickTracker=" + Math.random(),
-      //         clickUrl: "https://office.com/",
-      //       }`,
-      //     }
-      //     eval(templates[data['template']]);
-      //     return JSON.stringify(cam);
-      // }
+      var checkFooter = function() {
+        var bodyHeight = document.body.offsetHeight;
+        var footer = document.querySelector('footer');
+        if(window.innerHeight > bodyHeight) {
+          footer.style.position = 'fixed';
+          document.body.style.paddingBottom = '30px';
+        } else {
+          footer.style.position = 'static';
+          document.body.style.paddingBottom = '0px';
+        }
+      }
+      checkFooter();
+      window.onresize = checkFooter;
       var loadContent = function(queryString){
-        bannerData = [];
-        bannerData1 = [];
         var htmlContent = '';
-
-
-
-        htmlContent = '';
-        // var queryString = 'Japan|Create_O365_Word_Inking';
         var adContent = getData(queryString);
         var adSize = adContent.selectedAd;
         var adWidth = adSize.split('x')[0];
         var adHeight = adSize.split('x')[1];
         amo.attributes = {};
-        var creativePath = 'ads/' + adContent.data[0]['Smart Names'] + '/' + adSize + '/' + adSize + '.html';
-        var creativeFrames = frames[creativePath];
-        var framesHTML = '';
-        if(Object.keys(creativeFrames).length > 1) {
-          for(var i in creativeFrames) {
-            framesHTML += '<div class="frame-wrapper" id="ad' + adSize + '"><iframe src="' + creativeFrames[i] + '?v=' + publishVersion + '" width="' + adWidth + '" height="' + adHeight + '"></iframe></div>';
+        var creativePath = `ads/${adContent.data[0]['Smart Names']}/${adSize}/${adSize}.html`;
+        document.querySelector('#mainAd').innerHTML = '<div class="frame-wrapper" id="ad' + adSize + '"><iframe src="' + creativePath + '?v=' + publishVersion + '" width="' + adWidth + '" height="' + adHeight + '"></iframe></div>';
+        document.querySelector('#adFrames').innerHTML = '';
+        window.addFrames = (frameCount) => {
+          if(frameCount) {
+            document.querySelector('#adFrames').innerHTML = '<div class="frame-title">Frames</div>' + [...Array(frameCount)].map((x, i)=> `<div class="frame-wrapper"><iframe src="${creativePath}?#${i+1}" width="${adWidth}" height="${adHeight}"></iframe></div>`).join('');
+            checkFooter();
           }
         }
-        document.querySelector('#adContainer').innerHTML = //'<div class="frame-wrapper"><iframe src="160x600/160x600.html" width="160" height="600" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>160 x 600</div></div>'+
-        // '<div class="frame-wrapper"><iframe src="300x600/300x600.html" width="300" height="600" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>300 x 600 Portrait</div></div>'+
-        '<div class="frame-wrapper" id="ad160x600"></div>'+
-        '<div class="frame-wrapper" id="ad300x600"></div>'+
-        // '<div class="frame-wrapper"><iframe src="300x600(OnFigure)/300x600.html" width="300" height="600" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>300 x 600 Full Body</div></div>'+
-        '<div style="display:inline-block;max-width:800px;text-align:left;">'+
-          // '<div class="frame-wrapper"><iframe src="300x250/300x250.html" width="300" height="250" style="display:block;" scrolling="no" frameborder="0" al"lowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>300 x 250</div></div>'+
-          '<div class="frame-wrapper" id="ad' + adSize + '"><iframe src="' + creativePath + '?v=' + publishVersion + '" width="' + adWidth + '" height="' + adHeight + '"></iframe></div>'+
-          // '<div class="frame-wrapper" id="ad300x250"><iframe src="ads/' + adContent.data[0]['Smart Names'] + '/300x250/300x250.html' + '" width="300" height="250"></iframe></div>'+
-        //   '<div></div>'+
-        //   '<div class="frame-wrapper"><iframe src="320x50/320x50.html" width="320" height="50" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>320 x 50</div></div>'+
-          // '<div class="frame-wrapper"><iframe src="728x90/728x90.html" width="728" height="90" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>728 x 90</div></div>'+
-          '<div class="frame-wrapper" id="ad728x90"></div>'+
-        '</div>'+
-        (framesHTML.length ? '<div>'+
-          '<div class="frame-title">Frames</div>'+
-          framesHTML+
-        '</div>' : '')+
-        // '<div class="frame-wrapper"><iframe src="970x250/970x250.html" width="970" height="250" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>970 x 250</div></div>';
-        '';
         var group = adContent.data[0].Group;
         var smartName = adContent.name;
         location.hash = btoa(group+'|'+smartName+'|'+adSize).replace('==','');
@@ -352,57 +278,15 @@
             }
         }
 
-        // adContent.data.map(function(data){
-        //   var adSize = data['Ad Size'];
-        //   var adWidth = adSize.split('x')[0];
-        //   var adHeight = adSize.split('x')[1];
-        //   var template = data.template.split(' ').join('');
-        //   var cam = getCAMData(data);
-        //   var adScript = `
-        //   var cam = ${cam}
-        //   for(var i in cam) { amo.registerVariation(i, cam[i]); }
-        //   amo.registerVariation = function(){}`;
-        //   var amoScript = document.createElement('script');
-        //   amoScript.type= 'text/javascript';
-        //   amoScript.src = "js/AMOLibrary.js";
-        //   var scriptTag = document.createElement('script');
-        //   scriptTag.type= 'text/javascript';
-        //   var inlineScript = document.createTextNode(adScript);
-        //   scriptTag.appendChild(inlineScript);
-        //   var iframe = document.createElement('iframe');
-        //   iframe.id = adSize;
-        //   iframe.style.width = adWidth + 'px';
-        //   iframe.style.height = adHeight + 'px';
-        //   iframe.style.border = 'none';
-        //   document.querySelector('#ad' + adSize).innerHTML = '';
-        //   document.querySelector('#ad' + adSize).appendChild(iframe);
-        //   var iframeDoc = iframe.contentWindow ? iframe.contentWindow : iframe.contentDocument && iframe.contentDocument.document ? iframe.contentDocument.document : iframe.contentDocument;
-        // 	iframeDoc.document.open();
-        //   iframeDoc.document.write('<iframe src="ads/'+template+'/Ads/'+adSize+'/z'+adSize+'.html" width="'+adWidth+'" height="'+adHeight+'" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe>');
-        // 	iframeDoc.document.close();
-        //   iframeDoc.document.body.style.margin = 0;
-        //   iframeDoc.document.head.appendChild(amoScript);
-        //   amoScript.onload = function(){
-        //     iframeDoc.document.head.appendChild(scriptTag);
-        //   }
-        // });
         checkFooter();
       }
       var loadPage = function(){
-        var searchFlag = false;
         if(location.hash && location.hash.length) {
           var selector = location.hash.split('#')[1];
           loadContent(selector ? atob(selector) : 'OPT General');
         } else { loadContent('OPT General'); }
+
       }
-      // window.getBannerData = function(k){
-      //   var obj = {};
-      //   for(var j in bannerData) {
-      //     if(bannerData[j].adSize == k) { for(var i in bannerData[j]) { obj[i] = bannerData[j][i]; } }
-      //   }
-      //   return obj;
-      // }
-      // window.getBannerData1 = function(){ var obj = {}; for(var i in bannerData1[0]) { obj[i] = bannerData1[0][i]; } return obj; }
     </script>
   </body>
 </html>
