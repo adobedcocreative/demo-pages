@@ -174,7 +174,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 13px;left: 268px;
     <div id="frameText21" class="frameText">!{frameText21}</div>
     <div id="frameText22" class="frameText">!{frameText22}</div>
     <div id="frameText23" class="frameText">!{frameText23}</div>
-    <div id="frameImage3" class="frameImageLeft" style="top: 5px;left: 344px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width: 82px;"></video></div>
+    <div id="frameImage3" class="asset frameImage" data-image="frameImage3"></div>
     <div id="frameText31" class="frameText">!{frameText31}</div>
     <div id="frameText32" class="frameText">!{frameText32}</div>
     <div id="frameText33" class="frameText">!{frameText33}</div>
@@ -320,7 +320,6 @@ amo.registerAttribute("frameText53", "TEXT", "<div style='top: 13px;left: 268px;
           }
         }
         // loadVideo(ad.layers.frameVideo1.querySelector('video'), adData.frameVideo1, true);
-        loadVideo(ad.layers.frameImage3.querySelector('video'), adData.frameVideo3);
 
         textUpdate();
         gsap.set('#shape1',{top:26,left:580,width:252,height:22,x:-990});
