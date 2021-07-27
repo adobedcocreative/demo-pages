@@ -93,21 +93,20 @@
 <script type="text/javascript">
 amo.registerClick("clickUrl","https://www.altice.com");
 amo.registerAttribute("ctaText","TEXT","Shop now");
-amo.registerAttribute("frameImage1", "IMAGE", "1x1.png");
-amo.registerAttribute("frameImage2", "IMAGE", "1x1.png");
-amo.registerAttribute("frameImage3", "IMAGE", "1x1.png");
-amo.registerAttribute("frameImage4", "IMAGE", "1x1.png");
 amo.registerAttribute("frameText1", "TEXT", "<div class='coloredText' style='font-size: 133%;margin-left: 1px;margin-top: -2px;'>Northwest, NJ</div>");
 amo.registerAttribute("frameText12", "TEXT", "New Optimum deals now available for you!");
 amo.registerAttribute("frameText21", "TEXT", "<div style='top:2px;left:8px;font-size:13px;'>300 Mbps Internet & TV</div>");
 amo.registerAttribute("frameText22", "TEXT", "<div style='top: 18px;left: 6px;width: 220px;line-height: 1;'><font style='font-size: 27.5px;' class='coloredText'>$50</font><font style='margin-left: 3px;font-size: 9px;display: inline-block;vertical-align: 3px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: -24px 0 0 76px;font-size: 7.6px;line-height: 1.1;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges<br>Wired connection up to 300 Mbps.</div></div>");
 amo.registerAttribute("frameText23", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText31", "TEXT", "<div style='top: 6px;left: 9px;font-size: 12.2px;line-height: 1.2;'>You can get <font style='color:#0084d6'>FREE Internet</font> for<br>1 mo. & <font style='color:#0084d6'>HBO Max™️</font> included!</div>");
-amo.registerAttribute("frameText32", "TEXT", "<div style='top: 34px;left: 9px;font-size: 8px;' class='AlticeRegular'>Terms apply.</div>");
+amo.registerAttribute("frameText31", "TEXT", "<div style='top: 12px;left: 9px;font-size: 12.2px;'><font style='color:#0084d6;'>$100</font> Visa<sup style='vertical-align:top;font-size:60%;'>®</sup> Prepaid Card!</div>");
+amo.registerAttribute("frameText32", "TEXT", "<div style='top: 25px;left: 9px;font-size: 9px;' class='AlticeRegular'>Terms apply.</div>");
 amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText41", "TEXT", "<div style='top:2px;left:8px;font-size:13px;'>300 Mbps Internet & TV</div>");
-amo.registerAttribute("frameText42", "TEXT", "<div style='top: 18px;left: 6px;width: 220px;line-height: 1;'><font style='font-size: 27.5px;' class='coloredText'>$50</font><font style='margin-left: 3px;font-size: 9px;display: inline-block;vertical-align: 3px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: -23px 0 0 77px;font-size: 9px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
+amo.registerAttribute("frameText41", "TEXT", "<div style='top: 13px;left: 9px;font-size: 12.2px;'>Get <div class='HBOMax' style='display: inline-block;width: 64px;'></div> included on us!</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div class='AlticeRegular' style='top: 26px;left: 9px;font-size: 8.8px;'>3 mos. included, then only $14.99/mo.</div>");
 amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
+amo.registerAttribute("frameText51", "TEXT", "<div style='top:2px;left:8px;font-size:13px;'>300 Mbps Internet & TV</div>");
+amo.registerAttribute("frameText52", "TEXT", "<div style='top: 18px;left: 6px;width: 220px;line-height: 1;'><font style='font-size: 27.5px;' class='coloredText'>$50</font><font style='margin-left: 3px;font-size: 9px;display: inline-block;vertical-align: 3px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: -23px 0 0 77px;font-size: 9px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
+amo.registerAttribute("frameText53", "TEXT", "&nbsp;");
 </script>
 <!-- End of overrode asset attributes values -->
 </head>
@@ -136,6 +135,10 @@ amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
     <div id="frameText41" class="frameText">!{frameText41}</div>
     <div id="frameText42" class="frameText">!{frameText42}</div>
     <div id="frameText43" class="frameText">!{frameText43}</div>
+    <div id="frameImage5" class="asset frameImage" data-image="frameImage5"></div>
+    <div id="frameText51" class="frameText">!{frameText51}</div>
+    <div id="frameText52" class="frameText">!{frameText52}</div>
+    <div id="frameText53" class="frameText">!{frameText53}</div>
     <div id="cta" class="text AlticeBold"
       data-text="ctaText"
       style="top: 5px;
@@ -212,6 +215,11 @@ amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
         staticData: {
           logoImage: 'images/320x50_Logo_Optimum_Black.png',
           introLogoImage: 'images/320x50_Logo_Optimum_Black.png',
+          frameImage1: "1x1.png",
+          frameImage2: "1x1.png",
+          frameImage3: "1x1.png",
+          frameImage4: "320x50_OPT_1P_35_1yr_300Mbps_Logo_HBO_MAX_Frame_04.png",
+          frameImage5: "1x1.png",
           // ref: 'ref4.png',
         },
         beforeLoad: function(data){
@@ -246,6 +254,7 @@ amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
         gsap.set('.frameImage', {y:'100%'});
         gsap.set('.frameText', {y:'100%'});
         gsap.set('div[id^="frameText"][id$="1"], #priceLabel', {x:'-100%',y:0});
+        gsap.set('#frameText41', {x:0, y:'100%'});
         var priceFrameAnimation = function(frame){
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frame, {x:0,y:0})
@@ -286,12 +295,12 @@ amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
           var frameId = 4;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
           .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[4]})
-          // .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame5}));
+          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame5}));
         }
         var animateFrame3 = function(flag){
           var frameId = 3;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[3]})
+          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[3]})
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame4}));
         }
         var animateFrame2 = function(flag){
