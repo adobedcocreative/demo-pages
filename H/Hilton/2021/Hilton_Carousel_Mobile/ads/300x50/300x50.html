@@ -386,7 +386,7 @@
       var initCarousel = function(content) {
         carousel.init({
           data: content,
-          autoplay: true,
+          autoplay: Boolean(content[0].autoplayCarousel.toLowerCase() !== 'disable'),
           container: document.querySelector('.carousel-container'),
           onBeforeChange: function(next) {
             adClickUrl = next.url;
@@ -578,6 +578,7 @@
         //   }
         // ];
       	if(contentD && contentD.length) { contentD.forEach(function(data) { amo.registerContent(data); }); }
+        amo.registerVariation("autoplayCarousel", 'disable'); //enable/disable
         amo.registerVariation("logoImage", 'assets/300x50_Hilton_Logo_Image.png');
         amo.registerVariation("headlineText", '!{name}');
         amo.registerVariation("ctaText", 'PLAN A GETAWAY');
@@ -586,6 +587,7 @@
         amo.registerVariation("clickUrl", '!{product_url}');
         var content = [], cam = {};
       	var cam = {
+          autoplayCarousel: amo.variation['autoplayCarousel'],
       		logoImage: amo.variation['logoImage'],
           headlineText: amo.variation['headlineText'],
       		ctaText: amo.variation['ctaText'],
@@ -596,6 +598,7 @@
       		amo.content.forEach(function(data) {
       			content.push({
       				feedData: data,
+              autoplayCarousel: cam.autoplayCarousel,
       				logoImage: cam.logoImage,
               headlineText: cam.headlineText,
               ctaText: cam.ctaText,

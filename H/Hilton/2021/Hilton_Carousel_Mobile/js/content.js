@@ -22,6 +22,7 @@ var getFeed1 = function(){
               "Language": data['gsx$language']['$t'],
               "Segment": data['gsx$segment']['$t'],
               "Smart Names": data['gsx$smartnames']['$t'],
+              "autoplayCarousel": data['gsx$autoplaycarousel']['$t'],
               "logoImage": data['gsx$logoimage']['$t'],
               "headlineImage": data['gsx$headlineimage']['$t'],
               "headlineText": data['gsx$headlinetext']['$t'],
