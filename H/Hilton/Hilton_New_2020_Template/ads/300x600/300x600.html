@@ -126,6 +126,36 @@
           src: url('fonts/Feijoa-Display.woff') format("woff");
       }
       .FeijoaDisplay { font-family: FeijoaDisplay; }
+
+      @font-face {
+          font-family: ProximaNovaRegular;
+          src: url('fonts/ProximaNova-Regular.woff') format("woff");
+      }
+      .ProximaNovaRegular { font-family: ProximaNovaRegular; }
+
+      @font-face {
+          font-family: RobotoCondensedRegular;
+          src: url('fonts/RobotoCondensed-Regular.woff') format("woff");
+      }
+      .RobotoCondensedRegular { font-family: RobotoCondensedRegular; }
+
+      @font-face {
+          font-family: RobotoCondensedBold;
+          src: url('fonts/RobotoCondensed-Bold.woff') format("woff");
+      }
+      .RobotoCondensedBold { font-family: RobotoCondensedBold; }
+
+      @font-face {
+          font-family: RuiAbreuUsual;
+          src: url('fonts/Rui Abreu - Usual.woff') format("woff");
+      }
+      .RuiAbreuUsual { font-family: RuiAbreuUsual; }
+
+      @font-face {
+          font-family: TypeTogetherBreeSerifSb;
+          src: url('fonts/TypeTogether - BreeSerifSb.woff') format("woff");
+      }
+      .TypeTogetherBreeSerifSb { font-family: TypeTogetherBreeSerifSb; }
     </style>
     <!--
       Available Classes:-
@@ -350,18 +380,20 @@
                     logoImageName = 'hgi';
                     document.querySelector("#logoImage").style.top = '406px';
 
-                    document.querySelector("#ad").style.fontFamily = "BreeSerifEb";
+                    document.querySelector("#ad").style.fontFamily = "RuiAbreuUsual";
+                    document.querySelector("#cta").style.fontFamily = "TypeTogetherBreeSerifSb";
                   }else if(hamptonCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'hampton';
                     document.querySelector("#logoImage").style.top = '389px';
 
-                    document.querySelector("#ad").style.fontFamily = "GarageGothicBold";
+                    document.querySelector("#ad").style.fontFamily = "RobotoCondensedRegular";
+                    document.querySelector("#cta").style.fontFamily = "RobotoCondensedBold";
 
                     document.querySelector("#cta").style.fontSize = "20px";
-                    var frameText = document.querySelectorAll("div[id^=frameText]");
+                    /*var frameText = document.querySelectorAll("div[id^=frameText]");
                     for (var i = 0; i < frameText.length; i++){
                       frameText[i].style.fontSize = "39px";
-                    }
+                    }*/
                   }else if(homewoodCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'homewood';
                     document.querySelector("#logoImage").style.top = '412px';
