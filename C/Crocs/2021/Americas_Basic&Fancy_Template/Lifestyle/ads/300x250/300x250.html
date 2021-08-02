@@ -64,12 +64,12 @@
   <body>
     <div class="" id="ad">
       <div id="backgroundImage" class="asset frame" data-image="backgroundImage"></div>
-      <div id="frameImage11" class="asset frame" data-image="frameImage11"></div>
-      <div id="frameImage12" class="asset frame" data-image="frameImage12"></div>
-      <div id="frameImage21" class="asset frame" data-image="frameImage21"></div>
-      <div id="frameImage22" class="asset frame" data-image="frameImage22"></div>
-      <div id="frameImage31" class="asset frame" data-image="frameImage31"></div>
-      <div id="frameImage32" class="asset frame" data-image="frameImage32"></div>
+      <div id="frameImage11" class="frame"><div class="asset frame" data-image="frameImage11"></div></div>
+      <div id="frameImage12" class="frame"><div class="asset frame" data-image="frameImage12"></div></div>
+      <div id="frameImage21" class="frame"><div class="asset frame" data-image="frameImage21"></div></div>
+      <div id="frameImage22" class="frame"><div class="asset frame" data-image="frameImage22"></div></div>
+      <div id="frameImage31" class="frame"><div class="asset frame" data-image="frameImage31"></div></div>
+      <div id="frameImage32" class="frame"><div class="asset frame" data-image="frameImage32"></div></div>
       <div id="frameImage41" class="asset frame" data-image="frameImage41"></div>
       <div id="frameImage42" class="asset frame" data-image="frameImage42"></div>
       <div id="frameImage43" class="asset frame" data-image="frameImage43"></div>
@@ -135,7 +135,7 @@
             });
             return data;
           }
-        }, function(data){
+        }, function(data, images){
           var adData = data[0], adClickUrl = adData['clickUrl'];
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
@@ -150,29 +150,102 @@
               }
             } catch(e) {  }
           }
-          var adWidth = 300, adHeight = 250, slide = {x: 3, y: 5}, slideDuration = 2;
+          var loadImage = function(image) {
+            var width = image.naturalWidth;
+            var height = image.naturalHeight;
+            var element = image;
+            var canvas = document.createElement('canvas');
+            var ctx = canvas.getContext('2d');
+            canvas.width = width;
+            canvas.height = height;
+            ctx.drawImage(image, 0, 0);
+            var getImageLimit = function(axis, a, b) {
+              var getColorValues = function(i) {
+                var x = y = 0, xCount = yCount = 1;
+                if(axis == 0) { x = i; yCount = height; } else { y = i; xCount = width; }
+                var imageData = ctx.getImageData(x, y, xCount, yCount);
+                return imageData.data.reduce(function(total, color){ return (total + color); });
+              }
+              if(a) {//direction - a=0 start && a=1 end
+                for(var i=b; i > a; i--) {
+                  if(getColorValues(i)) {break;}
+                }
+              } else {
+                for(var i=a; i < b; i++) {
+                  if(getColorValues(i)) {break;}
+                }
+              }
+              return i;
+            }
+            var xMin = getImageLimit(0, 0, Math.ceil(width*0.8));
+            var xMax = getImageLimit(0, Math.ceil(width*0.2), width);
+            var yMin = getImageLimit(1, 0, Math.ceil(height*0.8));
+            var yMax = getImageLimit(1, Math.ceil(height*0.2), height);
+            canvas = null;
+            delete canvas;
+            return {
+              left: xMin,
+              top: yMin,
+              width: xMax - xMin,
+              height: yMax - yMin
+            }
+          }
+          var halfDimensions = function(obj){
+            if(obj) {
+              obj.left = Math.floor(obj.left/2);
+              obj.top = Math.floor(obj.top/2);
+              obj.width = Math.ceil(obj.width/2);
+              obj.height = Math.ceil(obj.height/2);
+            }
+            return obj;
+          }
+          var frameImages = [
+            {selector: 'frameImage11'},
+            {selector: 'frameImage12'},
+            {selector: 'frameImage21'},
+            {selector: 'frameImage22'},
+            {selector: 'frameImage31'},
+            {selector: 'frameImage32'},
+          ];
+          frameImages.forEach(function(frameImage){
+            frameImage.element = document.querySelector('#' + frameImage.selector);
+            var imagePath = frameImage.element.querySelector('img').src;
+            frameImage.image = images.find(function(image) { return image.src === imagePath; });
+            if(frameImage.image) {
+              var dimensions = frameImage.image.naturalWidth === ad.width * 2 ? halfDimensions(loadImage(frameImage.image)) : loadImage(frameImage.image);
+              gsap.set(frameImage.element, dimensions);
+              if(frameImage.element.querySelector('div')) gsap.set(frameImage.element.querySelector('div'), {left: -dimensions.left, top: -dimensions.top, width: ad.width, height: ad.height});
+            }
+          });
+          var adWidth = 300, adHeight = 250, slide = {x: 3, y: 3}, scale = 1.05, slideDuration = 2;
           gsap.set('#logoImage, #cta', {autoAlpha: 0});
           var showCTALogo = function() {
             gsap.timeline({defaults:{ease: Power2.Out, duration: 0.5}})
             .to('#logoImage, #cta', { autoAlpha: 1, delay: 0.3})
           }
           gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
-          .from('#frameImage11, #frameImage12', { x: '100%', delay:0.8})
-          .from('#headlineImage', { x: '-100%', onComplete: showCTALogo}, '-=0.3')
+          .from('#frameImage11, #frameImage12', { x: adWidth, delay:0.8})
+          .from('#headlineImage', { x: -adWidth, onComplete: showCTALogo}, '-=0.3')
           .to('#frameImage11', { x: -slide.x, y: -slide.y, duration: slideDuration, ease: 'none'})
+          .to('#frameImage11 div', { scale: scale, duration: slideDuration, ease: 'none'}, '-='+slideDuration)
           .to('#frameImage12', { x: -slide.x, y: slide.y, duration: slideDuration, ease: 'none'}, '-='+slideDuration)
-          .to('#frameImage11, #frameImage12', { x: '-100%'})
-          .from('#frameImage21, #frameImage22', { x: '100%'}, '-=0.3')
+          .to('#frameImage12 div', { scale: scale, duration: slideDuration, ease: 'none'}, '-='+slideDuration)
+          .to('#frameImage11, #frameImage12', { x: -adWidth})
+          .from('#frameImage21, #frameImage22', { x: adWidth}, '-=0.3')
           .to('#frameImage21', { x: -slide.x, y: slide.y, duration: slideDuration, ease: 'none'})
+          .to('#frameImage21 div', { scale: scale, duration: slideDuration, ease: 'none'}, '-='+slideDuration)
           .to('#frameImage22', { x: -slide.x, y: -slide.y, duration: slideDuration, ease: 'none'}, '-='+slideDuration)
-          .to('#frameImage21, #frameImage22', { x: '-100%'})
-          .from('#frameImage31, #frameImage32', { x: '100%'}, '-=0.3')
+          .to('#frameImage22 div', { scale: scale, duration: slideDuration, ease: 'none'}, '-='+slideDuration)
+          .to('#frameImage21, #frameImage22', { x: -adWidth})
+          .from('#frameImage31, #frameImage32', { x: adWidth}, '-=0.3')
           .to('#frameImage31', { x: -slide.x, y: -slide.y, duration: slideDuration, ease: 'none'})
+          .to('#frameImage31 div', { scale: scale, duration: slideDuration, ease: 'none'}, '-='+slideDuration)
           .to('#frameImage32', { x: -slide.x, y: slide.y, duration: slideDuration, ease: 'none'}, '-='+slideDuration)
-          .to('#frameImage31, #frameImage32', { x: '-100%'})
-          .from('#frameImage41', { x: '100%'}, '-=0.3')
-          .from('#frameImage42', { x: '100%', delay: 0.3})
-          .from('#frameImage43', { x: '100%', delay: 0.3})
+          .to('#frameImage32 div', { scale: scale, duration: slideDuration, ease: 'none'}, '-='+slideDuration)
+          .to('#frameImage31, #frameImage32', { x: -adWidth})
+          .from('#frameImage41', { x: adWidth}, '-=0.3')
+          .from('#frameImage42', { x: adWidth, delay: 0.3})
+          .from('#frameImage43', { x: adWidth, delay: 0.3})
 
 
         });
