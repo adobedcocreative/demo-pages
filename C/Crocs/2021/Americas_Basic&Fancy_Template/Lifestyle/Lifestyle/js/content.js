@@ -17,7 +17,7 @@ var getCelebrityFeed = function(){
               "smartName": data['gsx$smartname']['$t'],
               "Label": data['gsx$label']['$t'],
               "styleProperties": data['gsx$styleproperties']['$t'],
-              "ctaSelect": data['gsx$ctaselect']['$t'],
+              "ctaText": data['gsx$ctatext']['$t'],
               "backgroundImage": data['gsx$backgroundimage']['$t'],
               "frameImage11": data['gsx$frameimage11']['$t'],
               "frameImage12": data['gsx$frameimage12']['$t'],
@@ -28,7 +28,7 @@ var getCelebrityFeed = function(){
               "frameImage41": data['gsx$frameimage41']['$t'],
               "frameImage42": data['gsx$frameimage42']['$t'],
               "frameImage43": data['gsx$frameimage43']['$t'],
-              "headlineImage": data['gsx$headlineimage']['$t'],
+              "headlineText": data['gsx$headlinetext']['$t'],
               "clickUrl": data['gsx$url']['$t'],
             });
           });
