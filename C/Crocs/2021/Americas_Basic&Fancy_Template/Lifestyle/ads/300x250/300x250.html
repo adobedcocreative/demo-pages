@@ -60,7 +60,7 @@
     <script type="text/javascript">
       amo.registerClick("clickUrl", "https://www.adobe.com/#Crocs");
       amo.registerAttribute("ctaText", "TEXT", "SHOP NOW");
-      amo.registerAttribute("backgroundImage", "IMAGE", "300x250_Crocs_Lifestyle_Background.png");
+      amo.registerAttribute("backgroundImage", "IMAGE", "300x250_Crocs_Lifestyle_Background.jpg");
       amo.registerAttribute("frameImage11", "IMAGE", "300x250_Crocs_Lifestyle_Image11.png");
       amo.registerAttribute("frameImage12", "IMAGE", "300x250_Crocs_Lifestyle_Image12.png");
       amo.registerAttribute("frameImage21", "IMAGE", "300x250_Crocs_Lifestyle_Image21.png");
@@ -220,7 +220,7 @@
               if(frameImage.element.querySelector('div')) gsap.set(frameImage.element.querySelector('div'), {left: -dimensions.left, top: -dimensions.top, width: ad.width, height: ad.height});
             }
           });
-          var adWidth = 300, adHeight = 250, slide = {x: 3, y: 3}, scale = 1.05, slideDuration = 2;
+          var adWidth = 300, adHeight = 250, scale = 1.05, scaleDuration = 2;
           gsap.set('#logoImage, #cta', {autoAlpha: 0});
           var showCTALogo = function() {
             gsap.timeline({defaults:{ease: Power2.Out, duration: 0.5}})
@@ -229,13 +229,13 @@
           gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
           .from('#frameImage11, #frameImage12', { x: adWidth, delay:0.8})
           .from('#headlineText', { x: -adWidth, onComplete: showCTALogo}, '-=0.3')
-          .to('#frameImage11 div, #frameImage12 div', { scale: scale, duration: slideDuration, ease: 'none'})
+          .to('#frameImage11 div, #frameImage12 div', { scale: scale, duration: scaleDuration, ease: 'none'})
           .to('#frameImage11, #frameImage12', { x: -adWidth})
           .from('#frameImage21, #frameImage22', { x: adWidth}, '-=0.3')
-          .to('#frameImage21 div, #frameImage22 div', { scale: scale, duration: slideDuration, ease: 'none'})
+          .to('#frameImage21 div, #frameImage22 div', { scale: scale, duration: scaleDuration, ease: 'none'})
           .to('#frameImage21, #frameImage22', { x: -adWidth})
           .from('#frameImage31, #frameImage32', { x: adWidth}, '-=0.3')
-          .to('#frameImage31 div, #frameImage32 div', { scale: scale, duration: slideDuration, ease: 'none'})
+          .to('#frameImage31 div, #frameImage32 div', { scale: scale, duration: scaleDuration, ease: 'none'})
           .to('#frameImage31, #frameImage32', { x: -adWidth})
           .from('#frameImage41', { x: adWidth}, '-=0.3')
           .from('#frameImage42', { x: adWidth, delay: 0.3})
