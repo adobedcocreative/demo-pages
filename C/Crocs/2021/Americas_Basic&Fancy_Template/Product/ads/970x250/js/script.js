@@ -300,7 +300,7 @@ var Ad = function(config) {
       adData.forEach(function(dataObject){
         for(var i in dataObject) {
           var value = dataObject[i];
-          if(typeof value == 'string' && value.match(/\.(bmp|jpeg|jpg|gif|png|webp)$/) != null && value.indexOf('/') != -1) {
+          if(typeof value == 'string' && value.match(/\.(bmp|jpeg|jpg|gif|png|webp)$/) != null) {
             assets.push(value);
           }
         }
