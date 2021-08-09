@@ -4,7 +4,7 @@ var getCelebrityData;
 var celebritiesLoadFlag = false;
 var getCelebrityFeed = function(){
   var xmlhttp = new XMLHttpRequest();
-  var url = "https://spreadsheets.google.com/feeds/list/13VLAZFDR5Z0_b7PGLCG7cP_HZWrv_zmzDBUNhENRYww/1/public/values?alt=json";
+  var url = "https://spreadsheets.google.com/feeds/list/13VLAZFDR5Z0_b7PGLCG7cP_HZWrv_zmzDBUNhENRYww/2/public/values?alt=json";
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {

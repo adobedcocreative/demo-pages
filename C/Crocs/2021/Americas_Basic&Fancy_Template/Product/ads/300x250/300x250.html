@@ -26,7 +26,7 @@
         height: 250px;
         font-family: proxima-nova, Arial, sans-serif;
         font-weight: 800;
-        color: #000;
+        color: #fff;
       }
       .frame {
         position: absolute;
@@ -36,8 +36,15 @@
         height:inherit;
         overflow: hidden;
       }
+      tm::after {
+        content: 'TM';
+        margin-left: 1px;
+        vertical-align: top;
+        font-size: 3px;
+        letter-spacing: 0;
+      }
       small {
-        font-size: 64%;
+        font-size: 55%;
       }
       .big {
         font-size: 117%;
@@ -45,6 +52,8 @@
       .underline {
         position: relative;
         vertical-align: top;
+        font-size: 65%;
+        margin-left: -3px;
       }
       .underline::after {
         content: ' ';
@@ -60,54 +69,42 @@
     <script type="text/javascript">
       amo.registerClick("clickUrl", "https://www.crocs.com/");
       amo.registerAttribute("ctaText", "TEXT", "SHOP NOW");
-      amo.registerAttribute("backgroundImage", "IMAGE", "300x250_Crocs_Lifestyle_Background.jpg");
-      amo.registerAttribute("frameImage11", "IMAGE", "300x250_Crocs_Lifestyle_Image11.png");
-      amo.registerAttribute("frameImage12", "IMAGE", "300x250_Crocs_Lifestyle_Image12.png");
-      amo.registerAttribute("frameImage21", "IMAGE", "300x250_Crocs_Lifestyle_Image21.png");
-      amo.registerAttribute("frameImage22", "IMAGE", "300x250_Crocs_Lifestyle_Image22.png");
-      amo.registerAttribute("frameImage31", "IMAGE", "300x250_Crocs_Lifestyle_Image31.png");
-      amo.registerAttribute("frameImage32", "IMAGE", "300x250_Crocs_Lifestyle_Image32.png");
-      amo.registerAttribute("frameImage41", "IMAGE", "300x250_Crocs_Lifestyle_Image41.png");
-      amo.registerAttribute("frameImage42", "IMAGE", "300x250_Crocs_Lifestyle_Image42.png");
-      amo.registerAttribute("frameImage43", "IMAGE", "300x250_Crocs_Lifestyle_Image43.png");
-      amo.registerAttribute("headlineText", "TEXT", "<small>A</small> PERFECT PAIR<div class='big'><small class='underline'>FOR</small> EVERY WEAR</div>");
+      amo.registerAttribute("backgroundColor", "TEXT", "#e3e1db|#1488c5");
+      amo.registerAttribute("frameImage1", "IMAGE", "300x250_Crocs_ACC_2021_Product_Only_Product_Image_Brooklyn_Low_Wedge.png");
+      amo.registerAttribute("frameImage2", "IMAGE", "300x250_Crocs_ACC_2021_Product_Only_Product_Image_Brooklyn_Low_Wedge2.png");
+      amo.registerAttribute("headlineText", "TEXT", "<small>COME AS</small> YOU <small class='underline'>ARE</small><tm></tm>");
       amo.registerAttribute("styleProperties", "TEXT", "na");
       amo.registerAttribute("impressionTracker", "TEXT", "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII=");
     </script>
   </head>
   <body>
     <div class="" id="ad">
-      <div id="backgroundImage" class="asset frame" data-image="backgroundImage"></div>
-      <div id="frameImage11" class="frame"><div class="asset frame" data-image="frameImage11"></div></div>
-      <div id="frameImage12" class="frame"><div class="asset frame" data-image="frameImage12"></div></div>
-      <div id="frameImage21" class="frame"><div class="asset frame" data-image="frameImage21"></div></div>
-      <div id="frameImage22" class="frame"><div class="asset frame" data-image="frameImage22"></div></div>
-      <div id="frameImage31" class="frame"><div class="asset frame" data-image="frameImage31"></div></div>
-      <div id="frameImage32" class="frame"><div class="asset frame" data-image="frameImage32"></div></div>
-      <div id="frameImage41" class="asset frame" data-image="frameImage41"></div>
-      <div id="frameImage42" class="asset frame" data-image="frameImage42"></div>
-      <div id="frameImage43" class="asset frame" data-image="frameImage43"></div>
+      <div id="backgroundColor" class="frame"></div>
+      <div id="frameImage1" class="frame"><div class="asset frame" data-image="frameImage1"></div></div>
+      <div id="frameImage2" class="frame"><div class="asset frame" data-image="frameImage2"></div></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
+      <div id="patch" class="asset frame" data-image="patchImage"></div>
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="headlineText" class="text MonumentExtendedBold"
         data-text="headlineText"
         data-style="text-align:center;"
-        style="top: 166px;
-          left: 20px;
-          width: 260px;
-          height: 40px;
-          font-size: 18px;
-          line-height: 1;">
+        style="top: 135px;
+          left: 14px;
+          width: 158px;
+          height: 80px;
+          font-size: 27px;
+          line-height: 0.9;
+          letter-spacing: -0.7px;">
       </div>
       <div id="cta" class="text"
         data-text="ctaText"
-        data-style="padding: 3px 7px 1px;"
-        style="top: 210px;
-          left: 138px;
-          width: 120px;
-          height: 30px;
-          font-size: 15px;
-          border: 2px solid;
+        data-style="padding: 2px 7px 1px;"
+        style="top: 184px;
+          left: 178px;
+          width: 100px;
+          height: 25px;
+          font-size: 14px;
+          border: 1px solid;
           box-sizing: border-box;">
       </div>
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
@@ -122,7 +119,7 @@
         width: 300,
         height: 250,
         borderWidth: 1,
-        borderColor: '#000'
+        borderColor: '#aaaaaa'
       });
       setTimeout(function() {
         ad.contentSetup({
@@ -130,11 +127,13 @@
           feed: [],
           staticData: {
             // ref: 'ref.png'
-            logoImage: 'images/300x250_Crocs_Lifestyle_Logo_Black.png',
+            logoImage: 'images/300x250_Crocs_ACC_2021_Product_Only_Crocs_Logo.png',
+            patchImage: 'images/300x250_Crocs_ACC_2021_Product_Only_Text_Background.png',
           },
           beforeLoad: function(data){
             data.map(function(content){
-              
+              content.backgroundColor1 = content.backgroundColor.split('|')[0];
+              content.backgroundColor2 = content.backgroundColor.split('|')[(content.backgroundColor.split('|').length > 1 ? 1 : 0)];
             });
             return data;
           }
@@ -203,12 +202,8 @@
             return obj;
           }
           var frameImages = [
-            {selector: 'frameImage11'},
-            {selector: 'frameImage12'},
-            {selector: 'frameImage21'},
-            {selector: 'frameImage22'},
-            {selector: 'frameImage31'},
-            {selector: 'frameImage32'},
+            {selector: 'frameImage1'},
+            {selector: 'frameImage2'},
           ];
           frameImages.forEach(function(frameImage){
             frameImage.element = document.querySelector('#' + frameImage.selector);
@@ -220,26 +215,21 @@
               if(frameImage.element.querySelector('div')) gsap.set(frameImage.element.querySelector('div'), {left: -dimensions.left, top: -dimensions.top, width: ad.width, height: ad.height});
             }
           });
-          var adWidth = 300, adHeight = 250, scale = 1.05, scaleDuration = 2;
+          var adWidth = 300, adHeight = 250, scale = 1.05, scaleDuration = 2.5;
           gsap.set('#logoImage, #cta', {autoAlpha: 0});
+          gsap.set('#backgroundColor', {backgroundColor: adData.backgroundColor1});
           var showCTALogo = function() {
             gsap.timeline({defaults:{ease: Power2.Out, duration: 0.5}})
             .to('#logoImage, #cta', { autoAlpha: 1, delay: 0.3})
           }
           gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
-          .from('#frameImage11, #frameImage12', { x: adWidth, delay:0.8})
-          .from('#headlineText', { x: -adWidth, onComplete: showCTALogo}, '-=0.3')
-          .to('#frameImage11 div, #frameImage12 div', { scale: scale, duration: scaleDuration, ease: 'none'})
-          .to('#frameImage11, #frameImage12', { x: -adWidth})
-          .from('#frameImage21, #frameImage22', { x: adWidth}, '-=0.3')
-          .to('#frameImage21 div, #frameImage22 div', { scale: scale, duration: scaleDuration, ease: 'none'})
-          .to('#frameImage21, #frameImage22', { x: -adWidth})
-          .from('#frameImage31, #frameImage32', { x: adWidth}, '-=0.3')
-          .to('#frameImage31 div, #frameImage32 div', { scale: scale, duration: scaleDuration, ease: 'none'})
-          .to('#frameImage31, #frameImage32', { x: -adWidth})
-          .from('#frameImage41', { x: adWidth}, '-=0.3')
-          .from('#frameImage42', { x: adWidth, delay: 0.3})
-          .from('#frameImage43', { x: adWidth, delay: 0.3})
+          .from('#frameImage1', { x: adWidth, delay:0.5})
+          .from('#headlineText, #patch', { x: -adWidth, onComplete: showCTALogo}, '-=0.3')
+          .to('#frameImage1 div', { scale: scale, duration: scaleDuration, ease: 'none'})
+          .to('#frameImage1', { x: -adWidth})
+          .from('#frameImage2', { x: adWidth}, '-=0.3')
+          .to('#backgroundColor', { backgroundColor: adData.backgroundColor2}, '-=0.3')
+          .to('#frameImage2 div', { scale: scale, duration: scaleDuration, ease: 'none'})          
         });
       }, 2000);
     </script>
