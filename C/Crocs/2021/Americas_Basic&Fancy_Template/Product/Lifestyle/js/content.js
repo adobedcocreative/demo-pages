@@ -21,6 +21,7 @@ var getCelebrityFeed = function(){
               "backgroundColor": data['gsx$backgroundcolor']['$t'],
               "frameImage1": data['gsx$frameimage1']['$t'],
               "frameImage2": data['gsx$frameimage2']['$t'],
+              "frameImage3": data['gsx$frameimage3']['$t'],
               "headlineText": data['gsx$headlinetext']['$t'],
               "clickUrl": data['gsx$url']['$t'],
             });

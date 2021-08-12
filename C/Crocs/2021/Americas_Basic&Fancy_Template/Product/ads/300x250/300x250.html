@@ -69,9 +69,10 @@
     <script type="text/javascript">
       amo.registerClick("clickUrl", "https://www.crocs.com/");
       amo.registerAttribute("ctaText", "TEXT", "SHOP NOW");
-      amo.registerAttribute("backgroundColor", "TEXT", "#e3e1db|#1488c5");
+      amo.registerAttribute("backgroundColor", "TEXT", "#e3e1db|#1488c5|#f4d419");
       amo.registerAttribute("frameImage1", "IMAGE", "300x250_Crocs_ACC_2021_Product_Only_Product_Image_Brooklyn_Low_Wedge_Black.png");
       amo.registerAttribute("frameImage2", "IMAGE", "300x250_Crocs_ACC_2021_Product_Only_Product_Image_Brooklyn_Low_Wedge_Blue.png");
+      amo.registerAttribute("frameImage3", "IMAGE", "300x250_Crocs_ACC_2021_Product_Only_Product_Image_Brooklyn_Low_Wedge_Yellow.png");
       amo.registerAttribute("headlineText", "TEXT", "<small>COME AS</small> YOU <small class='underline'>ARE</small><tm></tm>");
       amo.registerAttribute("styleProperties", "TEXT", "na");
       amo.registerAttribute("impressionTracker", "TEXT", "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII=");
@@ -82,6 +83,7 @@
       <div id="backgroundColor" class="frame"></div>
       <div id="frameImage1" class="frame"><div class="asset frame" data-image="frameImage1"></div></div>
       <div id="frameImage2" class="frame"><div class="asset frame" data-image="frameImage2"></div></div>
+      <div id="frameImage3" class="frame"><div class="asset frame" data-image="frameImage3"></div></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
       <div id="patch" class="asset frame" data-image="patchImage"></div>
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
@@ -134,6 +136,7 @@
             data.map(function(content){
               content.backgroundColor1 = content.backgroundColor.split('|')[0];
               content.backgroundColor2 = content.backgroundColor.split('|')[(content.backgroundColor.split('|').length > 1 ? 1 : 0)];
+              content.backgroundColor3 = content.backgroundColor.split('|')[(content.backgroundColor.split('|').length > 2 ? 2 : 0)];
             });
             return data;
           }
@@ -204,6 +207,7 @@
           var frameImages = [
             {selector: 'frameImage1'},
             {selector: 'frameImage2'},
+            {selector: 'frameImage3'},
           ];
           frameImages.forEach(function(frameImage){
             frameImage.element = document.querySelector('#' + frameImage.selector);
@@ -229,7 +233,11 @@
           .to('#frameImage1', { x: -adWidth})
           .from('#frameImage2', { x: adWidth}, '-=0.3')
           .to('#backgroundColor', { backgroundColor: adData.backgroundColor2}, '-=0.3')
-          .to('#frameImage2 div', { scale: scale, duration: scaleDuration, ease: 'none'})          
+          .to('#frameImage2 div', { scale: scale, duration: scaleDuration, ease: 'none'})
+          .to('#frameImage2', { x: -adWidth})
+          .from('#frameImage3', { x: adWidth}, '-=0.3')
+          .to('#backgroundColor', { backgroundColor: adData.backgroundColor3}, '-=0.3')
+          .to('#frameImage3 div', { scale: scale, duration: scaleDuration, ease: 'none'})
         });
       }, 2000);
     </script>
