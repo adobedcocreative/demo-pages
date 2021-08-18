@@ -1,4 +1,4 @@
-var feedTemplate1 = [] = [];
+var feedTemplate1 = [];
 var feedContent = [], feedData = {}, getData;
 var adData = [];
 var loadTemplateFlag1 = false;
@@ -46,24 +46,25 @@ var getFeed1 = function(){
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-          var JSONData = JSON.parse(this.responseText);
-          JSONData.forEach(function(data){
-            // feedTemplate1.push({
-            //   "Ad Size": data['Ad Size'],
-            //   "CTA": data['CTA'],
-            //   "Country": data['Country'],
-            //   "Language": data['Language'],
-            //   "Layout": data['Layout'],
-            //   "Segment": data['Segment'],
-            //   "Smart Names": data['Smart Names'],
-            //   "textField1": data['textField1'],
-            //   "textField2": data['textField2'],
-            //   "textField3": data['textField3'],
-            //   "textField4": data['textField4'],
-            //   "textField5": data['textField5'],
-            // });
-            feedTemplate1.push({...data});
-          });
+          // var JSONData = JSON.parse(this.responseText);
+          // JSONData.forEach(function(data){
+          //   // feedTemplate1.push({
+          //   //   "Ad Size": data['Ad Size'],
+          //   //   "CTA": data['CTA'],
+          //   //   "Country": data['Country'],
+          //   //   "Language": data['Language'],
+          //   //   "Layout": data['Layout'],
+          //   //   "Segment": data['Segment'],
+          //   //   "Smart Names": data['Smart Names'],
+          //   //   "textField1": data['textField1'],
+          //   //   "textField2": data['textField2'],
+          //   //   "textField3": data['textField3'],
+          //   //   "textField4": data['textField4'],
+          //   //   "textField5": data['textField5'],
+          //   // });
+          //   feedTemplate1.push({...data});
+          // });
+          feedTemplate1 = [...JSON.parse(this.responseText)]
           loadTemplateFlag1 = true;
           loadData();
       }

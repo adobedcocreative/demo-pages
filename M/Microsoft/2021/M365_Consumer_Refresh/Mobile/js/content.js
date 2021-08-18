@@ -2,33 +2,51 @@ var feedTemplate1 = [] = [];
 var feedContent = [], feedData = {}, getData;
 var adData = [];
 var loadTemplateFlag1 = false;
+// var getFeed1 = function(){
+//   var xmlhttp = new XMLHttpRequest();
+//   var sheetID = "1fhPx7ZJTKQ3ASlmoJzq1agFR25BWbeiRLIsICrQORfo/1";
+//   var searchID = location.search.split('?')[1];
+//   sheetID = searchID && searchID.length == 46 && searchID.indexOf('/') > 1 ? searchID : sheetID;
+//   sheetID = searchID && searchID.length <= 2 && Boolean(parseInt(searchID)) ? sheetID.split('/')[0] + '/' + parseInt(searchID) : sheetID;
+//   var url = "https://spreadsheets.google.com/feeds/list/" + sheetID + "/public/values?alt=json";
+
+//   xmlhttp.onreadystatechange = function() {
+//       if (this.readyState == 4 && this.status == 200) {
+//           var JSONData = JSON.parse(this.responseText);
+//           JSONData.feed.entry.map(function(data){
+//             feedTemplate1.push({
+//               "Ad Size": data['gsx$adsize']['$t'],
+//               "CTA": data['gsx$cta']['$t'],
+//               "Country": data['gsx$country']['$t'],
+//               "Language": data['gsx$language']['$t'],
+//               "Layout": data['gsx$layout']['$t'],
+//               "Segment": data['gsx$segment']['$t'],
+//               "Smart Names": data['gsx$smartnames']['$t'],
+//               "textField1": data['gsx$textfield1']['$t'],
+//               "textField2": data['gsx$textfield2']['$t'],
+//               "textField3": data['gsx$textfield3']['$t'],
+//               "textField4": data['gsx$textfield4']['$t'],
+//               "textField5": data['gsx$textfield5']['$t'],
+//             });
+//           });
+//           loadTemplateFlag1 = true;
+//           loadData();
+//       }
+//   };
+//   xmlhttp.open("GET", url, true);
+//   xmlhttp.send();
+// }
 var getFeed1 = function(){
   var xmlhttp = new XMLHttpRequest();
   var sheetID = "1fhPx7ZJTKQ3ASlmoJzq1agFR25BWbeiRLIsICrQORfo/1";
   var searchID = location.search.split('?')[1];
   sheetID = searchID && searchID.length == 46 && searchID.indexOf('/') > 1 ? searchID : sheetID;
   sheetID = searchID && searchID.length <= 2 && Boolean(parseInt(searchID)) ? sheetID.split('/')[0] + '/' + parseInt(searchID) : sheetID;
-  var url = "https://spreadsheets.google.com/feeds/list/" + sheetID + "/public/values?alt=json";
+  var url = "https://script.google.com/macros/s/AKfycby8Hrt5rvnJ01olPYTynL7DhW4_NFF6ne-jeX0It6JGhG3X4vCFHnVSv1mq3rDBC6rlzg/exec?id=" + sheetID;
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-          var JSONData = JSON.parse(this.responseText);
-          JSONData.feed.entry.map(function(data){
-            feedTemplate1.push({
-              "Ad Size": data['gsx$adsize']['$t'],
-              "CTA": data['gsx$cta']['$t'],
-              "Country": data['gsx$country']['$t'],
-              "Language": data['gsx$language']['$t'],
-              "Layout": data['gsx$layout']['$t'],
-              "Segment": data['gsx$segment']['$t'],
-              "Smart Names": data['gsx$smartnames']['$t'],
-              "textField1": data['gsx$textfield1']['$t'],
-              "textField2": data['gsx$textfield2']['$t'],
-              "textField3": data['gsx$textfield3']['$t'],
-              "textField4": data['gsx$textfield4']['$t'],
-              "textField5": data['gsx$textfield5']['$t'],
-            });
-          });
+          feedTemplate1 = [...JSON.parse(this.responseText)]
           loadTemplateFlag1 = true;
           loadData();
       }
