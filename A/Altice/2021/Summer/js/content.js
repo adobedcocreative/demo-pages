@@ -34,6 +34,19 @@ var loadTemplateFlag1 = false;
 //   xmlhttp.open("GET", url, true);
 //   xmlhttp.send();
 // }
+const tsvTojson = (data) => {
+  const rowsData = data.split('\r\n').map(row => row.split('\t'));
+  const headers = rowsData[0], rows = rowsData.slice(1);
+  data = [];
+  rows.every(row => {
+    if(row.every(cell => cell === '')) return false; //isEmptyRow
+    let obj = {};
+    row.forEach((cell, i) => obj[headers[i]] = cell);
+    data.push(obj);
+    return true;
+  });
+  return data;
+}
 var getFeed1 = function(){
   var xmlhttp = new XMLHttpRequest();
   var sheetID = "1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/7";
@@ -41,10 +54,11 @@ var getFeed1 = function(){
   sheetID = searchID && searchID.length == 46 && searchID.indexOf('/') > 1 ? searchID : sheetID;
   sheetID = searchID && searchID.length <= 2 && Boolean(parseInt(searchID)) ? sheetID.split('/')[0] + '/' + parseInt(searchID) : sheetID;
   var url = "https://script.google.com/macros/s/AKfycby8Hrt5rvnJ01olPYTynL7DhW4_NFF6ne-jeX0It6JGhG3X4vCFHnVSv1mq3rDBC6rlzg/exec?id=" + sheetID;
+  var url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSlajwfQcB5w62bhf0gB5LiIl0vvK2ZNiCc-Feu6S28ozXJz3SDlK5IdTEA-8UJGRtUoMmHlKmJ6lSQ/pub?gid=117011723&single=true&output=tsv";
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {          
-          feedTemplate1 = [...JSON.parse(this.responseText)];
+          feedTemplate1 = tsvTojson(this.responseText);
           if(location.hostname && location.hostname != 'localhost') {
             var tempFeed = [];
             feedTemplate1.forEach(function(data){

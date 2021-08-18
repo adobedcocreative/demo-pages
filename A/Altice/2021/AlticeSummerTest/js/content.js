@@ -34,17 +34,113 @@ var loadTemplateFlag1 = false;
 //   xmlhttp.open("GET", url, true);
 //   xmlhttp.send();
 // }
+
+
+
+// var getFeed1 = function(){
+//   var xmlhttp = new XMLHttpRequest();
+//   var sheetID = "1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/8";
+//   var searchID = location.search.split('?')[1];
+//   sheetID = searchID && searchID.length == 46 && searchID.indexOf('/') > 1 ? searchID : sheetID;
+//   sheetID = searchID && searchID.length <= 2 && Boolean(parseInt(searchID)) ? sheetID.split('/')[0] + '/' + parseInt(searchID) : sheetID;
+//   var url = "https://script.google.com/macros/s/AKfycby8Hrt5rvnJ01olPYTynL7DhW4_NFF6ne-jeX0It6JGhG3X4vCFHnVSv1mq3rDBC6rlzg/exec?id=" + sheetID;
+
+//   xmlhttp.onreadystatechange = function() {
+//       if (this.readyState == 4 && this.status == 200) {          
+//           feedTemplate1 = [...JSON.parse(this.responseText)];
+//           if(location.hostname && location.hostname != 'localhost') {
+//             var tempFeed = [];
+//             feedTemplate1.forEach(function(data){
+//               if(!Boolean('Visibility' in data) || ('Visibility' in data && data.Visibility.toLowerCase() == 'true')) {
+//                 tempFeed.push(data);
+//               }
+//             });
+//             feedTemplate1 = tempFeed;
+//           }
+//           loadTemplateFlag1 = true;
+//           loadData();
+//       }
+//   };
+//   xmlhttp.open("GET", url, true);
+//   xmlhttp.send();
+// }
+
+// var getFeed1 = function(){ //Many ways
+//   var xmlhttp = new XMLHttpRequest();
+//   var sheetID = "1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/8";
+//   var searchID = location.search.split('?')[1];
+//   sheetID = searchID && searchID.length == 46 && searchID.indexOf('/') > 1 ? searchID : sheetID;
+//   sheetID = searchID && searchID.length <= 2 && Boolean(parseInt(searchID)) ? sheetID.split('/')[0] + '/' + parseInt(searchID) : sheetID;
+//   var url = "https://script.google.com/macros/s/AKfycby8Hrt5rvnJ01olPYTynL7DhW4_NFF6ne-jeX0It6JGhG3X4vCFHnVSv1mq3rDBC6rlzg/exec?id=" + sheetID; //API
+//   var url = "https://docs.google.com/spreadsheets/d/1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/gviz/tq?tqx=out:json"; //JSON
+//   var url = "https://docs.google.com/spreadsheets/d/1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/gviz/tq?tqx=out:csv&gid=580157085"; //CSV
+//   var url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSlajwfQcB5w62bhf0gB5LiIl0vvK2ZNiCc-Feu6S28ozXJz3SDlK5IdTEA-8UJGRtUoMmHlKmJ6lSQ/pub?output=tsv&gid=580157085"; //TSV
+//   //https://docs.google.com/spreadsheets/d/1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/gviz/tq?tqx=out:csv&sheet=SummerTest
+//   //https://docs.google.com/spreadsheets/d/1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/gviz/tq?tqx=out:csv&gid=580157085
+//   //http://www.example.com/mydatasource?tqx=responseHandler:myHandlerFunction
+
+//   xmlhttp.onreadystatechange = function() {
+//       if (this.readyState == 4 && this.status == 200) {
+//         var data = this.responseText;
+//         debugger;
+//         // const r = data.match(/google\.visualization\.Query\.setResponse\(([\s\S\w]+)\)/);
+//         // if (r && r.length == 2) {
+//         //   const obj = JSON.parse(r[1]);
+//         //   const table = obj.table;
+//         //   const header = table.cols.map(({label}) => label);
+//         //   const rows = table.rows.map(({c}) => c.map(({v}) => v));
+      
+//         //   console.log(header);
+//         //   console.log(rows);
+//         // }      
+
+//           // feedTemplate1 = [...JSON.parse(this.responseText)];
+//           // if(location.hostname && location.hostname != 'localhost') {
+//           //   var tempFeed = [];
+//           //   feedTemplate1.forEach(function(data){
+//           //     if(!Boolean('Visibility' in data) || ('Visibility' in data && data.Visibility.toLowerCase() == 'true')) {
+//           //       tempFeed.push(data);
+//           //     }
+//           //   });
+//           //   feedTemplate1 = tempFeed;
+//           // }
+//           // loadTemplateFlag1 = true;
+//           // loadData();
+//       }
+//   };
+//   xmlhttp.open("GET", url, true);
+//   xmlhttp.send();
+// }
+const tsvTojson = (data) => {
+  const rowsData = data.split('\r\n').map(row => row.split('\t'));
+  const headers = rowsData[0], rows = rowsData.slice(1);
+  data = [];
+  rows.every(row => {
+    if(row.every(cell => cell === '')) return false; //isEmptyRow
+    let obj = {};
+    row.forEach((cell, i) => obj[headers[i]] = cell);
+    data.push(obj);
+    return true;
+  });
+  return data;
+}
 var getFeed1 = function(){
   var xmlhttp = new XMLHttpRequest();
   var sheetID = "1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/8";
   var searchID = location.search.split('?')[1];
   sheetID = searchID && searchID.length == 46 && searchID.indexOf('/') > 1 ? searchID : sheetID;
   sheetID = searchID && searchID.length <= 2 && Boolean(parseInt(searchID)) ? sheetID.split('/')[0] + '/' + parseInt(searchID) : sheetID;
-  var url = "https://script.google.com/macros/s/AKfycby8Hrt5rvnJ01olPYTynL7DhW4_NFF6ne-jeX0It6JGhG3X4vCFHnVSv1mq3rDBC6rlzg/exec?id=" + sheetID;
+  var url = "https://script.google.com/macros/s/AKfycby8Hrt5rvnJ01olPYTynL7DhW4_NFF6ne-jeX0It6JGhG3X4vCFHnVSv1mq3rDBC6rlzg/exec?id=" + sheetID; //API
+  var url = "https://docs.google.com/spreadsheets/d/1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/gviz/tq?tqx=out:json"; //JSON
+  var url = "https://docs.google.com/spreadsheets/d/1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/gviz/tq?tqx=out:csv&gid=580157085"; //CSV
+  var url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSlajwfQcB5w62bhf0gB5LiIl0vvK2ZNiCc-Feu6S28ozXJz3SDlK5IdTEA-8UJGRtUoMmHlKmJ6lSQ/pub?output=tsv&gid=580157085"; //TSV
+  //https://docs.google.com/spreadsheets/d/1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/gviz/tq?tqx=out:csv&sheet=SummerTest
+  //https://docs.google.com/spreadsheets/d/1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/gviz/tq?tqx=out:csv&gid=580157085
+  //http://www.example.com/mydatasource?tqx=responseHandler:myHandlerFunction
 
   xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {          
-          feedTemplate1 = [...JSON.parse(this.responseText)];
+      if (this.readyState == 4 && this.status == 200) {
+          feedTemplate1 = tsvTojson(this.responseText);
           if(location.hostname && location.hostname != 'localhost') {
             var tempFeed = [];
             feedTemplate1.forEach(function(data){
