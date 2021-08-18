@@ -2,45 +2,44 @@ var feedTemplate1 = [];
 var feedContent = [], feedData = {}, getData;
 var adData = [];
 var loadTemplateFlag1 = false;
+const tsvTojson = (data) => {
+  const rowsData = data.split('\r\n').map(row => row.split('\t'));
+  const headers = rowsData[0], rows = rowsData.slice(1);
+  data = [];
+  rows.every(row => {
+    if(row.every(cell => cell === '')) return false; //isEmptyRow
+    let obj = {};
+    row.forEach((cell, i) => obj[headers[i]] = cell);
+    data.push(obj);
+    return true;
+  });
+  return data;
+}
 var getFeed1 = function(){
   var xmlhttp = new XMLHttpRequest();
   // var url = "https://spreadsheets.google.com/feeds/list/1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/3/public/values?alt=json";
   var url = "https://spreadsheets.google.com/feeds/list/1otXhBgGw9pCVNMvW09xqM87jwpnrSVcddlQsRSNivYw/1/public/values?alt=json";
+  var url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSV-V2g0cut2IiKsYteLZwFiKZ60voFfo0dvTENHk_G5XTOCgF3QmRIlRBDjzmSTDxFNUTPcOTOiqGX/pub?output=tsv";
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-          var JSONData = JSON.parse(this.responseText);
-          JSONData.feed.entry.map(function(data){
-            // feedTemplate1.push({
-            //   "Ad Size": data['gsx$adsize']['$t'],
-            //   "Language": data['gsx$language']['$t'],
-            //   "Group": data['gsx$group']['$t'],
-            //   "Smart Names": data['gsx$smartnames']['$t'],
-            //   "Visibility": data['gsx$visibility']['$t'],
-            // });
-            feedTemplate1.push({
-              "Ad Size": data['gsx$adsize']['$t'],
-              "CTA": data['gsx$cta']['$t'],
-              "Country": data['gsx$country']['$t'],
-              "Smart Names": data['gsx$smartnames']['$t'],
-              "backgroundImage": data['gsx$backgroundimage']['$t'],
-              "logoImage": data['gsx$logoimage']['$t'],
-              "playerImage": data['gsx$playerimage']['$t'],
-              "headlineText": data['gsx$headlinetext']['$t'],
-              "styleProperties": data['gsx$styleproperties']['$t'],
-              "clickURL": data['gsx$url']['$t'],
-              // "Visibility": data['gsx$visibility']['$t'],
-            });
-          });
-          // if(location.hostname && location.hostname != 'localhost') {
-          //   var tempFeed = [];
-          //   feedTemplate1.forEach(function(data){
-          //     if(!Boolean('Visibility' in data) || ('Visibility' in data && data.Visibility.toLowerCase() == 'true')) {
-          //       tempFeed.push(data);
-          //     }
+          // var JSONData = JSON.parse(this.responseText);
+          // JSONData.feed.entry.map(function(data){
+          //   feedTemplate1.push({
+          //     "Ad Size": data['gsx$adsize']['$t'],
+          //     "CTA": data['gsx$cta']['$t'],
+          //     "Country": data['gsx$country']['$t'],
+          //     "Smart Names": data['gsx$smartnames']['$t'],
+          //     "backgroundImage": data['gsx$backgroundimage']['$t'],
+          //     "logoImage": data['gsx$logoimage']['$t'],
+          //     "playerImage": data['gsx$playerimage']['$t'],
+          //     "headlineText": data['gsx$headlinetext']['$t'],
+          //     "styleProperties": data['gsx$styleproperties']['$t'],
+          //     "clickURL": data['gsx$url']['$t'],
+          //     // "Visibility": data['gsx$visibility']['$t'],
           //   });
-          //   feedTemplate1 = tempFeed;
-          // }
+          // });
+          feedTemplate1 = tsvTojson(this.responseText);
           loadTemplateFlag1 = true;
           loadData();
       }

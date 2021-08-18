@@ -2,30 +2,45 @@ var feedTemplate1 = [] = [];
 var feedContent = [], feedData = {}, getData;
 var adData = [];
 var loadTemplateFlag1 = false;
+const tsvTojson = (data) => {
+  const rowsData = data.split('\r\n').map(row => row.split('\t'));
+  const headers = rowsData[0], rows = rowsData.slice(1);
+  data = [];
+  rows.every(row => {
+    if(row.every(cell => cell === '')) return false; //isEmptyRow
+    let obj = {};
+    row.forEach((cell, i) => obj[headers[i]] = cell);
+    data.push(obj);
+    return true;
+  });
+  return data;
+}
 var getFeed1 = function(){
   var xmlhttp = new XMLHttpRequest();
   var url = "https://spreadsheets.google.com/feeds/list/1-R0FlElqZ1Hq-T4EDrzxuNT6H4RQUAT6676fG_16Alc/2/public/values?alt=json";
+  var url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT8TUDVkL43HiUD86Afj3S3BNCanmiRfDD2r9XAX8ORZRTpw2whBFU61GvvqOro1owZ2QlES-ZjwiPf/pub?output=tsv";
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-          var JSONData = JSON.parse(this.responseText);
-          JSONData.feed.entry.map(function(data){
-            feedTemplate1.push({
-              "Ad Size": data['gsx$adsize']['$t'],
-              "Country": data['gsx$country']['$t'],
-              "Language": data['gsx$language']['$t'],
-              "Layout": data['gsx$layout']['$t'],
-              "Segment": data['gsx$segment']['$t'],
-              "Smart Names": data['gsx$smartnames']['$t'],
-              "productImage": data['gsx$imagename']['$t'],
-              "frameText1": data['gsx$frametext1']['$t'],
-              "frameText2": data['gsx$frametext2']['$t'],
-              "frameText3": data['gsx$frametext3']['$t'],
-              "disclaimer": data['gsx$disclaimer']['$t'],
-              "CTA": data['gsx$cta']['$t'],
-              "clickURL": data['gsx$url']['$t'],
-            });
-          });
+          // var JSONData = JSON.parse(this.responseText);
+          // JSONData.feed.entry.map(function(data){
+          //   feedTemplate1.push({
+          //     "Ad Size": data['gsx$adsize']['$t'],
+          //     "Country": data['gsx$country']['$t'],
+          //     "Language": data['gsx$language']['$t'],
+          //     "Layout": data['gsx$layout']['$t'],
+          //     "Segment": data['gsx$segment']['$t'],
+          //     "Smart Names": data['gsx$smartnames']['$t'],
+          //     "productImage": data['gsx$imagename']['$t'],
+          //     "frameText1": data['gsx$frametext1']['$t'],
+          //     "frameText2": data['gsx$frametext2']['$t'],
+          //     "frameText3": data['gsx$frametext3']['$t'],
+          //     "disclaimer": data['gsx$disclaimer']['$t'],
+          //     "CTA": data['gsx$cta']['$t'],
+          //     "clickURL": data['gsx$url']['$t'],
+          //   });
+          // });
+          feedTemplate1 = tsvTojson(this.responseText);
           loadTemplateFlag1 = true;
           loadData();
       }
