@@ -3,6 +3,19 @@ var feedContent = [], feedData = {}, getData;
 var adData = [];
 var loadTemplateFlag1 = false;
 var sheetID = '';
+const tsvTojson = (data) => {
+  const rowsData = data.split('\r\n').map(row => row.split('\t'));
+  const headers = rowsData[0], rows = rowsData.slice(1);
+  data = [];
+  rows.every(row => {
+    if(row.every(cell => cell === '')) return false; //isEmptyRow
+    let obj = {};
+    row.forEach((cell, i) => obj[headers[i]] = cell);
+    data.push(obj);
+    return true;
+  });
+  return data;
+}
 var getFeed1 = function(){
   var xmlhttp = new XMLHttpRequest();
   var url = "https://spreadsheets.google.com/feeds/list/1cbf9eqSl1ZZdp0JCzILwDBhWDQpI0FV3QRHoUoWiehs/1/public/values?alt=json";
@@ -11,32 +24,34 @@ var getFeed1 = function(){
   sheetID = searchID && searchID.length == 46 && searchID.indexOf('/') > 1 ? searchID : sheetID;
   sheetID = searchID && searchID.length <= 2 && Boolean(parseInt(searchID)) ? sheetID.split('/')[0] + '/' + parseInt(searchID) : sheetID;
   var url = "https://spreadsheets.google.com/feeds/list/" + sheetID + "/public/values?alt=json";
+  var url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQRrzqk_FvTnGbFa8ZBGav-iBXbCLoja8K6OI_FBeJau0lCktGsxbQf5dvN87ndglaLGmceWb5KvdCc/pub?output=tsv";
 
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-          var JSONData = JSON.parse(this.responseText);
-          JSONData.feed.entry.map(function(data){
-            feedTemplate1.push({
-              "Ad Size": data['gsx$adsize']['$t'],
-              "CTA": data['gsx$cta']['$t'],
-              "Country": data['gsx$country']['$t'],
-              "Preview Logos": data['gsx$previewlogos']['$t'],
-              "Language": data['gsx$language']['$t'],
-              "Segment": data['gsx$segment']['$t'],
-              "Smart Names": data['gsx$smartnames']['$t'],
-              "layoutCode": data['gsx$layoutcode']['$t'],
-              "backgroundImage": data['gsx$backgroundimage']['$t'],
-              "logoImage": data['gsx$logoimage']['$t'],
-              "frameText1": data['gsx$frametext1']['$t'],
-              "frameText2": data['gsx$frametext2']['$t'],
-              "frameText3": data['gsx$frametext3']['$t'],
-              "styleProperties": data['gsx$styleproperties']['$t'],
-              "ctaBtnColor": data['gsx$ctabtncolor']['$t'],
-              "disclaimer": data['gsx$disclaimer']['$t'],
-              "clickURL": data['gsx$url']['$t'],
-            });
-          });
+          // var JSONData = JSON.parse(this.responseText);
+          // JSONData.feed.entry.map(function(data){
+          //   feedTemplate1.push({
+          //     "Ad Size": data['gsx$adsize']['$t'],
+          //     "CTA": data['gsx$cta']['$t'],
+          //     "Country": data['gsx$country']['$t'],
+          //     "Preview Logos": data['gsx$previewlogos']['$t'],
+          //     "Language": data['gsx$language']['$t'],
+          //     "Segment": data['gsx$segment']['$t'],
+          //     "Smart Names": data['gsx$smartnames']['$t'],
+          //     "layoutCode": data['gsx$layoutcode']['$t'],
+          //     "backgroundImage": data['gsx$backgroundimage']['$t'],
+          //     "logoImage": data['gsx$logoimage']['$t'],
+          //     "frameText1": data['gsx$frametext1']['$t'],
+          //     "frameText2": data['gsx$frametext2']['$t'],
+          //     "frameText3": data['gsx$frametext3']['$t'],
+          //     "styleProperties": data['gsx$styleproperties']['$t'],
+          //     "ctaBtnColor": data['gsx$ctabtncolor']['$t'],
+          //     "disclaimer": data['gsx$disclaimer']['$t'],
+          //     "clickURL": data['gsx$url']['$t'],
+          //   });
+          // });
+          feedTemplate1 = tsvTojson(this.responseText);
           loadTemplateFlag1 = true;
           loadData();
       }

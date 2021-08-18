@@ -3,6 +3,19 @@ var feedContent = [], feedData = {}, getData;
 var adData = [];
 var loadTemplateFlag1 = false;
 var sheetID = '';
+const tsvTojson = (data) => {
+  const rowsData = data.split('\r\n').map(row => row.split('\t'));
+  const headers = rowsData[0], rows = rowsData.slice(1);
+  data = [];
+  rows.every(row => {
+    if(row.every(cell => cell === '')) return false; //isEmptyRow
+    let obj = {};
+    row.forEach((cell, i) => obj[headers[i]] = cell);
+    data.push(obj);
+    return true;
+  });
+  return data;
+}
 var getFeed1 = function(){
   var xmlhttp = new XMLHttpRequest();
   sheetID = "1nkIyEyMLJKB-_1PQhQJ21lDz7tdtQOIuH26PDy_tYBI/1";
@@ -10,30 +23,32 @@ var getFeed1 = function(){
   sheetID = searchID && searchID.length == 46 && searchID.indexOf('/') > 1 ? searchID : sheetID;
   sheetID = searchID && searchID.length <= 2 && Boolean(parseInt(searchID)) ? sheetID.split('/')[0] + '/' + parseInt(searchID) : sheetID;
   var url = "https://spreadsheets.google.com/feeds/list/" + sheetID + "/public/values?alt=json";
+  var url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRsf2sC1X0IzwkDW6quLcYMj-F5H-mu8XAZRsTjjEuFCKWzNqV2XTZ2Ms4UI5HtRTC_MHfV4zxaCO_L/pub?output=tsv";
 
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-          var JSONData = JSON.parse(this.responseText);
-          JSONData.feed.entry.map(function(data){
-            feedTemplate1.push({
-              "Ad Size": data['gsx$adsize']['$t'],
-              "Country": data['gsx$country']['$t'],
-              "Language": data['gsx$language']['$t'],
-              "Segment": data['gsx$segment']['$t'],
-              "Smart Names": data['gsx$smartnames']['$t'],
-              "autoplayCarousel": data['gsx$autoplaycarousel']['$t'],
-              "logoImage": data['gsx$logoimage']['$t'],
-              "headlineImage": data['gsx$headlineimage']['$t'],
-              "headlineText": data['gsx$headlinetext']['$t'],
-              "frameText": data['gsx$frametext']['$t'],
-              "ctaText": data['gsx$ctatext']['$t'],
-              "ctaBtnColor": data['gsx$ctabtncolor']['$t'],
-              "disclaimerImage": data['gsx$disclaimerimage']['$t'],
-              "disclaimerText": data['gsx$disclaimertext']['$t'],
-              "clickUrl": data['gsx$clickurl']['$t'],
-            });
-          });
+          // var JSONData = JSON.parse(this.responseText);
+          // JSONData.feed.entry.map(function(data){
+          //   feedTemplate1.push({
+          //     "Ad Size": data['gsx$adsize']['$t'],
+          //     "Country": data['gsx$country']['$t'],
+          //     "Language": data['gsx$language']['$t'],
+          //     "Segment": data['gsx$segment']['$t'],
+          //     "Smart Names": data['gsx$smartnames']['$t'],
+          //     "autoplayCarousel": data['gsx$autoplaycarousel']['$t'],
+          //     "logoImage": data['gsx$logoimage']['$t'],
+          //     "headlineImage": data['gsx$headlineimage']['$t'],
+          //     "headlineText": data['gsx$headlinetext']['$t'],
+          //     "frameText": data['gsx$frametext']['$t'],
+          //     "ctaText": data['gsx$ctatext']['$t'],
+          //     "ctaBtnColor": data['gsx$ctabtncolor']['$t'],
+          //     "disclaimerImage": data['gsx$disclaimerimage']['$t'],
+          //     "disclaimerText": data['gsx$disclaimertext']['$t'],
+          //     "clickUrl": data['gsx$clickurl']['$t'],
+          //   });
+          // });
+          feedTemplate1 = tsvTojson(this.responseText);
           loadTemplateFlag1 = true;
           loadData();
       }
