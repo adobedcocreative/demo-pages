@@ -2,22 +2,49 @@ var feedTemplate1 = [];
 var feedContent = [], feedData = {}, getData;
 var adData = [];
 var loadTemplateFlag1 = false;
+// var getFeed1 = function(){
+//   var xmlhttp = new XMLHttpRequest();
+//   var url = "https://spreadsheets.google.com/feeds/list/1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/7/public/values?alt=json";
+
+//   xmlhttp.onreadystatechange = function() {
+//       if (this.readyState == 4 && this.status == 200) {
+//           var JSONData = JSON.parse(this.responseText);
+//           JSONData.feed.entry.map(function(data){
+//             feedTemplate1.push({
+//               "Ad Size": data['gsx$adsize']['$t'],
+//               "Language": data['gsx$language']['$t'],
+//               "Group": data['gsx$group']['$t'],
+//               "Smart Names": data['gsx$smartnames']['$t'],
+//               "Visibility": data['gsx$visibility']['$t'],
+//             });
+//           });
+//           if(location.hostname && location.hostname != 'localhost') {
+//             var tempFeed = [];
+//             feedTemplate1.forEach(function(data){
+//               if(!Boolean('Visibility' in data) || ('Visibility' in data && data.Visibility.toLowerCase() == 'true')) {
+//                 tempFeed.push(data);
+//               }
+//             });
+//             feedTemplate1 = tempFeed;
+//           }
+//           loadTemplateFlag1 = true;
+//           loadData();
+//       }
+//   };
+//   xmlhttp.open("GET", url, true);
+//   xmlhttp.send();
+// }
 var getFeed1 = function(){
   var xmlhttp = new XMLHttpRequest();
-  var url = "https://spreadsheets.google.com/feeds/list/1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/7/public/values?alt=json";
+  var sheetID = "1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/7";
+  var searchID = location.search.split('?')[1];
+  sheetID = searchID && searchID.length == 46 && searchID.indexOf('/') > 1 ? searchID : sheetID;
+  sheetID = searchID && searchID.length <= 2 && Boolean(parseInt(searchID)) ? sheetID.split('/')[0] + '/' + parseInt(searchID) : sheetID;
+  var url = "https://script.google.com/macros/s/AKfycby8Hrt5rvnJ01olPYTynL7DhW4_NFF6ne-jeX0It6JGhG3X4vCFHnVSv1mq3rDBC6rlzg/exec?id=" + sheetID;
 
   xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-          var JSONData = JSON.parse(this.responseText);
-          JSONData.feed.entry.map(function(data){
-            feedTemplate1.push({
-              "Ad Size": data['gsx$adsize']['$t'],
-              "Language": data['gsx$language']['$t'],
-              "Group": data['gsx$group']['$t'],
-              "Smart Names": data['gsx$smartnames']['$t'],
-              "Visibility": data['gsx$visibility']['$t'],
-            });
-          });
+      if (this.readyState == 4 && this.status == 200) {          
+          feedTemplate1 = [...JSON.parse(this.responseText)];
           if(location.hostname && location.hostname != 'localhost') {
             var tempFeed = [];
             feedTemplate1.forEach(function(data){
