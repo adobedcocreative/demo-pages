@@ -2,38 +2,36 @@ var feedTemplate1 = [];
 var feedContent = [], feedData = {}, getData;
 var adData = [];
 var loadTemplateFlag1 = false;
-const tsvTojson = (data) => {
-  const rowsData = data.split('\r\n').map(row => row.split('\t'));
-  const headers = rowsData[0], rows = rowsData.slice(1);
-  data = [];
-  rows.every(row => {
-    if(row.every(cell => cell === '')) return false; //isEmptyRow
-    let obj = {};
-    row.forEach((cell, i) => obj[headers[i]] = cell);
-    data.push(obj);
-    return true;
-  });
-  return data;
-}
 var getFeed1 = function(){
   var xmlhttp = new XMLHttpRequest();
-  var url = "https://spreadsheets.google.com/feeds/list/1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/9/public/values?alt=json";
-  var url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSlajwfQcB5w62bhf0gB5LiIl0vvK2ZNiCc-Feu6S28ozXJz3SDlK5IdTEA-8UJGRtUoMmHlKmJ6lSQ/pub?gid=1951493472&single=true&output=tsv";
+  const API_KEY = "AIzaSyA9UwsLAgEsktyccelGlG_AV37qUCL-Gqo";
+  const sheetLocation = "1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/Summer(GiftCardUpdates)";
+  const searchId = location.search.split('?')[1];
+  const sheetId = searchId && searchId.length >= 44 && searchId.indexOf('/') > 1 ? searchId : sheetLocation;
+  const spreadsheetId = sheetId.split('/')[0];
+  const sheetName = sheetId.split('/')[1];
+  var url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${API_KEY}`;
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        feedTemplate1 = tsvTojson(this.responseText);
-        if(location.hostname && location.hostname != 'localhost') {
-          var tempFeed = [];
-          feedTemplate1.forEach(function(data){
-            if(!Boolean('Visibility' in data) || ('Visibility' in data && data.Visibility.toLowerCase() == 'true')) {
-              tempFeed.push(data);
-            }
+          const responseData = JSON.parse(this.responseText).values;
+          const headers = responseData[0], rows = responseData.slice(1);
+          rows.every(row => {
+            if(row.every(cell => cell === '')) return false; //isEmptyRow
+            feedTemplate1.push(row.reduce((obj, cell, i) => { obj[headers[i]] = cell; return obj; }, {}));
+            return true;
           });
-          feedTemplate1 = tempFeed;
-        }
-        loadTemplateFlag1 = true;
-        loadData();
+          if(location.hostname && location.hostname != 'localhost') {
+            var tempFeed = [];
+            feedTemplate1.forEach(function(data){
+              if(!Boolean('Visibility' in data) || ('Visibility' in data && data.Visibility.toLowerCase() == 'true')) {
+                tempFeed.push(data);
+              }
+            });
+            feedTemplate1 = tempFeed;
+          }
+          loadTemplateFlag1 = true;
+          loadData();
       }
   };
   xmlhttp.open("GET", url, true);
