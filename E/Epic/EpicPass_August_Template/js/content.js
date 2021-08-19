@@ -4,30 +4,32 @@ var adData = [];
 var loadTemplateFlag1 = false;
 var getFeed1 = function(){
   var xmlhttp = new XMLHttpRequest();
-  var url = "https://spreadsheets.google.com/feeds/list/1I0ot-cIqLxDcebfzpy5xizxiHKdJ5xpdkebRkkawKBw/2/public/values?alt=json";
+  const API_KEY = "AIzaSyA9UwsLAgEsktyccelGlG_AV37qUCL-Gqo";
+  const sheetLocation = "1I0ot-cIqLxDcebfzpy5xizxiHKdJ5xpdkebRkkawKBw/Template 7";
+  const searchId = location.search.split('?')[1];
+  const sheetId = searchId && searchId.length >= 44 && searchId.indexOf('/') > 1 ? searchId : sheetLocation;
+  const spreadsheetId = sheetId.split('/')[0];
+  const sheetName = sheetId.split('/')[1];
+  var url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${API_KEY}`;
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-          var JSONData = JSON.parse(this.responseText);
-          JSONData.feed.entry.map(function(data){
-            feedTemplate1.push({
-              "Ad Size": data['gsx$adsize']['$t'],
-              "Layout": data['gsx$layout']['$t'],
-              "Language": data['gsx$language']['$t'],
-              "Resort": data['gsx$resort']['$t'],
-              "Product": data['gsx$product']['$t'],
-              "backgroundImage1": data['gsx$backgroundimage1']['$t'],
-              "backgroundImage2": data['gsx$backgroundimage2']['$t'],
-              "logoImage1": data['gsx$logoimage1']['$t'],
-              "logoImage2": data['gsx$logoimage2']['$t'],
-              "frameText1": data['gsx$frametext1']['$t'],
-              "frameText2": data['gsx$frametext2']['$t'],
-              "frameText3": data['gsx$frametext3']['$t'],
-              "CTA": data['gsx$cta']['$t'],
-              "ctaColor": data['gsx$ctacolor']['$t'],
-              "clickURL": data['gsx$url']['$t'],
-            });
+          const responseData = JSON.parse(this.responseText).values;
+          const headers = responseData[0], rows = responseData.slice(1);
+          rows.every(row => {
+            if(row.every(cell => cell === '')) return false; //isEmptyRow
+            feedTemplate1.push(row.reduce((obj, cell, i) => { obj[headers[i]] = cell; return obj; }, {}));
+            return true;
           });
+          if(location.hostname && location.hostname != 'localhost') {
+            var tempFeed = [];
+            feedTemplate1.forEach(function(data){
+              if(!Boolean('Visibility' in data) || ('Visibility' in data && data.Visibility.toLowerCase() == 'true')) {
+                tempFeed.push(data);
+              }
+            });
+            feedTemplate1 = tempFeed;
+          }
           loadTemplateFlag1 = true;
           loadData();
       }
