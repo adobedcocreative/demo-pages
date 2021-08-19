@@ -2,29 +2,44 @@ var feedTemplate1 = [] = [];
 var feedContent = [], feedData = {}, getData;
 var adData = [];
 var loadTemplateFlag1 = false;
+const tsvTojson = (data) => {
+  const rowsData = data.split('\r\n').map(row => row.split('\t'));
+  const headers = rowsData[0], rows = rowsData.slice(1);
+  data = [];
+  rows.every(row => {
+    if(row.every(cell => cell === '')) return false; //isEmptyRow
+    let obj = {};
+    row.forEach((cell, i) => obj[headers[i]] = cell);
+    data.push(obj);
+    return true;
+  });
+  return data;
+}
 var getFeed1 = function(){
   var xmlhttp = new XMLHttpRequest();
   var url = "https://spreadsheets.google.com/feeds/list/14-fHztviIksAkG17B90bN0NRzB4hazNZMab72z_lv3Q/1/public/values?alt=json";
+  var url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vREk7WS4ypaMNZif7ON7JJi_R2iTEPmxMITgTTEpB8uE87BuKKQj52Ev5hSNA68QJ2teHsY8zg9QNlb/pub?output=tsv";
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-          var JSONData = JSON.parse(this.responseText);
-          JSONData.feed.entry.map(function(data){
-            feedTemplate1.push({
-              "Ad Size": data['gsx$adsize']['$t'],
-              "CTA": data['gsx$cta']['$t'],
-              "Country": data['gsx$country']['$t'],
-              "Language": data['gsx$language']['$t'],
-              "Layout": data['gsx$layout']['$t'],
-              "Segment": data['gsx$segment']['$t'],
-              "Smart Names": data['gsx$smartnames']['$t'],
-              "textField1": data['gsx$textfield1']['$t'],
-              "textField2": data['gsx$textfield2']['$t'],
-              "textField3": data['gsx$textfield3']['$t'],
-              "textField4": data['gsx$textfield4']['$t'],
-              "textField5": data['gsx$textfield5']['$t'],
-            });
-          });
+          // var JSONData = JSON.parse(this.responseText);
+          // JSONData.feed.entry.map(function(data){
+          //   feedTemplate1.push({
+          //     "Ad Size": data['gsx$adsize']['$t'],
+          //     "CTA": data['gsx$cta']['$t'],
+          //     "Country": data['gsx$country']['$t'],
+          //     "Language": data['gsx$language']['$t'],
+          //     "Layout": data['gsx$layout']['$t'],
+          //     "Segment": data['gsx$segment']['$t'],
+          //     "Smart Names": data['gsx$smartnames']['$t'],
+          //     "textField1": data['gsx$textfield1']['$t'],
+          //     "textField2": data['gsx$textfield2']['$t'],
+          //     "textField3": data['gsx$textfield3']['$t'],
+          //     "textField4": data['gsx$textfield4']['$t'],
+          //     "textField5": data['gsx$textfield5']['$t'],
+          //   });
+          // });
+          feedTemplate1 = tsvTojson(this.responseText);
           loadTemplateFlag1 = true;
           loadData();
       }

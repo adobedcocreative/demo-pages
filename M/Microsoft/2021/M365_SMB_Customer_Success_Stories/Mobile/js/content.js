@@ -2,6 +2,19 @@ var feedTemplate1 = [] = [];
 var feedContent = [], feedData = {}, getData;
 var adData = [];
 var loadTemplateFlag1 = false;
+const tsvTojson = (data) => {
+  const rowsData = data.split('\r\n').map(row => row.split('\t'));
+  const headers = rowsData[0], rows = rowsData.slice(1);
+  data = [];
+  rows.every(row => {
+    if(row.every(cell => cell === '')) return false; //isEmptyRow
+    let obj = {};
+    row.forEach((cell, i) => obj[headers[i]] = cell);
+    data.push(obj);
+    return true;
+  });
+  return data;
+}
 var getFeed1 = function(){
   var xmlhttp = new XMLHttpRequest();
   var sheetID = "1kkDFUD-TdCm9UGqDVCWBOFRotg7-Ur_FAHEBRAT2dB4/1";
@@ -9,26 +22,28 @@ var getFeed1 = function(){
   sheetID = searchID && searchID.length == 46 && searchID.indexOf('/') > 1 ? searchID : sheetID;
   sheetID = searchID && searchID.length <= 2 && Boolean(parseInt(searchID)) ? sheetID.split('/')[0] + '/' + parseInt(searchID) : sheetID;
   var url = "https://spreadsheets.google.com/feeds/list/" + sheetID + "/public/values?alt=json";
+  var url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTEhB4G3iTbQMBd-glNxBTGmf9OM3d6ABHQ6C3-x4b03VPtEJmYGvoqjGH6cQ9i3iFyCaBoS4ENUqd5/pub?output=tsv";
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-          var JSONData = JSON.parse(this.responseText);
-          JSONData.feed.entry.map(function(data){
-            feedTemplate1.push({
-              "Ad Size": data['gsx$adsize']['$t'],
-              "CTA": data['gsx$cta']['$t'],
-              "Country": data['gsx$country']['$t'],
-              "Language": data['gsx$language']['$t'],
-              "Layout": data['gsx$layout']['$t'],
-              "Segment": data['gsx$segment']['$t'],
-              "Smart Names": data['gsx$smartnames']['$t'],
-              "textField1": data['gsx$textfield1']['$t'],
-              "textField2": data['gsx$textfield2']['$t'],
-              "textField3": data['gsx$textfield3']['$t'],
-              "textField4": data['gsx$textfield4']['$t'],
-              "textField5": data['gsx$textfield5']['$t'],
-            });
-          });
+          // var JSONData = JSON.parse(this.responseText);
+          // JSONData.feed.entry.map(function(data){
+          //   feedTemplate1.push({
+          //     "Ad Size": data['gsx$adsize']['$t'],
+          //     "CTA": data['gsx$cta']['$t'],
+          //     "Country": data['gsx$country']['$t'],
+          //     "Language": data['gsx$language']['$t'],
+          //     "Layout": data['gsx$layout']['$t'],
+          //     "Segment": data['gsx$segment']['$t'],
+          //     "Smart Names": data['gsx$smartnames']['$t'],
+          //     "textField1": data['gsx$textfield1']['$t'],
+          //     "textField2": data['gsx$textfield2']['$t'],
+          //     "textField3": data['gsx$textfield3']['$t'],
+          //     "textField4": data['gsx$textfield4']['$t'],
+          //     "textField5": data['gsx$textfield5']['$t'],
+          //   });
+          // });
+          feedTemplate1 = tsvTojson(this.responseText);
           loadTemplateFlag1 = true;
           loadData();
       }

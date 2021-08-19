@@ -131,16 +131,20 @@ var getFeed1 = function(){
   sheetID = searchID && searchID.length == 46 && searchID.indexOf('/') > 1 ? searchID : sheetID;
   sheetID = searchID && searchID.length <= 2 && Boolean(parseInt(searchID)) ? sheetID.split('/')[0] + '/' + parseInt(searchID) : sheetID;
   var url = "https://script.google.com/macros/s/AKfycby8Hrt5rvnJ01olPYTynL7DhW4_NFF6ne-jeX0It6JGhG3X4vCFHnVSv1mq3rDBC6rlzg/exec?id=" + sheetID; //API
-  var url = "https://docs.google.com/spreadsheets/d/1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/gviz/tq?tqx=out:json"; //JSON
-  var url = "https://docs.google.com/spreadsheets/d/1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/gviz/tq?tqx=out:csv&gid=580157085"; //CSV
-  var url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSlajwfQcB5w62bhf0gB5LiIl0vvK2ZNiCc-Feu6S28ozXJz3SDlK5IdTEA-8UJGRtUoMmHlKmJ6lSQ/pub?output=tsv&gid=580157085"; //TSV
+  // var url = "https://docs.google.com/spreadsheets/d/1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/gviz/tq?tqx=out:json"; //JSON
+  // var url = "https://docs.google.com/spreadsheets/d/1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/gviz/tq?tqx=out:csv&gid=580157085"; //CSV
+  // var url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSlajwfQcB5w62bhf0gB5LiIl0vvK2ZNiCc-Feu6S28ozXJz3SDlK5IdTEA-8UJGRtUoMmHlKmJ6lSQ/pub?output=tsv&gid=580157085"; //TSV
+  // var url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSlajwfQcB5w62bhf0gB5LiIl0vvK2ZNiCc-Feu6S28ozXJz3SDlK5IdTEA-8UJGRtUoMmHlKmJ6lSQ/pub?gid=580157085&output=tsv";
+  // var url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSlajwfQcB5w62bhf0gB5LiIl0vvK2ZNiCc-Feu6S28ozXJz3SDlK5IdTEA-8UJGRtUoMmHlKmJ6lSQ/pub?gid=580157085&output=tsv";
+
   //https://docs.google.com/spreadsheets/d/1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/gviz/tq?tqx=out:csv&sheet=SummerTest
   //https://docs.google.com/spreadsheets/d/1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/gviz/tq?tqx=out:csv&gid=580157085
   //http://www.example.com/mydatasource?tqx=responseHandler:myHandlerFunction
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-          feedTemplate1 = tsvTojson(this.responseText);
+          // feedTemplate1 = tsvTojson(this.responseText);
+          feedTemplate1 = [...JSON.parse(this.responseText)];
           if(location.hostname && location.hostname != 'localhost') {
             var tempFeed = [];
             feedTemplate1.forEach(function(data){
