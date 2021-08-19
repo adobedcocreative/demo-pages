@@ -2,39 +2,27 @@ var celebritiesFeedContent = [];
 var celebritiesFeeds = {}, celebritiesFeedData = [];
 var getCelebrityData;
 var celebritiesLoadFlag = false;
-var getCelebrityFeed = function(){
-  var xmlhttp = new XMLHttpRequest();
-  var url = "https://spreadsheets.google.com/feeds/list/1GmtU9Q8z7JVxylVvod0OK2CUO_5-nGTaco0cChWV31E/1/public/values?alt=json";
+const getCelebrityFeed = function(){
+  const xmlhttp = new XMLHttpRequest();
+  const API_KEY = "AIzaSyA9UwsLAgEsktyccelGlG_AV37qUCL-Gqo";
+  const sheetLocation = "1GmtU9Q8z7JVxylVvod0OK2CUO_5-nGTaco0cChWV31E/Sheet1";
+  const searchId = location.search.split('?')[1];
+  const sheetId = searchId && searchId.length >= 44 && searchId.indexOf('/') > 1 ? searchId : sheetLocation;
+  const spreadsheetId = sheetId.split('/')[0];
+  const sheetName = sheetId.split('/')[1];
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${API_KEY}`;
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-          var JSONData = JSON.parse(this.responseText);
-          JSONData.feed.entry.map(function(data){
-            celebritiesFeedContent.push({
-              "LANGUAGE": data['gsx$language']['$t'],
-              "MODEL": data['gsx$model']['$t'],
-              "AD_SIZE": data['gsx$adsize']['$t'],
-              "TEXT_1": data['gsx$text1']['$t'],
-              "TEXT_2": data['gsx$text2']['$t'],
-              "TEXT_3": data['gsx$text3']['$t'],
-              "TEXT_4": data['gsx$text4']['$t'],
-              "TEXT_5": data['gsx$text5']['$t'],
-              "TEXT_6": data['gsx$text6']['$t'],
-              "TEXT_7": data['gsx$text7']['$t'],
-              "IMAGE_URL": data['gsx$imageurl']['$t'],
-              "IMAGE_URL1": data['gsx$imageurl1']['$t'],
-              "IMAGE_URL2": data['gsx$imageurl2']['$t'],
-              "IMAGE_URL3": data['gsx$imageurl3']['$t'],
-              "IMAGE_URL4": data['gsx$imageurl4']['$t'],
-              "IMAGE_URL5": data['gsx$imageurl5']['$t'],
-              "PROVIDER_CATEGORY": data['gsx$providercategory']['$t'],
-              "PRODUCT_NAME": data['gsx$productname']['$t'],
-              "PRODUCT_URL": data['gsx$producturl']['$t'],
-            });
+          const responseData = JSON.parse(this.responseText).values;
+          const headers = responseData[0], rows = responseData.slice(1);
+          rows.every(row => {
+            if(row.every(cell => cell === '')) return false; //isEmptyRow
+            celebritiesFeedContent.push(row.reduce((obj, cell, i) => { obj[headers[i]] = cell; return obj; }, {}));
+            return true;
           });
           celebritiesLoadFlag = true;
           loadData();
-          // console.log(celebritiesFeedContent);
       }
   };
   xmlhttp.open("GET", url, true);

@@ -2,48 +2,27 @@ var celebritiesFeedContent = [];
 var celebritiesFeeds = {}, celebritiesFeedData = [];
 var getCelebrityData;
 var celebritiesLoadFlag = false;
-const tsvTojson = (data) => {
-  const rowsData = data.split('\r\n').map(row => row.split('\t'));
-  const headers = rowsData[0], rows = rowsData.slice(1);
-  data = [];
-  rows.every(row => {
-    if(row.every(cell => cell === '')) return false; //isEmptyRow
-    let obj = {};
-    row.forEach((cell, i) => obj[headers[i]] = cell);
-    data.push(obj);
-    return true;
-  });
-  return data;
-}
-var getCelebrityFeed = function(){
-  var xmlhttp = new XMLHttpRequest();
-  var url = "https://spreadsheets.google.com/feeds/list/13VLAZFDR5Z0_b7PGLCG7cP_HZWrv_zmzDBUNhENRYww/2/public/values?alt=json";
-  var url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT4Bo9BP6FqXUJVoiPzX9-wXaYO77boilvw8NLMsZDcLiUzKca2tRonpbZAHk6p62mXjRSUKN2UbOo_/pub?gid=51496328&single=true&output=tsv";
+const getCelebrityFeed = function(){
+  const xmlhttp = new XMLHttpRequest();
+  const API_KEY = "AIzaSyA9UwsLAgEsktyccelGlG_AV37qUCL-Gqo";
+  const sheetLocation = "13VLAZFDR5Z0_b7PGLCG7cP_HZWrv_zmzDBUNhENRYww/Product";
+  const searchId = location.search.split('?')[1];
+  const sheetId = searchId && searchId.length >= 44 && searchId.indexOf('/') > 1 ? searchId : sheetLocation;
+  const spreadsheetId = sheetId.split('/')[0];
+  const sheetName = sheetId.split('/')[1];
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${API_KEY}`;
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-          // var JSONData = JSON.parse(this.responseText);
-          // JSONData.feed.entry.map(function(data){
-          //   celebritiesFeedContent.push({
-          //     "LANGUAGE": data['gsx$language']['$t'],
-          //     "MODEL": data['gsx$model']['$t'],
-          //     "AD_SIZE": data['gsx$adsize']['$t'],
-          //     "smartName": data['gsx$smartname']['$t'],
-          //     "Label": data['gsx$label']['$t'],
-          //     "styleProperties": data['gsx$styleproperties']['$t'],
-          //     "ctaText": data['gsx$ctatext']['$t'],
-          //     "backgroundColor": data['gsx$backgroundcolor']['$t'],
-          //     "frameImage1": data['gsx$frameimage1']['$t'],
-          //     "frameImage2": data['gsx$frameimage2']['$t'],
-          //     "frameImage3": data['gsx$frameimage3']['$t'],
-          //     "headlineText": data['gsx$headlinetext']['$t'],
-          //     "clickUrl": data['gsx$url']['$t'],
-          //   });
-          // });
-          celebritiesFeedContent = tsvTojson(this.responseText);
+          const responseData = JSON.parse(this.responseText).values;
+          const headers = responseData[0], rows = responseData.slice(1);
+          rows.every(row => {
+            if(row.every(cell => cell === '')) return false; //isEmptyRow
+            celebritiesFeedContent.push(row.reduce((obj, cell, i) => { obj[headers[i]] = cell; return obj; }, {}));
+            return true;
+          });
           celebritiesLoadFlag = true;
           loadData();
-          // console.log(celebritiesFeedContent);
       }
   };
   xmlhttp.open("GET", url, true);
