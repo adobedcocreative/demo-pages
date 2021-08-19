@@ -3,51 +3,25 @@ var feedContent = [], feedData = {}, getData;
 var adData = [];
 var loadTemplateFlag1 = false;
 var sheetID = '';
-var getFeed1 = function(){
-  var xmlhttp = new XMLHttpRequest();
-  sheetID = "1uVGXQ0uRQ4j9k3HqF5JzacZhPiNUdMyRCdmhm11f0PA/1";
-  var searchID = location.search.split('?')[1];
-  sheetID = searchID && searchID.length == 46 && searchID.indexOf('/') > 1 ? searchID : sheetID;
-  sheetID = searchID && searchID.length <= 2 && Boolean(parseInt(searchID)) ? sheetID.split('/')[0] + '/' + parseInt(searchID) : sheetID;
-  var url = "https://spreadsheets.google.com/feeds/list/" + sheetID + "/public/values?alt=json";
+const getFeed1 = function(){
+  const xmlhttp = new XMLHttpRequest();
+  const API_KEY = "AIzaSyA9UwsLAgEsktyccelGlG_AV37qUCL-Gqo";
+  const sheetLocation = "1uVGXQ0uRQ4j9k3HqF5JzacZhPiNUdMyRCdmhm11f0PA/Sheet1";
+  const searchId = location.search.split('?')[1];
+  const sheetId = searchId && searchId.length >= 44 && searchId.indexOf('/') > 1 ? searchId : sheetLocation;
+  const spreadsheetId = sheetId.split('/')[0];
+  const sheetName = sheetId.split('/')[1];
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${API_KEY}`;
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-          var JSONData = JSON.parse(this.responseText);
-          JSONData.feed.entry.map(function(data){
-            // feedTemplate1.push({
-            //   "Ad Size": data['gsx$adsize']['$t'],
-            //   "Language": data['gsx$language']['$t'],
-            //   "Group": data['gsx$group']['$t'],
-            //   "Smart Names": data['gsx$smartnames']['$t'],
-            //   "Visibility": data['gsx$visibility']['$t'],
-            // });
-            feedTemplate1.push({
-              "Ad Size": data['gsx$adsize']['$t'],
-              "Country": data['gsx$country']['$t'],
-              "Smart Names": data['gsx$smartnames']['$t'],
-              "introLogoImage": data['gsx$intrologoimage']['$t'],
-              "logoImage": data['gsx$logoimage']['$t'],
-              "frameVideo2": data['gsx$framevideo2']['$t'],
-              "frameVideo3": data['gsx$framevideo3']['$t'],
-              "frameText2": data['gsx$frametext2']['$t'],
-              "frameText3": data['gsx$frametext3']['$t'],
-              "frameText4": data['gsx$frametext4']['$t'],
-              "ctaText": data['gsx$ctatext']['$t'],
-              "ctaBtnColor": data['gsx$ctabtncolor']['$t'],
-              "clickURL": data['gsx$clickurl']['$t'],
-              // "Visibility": data['gsx$visibility']['$t'],
-            });
+          const responseData = JSON.parse(this.responseText).values;
+          const headers = responseData[0], rows = responseData.slice(1);
+          rows.every(row => {
+            if(row.every(cell => cell === '')) return false; //isEmptyRow
+            feedTemplate1.push(row.reduce((obj, cell, i) => { obj[headers[i]] = cell; return obj; }, {}));
+            return true;
           });
-          // if(location.hostname && location.hostname != 'localhost') {
-          //   var tempFeed = [];
-          //   feedTemplate1.forEach(function(data){
-          //     if(!Boolean('Visibility' in data) || ('Visibility' in data && data.Visibility.toLowerCase() == 'true')) {
-          //       tempFeed.push(data);
-          //     }
-          //   });
-          //   feedTemplate1 = tempFeed;
-          // }
           loadTemplateFlag1 = true;
           loadData();
       }

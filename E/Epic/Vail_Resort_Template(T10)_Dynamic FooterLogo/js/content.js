@@ -2,34 +2,24 @@ var feedTemplate1 = [] = [];
 var feedContent = [], feedData = {}, getData;
 var adData = [];
 var loadTemplateFlag1 = false;
-var getFeed1 = function(){
-  var xmlhttp = new XMLHttpRequest();
-  var url = "https://spreadsheets.google.com/feeds/list/1fgTB9t9HWZz5epnJ4_nu1fSBbsDFVS8QukMXQc63Pb4/1/public/values?alt=json";
+const getFeed1 = function(){
+  const xmlhttp = new XMLHttpRequest();
+  const API_KEY = "AIzaSyA9UwsLAgEsktyccelGlG_AV37qUCL-Gqo";
+  const sheetLocation = "1fgTB9t9HWZz5epnJ4_nu1fSBbsDFVS8QukMXQc63Pb4/ContentTemplate10";
+  const searchId = location.search.split('?')[1];
+  const sheetId = searchId && searchId.length >= 44 && searchId.indexOf('/') > 1 ? searchId : sheetLocation;
+  const spreadsheetId = sheetId.split('/')[0];
+  const sheetName = sheetId.split('/')[1];
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${API_KEY}`;
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-          var JSONData = JSON.parse(this.responseText);
-          JSONData.feed.entry.map(function(data){
-            feedTemplate1.push({
-              "Ad Size": data['gsx$adsize']['$t'],
-              "Template": data['gsx$template']['$t'],
-              "Language": data['gsx$language']['$t'],
-              "Resort": data['gsx$resort']['$t'],
-              "Product": data['gsx$product']['$t'],
-              "layout": data['gsx$layout']['$t'],
-              "backgroundImage1": data['gsx$backgroundimage1']['$t'],
-              "backgroundImage2": data['gsx$backgroundimage2']['$t'],
-              "backgroundImage3": data['gsx$backgroundimage3']['$t'],
-              "backgroundImage4": data['gsx$backgroundimage4']['$t'],
-              "frameText1": data['gsx$frametext1']['$t'],
-              "frameText2": data['gsx$frametext2']['$t'],
-              "frameText3": data['gsx$frametext3']['$t'],
-              "frameText4": data['gsx$frametext4']['$t'],
-              "CTA": data['gsx$cta']['$t'],
-              "clickURL": data['gsx$url']['$t'],
-              "productLableLogo": data['gsx$productlablelogo']['$t'],
-              "productLableLogoBg": data['gsx$productlablelogobg']['$t'],
-            });
+          const responseData = JSON.parse(this.responseText).values;
+          const headers = responseData[0], rows = responseData.slice(1);
+          rows.every(row => {
+            if(row.every(cell => cell === '')) return false; //isEmptyRow
+            feedTemplate1.push(row.reduce((obj, cell, i) => { obj[headers[i]] = cell; return obj; }, {}));
+            return true;
           });
           loadTemplateFlag1 = true;
           loadData();
