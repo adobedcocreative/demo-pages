@@ -15,36 +15,71 @@ const tsvTojson = (data) => {
   });
   return data;
 }
+// var getFeed1 = function(){
+//   var xmlhttp = new XMLHttpRequest();
+//   var sheetID = "1i564DiRU35eN8CpRMm-_dmIUUSHgm6oyAxMWEtfFtpI/1";
+//   var searchID = location.search.split('?')[1];
+//   sheetID = searchID && searchID.length == 46 && searchID.indexOf('/') > 1 ? searchID : sheetID;
+//   sheetID = searchID && searchID.length <= 2 && Boolean(parseInt(searchID)) ? sheetID.split('/')[0] + '/' + parseInt(searchID) : sheetID;
+//   var url = "https://spreadsheets.google.com/feeds/list/" + sheetID + "/public/values?alt=json";
+//   var url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQvw4CgKDU5aOvbFTUyS9HvF94aj5awVd61lVtw7ME1bgeWG-b3sigRbmGCL1R_sM-qraSQ-_5IfWU1/pub?output=tsv";
+
+//   xmlhttp.onreadystatechange = function() {
+//       if (this.readyState == 4 && this.status == 200) {
+//           // var JSONData = JSON.parse(this.responseText);
+//           // JSONData.feed.entry.map(function(data){
+//           //   feedTemplate1.push({
+//           //     "Ad Size": data['gsx$adsize']['$t'],
+//           //     "CTA": data['gsx$cta']['$t'],
+//           //     "Place": data['gsx$place']['$t'],
+//           //     "Variation": data['gsx$variation']['$t'],
+//           //     "Smart Names": data['gsx$smartnames']['$t'],
+//           //     "textField1": data['gsx$textfield1']['$t'],
+//           //     "textField2": data['gsx$textfield2']['$t'],
+//           //     "textField3": data['gsx$textfield3']['$t'],
+//           //     "textField4": data['gsx$textfield4']['$t'],
+//           //     "textField5": data['gsx$textfield5']['$t'],
+//           //     "endFrameImage": data['gsx$endframeimage']['$t'],
+//           //     "URL": data['gsx$url']['$t'],
+//           //     // "Visibility": data['gsx$visibility']['$t'],
+//           //   });
+//           // });
+//           feedTemplate1 = tsvTojson(this.responseText);
+//           loadTemplateFlag1 = true;
+//           loadData();
+//       }
+//   };
+//   xmlhttp.open("GET", url, true);
+//   xmlhttp.send();
+// }
 var getFeed1 = function(){
   var xmlhttp = new XMLHttpRequest();
-  var sheetID = "1i564DiRU35eN8CpRMm-_dmIUUSHgm6oyAxMWEtfFtpI/1";
-  var searchID = location.search.split('?')[1];
-  sheetID = searchID && searchID.length == 46 && searchID.indexOf('/') > 1 ? searchID : sheetID;
-  sheetID = searchID && searchID.length <= 2 && Boolean(parseInt(searchID)) ? sheetID.split('/')[0] + '/' + parseInt(searchID) : sheetID;
-  var url = "https://spreadsheets.google.com/feeds/list/" + sheetID + "/public/values?alt=json";
-  var url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQvw4CgKDU5aOvbFTUyS9HvF94aj5awVd61lVtw7ME1bgeWG-b3sigRbmGCL1R_sM-qraSQ-_5IfWU1/pub?output=tsv";
+  const API_KEY = "AIzaSyA9UwsLAgEsktyccelGlG_AV37qUCL-Gqo";
+  const sheetLocation = "1i564DiRU35eN8CpRMm-_dmIUUSHgm6oyAxMWEtfFtpI/Sheet1";
+  const searchId = location.search.split('?')[1];
+  const sheetId = searchId && searchId.length >= 44 && searchId.indexOf('/') > 1 ? searchId : sheetLocation;
+  const spreadsheetId = sheetId.split('/')[0];
+  const sheetName = sheetId.split('/')[1];
+  var url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${API_KEY}`;
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-          // var JSONData = JSON.parse(this.responseText);
-          // JSONData.feed.entry.map(function(data){
-          //   feedTemplate1.push({
-          //     "Ad Size": data['gsx$adsize']['$t'],
-          //     "CTA": data['gsx$cta']['$t'],
-          //     "Place": data['gsx$place']['$t'],
-          //     "Variation": data['gsx$variation']['$t'],
-          //     "Smart Names": data['gsx$smartnames']['$t'],
-          //     "textField1": data['gsx$textfield1']['$t'],
-          //     "textField2": data['gsx$textfield2']['$t'],
-          //     "textField3": data['gsx$textfield3']['$t'],
-          //     "textField4": data['gsx$textfield4']['$t'],
-          //     "textField5": data['gsx$textfield5']['$t'],
-          //     "endFrameImage": data['gsx$endframeimage']['$t'],
-          //     "URL": data['gsx$url']['$t'],
-          //     // "Visibility": data['gsx$visibility']['$t'],
-          //   });
-          // });
-          feedTemplate1 = tsvTojson(this.responseText);
+          const responseData = JSON.parse(this.responseText).values;
+          const headers = responseData[0], rows = responseData.slice(1);
+          rows.every(row => {
+            if(row.every(cell => cell === '')) return false; //isEmptyRow
+            feedTemplate1.push(row.reduce((obj, cell, i) => { obj[headers[i]] = cell; return obj; }, {}));
+            return true;
+          });
+          if(location.hostname && location.hostname != 'localhost') {
+            var tempFeed = [];
+            feedTemplate1.forEach(function(data){
+              if(!Boolean('Visibility' in data) || ('Visibility' in data && data.Visibility.toLowerCase() == 'true')) {
+                tempFeed.push(data);
+              }
+            });
+            feedTemplate1 = tempFeed;
+          }
           loadTemplateFlag1 = true;
           loadData();
       }
