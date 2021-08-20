@@ -2,44 +2,25 @@ var feedTemplate1 = [] = [];
 var feedContent = [], feedData = {}, getData;
 var adData = [];
 var loadTemplateFlag1 = false;
-const tsvTojson = (data) => {
-  const rowsData = data.split('\r\n').map(row => row.split('\t'));
-  const headers = rowsData[0], rows = rowsData.slice(1);
-  data = [];
-  rows.every(row => {
-    if(row.every(cell => cell === '')) return false; //isEmptyRow
-    let obj = {};
-    row.forEach((cell, i) => obj[headers[i]] = cell);
-    data.push(obj);
-    return true;
-  });
-  return data;
-}
-var getFeed1 = function(){
-  var xmlhttp = new XMLHttpRequest();
-  var url = "https://spreadsheets.google.com/feeds/list/1KdDWN6YgBpseoNqI1kPKuznx-bMZJyYxnTN7viz3nfU/1/public/values?alt=json";
-  var url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT-ny8QgLUpAEQ69a6Rmwg0vOeA9gQAO55BSbLZ2Xfb4zIggSmYA-T9DNUXM3rNDf4IB-LD6HWHcj5_/pub?output=tsv";
+const getFeed1 = function(){
+  const xmlhttp = new XMLHttpRequest();
+  const API_KEY = "AIzaSyA9UwsLAgEsktyccelGlG_AV37qUCL-Gqo";
+  const sheetLocation = "1KdDWN6YgBpseoNqI1kPKuznx-bMZJyYxnTN7viz3nfU/Content";
+  const searchId = location.search.split('?')[1];
+  const sheetId = searchId && searchId.length >= 44 && searchId.indexOf('/') > 1 ? searchId : sheetLocation;
+  const spreadsheetId = sheetId.split('/')[0];
+  const sheetName = sheetId.split('/')[1];
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${API_KEY}`;
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-          // var JSONData = JSON.parse(this.responseText);
-          // JSONData.feed.entry.map(function(data){
-          //   feedTemplate1.push({
-          //     "Ad Size": data['gsx$adsize']['$t'],
-          //     "CTA": data['gsx$cta']['$t'],
-          //     "Country": data['gsx$country']['$t'],
-          //     "Language": data['gsx$language']['$t'],
-          //     "Layout": data['gsx$layout']['$t'],
-          //     "Segment": data['gsx$segment']['$t'],
-          //     "Smart Names": data['gsx$smartnames']['$t'],
-          //     "textField1": data['gsx$textfield1']['$t'],
-          //     "textField2": data['gsx$textfield2']['$t'],
-          //     "textField3": data['gsx$textfield3']['$t'],
-          //     "textField4": data['gsx$textfield4']['$t'],
-          //     "textField5": data['gsx$textfield5']['$t'],
-          //   });
-          // });
-          feedTemplate1 = tsvTojson(this.responseText);
+          const responseData = JSON.parse(this.responseText).values;
+          const headers = responseData[0], rows = responseData.slice(1);
+          rows.every(row => {
+            if(row.every(cell => cell === '')) return false; //isEmptyRow
+            feedTemplate1.push(row.reduce((obj, cell, i) => { obj[headers[i]] = cell; return obj; }, {}));
+            return true;
+          });
           loadTemplateFlag1 = true;
           loadData();
       }
