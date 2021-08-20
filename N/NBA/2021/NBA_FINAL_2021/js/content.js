@@ -3,52 +3,25 @@ var feedContent = [], feedData = {}, getData;
 var adData = [];
 var loadTemplateFlag1 = false;
 var sheetID = '';
-const tsvTojson = (data) => {
-  const rowsData = data.split('\r\n').map(row => row.split('\t'));
-  const headers = rowsData[0], rows = rowsData.slice(1);
-  data = [];
-  rows.every(row => {
-    if(row.every(cell => cell === '')) return false; //isEmptyRow
-    let obj = {};
-    row.forEach((cell, i) => obj[headers[i]] = cell);
-    data.push(obj);
-    return true;
-  });
-  return data;
-}
-var getFeed1 = function(){
-  var xmlhttp = new XMLHttpRequest();
-  sheetID = "1vWqNla0ZrAT_qAp6McFMrbJNBPGkQL2u36l-_wx4h9g/2";
-  var searchID = location.search.split('?')[1];
-  sheetID = searchID && searchID.length == 46 && searchID.indexOf('/') > 1 ? searchID : sheetID;
-  sheetID = searchID && searchID.length <= 2 && Boolean(parseInt(searchID)) ? sheetID.split('/')[0] + '/' + parseInt(searchID) : sheetID;
-  var url = "https://spreadsheets.google.com/feeds/list/" + sheetID + "/public/values?alt=json";
-  var url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfIbTBRaGwa0g-RfifKMLMWM9iFduClb_u7V_GGjUc03scVNrLkk7YKH3mM13ryJOqQHJl31UzaEFO/pub?gid=1990517927&single=true&output=tsv"
+const getFeed1 = function(){
+  const xmlhttp = new XMLHttpRequest();
+  const API_KEY = "AIzaSyA9UwsLAgEsktyccelGlG_AV37qUCL-Gqo";
+  const sheetLocation = "1vWqNla0ZrAT_qAp6McFMrbJNBPGkQL2u36l-_wx4h9g/FINALS";
+  const searchId = location.search.split('?')[1];
+  const sheetId = searchId && searchId.length >= 44 && searchId.indexOf('/') > 1 ? searchId : sheetLocation;
+  const spreadsheetId = sheetId.split('/')[0];
+  const sheetName = sheetId.split('/')[1];
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${API_KEY}`;
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-          // var JSONData = JSON.parse(this.responseText);
-          // JSONData.feed.entry.map(function(data){
-          //   feedTemplate1.push({
-          //     "Ad Size": data['gsx$adsize']['$t'],
-          //     "ctaBackgroundImage": data['gsx$ctabackgroundimage']['$t'],
-          //     "CTA": data['gsx$cta']['$t'],
-          //     "Country": data['gsx$country']['$t'],
-          //     "Smart Names": data['gsx$smartnames']['$t'],
-          //     "backgroundImage": data['gsx$backgroundimage']['$t'],
-          //     "foregroundImage": data['gsx$foregroundimage']['$t'],
-          //     "frameImage1": data['gsx$frameimage1']['$t'],
-          //     "frameImage2": data['gsx$frameimage2']['$t'],
-          //     "frameImage3": data['gsx$frameimage3']['$t'],
-          //     "frameText1": data['gsx$frametext1']['$t'],
-          //     "frameText2": data['gsx$frametext2']['$t'],
-          //     "frameText3": data['gsx$frametext3']['$t'],
-          //     "styleProperties": data['gsx$styleproperties']['$t'],
-          //     "clickURL": data['gsx$url']['$t'],
-          //     // "Visibility": data['gsx$visibility']['$t'],
-          //   });
-          // });
-          feedTemplate1 = tsvTojson(this.responseText);
+          const responseData = JSON.parse(this.responseText).values;
+          const headers = responseData[0], rows = responseData.slice(1);
+          rows.every(row => {
+            if(row.every(cell => cell === '')) return false; //isEmptyRow
+            feedTemplate1.push(row.reduce((obj, cell, i) => { obj[headers[i]] = cell; return obj; }, {}));
+            return true;
+          });
           loadTemplateFlag1 = true;
           loadData();
       }

@@ -2,44 +2,25 @@ var feedTemplate1 = [];
 var feedContent = [], feedData = {}, getData;
 var adData = [];
 var loadTemplateFlag1 = false;
-const tsvTojson = (data) => {
-  const rowsData = data.split('\r\n').map(row => row.split('\t'));
-  const headers = rowsData[0], rows = rowsData.slice(1);
-  data = [];
-  rows.every(row => {
-    if(row.every(cell => cell === '')) return false; //isEmptyRow
-    let obj = {};
-    row.forEach((cell, i) => obj[headers[i]] = cell);
-    data.push(obj);
-    return true;
-  });
-  return data;
-}
-var getFeed1 = function(){
-  var xmlhttp = new XMLHttpRequest();
-  // var url = "https://spreadsheets.google.com/feeds/list/1AOqeyDj0s6f3KZ9s-nxJGNWBCOxK9Gh4qZUFkpCci_0/3/public/values?alt=json";
-  var url = "https://spreadsheets.google.com/feeds/list/1LIlEgeigQSH1-_WIeIZa6Xw-neSWs7Egr66SUfEdQlA/1/public/values?alt=json";
-  var url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTo31gRcW_YDRPVdXHMDZyoRC82P1ZiuFInAWEx62IhWoOGa8ZuXC1529DAbFOr3vHqpRBPKJTKv5Sv/pub?output=tsv";
+const getFeed1 = function(){
+  const xmlhttp = new XMLHttpRequest();
+  const API_KEY = "AIzaSyA9UwsLAgEsktyccelGlG_AV37qUCL-Gqo";
+  const sheetLocation = "1LIlEgeigQSH1-_WIeIZa6Xw-neSWs7Egr66SUfEdQlA/Sheet1";
+  const searchId = location.search.split('?')[1];
+  const sheetId = searchId && searchId.length >= 44 && searchId.indexOf('/') > 1 ? searchId : sheetLocation;
+  const spreadsheetId = sheetId.split('/')[0];
+  const sheetName = sheetId.split('/')[1];
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${API_KEY}`;
 
   xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-          // var JSONData = JSON.parse(this.responseText);
-          // JSONData.feed.entry.map(function(data){
-          //   feedTemplate1.push({
-          //     "Ad Size": data['gsx$adsize']['$t'],
-          //     "CTA": data['gsx$cta']['$t'],
-          //     "Country": data['gsx$country']['$t'],
-          //     "Smart Names": data['gsx$smartnames']['$t'],
-          //     "backgroundImage": data['gsx$backgroundimage']['$t'],
-          //     "logoImage": data['gsx$logoimage']['$t'],
-          //     "playerImage": data['gsx$playerimage']['$t'],
-          //     "headlineText": data['gsx$headlinetext']['$t'],
-          //     "styleProperties": data['gsx$styleproperties']['$t'],
-          //     "clickURL": data['gsx$url']['$t'],
-          //     // "Visibility": data['gsx$visibility']['$t'],
-          //   });
-          // });
-          feedTemplate1 = tsvTojson(this.responseText);
+          const responseData = JSON.parse(this.responseText).values;
+          const headers = responseData[0], rows = responseData.slice(1);
+          rows.every(row => {
+            if(row.every(cell => cell === '')) return false; //isEmptyRow
+            feedTemplate1.push(row.reduce((obj, cell, i) => { obj[headers[i]] = cell; return obj; }, {}));
+            return true;
+          });
           loadTemplateFlag1 = true;
           loadData();
       }
