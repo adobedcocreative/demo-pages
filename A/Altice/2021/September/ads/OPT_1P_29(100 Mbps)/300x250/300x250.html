@@ -342,7 +342,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
         },
         beforeLoad: function(data){
           data.map(function(content){
-            frames.forEach(frame => {
+            frames.forEach(function(frame) {
               if('assets' in frame && Object.keys(frame.assets).length) {
                 for(let key in frame.assets) { 
                   if(!(key in content)) content[key] = frame.assets[key];
@@ -379,13 +379,13 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
 
         textUpdate();
         const fn = { }
-        fn.beams = (() => {
-          const load = (selector='#ad') => {
+        fn.beams = (function() {
+          const load = function(selector='#ad') {
             const x = 3;
             const parentElement = document.querySelector(selector);
             const beams = document.createElement('div');
             beams.id = 'beams';
-            beams.innerHTML = [...Array(x)].map((y,i) => '<div id="beam' + (i + 1) + '" class="beam"><div></div><div></div></div>').join('');
+            beams.innerHTML = [...Array(x)].map(function(y,i) { return '<div id="beam' + (i + 1) + '" class="beam"><div></div><div></div></div>' }).join('');
             parentElement.appendChild(beams);
             gsap.set('#beam1',{top:174,left:300,width:220,height:22,x:-520});gsap.set('#beam1 div',{width:22});
             gsap.set('#beam2',{top:30,left:300,width:200,height:20,x:-500});gsap.set('#beam2 div',{width:20});
@@ -393,7 +393,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
             // gsap.set('#beam4',{top:145,left:300,width:150,height:14,x:-530});gsap.set('#beam4 div',{width:14});
             // gsap.set('#beam5',{top:25,left:300,width:240,height:20,x:-540});gsap.set('#beam5 div',{width:20});
           }
-          const animate = () => {
+          const animate = function() {
             gsap.timeline({defaults:{ease: 'none', duration:0.5}})
             .to('#beam1', {x: 0, delay: 0.8})
             .to('#beam2', {x: 0, delay: -0.2})
@@ -402,24 +402,24 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
             // .to('#beam5', {x: 0, delay: -0.2})
           }
           return {
-            load: (selector) => load(selector),
-            animate: () => animate()
+            load: function(selector) { return load(selector) },
+            animate: function() { return animate() }
           }
         })();
-        fn.shapes = (() => {
-          const load = (selector='#ad') => {
+        fn.shapes = (function() {
+          const load = function(selector='#ad') {
             const x = 3;
             const parentElement = document.querySelector(selector);
             const shapes = document.createElement('div');
             shapes.id = 'shapes';
-            shapes.innerHTML = [...Array(x)].map((y,i) => '<div id="shape' + (i + 1) + '" class="shape"></div>').join('');
+            shapes.innerHTML = [...Array(x)].map(function(y,i) { return '<div id="shape' + (i + 1) + '" class="shape"></div>' }).join('');
             parentElement.appendChild(shapes);
             gsap.set('#shape1',{top:16,left:300,width:200,height:35,x:-500});
             gsap.set('#shape2',{top:153,left:-180,width:180,height:28,x:480});
             gsap.set('#shape3',{top:-280,left:210,width:60,height:280,y:530});
             gsap.set('#shape4',{top:-280,left:20,width:55,height:280,y:530});
           }
-          const animate = () => {
+          const animate = function() {
             gsap.timeline({defaults:{ease: 'none', duration:0.5}})
             .to('#shape1', {x: 0, delay: 0.8})
             .to('#shape2', {x: 0, delay: -0.2})
@@ -427,8 +427,8 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
             .to('#shape4', {x: 0, delay: -0.2})
           }
           return {
-            load: (selector) => load(selector),
-            animate: () => animate()
+            load: function(selector) { return load(selector) },
+            animate: function() { return animate() }
           }
         })();
         // fn.beams.load('#otherFrames');
@@ -438,7 +438,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
         gsap.set('#otherFrames .asset', {x:'100%'});
         gsap.set('.frame-container .text, .frameText', {x:'-120%'});
         // gsap.set('#frameAsset41', {x:'-120%'});
-        frames.forEach(frame => {
+        frames.forEach(function(frame) {
           if('style' in frame && Object.keys(frame.style).length) {
             for(let key in frame.style) {
               gsap.set(key, frame.style[key]);
@@ -446,20 +446,20 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
           }
         })
         // gsap.set('.start-left', {x:'-100%'});
-        fn.changeLogo = (color='') => {
+        fn.changeLogo = function(color='') {
           const white = color.toLowerCase() === 'white' ? 1 : 0;
           gsap.timeline(timelineProps)
           .to('#logoBlack', {autoAlpha: white^1})
           .to('#logoWhite', {autoAlpha: white}, '-=0.3')
         }
-        fn.changeCTA = (color='') => gsap.to('#cta', {ease: "power2.Out", duration:0.3, css: (color.toLowerCase() === 'white' ? {background: '#fff', color: '#0084d6'} : {background: '#0084d6', color: '#fff'} )});
+        fn.changeCTA = function(color='') { gsap.to('#cta', {ease: "power2.Out", duration:0.3, css: (color.toLowerCase() === 'white' ? {background: '#fff', color: '#0084d6'} : {background: '#0084d6', color: '#fff'} )}) };
         fn.changeLogo();
         fn.changeCTA('white');
-        fn.changeBG = (color='#ebebeb') => gsap.to('#backgroundColor', {ease: "power2.Out", duration:0.3, css: {background: color}});
-        const animationSequence = (frame, properties, flag) => {
+        fn.changeBG = function(color='#ebebeb') { gsap.to('#backgroundColor', {ease: "power2.Out", duration:0.3, css: {background: color}}) };
+        const animationSequence = function(frame, properties, flag) {
           const frameElement = document.querySelector(frame);
           const elements = frameElement.querySelectorAll('.asset, .text');
-          elements.forEach(element => {
+          elements.forEach(function(element) {
             if(element.querySelector('img')) element.dataset.type = 'image';
             else if(element.querySelector('video')) element.dataset.type = 'video';
             else element.dataset.type = 'text';
@@ -468,30 +468,30 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
           const duration = properties && 'duration' in properties ? properties.duration : 3;
           const delays = config && 'delays' in config ? config.delays : [...Array(elements.length - 2).fill(''), '<0.1', '<0.1']; 
           const video = elements[0].querySelector('video');
-          const playVideo = () => {  if(video) { video.flag = true; video.play(); } }
+          const playVideo = function() {  if(video) { video.flag = true; video.play(); } }
           config && 'beforeAnimation' in config && config.beforeAnimation(fn, elements);
           const tl = gsap.timeline(timelineProps);
-          elements.forEach((element, i) => tl.add(gsap.to(element, (element.dataset.type === 'video' ? {...destinationValues, onComplete:() => {  if(video) { video.flag = true; video.play(); }}} : destinationValues)), delays[i]));
+          elements.forEach(function(element, i) { tl.add(gsap.to(element, (element.dataset.type === 'video' ? {...destinationValues, onComplete:function() {  if(video) { video.flag = true; video.play(); }}} : destinationValues)), delays[i]) });
           config && 'beams' in config && beams.animate();
           if(!flag) {
             gsap.timeline(timelineProps)
             .to(frameElement, (flag==true?{}:{delay: (duration - 0.3), autoAlpha:0, onComplete: animate.nextFrame}));
           } else { document.querySelector('#frame1').remove(); }
         }
-        const animate = (() => {
+        const animate = (function() {
           let frameId = 1;
           const frameLimit = frames.length;
-          const play = (id, flag) => {
+          const play = function(id, flag) {
             frameId = typeof id === 'number' ? id : frameId;
             frameId === 1 ? animateFrame1(flag) : animationSequence('#frame' + frameId, frames[frameId-1].animate, flag);
           }
-          const nextFrame = () => {
+          const nextFrame = function() {
             frameId++;
             play(frameId, (frameId === frameLimit));
           }
           return {
-            play: (id, flag) => play(id, flag),
-            nextFrame: () => nextFrame()
+            play: function(id, flag) { return play(id, flag) },
+            nextFrame: function() { return nextFrame() }
           }
         })();
         const animateFrame1 = function(flag){
@@ -500,8 +500,8 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
             .to('#frameText12', destinationValues)
             .to('#frame1', (flag==true?{}:{delay:2.5, autoAlpha:0, onComplete: animate.nextFrame}));          
         }
-        gsap.delayedCall(.8, () => { adFrameId ? animate.play(adFrameId, true) : animate.play(); });
-        // gsap.delayedCall(.8, () => { animate.play(1, true); });
+        gsap.delayedCall(.8, function() { adFrameId ? animate.play(adFrameId, true) : animate.play(); });
+        // gsap.delayedCall(.8, function() { animate.play(1, true); });
       });
     }, loadDelay);
   </script>
