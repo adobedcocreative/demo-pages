@@ -47,8 +47,6 @@
         margin: 0px 5px 2px 5px;
         color:#333;
         text-align: center;
-        /* -webkit-transition: all ease-out 0.2s;
-        transition: all ease-out 0.2s; */
         cursor: pointer;
       }
       #header > div:hover {
@@ -78,8 +76,6 @@
         margin: 0px 5px 8px 5px;
         color:#333;
         text-align: center;
-        /* -webkit-transition: all ease-out 0.2s;
-        transition: all ease-out 0.2s; */
         cursor: pointer;
       }
       #subheader > div:hover {
@@ -189,9 +185,8 @@
       }
       .adobe-red { color: #FA0F00; }
     </style>
-    <script src="js/AMOLibrary.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://cmp-as-tm.everesttech.net/ads/static/local/AMOLibrary.js" charset="utf-8"></script>
     <script src="js/content.js" charset="utf-8"></script>
-    <script src="frames.js" charset="utf-8"></script>
   </head>
   <body onload="init()">
     <div id="headerContainer">
@@ -226,6 +221,7 @@
       checkFooter();
       window.onresize = checkFooter;
       var loadContent = function(queryString){
+        console.clear();
         var htmlContent = '';
         var adContent = getData(queryString);
         var adSize = adContent.selectedAd;
@@ -233,7 +229,7 @@
         var adHeight = adSize.split('x')[1];
         amo.attributes = {};
         var creativePath = `ads/${adContent.data[0]['Smart Names']}/${adSize}/${adSize}.html`;
-        document.querySelector('#mainAd').innerHTML = '<div class="frame-wrapper" id="ad' + adSize + '"><iframe src="' + creativePath + '?v=' + publishVersion + '" width="' + adWidth + '" height="' + adHeight + '"></iframe></div>';
+        document.querySelector('#mainAd').innerHTML = '<div class="frame-wrapper" id="ad' + adSize + '"><iframe src="' + creativePath + '" width="' + adWidth + '" height="' + adHeight + '"></iframe></div>';
         document.querySelector('#adFrames').innerHTML = '';
         window.addFrames = (frameCount) => {
           if(frameCount) {

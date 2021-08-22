@@ -133,14 +133,14 @@ const typingAnimation = function(element, duration, callbackFunction) {
 const Ad = function(config) {
   const width = config.width, height = config.height, root = config.root;
   let layers = {}, frames = {}, adData = [];
-  const load = (() => {
+  const load = (function() {
     let time = 0, startTime = new Date(), endTime;
-    const start = () => time = new Date();
-    const end = () => { if(typeof time == 'object') time = (new Date() - time)/1000; console.log('end - ', time); }
+    const start = function() { time = new Date() };
+    const end = function() { if(typeof time == 'object') time = (new Date() - time)/1000; /*console.log('end - ', time);*/ }
     return {
-      start: () => start(),
-      end: () => end(),
-      time: () => time
+      start: function() { return start() },
+      end: function() { return end() },
+      time: function() { return time }
     }
   })();
   const loadAssets = function(list, callbackFunction){ //loadAssets(list of URLs, callback function) [...new Set(temp)]
@@ -196,20 +196,20 @@ const Ad = function(config) {
           }
       }
   }
-  // const replaceMacro = function(text, data) {
-  //   var macros = text.match(/\!\{(.*?)\}/g);
-  //   if(macros) {
-  //     macros.forEach(function(macro){
-  //       var macroText = macro.split('!{').join('').split('}').join('');
-  //       for(var key in data) { if(key == macroText) { macroText = data[key]; } }
-  //       text = text.split(macro).join(macroText);
-  //     });
-  //   }
-  //   return text;
-  // }
+  const replaceMacro = function(text, data) {
+    var macros = text.match(/\!\{(.*?)\}/g);
+    if(macros) {
+      macros.forEach(function(macro){
+        var macroText = macro.split('!{').join('').split('}').join('');
+        for(var key in data) { if(key == macroText) { macroText = data[key]; } }
+        text = text.split(macro).join(macroText);
+      });
+    }
+    return text;
+  }
 
   //Select the Macro - !{macro} and replace it with the feed data.
-  const replaceMacro = (text, data) => (text.match(/\!\{(.*?)\}/g) || ['Test']).map(macro => text = text.replace(new RegExp(macro, 'g'),  data && data.hasOwnProperty(macro.replace(/!{|}/g, '')) ? data[macro.replace(/!{|}/g, '')] : macro)).reverse()[0];
+  // const replaceMacro = (text, data) => (text.match(/\!\{(.*?)\}/g) || ['Test']).map(macro => text = text.replace(new RegExp(macro, 'g'),  data && data.hasOwnProperty(macro.replace(/!{|}/g, '')) ? data[macro.replace(/!{|}/g, '')] : macro)).reverse()[0];
   const update = function() {
     var htmlContent = root.innerHTML.replace(/(\r\n|\n|\r)/gm," ").trim();
     var strings = htmlContent.split('  ');
@@ -325,9 +325,9 @@ const Ad = function(config) {
       width: width,
       height: height,
       load: load,
-      loadAssets: (list, callbackFunction) => loadAssets(list, callbackFunction),
-      setText: (selector, text, type) => setText(selector, text, type),
-      update: () => update(),
-      contentSetup: (data, callbackFunction) => contentSetup(data, callbackFunction)
+      loadAssets: function(list, callbackFunction) { return loadAssets(list, callbackFunction) },
+      setText: function(selector, text, type) { return setText(selector, text, type) },
+      update: function() { return update() },
+      contentSetup: function(data, callbackFunction) { return contentSetup(data, callbackFunction) }
   }
 };
