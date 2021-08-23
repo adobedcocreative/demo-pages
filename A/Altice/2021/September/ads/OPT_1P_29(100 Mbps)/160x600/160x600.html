@@ -4,11 +4,11 @@
   <head>
     <meta charset="utf-8">
     <title>Ad</title>
-    <link rel="stylesheet" href="https://ct.tubemogul.com/web/static/css/style.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
     <script type="text/javascript" src="https://cmp-as-tm.everesttech.net/ads/static/local/AMOLibrary.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
-    <script src="https://ct.tubemogul.com/web/static/js/script.min.js" charset="utf-8"></script>
-    <script type="text/javascript">var addTypingContent=function(d){if(d){var a=d.innerHTML;a&&a.length&&(a=a.split("&amp;").join("&").split("&lt;").join("<").split("&gt;").join(">"));var b=a.match(/<.*?>/g);b=b&&b.length?b:[];a=a.split(/<.*?>/g);a=a.map(function(a){return a.split("").map(function(a){return'<type class="transparent">'+a+"</type>"}).join("")});var c=b;a.length<c&&(b=a,a=c,c=b);c.push("");d.innerHTML=a.map(function(a,b){return a+c[b]}).join("")}};</script>
+    <script src="js/script.2.0.min.js" charset="utf-8"></script>
+    <script type="text/javascript">var addTypingContent=function(d){if(d){let a=d.innerHTML;a&&a.length&&(a=a.split("&amp;").join("&").split("&lt;").join("<").split("&gt;").join(">"));let b=a.match(/<.*?>/g);b=b&&b.length?b:[];a=a.split(/<.*?>/g);a=a.map(function(a){return a.split("").map(function(a){return'<type class="transparent">'+a+"</type>"}).join("")});let c=b;a.length<c&&(b=a,a=c,c=b);c.push("");d.innerHTML=a.map(function(a,b){return a+c[b]}).join("")}};</script>
     <style media="screen">
       @font-face {
           font-family: Altice-Regular;
@@ -21,74 +21,57 @@
       .AlticeRegular { font-family: Altice-Regular; }
       .AlticeBold { font-family: Altice-Bold; }
     </style>
+    <script type="text/javascript">
+      const fonts = ['Altice-Regular', 'Altice-Bold'];
+      let loadDelay = fonts.length ? 2000 : 100;
+      if("fonts" in document && fonts.length) {
+        loadDelay = 100;
+        Promise.all(fonts.map(function(font) { return document.fonts.load("1rem " + font) }))
+        .then(function () {
+          // console.log('loaded');
+        });
+      }
+    </script>
     <style media="screen" data-dynamic="style">
       #ad {
-        width: 160px;
-        height: 600px;
-        font-family: Arial,Helvetica,sans-serif;
+        width: 300px;
+        height: 250px;
+        font-family: Altice-Bold, Arial, Helvetica;
         color: #000;
       }
-      .frame {
+      #ad > div, #frame1 > div, .frame-container, .frame-container > div, .frame, .frameText {
         position: absolute;
         top:0px;
         left:0px;
         width:inherit;
         height:inherit;
       }
-      .frame > div {
-        position: absolute;
-      }
-      .frameText {
-        font-family: Altice-Bold;
-        top:0px;
-        left:0px;
-        width:inherit;
-        height:inherit;
-      }
-      .frameText > div {
-        position: absolute;
-      }
-      .frameImage, .frameImageLeft {
-        top:0px;
-        left:0px;
-        width:inherit;
-        height:inherit;
-      }
-      .adSizeContainer {
-        top:0px;
-        left:0px;
-        width:inherit;
-        height:inherit;
-      }
+      .frame-container .text > div, #frame1 .frameText > div { position: absolute; }
       .transparent { color:transparent; }
-      .verticalBar {
-        position: absolute;
-        top:0px;
-        width: 7px;
-        height: 58px;
-        background-color: #fff;
-        transform-origin: top center;
-      }
       .coloredText {
-        background: linear-gradient(to left, #24d9c3, #0084d6);
+        background: linear-gradient(to right, #24d9c3, #0084d6);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
       .bulletedText {
         position: relative;
-        padding-left: 13px;
-        font-size: 15px;
+        padding-left: 15px;
+        font-size: 18px;
         line-height: 1;
-        margin-bottom: 6px;
+        margin-bottom: 2px;
       }
       .bulletedText::before {
         content: '+';
         position: absolute;
-        top: -1px;
+        top: 1px;
         left: 0px;
-        font-size: 15px;
+        font-size: 17px;
         color: #0084d6;
-        color: #fff;
+      }
+      .beam, .shape {
+        position: absolute;
+        border-radius: 30px;
+        background-image: linear-gradient(to right, #24d9c3, #0084d6);
       }
       .beam div:first-child {
         position: absolute;
@@ -96,32 +79,17 @@
         left: 0px;
         width: 10%;
         height: inherit;
-        background-color: #24d9c3;
+        background-color: none;
         border-radius: 50%;
       }
       .beam div:last-child {
         position: absolute;
         top: 0px;
         right: 0px;
-        width: 10%;
+        width: 5px;
         height: inherit;
-        background-color: #0084d6;
+        background-color: #fff;
         border-radius: 50%;
-      }
-      .switch { }
-      .switch-button {
-        position: absolute;
-        top: 6.5px;
-        left: 7px;
-        width: 23.5px;
-        height: 23.5px;
-        border-radius: 50%;
-        -webkit-transition: left linear 0.3s;
-        transition: left ease-out 0.3s;
-        background-image: linear-gradient(to right, #24d9c3, #0084d6);
-      }
-      .switch.on .switch-button {
-        left: 62px;
       }
       .strikeText {
         position: relative;
@@ -136,362 +104,438 @@
         width: 100%;
         /* padding: 0px 2px; */
       }
-      #cta.ctaWhite {
-        background: #fff !important;
-        border: 2px solid #fff;
-        padding: 0 !important;
-        color: #0084d6;
-      }
-      #cta, #introCta {
-        background-color: #0084d6;
-        color: #fff;
-      }
       #cta:hover, #introCta:hover {
         opacity: 0.7 !important;
+      }
+
+      /* Text alignment classes */
+      .title {
+        top: 81px;
+        left: 35px;
+        width: 240px;
+        font-size: 28px;
+        line-height: 1;
+        text-align: center;
+      }
+      .monthly {
+        font-size: 60%;
+      }
+      .price-text {
+        top: 40px;
+        left: 27px;
+        width: 264px;
+        font-size: 26px;
+        line-height: 1;
+      }
+      .price-terms {
+        font-size: 8px;
+        margin-top: 1px;
+        font-family: Altice-Regular;
+      }
+      .disclaimer {
+        bottom: 50px;
+        left: 27px;
+        font-size: 9px;
+        line-height: 1.15;
+        font-family: Altice-Regular;
+      }
+      .text-white {
+        color: #fff;
+      }
+      .text-blue {
+        color: #0084d6;
       }
     </style>
   <!-- Start of overrode asset attributes values -->
 <script type="text/javascript">
-amo.registerClick("clickUrl","https://www.altice.com");
-amo.registerAttribute("ctaText","TEXT","Shop now");
-amo.registerAttribute("frameText1", "TEXT", "<div style='font-size: 51%;margin-left: 1px;margin-bottom: 1px;'>Optimum’s</div><font class='coloredText'>HOTTEST</font><div class='coloredText' style='font-size: 64%;'>SUMMER SALE</div>");
-amo.registerAttribute("frameText21", "TEXT", "<div style='top: 127px;left: 17px;font-size: 18px;line-height: 0.95;color: #fff;'>300 Mbps<br>Internet</div>");
-amo.registerAttribute("frameText22", "TEXT", "<div style='top: 162px;left: 11px;width: 140px;color: #fff;line-height: 1;'><font style='font-size: 63px;letter-spacing: -1.5px;'>$35</font><font style='margin-left: 2px;font-size: 10px;display: inline-block;vertical-align: 26px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 0px 0 0 7px;font-size: 10px;line-height: 1.1;width: 75px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
-amo.registerAttribute("frameText23", "TEXT", "<div class='AlticeRegular' style='top: 444px;width: 130px;left:18px;font-size:9.9px;line-height: 1.25;'>Wired connection<br>up to 300 Mbps.<br>WiFi speeds may vary.</div>");
-amo.registerAttribute("frameText31", "TEXT", "<div style='top: 79px;left: 10px;width: 140px;font-size: 20px;line-height: 1.05;text-align: center;'><div class='coloredText'>FREE Internet</div>for 1 month!</div>");
-amo.registerAttribute("frameText32", "TEXT", "<div class='AlticeRegular' style='top: 420px;left: 18px;width: 124px;font-size: 9.9px;line-height: 1.25;'>Free mo. Internet covers offer price & Altice fees. Gov’t taxes & fees apply. Click for add’l restrictions & details.</div>");
-amo.registerAttribute("frameText33", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText41", "TEXT", "<div style='top: 79px;left: 17px;width: 140px;font-size: 20px;line-height: 1;'>Get <div class='HBOMax' style='height: 29px;'></div>included<br>on us!</div>");
-amo.registerAttribute("frameText42", "TEXT", "<div class='AlticeRegular' style='position: absolute;top: 456px;left: 18px;width: 140px;font-size: 11px;line-height: 1.15;'>Get 3 months included, then only $14.99/mo.</div>");
-amo.registerAttribute("frameText43", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText51", "TEXT", "<div style='top: 78px;left: 13px;font-size: 18px;line-height:1;color:#fff;'>300 Mbps Internet</div>");
-amo.registerAttribute("frameText52", "TEXT", "<div style='top: 113px;left: 9px;width: 150px;line-height: 1;color:#fff;'><font style='font-size: 65px;letter-spacing: -2px;padding-right: 2px;'>$35</font><font style='margin-left: -1px;font-size: 11px;display: inline-block;vertical-align: 25px;'>/mo.<br>1 yr.</font><div class='AlticeRegular' style='margin: 3px 0 0 5px;font-size: 10px;'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
-amo.registerAttribute("frameText53", "TEXT", "<div style='top: 217px;width: 150px;left: 13px;transform: scale(0.88);transform-origin: top left;color:#fff;'><div class='bulletedText'>FREE Internet<br>for 1 mo.</div><div class='bulletedText'>HBO Max™ included on us!<div class='AlticeRegular' style='margin-top: 1px;font-size: 66%;'>3 mos. included, then<br>only $14.99/mo.</div></div></div>");
+amo.registerClick("clickUrl", "https://www.altice.com");
+amo.registerAttribute("ctaText", "TEXT", "Shop now");
+amo.registerAttribute("frameText1", "TEXT", "<div class='price-text' style='top: 82px;'>Get 100 Mbps Internet for $29.99<small style='font-size: 60%;'>/mo.</small><div class='price-terms'>w/Auto Pay & Paperless Bill plus taxes, fees & charges</div></div>");
+amo.registerAttribute("frameText12", "TEXT", "<div class='disclaimer text-white'>Wired connection up to 100 Mbps.<br>WiFi speeds may vary.</div>");
+amo.registerAttribute("frameText21", "TEXT", "<div class='title'>Get <div class='HBOMax' style='display: inline-block;width: 126px;height: 22px;'></div> included on us!</div>");
+amo.registerAttribute("frameText22", "TEXT", "<div class='disclaimer'>Available w/300 Mbps Internet<br>& above. Get up to 1 yr.<br>included, then only $14.99/mo.</div>");
+amo.registerAttribute("frameText31", "TEXT", "<div class='text-white' style='top: 65px;left: 26px;font-size: 44px;line-height: 1;'>$100</div><div class='text-white' style='top: 110px;left: 27px;font-size: 22px;line-height: 0.95;'>Visa<sup style='vertical-align: top;font-size: 40%;margin-right: -4px;'>®</sup> Prepaid<br>Card on us!</div><div class='AlticeRegular text-white' style='position: absolute;top: 153px;left: 28px;font-size: 9px;'>Terms apply.</div>");
+amo.registerAttribute("frameText32", "TEXT", "<div class='disclaimer text-white'>Available w/300 Mbps<br>Internet & above.</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div class='title text-white'>FREE Internet<br>for 1 month!</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div class='disclaimer text-white'>Available w/300 Mbps Internet & above.<br>Free mo. Internet covers offer price.<br>Gov’t taxes & fees apply. Click for add’l<br>restrictions & details.</div>");
+amo.registerAttribute("frameText51", "TEXT", "<div class='price-text'>Get 100 Mbps Internet for <font class='coloredText'>$29.99</font><small style='font-size: 60%;'>/mo.</small><div class='price-terms' style='font-size:9px;'>w/Auto Pay & Paperless Bill plus taxes, fees & charges</div></div>");
+amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top: 115px;left: 27px;font-size: 15.5px;'>Plus, find out how you can get:</div><div style='top: 138px;left: 26px;width: 360px;transform: scale(0.78);transform-origin: top left;'><div class='bulletedText'>HBO Max™ included on us</div><div class='bulletedText'>$100 Visa<sup style='vertical-align: top;font-size: 75%;'>®</sup> Prepaid Card</div><div class='bulletedText'>Free Internet for 1 month<div class='AlticeRegular' style='margin-top: 3px;font-size: 64%;'>Available w/300 Mbps Internet & above. Terms apply.</div></div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
+<script type="text/javascript">
+  //BackrgroundColor - Blue(#0084d6), grey(#ebebeb), green(#24d9c3)
+  const frames = [
+    {
+      name: 'frame1',
+      assets: {
+        frameAsset1: "300x250_OPT_1P_29_99_Month_100_Mbps_Logo_Flexibility_Frame_01.png",
+      },
+      style: {
+        '#frameAsset1': {x:'-100%'},
+        '#frameText1, #frameText12': {css:{color: '#fff'}},
+      },
+      animate: {
+        duration: 3
+      }
+    },
+    {
+      name: 'frame2',
+      assets: {
+        frameAsset2: "300x250_OPT_1P_29_99_Month_100_Mbps_Img_NumberOne_Frame_02.png",
+        frameAsset21: "300x250_OPT_1P_29_99_Month_100_Mbps_Logo_HBO_MAX_Frame_02.png",
+      },
+      style: {
+        '#frameAsset21, #frameText21': {x:'-100%'}
+      },
+      animate: {
+        duration: 3,
+        config: {
+          delays: ['', '<', '<', '<0.1', '<0.1'],
+          beforeAnimation: function(fn, elements) {
+            fn.beams.animate();
+            fn.changeCTA();     
+            gsap.set(elements[0], {x:0, y:0, autoAlpha:0});
+          }
+        }
+      }
+    },
+    {
+      name: 'frame3',
+      assets: {
+        frameAsset3: "300x250_OPT_1P_29_99_Month_100_Mbps_Img_NumberTwo_Frame_03.png",
+        frameAsset31: "300x250_OPT_1P_29_99_Month_100_Mbps_Img_VISA_Card_Frame_03.png",
+      },
+      style: {
+        
+      },
+      animate: {
+        duration: 3,
+        config: {
+          // delays: ['', '<', '<', '<0.1', '<0.1'],
+          beforeAnimation: function(fn, elements) {
+            fn.changeCTA();
+            fn.changeLogo('white');
+            fn.changeBG('#24d9c3');
+          }
+        }
+      }
+    },
+    {
+      name: 'frame4',
+      assets: {
+        frameAsset4: "300x250_OPT_1P_29_99_Month_100_Mbps_Img_NumberThree_Frame_04.png",
+      },
+      style: {
+
+      },
+      animate: {
+        duration: 3,
+        config: {
+          beforeAnimation: function(fn) {
+            fn.changeCTA('white');
+            fn.changeLogo('white');
+            fn.changeBG('#0084d6');
+          }
+        }
+      }
+    },
+    {
+      name: 'frame5',
+      assets: {
+        frameAsset5: "1x1.png",
+      },
+      style: {
+
+      },
+      animate: {
+        config: {
+          beforeAnimation: function(fn, elements) {
+            fn.changeCTA();
+            fn.changeLogo();
+            fn.changeBG('#ebebeb');
+            gsap.set(elements[0], {x:0, y:0, autoAlpha:0});
+          }
+        }
+      }
+    },
+  ];
+  let adFrameId = 0;
+  if((location.host === "adobedcocreative.github.io" || location.host.startsWith("localhost:")) && 'addFrames' in window.parent) {
+    if(location.hash && +location.hash.replace('#', '')) adFrameId = +location.hash.replace('#', '');
+    else {
+      window.parent.addFrames(frames.length);
+      const framesDuration = frames.map(function(frame, i){ return i !== frames.length - 1 ? frame.animate.duration : 0.5 });
+      framesDuration[0] += 0.8;
+      const totalDuration = framesDuration.reduce(function(acc, x) { return acc + x; }, 0);
+      console.log('Frame Timimgs - %c' + framesDuration.map(function(duration, i) { return 'F'+ (i+1)+'(' + duration + 's)' }).join(' -> ') + ' => ' + totalDuration + 's','color:#0084d6;font-weight:bold;');
+    }
+  }
+  
+</script>
 </head>
-
-
 <body>
-  <div class="" id="ad">
-    <div id="backgroundColor"
-      style="top:0px;
-        left:0px;
-        width:inherit;
-        height:inherit;
-        background-color:#efeeef;">
-    </div>
-    <!-- <div id="ref" class="asset adSizeContainer" data-image="ref"></div> -->
-    <div id="beam1" class="beam" style="border-radius: 30px;background-image: linear-gradient(to left, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
-    <div id="beam2" class="beam" style="border-radius: 30px;background-image: linear-gradient(to right, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
-    <div id="beam3" class="beam" style="border-radius: 50px;background-image: linear-gradient(to left, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
-    <div id="beam4" class="beam" style="border-radius: 30px;background-image: linear-gradient(to left, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
-    <div id="beam5" class="beam" style="border-radius: 30px;background-image: linear-gradient(to right, #24d9c3 60%, #0084d6);"><div></div><div></div></div>
-    <div id="frameBackground" class="asset adSizeContainer" data-image="frameBackground" style="display:none;"></div>
-    <div id="frameImage2" class="asset frameImage" data-image="frameImage2"></div>
-    <div id="frameText21" class="frameText">!{frameText21}</div>
-    <div id="frameText22" class="frameText">!{frameText22}</div>
-    <div id="frameText23" class="frameText">!{frameText23}</div>
-    <div id="frameImage3" class="frameImage" style="top: 125px;left: 37px;width: inherit;height: inherit;"><video muted playsinline autoplay style="width: 86px;height: auto"></video></div>
-    <div id="frameText31" class="frameText">!{frameText31}</div>
-    <div id="frameText32" class="frameText">!{frameText32}</div>
-    <div id="frameText33" class="frameText">!{frameText33}</div>
-    <div id="frameImage4" class="asset frameImage" data-image="frameImage4"></div>
-    <div id="frameImage41" class="asset frameImage" data-image="frameImage41"></div>
-    <div id="frameText41" class="frameText">!{frameText41}</div>
-    <div id="frameText42" class="frameText">!{frameText42}</div>
-    <div id="frameText43" class="frameText">!{frameText43}</div>
-    <div id="frameImage5" class="asset frameImage" data-image="frameImage5"></div>
-    <div id="frameText51" class="frameText">!{frameText51}</div>
-    <div id="frameText52" class="frameText">!{frameText52}</div>
-    <div id="frameText53" class="frameText">!{frameText53}</div>
-    <div id="logoImage" class="asset adSizeContainer" data-image="logoImage"></div>
-    <div id="logoImageWhite" class="asset adSizeContainer" data-image="logoImageWhite"></div>
-    <!-- <div id="priceLabel" class="asset adSizeContainer" data-image="priceLabel"></div> -->
-    <div id="cta" class="text AlticeBold"
+  <div id="ad">
+    <div id="backgroundColor"style="background-color:#ebebeb;"></div>                
+    <div id="otherFrames" class="frame"></div>
+    <div id="logoBlack" class="asset" data-image="logoBlack"></div>
+    <div id="logoWhite" class="asset" data-image="logoWhite"></div>
+    <div id="cta" class="text AlticeBold ctaWhite"
       data-text="ctaText"
-      style="top: 493px;
-        left: 17px;
-        width: 117px;
-        height: 31px;
-        font-size: 14.5px;
+      style="top: 206px;
+        left: 26px;
+        width: 66px;
+        height: 18px;
+        font-size: 10.5px;
         overflow: hidden;
-        border-radius: 18px;
-        padding: 3px;">
+        border-radius: 15px;
+        padding: 2px;
+        background-color: #0084d6;
+        color: #fff;">
     </div>
-    <div id="frame1" class="frame"
-      style="transform-origin:bottom center;
-      -webkit-transition:opacity ease-out 0.3s, transform ease-out 0.3s;
-      transition:opacity ease-out 0.3s, transform ease-out 0.3s;
-      background-color:#efeeef;
-      opacity:1;">
-      <!-- <div id="ref" class="asset adSizeContainer"data-image="ref"></div> -->
-      <div id="frameVideo1" style="top: 0px;left: 0px;width: inheritheight: inherit;"><video muted playsinline autoplay style="width:auto;"></video></div>
-      <!-- <div id="shape1"
-        style="top: 0;
-          left: -23px;
-          width: 40px;
-          height: 520px;
-          border-radius: 20px;
-          background-image: linear-gradient(to top, #24d9c3, #0084d6);">
-      </div>
-      <div id="shape2"
-        style="top: 0;
-          left: 108px;
-          width: 44px;
-          height: 450px;
-          border-radius: 30px;
-          background-image: linear-gradient(to bottom, #24d9c3, #0084d6);">
-      </div> -->
-      <div id="frameText1" class="text-top AlticeBold"
-        data-text="frameText1"
-        style="top: 248px;
-          left: 10px;
-          width: 140px;
-          height: 120px;
-          font-size: 29px;
-          line-height: 1;">
-      </div>
-      <!-- <div id="switch" class="switch"
-        style="top: 63px;
-          left: 34px;
-          width: 92px;
-          height: 36px;
-          transform: scale(0.82);
-          opacity:0;">
-        <div class="asset" data-image="switchImage" style="position: relative;width: inherit;height: inherit;"></div>
-        <div class="switch-button"></div>
-      </div> -->
-      <div id="shape1" class="shape" style="border-radius: 30px;background-image: linear-gradient(to left, #24d9c3, #0084d6);"></div>
-      <div id="shape2" class="shape" style="border-radius: 30px;background-image: linear-gradient(to left, #24d9c3, #0084d6);"></div>
-      <div id="shape3" class="shape" style="border-radius: 30px;background-image: linear-gradient(to bottom, #24d9c3, #0084d6);"></div>
-      <div id="shape4" class="shape" style="border-radius: 30px;background-image: linear-gradient(to bottom, #24d9c3, #0084d6);"></div>
-      <div id="introLogoImage" class="asset adSizeContainer" data-image="introLogoImage"></div>
-      <div id="introCta" class="text AlticeBold"
+    <div id="frame1" style="background-color:#0084d6;">
+      <div id="frameAsset1" class="asset" data-image="frameAsset1"></div>
+      <!-- <div id="videoOverlay" style="background-color:rgba(0,0,0,0.2);"></div> -->
+      <div id="frameText1" class="text frameText">!{frameText1}</div>
+      <div id="frameText12" class="text frameText">!{frameText12}</div>
+      <div id="introLogoImage" class="asset" data-image="logoWhite"></div>
+      <div id="introCta" class="text AlticeBold ctaWhite"
         data-text="ctaText"
-        style="top: 493px;
-          left: 17px;
-          width: 117px;
-          height: 31px;
-          font-size: 14.5px;
+        style="top: 206px;
+          left: 26px;
+          width: 66px;
+          height: 18px;
+          font-size: 10.5px;
           overflow: hidden;
-          border-radius: 18px;
-          padding: 3px;">
+          border-radius: 15px;
+          padding: 2px;
+          color: #0084d6;
+          background: #fff;">
       </div>
     </div>
 
-    <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all 0.5s ease 1s;transition:all 0.5s ease 1s;"></div>
+    <div id="border" class="frame" style="border: 1px solid #000; overflow: hidden; box-sizing: border-box; pointer-events: none;"></div>
+    <div id="overlay" class="frame" style="background-color:#fff;opacity:1;-webkit-transition:all 0.5s ease 1s;transition:all 0.5s ease 1s;"></div>
   </div>
   <div id="loadFont" style="width:0;height:0;overflow:hidden;">
     <div class="AlticeRegular" style="color:transparent;">AlticeRegular</div>
     <div class="AlticeBold" style="color:transparent;">AlticeBold</div>
   </div>
   <script type="text/javascript">
-    var ad = new Ad({
-      root: document.querySelector('#ad'),
-      width: 160,
-      height: 600,
-      borderWidth: 1,
-      borderColor: '#000'
+    const timelineProps = {defaults: {ease: "power2.Out", duration:0.3}}, destinationValues = {x:0, y:0, autoAlpha:1};
+    const attributes = amo && 'attributes' in amo && Object.keys(amo.attributes).length ? Object.keys(amo.attributes) : [];
+    let framesContent = '';
+    frames.forEach(function(frame, i) {
+      const id = i + 1;
+      if(!('assets' in frame)) { frame.assets = []; }
+      attributes.filter(function(key) { return key.startsWith('frameAsset' + id) }).forEach(function(asset) { frame.assets[asset] = amo.attributes[asset] });
+      frame.texts = attributes.filter(function(key) { return key.startsWith('frameText' + id) });
+      if(id > 1) {
+        let frameContent = '';
+        for(let asset in frame.assets) {
+          frameContent += frame.assets[asset].indexOf('.mp4') !== -1 
+          ? '<div id="' + asset + '" class="asset"><video muted playsinline autoplay class="frame"></video></div>'
+          : '<div id="' + asset + '" class="asset" data-image="' + asset + '"></div>';
+        }
+        frame.texts.forEach(function(text) { frameContent += '<div id="' + text + '" class="text">!{' + text + '}</div>' });
+        framesContent += '<div id="frame' + id + '" class="frame-container">' + frameContent + '</div>';
+      } 
     });
+    document.querySelector('#otherFrames').innerHTML = framesContent;
+    let ad = new Ad({
+      root: document.querySelector('#ad'),
+      width: 300,
+      height: 250,
+    });
+    ad.load.start();
     setTimeout(function() {
       ad.contentSetup({
         cam: {},
         feed: [],
         staticData: {
-          logoImage: 'images/160x600_Logo_Optimum_Black.png',
-          logoImageWhite: 'images/160x600_Logo_Optimum_White.png',
-          introLogoImage: 'images/160x600_Logo_Optimum_Black.png',
-          frameBackground: '1x1.png',
-          frameVideo1: "160x600_Pool_Game.mp4",
-          frameVideo3: "Dollar.mp4",
-          frameImage2: "160x600_OPT_JAN_ACQ_FIB_300Mb_35Yr1_NonSub_Fiber1P_Img_Frame_02.png",
-          frameImage4: "160x600_OPT_1P_35_1yr_300Mbps_iPad_Img_Frame_04.png",
-          frameImage41: '160x600_OPT_1P_35_1yr_300Mbps_Logo_HBO_MAX_Frame_04.png',
-          frameImage5: "160x600_OPT_1P_35_1yr_300Mbps_Pool_Img_Frame_05.png",
+          logoBlack: 'images/300x250_Logo_Optimum_Black.png',
+          logoWhite: 'images/300x250_Logo_Optimum_White.png',
         },
         beforeLoad: function(data){
           data.map(function(content){
-            var daysLeft = Math.ceil((new Date('5 July 2020') - new Date())/(24*60*60*1000));
-            var urgencyMessage =  daysLeft > 0 ? daysLeft + ' Day' + (daysLeft == 1 ? '' : 's') + ' Left!' : '';
-            for(var i in content) { if(content[i].indexOf('(urgencyMessage)') > 0) { content[i] = content[i].split('(urgencyMessage)').join(urgencyMessage); } }
+            frames.forEach(function(frame) {
+              if('assets' in frame && Object.keys(frame.assets).length) {
+                for(let key in frame.assets) { 
+                  if(!(key in content)) content[key] = frame.assets[key];
+                }
+              }
+            });
           });
+          // ad.load.start();
           return data;
         }
       }, function(data){
-        var adData = data[0], adClickUrl = adData['clickURL'];
+        ad.load.end();
+        // console.log(ad.load.time());
+        const adData = data[0], adClickUrl = adData['clickURL'];
         ad.root.addEventListener("click", function(e) {
           if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
         });
-        var loadVideo = function(video, path, flag) {
-          if(video && path) {
-            if(!flag) {
-              video.onplay = function() {
-                if(!video.flag) {
-                  this.pause();
-                  this.currentTime = 0;
-                }
-              }
-              video.src = path;
-              video.flag = false;
-            }
-            setTimeout(function(){ video.src = path; }, (flag ? 800 : 500));
-          }
-        }
-        loadVideo(ad.layers.frameVideo1.querySelector('video'), adData.frameVideo1, true);
-        loadVideo(ad.layers.frameImage3.querySelector('video'), adData.frameVideo3);
+        // const loadVideo = function(video, path, flag) {
+        //   if(video && path) {
+        //     if(!flag) {
+        //       video.onplay = function() {
+        //         if(!video.flag) {
+        //           this.pause();
+        //           this.currentTime = 0;
+        //         }
+        //       }
+        //       video.src = path;
+        //       video.flag = false;
+        //     } else setTimeout(function(){ video.src = path; }, (flag ? 800 : 500));
+        //   }
+        // }
+        // loadVideo(ad.layers.frameAsset1.querySelector('video'), adData.frameAsset1, true);
+        // loadVideo(ad.layers.frameAsset3.querySelector('video'), adData.frameAsset3);
 
         textUpdate();
-        gsap.set('#shape1',{top:28,left:160,width:130,height:28,x:-290});
-        gsap.set('#shape2',{top:140,left:-110,width:110,height:22,x:270});
-        gsap.set('#shape3',{top:-480,left:115,width:36,height:480,y:1080});
-        gsap.set('#shape4',{top:-480,left:5,width:32,height:480,y:1080});
-        gsap.set('#beam1',{top:360,left:160,width:150,height:20,x:-310});gsap.set('#beam1 div',{width:20});
-        gsap.set('#beam2',{top:190,left:160,width:150,height:18,x:-310});gsap.set('#beam2 div',{width:18});
-        gsap.set('#beam3',{top:260,left:160,width:140,height:20,x:-300});gsap.set('#beam3 div',{width:20});
-        gsap.set('#beam4',{top:230,left:160,width:170,height:14,x:-330});gsap.set('#beam4 div',{width:14});
-        gsap.set('#beam5',{top:30,left:160,width:180,height:22,x:-340});gsap.set('#beam5 div',{width:22});
-        gsap.set('#frameText1', {x:'-120%'});
-        gsap.set('.frameImage', {x:'100%'});
-        gsap.set('.frameText, #priceLabel', {x:'-100%'});
-        gsap.set('#frameImage41', {x:'-120%'});
-        gsap.set('#logoImageWhite', {autoAlpha:0});
-        // gsap.set('.frameImageLeft', {x:'-100%', y:0});
-        var beamFrameAnimation = function(frame){
-          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0})
-          .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
-          .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
-          gsap.to('#beam1', {x:'0',ease:'none', duration:0.5,delay:0.8})
-          gsap.to('#beam2', {x:'0',ease:'none',duration:0.5,delay:1})
-          gsap.to('#beam3', {x:'0',ease:'none',duration:0.5,delay:1.3})
-          // gsap.to('#beam4', {x:'0',ease:'none',duration:0.5,delay:1.8})
-          // gsap.to('#beam5', {x:'0',ease:'none',duration:0.5,delay:2.1})
-        }
-        var priceFrameAnimation = function(frame){
-          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0})
-          .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
-          .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0})
-          .to('#priceLabel', {delay:-0.2, x:0,y:0});
-        }
-        var bulletFrameAnimation = function(frame){
-          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frame, {x:0,y:0})
-          .to('#frameText'+frame+'1', {delay:-0.3, x:0,y:0})
-          .to('#frameText'+frame+'2', {delay:0.4, x:0,y:0})
-          .to('#frameText'+frame+'3', {delay:0.4, x:0,y:0});
-        }
-        var videoFrameAnimation = function(frame){
-          var video = ad.root.querySelector('#frameImage' + frame + ' video');
-          var playVideo = function() { video.flag = true; if(video) { video.play(); } }
-          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0, onComplete:playVideo})
-          .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
-          .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
-        }
-        var generalFrameAnimation = function(frame){
-          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameText'+frame+'1, #frameImage'+frame, {x:0,y:0})
-          .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
-          .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
-        }
-        var generalFrameAnimation1 = function(frame){
-          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameText'+frame+'1, #frameImage'+frame + '1, #frameImage'+frame, {x:0,y:0})
-          .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
-          .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
-        }
-        var generalLeftFrameAnimation = function(frame){
-          gsap.set('#frameImage'+frame, {x:'0'});
-          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .from('#frameImage'+frame, {autoAlpha:0,delay:0.2})
-          .to('#frameText'+frame+'1', {x:0,y:0})
-          .to('#frameText'+frame+'2', {delay:-0.2, x:0,y:0})
-          .to('#frameText'+frame+'3', {delay:-0.2, x:0,y:0});
-        }
-        const changeLogo = color => {
-          const white = color.toLowerCase() == 'white' ? 1 : 0;
-          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#logoImage', {autoAlpha: white^1})
-          .to('#logoImageWhite', {autoAlpha: white}, '-=0.3')
-        }
-        var animateFrame5 = function(flag){
-          var frameId = 5;
-          ad.layers.cta.classList.add('ctaWhite');
-          changeLogo('white');
-          gsap.set('#frameBackground', {display: 'none'});
-          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: generalLeftFrameAnimation, onCompleteParams:[5]})
-          // .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', {delay: 2.2, opacity:0});
-        }
-        var animateFrame4 = function(flag){
-          var frameId = 4;
-          gsap.set('#frameBackground', {display: 'block'});
-          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation1, onCompleteParams:[4]})
-          .to('#frameImage'+frameId+', #frameImage'+frameId + '1, div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame5}));
-        }
-        var animateFrame3 = function(flag){
-          var frameId = 3;
-          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[frameId]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame4}));
-        }
-        var animateFrame2 = function(flag){
-          var frameId = 2;
-          gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: generalLeftFrameAnimation, onCompleteParams:[2]})
-          .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.7, opacity:0, onComplete: animateFrame3}));
-        }
-        var animateFrame1 = function(flag){
-          ad.layers.frameVideo1.querySelector('video').onplay = function(){
-            // gsap.to('#shape1', {x:'0',ease:'none', duration:0.7,delay:0.8})
-            // gsap.to('#shape2', {x:'0',ease:'none', duration:0.7,delay:1.2})
-            gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-            .to('#frameText1', {x:0,y:0})
+        const fn = { }
+        fn.beams = (function() {
+          const load = function(selector='#ad') {
+            const x = 1;
+            let htmlContent = '';
+            const parentElement = document.querySelector(selector);
+            const beams = document.createElement('div');
+            beams.id = 'beams';
+            for(let i = 1; i <= x; i++) {
+              htmlContent += '<div id="beam' + i + '" class="beam"><div></div><div></div></div>';
+            }
+            beams.innerHTML = htmlContent;
+            parentElement.appendChild(beams);
+            gsap.set('#beam1',{top:136,left:300,width:40,height:5,x:-340});gsap.set('#beam1 div',{width:5});
+            // gsap.set('#beam2',{top:30,left:300,width:200,height:20,x:-500});gsap.set('#beam2 div',{width:20});
+            // gsap.set('#beam3',{top:174,left:300,width:180,height:22,x:-480});gsap.set('#beam3 div',{width:22});
+            // gsap.set('#beam4',{top:145,left:300,width:150,height:14,x:-530});gsap.set('#beam4 div',{width:14});
+            // gsap.set('#beam5',{top:25,left:300,width:240,height:20,x:-540});gsap.set('#beam5 div',{width:20});
           }
-          ad.layers.frameVideo1.querySelector('video').onended = function(){
-            gsap.timeline({defaults:{ease: "power2.Out", duration:0.2}})
-            .to('#frame1', (flag==true?{}:{delay:0, duration:0.3, ease: Power2.easeOut, opacity:0, display:'none', onComplete: animateFrame2}));
+          const animate = function() {
+            gsap.timeline({defaults:{ease: 'none', duration:1.2}})
+            .to('#beam1', {x: 0, delay: 0.8})
+            // .to('#beam2', {x: 0, delay: -0.2})
+            // .to('#beam3', {x: 0, delay: -0.2})
+            // .to('#beam4', {x: 0, delay: -0.2})
+            // .to('#beam5', {x: 0, delay: -0.2})
           }
+          return {
+            load: function(selector) { return load(selector) },
+            animate: function() { return animate() }
+          }
+        })();
+        fn.shapes = (function() {
+          const load = function(selector='#ad') {
+            const x = 3;
+            let htmlContent = '';
+            const parentElement = document.querySelector(selector);
+            const shapes = document.createElement('div');
+            shapes.id = 'shapes';
+            for(let i = 1; i <= x; i++) {
+              htmlContent += '<div id="shape' + (i + 1) + '" class="shape"></div>';
+            }
+            shapes.innerHTML = htmlContent;
+            parentElement.appendChild(shapes);
+            gsap.set('#shape1',{top:16,left:300,width:200,height:35,x:-500});
+            gsap.set('#shape2',{top:153,left:-180,width:180,height:28,x:480});
+            gsap.set('#shape3',{top:-280,left:210,width:60,height:280,y:530});
+            gsap.set('#shape4',{top:-280,left:20,width:55,height:280,y:530});
+          }
+          const animate = function() {
+            gsap.timeline({defaults:{ease: 'none', duration:0.5}})
+            .to('#shape1', {x: 0, delay: 0.8})
+            .to('#shape2', {x: 0, delay: -0.2})
+            .to('#shape3', {x: 0, delay: -0.2})
+            .to('#shape4', {x: 0, delay: -0.2})
+          }
+          return {
+            load: function(selector) { return load(selector) },
+            animate: function() { return animate() }
+          }
+        })();
+        fn.beams.load('#otherFrames');
+        // fn.shapes.load('#frame1');
+
+        // gsap.set('#frameText1', {x:'-120%'});
+        gsap.set('#otherFrames .asset', {x:'100%'});
+        gsap.set('.frame-container .text, .frameText', {x:'-120%'});
+        // gsap.set('#frameAsset41', {x:'-120%'});
+        frames.forEach(function(frame) {
+          if('style' in frame && Object.keys(frame.style).length) {
+            for(let key in frame.style) {
+              gsap.set(key, frame.style[key]);
+            }
+          }
+        })
+        // gsap.set('.start-left', {x:'-100%'});
+        fn.changeLogo = function(color='') {
+          const white = color.toLowerCase() === 'white' ? 1 : 0;
+          gsap.timeline(timelineProps)
+          .to('#logoBlack', {autoAlpha: white^1})
+          .to('#logoWhite', {autoAlpha: white}, '-=0.3')
         }
-        gsap.delayedCall(.8, animateFrame1);
+        fn.changeCTA = function(color='') { gsap.to('#cta', {ease: "power2.Out", duration:0.3, css: (color.toLowerCase() === 'white' ? {background: '#fff', color: '#0084d6'} : {background: '#0084d6', color: '#fff'} )}) };
+        fn.changeLogo();
+        fn.changeCTA('white');
+        fn.changeBG = function(color='#ebebeb') { gsap.to('#backgroundColor', {ease: "power2.Out", duration:0.3, css: {background: color}}) };
+        const animationSequence = function(frame, properties, flag) {
+          const frameElement = document.querySelector(frame);
+          const elements = frameElement.querySelectorAll('.asset, .text');
+          elements.forEach(function(element) {
+            if(element.querySelector('img')) element.dataset.type = 'image';
+            else if(element.querySelector('video')) element.dataset.type = 'video';
+            else element.dataset.type = 'text';
+          });
+          const config = properties && 'config' in properties ? properties.config : '';
+          const duration = properties && 'duration' in properties ? properties.duration : 3;
+          const delayDefaults = [];
+          for(let i = 0, textCount = 0; i < elements.length; i++) {
+            if(elements[i].classList.contains('text')) textCount++;
+            delayDefaults.push(textCount > 1 ? '<0.1' : '');
+          }
+          const delays = config && 'delays' in config ? config.delays : delayDefaults;
+          const video = elements[0].querySelector('video');
+          const playVideo = function() {  if(video) { video.flag = true; video.play(); } }
+          config && 'beforeAnimation' in config && config.beforeAnimation(fn, elements);
+          const tl = gsap.timeline(timelineProps);
+          const videoDestinationValues = { onComplete:function() {  if(video) { video.flag = true; video.play(); }} }
+          for(var key in destinationValues) { videoDestinationValues[key] = destinationValues[key]; }
+          elements.forEach(function(element, i) { tl.add(gsap.to(element, (element.dataset.type === 'video' ? videoDestinationValues : destinationValues)), delays[i]) });
+          config && 'beams' in config && beams.animate();
+          if(!flag) {
+            gsap.timeline(timelineProps)
+            .to(frameElement, (flag==true?{}:{delay: (duration - timelineProps.defaults.duration), autoAlpha:0, onComplete: animate.nextFrame}));
+          } else { document.querySelector('#frame1').remove(); }
+        }
+        const animate = (function() {
+          let frameId = 1;
+          const frameLimit = frames.length;
+          const play = function(id, flag) {
+            frameId = typeof id === 'number' ? id : frameId;
+            frameId === 1 ? animateFrame1('#frame' + frameId, frames[frameId-1].animate, flag) : animationSequence('#frame' + frameId, frames[frameId-1].animate, flag);
+          }
+          const nextFrame = function() {
+            frameId++;
+            play(frameId, (frameId === frameLimit));
+          }
+          return {
+            play: function(id, flag) { return play(id, flag) },
+            nextFrame: function() { return nextFrame() }
+          }
+        })();
+        const animateFrame1 = function(frame, properties, flag) {
+          const duration = properties && 'duration' in properties ? properties.duration : 3;
+          gsap.timeline(timelineProps)
+            .to('#frameAsset1, #frameText1', destinationValues)
+            .to('#frameText12', destinationValues)
+            gsap.timeline(timelineProps)
+            .to(frame, (flag==true?{}:{delay: (duration - timelineProps.defaults.duration), autoAlpha:0, onComplete: animate.nextFrame}));
+        }
+        gsap.delayedCall(.8, function() { adFrameId ? animate.play(adFrameId, true) : animate.play(); });
+        // gsap.delayedCall(.8, function() { animate.play(1, true); });
       });
-    }, 2000);
-  </script>
-  <script type="text/javascript">
-    var userAgentString = navigator.userAgent;
-    var browserFlag = userAgentString.indexOf("Mac") > -1 && (userAgentString.indexOf("Chrome") > -1 || userAgentString.indexOf("Safari") > -1);
-    if(!browserFlag) {
-      var pixelDiv = document.createElement('div');
-      pixelDiv.style.left = '120%';
-      pixelDiv.innerHTML = '<video muted playsinline autoplay></video><canvas></canvas>';
-      document.querySelector('#ad').appendChild(pixelDiv);
-      var pixelCanvas = pixelDiv.querySelector('canvas');
-      var pixelctx = pixelCanvas.getContext('2d');
-      var pixelVideo = pixelDiv.querySelector("video");
-      var color = 'rgb(235, 235, 235)';
-      try {
-        pixelVideo.src = "data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAAAIZnJlZQAAA6ptZGF0AAACrgYF//+q3EXpvebZSLeWLNgg2SPu73gyNjQgLSBjb3JlIDE2MSByMzAxOCBkYjBkNDE3IC0gSC4yNjQvTVBFRy00IEFWQyBjb2RlYyAtIENvcHlsZWZ0IDIwMDMtMjAyMCAtIGh0dHA6Ly93d3cudmlkZW9sYW4ub3JnL3gyNjQuaHRtbCAtIG9wdGlvbnM6IGNhYmFjPTEgcmVmPTMgZGVibG9jaz0xOjA6MCBhbmFseXNlPTB4MzoweDExMyBtZT1oZXggc3VibWU9NyBwc3k9MSBwc3lfcmQ9MS4wMDowLjAwIG1peGVkX3JlZj0xIG1lX3JhbmdlPTE2IGNocm9tYV9tZT0xIHRyZWxsaXM9MSA4eDhkY3Q9MSBjcW09MCBkZWFkem9uZT0yMSwxMSBmYXN0X3Bza2lwPTEgY2hyb21hX3FwX29mZnNldD0tMiB0aHJlYWRzPTggbG9va2FoZWFkX3RocmVhZHM9MSBzbGljZWRfdGhyZWFkcz0wIG5yPTAgZGVjaW1hdGU9MSBpbnRlcmxhY2VkPTAgYmx1cmF5X2NvbXBhdD0wIGNvbnN0cmFpbmVkX2ludHJhPTAgYmZyYW1lcz0zIGJfcHlyYW1pZD0yIGJfYWRhcHQ9MSBiX2JpYXM9MCBkaXJlY3Q9MSB3ZWlnaHRiPTEgb3Blbl9nb3A9MCB3ZWlnaHRwPTIga2V5aW50PTI1MCBrZXlpbnRfbWluPTI1IHNjZW5lY3V0PTQwIGludHJhX3JlZnJlc2g9MCByY19sb29rYWhlYWQ9NDAgcmM9Y3JmIG1idHJlZT0xIGNyZj0yMy4wIHFjb21wPTAuNjAgcXBtaW49MCBxcG1heD02OSBxcHN0ZXA9NCBpcF9yYXRpbz0xLjQwIGFxPTE6MS4wMACAAAAAFGWIhAA3//728P4FNeLg0JZ7P1PhAAAACEGaJGxDf/6rAAAACEGeQniFf1rBAAAACAGeYXRCf2NAAAAACAGeY2pCf2NBAAAADkGaaEmoQWiZTAhv//6rAAAACkGehkURLCv/WsEAAAAIAZ6ldEJ/Y0EAAAAIAZ6nakJ/Y0AAAAAOQZqsSahBbJlMCG///qsAAAAKQZ7KRRUsK/9awQAAAAgBnul0Qn9jQAAAAAgBnutqQn9jQAAAAA5BmvBJqEFsmUwIb//+qwAAAApBnw5FFSwr/1rBAAAACAGfLXRCf2NBAAAACAGfL2pCf2NAAAAD821vb3YAAABsbXZoZAAAAAAAAAAAAAAAAAAAA+gAAAI4AAEAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAMddHJhawAAAFx0a2hkAAAAAwAAAAAAAAAAAAAAAQAAAAAAAAI4AAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAgAAAAIAAAAAAAJGVkdHMAAAAcZWxzdAAAAAAAAAABAAACOAAAB9IAAQAAAAAClW1kaWEAAAAgbWRoZAAAAAAAAAAAAAAAAAAAdTAAAEJ5FccAAAAAAEFoZGxyAAAAAAAAAAB2aWRlAAAAAAAAAAAAAAAAH01haW5jb25jZXB0IFZpZGVvIE1lZGlhIEhhbmRsZXIAAAACLG1pbmYAAAAUdm1oZAAAAAEAAAAAAAAAAAAAACRkaW5mAAAAHGRyZWYAAAAAAAAAAQAAAAx1cmwgAAAAAQAAAexzdGJsAAAAmHN0c2QAAAAAAAAAAQAAAIhhdmMxAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAACAAIABIAAAASAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGP//AAAAMmF2Y0MBZAAK/+EAFWdkAAqs2UloQAAA+kAAOpgDxIllgAEABmjr48siwP34+AAAAAAYc3R0cwAAAAAAAAABAAAAEQAAA+kAAAAUc3RzcwAAAAAAAAABAAAAAQAAAJhjdHRzAAAAAAAAABEAAAABAAAH0gAAAAEAABONAAAAAQAAB9IAAAABAAAAAAAAAAEAAAPpAAAAAQAAE40AAAABAAAH0gAAAAEAAAAAAAAAAQAAA+kAAAABAAATjQAAAAEAAAfSAAAAAQAAAAAAAAABAAAD6QAAAAEAABONAAAAAQAAB9IAAAABAAAAAAAAAAEAAAPpAAAAHHN0c2MAAAAAAAAAAQAAAAEAAAARAAAAAQAAAFhzdHN6AAAAAAAAAAAAAAARAAACygAAAAwAAAAMAAAADAAAAAwAAAASAAAADgAAAAwAAAAMAAAAEgAAAA4AAAAMAAAADAAAABIAAAAOAAAADAAAAAwAAAAUc3RjbwAAAAAAAAABAAAAMAAAAGJ1ZHRhAAAAWm1ldGEAAAAAAAAAIWhkbHIAAAAAAAAAAG1kaXJhcHBsAAAAAAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguNDUuMTAw";
-        pixelVideo.onplay = function(){ }
-        pixelVideo.onended = function(){
-          pixelCanvas.width = this.videoWidth;
-          pixelCanvas.height = this.videoHeight;
-          pixelctx.drawImage(this, 0, 0);
-          color = 'rgba('+pixelctx.getImageData(this.videoWidth/2,this.videoHeight/2,1,1).data.join(',')+')';
-          document.querySelector('#backgroundColor').style.backgroundColor = color;
-          document.querySelector('#frame1').style.backgroundColor = color;
-          document.querySelector('#ad').removeChild(pixelDiv);
-        }
-        pixelVideo.play();
-      } catch(e) {
-        document.querySelector('#ad').removeChild(pixelDiv);
-      } finally {
-        document.querySelector('#backgroundColor').style.backgroundColor = color;
-        document.querySelector('#frame1').style.backgroundColor = color;
-      }
-    }
+    }, loadDelay);
   </script>
 </body>
 </html>
