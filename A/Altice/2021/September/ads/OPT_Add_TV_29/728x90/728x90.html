@@ -455,13 +455,11 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 40px;left: 329px;
         fn.beams.load('#otherFrames');
         // fn.shapes.load('#frame1');
 
-        // gsap.set('#frameText1', {x:'-120%'});
         gsap.set('#otherFrames .asset', {y:'100%'});
         gsap.set('.frame-container .text, .frameText', {y:'100%'});
         const firstTexts = [];
         document.querySelectorAll('#frame1, .frame-container').forEach(function(parent){ firstTexts.push(parent.querySelector('[id^=frameText]')) });
-        gsap.set(firstTexts, {x:'-120%', y:0});
-        // gsap.set('#frameAsset41', {x:'-120%'});
+        gsap.set(firstTexts, {x:'-100%', y:0});
         frames.forEach(function(frame) {
           if('style' in frame && Object.keys(frame.style).length) {
             for(let key in frame.style) {
@@ -469,7 +467,6 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 40px;left: 329px;
             }
           }
         })
-        // gsap.set('.start-left', {x:'-100%'});
         fn.changeLogo = function(color='') {
           const white = color.toLowerCase() === 'white' ? 1 : 0;
           gsap.timeline(timelineProps)

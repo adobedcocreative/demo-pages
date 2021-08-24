@@ -144,7 +144,7 @@
       .disclaimer {
         top: 30px;
         left: 9px;
-        font-size: 7.8px;
+        font-size: 7.7px;
         line-height: 1.15;
         font-family: Altice-Regular;
       }
@@ -162,10 +162,10 @@ amo.registerAttribute("ctaText", "TEXT", "Shop now");
 amo.registerAttribute("frameText1", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText21", "TEXT", "<div class='title'>300 Mbps Internet $39.99/mo.</div>");
 amo.registerAttribute("frameText22", "TEXT", "<div class='price-terms' style='top: 19px;font-size: 8px;'>w/Auto Pay & Paperless Bill plus taxes, fees<br>& charges. Wired connection up to 300 Mbps.<br>WiFi speeds may vary.</div>");
-amo.registerAttribute("frameText31", "TEXT", "<div class='title-small text-white'>Plus, find out how you can get a<br>$100 Visa<sup>®</sup> Prepaid Card on us,</div>");
-amo.registerAttribute("frameText32", "TEXT", "<div class='disclaimer text-white'>Available w/300 Mbps Internet & above.<br>Terms apply.</div>");
-amo.registerAttribute("frameText41", "TEXT", "<div class='title-small text-white'>HBO Max™ included &<br>FREE Internet for 1 mo.</div>");
-amo.registerAttribute("frameText42", "TEXT", "<div class='disclaimer text-white'>Available w/300 Mbps Internet & above.<br>Terms apply.</div>");
+amo.registerAttribute("frameText31", "TEXT", "<div class='title text-white' style='top: 13px;left: 9px;font-size: 12.8px;'>$100 Visa<sup>®</sup> Prepaid Card on us!</div>");
+amo.registerAttribute("frameText32", "TEXT", "<div class='disclaimer text-white' style='top: 28px;'>Terms apply.</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div class='title text-white' style='left: 10px;font-size: 12.7px;line-height: 1.15;'>Plus you can get HBO Max™<br>included for 3 mos. & FREE<br>Internet for 1 mo.</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div class='disclaimer text-white' style='top: 38px;left: 117px;'>Terms apply.</div>");
 amo.registerAttribute("frameText51", "TEXT", "<div class='title' style='top: 6px;'>300 Mbps Internet <font class='text-blue'>$39.99/mo.</font></div>");
 amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div>");
 </script>
@@ -467,10 +467,11 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pa
         beamGradient.className = 'beam-gradient';
         document.querySelector('.beam-container').appendChild(beamGradient);
 
-        // gsap.set('#frameText1', {x:'-120%'});
-        gsap.set('#otherFrames .asset', {x:'100%'});
-        gsap.set('.frame-container .text, .frameText', {x:'-120%'});
-        // gsap.set('#frameAsset41', {x:'-120%'});
+        gsap.set('#otherFrames .asset', {y:'100%'});
+        gsap.set('.frame-container .text, .frameText', {y:'100%'});
+        const firstTexts = [];
+        document.querySelectorAll('#frame1, .frame-container').forEach(function(parent){ firstTexts.push(parent.querySelector('[id^=frameText]')) });
+        gsap.set(firstTexts, {x:'-100%', y:0});
         frames.forEach(function(frame) {
           if('style' in frame && Object.keys(frame.style).length) {
             for(let key in frame.style) {
@@ -478,7 +479,6 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pa
             }
           }
         })
-        // gsap.set('.start-left', {x:'-100%'});
         fn.changeLogo = function(color='') {
           const white = color.toLowerCase() === 'white' ? 1 : 0;
           gsap.timeline(timelineProps)
