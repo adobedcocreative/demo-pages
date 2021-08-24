@@ -197,7 +197,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pa
       animate: {
         duration: 3,
         config: {
-          delays: ['', '<', '<', '<0.1', '<0.1'],
+          // delays: ['', '<', '<', '<0.1', '<0.1'],
           beforeAnimation: function(fn, elements) {
             fn.changeCTA();     
             gsap.set(elements[0], {x:0, y:0, autoAlpha:0});
