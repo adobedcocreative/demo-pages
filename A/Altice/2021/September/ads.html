@@ -248,7 +248,7 @@
           div.dataset.id = data.name;
           if(group === data.name) div.classList.add('selected');
           div.onclick = (e) => loadContent(e.target.dataset.id);
-          div.innerHTML = data.name.split(' ')[0] + '<div style="font-size:14px;">' + data.name.split(' ')[1] + '</div>';
+          div.innerHTML = data.name.split(' ')[0] + '<div data-id="' + data.name + '" style="font-size:14px;" >' + data.name.split(' ')[1] + '</div>';
           navElement1.appendChild(div);
         });
         var groupData = adData.find(function(data){ return data.name == group; });
