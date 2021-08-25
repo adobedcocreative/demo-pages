@@ -110,9 +110,15 @@
 
       /* Text alignment classes */
       .title {
-        top: 21px;
+        top: 29px;
         left: 25px;
         font-size: 24px;
+        line-height: 1;
+      }
+      .title-top {
+        top: 12px;
+        left: 25px;
+        font-size: 16px;
         line-height: 1;
       }
       .monthly {
@@ -130,8 +136,8 @@
         font-family: Altice-Regular;
       }
       .disclaimer {
-        top: 46px;
-        left: 24px;
+        top: 56px;
+        left: 25px;
         font-size: 10px;
         line-height: 1;
         font-family: Altice-Regular;
@@ -149,14 +155,15 @@ amo.registerClick("clickUrl", "https://www.altice.com");
 amo.registerAttribute("ctaText", "TEXT", "Shop now");
 amo.registerAttribute("frameText1", "TEXT", "<div class='price-text' style='top: 47px;left: 25px;font-size: 19px;'>Get 100 Mbps Internet for $29.99<small class='monthly' style='font-size: 64%;'>/mo.</small></div>");
 amo.registerAttribute("frameText12", "TEXT", "<div class='disclaimer text-white' style='top: 67px;left: 25px;'>w/Auto Pay & Paperless Bill plus taxes, fees & charges. Wired connection up to 100 Mbps. WiFi speeds may vary.</div>");
-amo.registerAttribute("frameText21", "TEXT", "<div class='title' style='top: 23px;left: 22px;'>Get <div class='HBOMax' style='display: inline-block;width: 94px;height: 22px;'></div> included on us</div>");
+amo.registerAttribute("frameText21", "TEXT", "<div class='title-top' style='left: 22px;'>MOVING?</div><div class='title' style='top: 26px;left: 22px;'>Get <div class='HBOMax' style='display: inline-block;width: 94px;height: 22px;'></div> included on us</div>");
 amo.registerAttribute("frameText22", "TEXT", "<div class='disclaimer' style='top: 67px;left: 22px;'>Available w/300 Mbps Internet & above. Get up to 1 yr. included, then only $14.99/mo.</div>");
 amo.registerAttribute("frameText31", "TEXT", "<div class='text-white' style='top: 8px;left: 23px;font-size: 30px;line-height: 1;'>$100</div><div class='text-white' style='top: 37px;left: 23px;font-size: 22px;line-height: 1;'>Visa<sup style='vertical-align: top;font-size: 60%;'>®</sup> Prepaid<br>Card on us!</div>");
 amo.registerAttribute("frameText32", "TEXT", "<div class='disclaimer text-white' style='top: 66px;left: 304px;font-size: 9.9px;'>Terms apply. Available w/300 Mbps Internet & above.</div>");
-amo.registerAttribute("frameText41", "TEXT", "<div class='title text-white'>FREE Internet for 1 month</div>");
-amo.registerAttribute("frameText42", "TEXT", "<div class='disclaimer text-white'>Available w/300 Mbps Internet & above. Free mo. Internet covers offer price.<br>Gov’t taxes & fees apply. Click for add’l restrictions & details.</div>");
-amo.registerAttribute("frameText51", "TEXT", "<div class='price-text'>Get 100 Mbps Internet<br>for <font class='coloredText'>$29.99</font><small class='monthly'>/mo.</small><div class='price-terms' style='font-size:10px;'>w/Auto Pay & Paperless Bill plus taxes, fees & charges</div></div>");
-amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top: 9px;left: 334px;font-size: 12px;'>Plus, find out how you can get:</div><div style='top: 26px;left: 335px;width: 360px;transform: scale(0.668);transform-origin: top left;'><div class='bulletedText'>HBO Max™ included on us</div><div class='bulletedText'>$100 Visa<sup style='vertical-align: top;font-size: 75%;'>®</sup> Prepaid Card</div><div class='bulletedText'>Free Internet for 1 month<div class='AlticeRegular' style='margin-top: 3px;font-size: 67%;'>Available w/300 Mbps Internet & above. Terms apply.</div></div></div>");
+amo.registerAttribute("frameText41", "TEXT", "<div class='title-top text-white'>MOVING?</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div class='title text-white'>FREE Internet for 1 month</div>");
+amo.registerAttribute("frameText43", "TEXT", "<div class='disclaimer text-white'>Available w/300 Mbps Internet & above. Free mo. Internet covers offer price & Altice fees.<br>Gov’t taxes & fees apply. Click for add’l restrictions & details.</div>");
+amo.registerAttribute("frameText51", "TEXT", "<div class='price-text'>100 Mbps Internet<br>for <font class='coloredText'>$29.99</font><small class='monthly'>/mo.</small><div class='price-terms' style='font-size:10px;'>w/Auto Pay & Paperless Bill plus taxes, fees & charges</div></div>");
+amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top: 9px;left: 334px;font-size: 12px;'>Find out how you can get:</div><div style='top: 26px;left: 335px;width: 360px;transform: scale(0.668);transform-origin: top left;'><div class='bulletedText'>HBO Max™ included on us</div><div class='bulletedText'>$100 Visa<sup style='vertical-align: top;font-size: 75%;'>®</sup> Prepaid Card</div><div class='bulletedText'>Free Internet for 1 month<div class='AlticeRegular' style='margin-top: 3px;font-size: 67%;'>Available w/300 Mbps Internet & above. Terms apply.</div></div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 <script type="text/javascript">
@@ -182,7 +189,8 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
         frameAsset21: "728x90_OPT_1P_29_99_Month_100_Mbps_Logo_HBO_MAX_Frame_02.png",
       },
       style: {
-        '#frameAsset21, #frameText21': {x:'-100%'}
+        '#frameAsset21, #frameText21': {x:'-100%'},
+        '#frameAsset21': {top:3}
       },
       animate: {
         duration: 2.9,
@@ -403,7 +411,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
             }
             beams.innerHTML = htmlContent;
             parentElement.appendChild(beams);
-            gsap.set('#beam1',{top:49,left:728,width:45,height:5,x:-773});gsap.set('#beam1 div',{width:5});
+            gsap.set('#beam1',{top:52,left:728,width:45,height:5,x:-773});gsap.set('#beam1 div',{width:5});
             // gsap.set('#beam2',{top:7,left:728,width:240,height:17,x:-968});gsap.set('#beam2 div',{width:18});
             // gsap.set('#beam3',{top:78,left:728,width:160,height:16,x:-888});gsap.set('#beam3 div',{width:16});
             // gsap.set('#beam4',{top:45,left:728,width:190,height:14,x:-918});gsap.set('#beam4 div',{width:14});
