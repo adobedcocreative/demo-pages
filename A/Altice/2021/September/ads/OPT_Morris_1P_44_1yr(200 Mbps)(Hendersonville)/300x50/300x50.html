@@ -163,10 +163,8 @@ amo.registerAttribute("ctaText", "TEXT", "Shop now");
 amo.registerAttribute("frameText1", "TEXT", "&nbsp;");
 amo.registerAttribute("frameText21", "TEXT", "<div class='title'>Choose your speed.<br>Change anytime.</div>");
 amo.registerAttribute("frameText31", "TEXT", "<div class='title'>No hidden fees.<br>No catch.</div>");
-amo.registerAttribute("frameText41", "TEXT", "<div class='title' style='top: 8px;font-size: 13px;'>No annual contract.</div>");
-amo.registerAttribute("frameText42", "TEXT", "<div class='title' style='top: 28px;font-size: 13px;'>60-day money-back guarantee.</div>");
-amo.registerAttribute("frameText51", "TEXT", "<div style='top: 3px;left: 7px;font-size: 13px;'>Internet starting at <font class='text-blue'>$19.99</font>/mo.</div>");
-amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div style='top: 3px;left: 7px;font-size: 13px;'>Internet starting at <font class='text-blue'>$19.99</font>/mo.</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div class='price-terms'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div>");
 </script>
 <!-- End of overrode asset attributes values -->
 <script type="text/javascript">
@@ -175,7 +173,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pa
     {
       name: 'frame1',
       assets: {
-        frameAsset1: "300x50_OPT_1P_19_99_Month_Starting_PLAN_version_Logo_Flexibility_Frame_01.png",
+        frameAsset1: "300x50_OPT_Morris_1P_44_95_1yr_200Mbps_Logo_Flexibility_Frame_01.png",
       },
       style: {
         '#frameAsset1': {x:'-100%'},
@@ -235,31 +233,11 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pa
 
       },
       animate: {
-        duration: 2.9,
         config: {
           beforeAnimation: function(fn) {
             fn.changeCTA();
             fn.changeLogo('white');
             fn.changeBG('#24d9c3');
-          }
-        }
-      }
-    },
-    {
-      name: 'frame5',
-      assets: {
-        frameAsset5: "1x1.png",
-      },
-      style: {
-
-      },
-      animate: {
-        config: {
-          beforeAnimation: function(fn, elements) {
-            fn.changeCTA();
-            fn.changeLogo();
-            fn.changeBG('#ebebeb');
-            gsap.set(elements[0], {x:0, y:0, autoAlpha:0});
           }
         }
       }
@@ -360,8 +338,8 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pa
         cam: {},
         feed: [],
         staticData: {
-          logoBlack: 'images/300x50_Logo_Optimum_Black.png',
-          logoWhite: 'images/300x50_Logo_Optimum_White.png',
+          logoBlack: 'images/300x50_OPT_Morris_Logo_Black.png',
+          logoWhite: 'images/300x50_OPT_Morris_Logo_White.png',
         },
         beforeLoad: function(data){
           data.map(function(content){

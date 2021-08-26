@@ -154,10 +154,8 @@ amo.registerAttribute("ctaText", "TEXT", "Shop now");
 amo.registerAttribute("frameText1", "TEXT", "<div style='top: 63px;left: 33px;font-size: 22.5px;'>Introducing</div>");
 amo.registerAttribute("frameText21", "TEXT", "<div class='title'>Choose your speed. Change anytime.</div>");
 amo.registerAttribute("frameText31", "TEXT", "<div class='title' style='top: 91px;font-size: 28px;'>No hidden fees.<br>No catch.</div>");
-amo.registerAttribute("frameText41", "TEXT", "<div class='title' style='top: 34px;font-size: 28px;line-height: 0.87;'>No annual<br>contract.</div>");
-amo.registerAttribute("frameText42", "TEXT", "<div class='title' style='top: 105px;font-size: 28px;line-height: 0.87;'>60-day<br>money-back guarantee.</div>");
-amo.registerAttribute("frameText51", "TEXT", "<div class='price-text'>Get Internet starting at <font class='coloredText'>$19.99</font><small class='monthly'>/mo.</small><div class='price-terms' style='font-size:9px;'>w/Auto Pay & Paperless Bill plus taxes, fees & charges</div></div>");
-amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top: 120px;left: 26px;font-size: 14px;'>Find out how you can get:</div><div style='top: 137px;left: 26px;width: 360px;transform: scale(0.78);transform-origin: top left;'><div class='bulletedText'>HBO Max™ included on us</div><div class='bulletedText'>$100 Visa<sup style='vertical-align: top;font-size: 75%;'>®</sup> Prepaid Card</div><div class='bulletedText'>Free Internet for 1 month<div class='AlticeRegular' style='margin-top: 7px;font-size: 64%;'>Available w/300 Mbps Internet & above. Terms apply.</div></div></div>");
+amo.registerAttribute("frameText41", "TEXT", "<div class='price-text'>Get Internet starting at <font class='coloredText'>$19.99</font><small class='monthly'>/mo.</small><div class='price-terms' style='font-size:9px;'>w/Auto Pay & Paperless Bill plus taxes, fees & charges</div></div>");
+amo.registerAttribute("frameText42", "TEXT", "<div class='text-blue' style='top: 120px;left: 26px;font-size: 14px;'>Find out how you can get:</div><div style='top: 137px;left: 26px;width: 360px;transform: scale(0.78);transform-origin: top left;'><div class='bulletedText'>HBO Max™ included on us</div><div class='bulletedText'>$100 Visa<sup style='vertical-align: top;font-size: 75%;'>®</sup> Prepaid Card</div><div class='bulletedText'>Free Internet for 1 month<div class='AlticeRegular' style='margin-top: 7px;font-size: 64%;'>Available w/300 Mbps Internet & above. Terms apply.</div></div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 <script type="text/javascript">
@@ -166,7 +164,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
     {
       name: 'frame1',
       assets: {
-        frameAsset1: "300x250_OPT_1P_19_99_Month_Starting_PLAN_version_Logo_Flexibility_Frame_01.png",
+        frameAsset1: "300x250_OPT_Morris_1P_44_95_1yr_200Mbps_Logo_Flexibility_Frame_01.png",
       },
       style: {
         '#frameAsset1': {x:'-100%'},
@@ -179,7 +177,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
     {
       name: 'frame2',
       assets: {
-        frameAsset2: "300x250_OPT_1P_19_99_Month_Starting_PLAN_version_Icon_Frame_02.png",
+        frameAsset2: "300x250_OPT_Morris_1P_44_95_1yr_200Mbps_Background_Image_Frame_02.png",
       },
       style: {
         
@@ -200,7 +198,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
     {
       name: 'frame3',
       assets: {
-        frameAsset3: "300x250_OPT_1P_19_99_Month_Starting_PLAN_version_Icon_Frame_03.png",
+        frameAsset3: "300x250_OPT_Morris_1P_44_95_1yr_200Mbps_Background_Image_Frame_03.png",
       },
       style: {
         
@@ -220,37 +218,17 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
     {
       name: 'frame4',
       assets: {
-        frameAsset4: "300x250_OPT_1P_19_99_Month_Starting_PLAN_version_Icon_Frame_04.png",
+        frameAsset4: "1x1.png",
       },
       style: {
 
       },
       animate: {
-        duration: 2.9,
         config: {
           beforeAnimation: function(fn) {
             fn.changeCTA();
             fn.changeLogo('white');
             fn.changeBG('#24d9c3');
-          }
-        }
-      }
-    },
-    {
-      name: 'frame5',
-      assets: {
-        frameAsset5: "1x1.png",
-      },
-      style: {
-
-      },
-      animate: {
-        config: {
-          beforeAnimation: function(fn, elements) {
-            fn.changeCTA();
-            fn.changeLogo();
-            fn.changeBG('#ebebeb');
-            gsap.set(elements[0], {x:0, y:0, autoAlpha:0});
           }
         }
       }
@@ -348,8 +326,8 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
         cam: {},
         feed: [],
         staticData: {
-          logoBlack: 'images/300x250_Logo_Optimum_Black.png',
-          logoWhite: 'images/300x250_Logo_Optimum_White.png',
+          logoBlack: 'images/300x250_OPT_Morris_Logo_Black.png',
+          logoWhite: 'images/300x250_OPT_Morris_Logo_White.png',
         },
         beforeLoad: function(data){
           data.map(function(content){
