@@ -110,11 +110,11 @@
 
       /* Text alignment classes */
       .title {
-        top: 94px;
+        top: 74px;
         left: 20px;
         width: 260px;
-        font-size: 26.2px;
-        line-height: 1;
+        font-size: 24px;
+        line-height: 1.15;
         text-align: center;
         color: #fff;
       }
@@ -122,15 +122,17 @@
         font-size: 60%;
       }
       .price-text {
-        top: 33px;
-        left: 27px;
+        top: 76px;
+        left: 26px;
         width: 264px;
-        font-size: 26px;
+        font-size: 23px;
         line-height: 1.1;
+        color: #fff;
       }
       .price-terms {
-        font-size: 8.8px;
-        margin-top: 4px;
+        font-size: 9.2px;
+        margin-top: 2px;
+        margin-left: 1px;
         font-family: Altice-Regular;
       }
       .disclaimer {
@@ -143,6 +145,9 @@
       .text-white {
         color: #fff;
       }
+      .text-white .bulletedText::before {
+        color: #fff;
+      }
       .text-blue {
         color: #0084d6;
       }
@@ -151,11 +156,13 @@
 <script type="text/javascript">
 amo.registerClick("clickUrl", "https://www.altice.com");
 amo.registerAttribute("ctaText", "TEXT", "Shop now");
-amo.registerAttribute("frameText1", "TEXT", "<div style='top: 63px;left: 33px;font-size: 22.5px;'>Introducing</div>");
-amo.registerAttribute("frameText21", "TEXT", "<div class='title'>Choose your speed. Change anytime.</div>");
-amo.registerAttribute("frameText31", "TEXT", "<div class='title' style='top: 91px;font-size: 28px;'>No hidden fees.<br>No catch.</div>");
-amo.registerAttribute("frameText41", "TEXT", "<div class='price-text'>Get Internet starting at <font class='coloredText'>$19.99</font><small class='monthly'>/mo.</small><div class='price-terms' style='font-size:9px;'>w/Auto Pay & Paperless Bill plus taxes, fees & charges</div></div>");
-amo.registerAttribute("frameText42", "TEXT", "<div class='text-blue' style='top: 120px;left: 26px;font-size: 14px;'>Find out how you can get:</div><div style='top: 137px;left: 26px;width: 360px;transform: scale(0.78);transform-origin: top left;'><div class='bulletedText'>HBO Max™ included on us</div><div class='bulletedText'>$100 Visa<sup style='vertical-align: top;font-size: 75%;'>®</sup> Prepaid Card</div><div class='bulletedText'>Free Internet for 1 month<div class='AlticeRegular' style='margin-top: 7px;font-size: 64%;'>Available w/300 Mbps Internet & above. Terms apply.</div></div></div>");
+amo.registerAttribute("frameText1", "TEXT", "<div style='top: 63px;left: 38px;font-size: 26px;'>Introducing</div>");
+amo.registerAttribute("frameText21", "TEXT", "<div class='price-text'>Get 200 Mbps<br>Internet for $44.95/mo.<div class='price-terms'>Plus taxes & fees</div></div>");
+amo.registerAttribute("frameText22", "TEXT", "<div class='disclaimer text-white'>Wired connection up to 200 Mbps.<br>WiFi speeds may vary.</div>");
+amo.registerAttribute("frameText31", "TEXT", "<div class='title'>Plus 1 Gig Internet available!</div>");
+amo.registerAttribute("frameText32", "TEXT", "<div class='disclaimer text-white'>Wired connection up to 940 Mbps.<br>WiFi speeds may vary.</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div class='price-text'>Get 200 Mbps<br>Internet for $44.95/mo.<div class='price-terms'>Plus taxes & feess</div></div>");
+amo.registerAttribute("frameText42", "TEXT", "<div class='text-white' style='top: 149px;left: 26px;width: 360px;transform: scale(0.94);transform-origin: top left;'><div class='bulletedText'>No annual contract</div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 <script type="text/javascript">
@@ -189,7 +196,7 @@ amo.registerAttribute("frameText42", "TEXT", "<div class='text-blue' style='top:
           beforeAnimation: function(fn, elements) {
             fn.changeCTA();
             fn.changeLogo('white');
-            fn.changeBG('#24d9c3');
+            fn.changeBG('#81cbfb');
             gsap.set(elements[0], {x:0, y:0, autoAlpha:0});
           }
         }
@@ -210,7 +217,7 @@ amo.registerAttribute("frameText42", "TEXT", "<div class='text-blue' style='top:
           beforeAnimation: function(fn, elements) {
             fn.changeCTA('white');
             fn.changeLogo('white');
-            fn.changeBG('#66b5e6');
+            fn.changeBG('#81cbfb');
           }
         }
       }
@@ -250,14 +257,14 @@ amo.registerAttribute("frameText42", "TEXT", "<div class='text-blue' style='top:
 </head>
 <body>
   <div id="ad">
-    <div id="backgroundColor"style="background-color:#ebebeb;"></div>                
+    <div id="backgroundColor"style="background-color:#0084d6;"></div>                
     <div id="otherFrames" class="frame"></div>
     <div id="logoBlack" class="asset" data-image="logoBlack"></div>
     <div id="logoWhite" class="asset" data-image="logoWhite"></div>
     <div id="cta" class="text AlticeBold ctaWhite"
       data-text="ctaText"
-      style="top: 206px;
-        left: 26px;
+      style="top: 212px;
+        left: 19px;
         width: 66px;
         height: 18px;
         font-size: 10.5px;
@@ -274,8 +281,8 @@ amo.registerAttribute("frameText42", "TEXT", "<div class='text-blue' style='top:
       <div id="introLogoImage" class="asset" data-image="logoWhite"></div>
       <div id="introCta" class="text AlticeBold ctaWhite"
         data-text="ctaText"
-        style="top: 206px;
-          left: 26px;
+        style="top: 212px;
+          left: 19px;
           width: 66px;
           height: 18px;
           font-size: 10.5px;
@@ -380,7 +387,7 @@ amo.registerAttribute("frameText42", "TEXT", "<div class='text-blue' style='top:
             }
             beams.innerHTML = htmlContent;
             parentElement.appendChild(beams);
-            gsap.set('#beam1',{top:148,left:300,width:40,height:5,x:-340});gsap.set('#beam1 div',{width:5});
+            gsap.set('#beam1',{top:152,left:300,width:34,height:5,x:-340});gsap.set('#beam1 div',{width:5});
             // gsap.set('#beam2',{top:30,left:300,width:200,height:20,x:-500});gsap.set('#beam2 div',{width:20});
             // gsap.set('#beam3',{top:174,left:300,width:180,height:22,x:-480});gsap.set('#beam3 div',{width:22});
             // gsap.set('#beam4',{top:145,left:300,width:150,height:14,x:-530});gsap.set('#beam4 div',{width:14});
