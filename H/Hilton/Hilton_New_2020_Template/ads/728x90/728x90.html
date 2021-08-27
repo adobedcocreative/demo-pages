@@ -316,6 +316,7 @@
               } catch (e) {}
               var hiltonCodes = splitCodes("HI,HH");
               var hiltonHotelResortCodes = splitCodes("HHR");
+              var signiaHiltonOrlandoCodes = splitCodes("ORLHHHH");
               var waldorfCodes = splitCodes("WA");
               var embassyCodes = splitCodes("ES");
               var doubleTreeCodes = splitCodes("DT");
@@ -354,6 +355,12 @@
                     document.querySelector("#logoImage").style.height = '60px';
 
                     document.querySelector("#ad").style.fontFamily = "LoewBlack";
+                  }else if(signiaHiltonOrlandoCodes.indexOf(matchingCodes[matchIndex]) != -1){
+                    logoImageName = 'orlhhhh';
+                    document.querySelector("#logoImage").style.top = '16px';
+                    document.querySelector("#logoImage").style.height = '60px';
+
+                    document.querySelector("#ad").style.fontFamily = "LoewBlack"; 
                   }else if(waldorfCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'waldorf';
                     document.querySelector("#logoImage").style.top = '-3px';
