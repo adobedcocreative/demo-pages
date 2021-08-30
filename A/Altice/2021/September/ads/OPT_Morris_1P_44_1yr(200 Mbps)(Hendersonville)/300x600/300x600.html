@@ -155,12 +155,14 @@
 amo.registerClick("clickUrl", "https://www.altice.com");
 amo.registerAttribute("ctaText", "TEXT", "Shop now");
 amo.registerAttribute("frameText1", "TEXT", "<div style='top: 118px;left: 22px;font-size: 26px;'>Introducing</div>");
-amo.registerAttribute("frameText21", "TEXT", "<div class='price-text' style='top: 310px;left: 22px;'>Get 200 Mbps<br>Internet for <font class='coloredText'>$44.95</font><font class='monthly'>/mo.</font><div class='price-terms'>Plus taxes & fees</div></div>");
-amo.registerAttribute("frameText22", "TEXT", "<div class='disclaimer'>Wired connection up to 200<br>Mbps. WiFi speeds may vary.</div>");
-amo.registerAttribute("frameText31", "TEXT", "<div class='title'>Plus 1 Gig Internet available!</div>");
-amo.registerAttribute("frameText32", "TEXT", "<div class='disclaimer text-white'>Wired connection up to 940 Mbps.<br>WiFi speeds may vary.</div>");
-amo.registerAttribute("frameText41", "TEXT", "<div class='price-text text-white'>Get 200 Mbps<br>Internet for $44.95<font class='monthly'>/mo.</font><div class='price-terms'>Plus taxes & fees</div></div>");
-amo.registerAttribute("frameText42", "TEXT", "<div class='text-white' style='top: 306px;left: 33px;width: 360px;transform: scale(0.98);transform-origin: top left;'><div class='bulletedText'>No annual contract</div></div>");
+amo.registerAttribute("frameText21", "TEXT", "<div class='price-text text-white'>Pick the speed that’s right for you. Change anytime.</div>");
+amo.registerAttribute("frameText22", "TEXT", "<div class='disclaimer text-white'>Speeds, prices & availability<br>vary by area.</div>");
+amo.registerAttribute("frameText31", "TEXT", "<div class='price-text' style='top: 310px;left: 22px;'>Get 200 Mbps<br>Internet for <font class='coloredText'>$44.95</font><font class='monthly'>/mo.</font><div class='price-terms'>Plus taxes & fees</div></div>");
+amo.registerAttribute("frameText32", "TEXT", "<div class='disclaimer'>Wired connection up to 200<br>Mbps. WiFi speeds may vary.</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div class='title'>Plus 1 Gig Internet available!</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div class='disclaimer text-white'>Wired connection up to 940 Mbps.<br>WiFi speeds may vary.</div>");
+amo.registerAttribute("frameText51", "TEXT", "<div class='price-text text-white'>Get 200 Mbps<br>Internet for $44.95<font class='monthly'>/mo.</font><div class='price-terms'>Plus taxes & fees</div></div>");
+amo.registerAttribute("frameText52", "TEXT", "<div class='text-white' style='top: 306px;left: 33px;width: 360px;transform: scale(0.98);transform-origin: top left;'><div class='bulletedText'>No annual contract</div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 <script type="text/javascript">
@@ -182,10 +184,30 @@ amo.registerAttribute("frameText42", "TEXT", "<div class='text-white' style='top
     {
       name: 'frame2',
       assets: {
-        frameAsset2: "300x600_OPT_Morris_1P_44_95_1yr_200Mbps_Background_Image_Frame_02.png",
+        frameAsset2: "1x1.png",
       },
       style: {
-        '#frameText21': {x:'-100%'}
+        
+      },
+      animate: {
+        duration: 2.9,
+        config: {
+          // delays: ['', '<', '<', '<0.1', '<0.1'],
+          beforeAnimation: function(fn, elements) {
+            fn.changeCTA('white');
+            fn.changeLogo('white');
+            fn.changeBG('#66b5e6');
+          }
+        }
+      }
+    },
+    {
+      name: 'frame3',
+      assets: {
+        frameAsset3: "300x600_OPT_Morris_1P_44_95_1yr_200Mbps_Background_Image_Frame_02.png",
+      },
+      style: {
+        
       },
       animate: {
         duration: 2.9,
@@ -194,15 +216,16 @@ amo.registerAttribute("frameText42", "TEXT", "<div class='text-white' style='top
           beforeAnimation: function(fn, elements) {
             fn.changeCTA();
             fn.changeLogo();
+            fn.changeBG('#ebebeb');
             gsap.set(elements[0], {x:0, y:0, autoAlpha:0});
           }
         }
       }
     },
     {
-      name: 'frame3',
+      name: 'frame4',
       assets: {
-        frameAsset3: "300x600_OPT_Morris_1P_44_95_1yr_200Mbps_Background_Image_Frame_03.png",
+        frameAsset4: "300x600_OPT_Morris_1P_44_95_1yr_200Mbps_Background_Image_Frame_03.png",
       },
       style: {
         
@@ -220,9 +243,9 @@ amo.registerAttribute("frameText42", "TEXT", "<div class='text-white' style='top
       }
     },
     {
-      name: 'frame4',
+      name: 'frame5',
       assets: {
-        frameAsset4: "1x1.png",
+        frameAsset5: "1x1.png",
       },
       style: {
 
@@ -254,7 +277,7 @@ amo.registerAttribute("frameText42", "TEXT", "<div class='text-white' style='top
 </head>
 <body>
   <div id="ad">
-    <div id="backgroundColor"style="background-color:#ebebeb;"></div>                
+    <div id="backgroundColor"style="background-color:#66b5e6;"></div>                
     <div id="otherFrames" class="frame"></div>
     <div id="logoBlack" class="asset" data-image="logoBlack"></div>
     <div id="logoWhite" class="asset" data-image="logoWhite"></div>
@@ -452,7 +475,7 @@ amo.registerAttribute("frameText42", "TEXT", "<div class='text-white' style='top
           .to('#logoWhite', {autoAlpha: white}, '-=0.3')
         }
         fn.changeCTA = function(color='') { gsap.to('#cta', {ease: "power2.Out", duration:0.3, css: (color.toLowerCase() === 'white' ? {background: '#fff', color: '#0084d6'} : {background: '#0084d6', color: '#fff'} )}) };
-        fn.changeLogo();
+        fn.changeLogo('white');
         fn.changeCTA('white');
         fn.changeBG = function(color='#ebebeb') { gsap.to('#backgroundColor', {ease: "power2.Out", duration:0.3, css: {background: color}}) };
         const animationSequence = function(frame, properties, flag) {
