@@ -1,0 +1,538 @@
+<!-- Important: Original asset attributes values are overridden in this file using extra script block by Ad Cloud Creative -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ad</title>
+    <link rel="stylesheet" href="css/style.min.css">
+    <script type="text/javascript" src="https://cmp-as-tm.everesttech.net/ads/static/local/AMOLibrary.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
+    <script src="js/script.2.0.min.js" charset="utf-8"></script>
+    <script type="text/javascript">var addTypingContent=function(d){if(d){let a=d.innerHTML;a&&a.length&&(a=a.split("&amp;").join("&").split("&lt;").join("<").split("&gt;").join(">"));let b=a.match(/<.*?>/g);b=b&&b.length?b:[];a=a.split(/<.*?>/g);a=a.map(function(a){return a.split("").map(function(a){return'<type class="transparent">'+a+"</type>"}).join("")});let c=b;a.length<c&&(b=a,a=c,c=b);c.push("");d.innerHTML=a.map(function(a,b){return a+c[b]}).join("")}};</script>
+    <style media="screen">
+      @font-face {
+          font-family: Altice-Regular;
+          src: url('fonts/Altice-Regular.woff') format("woff");
+      }
+      @font-face {
+          font-family: Altice-Bold;
+          src: url('fonts/Altice-Bold.woff') format("woff");
+      }
+      .AlticeRegular { font-family: Altice-Regular; }
+      .AlticeBold { font-family: Altice-Bold; }
+    </style>
+    <script type="text/javascript">
+      const fonts = ['Altice-Regular', 'Altice-Bold'];
+      let loadDelay = fonts.length ? 2000 : 100;
+      if("fonts" in document && fonts.length) {
+        loadDelay = 100;
+        Promise.all(fonts.map(function(font) { return document.fonts.load("1rem " + font) }))
+        .then(function () {
+          // console.log('loaded');
+        });
+      }
+    </script>
+    <style media="screen" data-dynamic="style">
+      #ad {
+        width: 728px;
+        height: 90px;
+        font-family: Altice-Bold, Arial, Helvetica;
+        color: #000;
+      }
+      #ad > div, #frame1 > div, .frame-container, .frame-container > div, .frame, .frameText {
+        position: absolute;
+        top:0px;
+        left:0px;
+        width:inherit;
+        height:inherit;
+      }
+      .frame-container .text > div, #frame1 .frameText > div { position: absolute; }
+      .transparent { color:transparent; }
+      .coloredText {
+        background: linear-gradient(to right, #24d9c3, #0084d6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .bulletedText {
+        position: relative;
+        padding-left: 15px;
+        font-size: 18px;
+        line-height: 1.15;
+        margin-bottom: 2px;
+      }
+      .bulletedText::before {
+        content: '+';
+        position: absolute;
+        top: 1px;
+        left: 0px;
+        font-size: 17px;
+        color: #0084d6;
+      }
+      .beam, .shape {
+        position: absolute;
+        border-radius: 30px;
+        background-image: linear-gradient(to right, #24d9c3, #0084d6);
+      }
+      .beam div:first-child {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 10%;
+        height: inherit;
+        background-color: none;
+        border-radius: 50%;
+      }
+      .beam div:last-child {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: 5px;
+        height: inherit;
+        background-color: #fff;
+        border-radius: 50%;
+      }
+      .strikeText {
+        position: relative;
+        display: inline-block;
+      }
+      .strikeText::after {
+        content: '';
+        position: absolute;
+        top: 45%;
+        left: 0px;
+        border-bottom: 2px solid #0084d6;
+        width: 100%;
+        /* padding: 0px 2px; */
+      }
+      #cta:hover, #introCta:hover {
+        opacity: 0.7 !important;
+      }
+
+      /* Text alignment classes */
+      .title {
+        top: 21px;
+        left: 25px;
+        font-size: 24px;
+        line-height: 1;
+      }
+      .monthly {
+        font-size: 72%;
+      }
+      .price-text {
+        top: 11px;
+        left: 22px;
+        font-size: 24px;
+        line-height: 1.05;
+      }
+      .price-terms {
+        font-size: 8px;
+        margin-top: 1px;
+        font-family: Altice-Regular;
+      }
+      .disclaimer {
+        top: 46px;
+        left: 24px;
+        font-size: 10px;
+        line-height: 1;
+        font-family: Altice-Regular;
+      }
+      .text-white {
+        color: #fff;
+      }
+      .text-blue {
+        color: #0084d6;
+      }
+    </style>
+  <!-- Start of overrode asset attributes values -->
+<script type="text/javascript">
+amo.registerClick("clickUrl", "https://www.altice.com");
+amo.registerAttribute("ctaText", "TEXT", "Shop now");
+amo.registerAttribute("frameText1", "TEXT", "<div class='price-text' style='top: 47px;left: 25px;font-size: 19px;'>Pick the speed that’s right for you – up to 1 Gig Internet</div>");
+amo.registerAttribute("frameText12", "TEXT", "<div class='disclaimer text-white' style='top: 68px;left: 25px;'>Wired connection up to 940 Mbps. WiFi speeds may vary. Speeds, prices & availability vary by area.</div>");
+amo.registerAttribute("frameText21", "TEXT", "<div class='title' style='top: 23px;left: 22px;'>Get <div class='HBOMax' style='display: inline-block;width: 94px;height: 22px;'></div> included on us</div>");
+amo.registerAttribute("frameText22", "TEXT", "<div class='disclaimer' style='top: 67px;left: 22px;'>Available w/300 Mbps Internet & above. Get up to 1 yr. included, then only $14.99/mo.</div>");
+amo.registerAttribute("frameText31", "TEXT", "<div class='text-white' style='top: 8px;left: 23px;font-size: 30px;line-height: 1;'>$200</div><div class='text-white' style='top: 37px;left: 23px;font-size: 22px;line-height: 1;'>Visa<sup style='vertical-align: top;font-size: 60%;'>®</sup> Prepaid<br>Card on us!</div>");
+amo.registerAttribute("frameText32", "TEXT", "<div class='disclaimer text-white' style='top: 66px;left: 304px;font-size: 9.9px;'>Terms apply. Available w/300 Mbps Internet & above.</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div class='title text-white'>FREE Internet for 1 month</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div class='disclaimer text-white'>Available w/300 Mbps Internet & above. Free mo. Internet covers offer price.<br>Gov’t taxes & fees apply. Click for add’l restrictions & details.</div>");
+amo.registerAttribute("frameText51", "TEXT", "<div class='price-text'>Add Optimum TV<br>starting at <font class='coloredText'>$29</font><small class='monthly'>/mo.</small><div class='price-terms' style='font-size:10px;'>w/Auto Pay & Paperless Bill plus taxes, fees & charges</div></div>");
+amo.registerAttribute("frameText52", "TEXT", "<div style='top: 40px;left: 329px;font-size: 16px;'>It’s your choice.</div>");
+</script>
+<!-- End of overrode asset attributes values -->
+<script type="text/javascript">
+  //BackrgroundColor - Blue(#0084d6), grey(#ebebeb), green(#24d9c3)
+  const frames = [
+    {
+      name: 'frame1',
+      assets: {
+        frameAsset1: "728x90_OPT_1P_29_99_Month_100_Mbps_Logo_Flexibility_Frame_01.png",
+      },
+      style: {
+        '#frameAsset1': {x:'-100%'},
+        '#frameText1, #frameText12': {css:{color: '#fff'}},
+      },
+      animate: {
+        duration: 3
+      }
+    },
+    {
+      name: 'frame2',
+      assets: {
+        frameAsset2: "728x90_OPT_1P_29_99_Month_100_Mbps_Img_NumberOne_Frame_02.png",
+        frameAsset21: "728x90_OPT_1P_29_99_Month_100_Mbps_Logo_HBO_MAX_Frame_02.png",
+      },
+      style: {
+        '#frameAsset21, #frameText21': {x:'-100%'}
+      },
+      animate: {
+        duration: 2.9,
+        config: {
+          delays: ['', '<', '<', '<0.1', '<0.1'],
+          beforeAnimation: function(fn, elements) {
+            fn.beams.animate();
+            fn.changeCTA();     
+            gsap.set(elements[0], {x:0, y:0, autoAlpha:0});
+          }
+        }
+      }
+    },
+    {
+      name: 'frame3',
+      assets: {
+        frameAsset3: "728x90_OPT_1P_29_99_Month_100_Mbps_Img_NumberTwo_Frame_03.png",
+        frameAsset31: "728x90_OPT_VISA_Card_200.png",
+      },
+      style: {
+        
+      },
+      animate: {
+        duration: 2.9,
+        config: {
+          // delays: ['', '<', '<', '<0.1', '<0.1'],
+          beforeAnimation: function(fn, elements) {
+            fn.changeCTA();
+            fn.changeLogo('white');
+            fn.changeBG('#24d9c3');
+          }
+        }
+      }
+    },
+    {
+      name: 'frame4',
+      assets: {
+        frameAsset4: "728x90_OPT_1P_29_99_Month_100_Mbps_Img_NumberThree_Frame_04.png",
+      },
+      style: {
+
+      },
+      animate: {
+        duration: 2.9,
+        config: {
+          beforeAnimation: function(fn) {
+            fn.changeCTA('white');
+            fn.changeLogo('white');
+            fn.changeBG('#0084d6');
+          }
+        }
+      }
+    },
+    {
+      name: 'frame5',
+      assets: {
+        frameAsset5: "1x1.png",
+      },
+      style: {
+
+      },
+      animate: {
+        config: {
+          beforeAnimation: function(fn, elements) {
+            fn.changeCTA();
+            fn.changeLogo();
+            fn.changeBG('#ebebeb');
+            gsap.set(elements[0], {x:0, y:0, autoAlpha:0});
+          }
+        }
+      }
+    },
+  ];
+  let adFrameId = 0;
+  if((location.host === "adobedcocreative.github.io" || location.host.startsWith("localhost:")) && 'addFrames' in window.parent) {
+    if(location.hash && +location.hash.replace('#', '')) adFrameId = +location.hash.replace('#', '');
+    else {
+      window.parent.addFrames(frames.length);
+      const framesDuration = frames.map(function(frame, i){ return i !== frames.length - 1 ? frame.animate.duration : 0.5 });
+      framesDuration[0] += 0.8;
+      const totalDuration = framesDuration.reduce(function(acc, x) { return acc + x; }, 0);
+      console.log('Frame Timimgs - %c' + framesDuration.map(function(duration, i) { return 'F'+ (i+1)+'(' + duration + 's)' }).join(' -> ') + ' => ' + totalDuration + 's','color:#0084d6;font-weight:bold;');
+    }
+  }
+  
+</script>
+</head>
+<body>
+  <div id="ad">
+    <div id="backgroundColor"style="background-color:#ebebeb;"></div>                
+    <div id="otherFrames" class="frame"></div>
+    <div id="logoBlack" class="asset" data-image="logoBlack"></div>
+    <div id="logoWhite" class="asset" data-image="logoWhite"></div>
+    <div id="cta" class="text AlticeBold ctaWhite"
+      data-text="ctaText"
+      style="top: 13px;
+        left: 583px;
+        width: 106px;
+        height: 25px;
+        font-size: 16px;
+        overflow: hidden;
+        border-radius: 15px;
+        padding: 2px;
+        background-color: #0084d6;
+        color: #fff;">
+    </div>
+    <div id="frame1" style="background-color:#66b5e6;">
+      <div id="frameAsset1" class="asset" data-image="frameAsset1"></div>
+      <!-- <div id="videoOverlay" style="background-color:rgba(0,0,0,0.2);"></div> -->
+      <div id="frameText1" class="text frameText">!{frameText1}</div>
+      <div id="frameText12" class="text frameText">!{frameText12}</div>
+      <div id="introLogoImage" class="asset" data-image="logoWhite"></div>
+      <div id="introCta" class="text AlticeBold ctaWhite"
+        data-text="ctaText"
+        style="top: 13px;
+          left: 583px;
+          width: 106px;
+          height: 25px;
+          font-size: 16px;
+          overflow: hidden;
+          border-radius: 15px;
+          padding: 2px;
+          color: #0084d6;
+          background: #fff;">
+      </div>
+    </div>
+
+    <div id="border" class="frame" style="border: 1px solid #000; overflow: hidden; box-sizing: border-box; pointer-events: none;"></div>
+    <div id="overlay" class="frame" style="background-color:#fff;opacity:1;-webkit-transition:all 0.5s ease 1s;transition:all 0.5s ease 1s;"></div>
+  </div>
+  <div id="loadFont" style="width:0;height:0;overflow:hidden;">
+    <div class="AlticeRegular" style="color:transparent;">AlticeRegular</div>
+    <div class="AlticeBold" style="color:transparent;">AlticeBold</div>
+  </div>
+  <script type="text/javascript">
+    const timelineProps = {defaults: {ease: "power2.Out", duration:0.3}}, destinationValues = {x:0, y:0, autoAlpha:1};
+    const attributes = amo && 'attributes' in amo && Object.keys(amo.attributes).length ? Object.keys(amo.attributes) : [];
+    let framesContent = '';
+    frames.forEach(function(frame, i) {
+      const id = i + 1;
+      if(!('assets' in frame)) { frame.assets = []; }
+      attributes.filter(function(key) { return key.startsWith('frameAsset' + id) }).forEach(function(asset) { frame.assets[asset] = amo.attributes[asset] });
+      frame.texts = attributes.filter(function(key) { return key.startsWith('frameText' + id) });
+      if(id > 1) {
+        let frameContent = '';
+        for(let asset in frame.assets) {
+          frameContent += frame.assets[asset].indexOf('.mp4') !== -1 
+          ? '<div id="' + asset + '" class="asset"><video muted playsinline autoplay class="frame"></video></div>'
+          : '<div id="' + asset + '" class="asset" data-image="' + asset + '"></div>';
+        }
+        frame.texts.forEach(function(text) { frameContent += '<div id="' + text + '" class="text">!{' + text + '}</div>' });
+        framesContent += '<div id="frame' + id + '" class="frame-container">' + frameContent + '</div>';
+      } 
+    });
+    document.querySelector('#otherFrames').innerHTML = framesContent;
+    let ad = new Ad({
+      root: document.querySelector('#ad'),
+      width: 728,
+      height: 90,
+    });
+    ad.load.start();
+    setTimeout(function() {
+      ad.contentSetup({
+        cam: {},
+        feed: [],
+        staticData: {
+          logoBlack: 'images/728x90_Logo_Optimum_Black.png',
+          logoWhite: 'images/728x90_Logo_Optimum_White.png',
+        },
+        beforeLoad: function(data){
+          data.map(function(content){
+            frames.forEach(function(frame) {
+              if('assets' in frame && Object.keys(frame.assets).length) {
+                for(let key in frame.assets) { 
+                  if(!(key in content)) content[key] = frame.assets[key];
+                }
+              }
+            });
+          });
+          // ad.load.start();
+          return data;
+        }
+      }, function(data){
+        ad.load.end();
+        // console.log(ad.load.time());
+        const adData = data[0], adClickUrl = adData['clickURL'];
+        ad.root.addEventListener("click", function(e) {
+          if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
+        });
+        // const loadVideo = function(video, path, flag) {
+        //   if(video && path) {
+        //     if(!flag) {
+        //       video.onplay = function() {
+        //         if(!video.flag) {
+        //           this.pause();
+        //           this.currentTime = 0;
+        //         }
+        //       }
+        //       video.src = path;
+        //       video.flag = false;
+        //     } else setTimeout(function(){ video.src = path; }, (flag ? 800 : 500));
+        //   }
+        // }
+        // loadVideo(ad.layers.frameAsset1.querySelector('video'), adData.frameAsset1, true);
+        // loadVideo(ad.layers.frameAsset3.querySelector('video'), adData.frameAsset3);
+
+        textUpdate();
+        const fn = { }
+        fn.beams = (function() {
+          const load = function(selector='#ad') {
+            const x = 1;
+            let htmlContent = '';
+            const parentElement = document.querySelector(selector);
+            const beams = document.createElement('div');
+            beams.id = 'beams';
+            for(let i = 1; i <= x; i++) {
+              htmlContent += '<div id="beam' + i + '" class="beam"><div></div><div></div></div>';
+            }
+            beams.innerHTML = htmlContent;
+            parentElement.appendChild(beams);
+            gsap.set('#beam1',{top:49,left:728,width:45,height:5,x:-773});gsap.set('#beam1 div',{width:5});
+            // gsap.set('#beam2',{top:7,left:728,width:240,height:17,x:-968});gsap.set('#beam2 div',{width:18});
+            // gsap.set('#beam3',{top:78,left:728,width:160,height:16,x:-888});gsap.set('#beam3 div',{width:16});
+            // gsap.set('#beam4',{top:45,left:728,width:190,height:14,x:-918});gsap.set('#beam4 div',{width:14});
+            // gsap.set('#beam5',{top:-3,left:728,width:270,height:18,x:-998});gsap.set('#beam5 div',{width:18});
+          }
+          const animate = function() {
+            gsap.timeline({defaults:{ease: 'none', duration:1.2}})
+            .to('#beam1', {x: 0, delay: 0.8})
+            // .to('#beam2', {x: 0, delay: -0.2})
+            // .to('#beam3', {x: 0, delay: -0.2})
+            // .to('#beam4', {x: 0, delay: -0.2})
+            // .to('#beam5', {x: 0, delay: -0.2})
+          }
+          return {
+            load: function(selector) { return load(selector) },
+            animate: function() { return animate() }
+          }
+        })();
+        fn.shapes = (function() {
+          const load = function(selector='#ad') {
+            const x = 3;
+            let htmlContent = '';
+            const parentElement = document.querySelector(selector);
+            const shapes = document.createElement('div');
+            shapes.id = 'shapes';
+            for(let i = 1; i <= x; i++) {
+              htmlContent += '<div id="shape' + (i + 1) + '" class="shape"></div>';
+            }
+            shapes.innerHTML = htmlContent;
+            parentElement.appendChild(shapes);
+            gsap.set('#shape1',{top:10,left:210,width:160,height:18,x:-370});
+            gsap.set('#shape2',{top:66,left:-140,width:140,height:15,x:350});
+            gsap.set('#shape3',{top:-160,left:370,width:36,height:160,y:250});
+            gsap.set('#shape4',{top:-160,left:40,width:32,height:160,y:250});
+          }
+          const animate = function() {
+            gsap.timeline({defaults:{ease: 'none', duration:0.5}})
+            .to('#shape1', {x: 0, delay: 0.8})
+            .to('#shape2', {x: 0, delay: -0.2})
+            .to('#shape3', {x: 0, delay: -0.2})
+            .to('#shape4', {x: 0, delay: -0.2})
+          }
+          return {
+            load: function(selector) { return load(selector) },
+            animate: function() { return animate() }
+          }
+        })();
+        fn.beams.load('#otherFrames');
+        // fn.shapes.load('#frame1');
+
+        gsap.set('#otherFrames .asset', {y:'100%'});
+        gsap.set('.frame-container .text, .frameText', {y:'100%'});
+        const firstTexts = [];
+        document.querySelectorAll('#frame1, .frame-container').forEach(function(parent){ firstTexts.push(parent.querySelector('[id^=frameText]')) });
+        gsap.set(firstTexts, {x:'-100%', y:0});
+        frames.forEach(function(frame) {
+          if('style' in frame && Object.keys(frame.style).length) {
+            for(let key in frame.style) {
+              gsap.set(key, frame.style[key]);
+            }
+          }
+        })
+        fn.changeLogo = function(color='') {
+          const white = color.toLowerCase() === 'white' ? 1 : 0;
+          gsap.timeline(timelineProps)
+          .to('#logoBlack', {autoAlpha: white^1})
+          .to('#logoWhite', {autoAlpha: white}, '-=0.3')
+        }
+        fn.changeCTA = function(color='') { gsap.to('#cta', {ease: "power2.Out", duration:0.3, css: (color.toLowerCase() === 'white' ? {background: '#fff', color: '#0084d6'} : {background: '#0084d6', color: '#fff'} )}) };
+        fn.changeLogo();
+        fn.changeCTA('white');
+        fn.changeBG = function(color='#ebebeb') { gsap.to('#backgroundColor', {ease: "power2.Out", duration:0.3, css: {background: color}}) };
+        const animationSequence = function(frame, properties, flag) {
+          const frameElement = document.querySelector(frame);
+          const elements = frameElement.querySelectorAll('.asset, .text');
+          elements.forEach(function(element) {
+            if(element.querySelector('img')) element.dataset.type = 'image';
+            else if(element.querySelector('video')) element.dataset.type = 'video';
+            else element.dataset.type = 'text';
+          });
+          const config = properties && 'config' in properties ? properties.config : '';
+          const duration = properties && 'duration' in properties ? properties.duration : 3;
+          const delayDefaults = [];
+          for(let i = 0, textCount = 0; i < elements.length; i++) {
+            if(elements[i].classList.contains('text')) textCount++;
+            delayDefaults.push(textCount > 1 ? '<0.1' : '');
+          }
+          const delays = config && 'delays' in config ? config.delays : delayDefaults;
+          const video = elements[0].querySelector('video');
+          const playVideo = function() {  if(video) { video.flag = true; video.play(); } }
+          config && 'beforeAnimation' in config && config.beforeAnimation(fn, elements);
+          const tl = gsap.timeline(timelineProps);
+          const videoDestinationValues = { onComplete:function() {  if(video) { video.flag = true; video.play(); }} }
+          for(var key in destinationValues) { videoDestinationValues[key] = destinationValues[key]; }
+          elements.forEach(function(element, i) { tl.add(gsap.to(element, (element.dataset.type === 'video' ? videoDestinationValues : destinationValues)), delays[i]) });
+          config && 'beams' in config && beams.animate();
+          if(!flag) {
+            gsap.timeline(timelineProps)
+            .to(frameElement, (flag==true?{}:{delay: (duration - timelineProps.defaults.duration), autoAlpha:0, onComplete: animate.nextFrame}));
+          } else { document.querySelector('#frame1').remove(); }
+        }
+        const animate = (function() {
+          let frameId = 1;
+          const frameLimit = frames.length;
+          const play = function(id, flag) {
+            frameId = typeof id === 'number' ? id : frameId;
+            frameId === 1 ? animateFrame1('#frame' + frameId, frames[frameId-1].animate, flag) : animationSequence('#frame' + frameId, frames[frameId-1].animate, flag);
+          }
+          const nextFrame = function() {
+            frameId++;
+            play(frameId, (frameId === frameLimit));
+          }
+          return {
+            play: function(id, flag) { return play(id, flag) },
+            nextFrame: function() { return nextFrame() }
+          }
+        })();
+        const animateFrame1 = function(frame, properties, flag) {
+          const duration = properties && 'duration' in properties ? properties.duration : 3;
+          gsap.timeline(timelineProps)
+            .to('#frameAsset1, #frameText1', destinationValues)
+            .to('#frameText12', destinationValues)
+            gsap.timeline(timelineProps)
+            .to(frame, (flag==true?{}:{delay: (duration - timelineProps.defaults.duration), autoAlpha:0, onComplete: animate.nextFrame}));
+        }
+        gsap.delayedCall(.8, function() { adFrameId ? animate.play(adFrameId, true) : animate.play(); });
+        // gsap.delayedCall(.8, function() { animate.play(1, true); });
+      });
+    }, loadDelay);
+  </script>
+</body>
+</html>
