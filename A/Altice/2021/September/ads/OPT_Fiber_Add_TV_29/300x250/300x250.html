@@ -152,13 +152,13 @@ amo.registerClick("clickUrl", "https://www.altice.com");
 amo.registerAttribute("ctaText", "TEXT", "Shop now");
 amo.registerAttribute("frameText1", "TEXT", "<div style='top: 78px;left: 10px;width: 280px;font-size: 24.5px;line-height: 1;text-align: center;'>Fiber is fast.</div>");
 amo.registerAttribute("frameText12", "TEXT", "<div style='top: 102px;left: 10px;width: 280px;font-size: 24.5px;line-height: 1;text-align: center;'>And now, it’s flexible.</div>");
-amo.registerAttribute("frameText21", "TEXT", "<div class='price-text text-white' style='top: 85px;font-size: 26px;line-height: 1;'>Pick the Fiber speed<br>that’s right for you<div style='font-size: 15px;margin-top: 3px;'>Up to 1 Gig Internet</div></div>");
-amo.registerAttribute("frameText22", "TEXT", "<div class='disclaimer text-white'>Wired connection up to 940 Mbps.<br>WiFi speeds may vary. Speeds,<br>prices & availability vary by area.</div>");
-amo.registerAttribute("frameText31", "TEXT", "<div class='price-text text-white' style='top: 52px;'>Get 100 Mbps<br>Fiber Internet<br>for $29.99<small class='monthly'>/mo.</small><div class='price-terms'>w/Auto Pay & Paperless Bill plus taxes, fees & charges</div></div>");
-amo.registerAttribute("frameText32", "TEXT", "<div class='disclaimer text-white'>Wired connection up to 100 Mbps.<br>WiFi speeds may vary.</div>");
-amo.registerAttribute("frameText41", "TEXT", "<div class='title text-white'>Uploads<br>as fast as downloads</div>");
-amo.registerAttribute("frameText51", "TEXT", "<div class='price-text'>Get 100 Mbps Fiber Internet for <font class='coloredText'>$29.99</font><small class='monthly'>/mo.</small><div class='price-terms' style='font-size:9px;'>w/Auto Pay & Paperless Bill plus taxes, fees & charges</div></div>");
-amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top: 115px;left: 27px;font-size: 15.5px;'>Plus, find out how you can get:</div><div style='top: 138px;left: 26px;width: 360px;transform: scale(0.78);transform-origin: top left;'><div class='bulletedText'>HBO Max™ included on us</div><div class='bulletedText'>$200 Visa<sup style='vertical-align: top;font-size: 75%;'>®</sup> Prepaid Card</div><div class='bulletedText'>Free Internet for 1 month<div class='AlticeRegular' style='margin-top: 3px;font-size: 64%;'>Available w/300 Mbps Internet & above. Terms apply.</div></div></div>");
+amo.registerAttribute("frameText21", "TEXT", "<div style='top: 63px;left: 33px;font-size: 22.5px;color:#fff;'>Introducing</div>");
+amo.registerAttribute("frameText31", "TEXT", "<div class='price-text text-white' style='top: 67px;font-size: 26px;line-height: 1;'>Pick the Fiber speed<br>that’s right for you<div style='font-size: 15px;margin-top: 3px;'>Up to 1 Gig Internet</div></div>");
+amo.registerAttribute("frameText32", "TEXT", "<div class='disclaimer text-white'>Wired connection up to 940 Mbps.<br>WiFi speeds may vary. Speeds,<br>prices & availability vary by area.</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div class='text-blue' style='top: 48px;left: 27px;font-size: 20.4px;line-height: 1.1;'>Plus, find out how<br>you can get:</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div style='top: 101px;left: 26px;width: 360px;transform: scale(1);transform-origin: top left;'><div class='bulletedText'>HBO Max™ included on us</div><div class='bulletedText'>$200 Visa<sup style='vertical-align: top;font-size: 75%;'>®</sup> Prepaid Card</div><div class='bulletedText'>Free Internet for 1 month<div class='AlticeRegular' style='margin-top: 7px;font-size: 50%;'>Available w/300 Mbps Internet & above. Terms apply.</div></div></div>");
+amo.registerAttribute("frameText51", "TEXT", "<div class='price-text' style='top: 53px;width: 220px;'>Add Optimum Fiber TV<br>starting at <font class='coloredText'>$29</font><small class='monthly'>/mo.</small><div class='price-terms'>w/Auto Pay & Paperless Bill plus taxes, fees & charges</div></div>");
+amo.registerAttribute("frameText52", "TEXT", "<div style='top: 158px;left: 27px;font-size: 17.3px;'>It’s your choice.</div>");
 </script>
 <!-- End of overrode asset attributes values -->
 <script type="text/javascript">
@@ -190,6 +190,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
         config: {
           // delays: ['', '<', '<', '<0.1', '<0.1'],
           beforeAnimation: function(fn, elements) {
+            // fn.beams.animate();
             fn.changeCTA('white');
             fn.changeLogo('white');
             fn.changeBG('#0084d6');
@@ -210,9 +211,9 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
         config: {
           // delays: ['', '<', '<', '<0.1', '<0.1'],
           beforeAnimation: function(fn, elements) {
-            fn.changeCTA();
+            fn.changeCTA('white');
             fn.changeLogo('white');
-            fn.changeBG('#24d9c3');
+            fn.changeBG('#66b5e6');
           }
         }
       }
@@ -228,12 +229,10 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
       animate: {
         duration: 2.9,
         config: {
-          beforeAnimation: function(fn, elements) {
-            fn.beams.animate();
-            fn.changeCTA('white');
-            fn.changeLogo('white');
-            fn.changeBG('#81cbfb');
-            gsap.set(elements[0], {x:0, y:0, autoAlpha:0});
+          beforeAnimation: function(fn, elements) {            
+            fn.changeCTA();
+            fn.changeLogo();
+            fn.changeBG('#ebebeb');
           }
         }
       }
@@ -252,7 +251,6 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
             fn.changeCTA();
             fn.changeLogo();
             fn.changeBG('#ebebeb');
-            gsap.set(elements[0], {x:0, y:0, autoAlpha:0});
           }
         }
       }
@@ -405,7 +403,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
             }
             beams.innerHTML = htmlContent;
             parentElement.appendChild(beams);
-            gsap.set('#beam1',{top:152,left:300,width:40,height:5,x:-340});gsap.set('#beam1 div',{width:5});
+            gsap.set('#beam1',{top:152,left:300,width:34,height:5,x:-334});gsap.set('#beam1 div',{width:5});
             // gsap.set('#beam2',{top:30,left:300,width:200,height:20,x:-500});gsap.set('#beam2 div',{width:20});
             // gsap.set('#beam3',{top:174,left:300,width:180,height:22,x:-480});gsap.set('#beam3 div',{width:22});
             // gsap.set('#beam4',{top:145,left:300,width:150,height:14,x:-530});gsap.set('#beam4 div',{width:14});
