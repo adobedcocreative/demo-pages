@@ -123,21 +123,22 @@
         font-size: 60%;
       }
       .title {
-        top: 5px;
+        top: 7px;
         left: 7px;
-        font-size: 13px;
-        line-height: 1;
+        font-size: 17px;
+        line-height: 0.9;
       }
-      .title-small {
-        top: 4px;
+      .title-center {
+        top: 50%;
         left: 9px;
-        font-size: 11.8px;
-        line-height: 1.15;
+        font-size: 17px;
+        line-height: 1.05;
+        transform: translateY(-50%);
       }
       .price-terms {
-        top: 21px;
-        left: 8px;
-        font-size: 9px;
+        top: 37px;
+        left: 7px;
+        font-size: 8px;
         line-height: 1.2;
         font-family: Altice-Regular;
       }
@@ -159,15 +160,13 @@
 <script type="text/javascript">
 amo.registerClick("clickUrl", "https://www.altice.com");
 amo.registerAttribute("ctaText", "TEXT", "Learn more");
-amo.registerAttribute("frameText1", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText21", "TEXT", "<div class='title'>100 Mbps Internet <font class='text-blue'>$29.99</font>/mo.</div>");
-amo.registerAttribute("frameText22", "TEXT", "<div class='price-terms' style='top: 19px;font-size: 8px;'>w/Auto Pay & Paperless Bill plus taxes, fees<br>& charges. Wired connection up to 100 Mbps.<br>WiFi speeds may vary.</div>");
-amo.registerAttribute("frameText31", "TEXT", "<div class='title-small text-white'>Plus, find out how you can get a<br>$200 Visa<sup>®</sup> Prepaid Card on us,</div>");
-amo.registerAttribute("frameText32", "TEXT", "<div class='disclaimer text-white'>Available w/300 Mbps Internet & above.<br>Terms apply.</div>");
-amo.registerAttribute("frameText41", "TEXT", "<div class='title-small text-white'>HBO Max™ included &<br>FREE Internet for 1 mo.</div>");
-amo.registerAttribute("frameText42", "TEXT", "<div class='disclaimer text-white'>Available w/300 Mbps Internet & above.<br>Terms apply.</div>");
-amo.registerAttribute("frameText51", "TEXT", "<div class='title' style='top: 6px;'>100 Mbps Internet <font class='text-blue'>$29.99</font>/mo.</div>");
-amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div>");
+amo.registerAttribute("frameText1", "TEXT", "<div class='title-center text-white'>TV on your schedule -<br>with Cloud DVR Plus</div>");
+amo.registerAttribute("frameText21", "TEXT", "<div class='title' style='top: 6px;'>Add Cloud DVR Plus<br>for <font class='coloredText'>$10</font>/mo. for 1 yr.</div>");
+amo.registerAttribute("frameText22", "TEXT", "<div class='price-terms'>Plus taxes</div>");
+amo.registerAttribute("frameText31", "TEXT", "<div class='title-center text-white'>Pause, play &<br>rewind live TV</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div class='title-center text-white'>Record 75 hours of your<br>favorite shows & movies</div>");
+amo.registerAttribute("frameText51", "TEXT", "<div class='title' style='top: 6px;'>Add Cloud DVR Plus<br>for <font class='coloredText'>$10</font>/mo. for 1 yr.</div>");
+amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>Plus taxes</div>");
 </script>
 <!-- End of overrode asset attributes values -->
 <script type="text/javascript">
@@ -176,11 +175,10 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pa
     {
       name: 'frame1',
       assets: {
-        frameAsset1: "300x50_OPT_1P_29_99_Month_100_Mbps_Logo_Flexibility_Frame_01.png",
+        frameAsset1: "1x1.png",
       },
       style: {
-        '#frameAsset1': {x:'-100%'},
-        '#frameText1': {css:{color: '#fff'}},
+
       },
       animate: {
         duration: 3
@@ -199,8 +197,8 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pa
         config: {
           // delays: ['', '<', '<', '<0.1', '<0.1'],
           beforeAnimation: function(fn, elements) {
-            fn.changeCTA();     
-            gsap.set(elements[0], {x:0, y:0, autoAlpha:0});
+            fn.changeCTA();
+            fn.changeLogo();
           }
         }
       }
@@ -218,9 +216,9 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pa
         config: {
           // delays: ['', '<', '<', '<0.1', '<0.1'],
           beforeAnimation: function(fn, elements) {
-            fn.changeCTA();
+            fn.changeCTA('white');
             fn.changeLogo('white');
-            fn.changeBG('#24d9c3');
+            fn.changeBG('#66b5e6');
           }
         }
       }
@@ -237,9 +235,9 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pa
         duration: 2.9,
         config: {
           beforeAnimation: function(fn) {
-            fn.changeCTA('white');
+            fn.changeCTA();
             fn.changeLogo('white');
-            fn.changeBG('#0084d6');
+            fn.changeBG('#24d9c3');
           }
         }
       }
@@ -461,7 +459,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pa
             animate: function() { return animate() }
           }
         })();
-        fn.beams.load('.beam-container');
+        // fn.beams.load('.beam-container');
         // fn.shapes.load('#frame1');
         const beamGradient = document.createElement('div');
         beamGradient.className = 'beam-gradient';
@@ -536,7 +534,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pa
         })();
         const animateFrame1 = function(frame, properties, flag) {
           const duration = properties && 'duration' in properties ? properties.duration : 3;
-          fn.beams.animate();
+          // fn.beams.animate();
           gsap.timeline(timelineProps)
             .to('#frameAsset1, #frameText1', destinationValues)
             gsap.timeline(timelineProps)
