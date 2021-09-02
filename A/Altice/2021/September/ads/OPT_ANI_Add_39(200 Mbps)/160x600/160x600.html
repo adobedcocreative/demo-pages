@@ -127,6 +127,12 @@
         font-size: 24px;
         line-height: 1.1;
       }
+      .eyebrow-text {
+        position: absolute;
+        bottom: 100%;
+        font-size: 13.6px;
+        padding-bottom: 2px;
+      }
       .price-terms {
         font-size: 9.8px;
         margin-top: 4px;
@@ -158,9 +164,22 @@ amo.registerAttribute("frameText22", "TEXT", "<div class='disclaimer'>Available 
 amo.registerAttribute("frameText31", "TEXT", "<div class='text-white' style='top: 138px;left: 10px;width: 140px;font-size: 32px;text-align: center;line-height: 1;'>$100</div><div class='text-white' style='top: 168px;left: 10px;width: 140px;font-size: 20px;text-align: center;line-height: 1.05;'>Visa<sup style='vertical-align: top;font-size: 60%;'>®</sup> Prepaid<br>Card on us!</div><div class='AlticeRegular text-white' style='position: absolute;top: 208px;left: 10px;width: 140px;text-align: center;font-size: 10px;'>Terms apply.</div>");
 amo.registerAttribute("frameText32", "TEXT", "<div class='disclaimer text-white'>Available w/200 Mbps<br>Internet & above.</div>");
 amo.registerAttribute("frameText41", "TEXT", "<div class='title text-white'>FREE Internet for 1 month</div>");
-amo.registerAttribute("frameText42", "TEXT", "<div class='disclaimer text-white'>Available w/200 Mbps Internet & above. Free<br>mo. Internet covers offer price. Gov’t taxes & fees<br>apply. Click for add’l<br>restrictions & details.</div>");
+// amo.registerAttribute("frameText42", "TEXT", "<div class='disclaimer text-white'>Available w/200 Mbps Internet & above. Free<br>mo. Internet covers offer price. Gov’t taxes & fees<br>apply. Click for add’l<br>restrictions & details.</div>");
 amo.registerAttribute("frameText51", "TEXT", "<div class='price-text'>Get<br>200 Mbps Internet for <font class='coloredText' style='display: inline-block;'>$39.99</font><small class='monthly'>/mo.</small><div class='price-terms'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
 amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top: 290px;left: 15px;font-size: 15px;line-height: 1;'>Plus, find out how<br>you can get:</div><div style='top: 325px;left: 16px;width: 150px;transform: scale(0.83);transform-origin: top left;'><div class='bulletedText'>HBO Max™ included on us</div><div class='bulletedText'>$100 Visa<sup style='vertical-align: top;font-size: 75%;'>®</sup> Prepaid Card</div><div class='bulletedText'>Free Internet for 1 month<div class='AlticeRegular' style='margin-top: -1px;font-size: 67%;line-height: 1.2;'>Available w/200 Mbps Internet & above.<br>Terms apply.</div></div></div>");
+
+
+
+amo.registerAttribute("frameText1", "TEXT", "<div style='top: 139px;left: 17px;font-size: 26px;line-height: 1;color:#fff;'>Get more<br>& save</div>");
+amo.registerAttribute("frameText12", "TEXT", "&nbsp;");
+amo.registerAttribute("frameText21", "TEXT", "<div class='price-text text-white'>Add 200 Mbps Internet $39.99<small class='monthly'>/mo.</small></div>");
+amo.registerAttribute("frameText22", "TEXT", "<div class='disclaimer text-white'>Wired connection up to<br>200 Mbps. WiFi speeds<br>may vary. Speeds, prices<br>& availablity vary by area.</div>");
+// amo.registerAttribute("frameText31", "TEXT", "<div class='text-blue' style='top: 65px;left: 26px;font-size: 44px;line-height: 1;'>$100</div><div style='top: 110px;left: 27px;font-size: 22px;line-height: 0.95;'>Visa<sup style='vertical-align: top;font-size: 40%;margin-right: -4px;'>®</sup> Prepaid<br>Card on us!</div><div class='AlticeRegular' style='position: absolute;top: 153px;left: 28px;font-size: 9px;'>Terms apply.</div>");
+amo.registerAttribute("frameText31", "TEXT", "<div class='text-blue' style='top: 138px;left: 10px;width: 140px;font-size: 32px;text-align: center;line-height: 1;'>$100</div><div style='top: 168px;left: 10px;width: 140px;font-size: 20px;text-align: center;line-height: 1.05;'>Visa<sup style='vertical-align: top;font-size: 60%;'>®</sup> Prepaid<br>Card on us!</div><div class='AlticeRegular' style='position: absolute;top: 208px;left: 10px;width: 140px;text-align: center;font-size: 10px;'>Terms apply.</div>");
+amo.registerAttribute("frameText32", "TEXT", "<div class='disclaimer'>Available with 200 Mbps<br>+ Core TV & above.</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div class='title text-white'>No annual contract<br>No hidden fees</div>");
+amo.registerAttribute("frameText51", "TEXT", "<div class='price-text' style='top:167px;'><div class='eyebrow-text text-blue'>Exclusive<br>savings offer</div>Add 200 Mbps Internet <font class='coloredText'>$39.99</font><small class='monthly'>/mo.</small><div class='price-terms'>w/Autopay & Paperless Bill. Plus taxes</div></div>");
+amo.registerAttribute("frameText52", "TEXT", "<div style='top: 325px;left: 16px;width: 150px;transform: scale(0.83);transform-origin: top left;'><div class='bulletedText'>$100 Visa<sup style='vertical-align: top;font-size: 75%;'>®</sup> Prepaid Card<div class='AlticeRegular' style='margin-top: 3px;font-size: 52%;'>Terms apply.</div></div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 <script type="text/javascript">
@@ -183,28 +202,6 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
       name: 'frame2',
       assets: {
         frameAsset2: "160x600_OPT_2P_200_Mbps_39_99_Add_Core_TV_Background_Image_Frame_02.png",
-        frameAsset21: "160x600_OPT_1P_29_99_Month_100_Mbps_Logo_HBO_MAX_Frame_02.png",
-      },
-      style: {
-        '#frameAsset21, #frameText21': {x:'-100%'}
-      },
-      animate: {
-        duration: 2.9,
-        config: {
-          delays: ['', '<', '<', '<0.1', '<0.1'],
-          beforeAnimation: function(fn, elements) {
-            fn.beams.animate();
-            fn.changeCTA();     
-            gsap.set(elements[0], {x:0, y:0, autoAlpha:0});
-          }
-        }
-      }
-    },
-    {
-      name: 'frame3',
-      assets: {
-        frameAsset3: "160x600_OPT_1P_29_99_Month_100_Mbps_Img_NumberTwo_Frame_03.png",
-        frameAsset31: "160x600_OPT_VISA_Card_100.png",
       },
       style: {
         
@@ -217,6 +214,26 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
             fn.changeCTA();
             fn.changeLogo('white');
             fn.changeBG('#24d9c3');
+          }
+        }
+      }
+    },
+    {
+      name: 'frame3',
+      assets: {
+        frameAsset3: "160x600_OPT_VISA_Card_100.png",
+      },
+      style: {
+        
+      },
+      animate: {
+        duration: 2.9,
+        config: {
+          // delays: ['', '<', '<', '<0.1', '<0.1'],
+          beforeAnimation: function(fn, elements) {
+            fn.changeCTA();
+            fn.changeLogo();
+            fn.changeBG('#ebebeb');
           }
         }
       }
@@ -276,7 +293,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
 </head>
 <body>
   <div id="ad">
-    <div id="backgroundColor"style="background-color:#ebebeb;"></div>                
+    <div id="backgroundColor"style="background-color:#24d9c3;"></div>                
     <div id="otherFrames" class="frame"></div>
     <div id="logoBlack" class="asset" data-image="logoBlack"></div>
     <div id="logoWhite" class="asset" data-image="logoWhite"></div>
@@ -286,7 +303,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
         left: 17px;
         width: 118px;
         height: 33px;
-        font-size: 18px;
+        font-size: 17px;
         overflow: hidden;
         border-radius: 20px;
         padding: 2px;
@@ -305,7 +322,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
           left: 17px;
           width: 118px;
           height: 33px;
-          font-size: 18px;
+          font-size: 17px;
           overflow: hidden;
           border-radius: 20px;
           padding: 2px;
