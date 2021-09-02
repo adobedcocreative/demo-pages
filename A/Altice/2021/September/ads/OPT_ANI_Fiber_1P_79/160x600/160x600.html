@@ -111,21 +111,26 @@
       /* Text alignment classes */
       .title {
         top: 137px;
-        left: 10px;
+        left: 15px;
         width: 140px;
-        font-size: 24px;
+        font-size: 23px;
         line-height: 1.1;
-        text-align: center;
       }
       .monthly {
         font-size: 69%;
       }
       .price-text {
-        top: 137px;
+        top: 156px;
         left: 15px;
         width: 144px;
-        font-size: 24px;
+        font-size: 22px;
         line-height: 1.1;
+      }
+      .eyebrow-text {
+        position: absolute;
+        bottom: 100%;
+        font-size: 13.6px;
+        padding-bottom: 2px;
       }
       .price-terms {
         font-size: 9.8px;
@@ -153,13 +158,14 @@ amo.registerClick("clickUrl", "https://www.altice.com");
 amo.registerAttribute("ctaText", "TEXT", "Upgrade now");
 amo.registerAttribute("frameText1", "TEXT", "<div style='bottom: 318px;left: 5px;width: 150px;font-size: 33px;line-height: 1;text-align: center;'>Fiber<br>is fast.</div>");
 amo.registerAttribute("frameText12", "TEXT", "<div style='bottom: 318px;left: 5px;width: 150px;font-size: 33px;line-height: 1;text-align: center;'>And<br>now, it’s flexible.</div>");
-amo.registerAttribute("frameText21", "TEXT", "<div class='price-text text-white' style='top: 138px;font-size:23px;'>Pick the Fiber speed that’s right for you<div style='font-size: 69%;'>Up to 1 Gig Internet</div></div>");
-amo.registerAttribute("frameText22", "TEXT", "<div class='disclaimer text-white'>Wired connection up to<br>940 Mbps. WiFi speeds<br>may vary. Speeds,<br>prices & availability<br>vary by area.</div>");
-amo.registerAttribute("frameText31", "TEXT", "<div class='price-text text-white'>Get 100 Mbps Fiber Internet for $79.99<small class='monthly'>/mo.</small><div class='price-terms'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
-amo.registerAttribute("frameText32", "TEXT", "<div class='disclaimer text-white'>Wired connection up to<br>100 Mbps. WiFi speeds<br>may vary.</div>");
-amo.registerAttribute("frameText41", "TEXT", "<div class='title text-white'>Uploads as fast as downloads</div>");
-amo.registerAttribute("frameText51", "TEXT", "<div class='price-text'>Get 100 Mbps Fiber Internet for <font class='coloredText' style='display: inline-block;'>$79.99</font><small class='monthly'>/mo.</small><div class='price-terms'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
-amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top: 290px;left: 15px;font-size: 15px;line-height: 1;'>Plus, find out how<br>you can get:</div><div style='top: 325px;left: 16px;width: 150px;transform: scale(0.83);transform-origin: top left;'><div class='bulletedText'>HBO Max™ included on us</div><div class='bulletedText'>$200 Visa<sup style='vertical-align: top;font-size: 75%;'>®</sup> Prepaid Card</div><div class='bulletedText'>Free Internet for 1 month<div class='AlticeRegular' style='margin-top: -1px;font-size: 67%;line-height: 1.2;'>Available w/300 Mbps Internet & above.<br>Terms apply.</div></div></div>");
+amo.registerAttribute("frameText21", "TEXT", "<div style='top: 137px;left: 15px;font-size: 18px;color:#fff;'>Introducing</div>");
+amo.registerAttribute("frameText31", "TEXT", "<div class='title text-white'>Enjoy faster Internet on our 100% Fiber Network!</div>");
+amo.registerAttribute("frameText32", "TEXT", "<div class='disclaimer text-white'>Speeds, prices &<br>availability vary by area.</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div style='top: 137px;left: 10px;width: 140px;font-size: 18px;text-align: center;color:#fff;'>Plus, get</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div class='text-white' style='top: 161px;left: 10px;width: 140px;font-size: 32px;text-align: center;line-height: 1;'>$100</div><div class='text-white' style='top: 191px;left: 10px;width: 140px;font-size: 20px;text-align: center;line-height: 1.05;'>Visa<sup style='vertical-align: top;font-size: 60%;'>®</sup> Prepaid<br>Card on us!</div><div class='AlticeRegular text-white' style='position: absolute;top: 231px;left: 10px;width: 140px;text-align: center;font-size: 10px;'>Terms apply.</div>");
+amo.registerAttribute("frameText51", "TEXT", "<div class='price-text'><div class='eyebrow-text text-blue'>Exclusive</div>100% Fiber<br>1 Gig<br>Internet<br><font class='coloredText' style='display: inline-block;'>$79.99</font><small class='monthly'>/mo. 1 yr.</small><div class='price-terms'>w/Auto Pay & Paperless Bill<br>Plus taxes, fees & charges</div></div>");
+amo.registerAttribute("frameText52", "TEXT", "<div style='top: 310px;left: 16px;width: 150px;transform: scale(0.83);transform-origin: top left;'><div class='bulletedText'>$100 Visa<sup style='vertical-align: top;font-size: 75%;'>®</sup> Prepaid Card.<div class='AlticeRegular' style='margin-top: -1px;font-size: 67%;line-height: 1.2;'>Terms apply.</div></div><div class='bulletedText'>Free Installation</div></div>");
+amo.registerAttribute("frameText53", "TEXT", "<div class='disclaimer'>Wired connection<br>up to 940 Mbps.<br>WiFi speeds may vary.</div>");
 </script>
 <!-- End of overrode asset attributes values -->
 <script type="text/javascript">
@@ -193,6 +199,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
         config: {
           // delays: ['', '<', '<', '<0.1', '<0.1'],
           beforeAnimation: function(fn, elements) {
+            fn.beams.animate();
             fn.changeCTA('white');
             fn.changeLogo('white');
             fn.changeBG('#0084d6');
@@ -226,13 +233,12 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
         frameAsset4: "160x600_OPT_VISA_Card_100.png",
       },
       style: {
-
+        '#frameAsset4': {top:23},
       },
       animate: {
         duration: 2.9,
         config: {
           beforeAnimation: function(fn, elements) {
-            fn.beams.animate();
             fn.changeCTA('white');
             fn.changeLogo('white');
             fn.changeBG('#0084d6');
@@ -287,7 +293,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
         left: 17px;
         width: 118px;
         height: 33px;
-        font-size: 18px;
+        font-size: 16px;
         overflow: hidden;
         border-radius: 20px;
         padding: 2px;
@@ -307,7 +313,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
           left: 17px;
           width: 118px;
           height: 33px;
-          font-size: 18px;
+          font-size: 16px;
           overflow: hidden;
           border-radius: 20px;
           padding: 2px;
@@ -409,7 +415,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='text-blue' style='top:
             }
             beams.innerHTML = htmlContent;
             parentElement.appendChild(beams);
-            gsap.set('#beam1',{top:242,left:160,width:40,height:4,x:-340});gsap.set('#beam1 div',{width:4});
+            gsap.set('#beam1',{top:200,left:160,width:40,height:4,x:-340});gsap.set('#beam1 div',{width:4});
             // gsap.set('#beam2',{top:190,left:160,width:150,height:18,x:-310});gsap.set('#beam2 div',{width:18});
             // gsap.set('#beam3',{top:260,left:160,width:140,height:20,x:-300});gsap.set('#beam3 div',{width:20});
             // gsap.set('#beam4',{top:230,left:160,width:170,height:14,x:-330});gsap.set('#beam4 div',{width:14});
