@@ -199,6 +199,8 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 315px;left: 16px;
           // delays: ['', '<', '<', '<0.1', '<0.1'],
           beforeAnimation: function(fn, elements) {
             fn.changeCTA();
+            fn.changeLogo();
+            gsap.set(elements[0], {x:0, y:0, autoAlpha:0});
           }
         }
       }
@@ -478,7 +480,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 315px;left: 16px;
         }
         fn.changeCTA = function(color='') { gsap.to('#cta', {ease: "power2.Out", duration:0.3, css: (color.toLowerCase() === 'white' ? {background: '#fff', color: '#0084d6'} : {background: '#0084d6', color: '#fff'} )}) };
         fn.changeLogo();
-        fn.changeCTA('white');
+        fn.changeCTA();
         fn.changeBG = function(color='#ebebeb') { gsap.to('#backgroundColor', {ease: "power2.Out", duration:0.3, css: {background: color}}) };
         const animationSequence = function(frame, properties, flag) {
           const frameElement = document.querySelector(frame);

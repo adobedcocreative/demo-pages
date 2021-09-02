@@ -477,7 +477,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 9px;left: 315px;w
           .to('#logoWhite', {autoAlpha: white}, '-=0.3')
         }
         fn.changeCTA = function(color='') { gsap.to('#cta', {ease: "power2.Out", duration:0.3, css: (color.toLowerCase() === 'white' ? {background: '#fff', color: '#0084d6'} : {background: '#0084d6', color: '#fff'} )}) };
-        fn.changeLogo();
+        fn.changeLogo('white');
         fn.changeCTA('white');
         fn.changeBG = function(color='#ebebeb') { gsap.to('#backgroundColor', {ease: "power2.Out", duration:0.3, css: {background: color}}) };
         const animationSequence = function(frame, properties, flag) {
