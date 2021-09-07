@@ -165,12 +165,12 @@
 <script type="text/javascript">
 amo.registerClick("clickUrl", "https://www.altice.com");
 amo.registerAttribute("ctaText", "TEXT", "Learn more");
-amo.registerAttribute("frameText1", "TEXT", "&nbsp;");
+amo.registerAttribute("frameText1", "TEXT", "<div class='title text-white' style='top:5px;left:8px;font-size:10px'>Suddenlink introduces</div>");
 amo.registerAttribute("frameText21", "TEXT", "<div class='title text-white'>Add 200 Mbps Internet $34.99<font class='monthly'>/mo.</font></div>");
 amo.registerAttribute("frameText22", "TEXT", "<div class='price-terms text-white' style='font-size: 8px;'>Wired connection up to 200 Mbps. WiFi speeds may<br>vary. Speeds, prices & availablity vary by area.</div>");
 amo.registerAttribute("frameText31", "TEXT", "<div class='title'><font class='text-blue'>$100</font> Visa<sup>®</sup> Prepaid Card on us!</div>");
 amo.registerAttribute("frameText32", "TEXT", "<div class='disclaimer' style='top: 22px;font-size: 8.8px;'>Terms apply.</div>");
-amo.registerAttribute("frameText33", "TEXT", "<div class='disclaimer' style='top: 35px;font-size: 8.8px;'>Available with 200 Mbps + Core TV & above.</div>");
+amo.registerAttribute("frameText33", "TEXT", "<div class='disclaimer' style='top: 35px;font-size: 8.8px;'>Available w/200 Mbps Internet & above + TV.</div>");
 amo.registerAttribute("frameText41", "TEXT", "<div class='text-white' style='top:8px;left: 6px;transform: scale(0.72);transform-origin: top left;'><div class='bulletedText'>No annual contract</div></div>");
 amo.registerAttribute("frameText42", "TEXT", "<div class='text-white' style='top:23px;left: 6px;transform: scale(0.72);transform-origin: top left;'><div class='bulletedText'>No hidden fees</div></div>");
 amo.registerAttribute("frameText51", "TEXT", "<div class='title'>Add 200 Mbps Internet <font class='text-blue'>$34.99</font><font class='monthly'>/mo.</font></div>");
@@ -186,7 +186,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Autopay
         frameAsset1: "320x50_OPT_2P_200_Mbps_39_99_Add_Core_TV_Logo_Flexibility_Frame_01.png",
       },
       style: {
-        '#frameAsset1': {x:'-100%'},
+        '#frameAsset1': {x:'-100%', y: 0, top: 5, left: 3, scale: 0.8, transformOrigin:'left'},
         '#frameText1': {css:{color: '#fff'}},
       },
       animate: {
@@ -306,7 +306,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Autopay
         background-color: #0084d6;
         color: #fff;">
     </div>
-    <div id="frame1" style="background-color:#0084d6;">
+    <div id="frame1" style="background-color:#66b5e6;">
       <div id="frameAsset1" class="asset" data-image="frameAsset1"></div>
       <!-- <div id="videoOverlay" style="background-color:rgba(0,0,0,0.2);"></div> -->
       <div class="beam-container"></div>
