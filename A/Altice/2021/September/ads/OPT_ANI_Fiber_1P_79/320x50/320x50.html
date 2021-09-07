@@ -161,13 +161,13 @@ amo.registerClick("clickUrl", "https://www.altice.com");
 amo.registerAttribute("ctaText", "TEXT", "Upgrade now");
 amo.registerAttribute("frameText1", "TEXT", "<div style='top: 6px;left: 8px;width: 280px;font-size: 14px;line-height: 1;'>Fiber is fast.<br>And now, it’s flexible.</div>");
 amo.registerAttribute("frameText12", "TEXT", "<div style='top: 102px;left: 10px;width: 280px;font-size: 24.5px;line-height: 1;text-align: center;'>And now, it’s flexible.</div>");
-amo.registerAttribute("frameText21", "TEXT", "&nbsp;");
+amo.registerAttribute("frameText21", "TEXT", "<div class='title text-white' style='left:8px;font-size:9px'>Introducing</div>");
 amo.registerAttribute("frameText31", "TEXT", "<div class='title-large text-white'>Enjoy faster Internet on<br>our 100% Fiber Network!</div>");
 amo.registerAttribute("frameText32", "TEXT", "<div class='disclaimer text-white'>Speeds, prices & availability vary by area.</div>");
 amo.registerAttribute("frameText41", "TEXT", "<div class='title'><font class='text-blue'>$100</font> Visa<sup>®</sup> Prepaid Card on us!</div>");
 amo.registerAttribute("frameText42", "TEXT", "<div class='disclaimer' style='top: 21px;'>Terms apply.</div>");
-amo.registerAttribute("frameText51", "TEXT", "<div class='title-large'>100% Fiber 1 Gig Internet<br><font class='text-blue'>$79.99</font>/mo. 1 yr.</div>");
-amo.registerAttribute("frameText52", "TEXT", "<div class='disclaimer'>w/Autopay & Paperless Bill plus taxes</div>");
+amo.registerAttribute("frameText51", "TEXT", "<div class='title' style='font-size:12px;'>100% Fiber 1 Gig Internet <font class='text-blue'>$79.99</font>/mo.</div>");
+amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Autopay & Paperless Bill plus taxes<br>Wired connection up to 940 Mbps.</div>");
 </script>
 <!-- End of overrode asset attributes values -->
 <script type="text/javascript">
@@ -191,7 +191,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='disclaimer'>w/Autopay 
         frameAsset2: "320x50_ANI_OPT_Fall_Fiber_Camp_Digital_Logo_Flexibility_Frame_02.png",        
       },
       style: {
-        '#frameAsset2': {x:'-100%', y:0},
+        '#frameAsset2': {x:'-100%', y: 0, top: 9, left: 2, scale: 0.8, transformOrigin:'left'},
       },
       animate: {
         duration: 2.9,
@@ -416,7 +416,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='disclaimer'>w/Autopay 
             }
             beams.innerHTML = htmlContent;
             parentElement.appendChild(beams);
-            gsap.set('#beam1',{top:41,left:320,width:27,height:4,x:-347});gsap.set('#beam1 div',{width:4});
+            gsap.set('#beam1',{top:44,left:320,width:27,height:4,x:-347});gsap.set('#beam1 div',{width:4});
             // gsap.set('#beam2',{top:30,left:300,width:200,height:20,x:-500});gsap.set('#beam2 div',{width:20});
             // gsap.set('#beam3',{top:174,left:300,width:180,height:22,x:-480});gsap.set('#beam3 div',{width:22});
             // gsap.set('#beam4',{top:145,left:300,width:150,height:14,x:-530});gsap.set('#beam4 div',{width:14});
