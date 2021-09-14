@@ -79,16 +79,16 @@
       </div>
       <div id="cta" class="text AvenirNextRegular"
         data-text="ctaText"
-        data-style="text-align:center;padding:1px 8px 0px;"
-        style="top: 524px;
+        data-style="text-align:center;padding:0 8px 1px;"
+        style="top: 545px;
           left: 32px;
           width: 96px;
           height: 28px;
-          font-size: 10px;
-          line-height: 10px;
-          letter-spacing: 0.05em;
-          border-radius: 12px;
-          color: #34414f ;">
+          font-size: 12px;
+          line-height: 20px;
+          letter-spacing: 1.1px;
+          border-radius: 10px;
+          color: #34414f;">
       </div>
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
@@ -166,7 +166,7 @@
                 cta.innerHTML = '<span style="' + cta.dataset.style + '">' + content.ctaText + '</span>';
                 if(cta.querySelector('span').offsetHeight > 20) {
                   cta.style.lineHeight = 1.2;
-                  cta.style.height = "23px";
+                  cta.style.height = "40px";
                 }
                 var frameText = document.querySelectorAll("div[id^=frameText]");
                 for (var i = 0; i < frameText.length; i++){
