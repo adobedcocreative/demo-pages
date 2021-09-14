@@ -55,9 +55,9 @@ var amoAd = (function(){
     	// layers.cta.arrow.x = ctaWidth - 20;
       layers.cta.x = 0;
     	layers.txtCta.y = Math.round(adHeight - ctaHeight/2);
-      layers.cta.arrow.y = 2;
-      layers.txtCta.x = (ctaWidth - ctaCalculatedWidth)/2 - 10;
+      layers.txtCta.x = (ctaWidth - ctaCalculatedWidth)/2 - 15;
     	layers.cta.arrow.x = (ctaWidth -  ctaCalculatedWidth)/2 +  ctaCalculatedWidth;
+      layers.cta.arrow.y = 2;
     }
   }
   var iframe = window.frameElement;
