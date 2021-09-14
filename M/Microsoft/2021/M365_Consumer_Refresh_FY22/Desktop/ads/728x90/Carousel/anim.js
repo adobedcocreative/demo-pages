@@ -117,7 +117,7 @@ function frame0(){
             if (!exportRoot.animInProgress) {
                 prevSelection = exportRoot.currentSelection;
                 exportRoot.currentSelection = 5;
-                amoAd.onInteraction('Word Click', exportRoot.currentSelection-1);
+                amoAd.onInteraction('Editor Click', exportRoot.currentSelection-1);
                 if (exportRoot.currentSelection != prevSelection){
                     exportRoot.animInProgress=true
                     if(exportRoot.currentSelection > prevSelection) {
@@ -367,7 +367,7 @@ function frame0(){
 		}
 		
 		exportRoot.prevScene = function() {
-			console.log("PREV currentSelection:"+exportRoot.currentSelection+"  prevSelection"+prevSelection)
+			//console.log("PREV currentSelection:"+exportRoot.currentSelection+"  prevSelection"+prevSelection)
 			//exportRoot.logoChangeCheck(exportRoot.currentSelection);
 			exportRoot.smallPrintCheck(exportRoot.currentSelection);
 			exportRoot.tlBack = gsap.timeline();

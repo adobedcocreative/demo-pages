@@ -117,7 +117,7 @@ function frame0(){
             if (!exportRoot.animInProgress) {
                 prevSelection = exportRoot.currentSelection;
                 exportRoot.currentSelection = 5;
-                amoAd.onInteraction('Word Click', exportRoot.currentSelection-1);
+                amoAd.onInteraction('Editor Click', exportRoot.currentSelection-1);
                 if (exportRoot.currentSelection != prevSelection){
                     exportRoot.animInProgress=true
                     if(exportRoot.currentSelection > prevSelection) {
@@ -360,7 +360,9 @@ function frame0(){
 			exportRoot.logoChangeCheck(exportRoot.currentSelection);
 			exportRoot.smallPrintCheck(exportRoot.currentSelection);
 			exportRoot.tlBack = gsap.timeline();
-            if(exportRoot.currentSelection==1) console.log("test")
+            if(exportRoot.currentSelection==1) {
+                //console.log("test")
+            }
             else exportRoot.tlBack.to(mc.screens["img"+exportRoot.currentSelection], 0, { y:exportRoot["init_img"+exportRoot.currentSelection+"_y"]-initOffset,ease:Power2.easeInOut, alpha: 1});
 
 			exportRoot.tlBack.to(exportRoot["headline"+exportRoot.currentSelection], 0, { y:init_headline_y+initOffset/15, alpha: 0});		

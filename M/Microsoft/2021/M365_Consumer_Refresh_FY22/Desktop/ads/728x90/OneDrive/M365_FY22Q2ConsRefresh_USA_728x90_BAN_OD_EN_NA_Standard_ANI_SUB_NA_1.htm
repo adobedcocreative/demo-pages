@@ -139,7 +139,7 @@
                     if (checkForFonts == fontToLoad.length)
                         loaded('font');
                 }).catch(function (error) {
-                    console.log("check font: " + error);
+                    //console.log("check font: " + error);
                 });
             }());
         }
@@ -207,7 +207,7 @@
         if (this.status === 200) {
             var vid = URL.createObjectURL(this.response);
             video.src = vid;
-			console.log("VideLoaded");
+			//console.log("VideLoaded");
         }
     }
     xhrReq.onerror = function () {

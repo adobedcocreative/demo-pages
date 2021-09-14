@@ -117,7 +117,7 @@ function frame0(){
             if (!exportRoot.animInProgress) {
                 prevSelection = exportRoot.currentSelection;
                 exportRoot.currentSelection = 5;
-                amoAd.onInteraction('Word Click', exportRoot.currentSelection-1);
+                amoAd.onInteraction('Editor Click', exportRoot.currentSelection-1);
                 if (exportRoot.currentSelection != prevSelection){
                     exportRoot.animInProgress=true
                     if(exportRoot.currentSelection > prevSelection) {
