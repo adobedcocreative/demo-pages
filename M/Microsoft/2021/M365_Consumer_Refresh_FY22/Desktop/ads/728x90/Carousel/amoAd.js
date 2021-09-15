@@ -50,9 +50,10 @@ var amoAd = (function(){
     	// layers.txtCta.x = adWidth - ctaWidth + 15;
     	// layers.cta.arrow.x = ctaWidth - 20;
     	layers.cta.x = adWidth - ctaWidth;
-      layers.txtCta.y = Math.round(adHeight - (ctaHeight/2)); 
+      layers.txtCta.y = Math.round(adHeight - (ctaHeight/2)) + 2; 
     	layers.txtCta.x = adWidth - ctaWidth + 15;
     	layers.cta.arrow.x = ctaWidth - 20;
+      layers.cta.arrow.y = 2;
     } else {
     	layers.cta.x = 0;
     	layers.txtCta.x = 15;
