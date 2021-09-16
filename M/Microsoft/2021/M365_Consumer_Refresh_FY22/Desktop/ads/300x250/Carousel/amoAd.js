@@ -68,15 +68,19 @@ var amoAd = (function(){
   function init() {
     bannerData.introText = eval(bannerData.textField1.split('^')[0]);;
     bannerData.headline1 = eval(bannerData.textField1.split('^')[1]);;
-    bannerData.headline2 = eval(bannerData.textField2);
-    bannerData.headline3 = eval(bannerData.textField3);
-    bannerData.headline4 = eval(bannerData.textField4);
-    bannerData.headline5 = eval(bannerData.textField5);
+    bannerData.headline2 = eval(bannerData.textField2.split('^')[0]);
+    bannerData.headline3 = eval(bannerData.textField2.split('^')[1]);
+    bannerData.headline4 = eval(bannerData.textField3);
+    bannerData.headline5 = eval(bannerData.textField4);
     bannerData.ctaText = bannerData.ctaText.replace('<br>', '\n');
   	var CTAFont = bannerData.ctaText.split('|').length > 1 ? bannerData.ctaText.split('|')[1] : '0';
   	CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 12.2) + 'px';
   	bannerData.ctaText = bannerData.ctaText.split('|')[0];
   	bannerData.CTA = bannerData.ctaText ? ['<#0078D4>' + bannerData.ctaText,CTAFont,104,3,"50","300", "left", "Segoe Pro"] : '';
+    window.smartNames = [];
+    if(bannerData.textField5.split('^').length == 5) {
+      window.smartNames = bannerData.textField5.split('^');
+    }
     resizeCTA();
     fireImpression();
     window.bannerData = bannerData;
@@ -122,7 +126,7 @@ var amoAd = (function(){
     document.body.removeChild(ctaElement);
   }
   function click(id) {
-    parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl.split('^').length > 1 && id >= 0 ? parentWindow.adClickUrl.split('^')[id] : parentWindow.adClickUrl, parentWindow.layout + '|' + bannerData.ctaText);
+    parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl.split('^').length > 1 && id >= 0 ? parentWindow.adClickUrl.split('^')[id] : parentWindow.adClickUrl, parentWindow.layout + (window.smartNames && window.smartNames.length == 5 ? '|' + window.smartNames[id] : '') + '|' + bannerData.ctaText);
     if(bannerData.clickTracker) {
       var clickTrackers = bannerData.clickTracker.split('^');
       clickTrackers.forEach(function(url){
