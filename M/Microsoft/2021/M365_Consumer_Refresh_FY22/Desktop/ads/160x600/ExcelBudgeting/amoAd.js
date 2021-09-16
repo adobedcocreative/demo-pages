@@ -89,7 +89,7 @@ var amoAd = (function(){
   	var ctaScaleX = layers.cta.scaleX, ctaScaleY = layers.cta.scaleY;
   	var ctaHeight = Math.ceil(Math.abs(yTemp[0]) + Math.abs(yTemp[1]));
   	ctaHeight *= ctaScaleY * layers.cta.children[0].scaleY;
-    var ctaMaxWidth = 180, ctaMaxHeight = ctaHeight;
+    var ctaMaxWidth = 150, ctaMaxHeight = ctaHeight;
     var ctaElement = document.createElement('div');
     ctaElement.innerHTML = bannerData.ctaText.replace('\n', '<br>');
     ctaElement.style.display = 'inline-block';

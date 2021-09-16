@@ -179,7 +179,7 @@ function frame0() {
             ease:Power2.easeOut
         }, ">-.5");
 
-        this.tlAnim.from([mc.cta,mc.txtCta], { duration: 0.7, x: "-=150", onComplete:function(){
+        this.tlAnim.from([mc.cta,mc.txtCta], { duration: 0.7, x: "-=200", onComplete:function(){
             exportRoot.videoState="reset";
         }}, "<+.5");
         this.tlAnim.from(mc.replay_btn, 1, { alpha: 0, onStart:function(){exportRoot.isReplay = true;}}, "-=0.6");

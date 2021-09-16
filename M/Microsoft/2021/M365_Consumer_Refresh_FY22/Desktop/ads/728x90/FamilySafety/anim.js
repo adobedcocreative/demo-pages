@@ -173,7 +173,7 @@ function frame0() {
         }, "+=4");
 
 		
-        this.tlAnim.from([mc.cta,mc.txtCta], { duration: 0.7, x: "+=150", onComplete:function(){
+        this.tlAnim.from([mc.cta,mc.txtCta], { duration: 0.7, x: "+=200", onComplete:function(){
             exportRoot.videoState="reset";
         }}, ">-.5");
 		this.tlAnim.from(exportRoot.headline3,{
