@@ -139,7 +139,7 @@
                     if (checkForFonts == fontToLoad.length)
                         loaded('font');
                 }).catch(function (error) {
-                    //console.log("check font: " + error);
+                    console.log("check font: " + error);
                 });
             }());
         }
@@ -298,8 +298,8 @@
         animation_container.addEventListener("click", exitHandler.bind(this));
 
         function exitHandler() {
-          //window.open(clickTag);
-          amoAd.click();
+           // window.open(clickTag);
+           amoAd.click();
         }
 
         rHit.addEventListener("click", replay.bind(this));

@@ -122,7 +122,7 @@ function frame0() {
 						text.textAlign = "Left"
 						text.x = textSoFar.getTransformedBounds().width - text.getTransformedBounds().width
 						distanceArray4Cursor.push(text.x)
-						//console.log("distanceArray4Cursor:"+distanceArray4Cursor)
+						console.log("distanceArray4Cursor:"+distanceArray4Cursor)
 						text.textBaseline = "alphabetic"
 						mc.addChild(text)
 
@@ -142,10 +142,7 @@ function frame0() {
 						1.8
 					)
 				}
-				if (typeObj==2) {
-                    //console.log(mc2+"TEST"); 
-                    objTmp.addChild(mc2)
-                } 
+				if (typeObj==2) {console.log(mc2+"TEST"); objTmp.addChild(mc2)} 
 				objTmp.addChild(mc);
 				
 				if (typeof aVar !== 'undefined') aVar.push(mc);
@@ -302,7 +299,7 @@ function frame0() {
 		
 		//console.log(exportRoot.typewrite1+ "TEST:"+exportRoot.typewrite1[0])
        
-		this.tlAnim.from([mc.cta,mc.txtCta], { duration: 0.7, x: "-=200", onComplete:function(){
+		this.tlAnim.from([mc.cta,mc.txtCta], { duration: 0.7, x: "-=150", onComplete:function(){
             exportRoot.videoState="reset";
         }}, "<+.5");
         this.tlAnim.from(mc.replay_btn, 1, { alpha: 0, onStart:function(){exportRoot.isReplay = true;}}, "-=0.6");
