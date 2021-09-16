@@ -122,7 +122,7 @@ function frame0() {
 						text.textAlign = "Left"
 						text.x = textSoFar.getTransformedBounds().width - text.getTransformedBounds().width
 						distanceArray4Cursor.push(text.x)
-						console.log("distanceArray4Cursor:"+distanceArray4Cursor)
+						//console.log("distanceArray4Cursor:"+distanceArray4Cursor)
 						text.textBaseline = "alphabetic"
 						mc.addChild(text)
 
@@ -142,7 +142,10 @@ function frame0() {
 						1.8
 					)
 				}
-				if (typeObj==2) {console.log(mc2+"TEST"); objTmp.addChild(mc2)} 
+				if (typeObj==2) {
+                    //console.log(mc2+"TEST"); 
+                    objTmp.addChild(mc2)
+                } 
 				objTmp.addChild(mc);
 				
 				if (typeof aVar !== 'undefined') aVar.push(mc);
