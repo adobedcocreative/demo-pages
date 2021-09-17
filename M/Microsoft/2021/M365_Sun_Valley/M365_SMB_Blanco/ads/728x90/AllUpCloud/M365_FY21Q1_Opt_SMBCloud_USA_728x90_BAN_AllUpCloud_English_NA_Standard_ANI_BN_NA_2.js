@@ -1612,6 +1612,20 @@ if (reversed == null) { reversed = false; }
 
 	this.timeline.addTween(cjs.Tween.get(this.txt_mc).wait(1));
 
+	// CTA
+	this.txtCta = new lib.cta();
+	this.txtCta.name = "txtCta";
+	this.txtCta.setTransform(667.25,60.1,1,1,0,0,0,0.7,0.1);
+
+	this.timeline.addTween(cjs.Tween.get(this.txtCta).wait(1));
+
+	// CTA_BG
+	this.cta = new lib.CTA_btn();
+	this.cta.name = "cta";
+	this.cta.setTransform(707.75,60.35,0.9433,0.9433,0,0,0,0.1,0.2);
+
+	this.timeline.addTween(cjs.Tween.get(this.cta).wait(1));
+
 	// screens
 	this.screens = new lib.laptop_anim();
 	this.screens.name = "screens";
@@ -1640,20 +1654,6 @@ if (reversed == null) { reversed = false; }
 	this.bg.setTransform(150,125,1,1,0,0,0,150,125);
 
 	this.timeline.addTween(cjs.Tween.get(this.bg).wait(1));
-
-	// CTA
-	this.txtCta = new lib.cta();
-	this.txtCta.name = "txtCta";
-	this.txtCta.setTransform(667.25,60.1,1,1,0,0,0,0.7,0.1);
-
-	this.timeline.addTween(cjs.Tween.get(this.txtCta).wait(1));
-
-	// CTA_BG
-	this.cta = new lib.CTA_btn();
-	this.cta.name = "cta";
-	this.cta.setTransform(707.75,60.35,0.9433,0.9433,0,0,0,0.1,0.2);
-
-	this.timeline.addTween(cjs.Tween.get(this.cta).wait(1));
 
 	// txt
 	this.txt = new lib.txt();
