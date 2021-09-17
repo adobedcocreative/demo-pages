@@ -20,12 +20,13 @@
 		font-style: Regular;
 		text-rendering: geometricPrecision;
 	}
-body {
-    background-color:#909090;
-}
+	body {
+		background-color:#909090;
+		overflow: hidden;
+	}
 </style>
-<script>var clickTag = "http://www.google.com";</script>
-<script src="copy.js"></script>
+<!-- <script>var clickTag = "http://www.google.com";</script>
+<script src="copy.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
 <script src="depthjs-1.1.3.min.js"></script>	
@@ -151,10 +152,10 @@ var startBanner = function(){
 				function out() {
 						exportRoot.mainMC.cta.arrow.gotoAndStop(0);
 				}  
-				animation_container.addEventListener("click", exitHandler.bind(this));  
-				function exitHandler() {
-				  window.open(clickTag);
-				}
+				// animation_container.addEventListener("click", exitHandler.bind(this));  
+				// function exitHandler() {
+				//   window.open(clickTag);
+				// }
 				rHit.addEventListener("click", replay.bind(this));
 				
 				function replay() {

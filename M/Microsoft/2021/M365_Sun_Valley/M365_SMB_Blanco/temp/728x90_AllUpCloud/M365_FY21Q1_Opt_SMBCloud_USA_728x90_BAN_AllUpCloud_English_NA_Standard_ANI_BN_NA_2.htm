@@ -20,12 +20,13 @@
 		font-style: Regular;
 		text-rendering: geometricPrecision;
 	}
-body {
-    background-color:#909090;
-}
+	body {
+		background-color:#909090;
+		overflow: hidden;
+	}
 </style>
-<script>var clickTag = "http://www.google.com";</script>
-<script src="copy.js"></script>
+<!-- <script>var clickTag = "http://www.google.com";</script>
+<script src="copy.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
 <script src="M365_FY21Q1_Opt_SMBCloud_USA_728x90_BAN_AllUpCloud_English_NA_Standard_ANI_BN_NA_2.js?1501171107836"></script>
@@ -150,10 +151,10 @@ var startBanner = function(){
 				function out() {
 						exportRoot.mainMC.cta.arrow.gotoAndStop(0);
 				}  
-				animation_container.addEventListener("click", exitHandler.bind(this));  
-				function exitHandler() {
-				  window.open(clickTag);
-				}
+				// animation_container.addEventListener("click", exitHandler.bind(this));  
+				// function exitHandler() {
+				//   window.open(clickTag);
+				// }
 				rHit.addEventListener("click", replay.bind(this));
     
 				function replay() {
