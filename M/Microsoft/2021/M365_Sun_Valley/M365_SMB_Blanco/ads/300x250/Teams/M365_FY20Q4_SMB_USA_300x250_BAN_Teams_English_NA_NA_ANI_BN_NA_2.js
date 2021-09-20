@@ -1078,11 +1078,11 @@ if (reversed == null) { reversed = false; }
 		
 		var s = new createjs.Shape().set({y:0,x:0});
 		s.graphics.f("blue").dr(0,0,250,50);
-		s.x = 50; s.y=116
+		s.x = 36; s.y=116
 		s.alpha=0
 			stage.addChild(s);
-			// exportRoot.mainMC.txt.getChildAt(7).mask = s
-			// exportRoot.mainMC.txt.getChildAt(8).mask = s
+			exportRoot.mainMC.txt.getChildAt(7).mask = s
+			exportRoot.mainMC.txt.getChildAt(8).mask = s
 		
 			this.tl1 = new TimelineLite();
 					
