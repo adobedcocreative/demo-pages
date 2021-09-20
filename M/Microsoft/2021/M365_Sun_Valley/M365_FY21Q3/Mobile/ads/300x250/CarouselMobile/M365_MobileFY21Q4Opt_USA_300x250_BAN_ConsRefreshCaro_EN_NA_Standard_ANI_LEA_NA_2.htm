@@ -11,7 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="authoring-tool" content="Adobe_Animate_CC">
-<title>M365_MobileFY21Q3ConsOpt_USA_320x480_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1</title>
+<title>M365_MobileFY21Q4Opt_USA_300x250_BAN_ConsRefreshCaro_EN_NA_Standard_ANI_LEA_NA_2</title>
 <style>
 	@font-face {
 		font-family: 'Segoe Pro';
@@ -33,8 +33,8 @@ body {
 <script src="copy.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script><script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
 <script src="https://zimjs.org/cdn/cat/00/zim.js"></script>
-<script src="M365_MobileFY21Q3ConsOpt_USA_320x480_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1.js?1501171107836"></script>
-<meta name="ad.size" content="width=320,height=480">
+<script src="M365_MobileFY21Q4Opt_USA_300x250_BAN_ConsRefreshCaro_EN_NA_Standard_ANI_LEA_NA_2.js?1501171107836"></script>
+<meta name="ad.size" content="width=300,height=250">
 <script>
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation, initReady
 initReady=false
@@ -51,8 +51,8 @@ function init() {
 	loader.loadManifest(lib.properties.manifest);
 }
 function handleFileLoad(evt, comp) {
-	var images=comp.getImages();
-	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }
+	var images=comp.getImages();	
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
 }
 function handleComplete(evt,comp) {
 	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
@@ -63,24 +63,24 @@ function handleComplete(evt,comp) {
 	for(i=0; i<ssMetadata.length; i++) {
 		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
 	}
-	exportRoot = new lib.M365_MobileFY21Q3ConsOpt_USA_320x480_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1();
-	stage = new lib.Stage(canvas);
+	exportRoot = new lib.M365_MobileFY21Q4Opt_USA_300x250_BAN_ConsRefreshCaro_EN_NA_Standard_ANI_LEA_NA_2();
+	stage = new lib.Stage(canvas);	
 	//Registers the "tick" event listener.
 	fnStartAnimation = function() {
 		stage.addChild(exportRoot);
 		createjs.Ticker.framerate = lib.properties.fps;
 		createjs.Ticker.addEventListener("tick", stage);
-	}
+	}	    
 	//Code to support hidpi screens and responsive scaling.
-	AdobeAn.makeResponsive(false,'both',false,2,[canvas,anim_container,dom_overlay_container]);
+	AdobeAn.makeResponsive(false,'both',false,2,[canvas,anim_container,dom_overlay_container]);	
 	AdobeAn.compositionLoaded(lib.properties.id);
 	fnStartAnimation();
-
+	
 	 if (!initReady) {
         startBanner()
     }
     gsap.delayedCall(0.2,function(){
-			var ctaAlignment = function(position){
+        var ctaAlignment = function(position){
         position = position ? position : 'left';
         var layers = exportRoot.mainMC;
         var adWidth = document.querySelector('#animation_container').offsetWidth;
@@ -145,9 +145,9 @@ function handleComplete(evt,comp) {
 			var CTAFont = bannerData.ctaText.split('|').length > 1 ? bannerData.ctaText.split('|')[1] : '0';
 			CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 13.8) + 'px';
 			bannerData.ctaText = bannerData.ctaText.split('|')[0];
-			// (bannerData.ctaText.length >= 15 ? "10px" : (bannerData.ctaText.length >= 12 ? "12px" : "13.8px"))
+			// (bannerData.ctaText.length >= 15 ? "10px" : (bannerData.ctaText.length >= 12 ? "10px" : "13.8px"))
 			bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,CTAFont,0,0,"50","300", "center"] : '';
-			var ctaMaxWidth = 125, ctaMaxHeight = 32;
+			var ctaMaxWidth = 134, ctaMaxHeight = 32;
 			var ctaElement = document.createElement('div');
 			ctaElement.innerHTML = bannerData.ctaText.replace('\n', '<br>');
 			ctaElement.style.display = 'inline-block';
@@ -205,7 +205,7 @@ function handleComplete(evt,comp) {
     })
 	initReady=true
 }
-
+	
 var loadFont = false
 	var loadBody = false
 	function loaded(type) {
@@ -213,7 +213,7 @@ var loadFont = false
 		if (type=='body') loadBody=true
 		if (loadFont && loadBody) init()
 	}
-
+	
 	(function() {
 		// Optimization for Repeat Views
 
@@ -243,11 +243,10 @@ var loadFont = false
 <!-- write your code here -->
 </head>
 <body onload="loaded('body')" style="margin:0px;">
-<div id="rHit" style="display:block; position:absolute; top:0px; left:278px; width:22px; height:22px; z-M365_MobileFY21Q3ConsOpt_USA_320x480_BAN_INTCarousel_EN_NA_Standard_ANI_BN_NA_1:100000 !important; cursor:pointer; "></div>
-<div id="animation_container" style="background-color:#FFFFFF; width:320px; height:480px">
-  <canvas id="canvas" width="320" height="480" style="position: absolute; display: block; background-color:#FFFFFF; cursor:pointer;" role="img" aria-label="Experience the benefits of Microsoft 3 6 5. Do more with premium features and One Drive cloud storage. Buy now."></canvas>
-
-		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:320px; height:480px; position: absolute; left: 0px; top: 0px; display: block;">
+<div id="rHit" style="display:block; position:absolute; top:0px; left:278px; width:22px; height:22px; z-M365_MobileFY21Q4Opt_USA_300x250_BAN_ConsRefreshCaro_EN_NA_Standard_ANI_LEA_NA_2:100000 !important; cursor:pointer; "></div>
+<div id="animation_container" style="background-color:#FFFFFF; width:300px; height:250px">
+  <canvas id="canvas" width="300" height="250" style="position: absolute; display: block; background-color:#FFFFFF; cursor:pointer;" role="img" aria-label="Experience the benefits of Microsoft 3 6 5. Do more with premium features and One Drive cloud storage. Buy now."></canvas>
+		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:300px; height:250px; position: absolute; left: 0px; top: 0px; display: block;">
 		<div style="position: absolute; border: 1px solid black; box-sizing: border-box; background-color:transparent; top: 0; left: 0; width: 100%; bottom: 0;"></div>
 		</div>
 	</div>
@@ -256,21 +255,21 @@ var loadFont = false
 <script>
 var startBanner = function(){
 	           createjs.Touch.enable(stage);
-
+	
 				var varInt
 				//var ClickID	= 0
-
+				
 				//exportRoot.mainMC.hit.addEventListener("click", mainHit.bind(this));
-
+								
 				var rHit = document.getElementById("rHit");
-				rHit.addEventListener("mouseover", rHitOver.bind(this));
-				function rHitOver()  {  exportRoot.mainMC.replay_btn.gotoAndStop(1)	}
+				rHit.addEventListener("mouseover", rHitOver.bind(this));  
+				function rHitOver()  {  exportRoot.mainMC.replay_btn.gotoAndStop(1)	}  
 
-				rHit.addEventListener("mouseout", rHitOut.bind(this));
-				function rHitOut()   {  exportRoot.mainMC.replay_btn.gotoAndStop(0)	}
+				rHit.addEventListener("mouseout", rHitOut.bind(this));  
+				function rHitOut()   {  exportRoot.mainMC.replay_btn.gotoAndStop(0)	}  
 
 				rHit.addEventListener("click", replay.bind(this));
-
+				
 				function replay() {
 					if (exportRoot.isReplay == true){
 
@@ -289,11 +288,11 @@ var startBanner = function(){
 
                         // Restore the transform
                         context.restore(); //CLEARS THE SPECIFIC CANVAS COMPLETELY FOR NEW DRAWING
-
+                        
 						gsap.delayedCall(0.1,init)
 					}
 				}
 		}
 </script>
-</body>
+</body>	
 </html>

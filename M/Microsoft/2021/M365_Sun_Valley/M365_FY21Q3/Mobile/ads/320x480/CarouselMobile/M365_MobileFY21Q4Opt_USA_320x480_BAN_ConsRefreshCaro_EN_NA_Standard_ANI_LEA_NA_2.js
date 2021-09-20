@@ -2571,11 +2571,13 @@ if (reversed == null) { reversed = false; }
 		
 			exportRoot.setMenu1 = function () {
 				ClickID--;
+				amoAdInteraction('Previous Click', ClickID);
 				direction = "prev";
 				exportRoot.subMenuClick(ClickID, direction);
 			}
 			exportRoot.setMenu2 = function () {
 				ClickID++;
+				amoAdInteraction('Next Click', ClickID);
 				direction = "next";
 				exportRoot.subMenuClick(ClickID, direction);
 			}
@@ -2583,29 +2585,35 @@ if (reversed == null) { reversed = false; }
 			exportRoot.jumpMenu1 = function () {
 				PrevID = ClickID;
 				ClickID = 0;
+				amoAdInteraction('Dot1 Click', ClickID);
 				exportRoot.jumpMenuClick(ClickID, PrevID);
 			}
 			exportRoot.jumpMenu2 = function () {
 				PrevID = ClickID;
 				ClickID = 1;
+				amoAdInteraction('Dot2 Click', ClickID);
 				exportRoot.jumpMenuClick(ClickID, PrevID);
 			}
 			exportRoot.jumpMenu3 = function () {
 				PrevID = ClickID;
 				ClickID = 2;
+				amoAdInteraction('Dot3 Click', ClickID);
 				exportRoot.jumpMenuClick(ClickID, PrevID);
 			}
 			exportRoot.jumpMenu4 = function () {
 				PrevID = ClickID;
 				ClickID = 3;
+				amoAdInteraction('Dot4 Click', ClickID);
 				exportRoot.jumpMenuClick(ClickID, PrevID);
 			}
 		
 			exportRoot.expandMenu = function (subID) {
+				amoAdInteraction('Expand Click', ClickID);
 				exportRoot.subMenuExpand(subID);
 				menuPos = "expanded"
 			}
 			exportRoot.shrinkMenu = function (subID) {
+				amoAdInteraction('Back Click', ClickID);
 				exportRoot.subMenuShrink(subID);
 				menuPos = "shrunk"
 			}
