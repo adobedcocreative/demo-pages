@@ -1108,9 +1108,9 @@ if (reversed == null) { reversed = false; }
 		s.x = 40; s.y=285
 		s.alpha=0
 			stage.addChild(s);
-			exportRoot.mainMC.txt.getChildAt(5).mask = s
-			exportRoot.mainMC.txt.getChildAt(6).mask = s
-			exportRoot.mainMC.txt.getChildAt(7).mask = s
+			// exportRoot.mainMC.txt.getChildAt(5).mask = s
+			// exportRoot.mainMC.txt.getChildAt(6).mask = s
+			// exportRoot.mainMC.txt.getChildAt(7).mask = s
 		
 			this.tl1 = new TimelineLite();
 					
