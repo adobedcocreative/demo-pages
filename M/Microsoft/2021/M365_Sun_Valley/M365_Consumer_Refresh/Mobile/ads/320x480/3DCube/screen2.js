@@ -3,7 +3,7 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"screen2_atlas_1", frames: [[274,0,95,157],[0,0,272,216]]}
+		{name:"screen2_atlas_1", frames: [[0,0,567,424],[569,0,158,324]]}
 ];
 
 
@@ -27,14 +27,14 @@ lib.ssMetadata = [
 
 
 
-(lib.PowerPointScreenMobile2x = function() {
+(lib.WIN11_PPT_EvergreenTheme_3x2_enUS2x = function() {
 	this.initialize(ss["screen2_atlas_1"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.PowerPointScreen2x = function() {
+(lib.WIN21_W10_20H1_Android_PPT_9x19_enUS2x = function() {
 	this.initialize(ss["screen2_atlas_1"]);
 	this.gotoAndStop(1);
 }).prototype = p = new cjs.Sprite();
@@ -109,6 +109,32 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.ms, new cjs.Rectangle(-36.4,-6.9,104.4,14.100000000000001), null);
 
 
+(lib.images = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+
+	// Layer_1
+	this.instance = new lib.WIN11_PPT_EvergreenTheme_3x2_enUS2x();
+	this.instance.setTransform(84,0,0.5,0.5);
+
+	this.instance_1 = new lib.WIN21_W10_20H1_Android_PPT_9x19_enUS2x();
+	this.instance_1.setTransform(0,39,0.5,0.5);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).wait(1));
+
+	this._renderFirstFrame();
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,367.5,212);
+
+
 (lib.MSFT_Logo_anim = function(mode,startPosition,loop,reversed) {
 if (loop == null) { loop = true; }
 if (reversed == null) { reversed = false; }
@@ -180,14 +206,12 @@ if (reversed == null) { reversed = false; }
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
-	// img
-	this.instance_1 = new lib.PowerPointScreenMobile2x();
-	this.instance_1.setTransform(53,373,1.16,1.16);
+	// new_img
+	this.instance_1 = new lib.images();
+	this.instance_1.setTransform(261,438.25,1,1,0,0,0,183.8,106);
+	this.instance_1.shadow = new cjs.Shadow("rgba(0,0,0,0.298)",-11,11,15);
 
-	this.instance_2 = new lib.PowerPointScreen2x();
-	this.instance_2.setTransform(136,330,1.17,1.17);
-
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_2},{t:this.instance_1}]}).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(1));
 
 	// txt
 	this.txt = new lib.txt_mc();
@@ -198,8 +222,8 @@ if (reversed == null) { reversed = false; }
 
 	// BG
 	this.shape = new cjs.Shape();
-	this.shape.graphics.rf(["#FFFFFF","#D9D9DB"],[0,0.769],-5,143.9,0,-5,143.9,430).s().p("Egn/A1/MAAAhr9MBP/AAAMAAABr9g");
-	this.shape.setTransform(256.0172,345.5062,1.02,1.02);
+	this.shape.graphics.rf(["#FFFFFF","#D9D9DB"],[0,0.769],-5.1,146.7,0,-5.1,146.7,438.6).s().p("EgoyA3EMAAAhuHMBRlAAAMAAABuHg");
+	this.shape.setTransform(256.025,345.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
 
@@ -240,7 +264,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/screen2_atlas_1.png?1615291156705", id:"screen2_atlas_1"}
+		{src:"images/screen2_atlas_1.png?1631877350796", id:"screen2_atlas_1"}
 	],
 	preloads: []
 };
@@ -297,13 +321,26 @@ an.getComposition = function(id) {
 }
 
 
-an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {
-}
 an.handleSoundStreamOnTick = function(event) {
 	if(!event.paused){
 		var stageChild = stage.getChildAt(0);
 		if(!stageChild.paused || stageChild.ignorePause){
 			stageChild.syncStreamSounds();
+		}
+	}
+}
+an.handleFilterCache = function(event) {
+	if(!event.paused){
+		var target = event.target;
+		if(target){
+			if(target.filterCacheList){
+				for(var index = 0; index < target.filterCacheList.length ; index++){
+					var cacheInst = target.filterCacheList[index];
+					if((cacheInst.startFrame <= target.currentFrame) && (target.currentFrame <= cacheInst.endFrame)){
+						cacheInst.instance.cache(cacheInst.x, cacheInst.y, cacheInst.w, cacheInst.h);
+					}
+				}
+			}
 		}
 	}
 }
