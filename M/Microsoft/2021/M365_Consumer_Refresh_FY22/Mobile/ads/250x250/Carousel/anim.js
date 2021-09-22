@@ -345,7 +345,10 @@ function frame0(){
 		
 		init_headline_y = exportRoot.headline1[0].y
 		var headlines = Object.keys(exportRoot).filter(function(key){ return key.match(new RegExp('^headline', 'i'));});
-        var yValues = headlines.map(function(headline) { return exportRoot[headline][0].y });
+        var yValues = headlines.map(function(headline) { return exportRoot[headline].map(function(item){
+            return item.y;
+          }); 
+        });
         exportRoot.nextScene = function() {
 			exportRoot.logoChangeCheck(exportRoot.currentSelection);
 			exportRoot.smallPrintCheck(exportRoot.currentSelection);
@@ -355,7 +358,7 @@ function frame0(){
 			//exportRoot.tlNext.to(exportRoot["headline"+exportRoot.currentSelection], 0, { y:init_headline_y+initOffset/5, alpha: 0});		
 			for (i=0; i<exportRoot["headline"+exportRoot.currentSelection].length; i++) {
                 exportRoot.tlNext.to(exportRoot["headline" + exportRoot.currentSelection][i], 0, {
-                    y: yValues[exportRoot.currentSelection - 1] + initOffset / 5 + 22*i,
+                    y: yValues[exportRoot.currentSelection - 1][i] + initOffset / 5,
                     alpha: 0
                 });
             }
@@ -367,7 +370,7 @@ function frame0(){
 			//exportRoot.tlNext.to(exportRoot["headline"+exportRoot.currentSelection], 0.5, { y:init_headline_y, alpha: 1, ease:Power3.easeOut, stagger:0.03},">+.3");
             for (i=0; i<exportRoot["headline"+prevSelection].length; i++) {
                 exportRoot.tlNext.to(exportRoot["headline" + prevSelection][i], 0.4, {
-                    y: yValues[prevSelection - 1] - initOffset / 3 + 22*i,
+                    y: yValues[prevSelection - 1][i] - initOffset / 3,
                     alpha: 0,
                     ease: Power2.easeIn,
                     //stagger: 0.03
@@ -375,7 +378,7 @@ function frame0(){
             }
             for (i=0; i<exportRoot["headline"+exportRoot.currentSelection].length; i++) {
                 exportRoot.tlNext.to(exportRoot["headline" + exportRoot.currentSelection][i], 0.5, {
-                    y: yValues[exportRoot.currentSelection - 1] + 22*i,
+                    y: yValues[exportRoot.currentSelection - 1][i],
                     alpha: 1,
                     ease: Power3.easeOut,
                     //stagger: 0.03
@@ -391,7 +394,7 @@ function frame0(){
 			//exportRoot.tlBack.to(exportRoot["headline"+exportRoot.currentSelection], 0, { y:init_headline_y+initOffset/15, alpha: 0});		
 			for (i=0; i<exportRoot["headline"+exportRoot.currentSelection].length; i++) {
                 exportRoot.tlBack.to(exportRoot["headline" + exportRoot.currentSelection], 0, {
-                    y: yValues[exportRoot.currentSelection - 1] + initOffset / 5 + 22*i,
+                    y: yValues[exportRoot.currentSelection - 1][i] + initOffset / 5,
                     alpha: 0
                 });
             }
@@ -402,7 +405,7 @@ function frame0(){
 			//exportRoot.tlBack.to(exportRoot["headline"+exportRoot.currentSelection], 0.5, { y:init_headline_y, alpha: 1, ease:Power3.easeOut, stagger:0.03},">+.3");
             for (i=0; i<exportRoot["headline"+prevSelection].length; i++) {
                 exportRoot.tlNext.to(exportRoot["headline" + prevSelection][i], 0.4, {
-                    y: yValues[prevSelection - 1] + initOffset / 3 + 22*i,
+                    y: yValues[prevSelection - 1][i] + initOffset / 3,
                     alpha: 0,
                     ease: Power2.easeIn,
                     //stagger: 0.03
@@ -410,7 +413,7 @@ function frame0(){
             }
             for (i=0; i<exportRoot["headline"+exportRoot.currentSelection].length; i++) {
                 exportRoot.tlNext.to(exportRoot["headline" + exportRoot.currentSelection][i], 0.5, {
-                    y: yValues[exportRoot.currentSelection - 1] + 22*i,
+                    y: yValues[exportRoot.currentSelection - 1][i],
                     alpha: 1,
                     ease: Power3.easeOut,
                     //stagger: 0.03
