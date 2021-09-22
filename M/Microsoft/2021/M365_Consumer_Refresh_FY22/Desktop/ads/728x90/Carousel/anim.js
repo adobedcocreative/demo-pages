@@ -346,7 +346,7 @@ function frame0(){
 		init_headline_y = exportRoot.headline1[0].y
         var headlines = Object.keys(exportRoot).filter(function(key){ return key.match(new RegExp('^headline', 'i'));});
         var yValues = headlines.map(function(headline) { return exportRoot[headline][0].y });
-		
+        
 		exportRoot.nextScene = function() {
 			//console.log("NEXT currentSelection:"+exportRoot.currentSelection+"  prevSelection"+prevSelection)
 			//exportRoot.logoChangeCheck(exportRoot.currentSelection);
