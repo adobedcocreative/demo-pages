@@ -1991,8 +1991,8 @@ if (reversed == null) { reversed = false; }
 				exportRoot.TL_MainIntro.from(screen_2_onedrive, 1, {x: "+=120",y: "+=180", ease:Power3.easeOut, ease:Power2.easeOut, onStart:function(){screen_2_onedrive.visible = true}}, "-=0.85");		
 				exportRoot.TL_MainIntro.from(indicator, 0.6, {alpha:0, ease:Power3.easeOut, onStart:function(){dot_1.gotoAndPlay("selected", exportRoot.TL_MainText.tweenTo("Out"));}}, "-=0.4");		
 				
-				exportRoot.TL_MainIntro.from(mc.cta, 0.6, {x: "-=110", ease:Power3.easeOut}, "-=0.6");
-				exportRoot.TL_MainIntro.from(mc.txtCta, 0.6, {x: "-=110", ease:Power3.easeOut}, "-=0.6");
+				exportRoot.TL_MainIntro.from(mc.cta, 0.6, {x: "-=200", ease:Power3.easeOut}, "-=0.6");
+				exportRoot.TL_MainIntro.from(mc.txtCta, 0.6, {x: "-=200", ease:Power3.easeOut}, "-=0.6");
 				exportRoot.TL_MainIntro.from(mc.hit1, 0.1, {y: "+=100"}, "-=0");
 				exportRoot.TL_MainIntro.from(mc.hit2, 0.1, {y: "+=100"}, "-=0");
 		
