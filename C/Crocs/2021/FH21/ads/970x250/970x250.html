@@ -163,7 +163,6 @@
               ad.layers.backgroundImage2.parentNode.removeChild(ad.layers.backgroundImage2);
             } else { ad.layers.backgroundImage2.classList.add('asset'); }
           }
-          console.log(imageCount);
           if(imageCount == 1) {
             gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
             .from('#backgroundImage2', { y: '-100%', duration:0.5, delay:0.8})
