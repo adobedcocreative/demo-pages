@@ -45,17 +45,18 @@
   <body>
     <div class="" id="ad">
       <div id="backgroundImage1" class="asset frame" data-image="backgroundImage1"></div>
-      <div id="backgroundImage2" class="asset frame" data-image="backgroundImage2"></div>
+      <!-- <div id="backgroundImage2" class="asset frame" data-image="backgroundImage2"></div> -->
+      <div id="productImage" class="asset frame" data-image="productImage"></div>
       <div id="headlineImage1" class="asset frame" data-image="headlineImage1"></div>
-      <div id="headlineImage2" class="asset frame" data-image="headlineImage2"></div>
+      <!-- <div id="headlineImage2" class="asset frame" data-image="headlineImage2"></div> -->
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="cta" class="asset"
         data-image="ctaImage"
-        style="top: 49.5px;
-          left: 618px;
-          width: 99px;
-          height: 20px;">
+        style="top: 28px;
+        left: 573px;
+        width: 121px;
+        height: 35px;">
       </div>
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
@@ -74,10 +75,10 @@
       setTimeout(function() {
         ad.contentSetup({
           cam: {
-            backgroundImage1: 'assets/728x90_SS20_Crocs_DCO_ClassicPillar-Clogs_PriyankaChopraJonas_Background_Anim.png',
-            backgroundImage2: 'assets/728x90_SS20_Crocs_DCO_ClassicPillar-Clogs_PriyankaChopraJonas_Background_Static.png',
-            headlineImage1: 'assets/728x90_SS20_Crocs_DCO_ClassicPillar-Clogs_PriyankaChopraJonas_Headline_Make_It_A_Classic1.png',
-            headlineImage2: 'assets/728x90_SS20_Crocs_DCO_ClassicPillar-Clogs_PriyankaChopraJonas_Headline_Make_It_A_Classic2.png',
+            backgroundImage1: 'assets/728x90_Crocs_Global_Holiday_2021_CAH_Boots_Img_Background.png',
+            productImage: 'assets/728x90_Crocs_Global_Holiday_2021_CAH_Boots_Img_Product.png',
+            headlineImage1: 'assets/728x90_Crocs_Global_Holiday_2021_CAH_Boots_Img_Headline.png',
+           // headlineImage2: 'assets/728x90_SS20_Crocs_DCO_ClassicPillar-Clogs_PriyankaChopraJonas_Headline_Make_It_A_Classic2.png',
             styleProperties: "na",
             ctaSelect: 'en_text',
             clickURL: 'https://www.adobe.com/#Crocs',
@@ -91,7 +92,7 @@
           staticData: {
             // ref: 'ref.png'
             ctaBtnColor: '#fff',
-            logoImage: 'images/728x90_Crocs_SS21_Logo.png',
+            logoImage: 'images/728x90_Crocs_Global_Holiday_2021_CAH_Boots_Img_Logo.png',
 
           },
           beforeLoad: function(data){
@@ -102,7 +103,7 @@
                 gsap.set('#cta', {left:613, top:39, width: 110, height:36});
               }
               switch(content.ctaSelect){
-                case 'en_text': content.ctaImage = 'images/cta/CTA_English_White.png'; break;
+                case 'en_text': content.ctaImage = 'images/cta/CTA_English_Black.png'; break;
                 case 'de_text': content.ctaImage = 'images/cta/CTA_German_White.png'; break;
                 case 'jp_text': content.ctaImage = 'images/cta/CTA_Japan_White.png'; changePosition(); break;
                 case 'kr_text': content.ctaImage = 'images/cta/CTA_Korean_White.png'; break;
@@ -112,7 +113,7 @@
                 case 'jp_text_black': content.ctaImage = 'images/cta/CTA_Japan_Black.png'; content.logoImage = 'images/728x90_Crocs_SS21_Logo_Black.png'; changePosition(); break;
                 case 'kr_text_black': content.ctaImage = 'images/cta/CTA_Korean_Black.png'; content.logoImage = 'images/728x90_Crocs_SS21_Logo_Black.png'; break;
                 case 'kr_text_only_black': content.ctaImage = 'images/cta/CTA_Korean_Only_Black.png'; content.logoImage = 'images/728x90_Crocs_SS21_Logo_Black.png'; break;
-                default: content.ctaImage = 'images/cta/CTA_English_White.png';
+                default: content.ctaImage = 'images/cta/CTA_English_Black.png';
               }
             });
             return data;
@@ -132,79 +133,79 @@
               }
             } catch(e) {  }
           }
-          function insertAfter(newNode, referenceNode) {
-              referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-          }
+          // function insertAfter(newNode, referenceNode) {
+          //     referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+          // }
           var adWidth = 728, adHeight = 90;
-          var imageCount = 1;
-          var modelImagePath = ad.layers.backgroundImage2.querySelector('img').src;
-          var modelImage = images.find(function(image){ return image.src == modelImagePath; });
-          if(modelImage) {
-            // ad.layers.backgroundImage2.classList.remove('asset');
-            var imageWidth = modelImage.naturalWidth, imageHeight = modelImage.naturalHeight;
-            if(imageWidth > adWidth) {
-              var scale = imageWidth/adWidth;
-              imageWidth = adWidth;
-              imageHeight /= scale;
-            }
-            if(!(imageHeight == adHeight)) {
-              imageCount = imageHeight/adHeight, imagePositions = [];
-              for(var i=0; i<=100;i+=100/(imageCount-1)) { imagePositions.push(i); }
-              var lastNode = ad.layers.backgroundImage2;
-              imagePositions.forEach(function(position, i){
-                var div = document.createElement('div');
-                div.id =  'backgroundImage' + (i + 2);
-                div.classList.add('frame');
-                div.style.backgroundImage = 'url(' + modelImage.src + ')';
-                div.style.backgroundSize = '100%';
-                div.style.backgroundPositionY = position + '%';
-                insertAfter(div, lastNode);
-                lastNode = div;
-              });
-              ad.layers.backgroundImage2.parentNode.removeChild(ad.layers.backgroundImage2);
-            } else { ad.layers.backgroundImage2.classList.add('asset'); }
-          }
-          if(imageCount == 1) {
-            gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
-            .from('#backgroundImage2', { y: '-100%', duration:0.5, delay:0.8})
-            .from('#headlineImage1', { y: '100%'})
-            .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
-            .from('#logoImage', { y: '100%'})
-            .from('#cta', { y: adHeight})
-          } else if(imageCount == 2) {
-            gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
-            .from('#backgroundImage2', { y: '-100%', delay:0.8})
-            .from('#backgroundImage3', { y: '100%'})
-            .from('#headlineImage1', { y: '100%'})
-            .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
-            .from('#logoImage', { y: '100%'})
-            .from('#cta', { y: adHeight})
-          } else if(imageCount == 3) {
-            gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
-            .from('#backgroundImage2', { y: '-100%', delay:0.8})
-            .from('#backgroundImage3', { y: '100%'})
-            .from('#backgroundImage4', { y: '-100%'})
-            .from('#headlineImage1', { y: '100%'})
-            .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
-            .from('#logoImage', { y: '100%'})
-            .from('#cta', { y: adHeight})
-          } else if(imageCount == 4) {
-            gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
-            .from('#backgroundImage2', { y: '-100%', delay:0.8})
-            .from('#backgroundImage3', { y: '100%'})
-            .from('#backgroundImage4', { y: '-100%'})
-            .from('#backgroundImage5', { y: '100%'})
-            .from('#headlineImage1', { y: '100%'})
-            .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
-            .from('#logoImage', { y: '100%'})
-            .from('#cta', { y: adHeight})
-          }
-          // gsap.timeline({defaults:{ease: Power1.easeOut, duration: 0.3}})
-          // .from('#backgroundImage1', { x:-5, scale: 1.14, duration: 8})
-          // gsap.timeline({defaults:{ease: Power1.easeInOut, duration: 0.7}})
-          // .from('#headlineImage1', { x: -300,delay:0.5})
-          // .from('#headlineImage2', { x: 300}, '-=0.7')
-          // .from('#headlineImage3', { autoAlpha: 0, delay:0.5})
+          // var imageCount = 1;
+          // var modelImagePath = ad.layers.backgroundImage2.querySelector('img').src;
+          // var modelImage = images.find(function(image){ return image.src == modelImagePath; });
+          // if(modelImage) {
+          //   // ad.layers.backgroundImage2.classList.remove('asset');
+          //   var imageWidth = modelImage.naturalWidth, imageHeight = modelImage.naturalHeight;
+          //   if(imageWidth > adWidth) {
+          //     var scale = imageWidth/adWidth;
+          //     imageWidth = adWidth;
+          //     imageHeight /= scale;
+          //   }
+          //   if(!(imageHeight == adHeight)) {
+          //     imageCount = imageHeight/adHeight, imagePositions = [];
+          //     for(var i=0; i<=100;i+=100/(imageCount-1)) { imagePositions.push(i); }
+          //     var lastNode = ad.layers.backgroundImage2;
+          //     imagePositions.forEach(function(position, i){
+          //       var div = document.createElement('div');
+          //       div.id =  'backgroundImage' + (i + 2);
+          //       div.classList.add('frame');
+          //       div.style.backgroundImage = 'url(' + modelImage.src + ')';
+          //       div.style.backgroundSize = '100%';
+          //       div.style.backgroundPositionY = position + '%';
+          //       insertAfter(div, lastNode);
+          //       lastNode = div;
+          //     });
+          //     ad.layers.backgroundImage2.parentNode.removeChild(ad.layers.backgroundImage2);
+          //   } else { ad.layers.backgroundImage2.classList.add('asset'); }
+          // }
+          // if(imageCount == 1) {
+          //   gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
+          //   .from('#backgroundImage2', { y: '-100%', duration:0.5, delay:0.8})
+          //   .from('#headlineImage1', { y: '100%'})
+          //   .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
+          //   .from('#logoImage', { y: '100%'})
+          //   .from('#cta', { y: adHeight})
+          // } else if(imageCount == 2) {
+          //   gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
+          //   .from('#backgroundImage2', { y: '-100%', delay:0.8})
+          //   .from('#backgroundImage3', { y: '100%'})
+          //   .from('#headlineImage1', { y: '100%'})
+          //   .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
+          //   .from('#logoImage', { y: '100%'})
+          //   .from('#cta', { y: adHeight})
+          // } else if(imageCount == 3) {
+          //   gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
+          //   .from('#backgroundImage2', { y: '-100%', delay:0.8})
+          //   .from('#backgroundImage3', { y: '100%'})
+          //   .from('#backgroundImage4', { y: '-100%'})
+          //   .from('#headlineImage1', { y: '100%'})
+          //   .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
+          //   .from('#logoImage', { y: '100%'})
+          //   .from('#cta', { y: adHeight})
+          // } else if(imageCount == 4) {
+          //   gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
+          //   .from('#backgroundImage2', { y: '-100%', delay:0.8})
+          //   .from('#backgroundImage3', { y: '100%'})
+          //   .from('#backgroundImage4', { y: '-100%'})
+          //   .from('#backgroundImage5', { y: '100%'})
+          //   .from('#headlineImage1', { y: '100%'})
+          //   .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
+          //   .from('#logoImage', { y: '100%'})
+          //   .from('#cta', { y: adHeight})
+          // }
+          gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
+          //.from('#backgroundImage2', { x: '-100%', duration:0.5, delay:0.8})
+          .from('#productImage', {autoAlpha: 0, x: '-100%', duration: 0.5})
+          .from('#headlineImage1', { y: '-100%', duration: 0.5 })
+          .from('#logoImage', { autoAlpha: 0 })
+          .from('#cta', { autoAlpha: 0 })
         });
       }, 2000);
     </script>

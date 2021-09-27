@@ -48,7 +48,7 @@
     <div class="" id="ad">
       <div id="backgroundImage1" class="asset frame" data-image="backgroundImage1"></div>
       <div id="backgroundImage2" class="asset frame" data-image="backgroundImage2"></div>
-      <div id="modelImage" class="asset frame" data-image="modelImage"></div>
+      <!-- <div id="modelImage" class="asset frame" data-image="modelImage"></div> -->
       <div id="productImage" class="asset frame" data-image="productImage"></div>
       <div id="headlineImage1" class="asset frame" data-image="headlineImage1"></div>
       <!-- <div id="headlineImage2" class="asset frame" data-image="headlineImage2"></div> -->
@@ -56,10 +56,10 @@
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="cta" class="asset"
         data-image="ctaImage"
-        style="top: 160px;
-          left: 170px;
-          width: 99.5px;
-          height: 20px;">
+        style="top: 215px;
+        left: 178px;
+        width: 93px;
+        height: 28px;">
       </div>
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
@@ -78,11 +78,10 @@
       setTimeout(function() {
         ad.contentSetup({
           cam: {
-            backgroundImage1: 'assets/300x250_SS20_Crocs_DCO_ClassicPillar-Clogs_PriyankaChopraJonas_Background.png',
-            backgroundImage2: 'assets/1x1.png',
-            headlineImage1: 'assets/300x250_SS20_Crocs_DCO_ClassicPillar-Clogs_PriyankaChopraJonas_Headline_Make_It_A_Classic1.png',
-            modelImage: 'assets/300x250_SS20_Crocs_DCO_ClassicPillar-Clogs_PriyankaChopraJonas_Headline_Make_It_A_Classic2.png',
-            productImage: 'assets/300x250_SS20_Crocs_DCO_ClassicPillar-Clogs_PriyankaChopraJonas_Headline_Make_It_A_Classic2.png',
+            backgroundImage1: 'assets/300x250_Crocs_Global_Holiday_2021_CAH_Boots_Img_Background.png',
+            headlineImage1: 'assets/300x250_Crocs_Global_Holiday_2021_CAH_Boots_Img_Headline.png',
+            backgroundImage2: 'assets/300x250_Crocs_Global_Holiday_2021_CAH_Boots_Img_Model.png',
+            productImage: 'assets/300x250_Crocs_Global_Holiday_2021_CAH_Boots_Img_Product.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
             ctaSelect: 'icon_white',
             clickURL: 'https://www.adobe.com/#Crocs',
@@ -96,7 +95,7 @@
           staticData: {
             // ref: 'ref.png'
             ctaBtnColor: '#fff',
-            logoImage: 'images/300x250_Crocs_SS21_Logo.png',
+            logoImage: 'images/300x250_Crocs_Global_Holiday_2021_CAH_Boots_Img_Logo.png',
           },
           beforeLoad: function(data){
             data.map(function(content){
@@ -115,7 +114,7 @@
                 }
               }
               switch(content.ctaSelect){
-                case 'en_text': content.ctaImage = 'images/cta/CTA_English_White.png'; break;
+                case 'en_text': content.ctaImage = 'images/cta/CTA_English_Black.png'; break;
                 case 'de_text': content.ctaImage = 'images/cta/CTA_German_White.png'; break;
                 case 'jp_text': content.ctaImage = 'images/cta/CTA_Japan_White.png'; changePosition(); break;
                 case 'kr_text': content.ctaImage = 'images/cta/CTA_Korean_White.png'; break;
@@ -125,7 +124,7 @@
                 case 'jp_text_black': content.ctaImage = 'images/cta/CTA_Japan_Black.png'; content.logoImage = 'images/300x250_Crocs_SS21_Logo_Black.png'; changePosition(); break;
                 case 'kr_text_black': content.ctaImage = 'images/cta/CTA_Korean_Black.png'; content.logoImage = 'images/300x250_Crocs_SS21_Logo_Black.png'; break;
                 case 'kr_text_only_black': content.ctaImage = 'images/cta/CTA_Korean_Only_Black.png'; content.logoImage = 'images/300x250_Crocs_SS21_Logo_Black.png'; break;
-                default: content.ctaImage = 'images/cta/CTA_English_White.png'; //addIcon('#fff');
+                default: content.ctaImage = 'images/cta/CTA_English_Black.png'; //addIcon('#fff');
               }
             });
             return data;
@@ -147,11 +146,11 @@
           }
           var adWidth = 300, adHeight = 250;
           gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
-          .from('#backgroundImage2', { x: '-100%', duration:0.5, delay:0.8})
-          .from('#headlineImage1', { y: '100%'})
-          .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
-          .from('#logoImage', { y: '100%'})
-          .from('#cta', { y: adHeight})
+          .from('#modelImage', { x: '-100%', duration:0.5, delay:0.8})
+          .from('#productImage', {autoAlpha: 0, x: '100%'})
+          .from('#headlineImage1', { y: '-100%', duration: 0.5 })
+          .from('#logoImage', { autoAlpha: 0 })
+          .from('#cta', { autoAlpha: 0 })
         });
       }, 2000);
     </script>
