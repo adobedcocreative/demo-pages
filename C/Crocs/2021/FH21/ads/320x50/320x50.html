@@ -47,7 +47,7 @@
   <body>
     <div class="" id="ad">
       <div id="backgroundImage1" class="asset frame" data-image="backgroundImage1"></div>
-      <!-- <div id="backgroundImage2" class="asset frame" data-image="backgroundImage2"></div> -->
+      <div id="backgroundImage2" class="asset frame" data-image="backgroundImage2"></div>
       <div id="headlineImage1" class="asset frame" data-image="headlineImage1"></div>
       <div id="productImage" class="asset frame" data-image="productImage"></div>
       <!-- <div id="backgroundImage" class="asset frame" data-image="backgroundImage"></div> -->
@@ -78,6 +78,7 @@
         ad.contentSetup({
           cam: {
             backgroundImage1: 'assets/320x50_Crocs_Global_Holiday_2021_CAH_Boots_Img_Background.png',
+            backgroundImage2: 'assets/1x1.png',
             productImage: 'assets/320x50_Crocs_Global_Holiday_2021_CAH_Boots_Img_Product.png',
             headlineImage1: 'assets/320x50_Crocs_Global_Holiday_2021_CAH_Boots_Img_Headline.png',
             //headlineImage2: 'assets/1x1.png',
@@ -190,7 +191,7 @@
           // }
 
           gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
-          //.from('#backgroundImage2', { x: '-100%', duration:0.5, delay:0.8})
+          .from('#backgroundImage2', { x: '-100%', duration:0.5, delay:0.8})
           .from('#productImage', {autoAlpha: 0, x: '-100%', duration: 0.5})
           .from('#headlineImage1', { y: '-100%', duration: 0.5 })
           .from('#logoImage', { autoAlpha: 0 })

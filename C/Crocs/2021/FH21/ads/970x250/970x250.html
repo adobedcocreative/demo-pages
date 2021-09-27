@@ -47,7 +47,7 @@
       <div id="backgroundImage1" class="asset frame" data-image="backgroundImage1"></div>
       <div id="backgroundImage2" class="asset frame" data-image="backgroundImage2"></div>
       <div id="headlineImage1" class="asset frame" data-image="headlineImage1"></div>
-      <!-- <div id="productImage" class="asset frame" data-image="productImage"></div> -->
+      <div id="productImage" class="asset frame" data-image="productImage"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="cta" class="asset"
@@ -77,7 +77,7 @@
             backgroundImage1: 'assets/970x250_Crocs_Global_Holiday_2021_CAH_Boots_Img_Background.png',
             backgroundImage2: 'assets/970x250_Crocs_Global_Holiday_2021_CAH_Boots_Img_Model_Product.png',
             headlineImage1: 'assets/970x250_Crocs_Global_Holiday_2021_CAH_Boots_Img_Headline.png',
-            //productImage: 'assets/970x250_Crocs_Global_Holiday_2021_CAH_Boots_Img_Model_Product.png',
+            productImage: 'assets/1x1.png',
             styleProperties: "na",
             ctaSelect: 'en_text',
             clickURL: 'https://www.adobe.com/#Crocs',
@@ -175,6 +175,7 @@
             gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
             .from('#backgroundImage2', { y: '-100%', delay:0.8})
             .from('#backgroundImage3', { y: '100%'})
+            .from('#productImage', {autoAlpha: 0, x: '100%'})
             .from('#headlineImage1', { y: '-100%', duration: 0.5 })
             //.from('#headlineImage2', { autoAlpha: 0, duration:0.5})
             .from('#logoImage', { autoAlpha: 0 })
