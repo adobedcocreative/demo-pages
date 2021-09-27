@@ -166,29 +166,22 @@
               ad.layers.backgroundImage2.parentNode.removeChild(ad.layers.backgroundImage2);
             } else { ad.layers.backgroundImage2.classList.add('asset'); }
           }
-         //console.log(imageCount)
-          // if(imageCount == 1) {
-          //   gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
-          //   .from('#backgroundImage2', { y: '-100%', duration:0.5, delay:0.8})
-          //   .from('#headlineImage1', { y: '100%'})
-          //   .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
-          //   .from('#logoImage', { y: '100%'})
-          //   .from('#cta', { y: adHeight})
-          // } else if(imageCount == 2) {
-          //   gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
-          //   .from('#backgroundImage2', { y: '-100%', duration:0.5, delay:0.8})
-          //   .from('#backgroundImage3', { y: '100%', duration:0.5})
-          //   .from('#headlineImage1', { autoAlpha: 0})
-          //   .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
-          //   .from('#logoImage', { y: '100%'})
-          //   .from('#cta', { y: adHeight})
-          // }
-          gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
-          .from('#backgroundImage2', { y: '-100%', duration:0.5, delay:0.8})
-          .from('#productImage', { autoAlpha: 0, x: '100%' })
-          .from('#headlineImage1', { x: '-100%', duration: 0.5})
-          .from('#logoImage', { autoAlpha: 0})
-          .from('#cta', { autoAlpha: 0 })
+          if(imageCount == 1) {
+            gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
+            .from('#backgroundImage2', { y: '-100%', duration:0.5, delay:0.8})
+            .from('#productImage', { autoAlpha: 0, x: '100%' })
+            .from('#headlineImage1', { x: '-100%', duration: 0.5})
+            .from('#logoImage', { autoAlpha: 0})
+            .from('#cta', { autoAlpha: 0 })
+          } else if(imageCount == 2) {
+            gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
+            .from('#backgroundImage2', { y: '-100%', duration:0.5, delay:0.8})
+            .from('#backgroundImage3', { y: '100%', duration:0.5})
+            .from('#headlineImage1', { autoAlpha: 0})
+            .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
+            .from('#logoImage', { y: '100%'})
+            .from('#cta', { y: adHeight})
+          }
         });
       }, 2000);
     </script>

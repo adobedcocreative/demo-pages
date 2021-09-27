@@ -138,64 +138,66 @@
               }
             } catch(e) {  }
           }
-          // function insertAfter(newNode, referenceNode) {
-          //     referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-          // }
+          function insertAfter(newNode, referenceNode) {
+              referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+          }
           var adWidth = 320, adHeight = 50;
-          // var imageCount = 1;
-          // var modelImagePath = ad.layers.backgroundImage2.querySelector('img').src;
-          // var modelImage = images.find(function(image){ return image.src == modelImagePath; });
-          // if(modelImage) {
-          //   // ad.layers.backgroundImage2.classList.remove('asset');
-          //   var imageWidth = modelImage.naturalWidth, imageHeight = modelImage.naturalHeight;
-          //   if(imageWidth > adWidth) {
-          //     var scale = imageWidth/adWidth;
-          //     imageWidth = adWidth;
-          //     imageHeight /= scale;
-          //   }
-          //   if(!(imageHeight == adHeight)) {
-          //     imageCount = imageHeight/adHeight, imagePositions = [];
-          //     for(var i=0; i<=100;i+=100/(imageCount-1)) { imagePositions.push(i); }
-          //     var lastNode = ad.layers.backgroundImage2;
-          //     imagePositions.forEach(function(position, i){
-          //       var div = document.createElement('div');
-          //       div.id =  'backgroundImage' + (i + 2);
-          //       div.classList.add('frame');
-          //       div.style.backgroundImage = 'url(' + modelImage.src + ')';
-          //       div.style.backgroundSize = '100%';
-          //       div.style.backgroundPositionY = position + '%';
-          //       insertAfter(div, lastNode);
-          //       lastNode = div;
-          //     });
-          //     ad.layers.backgroundImage2.parentNode.removeChild(ad.layers.backgroundImage2);
-          //   } else { ad.layers.backgroundImage2.classList.add('asset'); }
-          // }
-          // if(imageCount == 1) {
-          //   gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
-          //   .from('#backgroundImage2', { y: '-100%', duration:0.5, delay:0.8})
-          //   .from('#logoImage', { y: '100%'})
-          //   .from('#cta', { y: adHeight})
-          // } else if(imageCount == 2) {
-          //   gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
-          //   .from('#backgroundImage2', { y: '-100%', delay:0.8})
-          //   .from('#backgroundImage3', { y: '100%'})
-          //   .from('#logoImage', { y: '100%'})
-          //   .from('#cta', { y: adHeight})
-          // } else if(imageCount == 3) {
-          //   gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
-          //   .from('#backgroundImage2', { y: '-100%', delay:0.8})
-          //   .from('#backgroundImage3', { y: '100%'})
-          //   .from('#backgroundImage4', { y: '-100%'})
-          //   .from('#logoImage', { y: '100%'})
-          //   .from('#cta', { y: adHeight})
-          // }
+          var imageCount = 1;
+          var modelImagePath = ad.layers.backgroundImage2.querySelector('img').src;
+          var modelImage = images.find(function(image){ return image.src == modelImagePath; });
+          if(modelImage) {
+            // ad.layers.backgroundImage2.classList.remove('asset');
+            var imageWidth = modelImage.naturalWidth, imageHeight = modelImage.naturalHeight;
+            if(imageWidth > adWidth) {
+              var scale = imageWidth/adWidth;
+              imageWidth = adWidth;
+              imageHeight /= scale;
+            }
+            if(!(imageHeight == adHeight)) {
+              imageCount = imageHeight/adHeight, imagePositions = [];
+              if(imageCount >= 1) {
+                for(var i=0; i<=100;i+=100/(imageCount-1)) { imagePositions.push(i); }
+                var lastNode = ad.layers.backgroundImage2;
+                imagePositions.forEach(function(position, i){
+                  var div = document.createElement('div');
+                  div.id =  'backgroundImage' + (i + 2);
+                  div.classList.add('frame');
+                  div.style.backgroundImage = 'url(' + modelImage.src + ')';
+                  div.style.backgroundSize = '100%';
+                  div.style.backgroundPositionY = position + '%';
+                  insertAfter(div, lastNode);
+                  lastNode = div;
+                });
+                ad.layers.backgroundImage2.parentNode.removeChild(ad.layers.backgroundImage2);
+              }
+            } else { ad.layers.backgroundImage2.classList.add('asset'); }
+          }
+          if(imageCount == 1) {
+            gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
+            .from('#backgroundImage2', { y: '-100%', duration:0.5, delay:0.8})
+            .from('#logoImage', { y: '100%'})
+            .from('#cta', { y: adHeight})
+          } else if(imageCount == 2) {
+            gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
+            .from('#backgroundImage2', { y: '-100%', delay:0.8})
+            .from('#backgroundImage3', { y: '100%'})
+            .from('#logoImage', { y: '100%'})
+            .from('#cta', { y: adHeight})
+          } else if(imageCount == 3) {
+            gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
+            .from('#backgroundImage2', { y: '-100%', delay:0.8})
+            .from('#backgroundImage3', { y: '100%'})
+            .from('#backgroundImage4', { y: '-100%'})
+            .from('#logoImage', { y: '100%'})
+            .from('#cta', { y: adHeight})
+          }
 
           gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
-          .from('#backgroundImage2', { x: '-100%', duration:0.5, delay:0.8})
-          .from('#productImage', {autoAlpha: 0, x: '-100%', duration: 0.5})
-          .from('#headlineImage1', { y: '-100%', duration: 0.5 })
-          .from('#logoImage', { autoAlpha: 0 })
-          .from('#cta', { autoAlpha: 0 })
+            .from('#backgroundImage2', { x: '-100%', duration:0.5})
+            .from('#productImage', {autoAlpha: 0, x: '-100%'})
+            .from('#headlineImage1', { y: '-100%', duration: 0.5 })
+            .from('#logoImage', { autoAlpha: 0 })
+            .from('#cta', { autoAlpha: 0 })
 
           // if(ad.layers.overlay.style.color == 'transparent') {
           //   gsap.set('#backgroundImage2', { scale: 1.14 });
