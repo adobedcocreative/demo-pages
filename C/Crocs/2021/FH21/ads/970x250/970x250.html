@@ -52,10 +52,10 @@
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="cta" class="asset"
         data-image="ctaImage"
-        style="top: 183px;
-        left: 409px;
-        width: 158px;
-        height: 47px;">
+        style="top: 201px;
+        left: 491px;
+        width: 117px;
+        height: 34px;">
       </div>
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
@@ -91,7 +91,7 @@
           staticData: {
             // ref: 'ref.png'
             ctaBtnColor: '#fff',
-            logoImage: 'images/970x250_Crocs_Global_Holiday_2021_CAH_Boots_Img_Logo.png',
+            logoImage: 'images/970x250_Crocs_FH21_Logo_Black.png',
           },
           beforeLoad: function(data){
             data.map(function(content){
@@ -102,6 +102,7 @@
               }
               switch(content.ctaSelect){
                 case 'en_text': content.ctaImage = 'images/cta/CTA_English_Black.png'; break;
+                case 'en_text_center': content.ctaImage = 'images/cta/CTA_English_Black.png'; content.logoImage = 'images/970x250_Crocs_FH21_Logo_Black_Center.png'; break; break;
                 case 'de_text': content.ctaImage = 'images/cta/CTA_German_White.png'; break;
                 case 'jp_text': content.ctaImage = 'images/cta/CTA_Japan_White.png'; changePosition(); break;
                 case 'kr_text': content.ctaImage = 'images/cta/CTA_Korean_White.png'; break;
@@ -166,10 +167,11 @@
           if(imageCount == 1) {
             gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
             .from('#backgroundImage2', { y: '-100%', duration:0.5, delay:0.8})
-            .from('#headlineImage1', { y: '100%'})
-            .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
-            .from('#logoImage', { y: '100%'})
-            .from('#cta', { y: adHeight})
+            .from('#productImage', {autoAlpha: 0, x: '100%'})
+            .from('#headlineImage1', { y: '-100%', duration: 0.5 })
+            //.from('#headlineImage2', { autoAlpha: 0, duration:0.5})
+            .from('#logoImage', { autoAlpha: 0 })
+            .from('#cta', { autoAlpha: 0 })
           } else if(imageCount == 2) {
             gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
             .from('#backgroundImage2', { y: '-100%', delay:0.8})
@@ -183,21 +185,23 @@
             gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
             .from('#backgroundImage2', { y: '-100%', delay:0.8})
             .from('#backgroundImage3', { y: '100%'})
-            .from('#backgroundImage4', { y: '-100%'})
-            .from('#headlineImage1', { y: '100%'})
-            .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
-            .from('#logoImage', { y: '100%'})
-            .from('#cta', { y: adHeight})
+            .from('#backgroundImage4', { y: '100%'})
+            .from('#productImage', {autoAlpha: 0, y: '100%'})
+            .from('#headlineImage1', { y: '-100%', duration: 0.5 })
+           // .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
+            .from('#logoImage', { autoAlpha: 0 })
+            .from('#cta', { autoAlpha: 0 })
           } else if(imageCount == 4) {
             gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
             .from('#backgroundImage2', { y: '-100%', delay:0.8})
             .from('#backgroundImage3', { y: '100%'})
             .from('#backgroundImage4', { y: '-100%'})
             .from('#backgroundImage5', { y: '100%'})
-            .from('#headlineImage1', { y: '100%'})
-            .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
-            .from('#logoImage', { y: '100%'})
-            .from('#cta', { y: adHeight})
+            .from('#productImage', {autoAlpha: 0, x: '100%'})
+            .from('#headlineImage1', { y: '-100%', duration: 0.5 })
+            //.from('#headlineImage2', { autoAlpha: 0, duration:0.5})
+            .from('#logoImage', { autoAlpha: 0 })
+            .from('#cta', { autoAlpha: 0 })
           }
           // gsap.set('#backgroundImage1', { x: -1});
           // gsap.timeline({defaults:{ease: Power1.easeOut, duration: 0.3}})
