@@ -81,7 +81,7 @@
             headlineImage1: 'assets/160x600_Crocs_Global_Holiday_2021_CAH_Boots_Img_Headline.png',
             productImage: 'assets/160x600_Crocs_Global_Holiday_2021_CAH_Boots_Img_Product.png',           
             styleProperties: "na",
-            ctaSelect: 'en_text',
+            ctaSelect: 'en_text_black',
             clickURL: 'https://www.adobe.com/#Crocs',
             impressionTracker: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABBJREFUeNpi+P//PwNAgAEACPwC/tuiTRYAAAAASUVORK5CYII='
           },
@@ -104,16 +104,16 @@
                 gsap.set('#cta', {left:24, top:552, width: 112, height:30});
               }
               switch(content.ctaSelect){
-                case 'en_text': content.ctaImage = 'images/cta/CTA_English_Black.png'; break;
+                case 'en_text': content.ctaImage = 'images/cta/CTA_English_White.png'; break;
                 case 'de_text': content.ctaImage = 'images/cta/CTA_German_White.png'; break;
                 case 'jp_text': content.ctaImage = 'images/cta/CTA_Japan_White.png'; changePosition(); break;
                 case 'kr_text': content.ctaImage = 'images/cta/CTA_Korean_White.png'; break;
                 case 'kr_text_only': content.ctaImage = 'images/cta/CTA_Korean_Only_White.png'; break;
-                case 'en_text_black': content.ctaImage = 'images/cta/CTA_English_Black.png'; content.logoImage = 'images/160x600_Crocs_SS21_Logo_Black.png'; break;
-                case 'de_text_black': content.ctaImage = 'images/cta/CTA_German_Black.png'; content.logoImage = 'images/160x600_Crocs_SS21_Logo_Black.png'; break;
-                case 'jp_text_black': content.ctaImage = 'images/cta/CTA_Japan_Black.png'; content.logoImage = 'images/160x600_Crocs_SS21_Logo_Black.png'; changePosition(); break;
-                case 'kr_text_black': content.ctaImage = 'images/cta/CTA_Korean_Black.png'; content.logoImage = 'images/160x600_Crocs_SS21_Logo_Black.png'; break;
-                case 'kr_text_only_black': content.ctaImage = 'images/cta/CTA_Korean_Only_Black.png'; content.logoImage = 'images/160x600_Crocs_SS21_Logo_Black.png'; break;
+                case 'en_text_black': content.ctaImage = 'images/cta/CTA_English_Black.png'; break;
+                case 'de_text_black': content.ctaImage = 'images/cta/CTA_German_Black.png'; break;
+                case 'jp_text_black': content.ctaImage = 'images/cta/CTA_Japan_Black.png'; break;
+                case 'kr_text_black': content.ctaImage = 'images/cta/CTA_Korean_Black.png'; break;
+                case 'kr_text_only_black': content.ctaImage = 'images/cta/CTA_Korean_Only_Black.png'; break;
                 default: content.ctaImage = 'images/cta/CTA_English_Black.png';
               }
             });
