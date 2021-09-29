@@ -109,18 +109,29 @@
                   ctaElement.innerHTML = `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 369.69" style="width:100%;height:100%;enable-background:new 0 0 300 369.69;" xml:space="preserve"><style type="text/css">.st0{fill-rule:evenodd;clip-rule:evenodd;fill:${color};}</style><path class="st0" d="M253.85,0H46.16C20.67,0,0,20.69,0,46.21v277.27c0,25.52,20.67,46.21,46.16,46.21h207.69 c25.49,0,46.15-20.69,46.15-46.21V46.21C300,20.69,279.34,0,253.85,0z M117.2,326.8l-54.98-55.05l80.8-87.74L62.3,97.39l54.65-54.5 l129.91,141.12L117.2,326.8z"/></svg>`;
                 }
               }
-              switch(content.ctaSelect){
-                case 'icon_white': content.ctaImage = 'images/cta/CTA_English_White.png'; break;
-                case 'icon_black': content.ctaImage = 'images/cta/CTA_English_Black.png'; 
-                content.logoImage = 'images/320x50_Crocs_FH21_Logo_Black.png'; break;
-                case 'de_icon_black': content.ctaImage = 'images/cta/CTA_German_Black.png'; break;
-                case 'jp_icon_black': content.ctaImage = 'images/cta/CTA_Japan_Black.png'; break;
-                case 'kr_icon_black': content.ctaImage = 'images/cta/CTA_Korean_Black.png'; break;
-                // case 'icon_white': addIcon('#fff'); break;//content.ctaImage = 'images/cta/320x50_CTA_Icon.png'; break;
-                case 'icon_orange': addIcon('#f36c3e'); break;
-                case 'icon_gray': case 'icon_grey': addIcon('#444'); content.logoImage = 'images/320x50_Crocs_Logo_Grey.png'; break; //content.ctaImage = 'images/cta/320x50_CTA_Icon_Gray.png'; content.logoImage = 'images/320x50_Crocs_SS21_Logo.png'; break;
-                case 'icon_green': addIcon('#4f660b'); content.logoImage = 'images/320x50_Crocs_Logo_Green.png'; content.backgroundImage = 'images/320x50_Crocs_ClassicPillar_Vertical_Line_Background_03_White.png'; break; //content.ctaImage = 'images/cta/320x50_CTA_Icon_Green.png'; content.logoImage = 'images/320x50_Crocs_Logo_Green.png'; break;
-                default: addIcon('#fff'); //content.ctaImage = 'images/cta/320x50_CTA_Icon.png';
+              switch(content.ctaSelect) {
+                case 'en_text': content.ctaImage = 'images/cta/CTA_English_White.png'; break;
+                case 'de_text': content.ctaImage = 'images/cta/CTA_German_White.png'; break;
+                case 'jp_text': content.ctaImage = 'images/cta/CTA_Japan_White.png'; changePosition(); break;
+                case 'kr_text': content.ctaImage = 'images/cta/CTA_Korean_White.png'; break;
+                case 'kr_text_only': content.ctaImage = 'images/cta/CTA_Korean_Only_White.png'; break;
+                case 'en_text_black': content.ctaImage = 'images/cta/CTA_English_Black.png'; break;
+                case 'de_text_black': content.ctaImage = 'images/cta/CTA_German_Black.png'; break;
+                case 'jp_text_black': content.ctaImage = 'images/cta/CTA_Japan_Black.png'; break;
+                case 'kr_text_black': content.ctaImage = 'images/cta/CTA_Korean_Black.png'; break;
+                case 'kr_text_only_black': content.ctaImage = 'images/cta/CTA_Korean_Only_Black.png'; break;
+                default: content.ctaImage = 'images/cta/CTA_English_Black.png';
+                // case 'icon_white': content.ctaImage = 'images/cta/CTA_English_White.png'; break;
+                // case 'icon_black': content.ctaImage = 'images/cta/CTA_English_Black.png'; 
+                // content.logoImage = 'images/320x50_Crocs_FH21_Logo_Black.png'; break;
+                // case 'de_icon_black': content.ctaImage = 'images/cta/CTA_German_Black.png'; break;
+                // case 'jp_icon_black': content.ctaImage = 'images/cta/CTA_Japan_Black.png'; break;
+                // case 'kr_icon_black': content.ctaImage = 'images/cta/CTA_Korean_Black.png'; break;
+                // // case 'icon_white': addIcon('#fff'); break;//content.ctaImage = 'images/cta/320x50_CTA_Icon.png'; break;
+                // case 'icon_orange': addIcon('#f36c3e'); break;
+                // case 'icon_gray': case 'icon_grey': addIcon('#444'); content.logoImage = 'images/320x50_Crocs_Logo_Grey.png'; break; //content.ctaImage = 'images/cta/320x50_CTA_Icon_Gray.png'; content.logoImage = 'images/320x50_Crocs_SS21_Logo.png'; break;
+                // case 'icon_green': addIcon('#4f660b'); content.logoImage = 'images/320x50_Crocs_Logo_Green.png'; content.backgroundImage = 'images/320x50_Crocs_ClassicPillar_Vertical_Line_Background_03_White.png'; break; //content.ctaImage = 'images/cta/320x50_CTA_Icon_Green.png'; content.logoImage = 'images/320x50_Crocs_Logo_Green.png'; break;
+                // default: addIcon('#fff'); //content.ctaImage = 'images/cta/320x50_CTA_Icon.png';
               }
             });
             return data;
