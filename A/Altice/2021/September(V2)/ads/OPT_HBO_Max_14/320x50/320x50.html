@@ -496,11 +496,7 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top: 6px;left: 131px;w
         const animateFrame1 = function(frame, properties, flag) {
           const duration = properties && 'duration' in properties ? properties.duration : 3;          
           gsap.timeline(timelineProps)
-            .to('#frameAsset1, #frameText1', destinationValues)
-          gsap.timeline(timelineProps)
-          .to('#frameText1', destinationValues)
-          .to('#frameAsset12', {x:'100%', delay: 0.8})
-          .to('#frameText1', destinationValues)
+          .to('#frameAsset1, #frameText1', destinationValues)
           gsap.timeline(timelineProps)
           .to(frame, (flag==true?{}:{delay: (duration - timelineProps.defaults.duration), autoAlpha:0, onComplete: animate.nextFrame}));
         }

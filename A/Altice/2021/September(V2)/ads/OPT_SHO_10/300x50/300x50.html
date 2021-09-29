@@ -160,11 +160,12 @@
 <script type="text/javascript">
 amo.registerClick("clickUrl", "https://www.altice.com");
 amo.registerAttribute("ctaText", "TEXT", "Upgrade now");
-amo.registerAttribute("frameText1", "TEXT", "<div style='top: 12px;left: 7px;width: 210px;height: 46px;font-size: 13px;line-height: 1.1;'>With Optimum FlexAbility<sup style='vertical-align: 75%;font-size: 44%;'>SM</sup><br>get the entertainment you want</div>");
-amo.registerAttribute("frameText21", "TEXT", "<div style='top: 20px;left: 94px;font-size: 13.2px;line-height: 1;'>gives you more</div>");
-amo.registerAttribute("frameText31", "TEXT", "<div style='top: 5px;left: 10px;font-size: 13.5px;'>Add HBO Max<sup style='vertical-align: 29%;font-size: 70%;'>™</sup></div>");
-amo.registerAttribute("frameText32", "TEXT", "<div style='top: 22px;left: 10px;font-size: 13.5px;line-height: 1;'><font class='coloredText'>$14.99</font> mo./1 yr.<div class='AlticeRegular' style='margin: 3px 0 0 1px;font-size: 6px;'>Plus taxes and fees.</div></div>");
-amo.registerAttribute("frameText33", "TEXT", "<div style='top: 6px;left: 131px;width: 300px;transform: scale(0.37);transform-origin: top left;'><div style='font-size: 18px;line-height: 1;margin-bottom: 10px;'>Included with<br>this subscription:</div><div class='bulletedText AlticeRegular'>Live HBO<sup style='font-size: 60%;'>®</sup> Channels</div><div class='bulletedText AlticeRegular'>On Demand</div><div class='bulletedText AlticeRegular'>HBO Max App</div></div>");
+amo.registerAttribute("frameText1", "TEXT", "<div style='top: 17px;left: 10px;font-size: 16.3px;line-height: 1;'>Add SHOWTIME<sup style='font-size: 50%;'>®</sup></div>");
+amo.registerAttribute("frameText12", "TEXT", "<div style='top: 12px;left: 7px;width: 150px;font-size: 13.2px;line-height: 1.1;'>Watch original series, movies & more.</div>");
+amo.registerAttribute("frameText21", "TEXT", "<div style='top: 12px;left: 7px;width: 210px;height: 46px;font-size: 13px;line-height: 1.1;'>With Optimum FlexAbility<sup style='vertical-align: 75%;font-size: 44%;'>SM</sup><br>get the entertainment you want</div>");
+amo.registerAttribute("frameText31", "TEXT", "<div style='top: 8px;left: 10px;font-size: 11px;'>Add SHOWTIME<sup>®</sup></div>");
+amo.registerAttribute("frameText32", "TEXT", "<div style='top: 22px;left: 10px;font-size: 11px;line-height: 1;'><font class='coloredText'>$10.99</font> mo./1 yr.<div class='AlticeRegular' style='margin: 3px 0 0 1px;font-size: 5.5px;'>Plus taxes and fees.</div></div>");
+amo.registerAttribute("frameText33", "TEXT", "<div style='top: 8px;left: 106px;transform: scale(0.4);transform-origin: top left;width: 320px;'><div style='font-size: 18px;margin-bottom: 5px;'>Included with this subscription:</div><div class='bulletedText'>SHOWTIME ON DEMAND<sup style='font-size: 65%;'>®</sup></div><div class='bulletedText'>SHOWTIME ANYTIME<sup style='font-size: 65%;'>®</sup></div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 <script type="text/javascript">
@@ -173,20 +174,20 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top: 6px;left: 131px;w
     {
       name: 'frame1',
       assets: {
-        frameAsset1: "1x1.png",
+        frameAsset1: "300x50_OPT_UPGQ1_ANI_Video_UPGSHORR_10_99mo_Devices_Frame_02.png",
       },
       style: {
-        // '#frameAsset1': {x:'-100%'},
+        '#frameAsset1': {x:'-50', y:'100%'},
         // '#frameText1': {css:{color: '#fff'}},
       },
       animate: {
-        duration: 3
+        duration: 4
       }
     },
     {
       name: 'frame2',
       assets: {
-        frameAsset2: "300x50_OPT_Add_HBO_Max_Logo_HBO_Max_Frame_01.png",
+        frameAsset2: "1x1.png",
       },
       style: {
         '#frameAsset2': {x:'-100%', y:0},
@@ -250,7 +251,7 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top: 6px;left: 131px;w
         font-size: 7.5px;
         overflow: hidden;
         border-radius: 10px;
-        line-height: 0.9;
+        line-height: 1;
         padding: 2px;
         background-color: #0084d6;
         color: #fff;">
@@ -272,7 +273,7 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top: 6px;left: 131px;w
           font-size: 7.5px;
           overflow: hidden;
           border-radius: 10px;
-          line-height: 0.9;
+          line-height: 1;
           padding: 2px;
           color: #fff;
           background: #0084d6;">
@@ -497,11 +498,9 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top: 6px;left: 131px;w
         const animateFrame1 = function(frame, properties, flag) {
           const duration = properties && 'duration' in properties ? properties.duration : 3;          
           gsap.timeline(timelineProps)
-            .to('#frameAsset1, #frameText1', destinationValues)
-          gsap.timeline(timelineProps)
           .to('#frameText1', destinationValues)
-          .to('#frameAsset12', {x:'100%', delay: 0.8})
-          .to('#frameText1', destinationValues)
+          .to('#frameText1', {autoAlpha:0, delay: 1.2})
+          .to('#frameAsset1, #frameText12', destinationValues)
           gsap.timeline(timelineProps)
           .to(frame, (flag==true?{}:{delay: (duration - timelineProps.defaults.duration), autoAlpha:0, onComplete: animate.nextFrame}));
         }
