@@ -191,6 +191,25 @@
             .from('#headlineImage1',{ y: '-100%', duration: 0.5 })
             .from('#logoImage', { autoAlpha: 0 })
             .from('#cta', { autoAlpha: 0 })
+          } else if(imageCount == 3) {
+            gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
+            .from('#backgroundImage2', { x: '-100%', duration:0.5, delay:0.8})
+            .from('#backgroundImage3', { x: '-100%', duration:0.5 })
+            .from('#backgroundImage4', { x: '-100%', duration:0.5 })
+            .from('#productImage', {autoAlpha: 0, y: '100%'})
+            .from('#headlineImage1',{ y: '-100%', duration: 0.5 })
+            .from('#logoImage', { autoAlpha: 0 })
+            .from('#cta', { autoAlpha: 0 })
+          } else if(imageCount == 4) {
+            gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
+            .from('#backgroundImage2', { x: '-100%', duration:0.5, delay:0.8})
+            .from('#backgroundImage3', { x: '-100%', duration:0.5 })
+            .from('#backgroundImage4', { x: '-100%', duration:0.5 })
+            .from('#backgroundImage5', { x: '-100%', duration:0.5 })
+            .from('#productImage', {autoAlpha: 0, y: '100%'})
+            .from('#headlineImage1',{ y: '-100%', duration: 0.5 })
+            .from('#logoImage', { autoAlpha: 0 })
+            .from('#cta', { autoAlpha: 0 })
           }
         });
       }, 2000);

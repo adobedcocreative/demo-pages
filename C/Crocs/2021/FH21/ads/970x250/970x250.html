@@ -175,7 +175,7 @@
           } else if(imageCount == 2) {
             gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
             .from('#backgroundImage2', { y: '-100%', delay:0.8})
-            .from('#backgroundImage3', { y: '100%'})
+            .from('#backgroundImage3', { y: '100%', duration:0.5})
             .from('#productImage', {autoAlpha: 0, x: '100%'})
             .from('#headlineImage1', { y: '-100%', duration: 0.5 })
             //.from('#headlineImage2', { autoAlpha: 0, duration:0.5})
@@ -184,8 +184,8 @@
           } else if(imageCount == 3) {
             gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
             .from('#backgroundImage2', { y: '-100%', delay:0.8})
-            .from('#backgroundImage3', { y: '100%'})
-            .from('#backgroundImage4', { y: '100%'})
+            .from('#backgroundImage3', { y: '100%', duration:0.5})
+            .from('#backgroundImage4', { y: '100%', duration:0.5})
             .from('#productImage', {autoAlpha: 0, y: '100%'})
             .from('#headlineImage1', { y: '-100%', duration: 0.5 })
            // .from('#headlineImage2', { autoAlpha: 0, duration:0.5})
@@ -194,9 +194,9 @@
           } else if(imageCount == 4) {
             gsap.timeline({defaults:{ease: Power2.Out, duration: 0.3}})
             .from('#backgroundImage2', { y: '-100%', delay:0.8})
-            .from('#backgroundImage3', { y: '100%'})
-            .from('#backgroundImage4', { y: '-100%'})
-            .from('#backgroundImage5', { y: '100%'})
+            .from('#backgroundImage3', { y: '100%', duration:0.5})
+            .from('#backgroundImage4', { y: '-100%', duration:0.5})
+            .from('#backgroundImage5', { y: '100%', duration:0.5})
             .from('#productImage', {autoAlpha: 0, x: '100%'})
             .from('#headlineImage1', { y: '-100%', duration: 0.5 })
             //.from('#headlineImage2', { autoAlpha: 0, duration:0.5})
