@@ -77,7 +77,7 @@ function handleComplete(evt,comp) {
         startBanner()
     }
     gsap.delayedCall(0.2,function(){
-		amoAd.click();
+		amoAd.init();
         exportRoot.initBanner(bannerData)
 		amoAd.ctaAlignment();
         exportRoot.runBanner()	

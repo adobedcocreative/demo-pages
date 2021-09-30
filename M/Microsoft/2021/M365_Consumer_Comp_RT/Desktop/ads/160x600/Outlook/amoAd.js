@@ -2,6 +2,7 @@ var amoAd = (function(){
   var ctaAlignment = function(position){
     var layers = exportRoot.mainMC;
     var adWidth = document.querySelector('#animation_container').offsetWidth;
+    var adHeight = document.querySelector('#animation_container').offsetHeight;
     var ctaBackgroundColor = layers.cta.children[0].graphics._fill.style;
     var yPoints = layers.cta.children[0].graphics._activeInstructions.map(function(point){ return(point.y) });
     var yTemp = [];
@@ -17,7 +18,7 @@ var amoAd = (function(){
     position = position ? position : (layers.cta.x > adWidth/2 ? 'right' : 'left');
     layers.txtCta.regX = 0;
     layers.txtCta.children[0].x = 0;
-    layers.txtCta.children[0].y -= 4;
+    layers.txtCta.children[0].y = 0;
     layers.txtCta.scaleX = 1;
     layers.txtCta.scaleY = 1;
     layers.cta.regX = 0;
@@ -45,6 +46,7 @@ var amoAd = (function(){
     	layers.cta.x = adWidth - ctaWidth;
     	layers.txtCta.x = adWidth - ctaWidth + 15;
     	layers.cta.arrow.x = ctaWidth - 20;
+      layers.txtCta.y = adHeight - ctaHeight;
     } else {
     	layers.cta.x = 0;
     	layers.txtCta.x = 15;
@@ -130,7 +132,7 @@ var amoAd = (function(){
   return {
     init: function(){ init(); },
   	click: function(id) { click(id); },
-  	ctaAlignment: function(){ ctaAlignment(); },
+  	ctaAlignment: function(position){ ctaAlignment(position); },
   	onInteraction: function(id) { onInteraction(text, id); }
   };
 })();

@@ -79,7 +79,7 @@ function handleComplete(evt,comp) {
     gsap.delayedCall(0.2,function(){
 		amoAd.init();
         exportRoot.initBanner(bannerData)
-		amoAd.ctaAlignment();
+		amoAd.ctaAlignment('right');
         exportRoot.runBanner()	
     })
 	initReady=true
