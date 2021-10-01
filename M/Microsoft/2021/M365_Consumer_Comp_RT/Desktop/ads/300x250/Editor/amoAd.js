@@ -38,6 +38,8 @@ var amoAd = (function(){
     layers.cta.children[0].children[0].scaleY = 1;
     layers.cta.children[0].children[0].regX = 0;
     layers.cta.children[0].children[0].regY = 0;
+    layers.cta.children[0].y = 0;
+    layers.cta.children[0].x = 0;
     layers.cta.children[0].children[0].graphics.clear();
     // layers.cta.children[0].graphics.beginFill(ctaBackgroundColor).drawRect(0, -15, ctaWidth, 30);
     layers.cta.children[0].children[0].graphics.beginFill(ctaBackgroundColor).drawRect(0, -ctaHeight/2, ctaWidth, ctaHeight);
@@ -49,8 +51,6 @@ var amoAd = (function(){
     	layers.cta.x = 0;
     	layers.txtCta.x = 15;
     	layers.cta.arrow.x = ctaWidth - 20;
-      layers.cta.children[0].y = 0;
-      layers.cta.children[0].x = 0;
     }
   }
   var iframe = window.frameElement;
