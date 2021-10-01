@@ -17,7 +17,7 @@ var amoAd = (function(){
     position = position ? position : (layers.cta.x > adWidth/2 ? 'right' : 'left');
     layers.txtCta.regX = 0;
     layers.txtCta.children[0].x = 0;
-    layers.txtCta.children[0].y -= 3;
+    layers.txtCta.children[0].y -= 1;
     layers.txtCta.scaleX = 1;
     layers.txtCta.scaleY = 1;
     layers.cta.regX = 0;
@@ -49,6 +49,8 @@ var amoAd = (function(){
     	layers.cta.x = 0;
     	layers.txtCta.x = 15;
     	layers.cta.arrow.x = ctaWidth - 20;
+      layers.cta.children[0].y = 0;
+      layers.cta.children[0].x = 0;
     }
   }
   var iframe = window.frameElement;

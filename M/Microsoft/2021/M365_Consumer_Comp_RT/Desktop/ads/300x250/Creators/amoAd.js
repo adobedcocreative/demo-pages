@@ -17,7 +17,7 @@ var amoAd = (function(){
     position = position ? position : (layers.cta.x > adWidth/2 ? 'right' : 'left');
     layers.txtCta.regX = 0;
     layers.txtCta.children[0].x = 0;
-    layers.txtCta.children[0].y -= 3;
+    layers.txtCta.children[0].y -= 1;
     layers.txtCta.scaleX = 1;
     layers.txtCta.scaleY = 1;
     layers.cta.regX = 0;
@@ -39,7 +39,7 @@ var amoAd = (function(){
     layers.cta.children[0].children[0].regX = 0;
     layers.cta.children[0].children[0].regY = 0;
     layers.cta.children[0].children[0].graphics.clear();
-    // layers.cta.children[0].children[0].graphics.beginFill(ctaBackgroundColor).drawRect(0, -15, ctaWidth, 30);
+    // layers.cta.children[0].graphics.beginFill(ctaBackgroundColor).drawRect(0, -15, ctaWidth, 30);
     layers.cta.children[0].children[0].graphics.beginFill(ctaBackgroundColor).drawRect(0, -ctaHeight/2, ctaWidth, ctaHeight);
     if(position == 'right') {
     	layers.cta.x = adWidth - ctaWidth;
@@ -49,6 +49,8 @@ var amoAd = (function(){
     	layers.cta.x = 0;
     	layers.txtCta.x = 15;
     	layers.cta.arrow.x = ctaWidth - 20;
+      layers.cta.children[0].y = 0;
+      layers.cta.children[0].x = 0;
     }
   }
   var iframe = window.frameElement;
@@ -60,7 +62,7 @@ var amoAd = (function(){
     //bannerData.headline3 = eval(bannerData.textField3);
     bannerData.ctaText = bannerData.ctaText.replace('<br>', '\n');
   	var CTAFont = bannerData.ctaText.split('|').length > 1 ? bannerData.ctaText.split('|')[1] : '0';
-  	CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 14.2) + 'px';
+  	CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 14) + 'px';
   	bannerData.ctaText = bannerData.ctaText.split('|')[0];
   	bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,CTAFont,0,0,"50","300", "left"] : '';
     resizeCTA();
