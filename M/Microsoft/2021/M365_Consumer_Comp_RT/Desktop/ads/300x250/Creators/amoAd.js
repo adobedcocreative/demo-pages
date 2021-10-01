@@ -46,6 +46,7 @@ var amoAd = (function(){
     	layers.txtCta.x = adWidth - ctaWidth + 15;
     	layers.cta.arrow.x = ctaWidth - 20;
     } else {
+      layers.cta.children[0].scaleX = 1;
     	layers.cta.x = 0;
     	layers.txtCta.x = 15;
     	layers.cta.arrow.x = ctaWidth - 20;
@@ -91,7 +92,7 @@ var amoAd = (function(){
   	var ctaScaleX = layers.cta.scaleX, ctaScaleY = layers.cta.scaleY;
   	var ctaHeight = Math.ceil(Math.abs(yTemp[0]) + Math.abs(yTemp[1]));
   	ctaHeight *= ctaScaleY * layers.cta.children[0].children[0].scaleY;
-    var ctaMaxWidth = 180, ctaMaxHeight = ctaHeight;
+    var ctaMaxWidth = 145, ctaMaxHeight = ctaHeight;
     var ctaElement = document.createElement('div');
     ctaElement.innerHTML = bannerData.ctaText.replace('\n', '<br>');
     ctaElement.style.display = 'inline-block';

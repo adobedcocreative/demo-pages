@@ -1864,7 +1864,7 @@ if (reversed == null) { reversed = false; }
 			
 				
 			
-				this.tl1.from(mc.cta , 0.8, { x: "-=150", ease:Power4.easeOut}, ">-0.6");
+				this.tl1.from(mc.cta , 0.8, { x: "-=200", ease:Power4.easeOut}, ">-0.6");
 				this.tl1.from(mc.txtCta, 0.8, { x: "-=150", alpha: 0, ease:Power4.easeOut}, ">-0.8");
 				this.tl1.from(mc.replay_btn, 0.7, { alpha: 0,ease:Power4.easeOut, onStart:function(){exportRoot.isReplay = true;}}, "<+.7");
 		
