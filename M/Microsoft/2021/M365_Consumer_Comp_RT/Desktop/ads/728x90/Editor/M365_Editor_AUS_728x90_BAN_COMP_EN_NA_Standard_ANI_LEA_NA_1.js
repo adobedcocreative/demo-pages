@@ -197,7 +197,7 @@ if (reversed == null) { reversed = false; }
 
 	// Layer_1
 	this.shape = new cjs.Shape();
-	this.shape.graphics.f("#F2F2F2").s().p("EhMdBAtMAAAiBYMCY7AAAMAAACBYg");
+	this.shape.graphics.f("#FFFFFF").s().p("EhMdBAtMAAAiBYMCY7AAAMAAACBYg"); //Changed Color to #FFFFFF from #F2F2F2
 	this.shape.setTransform(0.0296,0.0053);
 
 	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));

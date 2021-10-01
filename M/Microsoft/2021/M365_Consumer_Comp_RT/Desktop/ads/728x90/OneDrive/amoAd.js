@@ -2,6 +2,7 @@ var amoAd = (function(){
   var ctaAlignment = function(position){
     var layers = exportRoot.mainMC;
     var adWidth = document.querySelector('#animation_container').offsetWidth;
+    var adHeight = document.querySelector('#animation_container').offsetHeight;
     var ctaBackgroundColor = layers.cta.children[0].graphics._fill.style;
     var yPoints = layers.cta.children[0].graphics._activeInstructions.map(function(point){ return(point.y) });
     var yTemp = [];
@@ -19,7 +20,7 @@ var amoAd = (function(){
     layers.scaleY = 1;
     layers.txtCta.regX = 0;
     layers.txtCta.children[0].x = 0;
-    layers.txtCta.children[0].y = 0;
+    layers.txtCta.children[0].y += 1;
     layers.txtCta.scaleX = 1;
     layers.txtCta.scaleY = 1;
     layers.cta.regX = 0;
@@ -45,6 +46,7 @@ var amoAd = (function(){
     layers.cta.children[0].graphics.beginFill(ctaBackgroundColor).drawRect(0, -ctaHeight/2, ctaWidth, ctaHeight);
     if(position == 'right') {
     	layers.cta.x = adWidth - ctaWidth;
+      layers.cta.y = adHeight - ctaHeight + 5;
     	layers.txtCta.x = adWidth - ctaWidth + 15;
     	layers.cta.arrow.x = ctaWidth - 20;
     } else {
