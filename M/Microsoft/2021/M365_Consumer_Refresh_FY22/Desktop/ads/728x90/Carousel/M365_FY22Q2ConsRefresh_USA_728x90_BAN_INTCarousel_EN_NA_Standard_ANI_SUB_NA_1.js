@@ -3,7 +3,7 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"M365_FY22Q2ConsRefresh_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1", frames: [[1628,438,166,166],[0,0,1456,180],[1460,438,166,170],[0,182,1456,180],[1066,515,198,98],[1810,0,220,144],[730,364,728,149],[1796,438,166,166],[1458,131,220,144],[0,586,198,98],[730,515,166,166],[200,586,198,98],[1680,146,220,144],[1460,292,220,144],[898,515,166,166],[1458,0,350,129],[0,364,728,220],[400,586,198,98],[1682,292,220,144]]}
+		{name:"M365_FY22Q2ConsRefresh_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1", frames: [[1628,438,166,166],[0,0,1456,270],[1460,423,166,170],[0,272,1456,180],[898,605,198,98],[1810,0,220,144],[730,454,728,149],[1796,438,166,166],[1458,131,220,144],[1098,605,198,98],[1460,595,166,166],[1628,606,198,98],[1680,146,220,144],[1458,277,220,144],[730,605,166,166],[1458,0,350,129],[0,454,728,220],[1828,606,198,98],[1680,292,220,144]]}
 ];
 
 
@@ -34,7 +34,7 @@ lib.ssMetadata = [
 
 
 
-(lib.Editor_in_Word_728x900001417 = function() {
+(lib.Editor_in_Word_728x9000014171 = function() {
 	this.initialize(ss["M365_FY22Q2ConsRefresh_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"]);
 	this.gotoAndStop(1);
 }).prototype = p = new cjs.Sprite();
@@ -277,14 +277,14 @@ if (reversed == null) { reversed = false; }
 	cjs.MovieClip.apply(this,[props]);
 
 	// Layer_4
-	this.instance = new lib.Editor_in_Word_728x900001417();
-	this.instance.setTransform(0,0,0.5,0.5);
+	this.instance = new lib.Editor_in_Word_728x9000014171();
+	this.instance.setTransform(0,-44.95,0.5,0.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.scene4BG, new cjs.Rectangle(0,0,728,90), null);
+}).prototype = getMCSymbolPrototype(lib.scene4BG, new cjs.Rectangle(0,-44.9,728,135), null);
 
 
 (lib.scene4_UI_Reflection = function(mode,startPosition,loop,reversed) {
@@ -1102,14 +1102,14 @@ if (reversed == null) { reversed = false; }
 	// icon
 	this.icon = new lib.onedriveIcon();
 	this.icon.name = "icon";
-	this.icon.setTransform(194.9,20.2,0.3741,0.3741,0,0,0,1.4,0);
+	this.icon.setTransform(193.2,19.45,0.4413,0.4413,0,0,0,1.4,0.1);
 
 	this.timeline.addTween(cjs.Tween.get(this.icon).wait(1));
 
 	// reflection
 	this.reflection = new lib.scene5_UI_Reflection();
 	this.reflection.name = "reflection";
-	this.reflection.setTransform(234.8,117.1,0.6713,0.6713,0,0,0,68.8,45.1);
+	this.reflection.setTransform(234.4,146.15,0.61,1.4587,0,0,0,68.8,45.3);
 	this.reflection.alpha = 0.5;
 	this.reflection.compositeOperation = "hard-light";
 
@@ -1118,7 +1118,7 @@ if (reversed == null) { reversed = false; }
 	// ui
 	this.ui = new lib.scene5_UI();
 	this.ui.name = "ui";
-	this.ui.setTransform(216.3,37.3,0.446,0.446,0,0,0,68.8,45.1);
+	this.ui.setTransform(215.8,35,0.4024,0.4024,0,0,0,68.9,45.1);
 
 	this.timeline.addTween(cjs.Tween.get(this.ui).wait(1));
 
@@ -1142,7 +1142,7 @@ if (reversed == null) { reversed = false; }
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.Scene5, new cjs.Rectangle(0,-42,728,156.8), null);
+}).prototype = getMCSymbolPrototype(lib.Scene5, new cjs.Rectangle(0,-42,728,182.9), null);
 
 
 (lib.Scene4 = function(mode,startPosition,loop,reversed) {
@@ -1159,14 +1159,14 @@ if (reversed == null) { reversed = false; }
 	// icon
 	this.icon = new lib.editorIcon();
 	this.icon.name = "icon";
-	this.icon.setTransform(194.4,20.85,0.3744,0.3744,0,0,0,0.2,1.8);
+	this.icon.setTransform(192.85,20.4,0.4416,0.4416,0,0,0,0.4,1.8);
 
 	this.timeline.addTween(cjs.Tween.get(this.icon).wait(1));
 
 	// reflection
 	this.reflection = new lib.scene4_UI_Reflection();
 	this.reflection.name = "reflection";
-	this.reflection.setTransform(231.95,109.15,0.6176,0.6176,0,0,0,68.8,45.1);
+	this.reflection.setTransform(231.6,105.5,0.6004,0.6004,0,0,0,68.8,45.1);
 	this.reflection.alpha = 0.5;
 	this.reflection.compositeOperation = "hard-light";
 
@@ -1175,7 +1175,7 @@ if (reversed == null) { reversed = false; }
 	// ui
 	this.ui = new lib.scene4_UI();
 	this.ui.name = "ui";
-	this.ui.setTransform(214.55,33.15,0.4139,0.4139,0,0,0,68.9,45.3);
+	this.ui.setTransform(216.5,34.7,0.4051,0.4051,0,0,0,69,45.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.ui).wait(1));
 
@@ -1187,7 +1187,7 @@ if (reversed == null) { reversed = false; }
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.Scene4, new cjs.Rectangle(0,0,728,133.9), null);
+}).prototype = getMCSymbolPrototype(lib.Scene4, new cjs.Rectangle(0,-44.9,728,174.4), null);
 
 
 (lib.Scene3 = function(mode,startPosition,loop,reversed) {
@@ -1204,14 +1204,14 @@ if (reversed == null) { reversed = false; }
 	// icon
 	this.icon = new lib.outlookIcon();
 	this.icon.name = "icon";
-	this.icon.setTransform(194.85,20.35,0.3721,0.3721,0,0,0,1.2,0.6);
+	this.icon.setTransform(193.2,19.9,0.4413,0.4413,0,0,0,1.2,0.7);
 
 	this.timeline.addTween(cjs.Tween.get(this.icon).wait(1));
 
 	// reflection
 	this.reflection = new lib.scene3_UI_Reflection();
 	this.reflection.name = "reflection";
-	this.reflection.setTransform(231.8,112.2,0.6476,0.6476,0,0,0,68.9,45.1);
+	this.reflection.setTransform(231.85,106.05,0.6063,0.6063,0,0,0,69,45.2);
 	this.reflection.alpha = 0.5;
 	this.reflection.compositeOperation = "hard-light";
 
@@ -1220,7 +1220,7 @@ if (reversed == null) { reversed = false; }
 	// ui
 	this.ui = new lib.scene3_UI();
 	this.ui.name = "ui";
-	this.ui.setTransform(215.45,33.25,0.434,0.434,0,0,0,68.9,45.4);
+	this.ui.setTransform(216.2,35.2,0.4008,0.4008,0,0,0,69,45.4);
 
 	this.timeline.addTween(cjs.Tween.get(this.ui).wait(1));
 
@@ -1244,7 +1244,7 @@ if (reversed == null) { reversed = false; }
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.Scene3, new cjs.Rectangle(0,-42,728,149.2), null);
+}).prototype = getMCSymbolPrototype(lib.Scene3, new cjs.Rectangle(0,-42,728,143.3), null);
 
 
 (lib.Scene2 = function(mode,startPosition,loop,reversed) {
@@ -1261,14 +1261,14 @@ if (reversed == null) { reversed = false; }
 	// icon
 	this.icon = new lib.pptIcon();
 	this.icon.name = "icon";
-	this.icon.setTransform(194.75,20.4,0.3721,0.3721,0,0,0,1,0.6);
+	this.icon.setTransform(193.2,19.95,0.4413,0.4413,0,0,0,1.2,0.8);
 
 	this.timeline.addTween(cjs.Tween.get(this.icon).wait(1));
 
 	// reflection
 	this.reflection = new lib.scene2_UI_Reflection();
 	this.reflection.name = "reflection";
-	this.reflection.setTransform(229.9,104.75,0.6199,0.6199,0,0,0,68.8,45.1);
+	this.reflection.setTransform(231.25,107.35,0.6199,0.6199,0,0,0,68.8,45.1);
 	this.reflection.alpha = 0.5;
 	this.reflection.compositeOperation = "hard-light";
 
@@ -1277,7 +1277,7 @@ if (reversed == null) { reversed = false; }
 	// ui
 	this.ui = new lib.scene2_UI();
 	this.ui.name = "ui";
-	this.ui.setTransform(214,32.65,0.4011,0.4011,0,0,0,68.8,45);
+	this.ui.setTransform(216.7,34.75,0.3951,0.3951,0,0,0,69,45.1);
 
 	this.timeline.addTween(cjs.Tween.get(this.ui).wait(1));
 
@@ -1301,7 +1301,7 @@ if (reversed == null) { reversed = false; }
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.Scene2, new cjs.Rectangle(0,-31,728,129.8), null);
+}).prototype = getMCSymbolPrototype(lib.Scene2, new cjs.Rectangle(0,-31,728,132.4), null);
 
 
 (lib.Scene1 = function(mode,startPosition,loop,reversed) {
@@ -1318,7 +1318,7 @@ if (reversed == null) { reversed = false; }
 	// Layer_2
 	this.icon = new lib.excelIcon();
 	this.icon.name = "icon";
-	this.icon.setTransform(194.05,20.2,0.3715,0.3715,0,0,0,-16.4,-15.8);
+	this.icon.setTransform(192.35,19.55,0.4412,0.4412,0,0,0,-16.1,-15.7);
 
 	this.timeline.addTween(cjs.Tween.get(this.icon).wait(1));
 
@@ -1490,7 +1490,7 @@ if (reversed == null) { reversed = false; }
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.bgScreens, new cjs.Rectangle(-2.9,-43.5,734.3,232.5), null);
+}).prototype = getMCSymbolPrototype(lib.bgScreens, new cjs.Rectangle(-2.9,-44.9,734.3,233.9), null);
 
 
 (lib.mainMC = function(mode,startPosition,loop,reversed) {
@@ -1605,7 +1605,7 @@ if (reversed == null) { reversed = false; }
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.mainMC, new cjs.Rectangle(-167.3,-43.5,899.7,232.5), null);
+}).prototype = getMCSymbolPrototype(lib.mainMC, new cjs.Rectangle(-167.3,-44.9,899.7,233.9), null);
 
 
 // stage content:
@@ -1657,7 +1657,7 @@ if (reversed == null) { reversed = false; }
 	this._renderFirstFrame();
 
 }).prototype = p = new lib.AnMovieClip();
-p.nominalBounds = new cjs.Rectangle(197.2,1.5,531.9000000000001,187.5);
+p.nominalBounds = new cjs.Rectangle(197.2,0,531.9000000000001,189);
 // library properties:
 lib.properties = {
 	id: '90A26FE74B042E4A89CA750D1DA2DF1F',
@@ -1667,7 +1667,7 @@ lib.properties = {
 	color: "#DBDBDD",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/M365_FY22Q2ConsRefresh_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1.png?1631284186791", id:"M365_FY22Q2ConsRefresh_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"}
+		{src:"images/M365_FY22Q2ConsRefresh_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1.png?1633014986638", id:"M365_FY22Q2ConsRefresh_USA_728x90_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"}
 	],
 	preloads: []
 };

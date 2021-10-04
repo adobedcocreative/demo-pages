@@ -431,7 +431,7 @@ function frame0(){
                 { alpha: 0, onStart:function(){initDiv.style.visibility='hidden'}
                 })
             .to([mc.screens.img1.ui], 0, { alpha: 1, y:207})
-            .to([mc.screens.img1.icon], 0, { alpha: 1, y:216})
+            .to([mc.screens.img1.icon], 0, { alpha: 1, y:215})
             .to([mc.screens.img1.reflection], 0, { alpha: .5})
 			.to([mc.nav.icon1], 0, { alpha: 0})
 			.to([mc.nav.icon2], 0, { alpha: 0})

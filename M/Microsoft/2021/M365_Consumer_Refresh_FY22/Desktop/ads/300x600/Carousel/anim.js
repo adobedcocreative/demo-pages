@@ -40,7 +40,6 @@ function frame0(){
             if (!exportRoot.animInProgress) {
                 prevSelection = exportRoot.currentSelection;
                 exportRoot.currentSelection = 1;
-                amoAd.onInteraction('Excel Click', exportRoot.currentSelection-1);
                 if (exportRoot.currentSelection != prevSelection){
                     exportRoot.animInProgress=true
                     if(exportRoot.currentSelection > prevSelection) {
@@ -437,7 +436,7 @@ function frame0(){
                 { alpha: 0, onStart:function(){initDiv.style.visibility='hidden'}
                 })
             .to([mc.screens.img1.ui], 0, { alpha: 1, y:207})
-            .to([mc.screens.img1.icon], 0, { alpha: 1, y:216})
+            .to([mc.screens.img1.icon], 0, { alpha: 1, y:214})
             .to([mc.screens.img1.reflection], 0, { alpha: .5})
 			.to([mc.nav.icon1], 0, { alpha: 0})
 			.to([mc.nav.icon2], 0, { alpha: 0})

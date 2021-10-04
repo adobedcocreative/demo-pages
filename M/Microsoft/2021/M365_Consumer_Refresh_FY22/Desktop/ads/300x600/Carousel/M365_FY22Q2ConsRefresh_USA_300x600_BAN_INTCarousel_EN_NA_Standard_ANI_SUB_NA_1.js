@@ -83,7 +83,7 @@ lib.ssMetadata = [
 
 
 
-(lib.OneDrive2x = function() {
+(lib.OneDrive2x1 = function() {
 	this.initialize(ss["M365_FY22Q2ConsRefresh_USA_300x600_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"]);
 	this.gotoAndStop(8);
 }).prototype = p = new cjs.Sprite();
@@ -420,6 +420,28 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.scene1_UI, new cjs.Rectangle(8,3,205,138), null);
 
 
+(lib.pptui = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+
+	// Layer_1
+	this.instance = new lib.PPT_UIpngcopy();
+	this.instance.setTransform(0,0,0.6228,0.6203);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+
+	this._renderFirstFrame();
+
+}).prototype = getMCSymbolPrototype(lib.pptui, new cjs.Rectangle(0,0,218,147), null);
+
+
 (lib.option_hit = function(mode,startPosition,loop,reversed) {
 if (loop == null) { loop = true; }
 if (reversed == null) { reversed = false; }
@@ -568,18 +590,18 @@ if (reversed == null) { reversed = false; }
 
 	// Layer_1
 	this.shape = new cjs.Shape();
-	this.shape.graphics.lf(["rgba(242,242,242,0)","rgba(242,242,242,0.141)","rgba(242,242,242,0.729)","#F2F2F2"],[0,0.173,0.463,1],-25,0,25,0).s().p("EgD5Au4MAAAhdvIHzAAMAAABdvg");
-	this.shape.setTransform(25,300);
+	this.shape.graphics.f("#F2F2F2").s().p("EgXYAu4MAAAhdvMAuxAAAMAAABdvg");
+	this.shape.setTransform(204.1368,300.4326,1.0292,1.0219);
 
 	this.shape_1 = new cjs.Shape();
-	this.shape_1.graphics.f("#F2F2F2").s().p("EgXYAu4MAAAhdvMAuxAAAMAAABdvg");
-	this.shape_1.setTransform(199.75,300);
+	this.shape_1.graphics.lf(["rgba(242,242,242,0)","rgba(242,242,242,0.141)","rgba(242,242,242,0.729)","#F2F2F2"],[0,0.173,0.463,1],-25,0,25,0).s().p("EgD5Au4MAAAhdvIHzAAMAAABdvg");
+	this.shape_1.setTransform(25,300);
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_1},{t:this.shape}]}).wait(1));
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.introBg_Sub, new cjs.Rectangle(0,0,349.5,600), null);
+}).prototype = getMCSymbolPrototype(lib.introBg_Sub, new cjs.Rectangle(0,-6.1,358.3,613.1), null);
 
 
 (lib.icon5b = function(mode,startPosition,loop,reversed) {
@@ -616,7 +638,7 @@ if (reversed == null) { reversed = false; }
 	cjs.MovieClip.apply(this,[props]);
 
 	// Layer_1
-	this.instance = new lib.OneDrive2x();
+	this.instance = new lib.OneDrive2x1();
 	this.instance.setTransform(0,0,0.5,0.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
@@ -908,7 +930,7 @@ if (reversed == null) { reversed = false; }
 		if(this.totalFrames == 1) {
 			this.isSingleFrame = true;
 		}
-		this.sub.cache(0,0,350,600,1)
+		this.sub.cache(0,0,360,610,1)
 	}
 
 	// actions tween:
@@ -923,7 +945,7 @@ if (reversed == null) { reversed = false; }
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.introBG, new cjs.Rectangle(0.5,0,349.5,600), null);
+}).prototype = getMCSymbolPrototype(lib.introBG, new cjs.Rectangle(0.5,-6.1,358.3,613.1), null);
 
 
 (lib.excelIcon = function(mode,startPosition,loop,reversed) {
@@ -1022,7 +1044,7 @@ if (reversed == null) { reversed = false; }
 	// icon
 	this.icon = new lib.onedriveIcon();
 	this.icon.name = "icon";
-	this.icon.setTransform(67.45,225.4,0.6389,0.6389,0,0,0,14.8,14.7);
+	this.icon.setTransform(57.2,224.6,0.7101,0.7101,0,0,0,14.8,14.8);
 
 	this.timeline.addTween(cjs.Tween.get(this.icon).wait(1));
 
@@ -1079,7 +1101,7 @@ if (reversed == null) { reversed = false; }
 	// icon
 	this.icon = new lib.editorIcon();
 	this.icon.name = "icon";
-	this.icon.setTransform(67.45,225.4,0.6389,0.6389,0,0,0,14.8,14.7);
+	this.icon.setTransform(57.2,224.6,0.7101,0.7101,0,0,0,14.8,14.8);
 
 	this.timeline.addTween(cjs.Tween.get(this.icon).wait(1));
 
@@ -1136,7 +1158,7 @@ if (reversed == null) { reversed = false; }
 	// icon
 	this.icon = new lib.outlookIcon();
 	this.icon.name = "icon";
-	this.icon.setTransform(67.45,225.4,0.6389,0.6389,0,0,0,14.8,14.7);
+	this.icon.setTransform(57.2,224.6,0.7101,0.7101,0,0,0,14.8,14.8);
 
 	this.timeline.addTween(cjs.Tween.get(this.icon).wait(1));
 
@@ -1193,7 +1215,7 @@ if (reversed == null) { reversed = false; }
 	// icon
 	this.icon = new lib.pptIcon();
 	this.icon.name = "icon";
-	this.icon.setTransform(67.45,225.4,0.6389,0.6389,0,0,0,14.8,14.7);
+	this.icon.setTransform(57.2,224.6,0.7101,0.7101,0,0,0,14.8,14.8);
 
 	this.timeline.addTween(cjs.Tween.get(this.icon).wait(1));
 
@@ -1207,10 +1229,11 @@ if (reversed == null) { reversed = false; }
 	this.timeline.addTween(cjs.Tween.get(this.reflection).wait(1));
 
 	// ui
-	this.instance = new lib.PPT_UIpngcopy();
-	this.instance.setTransform(46,209,0.6228,0.6203);
+	this.ui = new lib.pptui();
+	this.ui.name = "ui";
+	this.ui.setTransform(155,282.5,1,1,0,0,0,109,73.5);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.ui).wait(1));
 
 	// Layer_2 (mask)
 	var mask = new cjs.Shape();
@@ -1219,16 +1242,16 @@ if (reversed == null) { reversed = false; }
 	mask.setTransform(150,299);
 
 	// new bg
-	this.instance_1 = new lib.pptbg11();
-	this.instance_1.setTransform(-16.45,-6);
+	this.instance = new lib.pptbg11();
+	this.instance.setTransform(-16.45,-6);
 
-	var maskedShapeInstanceList = [this.instance_1];
+	var maskedShapeInstanceList = [this.instance];
 
 	for(var shapedInstanceItr = 0; shapedInstanceItr < maskedShapeInstanceList.length; shapedInstanceItr++) {
 		maskedShapeInstanceList[shapedInstanceItr].mask = mask;
 	}
 
-	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 	this._renderFirstFrame();
 
@@ -1249,7 +1272,7 @@ if (reversed == null) { reversed = false; }
 	// icon
 	this.icon = new lib.excelIcon();
 	this.icon.name = "icon";
-	this.icon.setTransform(58.05,216.1,0.6387,0.6231,0,0,0,0.1,0.2);
+	this.icon.setTransform(46.75,214.3,0.7098,0.6931,0,0,0,0.1,0.3);
 
 	this.timeline.addTween(cjs.Tween.get(this.icon).wait(1));
 
@@ -1598,7 +1621,7 @@ lib.properties = {
 	color: "#DBDBDD",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/M365_FY22Q2ConsRefresh_USA_300x600_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1.png?1631281635273", id:"M365_FY22Q2ConsRefresh_USA_300x600_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"}
+		{src:"images/M365_FY22Q2ConsRefresh_USA_300x600_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1.png?1633012007704", id:"M365_FY22Q2ConsRefresh_USA_300x600_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"}
 	],
 	preloads: []
 };

@@ -436,6 +436,31 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.scene1_UI, new cjs.Rectangle(9,2,205,139), null);
 
 
+(lib.option_hitbig = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+
+	// Layer_1
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f("#FF0000").s().p("AAyDEIAAiKIhbAAIAACKIgmAAIAAmHICfAAIAABvIAACPIAACJg");
+	this.shape.setTransform(0,11.3);
+	this.shape._off = true;
+
+	this.timeline.addTween(cjs.Tween.get(this.shape).wait(3).to({_off:false},0).wait(1));
+
+	this._renderFirstFrame();
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-8,-8.2,16,39.099999999999994);
+
+
 (lib.option_hit = function(mode,startPosition,loop,reversed) {
 if (loop == null) { loop = true; }
 if (reversed == null) { reversed = false; }
@@ -1038,7 +1063,7 @@ if (reversed == null) { reversed = false; }
 	// icon
 	this.icon = new lib.onedriveIcon();
 	this.icon.name = "icon";
-	this.icon.setTransform(67.45,225.4,0.6389,0.6389,0,0,0,14.8,14.7);
+	this.icon.setTransform(57.2,224.6,0.7101,0.7101,0,0,0,14.8,14.8);
 
 	this.timeline.addTween(cjs.Tween.get(this.icon).wait(1));
 
@@ -1095,7 +1120,7 @@ if (reversed == null) { reversed = false; }
 	// icon
 	this.icon = new lib.editorIcon();
 	this.icon.name = "icon";
-	this.icon.setTransform(67.45,225.4,0.6389,0.6389,0,0,0,14.8,14.7);
+	this.icon.setTransform(57.2,224.6,0.7101,0.7101,0,0,0,14.8,14.8);
 
 	this.timeline.addTween(cjs.Tween.get(this.icon).wait(1));
 
@@ -1140,7 +1165,7 @@ if (reversed == null) { reversed = false; }
 	// icon
 	this.icon = new lib.outlookIcon();
 	this.icon.name = "icon";
-	this.icon.setTransform(67.45,225.4,0.6389,0.6389,0,0,0,14.8,14.7);
+	this.icon.setTransform(57.2,224.6,0.7101,0.7101,0,0,0,14.8,14.8);
 
 	this.timeline.addTween(cjs.Tween.get(this.icon).wait(1));
 
@@ -1197,7 +1222,7 @@ if (reversed == null) { reversed = false; }
 	// icon
 	this.icon = new lib.pptIcon();
 	this.icon.name = "icon";
-	this.icon.setTransform(67.45,225.4,0.6389,0.6389,0,0,0,14.8,14.7);
+	this.icon.setTransform(57.2,224.55,0.7101,0.7101,0,0,0,14.8,14.7);
 
 	this.timeline.addTween(cjs.Tween.get(this.icon).wait(1));
 
@@ -1254,7 +1279,7 @@ if (reversed == null) { reversed = false; }
 	// icon
 	this.icon = new lib.excelIcon();
 	this.icon.name = "icon";
-	this.icon.setTransform(56.25,213.5,0.6387,0.6237,0,0,0,0.1,0.2);
+	this.icon.setTransform(46.75,214.3,0.7094,0.6928,0,0,0,0.1,0.3);
 
 	this.timeline.addTween(cjs.Tween.get(this.icon).wait(1));
 
@@ -1500,6 +1525,14 @@ if (reversed == null) { reversed = false; }
 
 	this.timeline.addTween(cjs.Tween.get(this.cta).wait(1));
 
+	// hit
+	this.hit = new lib.option_hitbig();
+	this.hit.name = "hit";
+	this.hit.setTransform(79.65,124.95,10.0194,15.4324);
+	new cjs.ButtonHelper(this.hit, 0, 1, 2, false, new lib.option_hitbig(), 3);
+
+	this.timeline.addTween(cjs.Tween.get(this.hit).wait(1));
+
 	// navHits
 	this.hit5 = new lib.option_hit();
 	this.hit5.name = "hit5";
@@ -1534,14 +1567,6 @@ if (reversed == null) { reversed = false; }
 	this.nav.setTransform(147.9,122.4,1,1,0,0,0,147.9,122.4);
 
 	this.timeline.addTween(cjs.Tween.get(this.nav).wait(1));
-
-	// hit
-	this.hit = new lib.option_hit();
-	this.hit.name = "hit";
-	this.hit.setTransform(79.65,124.95,10.0194,15.4324);
-	new cjs.ButtonHelper(this.hit, 0, 1, 2, false, new lib.option_hit(), 3);
-
-	this.timeline.addTween(cjs.Tween.get(this.hit).wait(1));
 
 	// txt_Intro
 	this.txtIntro = new lib.txtIntro_mc();
@@ -1649,7 +1674,7 @@ lib.properties = {
 	color: "#DBDBDD",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/M365_FY22Q2ConsRefresh_USA_160x600_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1.png?1631281631353", id:"M365_FY22Q2ConsRefresh_USA_160x600_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"}
+		{src:"images/M365_FY22Q2ConsRefresh_USA_160x600_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1.png?1633015571788", id:"M365_FY22Q2ConsRefresh_USA_160x600_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"}
 	],
 	preloads: []
 };

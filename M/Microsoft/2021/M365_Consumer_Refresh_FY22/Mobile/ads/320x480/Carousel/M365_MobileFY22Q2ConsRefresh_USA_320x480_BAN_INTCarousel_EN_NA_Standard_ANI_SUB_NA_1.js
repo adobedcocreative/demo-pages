@@ -97,7 +97,7 @@ lib.ssMetadata = [
 
 
 
-(lib.Outlook2x = function() {
+(lib.Outlook2x1 = function() {
 	this.initialize(ss["M365_MobileFY22Q2ConsRefresh_USA_320x480_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"]);
 	this.gotoAndStop(10);
 }).prototype = p = new cjs.Sprite();
@@ -655,7 +655,7 @@ if (reversed == null) { reversed = false; }
 	cjs.MovieClip.apply(this,[props]);
 
 	// Layer_1
-	this.instance = new lib.Outlook2x();
+	this.instance = new lib.Outlook2x1();
 	this.instance.setTransform(0,0,0.5,0.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
@@ -1039,14 +1039,14 @@ if (reversed == null) { reversed = false; }
 	// icon
 	this.icon = new lib.onedriveIcon();
 	this.icon.name = "icon";
-	this.icon.setTransform(73,230.15,0.5858,0.5859,0,0,0,15,14.7);
+	this.icon.setTransform(68,229.3,0.6629,0.663,0,0,0,15.1,14.8);
 
 	this.timeline.addTween(cjs.Tween.get(this.icon).wait(1));
 
 	// reflection
 	this.reflection = new lib.scene5_UI_Reflection();
 	this.reflection.name = "reflection";
-	this.reflection.setTransform(141.95,428.3,1.4746,1.4744,0,0,0,68.8,45.1);
+	this.reflection.setTransform(154.25,428.3,1.4746,1.4744,0,0,0,68.8,45.1);
 	this.reflection.alpha = 0.5;
 	this.reflection.compositeOperation = "hard-light";
 
@@ -1079,7 +1079,7 @@ if (reversed == null) { reversed = false; }
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.Scene5, new cjs.Rectangle(8.6,42.1,330.7,488), null);
+}).prototype = getMCSymbolPrototype(lib.Scene5, new cjs.Rectangle(11.3,42.1,328,488), null);
 
 
 (lib.Scene4 = function(mode,startPosition,loop,reversed) {
@@ -1096,14 +1096,14 @@ if (reversed == null) { reversed = false; }
 	// icon
 	this.icon = new lib.editorIcon();
 	this.icon.name = "icon";
-	this.icon.setTransform(72.7,230.3,0.5858,0.5858,0,0,0,14.8,14.7);
+	this.icon.setTransform(67.95,229.3,0.6629,0.6629,0,0,0,15,14.8);
 
 	this.timeline.addTween(cjs.Tween.get(this.icon).wait(1));
 
 	// reflection
 	this.reflection = new lib.scene4_UI_Reflection();
 	this.reflection.name = "reflection";
-	this.reflection.setTransform(140.65,428.25,1.4746,1.4739,0,0,0,68.9,45.1);
+	this.reflection.setTransform(152.95,428.25,1.4746,1.4739,0,0,0,68.9,45.1);
 	this.reflection.alpha = 0.5;
 	this.reflection.compositeOperation = "hard-light";
 
@@ -1136,7 +1136,7 @@ if (reversed == null) { reversed = false; }
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.Scene4, new cjs.Rectangle(8.4,42.1,330.90000000000003,488), null);
+}).prototype = getMCSymbolPrototype(lib.Scene4, new cjs.Rectangle(11.3,42.1,328,488), null);
 
 
 (lib.Scene3 = function(mode,startPosition,loop,reversed) {
@@ -1153,14 +1153,14 @@ if (reversed == null) { reversed = false; }
 	// icon
 	this.icon = new lib.outlookIcon();
 	this.icon.name = "icon";
-	this.icon.setTransform(72.85,230.35,0.5859,0.586,0,0,0,14.8,14.8);
+	this.icon.setTransform(67.95,229.45,0.6631,0.6631,0,0,0,15,15);
 
 	this.timeline.addTween(cjs.Tween.get(this.icon).wait(1));
 
 	// reflection
 	this.reflection = new lib.scene3_UI_Reflection();
 	this.reflection.name = "reflection";
-	this.reflection.setTransform(142.25,430.9,1.475,1.4745,0,0,0,68.8,45.1);
+	this.reflection.setTransform(152.25,430.9,1.475,1.4745,0,0,0,68.8,45.1);
 	this.reflection.alpha = 0.5;
 	this.reflection.compositeOperation = "hard-light";
 
@@ -1193,7 +1193,7 @@ if (reversed == null) { reversed = false; }
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.Scene3, new cjs.Rectangle(8.8,42.1,330.5,488), null);
+}).prototype = getMCSymbolPrototype(lib.Scene3, new cjs.Rectangle(11.3,42.1,328,488), null);
 
 
 (lib.Scene2 = function(mode,startPosition,loop,reversed) {
@@ -1210,14 +1210,14 @@ if (reversed == null) { reversed = false; }
 	// icon
 	this.icon = new lib.pptIcon();
 	this.icon.name = "icon";
-	this.icon.setTransform(72.85,230.15,0.5859,0.586,0,0,0,14.8,14.8);
+	this.icon.setTransform(67.95,229.3,0.6631,0.6631,0,0,0,15,14.8);
 
 	this.timeline.addTween(cjs.Tween.get(this.icon).wait(1));
 
 	// reflection
 	this.reflection = new lib.scene2_UI_Reflection();
 	this.reflection.name = "reflection";
-	this.reflection.setTransform(141.55,425.35,1.534,1.5333,0,0,0,68.9,45.1);
+	this.reflection.setTransform(153.85,425.35,1.534,1.5333,0,0,0,68.9,45.1);
 	this.reflection.alpha = 0.5;
 	this.reflection.compositeOperation = "hard-light";
 
@@ -1250,7 +1250,7 @@ if (reversed == null) { reversed = false; }
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.Scene2, new cjs.Rectangle(-1.9,42.1,339.2,488), null);
+}).prototype = getMCSymbolPrototype(lib.Scene2, new cjs.Rectangle(10.4,42.1,326.90000000000003,488), null);
 
 
 (lib.Scene1 = function(mode,startPosition,loop,reversed) {
@@ -1267,7 +1267,7 @@ if (reversed == null) { reversed = false; }
 	// icon
 	this.icon = new lib.excelIcon();
 	this.icon.name = "icon";
-	this.icon.setTransform(64.2,221.1,0.5856,0.5713,0,0,0,0.2,0.2);
+	this.icon.setTransform(58.25,219.75,0.6634,0.6467,0,0,0,0.4,0.4);
 
 	this.timeline.addTween(cjs.Tween.get(this.icon).wait(1));
 
@@ -1616,7 +1616,7 @@ lib.properties = {
 	color: "#DBDBDD",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/M365_MobileFY22Q2ConsRefresh_USA_320x480_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1.png?1631293003716", id:"M365_MobileFY22Q2ConsRefresh_USA_320x480_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"}
+		{src:"images/M365_MobileFY22Q2ConsRefresh_USA_320x480_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1.png?1633009806269", id:"M365_MobileFY22Q2ConsRefresh_USA_320x480_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"}
 	],
 	preloads: []
 };
