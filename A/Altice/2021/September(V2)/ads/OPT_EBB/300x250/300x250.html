@@ -387,27 +387,27 @@ amo.registerAttribute("frameText32", "TEXT", "<div style='top: 165px;left: 30px;
         })();
         fn.shapes = (function() {
           const load = function(selector='#ad') {
-            const x = 3;
+            const x = 2;
             let htmlContent = '';
             const parentElement = document.querySelector(selector);
             const shapes = document.createElement('div');
             shapes.id = 'shapes';
             for(let i = 1; i <= x; i++) {
-              htmlContent += '<div id="shape' + (i + 1) + '" class="shape"></div>';
+              htmlContent += '<div id="shape' + (i) + '" class="shape"></div>';
             }
             shapes.innerHTML = htmlContent;
             parentElement.appendChild(shapes);
-            gsap.set('#shape1',{top:16,left:300,width:200,height:35,x:-500});
-            gsap.set('#shape2',{top:153,left:-180,width:180,height:28,x:480});
-            gsap.set('#shape3',{top:-280,left:210,width:60,height:280,y:530});
-            gsap.set('#shape4',{top:-280,left:20,width:55,height:280,y:530});
+            gsap.set('#shape1',{top:38,left:300,width:200,height:27,x:-500});
+            gsap.set('#shape2',{top:170,left:-180,width:180,height:27,x:480});
+            // gsap.set('#shape3',{top:-280,left:210,width:60,height:280,y:530});
+            // gsap.set('#shape4',{top:-280,left:20,width:55,height:280,y:530});
           }
           const animate = function() {
             gsap.timeline({defaults:{ease: 'none', duration:0.5}})
-            .to('#shape1', {x: 0, delay: 0.8})
+            .to('#shape1', {x: 0, delay: 2.2})
             .to('#shape2', {x: 0, delay: -0.2})
-            .to('#shape3', {x: 0, delay: -0.2})
-            .to('#shape4', {x: 0, delay: -0.2})
+            // .to('#shape3', {x: 0, delay: -0.2})
+            // .to('#shape4', {x: 0, delay: -0.2})
           }
           return {
             load: function(selector) { return load(selector) },
@@ -415,7 +415,7 @@ amo.registerAttribute("frameText32", "TEXT", "<div style='top: 165px;left: 30px;
           }
         })();
         fn.beams.load('#otherFrames');
-        // fn.shapes.load('#frame1');
+        fn.shapes.load('#frame1');
 
         gsap.set('#otherFrames .asset', {x:'100%'});
         gsap.set('.frame-container .text, .frameText', {x:'-100%'});
@@ -483,6 +483,7 @@ amo.registerAttribute("frameText32", "TEXT", "<div style='top: 165px;left: 30px;
         })();
         const animateFrame1 = function(frame, properties, flag) {
           const duration = properties && 'duration' in properties ? properties.duration : 3;
+          fn.shapes.animate();
           gsap.timeline(timelineProps)
             .to('#frameAsset1, #frameText1', destinationValues)
             .to('#frameText1', {x: '100%', delay: 2.2})
