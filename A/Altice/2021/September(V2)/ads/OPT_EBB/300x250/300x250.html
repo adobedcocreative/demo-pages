@@ -487,7 +487,7 @@ amo.registerAttribute("frameText32", "TEXT", "<div style='top: 165px;left: 30px;
           gsap.timeline(timelineProps)
             .to('#frameAsset1, #frameText1', destinationValues)
             .to('#frameText1', {x: '100%', delay: 2.2})
-            .to('#frameText12', destinationValues)
+            .to('#frameText12', destinationValues, '-=0.3')
             gsap.timeline(timelineProps)
             .to(frame, (flag==true?{}:{delay: (duration - timelineProps.defaults.duration), autoAlpha:0, onComplete: animate.nextFrame}));
         }
