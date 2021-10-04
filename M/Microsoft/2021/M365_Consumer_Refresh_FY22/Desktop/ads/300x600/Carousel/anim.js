@@ -40,7 +40,7 @@ function frame0(){
             if (!exportRoot.animInProgress) {
                 prevSelection = exportRoot.currentSelection;
                 exportRoot.currentSelection = 1;
-                //amoAd.onInteraction('Excel Click', exportRoot.currentSelection-1); //Commented For Testing Update on GIT HUB
+                amoAd.onInteraction('Excel Click', exportRoot.currentSelection-1);
                 if (exportRoot.currentSelection != prevSelection){
                     exportRoot.animInProgress=true
                     if(exportRoot.currentSelection > prevSelection) {
