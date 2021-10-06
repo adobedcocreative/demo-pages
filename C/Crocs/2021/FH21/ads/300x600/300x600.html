@@ -92,7 +92,7 @@
           staticData: {
             // ref: 'ref.png'
             ctaBtnColor: '#fff',
-            logoImage: 'images/300x250_Crocs_FH21_Logo_Black.png',
+            logoImage: 'images/300x600_Crocs_FH21_Logo_Black.png',
 
           },
           beforeLoad: function(data){
@@ -103,7 +103,7 @@
                 gsap.set('#cta', {left:153, top:551, width: 99, height:30});
               }
               switch(content.ctaSelect){
-                case 'en_text': content.ctaImage = 'images/cta/CTA_English_White.png'; break;
+                case 'en_text': content.ctaImage = 'images/cta/CTA_English_Black.png'; content.logoImage = 'images/300x600_Crocs_FH21_Logo_White.png'; break;
                 case 'de_text': content.ctaImage = 'images/cta/CTA_German_White.png'; break;
                 case 'jp_text': content.ctaImage = 'images/cta/CTA_Japan_White.png'; changePosition(); break;
                 case 'kr_text': content.ctaImage = 'images/cta/CTA_Korean_White.png'; break;
