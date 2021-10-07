@@ -162,31 +162,78 @@
     </div>
     <div id="adContainer" class="ad-wrapper"></div>
     <script type="text/javascript">
-      var bannerData = [], bannerData1 = [];
+      var bannerData = [], bannerData1 = [];      
       var getCAMData = function(data, selector) {
-        var folderName = location.pathname.split('/');
-        folderName = folderName[folderName.length - 2];
-        var folderPath = '../../'+ folderName +'/assets/'+ data.MODEL + '/';
+        // var folderName = location.pathname.split('/');
+        // folderName = folderName[folderName.length - 2];
+        // var folderPath = '../../'+ folderName +'/assets/'+ data.Level1 + '/';
+        // var folderPath = '../../assets/logos/';
+        // var templates = {
+        //   'Celebrity': `var cam = {
+        //     adSize: data.AD_SIZE,
+        //     language: data.LANGUAGE,
+        //     backgroundImage1: '${folderPath}' + data.IMAGE_URL1,
+        //     backgroundImage2: '${folderPath}' + data.IMAGE_URL2,
+        //     headlineImage1: '${folderPath}' + data.IMAGE_URL3,
+        //     headlineImage2: '${folderPath}' + data.IMAGE_URL4,
+        //     headlineImage3: '${folderPath}' + data.IMAGE_URL5,
+        //     title: data.Level2 + data.Level3,
+        //     styleProperties: data.TEXT_3,
+        //     ctaSelect: data.TEXT_4,
+        //     clickURL: data.PRODUCT_URL,
+        //     impressionTracker: 'na',
+        //   }`,
+        // }
         var templates = {
-          'Celebrity': `amo.registerClick("clickUrl", "${data.clickUrl}");
-                        amo.registerAttribute("ctaText", "TEXT", "${data.ctaText}");
-                        amo.registerAttribute("backgroundImage", "IMAGE", "${folderPath}${data.backgroundImage}");
-                        amo.registerAttribute("frameImage11", "IMAGE", "${folderPath}${data.frameImage11}");
-                        amo.registerAttribute("frameImage12", "IMAGE", "${folderPath}${data.frameImage12}");
-                        amo.registerAttribute("frameImage21", "IMAGE", "${folderPath}${data.frameImage21}");
-                        amo.registerAttribute("frameImage22", "IMAGE", "${folderPath}${data.frameImage22}");
-                        amo.registerAttribute("frameImage31", "IMAGE", "${folderPath}${data.frameImage31}");
-                        amo.registerAttribute("frameImage32", "IMAGE", "${folderPath}${data.frameImage32}");
-                        amo.registerAttribute("frameImage41", "IMAGE", "${folderPath}${data.frameImage41}");
-                        amo.registerAttribute("frameImage42", "IMAGE", "${folderPath}${data.frameImage42}");
-                        amo.registerAttribute("frameImage43", "IMAGE", "${folderPath}${data.frameImage43}");
-                        amo.registerAttribute("headlineText", "IMAGE", "${data.headlineText}");
-                        amo.registerAttribute("styleProperties", "TEXT", "${data.styleProperties}");
-                        amo.registerAttribute("impressionTracker", "TEXT", "na");`,
+          'Celebrity': `var cam = {
+            adSize: data.AD_SIZE,
+            language: data.LANGUAGE,
+            layoutText: data.layoutText,
+            layoutColor: data.layoutColor,
+            headlineText: data.headlineText,
+            logoImage: data.folderPath + data.logoImage,
+            productImage: data.productImage,
+            productName: data.productName,
+            price: data.price,
+            discountPrice: data.discountPrice,
+            ctaText: data.ctaText,
+            clickUrl: data.clickUrl,
+            descriptionUrl: data.descriptionUrl,
+          }`,
         }
-        // eval(templates[selector]);
-        // return JSON.stringify(cam);
-        return templates[selector];
+        eval(templates[selector]);
+        return JSON.stringify(cam);
+      }
+      const getFeedData = function(data){
+        const offerIds = data.offerIds;
+        const offers = feedContent.filter(function(data){ return offerIds.indexOf(data.OFFER_ID) !== -1; });
+        const fieldMapping = {
+          // OFFER_ID: 'gid',
+          ORIGIN_DISPLAY_CITY_NAME: 'name',
+          PRICE: 'price',
+          DISCOUNT_PRICE: 'discount_price',
+          LANDING_PAGE_URL: 'product_url',
+          IMAGE_URL: 'picture_url',
+          IMAGE_URL1: 'image_url1',
+          // LINE_OF_BUSINESS: 'x2_f1',
+          gender: 'gender',
+          PROVIDER_CATEGORY: 'display_advertiser_category_name',
+          special_handling: '',
+          Promo_Status: '',
+          TEXT_1: 'passthroughfield1',
+          TEXT_2: 'passthroughfield2',
+          TEXT_3: 'passthroughfield3',
+          TEXT_4: 'passthroughfield4',
+        };
+        return JSON.stringify(offers.map(function(offer){ 
+          var obj = {};
+          for(var key in fieldMapping) {
+            if(key in offer && fieldMapping[key] !== '') {
+              obj[fieldMapping[key]] = offer[key];
+            }
+          }
+          return obj;
+        }));
       }
       var loadContent = function(queryString){
         bannerData = [];
@@ -200,18 +247,18 @@
           '<div></div>'+
           '<div class="frame-wrapper"><div id="ad320x50"></div><div>320 x 50</div></div>'+
           '<div class="frame-wrapper"><div id="ad728x90"></div><div>728 x 90</div></div>'+
-        '</div>'+
-        '<div class="frame-wrapper"><div id="ad970x250"></div><div>970 x 250</div></div>';
+        '</div>';
+        // '<div class="frame-wrapper"><div id="ad970x250"></div><div>970 x 250</div></div>';
         htmlContent = '';
         // var queryString = 'Japan|Create_O365_Word_Inking';
         var searchString = queryString.split('|').splice(0, 2).join('|');
         var filterString = queryString.split('|').length > 2 ? queryString.split('|').splice(2).join('|') : '';
         var adContent = getCelebrityData(searchString),adContents = {};
-        var model = adContent.data[0].MODEL;
+        var model = adContent.data[0].Level1;
         var productName = adContent.name;
         location.hash = btoa(model+'|'+productName).replace('==','');
-        // htmlContent += celebritiesFeedData.map(function(data){ var product = data.data.find(function(product) { return product.name == productName }); if(!product){ var product = data.data[0] } var adData = product.data.find(function(obj){ return obj.AD_SIZE == '300x600'; }); return '<div '+(model == data.name ? 'class="selected"' : '')+' data-id="' + data.name + '"><div class="modelImage" style="background-image:url(\'' + 'assets/'+ adData.MODEL + '/' + adData.IMAGE_URL3 + '\')"></div><div class="modelLabel">'+data.name + '</div></div>' }).join('');
-        htmlContent += celebritiesFeedData.map(function(data){
+        // htmlContent += attributesData.map(function(data){ var product = data.data.find(function(product) { return product.name == productName }); if(!product){ var product = data.data[0] } var adData = product.data.find(function(obj){ return obj.AD_SIZE == '300x600'; }); return '<div '+(model == data.name ? 'class="selected"' : '')+' data-id="' + data.name + '"><div class="modelImage" style="background-image:url(\'' + 'assets/'+ adData.Level1 + '/' + adData.IMAGE_URL3 + '\')"></div><div class="modelLabel">'+data.name + '</div></div>' }).join('');
+        htmlContent += attributesData.map(function(data){
           var product = data.data.find(function(product) {
             return product.name == productName
           });
@@ -221,28 +268,28 @@
         }).join('');
         document.querySelector('#modelHeader').innerHTML = htmlContent;
         htmlContent = '';
-        var modelData = celebritiesFeedData.find(function(data){ return data.name == model; });
+        var modelData = attributesData.find(function(data){ return data.name == model; });
         if(modelData) {
           // htmlContent += modelData.data.map(function(data){ return '<div '+(productName == data.name ? 'class="selected"' : '')+' data-id="' + modelData.name + '|' + data.name + '" title="' + modelData.name + ' > ' + data.data[0].template + ' > ' + data.name + '">'+data.name + '</div>' }).join('');
-          // htmlContent += modelData.data.map(function(data){ var adData = data.data.find(function(ad){ return ad.AD_SIZE == '300x250' }); return '<div data-id="' + modelData.name + '|' + data.name + '" title="' + modelData.name + ' > ' + data.name + '" '+(productName == data.name ? 'class="selected"' : '')+' style="background-color:#e5e5e5;"><div class="image-container"><div class="image"><img src="'+'assets/'+modelData.name+'/' + adData.IMAGE_URL5+'"></div><div class="image"><img src="'+'assets/'+modelData.name+'/' + adData.IMAGE_URL4+'"></div></div><div class="text">' + adData.smartName + '</div></div>'; }).join('');
-          htmlContent += modelData.data.map(function(data){ var adData = data.data[0]; return '<div data-id="' + modelData.name + '|' + data.name + '" title="' + modelData.name + ' > ' + data.name + '" '+(productName == data.name ? 'class="selected"' : '')+' style=""><div class="text">' + adData.smartName + '</div></div>'; }).join('');
-          // htmlContent += modelData.data.map(function(data){ var adData = data.data.find(function(ad){ return ad.AD_SIZE == '300x250' }); return '<div data-id="' + modelData.name + '|' + data.name + '" title="' + modelData.name + ' > ' + data.name + '" '+(productName == data.name ? 'class="selected"' : '')+' style="background-color:#e5e5e5;"><div class="text">' + adData.smartName + '</div></div>'; }).join('');
+          // htmlContent += modelData.data.map(function(data){ var adData = data.data.find(function(ad){ return ad.AD_SIZE == '300x250' }); return '<div data-id="' + modelData.name + '|' + data.name + '" title="' + modelData.name + ' > ' + data.name + '" '+(productName == data.name ? 'class="selected"' : '')+' style="background-color:#e5e5e5;"><div class="image-container"><div class="image"><img src="'+'assets/'+modelData.name+'/' + adData.IMAGE_URL5+'"></div><div class="image"><img src="'+'assets/'+modelData.name+'/' + adData.IMAGE_URL4+'"></div></div><div class="text">' + adData.Level2 + '</div></div>'; }).join('');
+          htmlContent += modelData.data.map(function(data){ var adData = data.data[0]; return '<div data-id="' + modelData.name + '|' + data.name + '" title="' + modelData.name + ' > ' + data.name + '" '+(productName == data.name ? 'class="selected"' : '')+' style=""><div class="text">' + adData.Level2 + '</div></div>'; }).join('');
+          // htmlContent += modelData.data.map(function(data){ var adData = data.data.find(function(ad){ return ad.AD_SIZE == '300x250' }); return '<div data-id="' + modelData.name + '|' + data.name + '" title="' + modelData.name + ' > ' + data.name + '" '+(productName == data.name ? 'class="selected"' : '')+' style="background-color:#e5e5e5;"><div class="text">' + adData.Level2 + '</div></div>'; }).join('');
         }
         document.querySelector('#headerWrapper').innerHTML = htmlContent;
         document.querySelector('#modelHeader').style.display = 'inline-block';
         document.querySelector('#headerWrapper').style.minWidth = document.querySelector('#modelHeader').offsetWidth + 'px';
         document.querySelector('#modelHeader').style.display = '';
         var headlines = [];
-        adContent.data.forEach(function(data){ headlines.push(data.Label + '|' + data.LANGUAGE); });
+        adContent.data.forEach(function(data){ headlines.push(data.Level3 + '|' + data.LANGUAGE); });
         headlines = headlines.filter(function(value, index, self){ return self.indexOf(value) === index; });
         if(headlines) {
           filterString = filterString.length ? filterString : headlines[0];
           if(!headlines.find(function(headline){ return headline.toLowerCase() == filterString.toLowerCase(); })) { filterString = headlines[0]; }
-          var model = adContent.data[0].MODEL;
+          var model = adContent.data[0].Level1;
           var productName = adContent.name;
           location.hash = btoa(model+'|'+productName+'|'+filterString).replace('==','').replace('=','');
           adContents.name = adContent.name;
-          adContents.data = adContent.data.filter(function(data){ return (data.Label + '|' + data.LANGUAGE).toLowerCase() == filterString.toLowerCase(); });
+          adContents.data = adContent.data.filter(function(data){ return (data.Level3 + '|' + data.LANGUAGE).toLowerCase() == filterString.toLowerCase(); });
           htmlContent = '';
           htmlContent += headlines.map(function(headline){ return '<div '+(headline.toLowerCase() == filterString.toLowerCase()? 'class="selected"': '')+' data-id="'+model+'|'+productName+'|'+headline+'">' + headline.split('|')[0] + '<div>(' + headline.split('|')[1] + ')</div></div>'; }).join('');
         }
@@ -273,16 +320,27 @@
           var adWidth = adSize.split('x')[0];
           var adHeight = adSize.split('x')[1];
           // var template = data.template.split(' ').join('');
-          var attributes = getCAMData(data, 'Celebrity');
+          var cam = getCAMData(data, 'Celebrity');
+          var feed = getFeedData(data);
+          if(adSize === '300x600') {
+            let camData = JSON.parse(cam);
+            camData.productImage1 = camData.productImage.split('^')[0];
+            camData.productImage2 = camData.productImage.split('^')[1];
+            delete camData.productImage;
+            cam = JSON.stringify(camData);
+          }
           var adScript = `
           -1==navigator.userAgent.indexOf("MSIE")&&-1==navigator.userAgent.indexOf("Trident")||Object.keys||(Object.keys=function(d){var f=[],e;for(e in d)d.hasOwnProperty(e)&&f.push(e);return f});var amo;
-amo=new function(){var d={};this.variation={};this.attributes={};this.content=[];var f={name:"1",description:"1",provider:"1",brand:"1",display_advertiser_category_name:"1",price:"1",discount_price:"1",picture_url:"1",product_url:"1",passthroughfield1:"1",passthroughfield2:"1",passthroughfield3:"1",passthroughfield4:"1",passthroughfield5:"1",image_url1:"1",image_url2:"1",image_url3:"1",image_url4:"1",image_url5:"1"},e=0;this.registerClick=function(a,c){d[a]=c};this.registerVariation=function(a,c){a&&
+amo=new function(){var d={};this.variation={};this.attributes={};this.content=[];var f={gid:"1",x2_f1:"1",gender:"1",name:"1",description:"1",provider:"1",brand:"1",display_advertiser_category_name:"1",price:"1",discount_price:"1",picture_url:"1",product_url:"1",passthroughfield1:"1",passthroughfield2:"1",passthroughfield3:"1",passthroughfield4:"1",passthroughfield5:"1",image_url1:"1",image_url2:"1",image_url3:"1",image_url4:"1",image_url5:"1"},e=0;this.registerClick=function(a,c){d[a]=c};this.registerVariation=function(a,c){a&&
 c?"string"!==typeof a||"string"!==typeof c?alert("ERROR: key and value needs to be string"):this.variation[a]=c:alert("ERROR: key or/and value is not passed")};this.registerAttribute=function(a,c,b){a&&b&&c?"TEXT"!=c&&"IMAGE"!=c?alert("ERROR: type needs to be TEXT/IMAGE"):"string"!==typeof a||"string"!==typeof b?alert("ERROR: name and value needs to be string"):this.attributes[a]=b:alert("ERROR: name or/and type or/and value is not passed")};this.registerContent=function(a){if(a)if(validHeader=!0,
 void 0==a.length){for(var c=Object.keys(a),b=0;b<c.length;b++){var d=c[b],g=0;if(1==f[d])g=1;else{alert("Invalid Header in Content: "+d);break}}0!=g&&(a.gid=++e,this.content.push(a))}else alert("Content Data needs to be a JSON Object. Passed in Content Data seems to be an Array");else alert("ERROR: Content Data is not passed")};this.onDynAdClick=function(a,c,b,d,e){a=b?b:a?a.product_url:"";0<a.length&&(0==a.indexOf("http://")||0==a.indexOf("https://")||0==a.indexOf("//"))?window.open(a):alert("ERROR: Click URL is not available or is not valid.")};
 this.onAdClick=function(a,c){var b;a?(0==a.indexOf("http://")||0==a.indexOf("https://")||0==a.indexOf("//")?b=a:d[a]&&(b=d[a]),b?window.open(b):alert("ERROR: Click Parameter "+a+" not registered. Register landing page using amo.registerClick")):alert("ERROR: null or undefined Click Parameter passed")}};
-          ${attributes}
-          amo.registerAttribute = function() {}
-          amo.registerClick = function() {}`;
+          var contentD = ${feed};
+          var cam = ${cam};
+          if(contentD && contentD.length) { contentD.forEach(function(data) { amo.registerContent(data); }); }
+          for(var i in cam) { amo.registerVariation(i, cam[i]); }
+          amo.registerContent = function(){}
+          amo.registerVariation = function(){}`;
           // var amoScript = document.createElement('script');
           // amoScript.type= 'text/javascript';
           // amoScript.src = "js/AMOLibrary.js";
@@ -300,7 +358,7 @@ this.onAdClick=function(a,c){var b;a?(0==a.indexOf("http://")||0==a.indexOf("htt
           document.querySelector('#ad' + adSize).parentNode.style.display = 'inline-block';
           var iframeDoc = iframe.contentWindow ? iframe.contentWindow : iframe.contentDocument && iframe.contentDocument.document ? iframe.contentDocument.document : iframe.contentDocument;
         	iframeDoc.document.open();
-          iframeDoc.document.write('<iframe src="../ads/'+adSize+'/'+adSize+'.html" width="'+adWidth+'" height="'+adHeight+'" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe>');
+          iframeDoc.document.write('<iframe src="ads/'+adSize+'/'+adSize+'.html" width="'+adWidth+'" height="'+adHeight+'" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe>');
         	iframeDoc.document.close();
           iframeDoc.document.body.style.margin = 0;
           iframeDoc.document.head.appendChild(scriptTag);
