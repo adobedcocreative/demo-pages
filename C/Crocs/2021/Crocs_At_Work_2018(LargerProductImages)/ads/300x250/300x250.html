@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ad</title>
+    <script type="text/javascript" src="https://ads.everesttech.net/ads/static/local/AMOLibrary.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/eqf5dzf.css">
+    <style media="screen">
+      .proxima-nova-regular {
+        font-family:"proxima-nova";
+        font-style:normal;
+        font-weight:400;
+      }
+      .proxima-nova-extrabold {
+        font-family:"proxima-nova";
+        font-style:normal;
+        font-weight:800;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        user-select: none;
+      }
+      #ad {
+        position: relative;
+        width: 300px;
+        height: 250px;
+        margin: 0;
+        padding: 0;
+        font-family: "proxima-nova", Arial, Helvetica;
+        font-weight: 400;
+        font-style: normal;
+        font-stretch: normal;
+        color: #fff;
+        cursor: pointer;
+        overflow: hidden;
+      }
+      #ad > div { position: absolute; }
+      .asset img, .asset svg {
+        max-width: 100%;
+        max-height: 100%;
+        position: relative;
+        vertical-align: top;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+      .asset-left img {
+        max-width: 100%;
+        max-height: 100%;
+        position: relative;
+        vertical-align: top;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+      .asset-top img {
+        max-width: 100%;
+        max-height: 100%;
+        position: relative;
+        vertical-align: top;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+      }
+      .text span {
+        position: relative;
+        display: inline-block;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+      .text-left span {
+        position: relative;
+        display: inline-block;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+      .strike::after {
+        content: '';
+        position: absolute;
+        top: 44%;
+        left: -4px;
+        border-bottom: 2px solid;
+        width: inherit;
+        padding: 0px 4px;
+      }
+      [data-button="description"] {
+        text-decoration: underline;
+      }
+      [data-button="description"]:hover {
+        text-decoration: none;
+      }
+      #leftArrow {
+        padding-left: 7px;
+      }
+      #leftArrow:hover {
+        padding-left: 0px;
+        padding-right: 7px;
+      }
+      #rightArrow {
+        padding-right: 7px;
+      }
+      #rightArrow:hover {
+        padding-right: 0px;
+        padding-left: 7px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="" id="ad" style="background-color:#FFF;"></div>
+    <div id="loadFont" style="width:0;height:0;overflow:hidden;">
+      <div class="proxima-nova-regular" style="color:transparent;">Proxima Nova Regular</div>
+      <div class="proxima-nova-extrabold" style="color:transparent;">Proxima Nova Extrabold</div>
+    </div>
+    <script type="text/javascript">
+      var selectedProduct = {}, selectProductTimer = 0, animationIndex = 0;
+      function textUpdate() {
+        var textElements = ad.root.querySelectorAll('.text:not(.clip), .text-left:not(.clip), .text-right:not(.clip), .text-bottom:not(.clip), .text-top-left:not(.clip)');
+        var clipTextElements = ad.root.querySelectorAll('.text.clip, .text-left.clip, .text-right.clip, .text-bottom.clip, .text-top-left.clip');
+        if(clipTextElements && clipTextElements.length) {
+          for(var k = 0; k < clipTextElements.length; k++) {
+            var element = clipTextElements[k];
+            var height = element.offsetHeight;
+            var span = element.querySelector('span');
+            if(span) {
+              if(span.offsetHeight > height) {
+                var content = span.innerHTML;
+                var words = content.split(' ');
+                var wordLength = words.length
+                for(var i = 0; i < wordLength; i++) {
+                  words.pop();
+                  span.innerHTML = words.join(' ') + '...';
+                  if(span.offsetHeight <= height) { break; }
+                }
+              }
+            } else {
+              var assignedHeight = element.style.height;
+              element.style.height = 'auto';
+              if(element.offsetHeight > height) {
+                var content = element.innerHTML;
+                var words = content.split(' ');
+                var wordLength = words.length
+                for(var i = 0; i < wordLength; i++) {
+                  words.pop();
+                  element.innerHTML = words.join(' ') + '...';
+                  if(element.offsetHeight <= height) { break; }
+                }
+              }
+              element.style.height = assignedHeight;
+            }
+          }
+        }
+        for(var k = 0; k < textElements.length; k++) {
+          var element = textElements[k];
+          var style = window.getComputedStyle(element, null).getPropertyValue('font-size');
+          var fontSize = parseInt(style);
+          var height = element.offsetHeight;
+          var width = element.offsetWidth;
+          var span = element.querySelector('span');
+          if(span) {
+            if(span.offsetHeight > height || span.offsetWidth > width) {
+              for(var i = fontSize - 1; i > 0; i--) {
+                element.style.fontSize = i + 'px';
+                if(span.offsetHeight <= height && span.offsetWidth <= width) { break; }
+              }
+            }
+          } else {
+            var assignedHeight = element.style.height;
+            element.style.height = 'auto';
+            if(element.offsetHeight > height || span.offsetWidth > width) {
+              for(var i = fontSize - 1; i > 0; i--) {
+                element.style.fontSize = i + 'px';
+                if(element.offsetHeight <= height && span.offsetWidth <= width) { break; }
+              }
+            }
+            element.style.height = assignedHeight;
+          }
+        } // Resize Text
+      }
+      var Ad = function(config) {
+        var width = config.width;
+        var height = config.height;
+        var cssString = '';
+        var root = config.root;
+        var layers = {};
+        var frames = {};
+        var loadAssets = function(list, callbackFunction){ //loadAssets(list of URLs, callback function)
+            if(list && typeof list == 'string') {
+                var path = list;
+                list = [];
+                list.push(path);
+            }
+            if(list && typeof list == 'object' && list.length) {
+                var loadCounter = [];
+                var head = document.querySelector('head');
+                function loadCheck(e) {
+                    loadCounter.push(this);
+                    if(loadCounter.length == list.length) {
+                        callbackFunction(loadCounter); //This function is called when all the provided assets are loaded properly.
+                    }
+                }
+                list.forEach(function(path) {
+                    if(path && typeof path == 'string' && path.length) {
+                        if(path.indexOf('.js') > 0) { //For loading JS file
+                            var script = document.createElement('script');
+                            script.type = 'text/javascript';
+                            script.onload = loadCheck;
+                            script.src = path;
+                            head.appendChild(script);
+                        } else if(path.indexOf('.css') > 0) { //For loading CSS file
+                            var style = document.createElement('style');
+                            style.type = 'text/css';
+                            style.setAttribute('rel', 'stylesheet');
+                            style.onload = loadCheck;
+                            style.setAttribute('href', path);
+                            head.appendChild(style);
+                        } else {	//For loading Image file
+                            var image = new Image();
+                            image.onload = loadCheck;
+                            image.src = path;
+                        }
+                    }
+                });
+            }
+        }
+        var setText = function(selector, text) {
+            var element = typeof selector == 'string' && selector && selector.length && root.querySelector(selector) ? root.querySelector(selector) : selector;;
+            if(element && text && text.length) {
+                element.textContent = text;
+                while(element.clientHeight < element.scrollHeight) {
+                  text = element.innerHTML.trim();
+                  if(text.split(' ').length <= 1) {
+                    break;
+                  }
+                  element.innerHTML = text.replace(/\W*\s(\S)*$/, '...');
+                }
+            }
+        }
+        var addBorder = function() {
+          var htmlContent = '', width = root.offsetWidth, height = root.offsetHeight;
+          var borderWidth = 1, border = borderWidth + 'px solid #1d252c';
+          htmlContent = '<div class="ad-border-top" style="position:absolute;display:inline-block;width:' + width + 'px;border-top:' + border + ';top:0px;left:0px;"></div>'+
+            '<div class="ad-border-right" style="position:absolute;display:inline-block;height:' + height + 'px;border-left:' + border + ';top:0px;left:' + (width - borderWidth) + 'px;"></div>'+
+            '<div class="ad-border-bottom" style="position:absolute;display:inline-block;width:' + width + 'px;border-top:' + border + ';top:' + (height - borderWidth) + 'px;left:0px;"></div>'+
+            '<div class="ad-border-left" style="position:absolute;display:inline-block;height:' + height + 'px;border-left:' + border + ';top:0px;left:0px;"></div>';
+          var div = document.createElement('div');
+          div.className = 'ad-borders';
+          div.innerHTML = htmlContent;
+          root.appendChild(div);
+        }
+        var update = function() {
+          textUpdate();
+          var idElements = root.querySelectorAll('[id]');
+          if(idElements && idElements.length) {
+            //elements.forEach(function(element) { layers[element.id] = element; });
+            for(var i = 0; i < idElements.length; i++) {
+              var element = idElements[i];
+              if(element) { layers[element.id] = element; }
+            }
+          }
+        }
+        return { //exposed parameters and methods
+            root: root,
+            layers: layers,
+            frames: frames,
+            width: width,
+            height: height,
+            loadAssets: function(list, callbackFunction) { return loadAssets(list, callbackFunction); },
+            setText: function(selector, text, type) { return setText(selector, text, type); },
+            addBorder: function() { return addBorder(); },
+            update: function() { return update(); }
+        }
+      };
+      var ad = new Ad({
+        root: document.querySelector('#ad'),
+        width: 300,
+        height: 250
+      });
+      var carouselWidth = 300, carouselHeight = 250, adClickUrl = '', adDescriptionUrl = '', adData = '', carouselClickFlag = true;;
+      var carousel = (function(){
+        var carouselIndex = 0, carouselData, autoplay = false;;
+        var onBeforeChange;
+        var init = function(config) {
+          if(config) {
+            if('data' in config) { carouselData = config.data; }
+            if('container' in config) { container = config.container; }
+            onBeforeChange = 'onBeforeChange' in config && typeof config.onBeforeChange == 'function' ? config.onBeforeChange : onBeforeChange;
+            autoplay = 'autoplay' in config && typeof config.autoplay != 'undefined' ? config.autoplay : autoplay;
+            if(autoplay && carouselData.length > 1) {
+              var count = 0;
+              var timer = setInterval(function() {
+                if(count == carouselData.length) { removeTimer(); } else { move('next'); }
+                count++;
+              }, 2000);
+              var removeTimer = function() {
+                clearInterval(timer);
+                timer = false;
+                ad.root.removeEventListener('mouseover', removeTimer);
+              }
+              ad.root.addEventListener('mouseover', removeTimer);
+            }
+            addTransition();
+          }
+        }
+        var translateCarousel = function(value){
+          container.style.webkitTransform = 'translateX(' + value + 'px)';
+          container.style.transform = 'translateX(' + value + 'px)';
+        }
+        var addTransition = function() {
+          container.style.webkitTransition = 'all ease-out 0.3s';
+          container.style.transition = 'all ease-out 0.3s';
+        }
+        var removeTransition = function() {
+          container.style.webkitTransition = '';
+          container.style.transition = '';
+        }
+        var move = function(action) {
+            carouselClickFlag = false;
+            if(action == 'next') {
+                translateCarousel(-(carouselIndex+2)*carouselWidth);
+                if(carouselIndex != (carouselData.length - 1)) { carouselIndex++; }
+                else {
+                  carouselIndex = 0;
+                  function loopContainer() {
+                      removeTransition();
+                      translateCarousel(-(carouselIndex+1)*carouselWidth);
+                      setTimeout(function(){ addTransition(); }, 20);
+                      container.removeEventListener('transitionend', loopContainer);
+                  }
+                  container.addEventListener('transitionend', loopContainer);
+                }
+            } else if (action == 'prev') {
+              translateCarousel(-(carouselIndex)*carouselWidth);
+              if(carouselIndex != 0) { carouselIndex--; }
+              else {
+                carouselIndex = carouselData.length - 1;
+                function loopContainer() {
+                    removeTransition();
+                    translateCarousel(-(carouselIndex+1)*carouselWidth);
+                    setTimeout(function(){ addTransition(); }, 20);
+                    container.removeEventListener('transitionend', loopContainer);
+                }
+                container.addEventListener('transitionend', loopContainer);
+              }
+            }
+            setTimeout(function(){ carouselClickFlag = true; }, 510);
+            if(onBeforeChange) { onBeforeChange(carouselData[carouselIndex]); }
+        }
+        return {
+          init: function(config){ return init(config); },
+          move: function(action) { return move(action); }
+        }
+      })();
+      var initCarousel = function(content) {
+        carousel.init({
+          data: content,
+          autoplay: true,
+          container: document.querySelector('.carousel-container'),
+          onBeforeChange: function(next) {
+            adClickUrl = next.url;
+            adDescriptionUrl = next.adDescriptionUrl;
+            adData = next;
+          }
+        });
+      }
+      var animateAd = function(content) {
+        ad.layers.headlineText.style.webkitTransform = 'translateY(0)';
+        ad.layers.headlineText.style.transform = 'translateY(0)';
+        ad.layers.headlineText.style.opacity = 1;
+        ad.layers.logo.style.webkitTransform = 'translateY(0)';
+        ad.layers.logo.style.transform = 'translateY(0)';
+        ad.layers.cta.style.webkitTransform = 'translateY(0)';
+        ad.layers.cta.style.transform = 'translateY(0)';
+        if('leftArrow' in ad.layers) {
+          ad.layers.leftArrow.style.opacity = 1;
+          ad.layers.rightArrow.style.opacity = 1;
+        }
+        setTimeout(function(){ initCarousel(content); }, 2000);
+
+      }
+      var layout1 = true;
+      var getCarouselContent = function(data, id, assets) {
+        var productName =data.name;
+        productName = productName.split('').length > 23 ? productName.substring(0, 23)+ '...' : productName;
+        return ('<div data-id="' + id + '" style="position:relative;display:inline-block;width:' + carouselWidth + 'px;height:' + carouselHeight + 'px;vertical-align:top;">'+
+            '<div class="asset" style="position:absolute;top:' + (layout1 ? 60 : 68) + 'px;left:86px;width:128px;height:106px;"><img src="' + data.image + '" /></div>'+
+            // '<div class="name text clip proxima-nova-regular" style="position:absolute;top:' + (layout1 ? 143 : 148) + 'px;left:70px;width:160px;height:15px;font-size:13px;color:#444;line-height:1;"><span>' + productName + '</span></div>'+
+            // (data.originalPrice == '' || data.originalPrice.toLowerCase() == 'na' || data.originalPrice == data.price ? '<div class="price text proxima-nova-extrabold" style="position:absolute;top:' + (layout1 ? 162 : 167) + 'px;left:75px;width:150px;height:15px;font-size:14px;color:#444;line-height:1;"><span>$' + data.price + '</span></div>'
+            // : '<div class="price text proxima-nova-extrabold" style="position:absolute;top:' + (layout1 ? 162 : 167) + 'px;left:75px;width:150px;height:15px;font-size:14px;color:#444;line-height:1;"><span><font class="strike">$' + data.originalPrice + '</font>&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#ef373e;">$' + data.price + '</font></span></div>')+
+            //ef373e
+            //(data.price && parseFloat(data.price) ? '<div class="text" style="position:absolute;top:157px;left:10px;width:160px;height:36px;line-height:28px;color:#000;font-size:28px;font-weight:bold;"><span style="text-align:left;"><font style="color:#0046be;font-size:24px;vertical-align:12%;">$</font>' + data.price.split('.')[0] + '<sup style="font-size:18px;vertical-align:25%;">' + (data.price.split('.').length == 1 ? '00' : data.price.split('.')[1]) + '</sup></span></div>'
+            //: '<div class="text" style="position:absolute;top:157px;left:10px;width:160px;height:36px;color:#000;font-size:14px;line-height:1.2;font-weight:bold;"><span>SEE PRICE IN CART</span></div>')+
+          '</div>');
+          //26, 77
+      }
+      var staticContent = {}, staticImages = {};
+      function setData(content, cam) {
+      	var assets = [];
+        if(staticImages && typeof staticImages == 'object') { for(var i in staticImages) { assets.push(staticImages[i]); } }
+          if(cam) { assets.push(cam.logoImage); }
+      	if(content) {
+          content.forEach(function(data){ assets.push(data.image); });
+      		ad.loadAssets(assets, function(assets){
+            adClickUrl = content[0].defaultURL;
+            var data = adData = content[0];
+            layout1 = data.layoutText && data.layoutText.toLowerCase() == 'long' ? false : true;
+            ad.root.innerHTML = //'<div id="bg" class="asset" style="top:0px;left:0px;width:inherit;height:inherit;"><img src="' + cam.backgroundImage + '" /></div>'+
+            // '<div id="ref" class="asset" style="top:0px;left:0px;width:inherit;height:inherit;"><img src="ref5.png" /></div>'+
+            '<div id="carousel" class="carousel" style="top:0px;width:300px;height:inherit;overflow:hidden;">' +
+              '<div class="carousel-container" style="width:' + (carouselWidth*(content.length + 2)) + 'px;transform:translateX(' + -(carouselWidth) + 'px);height:' + carouselHeight + 'px;">' +
+                getCarouselContent(content[content.length - 1], -1, assets) +
+                content.map(function(data, i) { return getCarouselContent(data, i, assets); }).join('') +
+                getCarouselContent(content[0], content.length, assets) +
+              '</div>' +
+            '</div>' +
+            '</div>'+
+            '<div id="shade" style="top:0px;left:0px;width:inherit;height:60px;background:linear-gradient(to bottom, ' + data.layoutColor + ', #fff);opacity:0.1;"></div>'+
+            (content.length > 1 ?
+            '<div id="leftArrow" class="asset" data-button="left" style="top:' + (layout1 ? 106 : 115) + 'px;left:10px;width:20px;height:30px;-webkit-transition:opacity 0.5s ease-out 1.8s,padding ease-out 0.3s;transition:opacity 0.5s ease-out 1.8s,padding ease-out 0.3s;opacity:0;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="13px" height="20px"><path fill-rule="evenodd"  fill="' + data.layoutColor + '" d="M12.089,19.997 L4.061,10.000 L12.089,0.003 L8.024,0.003 L-0.005,10.000 L8.024,19.997 L12.089,19.997 Z"/></svg></div>'+
+            '<div id="rightArrow" class="asset" data-button="right" style="top:' + (layout1 ? 106 : 115) + 'px;right:10px;width:20px;height:30px;-webkit-transition:opacity 0.5s ease-out 1.8s,padding ease-out 0.3s;transition:opacity 0.5s ease-out 1.8s,padding ease-out 0.3s;opacity:0;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="13px" height="20px"><path fill-rule="evenodd"  fill="' + data.layoutColor + '" d="M0.911,19.997 L8.939,10.000 L0.911,0.003 L4.976,0.003 L13.005,10.000 L4.976,19.997 L0.911,19.997 Z"/></svg></div>' : '') +
+            '<div id="headlineText" class="text proxima-nova-extrabold" style="position:absolute;top:' + (layout1 ? 18 : 12) + 'px;left:5px;width:290px;height:' + (layout1 ? 30 : 49) + 'px;font-size:25px;line-height:1;color:' + data.layoutColor + ';-webkit-transition:opacity 0.3s ease-out 0.5s,transform 0.3s ease-out 0.5s;transition:opacity 0.3s ease-out 0.5s,transform 0.3s ease-out 0.5s;-webkit-transform:translateY(-50%);transform:translateY(-50%);opacity:0;"><span style="text-align:center;">' + data.headlineText + '</span></div>'+
+            '<div id="bottomPortion" class="asset" data-button="bottomPortion" style="bottom:0px;left:0px;width:inherit;height:66px;background-color:' + data.layoutColor + ';"></div>'+
+            '<div id="cta" class="proxima-nova-extrabold" style="top:200px;left:160px;width:102px;height:33px;font-size:14.5px;text-align:center;line-height:32px;box-sizing:border-box;-webkit-transition:transform 0.2s ease-out 1.5s;transition:transform 0.2s ease-out 1.5s;-webkit-transform:translateX(-61px);transform:translateX(-61px);">' + data.ctaText + '</div>'+
+            '<div id="logo" class="asset" style="top:199px;left:37px;width:102px;height:35px;background-color:' + data.layoutColor + ';-webkit-transition:all 0.2s ease-out 1.5s;transition:all 0.2s ease-out 1.5s;-webkit-transform:translateX(62px);transform:translateX(62px);"><img src="' + data.logoImage + '" /></div>'+
+            '<style> #cta { background-color:' + data.layoutColor + '; color: #fff; border:2px solid; } #cta:hover { background-color: #fff; border-color:#fff; color:' + data.layoutColor + '; } </style>'+
+            '<div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>';
+            ad.update();
+            adClickUrl = content[0].url;
+            adDescriptionUrl = content[0].descriptionUrl;
+            adData = content[0];
+      			ad.root.addEventListener("click", function(e) {
+              if('button' in e.target.parentNode.parentNode.dataset || 'button' in e.target.parentNode.dataset || 'button' in e.target.dataset) {
+                if((e.target.parentNode.parentNode.dataset.button == 'left' || e.target.parentNode.dataset.button == 'left' || e.target.dataset.button == 'left') && carouselClickFlag) { carousel.move('prev'); }
+                else if((e.target.parentNode.parentNode.dataset.button == 'right' || e.target.parentNode.dataset.button == 'right' || e.target.dataset.button == 'right') && carouselClickFlag) { carousel.move('next'); }
+                else if((e.target.parentNode.parentNode.dataset.button == 'description' || e.target.parentNode.dataset.button == 'description' || e.target.dataset.button == 'description')) { amo.onDynAdClick(adData.feedData, "CLICK", adDescriptionUrl); }
+              } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
+            });
+            ad.root.onmouseenter = function() {
+                if(selectProductTimer) { clearInterval(selectProductTimer); selectProductTimer = false; }
+            }
+            var prices = ad.root.querySelectorAll('.price font:first-child');
+            for(var i = 0; i < prices.length; i++) { prices[i].style.width = prices[i].offsetWidth + 'px'; }
+            setTimeout(function(){ document.querySelector('#overlay').style.opacity = 0; ad.addBorder(); }, 10);
+            setTimeout(function(){ document.querySelector('#overlay').style.visibility = 'hidden'; }, 510);
+            animateAd(content);
+      		});
+      	}
+      }
+      function loadData() {
+        var replaceMacro = function(text, data) {
+          var macros = text.match(/\!\{(.*?)\}/g);
+          if(macros) {
+            macros.forEach(function(macro){
+              var macroText = macro.split('!{').join('').split('}').join('');
+              for(var key in data) { if(key == macroText) { macroText = data[key]; } }
+              text = text.split(macro).join(macroText);
+            });
+          }
+          return text;
+        }
+      	var contentD = [
+          {
+              "name": "Men's AllCast Rain Boot",//"Men's Walu Slip-On",
+              "passthroughfield1": "NOPROMO",
+              "price": "",
+              "discount_price": "49.99",//"32.49",
+              "picture_url": "assets/204862_060_ALT100.jpeg",
+              "product_url": "https://www.crocs.com/p/mens-allcast-rain-boot/204862-060-M7.html?cgid=boots&cid=060#start=4",
+            }, {
+              "name": "Women's Crocs Freesail Chelsea Boot",
+              "passthroughfield1": "SHOWPROMO",
+              "price": "",
+              "discount_price": "49.99",
+              "picture_url": "assets/204630_6PC_ALT100.jpeg",
+              "product_url": "https://www.crocs.com/p/womens-crocs-freesail-chelsea-boot/204630.html?cgid=boots&cid=6PC#start=13",
+            }, {
+              "name": "Kids' LodgePoint Snow Boot",
+              "passthroughfield1": "SHOWPROMO",
+              "price": "",
+              "discount_price": "49.99",
+              "picture_url": "assets/204660_4HD_ALT100.jpeg",
+              "product_url": "https://www.crocs.com/p/kids-lodgepoint-snow-boot/204660.html?cgid=boots&cid=4HD#start=14",
+            }
+        ];
+      	if(contentD && contentD.length) { contentD.forEach(function(data) { amo.registerContent(data); }); }
+        amo.registerVariation("layoutText", 'long');//short//long
+        amo.registerVariation("layoutColor", '#004976^#333');//004976
+        amo.registerVariation("headlineText", 'COMFORT STARTS TODAY^EXPRESS YOURSELF');//COMFORT STARTS TODAY//EXPRESS YOURSELF//FUN SHOES<br>FOR FUN KIDS
+        amo.registerVariation("logoImage", 'assets/CAW_LOGO_White.svg');
+        amo.registerVariation("productImage", '!{picture_url}');
+        amo.registerVariation("productName", '!{name}');
+        amo.registerVariation("price", '!{price}');
+        amo.registerVariation("discountPrice", '!{discount_price}');
+        amo.registerVariation("ctaText", 'Shop Now');
+        amo.registerVariation("clickUrl", '!{product_url}');
+        amo.registerVariation("descriptionUrl", '!{product_url}');
+        var content = [], cam = {};
+      	var cam = {
+          layoutText: amo.variation['layoutText'],
+          layoutColor: amo.variation['layoutColor'],
+          headlineText: amo.variation['headlineText'],
+          logoImage: amo.variation['logoImage'],
+          productImage: amo.variation['productImage'],
+          productName: amo.variation['productName'],
+          price: amo.variation['price'],
+          discountPrice: amo.variation['discountPrice'],
+      		ctaText: amo.variation['ctaText'],
+          url: amo.variation['clickUrl'],
+          descriptionUrl: amo.variation['descriptionUrl'],
+      	};
+      	if(amo.content && amo.content.length) {
+      		amo.content.forEach(function(data) {
+      			content.push({
+      				feedData: data,
+      				name: cam.productName,
+      				image: cam.productImage,
+      				price: cam.discountPrice,
+              originalPrice: cam.price,
+              layoutText: cam.layoutText,
+              layoutColor: cam.layoutColor,
+              headlineText: cam.headlineText,
+              logoImage: cam.logoImage,
+              ctaText: cam.ctaText,
+      				url: cam.url,
+              descriptionUrl: cam.descriptionUrl,
+      			});
+      		});
+          if(content && content.length) {
+            if(content.length > 1) {
+              var newContent = [];
+              content.forEach(function(data){
+                if('display_advertiser_category_name' in data && data.display_advertiser_category_name.toLowerCase().indexOf('default') != -1) { }
+                else { newContent.push(data); }
+              });
+              content = newContent;
+            }
+            var promoOffers = [];
+            content.map(function(data){
+              if('passthroughfield1' in data.feedData && data.feedData.passthroughfield1 && data.feedData.passthroughfield1.toLowerCase() == 'showpromo') { promoOffers.push(data); }
+      			});
+            if(promoOffers.length) { content = promoOffers; }
+      			content.map(function(data){
+      				for(var key in data) { data[key] = typeof data[key] == 'string' ? replaceMacro(data[key], data.feedData) : data[key]; }
+              if(promoOffers.length) { data.price = '0.00'; }
+              if('layoutColor' in data && data.layoutColor && data.layoutColor.indexOf('^')!= -1) { data.layoutColor = data.layoutColor.split('^')[(promoOffers.length ? 1 : 0)] }
+              if('headlineText' in data && data.headlineText && data.headlineText.indexOf('^')!= -1) { data.headlineText = data.headlineText.split('^')[(promoOffers.length ? 1 : 0)] }
+      			});
+            if(content.length == 2) { content.push(content[0]); content.push(content[1]); }
+      		}
+      	}
+        setTimeout(function(){ setData(content, cam); }, 2000);
+      }
+      var iframe = window.frameElement;
+      if(iframe) {
+        iframe.style.border = 'none';
+        // var parentObj = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
+        // var parentIfrm = parentObj.frameElement;
+        // if(parentIfrm) {
+        //     parentIfrm.style.border = 'none';
+        // }
+      }
+      loadData();
+    </script>
+  </body>
+</html>
