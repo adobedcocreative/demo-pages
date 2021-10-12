@@ -3,7 +3,7 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"M365_FY22Q2ConsRefresh_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1", frames: [[1136,0,44,43],[0,814,360,300],[914,0,220,144],[0,0,550,204],[1104,584,44,44],[946,800,166,163],[362,814,360,300],[914,146,220,144],[0,614,550,198],[1136,45,44,43],[914,292,220,144],[552,604,550,194],[1136,90,44,43],[914,438,220,144],[0,206,550,203],[552,0,360,300],[1136,135,44,43],[552,302,360,300],[0,411,550,201],[724,800,220,144]]}
+		{name:"M365_FY22Q2ConsRefresh_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1", frames: [[552,196,300,250],[598,700,44,43],[552,448,300,250],[724,700,220,144],[0,0,550,204],[552,700,44,44],[724,992,166,163],[0,814,360,300],[854,196,220,144],[0,614,550,198],[644,700,44,43],[854,342,220,144],[552,0,550,194],[598,745,44,43],[854,488,220,144],[0,206,550,203],[362,814,360,300],[552,746,44,43],[0,411,550,201],[724,846,220,144]]}
 ];
 
 
@@ -27,126 +27,126 @@ lib.ssMetadata = [
 
 
 
-(lib.editorIcon1 = function() {
+(lib.Editor_in_Word_300x2500001412 = function() {
 	this.initialize(ss["M365_FY22Q2ConsRefresh_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.Excel_BG_v0111 = function() {
+(lib.editorIcon1 = function() {
 	this.initialize(ss["M365_FY22Q2ConsRefresh_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"]);
 	this.gotoAndStop(1);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.Excel_UI111 = function() {
+(lib.Excel_Budgeting_300x2500001422 = function() {
 	this.initialize(ss["M365_FY22Q2ConsRefresh_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"]);
 	this.gotoAndStop(2);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.Excel_UI_Reflection = function() {
+(lib.Excel_UI111 = function() {
 	this.initialize(ss["M365_FY22Q2ConsRefresh_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"]);
 	this.gotoAndStop(3);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.excelIcon1111 = function() {
+(lib.Excel_UI_Reflection = function() {
 	this.initialize(ss["M365_FY22Q2ConsRefresh_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"]);
 	this.gotoAndStop(4);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.icon_shadow = function() {
+(lib.excelIcon1111 = function() {
 	this.initialize(ss["M365_FY22Q2ConsRefresh_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"]);
 	this.gotoAndStop(5);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.Onedrive_BG_v0111 = function() {
+(lib.icon_shadow = function() {
 	this.initialize(ss["M365_FY22Q2ConsRefresh_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"]);
 	this.gotoAndStop(6);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.OneDrive_UI1 = function() {
+(lib.Onedrive_BG_v0111 = function() {
 	this.initialize(ss["M365_FY22Q2ConsRefresh_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"]);
 	this.gotoAndStop(7);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.OneDrive_UI_Reflection = function() {
+(lib.OneDrive_UI1 = function() {
 	this.initialize(ss["M365_FY22Q2ConsRefresh_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"]);
 	this.gotoAndStop(8);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.onedriveIcon11 = function() {
+(lib.OneDrive_UI_Reflection = function() {
 	this.initialize(ss["M365_FY22Q2ConsRefresh_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"]);
 	this.gotoAndStop(9);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.Outlook_UI1 = function() {
+(lib.onedriveIcon11 = function() {
 	this.initialize(ss["M365_FY22Q2ConsRefresh_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"]);
 	this.gotoAndStop(10);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.Outlook_UI_Reflection = function() {
+(lib.Outlook_UI1 = function() {
 	this.initialize(ss["M365_FY22Q2ConsRefresh_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"]);
 	this.gotoAndStop(11);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.outlookIcon1 = function() {
+(lib.Outlook_UI_Reflection = function() {
 	this.initialize(ss["M365_FY22Q2ConsRefresh_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"]);
 	this.gotoAndStop(12);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.PowerPoint_UI1 = function() {
+(lib.outlookIcon1 = function() {
 	this.initialize(ss["M365_FY22Q2ConsRefresh_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"]);
 	this.gotoAndStop(13);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.PowerPoint_UI_Reflection = function() {
+(lib.PowerPoint_UI1 = function() {
 	this.initialize(ss["M365_FY22Q2ConsRefresh_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"]);
 	this.gotoAndStop(14);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.PPT_BG_v01111 = function() {
+(lib.PowerPoint_UI_Reflection = function() {
 	this.initialize(ss["M365_FY22Q2ConsRefresh_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"]);
 	this.gotoAndStop(15);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.pptIcon11 = function() {
+(lib.PPT_BG_v011111 = function() {
 	this.initialize(ss["M365_FY22Q2ConsRefresh_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"]);
 	this.gotoAndStop(16);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.Word_BG_v01111 = function() {
+(lib.pptIcon11 = function() {
 	this.initialize(ss["M365_FY22Q2ConsRefresh_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"]);
 	this.gotoAndStop(17);
 }).prototype = p = new cjs.Sprite();
@@ -294,8 +294,7 @@ if (reversed == null) { reversed = false; }
 	cjs.MovieClip.apply(this,[props]);
 
 	// Layer_1
-	this.instance = new lib.Word_BG_v01111();
-	this.instance.setTransform(0,0,0.8333,0.8333);
+	this.instance = new lib.Editor_in_Word_300x2500001412();
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
@@ -424,7 +423,7 @@ if (reversed == null) { reversed = false; }
 	cjs.MovieClip.apply(this,[props]);
 
 	// Layer_1
-	this.instance = new lib.PPT_BG_v01111();
+	this.instance = new lib.PPT_BG_v011111();
 	this.instance.setTransform(0,0,0.8333,0.8333);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
@@ -489,14 +488,14 @@ if (reversed == null) { reversed = false; }
 	cjs.MovieClip.apply(this,[props]);
 
 	// Layer_1
-	this.instance = new lib.Excel_BG_v0111();
-	this.instance.setTransform(0,0,0.8333,0.8333);
+	this.instance = new lib.Excel_Budgeting_300x2500001422();
+	this.instance.setTransform(0.55,0.55);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.scene1BG, new cjs.Rectangle(0,0,300,250), null);
+}).prototype = getMCSymbolPrototype(lib.scene1BG, new cjs.Rectangle(0.6,0.6,300,250), null);
 
 
 (lib.scene1_UI_Reflection = function(mode,startPosition,loop,reversed) {
@@ -1217,7 +1216,7 @@ if (reversed == null) { reversed = false; }
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.Scene1, new cjs.Rectangle(0,0,300,250.1), null);
+}).prototype = getMCSymbolPrototype(lib.Scene1, new cjs.Rectangle(0.6,0.6,300,250), null);
 
 
 (lib.pptIcon = function(mode,startPosition,loop,reversed) {
@@ -1571,13 +1570,13 @@ if (reversed == null) { reversed = false; }
 	// img5
 	this.img5 = new lib.Scene4();
 	this.img5.name = "img5";
-	this.img5.setTransform(150,134.5,1,1,0,0,0,150,134.5);
+	this.img5.setTransform(600,500,1,1,0,0,0,600,500);
 
 	this.timeline.addTween(cjs.Tween.get(this.img5).wait(1));
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.bgScreens, new cjs.Rectangle(0,0,300,250.2), null);
+}).prototype = getMCSymbolPrototype(lib.bgScreens, new cjs.Rectangle(0,0,300.6,250.6), null);
 
 
 (lib.mainMC = function(mode,startPosition,loop,reversed) {
@@ -1692,7 +1691,7 @@ if (reversed == null) { reversed = false; }
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.mainMC, new cjs.Rectangle(-49.5,0,349.5,250.2), null);
+}).prototype = getMCSymbolPrototype(lib.mainMC, new cjs.Rectangle(-49.5,0,350.1,250.6), null);
 
 
 // stage content:
@@ -1744,7 +1743,7 @@ if (reversed == null) { reversed = false; }
 	this._renderFirstFrame();
 
 }).prototype = p = new lib.AnMovieClip();
-p.nominalBounds = new cjs.Rectangle(100.7,125,198.40000000000003,125.1);
+p.nominalBounds = new cjs.Rectangle(100.7,125,198.90000000000003,125.5);
 // library properties:
 lib.properties = {
 	id: '90A26FE74B042E4A89CA750D1DA2DF1F',
@@ -1754,7 +1753,7 @@ lib.properties = {
 	color: "#DBDBDD",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/M365_FY22Q2ConsRefresh_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1.png?1631212893986", id:"M365_FY22Q2ConsRefresh_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"}
+		{src:"images/M365_FY22Q2ConsRefresh_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1.png?1633013992284", id:"M365_FY22Q2ConsRefresh_USA_300x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"}
 	],
 	preloads: []
 };

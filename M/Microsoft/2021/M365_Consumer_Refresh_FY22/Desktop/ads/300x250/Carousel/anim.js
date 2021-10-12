@@ -266,7 +266,7 @@ function frame0(){
 	exportRoot.tl3.add("mid");
 	exportRoot.tl3.to(mc.screens.img3.icon, 1, { y:  "-=100", alpha: 0});
 	exportRoot.tl3.to(mc.screens.img3.ui, 1, { y:  "-=60", alpha: 0},"<");
-	exportRoot.tl3.to(mc.screens.img3.reflection, 1, { y:  "+=60", alpha: 0},"<");
+	exportRoot.tl3.to(mc.screens.img3.reflection, 1, { alpha: 0},"<");
 	exportRoot.tl3.add("bottom");
 	exportRoot.tl3.pause();
 	
@@ -419,7 +419,7 @@ function frame0(){
                 { alpha: 0, onStart:function(){initDiv.style.visibility='hidden'}
                 })
             .to([mc.screens.img1.ui], 0, { alpha: 1, y:126})
-            .to([mc.screens.img1.icon], 0, { alpha: 1, y:97})
+            .to([mc.screens.img1.icon], 0, { alpha: 1, y:99})
             .to([mc.screens.img1.reflection], 0, { alpha: .5, y:245})
 			.to([mc.nav.icon1], 0, { alpha: 0})
 			.to([mc.nav.icon2], 0, { alpha: 0})

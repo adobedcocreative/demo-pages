@@ -556,6 +556,30 @@ if (reversed == null) { reversed = false; }
 }).prototype = getMCSymbolPrototype(lib.scene1_UI, new cjs.Rectangle(0,0,220,144), null);
 
 
+(lib.option_hitbig = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+
+	// Layer_1
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f("#FF0000").s().p("AhPBRIAAihICfAAIAAAuIAAACIgdAAIAABBIAdAAIAAAwg");
+	this.shape._off = true;
+
+	this.timeline.addTween(cjs.Tween.get(this.shape).wait(3).to({_off:false},0).wait(1));
+
+	this._renderFirstFrame();
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-8,-8.1,16,16.2);
+
+
 (lib.option_hit = function(mode,startPosition,loop,reversed) {
 if (loop == null) { loop = true; }
 if (reversed == null) { reversed = false; }
@@ -1633,6 +1657,14 @@ if (reversed == null) { reversed = false; }
 
 	this.timeline.addTween(cjs.Tween.get(this.hitCta).wait(1));
 
+	// hit
+	this.hit = new lib.option_hitbig();
+	this.hit.name = "hit";
+	this.hit.setTransform(124.65,124.95,15.7027,15.4324);
+	new cjs.ButtonHelper(this.hit, 0, 1, 2, false, new lib.option_hitbig(), 3);
+
+	this.timeline.addTween(cjs.Tween.get(this.hit).wait(1));
+
 	// navHits
 	this.hit5 = new lib.option_hit();
 	this.hit5.name = "hit5";
@@ -1667,14 +1699,6 @@ if (reversed == null) { reversed = false; }
 	this.nav.setTransform(117.4,109.65,1.0213,1.0213,0,0,0,147.9,122.4);
 
 	this.timeline.addTween(cjs.Tween.get(this.nav).wait(1));
-
-	// hit
-	this.hit = new lib.option_hit();
-	this.hit.name = "hit";
-	this.hit.setTransform(124.65,124.95,15.7027,15.4324);
-	new cjs.ButtonHelper(this.hit, 0, 1, 2, false, new lib.option_hit(), 3);
-
-	this.timeline.addTween(cjs.Tween.get(this.hit).wait(1));
 
 	// txt_Intro
 	this.txtIntro = new lib.txtIntro_mc();
@@ -1796,7 +1820,7 @@ lib.properties = {
 	color: "#DBDBDD",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/M365_MobileFY22Q2ConsRefresh_USA_250x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1.png?1631288594515", id:"M365_MobileFY22Q2ConsRefresh_USA_250x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"}
+		{src:"images/M365_MobileFY22Q2ConsRefresh_USA_250x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1.png?1633016109441", id:"M365_MobileFY22Q2ConsRefresh_USA_250x250_BAN_INTCarousel_EN_NA_Standard_ANI_SUB_NA_1_atlas_1"}
 	],
 	preloads: []
 };
