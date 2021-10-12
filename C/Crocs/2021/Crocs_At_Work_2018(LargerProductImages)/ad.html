@@ -206,7 +206,7 @@
       }
       const getFeedData = function(data){
         const offerIds = data.offerIds;
-        const offers = feedContent.filter(function(data){ return offerIds.indexOf(data.OFFER_ID) !== -1; });
+        const offers = feedContent.filter(function(data){ return offerIds.split('^').some(function(id){ return id === data.OFFER_ID }); });
         const fieldMapping = {
           // OFFER_ID: 'gid',
           ORIGIN_DISPLAY_CITY_NAME: 'name',
