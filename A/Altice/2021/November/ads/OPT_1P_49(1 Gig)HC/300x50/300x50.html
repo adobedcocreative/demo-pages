@@ -37,7 +37,7 @@
         width: 300px;
         height: 50px;
         font-family: Altice-Bold, Arial, Helvetica;
-        color: #000;
+        color: #fff;
       }
       #ad > div, #frame1 > div, .frame-container, .frame-container > div, .frame, .frameText {
         position: absolute;
@@ -125,20 +125,20 @@
       .title {
         top: 7px;
         left: 7px;
-        font-size: 17px;
+        font-size: 13px;
         line-height: 0.9;
       }
       .title-center {
         top: 50%;
-        left: 9px;
-        font-size: 17px;
-        line-height: 1.05;
+        left: 10px;
+        font-size: 15px;
+        line-height: 1.1;
         transform: translateY(-50%);
       }
       .price-terms {
-        top: 37px;
-        left: 7px;
-        font-size: 8px;
+        top: 21px;
+        left: 8px;
+        font-size: 9px;
         line-height: 1.2;
         font-family: Altice-Regular;
       }
@@ -160,13 +160,13 @@
 <script type="text/javascript">
 amo.registerClick("clickUrl", "https://www.altice.com");
 amo.registerAttribute("ctaText", "TEXT", "Shop now");
-amo.registerAttribute("frameText1", "TEXT", "<div class='title-center text-white'>TV on your schedule -<br>with Cloud DVR Plus</div>");
-amo.registerAttribute("frameText21", "TEXT", "<div class='title' style='top: 6px;'>Add Cloud DVR Plus<br>for <font class='coloredText'>$10</font>/mo.</div>");
-amo.registerAttribute("frameText22", "TEXT", "<div class='price-terms'>Plus taxes</div>");
-amo.registerAttribute("frameText31", "TEXT", "<div class='title-center text-white'>Pause, play &<br>rewind live TV</div>");
-amo.registerAttribute("frameText41", "TEXT", "<div class='title-center text-white'>Record 75 hours of your<br>favorite shows & movies</div>");
-amo.registerAttribute("frameText51", "TEXT", "<div class='title' style='top: 6px;'>Add Cloud DVR Plus<br>for <font class='coloredText'>$10</font>/mo.</div>");
-amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>Plus taxes</div>");
+amo.registerAttribute("frameText1", "TEXT", "<div class='title-center'>Get our best<br>holiday deal ever!</div>");
+amo.registerAttribute("frameText21", "TEXT", "<div class='title' style='top:6px;'>1 Gig Internet $49.99/mo.</div>");
+amo.registerAttribute("frameText22", "TEXT", "<div class='price-terms' style='top:19px;font-size:8px;'>w/Auto Pay & Paperless Bill plus taxes, fees &<br>charges. Wired connection up to 940 Mbps.<br>WiFi speeds may vary.</div>");
+amo.registerAttribute("frameText31", "TEXT", "<div class='title-center' style='font-size:13px;'>$300 Visa<sup>®</sup> Prepaid<br>Card on us! <div style='display:inline-block;font-size: 8px;'>Terms apply.</div></div>");
+amo.registerAttribute("frameText41", "TEXT", "<div class='title-center' style='left: 10px;font-size: 12.7px;line-height: 1.15;'>Plus, you can get HBO Max™<br>included for 1 year & a FREE<br>Optimum Stream! <div style='display:inline-block;font-size: 8px;'>Terms apply.</div></div>");
+amo.registerAttribute("frameText51", "TEXT", "<div class='title'>1 Gig Internet $49.99/mo.</div>");
+amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pay & Paperless Bill plus taxes, fees<br>& charges. Not available in all areas.</div>");
 </script>
 <!-- End of overrode asset attributes values -->
 <script type="text/javascript">
@@ -175,13 +175,13 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>Plus taxe
     {
       name: 'frame1',
       assets: {
-        frameAsset1: "1x1.png",
+        frameAsset1: "300x50_OPT_HOL_ACQ_INT_1Gig300VC_4999Mo_Img_Bell_Frame_01.png",
       },
       style: {
-
+        '#frameAsset1': {y:'-100%'},
       },
       animate: {
-        duration: 3
+        duration: 2.5
       }
     },
     {
@@ -190,15 +190,14 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>Plus taxe
         frameAsset2: "1x1.png",
       },
       style: {
-        
+
       },
       animate: {
-        duration: 2.9,
+        duration: 2.5,
         config: {
           // delays: ['', '<', '<', '<0.1', '<0.1'],
           beforeAnimation: function(fn, elements) {
-            fn.changeCTA();
-            fn.changeLogo();
+            
           }
         }
       }
@@ -206,19 +205,17 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>Plus taxe
     {
       name: 'frame3',
       assets: {
-        frameAsset3: "1x1.png",
+        frameAsset3: "300x50_OPT_HOL_ACQ_INT_1Gig300VC_4999Mo_Img_300Card_Frame_03.png",
       },
       style: {
         
       },
       animate: {
-        duration: 2.9,
+        duration: 2.5,
         config: {
           // delays: ['', '<', '<', '<0.1', '<0.1'],
           beforeAnimation: function(fn, elements) {
-            fn.changeCTA('white');
-            fn.changeLogo('white');
-            fn.changeBG('#66b5e6');
+            
           }
         }
       }
@@ -229,15 +226,13 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>Plus taxe
         frameAsset4: "1x1.png",
       },
       style: {
-
+        
       },
       animate: {
-        duration: 2.9,
+        duration: 2.5,
         config: {
           beforeAnimation: function(fn) {
-            fn.changeCTA();
-            fn.changeLogo('white');
-            fn.changeBG('#24d9c3');
+
           }
         }
       }
@@ -253,9 +248,6 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>Plus taxe
       animate: {
         config: {
           beforeAnimation: function(fn, elements) {
-            fn.changeCTA();
-            fn.changeLogo();
-            fn.changeBG('#ebebeb');
             gsap.set(elements[0], {x:0, y:0, autoAlpha:0});
           }
         }
@@ -278,7 +270,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>Plus taxe
 </head>
 <body>
   <div id="ad">
-    <div id="backgroundColor"style="background-color:#ebebeb;"></div>                
+    <div id="backgroundColor"style="background-color:#87add2;"></div>                
     <div id="otherFrames" class="frame"></div>
     <div id="logoBlack" class="asset" data-image="logoBlack"></div>
     <div id="logoWhite" class="asset" data-image="logoWhite"></div>
@@ -296,7 +288,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>Plus taxe
         background-color: #0084d6;
         color: #fff;">
     </div>
-    <div id="frame1" style="background-color:#0084d6;">
+    <div id="frame1" style="background-color:#87add2;">
       <div id="frameAsset1" class="asset" data-image="frameAsset1"></div>
       <!-- <div id="videoOverlay" style="background-color:rgba(0,0,0,0.2);"></div> -->
       <div class="beam-container"></div>
@@ -461,9 +453,9 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>Plus taxe
         })();
         // fn.beams.load('.beam-container');
         // fn.shapes.load('#frame1');
-        const beamGradient = document.createElement('div');
-        beamGradient.className = 'beam-gradient';
-        document.querySelector('.beam-container').appendChild(beamGradient);
+        // const beamGradient = document.createElement('div');
+        // beamGradient.className = 'beam-gradient';
+        // document.querySelector('.beam-container').appendChild(beamGradient);
 
         gsap.set('#otherFrames .asset', {y:'100%'});
         gsap.set('.frame-container .text, .frameText', {y:'100%'});
@@ -484,8 +476,8 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>Plus taxe
           .to('#logoWhite', {autoAlpha: white}, '-=0.3')
         }
         fn.changeCTA = function(color='') { gsap.to('#cta', {ease: "power2.Out", duration:0.3, css: (color.toLowerCase() === 'white' ? {background: '#fff', color: '#0084d6'} : {background: '#0084d6', color: '#fff'} )}) };
-        fn.changeLogo();
-        fn.changeCTA();
+        fn.changeLogo('white');
+        fn.changeCTA('white');
         fn.changeBG = function(color='#ebebeb') { gsap.to('#backgroundColor', {ease: "power2.Out", duration:0.3, css: {background: color}}) };
         const animationSequence = function(frame, properties, flag) {
           const frameElement = document.querySelector(frame);
