@@ -185,7 +185,7 @@ function frame0() {
 
 
 		
-        this.tlAnim.from([mc.cta,mc.txtCta], { duration: 0.7, x: "+=150", onComplete:function(){exportRoot.videoState="reset"}}, "<+.5");
+        this.tlAnim.from([mc.cta,mc.txtCta], { duration: 0.7, x: "+=250", onComplete:function(){exportRoot.videoState="reset"}}, "<+.5");
         this.tlAnim.from(mc.replay_btn, 1, { alpha: 0, onStart:function(){exportRoot.isReplay = true;}}, "-=0.6");
         this.tlAnim.to(mc,1,{onComplete:function (){
                 video.pause();
