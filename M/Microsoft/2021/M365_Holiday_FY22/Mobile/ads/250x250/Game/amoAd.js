@@ -134,12 +134,10 @@ var amoAd = (function(){
         if(ctaElement.offsetWidth <= ctaMaxWidth && ctaElement.offsetHeight <= ctaMaxHeight) { break; }
       }
       bannerData.CTA[1] = i + 'px';
-      if (bannerData.replaybtn[1]) { bannerData.replaybtn[1] = i + 'px'; }
-      //if (bannerData.CTA1[1]) { bannerData.CTA1[1] = (i - 5) + 'px'; } //bannerData.CTA1[0] = bannerData.CTA1[0].trim().replace(' ', '\n');}
+      bannerData.replaybtn[1] = i + 'px';
     }
     document.body.removeChild(ctaElement);
   }
-
 
   function resizeLandingCTA() {
     var layers = exportRoot.mainMC;
@@ -155,15 +153,24 @@ var amoAd = (function(){
   	var ctaScaleX = layers.cta1.scaleX, ctaScaleY = layers.cta1.scaleY;
   	var ctaHeight = Math.ceil(Math.abs(yTemp[0]) + Math.abs(yTemp[1]));
   	ctaHeight *= ctaScaleY * layers.cta1.children[0].scaleY;
-    var ctaMaxWidth = 100, ctaMaxHeight = ctaHeight;
+    var ctaMaxWidth = 70, ctaMaxHeight = ctaHeight, newCTAwidth = 80;
     var ctaElement = document.createElement('div');
     ctaElement.innerHTML = bannerData.ctaText[1] ? bannerData.ctaText[1].trim().replace('\n', '<br>'): '';
     ctaElement.style.display = 'inline-block';
     ctaElement.style.fontFamily = 'Segoe Pro';
     var ctaFont = ctaElement.style.fontSize = bannerData.CTA1[1];
     ctaElement.style.lineHeight = 1.2;
-    ctaElement.style.padding = '0px 30px 0px 15px';
+    ctaElement.style.padding = '0px 15px 0px 0px';
     document.body.appendChild(ctaElement);
+    if(ctaElement.offsetWidth > newCTAwidth || ctaElement.offsetHeight > ctaMaxHeight) {
+      if(ctaElement.textContent.indexOf('-') === -1) {
+        ctaElement.innerHTML = ctaElement.textContent.replace(' ', '<br>');
+        bannerData.CTA1[0] = bannerData.CTA1[0].trim().replace(' ', '\n');
+      } else {
+        ctaElement.innerHTML = ctaElement.textContent.replace('-', '<br>-');
+        bannerData.CTA1[0] = bannerData.CTA1[0].trim().replace('-', '\n-');
+      }
+    }
     if(ctaElement.offsetWidth > ctaMaxWidth || ctaElement.offsetHeight > ctaMaxHeight) {
       for(var i = parseFloat(bannerData.CTA1[1]); i > 0; i-=0.1) {
         ctaElement.style.fontSize = i + 'px';
