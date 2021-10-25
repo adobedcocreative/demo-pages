@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ads</title>
+    <style media="screen">
+      body {
+        min-width: 1024px;
+      }
+      .ad-wrapper {
+        /* max-width: 970px; */
+        margin: 0 auto;
+        text-align: center;
+      }
+      #headerContainer, #header, #subheader{
+        text-align: center;
+      }
+      #header .image-container {
+        display: inline-block;
+        position: relative;
+      }
+      #header .image {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 40px;
+      }
+      #header .image:first-child {
+        position: absolute;
+        top:0px;
+        left:0px;
+      }
+      #header .image img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      #header > div {
+        font-family: Arial;
+        display: inline-block;
+        /* min-height: 65px; */
+        vertical-align: top;
+        padding: 10px 5px 2px 5px;
+        margin: 0px 5px 2px 5px;
+        color:#333;
+        text-align: center;
+        /* -webkit-transition: all ease-out 0.2s;
+        transition: all ease-out 0.2s; */
+        cursor: pointer;
+      }
+      #header > div:hover {
+        margin: 0px;
+        margin: 0px 5px 0px 5px;
+        border-bottom: 2px solid;
+        color:#D83B01;
+      }
+      #header > div.selected {
+        margin: 0px;
+        margin: 0px 5px 0px 5px;
+        border-bottom: 2px solid;
+        color:#D83B01;
+      }
+      #subheader {
+        display: inline-block;
+        margin: 0 20px;
+        background-color: rgba(0,0,0,0.1);
+      }
+      #subheader > div {
+        font-family: Arial;
+        display: inline-block;
+        /* min-height: 65px; */
+        vertical-align: top;
+        font-size: 12px;
+        padding: 10px 5px 2px 5px;
+        margin: 0px 5px 8px 5px;
+        color:#333;
+        text-align: center;
+        /* -webkit-transition: all ease-out 0.2s;
+        transition: all ease-out 0.2s; */
+        cursor: pointer;
+      }
+      #subheader > div:hover {
+        /* margin: 0px;
+        margin: 0px 5px 0px 5px;
+        border-bottom: 2px solid; */
+        color:#D83B01;
+      }
+      #subheader > div.selected {
+        /* margin: 0px;
+        margin: 0px 5px 0px 5px;
+        border-bottom: 2px solid; */
+        color:#D83B01;
+      }
+      #subsubheader {
+        font-family: Arial;
+        /* display: inline-block; */
+        margin-top: 5px;
+        vertical-align: top;
+        color:#333;
+        text-align: center;
+        -webkit-transition: all ease-out 0.2s;
+        transition: all ease-out 0.2s;
+        cursor: pointer;
+      }
+      #subsubheader > div {
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 1px 1px;
+        background-color: #e5e5e5;
+        border: 2px solid #e5e5e5;
+      }
+      #subsubheader > div > div {
+        font-size: 65%;
+      }
+      #subsubheader > div:hover {
+        background: none;
+        border: 2px solid #333;
+      }
+      #subsubheader > div.selected {
+        background: none;
+        border: 2px solid #333;
+      }
+      #title {
+        font-family: Arial;
+        /* display: inline-block; */
+        vertical-align: top;
+        padding: 10px 5px 2px 5px;
+        margin: 0px 5px 2px 5px;
+        color:#333;
+        font-size: 20px;
+        text-align: center;
+        color:#D83B01;
+      }
+      .frame-wrapper {
+        display: inline-block;
+      }
+      .frame-wrapper div {
+        font-family: Arial;
+        text-align: left;
+        margin-left: 10px;
+      }
+      iframe {
+        border: none;
+        margin: 10px 10px 2px 10px;
+      }
+    </style>
+    <script src="js/content.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div id="headerContainer">
+      <div id="header" class=""></div>
+      <div id="subheader" class=""></div>
+      <div id="subsubheader" class=""></div>
+      <div id="title" class=""></div>
+    </div>
+    <div id="adContainer" class="ad-wrapper"></div>
+    <script type="text/javascript">
+      var bannerData = [], bannerData1 = [], feedData2 = [];
+      var getCAMData = function(data) {
+          var templates = {
+            'Simplified': `var cam = {
+              layout: data.Layout,
+              textField1: data.textField1,
+              textField2: data.textField2,
+              textField3: data.textField3,
+              textField4: data.textField4,
+              textField5: data.textField5,
+              ctaText: data.CTA,
+              impressionTracker: "../../../../1x1.png?impressionTracker=" + Math.random(),
+              clickTracker: "../../../../1x1.png?clickTracker=" + Math.random(),
+              clickURL: "https://office.com/",
+            }`,
+          }
+          eval(templates[data['template']]);
+          return JSON.stringify(cam);
+      }
+      var loadContent = function(queryString){
+        bannerData = [];
+        bannerData1 = [];
+        var htmlContent = '';
+
+        document.querySelector('#adContainer').innerHTML = //'<div class="frame-wrapper"><iframe src="160x600/160x600.html" width="160" height="600" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>160 x 600</div></div>'+
+        // '<div class="frame-wrapper"><iframe src="300x600/300x600.html" width="300" height="600" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>300 x 600 Portrait</div></div>'+
+        '<div class="frame-wrapper" id="ad160x600"></div>'+
+        '<div class="frame-wrapper" id="ad300x600"></div>'+
+        // '<div class="frame-wrapper"><iframe src="300x600(OnFigure)/300x600.html" width="300" height="600" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>300 x 600 Full Body</div></div>'+
+        '<div style="display:inline-block;max-width:800px;text-align:left;">'+
+          // '<div class="frame-wrapper"><iframe src="300x250/300x250.html" width="300" height="250" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>300 x 250</div></div>'+
+          '<div class="frame-wrapper" id="ad300x250"></iframe></div>'+
+        //   '<div></div>'+
+        //   '<div class="frame-wrapper"><iframe src="320x50/320x50.html" width="320" height="50" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>320 x 50</div></div>'+
+          // '<div class="frame-wrapper"><iframe src="728x90/728x90.html" width="728" height="90" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>728 x 90</div></div>'+
+          '<div class="frame-wrapper" id="ad728x90"></div>'+
+        '</div>'+
+        // '<div class="frame-wrapper"><iframe src="970x250/970x250.html" width="970" height="250" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>970 x 250</div></div>';
+        '';
+        htmlContent = '';
+        // var queryString = 'Japan|Create_O365_Word_Inking';
+        var searchString = queryString.split('|').splice(0, 2).join('|');
+        var filterString = queryString.split('|').length > 2 ? queryString.split('|').splice(2).join('|') : '';
+        var adContent = getData(queryString),adContents = {};
+        var country = adContent.data[0].Country;
+        var layoutName = adContent.name;
+        location.hash = btoa(country+'|'+layoutName).replace('==','');
+        htmlContent += adData.map(function(data){ return '<div '+(country == data.name ? 'class="selected"' : '')+' data-id="' + data.name + '">'+data.name + '</div>' }).join('');
+        document.querySelector('#header').innerHTML = htmlContent;
+        htmlContent = '';
+        var countryData = adData.find(function(data){ return data.name == country; });
+        if(countryData) {
+          htmlContent += countryData.data.map(function(data){ return '<div '+(layoutName == data.name ? 'class="selected"' : '')+' data-id="' + countryData.name + '|' + data.name + '" title="' + countryData.name + ' > ' + data.name + '">'+data.name + '</div>' }).join('');
+        }
+        document.querySelector('#subheader').innerHTML = htmlContent;
+        var headlines = [];
+        adContent.data.forEach(function(data){ headlines.push(data["Smart Names"] + '|' + data.Language); });
+        headlines = headlines.filter(function(value, index, self){ return self.indexOf(value) === index; });
+        if(headlines) {
+          filterString = filterString.length ? filterString : headlines[0];
+          if(!headlines.find(function(headline){ return headline.toLowerCase() == filterString.toLowerCase(); })) { filterString = headlines[0]; }
+          var country = adContent.data[0].Country;
+          var layoutName = adContent.name;
+          location.hash = btoa(country+'|'+layoutName+'|'+filterString).replace('==','').replace('=','');
+          adContents.name = adContent.name;
+          adContents.data = adContent.data.filter(function(data){ return (data["Smart Names"] + '|' + data.Language).toLowerCase() == filterString.toLowerCase(); });
+          htmlContent = '';
+          htmlContent += headlines.map(function(headline){ return '<div '+(headline.toLowerCase() == filterString.toLowerCase()? 'class="selected"': '')+' data-id="'+country+'|'+layoutName+'|'+headline+'">' + headline.split('|')[0] + '<div>(' + headline.split('|')[1] + ')</div></div>'; }).join('');
+        }
+        document.querySelector('#subsubheader').innerHTML = htmlContent;
+        htmlContent = '';
+        htmlContent = 'M365 Holiday - ' + adContent.data[0].Country + ' | ' + adContent.data[0].Layout + ' | ' + filterString.split('|').join(' | ');
+        document.querySelector('#title').innerHTML = htmlContent;
+        var headers = document.querySelectorAll('#header > div');
+        for(var i = 0; i < headers.length; i++) {
+            headers[i].onclick = function() {
+              loadContent(this.dataset.id);
+            }
+        }
+        var subheaders = document.querySelectorAll('#subheader > div');
+        for(var i = 0; i < subheaders.length; i++) {
+            subheaders[i].onclick = function() {
+              loadContent(this.dataset.id);
+            }
+        }
+        var subsubheaders = document.querySelectorAll('#subsubheader > div');
+        for(var i = 0; i < subsubheaders.length; i++) {
+            subsubheaders[i].onclick = function() {
+              loadContent(this.dataset.id);
+            }
+        }
+        adContents.data.map(function(data){
+          var adSize = data['Ad Size'];
+          var adWidth = adSize.split('x')[0];
+          var adHeight = adSize.split('x')[1];
+          var cam = getCAMData(data);
+          var adScript = `
+          -1==navigator.userAgent.indexOf("MSIE")&&-1==navigator.userAgent.indexOf("Trident")||Object.keys||(Object.keys=function(d){var f=[],e;for(e in d)d.hasOwnProperty(e)&&f.push(e);return f});var amo;
+amo=new function(){var d={};this.variation={};this.attributes={};this.content=[];var f={name:"1",description:"1",provider:"1",brand:"1",display_advertiser_category_name:"1",price:"1",discount_price:"1",picture_url:"1",product_url:"1",passthroughfield1:"1",passthroughfield2:"1",passthroughfield3:"1",passthroughfield4:"1",passthroughfield5:"1",image_url1:"1",image_url2:"1",image_url3:"1",image_url4:"1",image_url5:"1"},e=0;this.registerClick=function(a,c){d[a]=c};this.registerVariation=function(a,c){a&&
+c?"string"!==typeof a||"string"!==typeof c?alert("ERROR: key and value needs to be string"):this.variation[a]=c:alert("ERROR: key or/and value is not passed")};this.registerAttribute=function(a,c,b){a&&b&&c?"TEXT"!=c&&"IMAGE"!=c?alert("ERROR: type needs to be TEXT/IMAGE"):"string"!==typeof a||"string"!==typeof b?alert("ERROR: name and value needs to be string"):this.attributes[a]=b:alert("ERROR: name or/and type or/and value is not passed")};this.registerContent=function(a){if(a)if(validHeader=!0,
+void 0==a.length){for(var c=Object.keys(a),b=0;b<c.length;b++){var d=c[b],g=0;if(1==f[d])g=1;else{alert("Invalid Header in Content: "+d);break}}0!=g&&(a.gid=++e,this.content.push(a))}else alert("Content Data needs to be a JSON Object. Passed in Content Data seems to be an Array");else alert("ERROR: Content Data is not passed")};this.onDynAdClick=function(a,c,b,d,e){a=b?b:a?a.product_url:"";0<a.length&&(0==a.indexOf("http://")||0==a.indexOf("https://")||0==a.indexOf("//"))?window.open(a):alert("ERROR: Click URL is not available or is not valid.")};
+this.onAdClick=function(a,c){var b;a?(0==a.indexOf("http://")||0==a.indexOf("https://")||0==a.indexOf("//")?b=a:d[a]&&(b=d[a]),b?window.open(b):alert("ERROR: Click Parameter "+a+" not registered. Register landing page using amo.registerClick")):alert("ERROR: null or undefined Click Parameter passed")}};
+          var cam = ${cam}
+          for(var i in cam) { amo.registerVariation(i, cam[i]); }
+          amo.registerVariation = function(){}`;
+          // var amoScript = document.createElement('script');
+          // amoScript.type= 'text/javascript';
+          // amoScript.src = "js/AMOLibrary.js";
+          var scriptTag = document.createElement('script');
+          scriptTag.type= 'text/javascript';
+          var inlineScript = document.createTextNode(adScript);
+          scriptTag.appendChild(inlineScript);
+          var iframe = document.createElement('iframe');
+          iframe.id = adSize;
+          iframe.style.width = adWidth + 'px';
+          iframe.style.height = adHeight + 'px';
+          iframe.style.border = 'none';
+          document.querySelector('#ad' + adSize).innerHTML = '';
+          document.querySelector('#ad' + adSize).appendChild(iframe);
+          var iframeDoc = iframe.contentWindow ? iframe.contentWindow : iframe.contentDocument && iframe.contentDocument.document ? iframe.contentDocument.document : iframe.contentDocument;
+        	iframeDoc.document.open();
+          iframeDoc.document.write('<iframe src="ads/'+adSize+'/z'+adSize+'.html" width="'+adWidth+'" height="'+adHeight+'" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe>');
+        	iframeDoc.document.close();
+          iframeDoc.document.body.style.margin = 0;
+          iframeDoc.document.head.appendChild(scriptTag);
+          // iframeDoc.document.head.appendChild(amoScript);
+          // amoScript.onload = function(){
+          //   iframeDoc.document.head.appendChild(scriptTag);
+          // }
+        });
+
+      }
+      var loadPage = function(){
+        var searchFlag = false;
+        if(location.hash && location.hash.length) {
+          var selector = location.hash.split('#')[1];
+          loadContent(selector ? atob(selector) : 'Australia');
+        } else { loadContent('Australia'); }
+      }
+      window.getBannerData = function(k){
+        var obj = {};
+        for(var j in bannerData) {
+          if(bannerData[j].adSize == k) { for(var i in bannerData[j]) { obj[i] = bannerData[j][i]; } }
+        }
+        return obj;
+      }
+      // window.getBannerData1 = function(){ var obj = {}; for(var i in bannerData1[0]) { obj[i] = bannerData1[0][i]; } return obj; }
+    </script>
+  </body>
+</html>
