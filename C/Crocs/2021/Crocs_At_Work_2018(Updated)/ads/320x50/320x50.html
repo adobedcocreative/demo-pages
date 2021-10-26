@@ -387,10 +387,16 @@
         var productName =data.name;
         productName = productName.split('').length > 32 ? productName.substring(0, 32)+ '...' : productName;
         return ('<div data-id="' + id + '" style="position:relative;display:inline-block;width:' + carouselWidth + 'px;height:' + carouselHeight + 'px;vertical-align:top;">'+
-            '<div class="asset" style="position:absolute;top:3px;left:66px;width:52px;height:44px;"><img src="' + data.image + '" /></div>'+
+            (data.layout.toLowerCase() === 'largerproduct'? '<div class="asset" style="position:absolute;top:3px;left:66px;width:52px;height:44px;"><img src="' + data.image + '" /></div>'
             // '<div class="name text clip proxima-nova-regular" style="position:absolute;top:54px;left:308px;width:160px;height:15px;font-size:12px;color:#444;line-height:1;"><span>' + productName + '</span></div>'+
             // (data.originalPrice == '' || data.originalPrice.toLowerCase() == 'na' || data.originalPrice == data.price ? '<div class="price text proxima-nova-extrabold" style="position:absolute;top:70px;left:313px;width:150px;height:15px;font-size:12px;color:#444;line-height:1;"><span>$' + data.price + '</span></div>'
             // : '<div class="price text proxima-nova-extrabold" style="position:absolute;top:70px;left:313px;width:150px;height:15px;font-size:12px;color:#444;line-height:1;"><span><font class="strike">$' + data.originalPrice + '</font>&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#ef373e;">$' + data.price + '</font></span></div>')+
+            :
+            '<div class="asset" style="position:absolute;top:-22px;left:45px;width:94px;height:94px;"><img src="' + data.image + '" /></div>'+
+            '<div class="name text clip proxima-nova-regular" style="position:absolute;top:54px;left:308px;width:160px;height:15px;font-size:12px;color:#444;line-height:1;"><span>' + productName + '</span></div>'+
+            (data.price == '' || data.price.toLowerCase() == 'na' || data.price == '0.00' ? '<div class="price text proxima-nova-extrabold" style="position:absolute;top:' + (layout1 ? 451 : 476) + 'px;left:10px;width:280px;height:15px;font-size:14px;color:' + data.layoutColor + ';line-height:1;"><span data-button="description">MORE DETAILS</span></div>' : (data.originalPrice == '' || data.originalPrice.toLowerCase() == 'na' || data.originalPrice == '0.00' || data.originalPrice == data.price ? '<div class="price text proxima-nova-extrabold" style="position:absolute;top:70px;left:313px;width:150px;height:15px;font-size:12px;color:#444;line-height:1;"><span>$' + data.price + '</span></div>'
+            : '<div class="price text proxima-nova-extrabold" style="position:absolute;top:70px;left:313px;width:150px;height:15px;font-size:12px;color:#444;line-height:1;"><span><font class="strike">$' + data.originalPrice + '</font>&nbsp;&nbsp;&nbsp;&nbsp;<font style="color:#ef373e;">$' + data.price + '</font></span></div>'))
+            )+
             //ef373e
             //(data.price && parseFloat(data.price) ? '<div class="text" style="position:absolute;top:157px;left:10px;width:160px;height:36px;line-height:28px;color:#000;font-size:28px;font-weight:bold;"><span style="text-align:left;"><font style="color:#0046be;font-size:24px;vertical-align:12%;">$</font>' + data.price.split('.')[0] + '<sup style="font-size:18px;vertical-align:25%;">' + (data.price.split('.').length == 1 ? '00' : data.price.split('.')[1]) + '</sup></span></div>'
             //: '<div class="text" style="position:absolute;top:157px;left:10px;width:160px;height:36px;color:#000;font-size:14px;line-height:1.2;font-weight:bold;"><span>SEE PRICE IN CART</span></div>')+
@@ -424,12 +430,13 @@
             '<div id="bg" style="top:0px;left:200px;width:80px;height:inherit;background:#fff;"></div>'+
             '<div id="shade" style="top:0px;right:0px;width:170px;height:inherit;background:linear-gradient(to left, ' + data.layoutColor + ', #fff);opacity:0.1;"></div>'+
             (content.length > 1 ?
-            '<div id="leftArrow" class="asset" data-button="left" style="top:10px;left:15px;width:20px;height:30px;-webkit-transition:opacity 0.5s ease-out 1.8s,padding ease-out 0.3s;transition:opacity 0.5s ease-out 1.8s,padding ease-out 0.3s;opacity:0;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="13px" height="20px"><path fill-rule="evenodd"  fill="' + data.layoutColor + '" d="M12.089,19.997 L4.061,10.000 L12.089,0.003 L8.024,0.003 L-0.005,10.000 L8.024,19.997 L12.089,19.997 Z"/></svg></div>'+
-            '<div id="rightArrow" class="asset" data-button="right" style="top:10px;left:140px;width:20px;height:30px;-webkit-transition:opacity 0.5s ease-out 1.8s,padding ease-out 0.3s;transition:opacity 0.5s ease-out 1.8s,padding ease-out 0.3s;opacity:0;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="13px" height="20px"><path fill-rule="evenodd"  fill="' + data.layoutColor + '" d="M0.911,19.997 L8.939,10.000 L0.911,0.003 L4.976,0.003 L13.005,10.000 L4.976,19.997 L0.911,19.997 Z"/></svg></div>' : '') +
+            '<div id="leftArrow" class="asset" data-button="left" style="top:10px;left:' + (data.layout.toLowerCase() === 'largerproduct'? 15 : 9) + 'px;width:20px;height:30px;-webkit-transition:opacity 0.5s ease-out 1.8s,padding ease-out 0.3s;transition:opacity 0.5s ease-out 1.8s,padding ease-out 0.3s;opacity:0;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="13px" height="20px"><path fill-rule="evenodd"  fill="' + data.layoutColor + '" d="M12.089,19.997 L4.061,10.000 L12.089,0.003 L8.024,0.003 L-0.005,10.000 L8.024,19.997 L12.089,19.997 Z"/></svg></div>'+
+            '<div id="rightArrow" class="asset" data-button="right" style="top:10px;left:' + (data.layout.toLowerCase() === 'largerproduct'? 140 : 150) + 'px;width:20px;height:30px;-webkit-transition:opacity 0.5s ease-out 1.8s,padding ease-out 0.3s;transition:opacity 0.5s ease-out 1.8s,padding ease-out 0.3s;opacity:0;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="13px" height="20px"><path fill-rule="evenodd"  fill="' + data.layoutColor + '" d="M0.911,19.997 L8.939,10.000 L0.911,0.003 L4.976,0.003 L13.005,10.000 L4.976,19.997 L0.911,19.997 Z"/></svg></div>'
+            : '') +
             '<div id="headlineText" class="text proxima-nova-extrabold" style="position:absolute;top:5px;left:400px;width:222px;height:80px;font-size:26px;line-height:1.1;color:' + data.layoutColor + ';-webkit-transition:opacity 0.3s ease-out 0.5s,transform 0.3s ease-out 0.5s;transition:opacity 0.3s ease-out 0.5s,transform 0.3s ease-out 0.5s;-webkit-transform:translateY(-50%);transform:translateY(-50%);opacity:0;"><span style="text-align:center;">' + data.headlineText + '</span></div>'+
             '<div id="cta" class="asset" data-button="rightPortion" style="top:-2px;left:278px;width:42px;height:54px;padding:10px;box-sizing:border-box;background-color:' + data.layoutColor + ';-webkit-transition:all 0.2s ease-out 1.5s;transition:all 0.2s ease-out 1.5s;-webkit-transform:translateX(42px);transform:translateX(42px);"><img src="' + staticImages.ctaArrow + '"></div>'+
             //'<div id="cta" class="proxima-nova-extrabold" style="top:50px;left:606px;width:102px;height:33px;font-size:14.5px;text-align:center;line-height:32px;box-sizing:border-box;-webkit-transition:transform 0.2s ease-out 1.5s;transition:transform 0.2s ease-out 1.5s;-webkit-transform:translateX(-42px);transform:translateX(-42px);">' + data.ctaText + '</div>'+
-            '<div id="logo" class="asset" style="top:8px;left:182px;width:76px;height:35px;-webkit-transition:all 0.2s ease-out 1.5s;transition:all 0.2s ease-out 1.5s;-webkit-transform:translateX(42px);transform:translateX(42px);"><img src="' + data.logoImage + '" /></div>'+
+            '<div id="logo" class="asset" style="top:8px;left:' + (data.layout.toLowerCase() === 'largerproduct'? 182 : 184) + 'px;width:76px;height:35px;-webkit-transition:all 0.2s ease-out 1.5s;transition:all 0.2s ease-out 1.5s;-webkit-transform:translateX(42px);transform:translateX(42px);"><img src="' + data.logoImage + '" /></div>'+
             //'<style> #cta { background-color:' + data.layoutColor + '; color: #fff; border:2px solid; } #cta:hover { background-color: #fff; border-color:#fff; color:' + data.layoutColor + '; } </style>'+
             '<div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>';
             ad.update();
@@ -510,6 +517,7 @@
             }
         ];
       	if(contentD && contentD.length) { contentD.forEach(function(data) { amo.registerContent(data); }); }
+        amo.registerVariation("layout", 'shorterProduct');//shorterProduct//largerProduct
         amo.registerVariation("layoutText", 'short');//short//long
         amo.registerVariation("layoutColor", '#004976^#333');//004976
         amo.registerVariation("headlineText", 'COMFORT STARTS TODAY^EXPRESS YOURSELF');//COMFORT STARTS TODAY//EXPRESS YOURSELF//FUN SHOES<br>FOR FUN KIDS
@@ -523,6 +531,7 @@
         amo.registerVariation("descriptionUrl", '!{product_url}');
         var content = [], cam = {};
       	var cam = {
+          layout: amo.variation['layout'],
           layoutText: amo.variation['layoutText'],
           layoutColor: amo.variation['layoutColor'],
           headlineText: amo.variation['headlineText'],
@@ -543,6 +552,7 @@
       				image: cam.productImage,
       				price: cam.discountPrice,
               originalPrice: cam.price,
+              layout: cam.layout,
               layoutText: cam.layoutText,
               layoutColor: cam.layoutColor,
               headlineText: cam.headlineText,
