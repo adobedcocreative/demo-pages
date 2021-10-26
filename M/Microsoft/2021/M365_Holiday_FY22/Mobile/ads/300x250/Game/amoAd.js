@@ -162,7 +162,6 @@ var amoAd = (function(){
     ctaElement.style.lineHeight = 1.2;
     ctaElement.style.padding = '0px 15px 0px 0px';
     document.body.appendChild(ctaElement);
-    console.log(ctaElement.offsetWidth)
     if(ctaElement.offsetWidth > newCTAwidth || ctaElement.offsetHeight > ctaMaxHeight) {
       if(ctaElement.textContent.indexOf('-') === -1) {
         ctaElement.innerHTML = ctaElement.textContent.replace(' ', '<br>');
