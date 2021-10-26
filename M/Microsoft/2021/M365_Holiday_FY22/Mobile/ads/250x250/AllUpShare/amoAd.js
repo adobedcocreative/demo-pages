@@ -2,7 +2,6 @@ var amoAd = (function(){
   var ctaAlignment = function(position){
     var layers = exportRoot.mainMC;
     var adWidth = document.querySelector('#animation_container').offsetWidth;
-    var adHeight = document.querySelector('#animation_container').offsetHeight;
     var ctaBackgroundColor = layers.cta.children[0].graphics._fill.style;
     var yPoints = layers.cta.children[0].graphics._activeInstructions.map(function(point){ return(point.y) });
     var yTemp = [];
