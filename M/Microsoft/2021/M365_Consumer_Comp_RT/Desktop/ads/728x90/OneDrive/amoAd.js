@@ -20,7 +20,6 @@ var amoAd = (function(){
     layers.scaleY = 1;
     layers.txtCta.regX = 0;
     layers.txtCta.children[0].x = 0;
-    console.log(layers)
     layers.txtCta.children[0].y -= 1;
     layers.txtCta.scaleX = 1;
     layers.txtCta.scaleY = 1;
