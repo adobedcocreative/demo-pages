@@ -2,6 +2,7 @@ var amoAd = (function(){
   var ctaAlignment = function(position){
     var layers = exportRoot.mainMC;
     var adWidth = document.querySelector('#animation_container').offsetWidth;
+    var adHeight = document.querySelector('#animation_container').offsetHeight;
     var ctaBackgroundColor = layers.cta.children[0].graphics._fill.style;
     var yPoints = layers.cta.children[0].graphics._activeInstructions.map(function(point){ return(point.y) });
     var yTemp = [];
@@ -16,8 +17,9 @@ var amoAd = (function(){
     var ctaWidth = layers.txtCta.children[0].children[0].getBounds().width + 45;
     position = position ? position : (layers.cta.x > adWidth/2 ? 'right' : 'left');
     layers.txtCta.regX = 0;
+    layers.cta.y = (adHeight - ctaHeight);
     layers.txtCta.children[0].x = 0;
-    layers.txtCta.children[0].y += 3;
+    layers.txtCta.children[0].y -= 2;
     layers.txtCta.scaleX = 1;
     layers.txtCta.scaleY = 1;
     layers.cta.regX = 0;
@@ -62,7 +64,7 @@ var amoAd = (function(){
   	var CTAFont = bannerData.ctaText.split('|').length > 1 ? bannerData.ctaText.split('|')[1] : '0';
   	CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 14) + 'px';
   	bannerData.ctaText = bannerData.ctaText.split('|')[0];
-  	bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,CTAFont,0,0,"50","300", "center"] : '';
+  	bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,CTAFont,0,0,"50","300", "left"] : '';
     resizeCTA();
     fireImpression();
     window.bannerData = bannerData;
@@ -130,7 +132,7 @@ var amoAd = (function(){
   return {
     init: function(){ init(); },
   	click: function(id) { click(id); },
-  	ctaAlignment: function(){ ctaAlignment(); },
+  	ctaAlignment: function(position){ ctaAlignment(position); },
   	onInteraction: function(id) { onInteraction(text, id); }
   };
 })();

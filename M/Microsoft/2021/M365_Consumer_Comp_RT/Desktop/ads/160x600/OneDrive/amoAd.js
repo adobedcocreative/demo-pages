@@ -17,7 +17,7 @@ var amoAd = (function(){
     position = position ? position : (layers.cta.x > adWidth/2 ? 'right' : 'left');
     layers.txtCta.regX = 0;
     layers.txtCta.children[0].x = 0;
-    layers.txtCta.children[0].y = 0;
+    layers.txtCta.children[0].y = 2;
     layers.txtCta.scaleX = 1;
     layers.txtCta.scaleY = 1;
     layers.cta.regX = 0;
@@ -60,7 +60,7 @@ var amoAd = (function(){
     //bannerData.headline3 = eval(bannerData.textField3);
     bannerData.ctaText = bannerData.ctaText.replace('<br>', '\n');
   	var CTAFont = bannerData.ctaText.split('|').length > 1 ? bannerData.ctaText.split('|')[1] : '0';
-  	CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 14) + 'px';
+  	CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 15) + 'px';
   	bannerData.ctaText = bannerData.ctaText.split('|')[0];
     bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,CTAFont,0,0,"50","300", "left"] : '';
     resizeCTA();

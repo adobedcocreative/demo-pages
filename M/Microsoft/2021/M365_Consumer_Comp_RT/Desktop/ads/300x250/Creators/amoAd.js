@@ -63,7 +63,7 @@ var amoAd = (function(){
     //bannerData.headline3 = eval(bannerData.textField3);
     bannerData.ctaText = bannerData.ctaText.replace('<br>', '\n');
   	var CTAFont = bannerData.ctaText.split('|').length > 1 ? bannerData.ctaText.split('|')[1] : '0';
-  	CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 14) + 'px';
+  	CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 14.2) + 'px';
   	bannerData.ctaText = bannerData.ctaText.split('|')[0];
   	bannerData.CTA = bannerData.ctaText ? ['<#FFFFFF>' + bannerData.ctaText,CTAFont,0,0,"50","300", "left"] : '';
     resizeCTA();
