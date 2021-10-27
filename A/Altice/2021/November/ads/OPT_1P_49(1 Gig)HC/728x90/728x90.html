@@ -229,7 +229,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 10px;left: 335px;
         duration: 2.5,
         config: {
           beforeAnimation: function(fn) {
-            gsap.set('#beam1',{top:53,left:728,width:45,height:5,x:-773});gsap.set('#beam1 div',{width:5});
+            gsap.set('#beam1',{autoAlpha:1,top:53,left:728,width:45,height:5,x:-773});gsap.set('#beam1 div',{width:5});
             fn.beams.animate();
           }
         }
@@ -525,6 +525,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 10px;left: 335px;
         const animateFrame1 = function(frame, properties, flag) {
           const duration = properties && 'duration' in properties ? properties.duration : 3;
           fn.beams.animate();
+          gsap.to('#beam1', 0.2, {autoAlpha: 0, delay: 1.4})
           gsap.timeline(timelineProps)
             .to('#frameAsset1, #frameText1', destinationValues)
             // .to('#frameText12', destinationValues)
