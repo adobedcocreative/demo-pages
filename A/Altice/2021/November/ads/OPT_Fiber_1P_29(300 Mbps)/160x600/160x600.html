@@ -168,7 +168,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 300px;left: 16px;
     {
       name: 'frame1',
       assets: {
-        frameAsset1: "160x600_OPT_1P_Fiber_29_99_100Mbps_Background_Image_Frame_01.png",
+        frameAsset1: "160x600_Generic_Fiber_BRD.mp4",
       },
       style: {
         '#frameAsset1': {x:'-100%'},
@@ -293,7 +293,8 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 300px;left: 16px;
         color: #fff;">
     </div>
     <div id="frame1" style="background-color:#0084d6;">
-      <div id="frameAsset1" class="asset" data-image="frameAsset1"></div>
+      <!-- <div id="frameAsset1" class="asset" data-image="frameAsset1"></div> -->
+      <div id="frameAsset1"><video muted playsinline autoplay></video></div>
       <!-- <div id="videoOverlay" style="background-color:rgba(0,0,0,0.2);"></div> -->
       <div id="frameText1" class="text frameText">!{frameText1}</div>
       <div id="frameText12" class="text frameText">!{frameText12}</div>
@@ -375,21 +376,21 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 300px;left: 16px;
         ad.root.addEventListener("click", function(e) {
           if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
         });
-        // const loadVideo = function(video, path, flag) {
-        //   if(video && path) {
-        //     if(!flag) {
-        //       video.onplay = function() {
-        //         if(!video.flag) {
-        //           this.pause();
-        //           this.currentTime = 0;
-        //         }
-        //       }
-        //       video.src = path;
-        //       video.flag = false;
-        //     } else setTimeout(function(){ video.src = path; }, (flag ? 800 : 500));
-        //   }
-        // }
-        // loadVideo(ad.layers.frameAsset1.querySelector('video'), adData.frameAsset1, true);
+        const loadVideo = function(video, path, flag) {
+          if(video && path) {
+            if(!flag) {
+              video.onplay = function() {
+                if(!video.flag) {
+                  this.pause();
+                  this.currentTime = 0;
+                }
+              }
+              video.src = path;
+              video.flag = false;
+            } else setTimeout(function(){ video.src = path; }, (flag ? 800 : 500));
+          }
+        }
+        loadVideo(ad.layers.frameAsset1.querySelector('video'), adData.frameAsset1, true);
         // loadVideo(ad.layers.frameAsset3.querySelector('video'), adData.frameAsset3);
 
         textUpdate();
