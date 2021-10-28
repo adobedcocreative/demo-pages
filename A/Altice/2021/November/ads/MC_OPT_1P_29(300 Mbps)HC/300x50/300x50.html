@@ -123,9 +123,9 @@
         font-size: 60%;
       }
       .title {
-        top: 7px;
-        left: 7px;
-        font-size: 13px;
+        top: 10px;
+        left: 8px;
+        font-size: 12px;
         line-height: 0.9;
       }
       .title-center {
@@ -136,9 +136,9 @@
         transform: translateY(-50%);
       }
       .price-terms {
-        top: 21px;
+        top: 23px;
         left: 8px;
-        font-size: 9px;
+        font-size: 7.8px;
         line-height: 1.2;
         font-family: Altice-Regular;
       }
@@ -150,8 +150,8 @@
         font-family: Altice-Regular;
       }
       .terms-apply {
+        margin-top:2px;
         font-family: Altice-Regular;
-        display:inline-block;
         font-size: 8px;
       }
       .text-white {
@@ -165,13 +165,13 @@
 <script type="text/javascript">
 amo.registerClick("clickUrl", "https://www.altice.com");
 amo.registerAttribute("ctaText", "TEXT", "Compra");
-amo.registerAttribute("frameText1", "TEXT", "<div class='title-center'>¡Mejores fiestas con<br>la mejor oferta!</div>");
-amo.registerAttribute("frameText21", "TEXT", "<div class='title'>Internet de 300 megas $29.99/mes.</div>");
-amo.registerAttribute("frameText22", "TEXT", "<div class='price-terms' style='top: 22px;font-size:8px;'>w/Auto Pay & Paperless Bill plus taxes, fees &<br>charges. Conexión por cable. Velocidades WiFi podrían variar.</div>");
-amo.registerAttribute("frameText31", "TEXT", "<div class='title-center' style='font-size:13px;'>$300 Tarjeta prepagada Visa<sup>®</sup> incluida! <div class='terms-apply'>Aplican términos.</div></div>");
-amo.registerAttribute("frameText41", "TEXT", "<div class='title-center' style='left: 10px;font-size: 12.7px;line-height: 1.15;'>Plus, you can get HBO Max™<br>included for 3 mos. & a FREE<br>WiFi extender! <div class='terms-apply'>Aplican términos.</div></div>");
-amo.registerAttribute("frameText51", "TEXT", "<div class='title'>Internet de 300 megas $29.99/mes.</div>");
-amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pay & Paperless Bill plus taxes, fees<br>& charges. No disponible en todas las áreas.</div>");
+amo.registerAttribute("frameText1", "TEXT", "<div class='title-center'>¡Mejores fiestas<br>con la mejor oferta!</div>");
+amo.registerAttribute("frameText21", "TEXT", "<div class='title'>Internet de 300 megas $29.99/mes</div>");
+amo.registerAttribute("frameText22", "TEXT", "<div class='price-terms'>Con pago autmtco. y fact. elect. más tarifs. imptos. y<br>cargs. Conex. por cable. Vels. podrían variar.</div>");
+amo.registerAttribute("frameText31", "TEXT", "<div class='title' style='top: 9px;left: 8px;font-size: 11px;line-height: 1.15;'>$300 Tarjeta prepagada<br>Visa<sup>®</sup> incluida! <div class='terms-apply'>Aplican términos.</div></div>");
+amo.registerAttribute("frameText41", "TEXT", "<div class='title' style='top: 9px;left: 8px;font-size: 11.3px;line-height: 1.15;'>¡Además, HBOmax™ incluido por 3<br>meses y un extensor de WiFi gratis! <div class='terms-apply'>Aplican términos.</div></div>");
+amo.registerAttribute("frameText51", "TEXT", "<div class='title' style='top:6px;'>Internet de 300 megas $29.99/mes</div>");
+amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms' style='top:18px;'>Con pago automático y facturación electrónica más<br>tarifas, imptos. y cargos. No disponible en todas<br>las áreas.</div>");
 </script>
 <!-- End of overrode asset attributes values -->
 <script type="text/javascript">
@@ -213,7 +213,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pa
         frameAsset3: "300x50_OPT_HOL_ACQ_INT_1Gig300VC_4999Mo_Img_300Card_Frame_03.png",
       },
       style: {
-        
+        '#frameAsset3': {left: 4},
       },
       animate: {
         duration: 2.5,
