@@ -124,7 +124,7 @@
         top: 137px;
         left: 15px;
         width: 144px;
-        font-size: 24px;
+        font-size: 19px;
         line-height: 1.1;
       }
       .eyebrow-text {
@@ -162,11 +162,11 @@ amo.registerAttribute("frameText1", "TEXT", "<div class='title' style='top: 184p
 amo.registerAttribute("frameText21", "TEXT", "<div style='top: 139px;left: 19px;font-size: 20px;line-height: 0.95;'>Internet de<br>300 megas</div>");
 amo.registerAttribute("frameText22", "TEXT", "<div style='top: 173px;left: 12px;width: 140px;line-height: 1;'><font style='font-size: 62px;letter-spacing: -1.5px;padding-right: 2px;'>$29</font><font style='margin-left: 1px;font-size: 10px;display: inline-block;vertical-align: 25px;'>99/<br>mes</font></div>");
 amo.registerAttribute("frameText23", "TEXT", "<div class='disclaimer'>Con pago automático y facturación electrónica más tarifas, imptos. y cargos. Conexión por cable. Velocidades WiFi podrían variar.</div>");
-amo.registerAttribute("frameText31", "TEXT", "<div class='text-white' style='top: 138px;left: 10px;width: 140px;font-size: 32px;text-align: center;line-height: 1;'>$300</div><div class='text-white' style='top: 168px;left: 10px;width: 140px;font-size: 20px;text-align: center;line-height: 1.05;'>¡Tarjeta prepagada Visa<sup style='vertical-align: top;font-size: 60%;'>®</sup> incluida!</div><div class='AlticeRegular text-white' style='position: absolute;top: 208px;left: 10px;width: 140px;text-align: center;font-size: 10px;'>Aplican términos.</div>");
-amo.registerAttribute("frameText41", "TEXT", "<div class='title' style='top:136px;'>With <div class='HBOMax' style='display: inline-block;width: 175px;height: 22px;'></div> included<br>on us</div>");
+amo.registerAttribute("frameText31", "TEXT", "<div class='text-white' style='top: 138px;left: 10px;width: 140px;font-size: 32px;text-align: center;line-height: 1;'>$300</div><div class='text-white' style='top: 168px;left: 10px;width: 140px;font-size: 20px;text-align: center;line-height: 1.05;'>¡Tarjeta prepagada Visa<sup style='vertical-align: top;font-size: 60%;'>®</sup> incluida!</div><div class='AlticeRegular text-white' style='position: absolute;top: 229px;left: 10px;width: 140px;text-align: center;font-size: 10px;'>Aplican términos.</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div class='title' style='top:136px;'><div class='HBOMax' style='width: 175px;height: 26px;'></div>incluido</div>");
 amo.registerAttribute("frameText42", "TEXT", "<div class='disclaimer'>Obtén 3 meses incluidos,<br>después solo paga $14.99/mes.</div>");
-amo.registerAttribute("frameText51", "TEXT", "<div class='price-text'>Get<br>Internet de 300 megas for <font style='display: inline-block;'>$29.99</font><small class='monthly'>/mes</small><div class='price-terms'>Con pago automático y facturación electrónica más tarifas, imptos. y cargos.</div></div>");
-amo.registerAttribute("frameText52", "TEXT", "<div style='top: 298px;left: 16px;width: 150px;transform: scale(0.83);transform-origin: top left;'><div class='bulletedText'>$300 Tarjeta prepagada Visa<sup style='vertical-align: top;font-size: 75%;'>®</sup> incluida</div><div class='bulletedText'>HBO Max™ incluido</div><div class='bulletedText'>Extensor de WiFi gratis<div class='AlticeRegular' style='margin-top: 4px;margin-left: -16px;font-size: 67%;line-height: 1.05;'>No disponible en todas las áreas.<br>Aplican términos.</div></div></div>");
+amo.registerAttribute("frameText51", "TEXT", "<div class='price-text'>Obtén Internet de 300 megas por <font style='display: inline-block;'>$29.99</font><small class='monthly'>/mes</small><div class='price-terms'>Con pago automático y facturación electrónica más tarifas, imptos. y cargos.</div></div>");
+amo.registerAttribute("frameText52", "TEXT", "<div style='top: 258px;left: 16px;width: 170px;transform: scale(0.83);transform-origin: top left;'><div class='bulletedText'>$300 Tarjeta prepagada<br>Visa<sup style='vertical-align: top;font-size: 75%;'>®</sup> incluida</div><div class='bulletedText'>HBO Max™ incluido</div><div class='bulletedText'>Extensor de<br>WiFi gratis<div class='AlticeRegular' style='margin-top: 4px;margin-left: -16px;font-size: 67%;line-height: 1.05;'>No disponible en todas las áreas. Aplican términos.</div></div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 <script type="text/javascript">
@@ -210,7 +210,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 298px;left: 16px;
         frameAsset3: "160x600_OPT_HOL_ACQ_INT_1Gig300VC_4999Mo_Img_300Card_Frame_03.png",
       },
       style: {
-        
+        '#frameAsset3': {top: 21},
       },
       animate: {
         duration: 2.5,
@@ -228,7 +228,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 298px;left: 16px;
         frameAsset4: "160x600_OPT_HOL_ACQ_INT_1Gig300VC_4999Mo_Img_HBOMAX_Frame_04.png",
       },
       style: {
-        '#frameAsset4': {x:'-100%'},
+        '#frameAsset4': {x:'-100%', top: -24},
       },
       animate: {
         duration: 2.5,
