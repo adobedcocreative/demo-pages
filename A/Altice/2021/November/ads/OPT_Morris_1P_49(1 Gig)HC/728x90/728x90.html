@@ -231,6 +231,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 10px;left: 335px;
           beforeAnimation: function(fn) {
             gsap.set('#beam1',{autoAlpha:1,top:53,left:728,width:45,height:5,x:-773});gsap.set('#beam1 div',{width:5});
             fn.beams.animate();
+            gsap.to('#beam1', 0.2, {autoAlpha: 0, delay: 1.6});
           }
         }
       }
