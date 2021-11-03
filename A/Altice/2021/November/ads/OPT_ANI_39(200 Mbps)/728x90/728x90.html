@@ -137,7 +137,7 @@
         font-family: Altice-Regular;
       }
       .disclaimer {
-        top: 67px;
+        bottom: 13px;
         left: 22px;
         font-size: 10px;
         line-height: 1;
@@ -155,13 +155,12 @@
 amo.registerClick("clickUrl", "https://www.altice.com");
 amo.registerAttribute("ctaText", "TEXT", "Upgrade now");
 amo.registerAttribute("frameText1", "TEXT", "<div class='title' style='top: 32px;left: 26px;'>Get our best holiday deal ever!</div>");
-amo.registerAttribute("frameText21", "TEXT", "<div style='top: 13px;left: 26px;font-size: 25px;line-height: 0.95;'>200 Mbps<br>Internet</div>");
-amo.registerAttribute("frameText22", "TEXT", "<div style='top: 7px;left: 151px;width: 500px;line-height: 1;'><font style='font-size: 57px;letter-spacing: -1.8px;padding-right: 2px;'>$39</font><font style='margin-left: 2px;font-size: 9px;display: inline-block;vertical-align: 24px;line-height: 1;'>99/<br>mo.</font></div>");
-amo.registerAttribute("frameText23", "TEXT", "<div class='disclaimer' style='left:27px;'>w/Auto Pay & Paperless Bill plus taxes, fees & charges. Wired connection. WiFi speeds may vary.</div>");
+amo.registerAttribute("frameText21", "TEXT", "<div style='top: 13px;left: 26px;font-size: 25px;line-height: 0.95;'>Add 200 Mbps<br>Internet</div>");
+amo.registerAttribute("frameText22", "TEXT", "<div style='top: 7px;left: 215px;width: 500px;line-height: 1;'><font style='font-size: 57px;letter-spacing: -1.8px;padding-right: 2px;'>$39</font><font style='margin-left: 2px;font-size: 9px;display: inline-block;vertical-align: 24px;line-height: 1;'>99/<br>mo.</font></div>");
+amo.registerAttribute("frameText23", "TEXT", "<div class='disclaimer' style='bottom:6px;left:27px;'>w/Auto Pay & Paperless Bill plus taxes, fees & charges. Wired connection up to 200 Mbps.<br>WiFi speeds may vary. Speeds, prices & availability vary by area.</div>");
 amo.registerAttribute("frameText31", "TEXT", "<div class='text-white' style='top: 8px;left: 23px;font-size: 30px;line-height: 1;'>$100</div><div class='text-white' style='top: 37px;left: 23px;font-size: 22px;line-height: 1;'>Visa<sup style='vertical-align: top;font-size: 60%;'>®</sup> Prepaid<br>Card on us!</div>");
-amo.registerAttribute("frameText32", "TEXT", "<div class='disclaimer text-white' style='top: 66px;left: 351px;font-size: 9.8px;'>Terms apply.</div>");
-amo.registerAttribute("frameText41", "TEXT", "<div class='title' style='top: 24px;left: 22px;font-size: 27px;'>With <div class='HBOMax' style='display: inline-block;width: 104px;height: 22px;'></div> included on us</div>");
-amo.registerAttribute("frameText42", "TEXT", "<div class='disclaimer'>Get 3 mos. included, then only $14.99/mo.</div>");
+amo.registerAttribute("frameText32", "TEXT", "<div class='disclaimer text-white' style='left: 351px;font-size: 9.8px;'>Available w/200 Mbps Internet<br>& above + TV. Terms apply.</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div class='title' style='top: 24px;left: 22px;font-size: 27px;'>Built-in Internet Security</div>");
 amo.registerAttribute("frameText51", "TEXT", "<div class='price-text' style='top: 10px;'>Add 200 Mbps Internet<br>for $39.99<small class='monthly'>/mo.</small><div class='price-terms' style='margin-top:7px;'>w/Auto Pay & Paperless Bill plus taxes, fees & charges.</div></div>");
 amo.registerAttribute("frameText52", "TEXT", "<div style='top: 10px;left: 335px;width: 360px;transform: scale(0.84);transform-origin: top left;'><div class='bulletedText'>$100 Visa<sup style='vertical-align: top;font-size: 52%;'>®</sup> Prepaid Card</div><div class='bulletedText'>Built-in Security<div class='AlticeRegular' style='margin-top: 2px;margin-left: -14px;font-size: 66%;'>Not available in all areas. Terms apply.</div></div></div>");
 </script>
@@ -187,7 +186,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 10px;left: 335px;
         frameAsset2: "728x90_OPT_HOL_ACQ_INT_1Gig300VC_4999Mo_Img_Ornament_Frame_02.png",
       },
       style: {
-        '#frameAsset2': {y:'-100%'},
+        '#frameAsset2': {y:'-100%', left: 41},
       },
       animate: {
         duration: 2.5,
@@ -223,13 +222,12 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 10px;left: 335px;
         frameAsset4: "728x90_Snow_Teal.mp4",
       },
       style: {
-        '#frameAsset4': {x:'-100%'},
+        '#frameAsset4': {x: 0, y: 0, autoAlpha: 0},
       },
       animate: {
         duration: 2.5,
         config: {
           beforeAnimation: function(fn) {
-            gsap.set('#beamContainer',{zIndex: 'auto'});
             gsap.set('#beam1',{autoAlpha:1,top:53,left:728,width:45,height:5,x:-773});gsap.set('#beam1 div',{width:5});
             fn.beams.animate();
             gsap.to('#beam1', 0.2, {autoAlpha: 0, delay: 1.6});
@@ -272,7 +270,6 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 10px;left: 335px;
 <body>
   <div id="ad">
     <div id="backgroundColor"style="background-color:#85bcbc;"></div>  
-    <div id="beamContainer"></div>              
     <div id="otherFrames" class="frame"></div>
     <div id="logoBlack" class="asset" data-image="logoBlack"></div>
     <div id="logoWhite" class="asset" data-image="logoWhite"></div>
@@ -282,7 +279,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 10px;left: 335px;
         left: 583px;
         width: 106px;
         height: 25px;
-        font-size: 16px;
+        font-size: 14px;
         overflow: hidden;
         border-radius: 15px;
         padding: 2px;
@@ -303,7 +300,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 10px;left: 335px;
           left: 583px;
           width: 106px;
           height: 25px;
-          font-size: 16px;
+          font-size: 14px;
           overflow: hidden;
           border-radius: 15px;
           padding: 2px;
@@ -311,7 +308,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 10px;left: 335px;
           background: #fff;">
       </div>
     </div>
-
+    <div id="beamContainer"></div>
     <div id="border" class="frame" style="border: 1px solid #000; overflow: hidden; box-sizing: border-box; pointer-events: none;"></div>
     <div id="overlay" class="frame" style="background-color:#fff;opacity:1;-webkit-transition:all 0.5s ease 1s;transition:all 0.5s ease 1s;"></div>
   </div>
@@ -526,7 +523,6 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 10px;left: 335px;
         })();
         const animateFrame1 = function(frame, properties, flag) {
           const duration = properties && 'duration' in properties ? properties.duration : 3;
-          gsap.set('#beamContainer',{zIndex: 1});
           fn.beams.animate();
           gsap.to('#beam1', 0.2, {autoAlpha: 0, delay: 1.4})
           gsap.timeline(timelineProps)
