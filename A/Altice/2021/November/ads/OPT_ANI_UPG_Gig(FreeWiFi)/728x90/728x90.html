@@ -159,9 +159,9 @@ amo.registerAttribute("frameText21", "TEXT", "<div style='top: 25px;left: 26px;f
 amo.registerAttribute("frameText22", "TEXT", "<div class='disclaimer' style='left:27px;'>Wired connection up to 940 Mbps. WiFi speeds may vary. Speeds, prices & availability vary by area.</div>");
 amo.registerAttribute("frameText31", "TEXT", "<div class='text-white' style='top: 8px;left: 23px;font-size: 30px;line-height: 1;'>$100</div><div class='text-white' style='top: 37px;left: 23px;font-size: 22px;line-height: 1;'>Visa<sup style='vertical-align: top;font-size: 60%;'>®</sup> Prepaid<br>Card on us!</div>");
 amo.registerAttribute("frameText32", "TEXT", "<div class='disclaimer text-white' style='top: 66px;left: 351px;font-size: 9.8px;'>Terms apply.</div>");
-amo.registerAttribute("frameText41", "TEXT", "<div class='title' style='top: 31px;left: 22px;font-size: 27px;'>Connect all your devices</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div class='title' style='top: 18px;left: 22px;font-size: 27px;'>Free WiFi Extender for greater<br>whole home WiFi coverage</div>");
 amo.registerAttribute("frameText51", "TEXT", "<div class='price-text' style='top: 20px;'>Upgrade to<br>1 Gig Internet</div>");
-amo.registerAttribute("frameText52", "TEXT", "<div style='top: 10px;left: 305px;width: 360px;transform: scale(0.84);transform-origin: top left;'><div class='bulletedText'>$100 Visa<sup style='vertical-align: top;font-size: 52%;'>®</sup> Prepaid Card</div><div class='bulletedText'>HBO Max™ included on us</div><div class='bulletedText'>Free Optimum Stream<div class='AlticeRegular' style='margin-top: 2px;margin-left: -14px;font-size: 66%;'>Not available in all areas. Terms apply.</div></div></div>");
+amo.registerAttribute("frameText52", "TEXT", "<div style='top: 10px;left: 305px;width: 360px;transform: scale(0.84);transform-origin: top left;'><div class='bulletedText'>$100 Visa<sup style='vertical-align: top;font-size: 52%;'>®</sup> Prepaid Card</div><div class='bulletedText'>Free WiFi Extender</div><div class='bulletedText'>Free Internet Security<div class='AlticeRegular' style='margin-top: 2px;margin-left: -14px;font-size: 66%;'>Not available in all areas. Terms apply.</div></div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 <script type="text/javascript">
@@ -227,7 +227,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 10px;left: 305px;
         duration: 2.5,
         config: {
           beforeAnimation: function(fn) {
-            gsap.set('#beam1',{autoAlpha:1,top:60,left:728,width:45,height:5,x:-773});gsap.set('#beam1 div',{width:5});
+            gsap.set('#beam1',{autoAlpha:1,top:74,left:728,width:45,height:5,x:-773});gsap.set('#beam1 div',{width:5});
             fn.beams.animate();
             gsap.to('#beam1', 0.2, {autoAlpha: 0, delay: 1.6});
           }
