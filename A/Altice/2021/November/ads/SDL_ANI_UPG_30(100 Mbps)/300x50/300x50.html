@@ -123,9 +123,9 @@
         font-size: 60%;
       }
       .title {
-        top: 14px;
+        top: 6px;
         left: 7px;
-        font-size: 13px;
+        font-size: 12px;
         line-height: 0.9;
       }
       .title-center {
@@ -136,9 +136,9 @@
         transform: translateY(-50%);
       }
       .price-terms {
-        top: 28px;
+        top: 19px;
         left: 8px;
-        font-size: 9px;
+        font-size: 8px;
         line-height: 1.2;
         font-family: Altice-Regular;
       }
@@ -166,11 +166,12 @@
 amo.registerClick("clickUrl", "https://www.altice.com");
 amo.registerAttribute("ctaText", "TEXT", "Upgrade now");
 amo.registerAttribute("frameText1", "TEXT", "<div class='title-center'>Upgrade to our best<br>holiday deal ever!</div>");
-amo.registerAttribute("frameText21", "TEXT", "<div class='title' style='top:6px;'>Upgrade to 1 Gig Internet</div>");
-amo.registerAttribute("frameText22", "TEXT", "<div class='price-terms' style='top:19px;font-size:8px;'>Wired connection up to 100 Mbps. WiFi<br>speeds may vary. Speeds, prices &<br>availability vary by area.</div>");
+amo.registerAttribute("frameText21", "TEXT", "<div class='title'>100 Mbps Internet $30 more/mo.</div>");
+amo.registerAttribute("frameText22", "TEXT", "<div class='price-terms' style='top:19px;font-size:8px;'>Plus taxes & fees. Wired connection up to 100<br>Mbps. WiFi speeds may vary. Speeds, prices &<br>availability vary by area.</div>");
 amo.registerAttribute("frameText31", "TEXT", "<div class='title-center' style='font-size:13px;'>$50 Visa<sup>®</sup> Prepaid<br>Card on us! <div class='terms-apply'>Terms apply.</div></div>");
-amo.registerAttribute("frameText41", "TEXT", "<div class='title'>Upgrade to 1 Gig Internet</div>");
-amo.registerAttribute("frameText42", "TEXT", "<div class='price-terms'>Not available in all areas.</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div class='title-center' style='left: 10px;font-size: 12.7px;line-height: 1.15;'>Built-in Internet Security</div>");
+amo.registerAttribute("frameText51", "TEXT", "<div class='title'>100 Mbps Internet $30 more/mo.</div>");
+amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms' style='top:19px;font-size:8px;'>Plus taxes & fees. Wired connection up to 100<br>Mbps. WiFi speeds may vary. Speeds, prices &<br>availability vary by area.</div>");
 </script>
 <!-- End of overrode asset attributes values -->
 <script type="text/javascript">
@@ -226,6 +227,24 @@ amo.registerAttribute("frameText42", "TEXT", "<div class='price-terms'>Not avail
     },
     {
       name: 'frame4',
+      assets: {
+        frameAsset4: "300x50_Snow_Blue.mp4",
+      },
+      style: {
+        '#frameAsset4': {x: 0, y: 0, autoAlpha: 0},
+      },
+      animate: {
+        duration: 3.2,
+        config: {
+          beforeAnimation: function(fn) {
+            fn.beams.animate();
+            gsap.to('#beam1', 0.2, {autoAlpha: 0, delay: 1.5});
+          }
+        }
+      }
+    },
+    {
+      name: 'frame5',
       assets: {
         frameAsset5: "1x1.png",
       },
@@ -359,22 +378,22 @@ amo.registerAttribute("frameText42", "TEXT", "<div class='price-terms'>Not avail
         ad.root.addEventListener("click", function(e) {
           if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
         });
-        // const loadVideo = function(video, path, flag) {
-        //   if(video && path) {
-        //     if(!flag) {
-        //       video.onplay = function() {
-        //         if(!video.flag) {
-        //           this.pause();
-        //           this.currentTime = 0;
-        //         }
-        //       }
-        //       video.src = path;
-        //       video.flag = false;
-        //     } else setTimeout(function(){ video.src = path; }, (flag ? 800 : 500));
-        //   }
-        // }
+        const loadVideo = function(video, path, flag) {
+          if(video && path) {
+            if(!flag) {
+              video.onplay = function() {
+                if(!video.flag) {
+                  this.pause();
+                  this.currentTime = 0;
+                }
+              }
+              video.src = path;
+              video.flag = false;
+            } else setTimeout(function(){ video.src = path; }, (flag ? 800 : 500));
+          }
+        }
         // loadVideo(ad.layers.frameAsset1.querySelector('video'), adData.frameAsset1, true);
-        // loadVideo(ad.layers.frameAsset3.querySelector('video'), adData.frameAsset3);
+        loadVideo(ad.layers.frameAsset4.querySelector('video'), adData.frameAsset4);
 
         textUpdate();
         const fn = { }
@@ -390,7 +409,7 @@ amo.registerAttribute("frameText42", "TEXT", "<div class='price-terms'>Not avail
             }
             beams.innerHTML = htmlContent;
             parentElement.appendChild(beams);
-            gsap.set('#beam1',{top:41,left:300,width:27,height:4,x:-327});gsap.set('#beam1 div',{width:4});
+            gsap.set('#beam1',{top:33,left:300,width:27,height:3,x:-327});gsap.set('#beam1 div',{width:3});
             // gsap.set('#beam2',{top:30,left:300,width:200,height:20,x:-500});gsap.set('#beam2 div',{width:20});
             // gsap.set('#beam3',{top:174,left:300,width:180,height:22,x:-480});gsap.set('#beam3 div',{width:22});
             // gsap.set('#beam4',{top:145,left:300,width:150,height:14,x:-530});gsap.set('#beam4 div',{width:14});
@@ -443,6 +462,7 @@ amo.registerAttribute("frameText42", "TEXT", "<div class='price-terms'>Not avail
         // const beamGradient = document.createElement('div');
         // beamGradient.className = 'beam-gradient';
         // document.querySelector('.beam-container').appendChild(beamGradient);
+        fn.beams.load('#ad');
 
         gsap.set('#otherFrames .asset', {y:'100%'});
         gsap.set('.frame-container .text, .frameText', {y:'100%'});
