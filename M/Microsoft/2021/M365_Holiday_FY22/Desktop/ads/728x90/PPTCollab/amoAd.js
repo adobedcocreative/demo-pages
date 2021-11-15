@@ -60,11 +60,13 @@ var amoAd = (function(){
     bannerData.headline1 = eval(bannerData.textField1);
     bannerData.headline2 = eval(bannerData.textField2);
     bannerData.headline3 = eval(bannerData.textField3);
+    var CTAFontFamily = "";
     bannerData.ctaText = bannerData.ctaText.replace('<br>', '\n');
   	var CTAFont = bannerData.ctaText.split('|').length > 1 ? bannerData.ctaText.split('|')[1] : '0';
   	CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 12.3) + 'px';
   	bannerData.ctaText = bannerData.ctaText.split('|')[0];
-  	bannerData.CTA = bannerData.ctaText ? ['<#ffffff>' + bannerData.ctaText,CTAFont,0,0,"50","300", "left", "Segoe Pro"] : '';
+    if(bannerData.headline1[7] === "Arial") { CTAFontFamily = "Arial"; } else { CTAFontFamily = "Segoe Pro" };
+  	bannerData.CTA = bannerData.ctaText ? ['<#ffffff>' + bannerData.ctaText,CTAFont,0,0,"50","300", "left", CTAFontFamily] : '';
     resizeCTA();
     fireImpression();
     window.bannerData = bannerData;
