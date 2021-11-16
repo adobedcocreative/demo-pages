@@ -34,11 +34,11 @@ function frame0() {
     document.getElementById('canvas').addEventListener('wheel', checkScroll.bind(this));
 
     function checkScroll(action) {
-       var label = "";
+        var label = "";
         if((action.wheelDelta > 0 || action.detail > 0) && exportRoot.navEnable) { 
             exportRoot.selectedSlide++;
             label = "Mouse Wheel Next";
-        }else if((action.wheelDelta < 0 || action.detail < 0) && exportRoot.navEnable) { 
+        } else if((action.wheelDelta < 0 || action.detail < 0) && exportRoot.navEnable) { 
             exportRoot.selectedSlide--;
             label = "Mouse Wheel Prev";
         } else {

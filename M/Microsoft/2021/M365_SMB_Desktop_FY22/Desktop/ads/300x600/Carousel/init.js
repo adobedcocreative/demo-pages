@@ -19,7 +19,7 @@ function frame0() {
         [14,15,16,17]
     ];
 
-    //nav callBack,
+    //nav callBack
     exportRoot.navEnable = 0; //initial setup of nav
     mc.nav.arrow_up.on("click", function (){navBehavior(exportRoot.selectedSlide - 1,1,'Prev Click'); });
     mc.nav.arrow_down.on("click", function (){navBehavior(exportRoot.selectedSlide + 1,1,'Next Click'); });
@@ -35,10 +35,10 @@ function frame0() {
         if((action.wheelDelta > 0 || action.detail > 0) && exportRoot.navEnable) {
             exportRoot.selectedSlide++;
             label = "Mouse Wheel Next";
-        }else if((action.wheelDelta < 0 || action.detail < 0) && exportRoot.navEnable) { 
+        } else if((action.wheelDelta < 0 || action.detail < 0) && exportRoot.navEnable) { 
             exportRoot.selectedSlide--;
             label = "Mouse Wheel Prev";
-        }else {
+        } else {
             label = "Mouse Wheel";
         }
         navBehavior(exportRoot.selectedSlide, 1, label);

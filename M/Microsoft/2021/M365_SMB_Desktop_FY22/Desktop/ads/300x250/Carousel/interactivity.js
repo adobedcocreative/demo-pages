@@ -61,7 +61,7 @@ function changeSlide() {
             exportRoot.videoState="reset";
         }
     })
-        //.to(exportRoot.mainMC.loading_bar, {duration:0.2, alpha:0, overwrite:true},"<")
+        .to(document.getElementById("vid"+exportRoot.prevSlide),{duration:0.5, volume:0},"<")
         .to(exportRoot.mainMC.slides,{duration:0.5, overwrite:true, scale:zoomFactor,
             x:(exportRoot.width-exportRoot.width*zoomFactor)/2,
             y:yOffset, ease:"power2.inOut",
@@ -134,22 +134,18 @@ function showSelectedVideo(nVid) {
         document.getElementById("vid"+i).style.opacity = 0;
         document.getElementById("vid"+i).currentTime = 0;
     }
-    //gsap.to(exportRoot.mainMC.loading_bar, {duration:0.5, alpha:1});
+    document.getElementById("vid"+exportRoot.prevSlide).pause();
+    document.getElementById("vid"+nVid).volume = 1;
     exportRoot.videoState="playing";
-    //document.getElementById("vid"+nVid).style.opacity = 1;
     gsap.to(document.getElementById("vid"+nVid).style, {duration:1, opacity:1, onComplete:function (){
         document.getElementById("vid"+nVid).play();
         exportRoot["tlSlide"+nVid].tweenFromTo("start","fade2");
-        //console.log(document.getElementById("vid"+exportRoot.prevSlide).muted)
         if(
-            (document.getElementById("vid"+exportRoot.prevSlide).muted==false && exportRoot.noAuto==false) ||
-            (document.getElementById("vid"+exportRoot.prevSlide).muted==false && exportRoot.autoplayDone == true)
+            (exportRoot.mainMC.mute_btn_blk.currentFrame==2)
         ) {
             document.getElementById("vid" + nVid).muted = false;
             document.getElementById("vid"+exportRoot.prevSlide).muted = true;
         }
-
-            //exportRoot["tlSlide"+nVid].play()
         exportRoot.prevSlide = nVid;
     }});
 
@@ -168,10 +164,8 @@ function fadeCopy(n) {
     }
     else if(currentPosition=="fade1_mid" || currentPosition=="fade1_end") {
         exportRoot["tlSlide" + n].tweenFromTo("fade1_mid","fade1_end");
-        //exportRoot.ctaAnim.tweenFromTo("mid","end");
     }
     else if(currentPosition=="start2" || currentPosition=="fade2") {
         exportRoot["tlSlide" + n].tweenFromTo("fade2", "end");
-        //exportRoot.ctaAnim.tweenFromTo("mid","end",0.5);
     }
 }
