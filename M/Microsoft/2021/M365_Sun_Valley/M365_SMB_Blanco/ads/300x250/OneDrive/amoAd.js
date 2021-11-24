@@ -123,7 +123,7 @@ var amoAd = (function(){
     document.body.removeChild(ctaElement);
   }
   function click(id) {
-    parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl.split('^').length > 1 && id >= 0 ? parentWindow.adClickUrl.split('^')[id] : parentWindow.adClickUrl, parentWindow.adData.layout + '|' + bannerData.ctaText);
+    parentWindow.amo.onDynAdClick(parentWindow.adData.feedData, "CLICK", parentWindow.adClickUrl);
     if(bannerData.clickTracker) {
       var clickTrackers = bannerData.clickTracker.split('^');
       clickTrackers.forEach(function(url){
