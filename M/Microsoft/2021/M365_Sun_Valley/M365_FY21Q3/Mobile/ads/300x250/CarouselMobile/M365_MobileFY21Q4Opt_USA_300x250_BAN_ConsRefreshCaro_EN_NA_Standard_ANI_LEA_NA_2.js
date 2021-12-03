@@ -2704,10 +2704,11 @@ if (reversed == null) { reversed = false; }
 			swipe.on("swipe", function() {
 				var dir = swipe.direction;
 				if (dir == "none") {
-					if (ClickID==0) window.open(clickTag1);
-					if (ClickID==1) window.open(clickTag2);
-					if (ClickID==2) window.open(clickTag3);
-					if (ClickID==3) window.open(clickTag4);
+					// if (ClickID==0) window.open(clickTag1);
+					// if (ClickID==1) window.open(clickTag2);
+					// if (ClickID==2) window.open(clickTag3);
+					// if (ClickID==3) window.open(clickTag4);
+					amoAdClick(ClickID);
 				} else if (dir == "left") {
 					if (status_button=="on" && menuPos == "shrunk") exportRoot.setMenu2()
 				} else {
