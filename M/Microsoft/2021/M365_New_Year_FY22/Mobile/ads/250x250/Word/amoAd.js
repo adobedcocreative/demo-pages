@@ -29,8 +29,8 @@ var amoAd = (function(){
     layers.cta.scaleX = 1;
     layers.cta.scaleY = 1;
     layers.cta.arrow.y = 0;
-    layers.cta.arrow.arrow.y = 0;
-    layers.cta.arrow.arrow_1.y = 0;
+    layers.cta.arrow.arrow.y = 4.5;
+    layers.cta.arrow.arrow_1.y = 4.5;
     layers.cta.arrow.arrow_1.x = 0;
     layers.cta.arrow.arrow.x = 0;
     layers.cta.arrow.arrow_1.regX = 0;
@@ -69,9 +69,9 @@ var amoAd = (function(){
     //bannerData.headline5 = eval(bannerData.textField4);
     bannerData.ctaText = bannerData.ctaText.replace('<br>', '\n');
   	var CTAFont = bannerData.ctaText.split('|').length > 1 ? bannerData.ctaText.split('|')[1] : '0';
-  	CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 14) + 'px';
+  	CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 18) + 'px';
   	bannerData.ctaText = bannerData.ctaText.split('|')[0];
-  	bannerData.CTA = bannerData.ctaText ? ['<#ffffff>' + bannerData.ctaText,CTAFont,0,0,"50","300", "left","Segoe Pro"] : '';
+  	bannerData.CTA = bannerData.ctaText ? ['<#ffffff>' + bannerData.ctaText,CTAFont,1,-1,"50","300", "left","Segoe Pro"] : '';
     resizeCTA();
     fireImpression();
     window.bannerData = bannerData;

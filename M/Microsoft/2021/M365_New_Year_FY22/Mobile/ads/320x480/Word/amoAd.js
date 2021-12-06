@@ -1,6 +1,7 @@
 var amoAd = (function(){
   var ctaAlignment = function(position){
     var layers = exportRoot.mainMC;
+    console.log(layers.cta)
     var adWidth = document.querySelector('#animation_container').offsetWidth;
     var adHeight = document.querySelector('#animation_container').offsetHeight;
     var ctaBackgroundColor = layers.cta.children[0].shape.graphics._fill.style;
@@ -29,8 +30,8 @@ var amoAd = (function(){
     layers.cta.scaleX = 1;
     layers.cta.scaleY = 1;
     layers.cta.arrow.y = 0;
-    layers.cta.arrow.arrow.y = 0;
-    layers.cta.arrow.arrow_1.y = 0;
+    layers.cta.arrow.arrow.y = 2;
+    layers.cta.arrow.arrow_1.y = 2;
     layers.cta.arrow.arrow_1.x = 0;
     layers.cta.arrow.arrow.x = 0;
     layers.cta.arrow.arrow_1.regX = 0;
@@ -55,7 +56,7 @@ var amoAd = (function(){
       layers.cta.x = 0;
     	// layers.txtCta.y = adHeight - ctaHeight/2 - 8;
       layers.txtCta.x = (ctaWidth - ctaCalculatedWidth)/2 - 8;
-    	layers.cta.arrow.x = (ctaWidth -  ctaCalculatedWidth)/2 +  (ctaCalculatedWidth + 3);
+    	layers.cta.arrow.x = (ctaWidth -  ctaCalculatedWidth)/2 +  (ctaCalculatedWidth + 4);
     }
   }
   var iframe = window.frameElement;
@@ -69,7 +70,7 @@ var amoAd = (function(){
     //bannerData.headline5 = eval(bannerData.textField4);
     bannerData.ctaText = bannerData.ctaText.replace('<br>', '\n');
   	var CTAFont = bannerData.ctaText.split('|').length > 1 ? bannerData.ctaText.split('|')[1] : '0';
-  	CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 14) + 'px';
+  	CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 20.2) + 'px';
   	bannerData.ctaText = bannerData.ctaText.split('|')[0];
   	bannerData.CTA = bannerData.ctaText ? ['<#ffffff>' + bannerData.ctaText,CTAFont,0,0,"50","300", "left","Segoe Pro"] : '';
     resizeCTA();
