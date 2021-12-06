@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ad</title>
+    <link rel="stylesheet" href="css/style.min.css">
+    <script type="text/javascript" src="https://ads.everesttech.net/ads/static/local/AMOLibrary.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
+    <script src="js/script.min.js" charset="utf-8"></script>
+    <style media="screen">
+      @font-face {
+          font-family: SegoePro-Semibold;
+          src: url('fonts/SegoePro-Semibold.woff') format("woff");
+      }
+      .segoeProSemibold { font-family: SegoePro-Semibold; }
+    </style>
+    <!--
+      Available Classes:-
+        For Images :-
+          .asset        -Image Center Align(Image can shrink according to the container but will expand beyond its original size)
+          .asset-top    -Image Top Center Align(Image can shrink according to the container but will expand beyond its original size)
+          .asset-left
+
+    -->
+    <style media="screen">
+      #ad {
+        width: 728px;
+        height: 90px;
+        font-family: Arial,Helvetica,sans-serif;
+        background-color: #0078d3;
+      }
+      .frame {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: inherit;
+        height: inherit;
+      }
+      #cta { color: #0078d4; }
+      #cta:hover { color: #1384da; }
+    </style>
+  </head>
+  <body>
+    <div class="ad" id="ad">
+      <div id="backgroundImage" class="asset frame" data-image="backgroundImage"></div>
+      <div id="logoImage" class="asset frame" data-image="logoImage"></div>
+      <div id="textfields" dir="auto" class="text-top-left segoeProSemibold"
+        style="top:14px;
+          left:176px;
+          width:280px;
+          height:70px;
+          font-size:16px;
+          line-height:1.2;
+          color:#000;">
+          <span>
+            <font id="headlineText" style="display:inline-block;min-height:20px;padding-bottom:8px;width:100%;">!{headlineText}</font>
+            <font id="subheadlineText" style="display:inline-block;font-size:85%;">!{subheadlineText}</font>
+          </span>
+      </div>
+
+      <div id="cta" dir="auto" class="text segoeProSemibold"
+        data-style="text-align:center;padding:3px 20px;"
+        data-text="ctaText"
+        style="top:0px;
+          left:690px;
+          width:30px;
+          height:90px;
+          font-size:0px;
+          color:#fff;">
+      </div>
+      <div id="ctaArrow" class="text segoeProSemibold" style="top:45px;left:708px;font-size:20px;color:#fff;">
+        <span>&#x276F;</span>
+      </div>
+      <div id="introImage" class="frame" data-image="introImage"></div>
+
+      <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
+    </div>
+    <div id="loadFont" style="width:0;height:0;overflow:hidden;">
+      <div class="segoeProSemibold" style="color:transparent;">segoeProSemibold</div>
+    </div>
+    <script type="text/javascript">
+      var ad = new Ad({
+        root: document.querySelector('#ad'),
+        width: 728,
+        height: 90,
+        borderWidth: 2,
+        borderColor: '#d1d1d1'
+      });
+      setTimeout(function() {
+        ad.contentSetup({
+          cam: {
+            introAnimation: 'true', //true|false
+            introImage: 'assets/728x90_Tessellated_IntroImage.png',
+            backgroundImage: 'assets/728x90_Tessellated_BackgroundImage.png',
+            logoImage: 'assets/728x90_MSFT_Logo.png',
+            headlineText: 'Why Azure?',
+            subheadlineText:  'Start building apps today with 25+ free services and a $200 credit',
+            color: '#000000|#ECEDEF|#fff', //#0078d4
+            styleProperties: 'na',
+            ctaText: 'Try Azure free',
+            clickURL: 'https://azure.microsoft.com/',
+            impressionTracker: 'images/1x1.png'
+          },
+          feed: [
+            {
+              name: 'ms'
+            }
+          ],
+          staticData: {
+            // ref:'ref.png',
+          },
+          beforeLoad: function(data){
+            var replaceMacro = function(text, data) {
+              var macros = text.match(/\!\{(.*?)\}/g);
+              if(macros) {
+                macros.forEach(function(macro){
+                  var macroText = macro.split('!{').join('').split('}').join('');
+                  for(var key in data) { if(key == macroText) { macroText = data[key]; } }
+                  text = text.split(macro).join(macroText);
+                });
+              }
+              return text;
+            }
+            data.map(function(content){
+              content.ctaText +='&nbsp;&#x276F;';
+              if(content.headlineText.split('|').length > 1) {
+                  var fontSize = content.headlineText.split('|')[1];
+                  content.headlineText = content.headlineText.split('|')[0];
+                  if(fontSize) ad.root.querySelector('#headlineText').style.fontSize = fontSize + 'px';
+              }
+              if(content.subheadlineText.split('|').length > 1) {
+                  var fontSize = content.subheadlineText.split('|')[1];
+                  content.subheadlineText = content.subheadlineText.split('|')[0];
+                  if(fontSize) ad.root.querySelector('#subheadlineText').style.fontSize = fontSize + 'px';
+              }
+              if(content.headlineText.toLowerCase() === 'na') {
+                ad.root.querySelector('#headlineText').style.display = 'none';
+              }
+              if(content.subheadlineText.toLowerCase() === 'na') {
+                ad.root.querySelector('#subheadlineText').style.display = 'none';
+              }
+              ad.root.querySelector('#cta').style.whiteSpace = 'nowrap';
+            });
+            return data;
+          }
+        }, function(data){
+          var adData = data[0], adClickUrl = adData['clickURL'];
+          ad.root.addEventListener("click", function(e) {
+            if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
+          });
+          if(adData.styleProperties && adData.styleProperties.toLowerCase() != 'na') {
+            try {
+              eval('var styleProperties = ' + adData.styleProperties);
+              if(styleProperties && typeof styleProperties == 'object')
+              for(var i in styleProperties) {
+                gsap.set(i, styleProperties[i]);
+              }
+            } catch(e) {  }
+          }
+          if(adData.impressionTracker.toLowerCase() != 'na'){
+            var impressionTracker = adData.impressionTracker.split('|')[0];
+            var isn = 'data' in amo && 'isn' in amo.data ? amo.data.isn : '';
+            var trackingCode = 'data' in amo && 'data' in amo.data && 'atsParams' in amo.data.data && 'x2_tracking_code_5' in amo.data.data.atsParams ? amo.data.data.atsParams.x2_tracking_code_5 : '';
+            if(isn.length) { impressionTracker = impressionTracker.replace('(t_td_isn)', isn); }
+            if(trackingCode.length){ impressionTracker = impressionTracker.replace('$(t_qp_TC_5)', trackingCode); }
+            ad.loadAssets(impressionTracker, function(assets){ });
+          }
+          if(adData.impressionTracker.indexOf('|') != -1){
+            var impressionTrackerAAM = adData.impressionTracker.split('|')[1];
+            var isn = 'data' in amo && 'isn' in amo.data ? amo.data.isn : '';
+            var trackingCode = 'data' in amo && 'data' in amo.data && 'atsParams' in amo.data.data && 'x2_tracking_code_5' in amo.data.data.atsParams ? amo.data.data.atsParams.x2_tracking_code_5 : '';
+            if(isn.length) { impressionTrackerAAM = impressionTrackerAAM.replace('(t_td_isn)', isn); }
+            if(trackingCode.length){ impressionTrackerAAM = impressionTrackerAAM.replace('$(t_qp_TC_5)', trackingCode); }
+            ad.loadAssets(impressionTrackerAAM, function(assets){ });
+          }
+          ad.layers.cta.style.webkitTransform = '';
+          ad.layers.cta.style.transform = '';
+          ad.layers.textfields.style.color = adData['color'].split('|')[0];
+          document.querySelector('#ad').style.backgroundColor = adData['color'].split('|')[1];
+          var flipColor = adData['color'].split('|')[2];
+          if(flipColor === 'white' || flipColor === '#fff' || flipColor === '#ffffff') {
+            
+          } else {
+            // ad.layers.cta.style.color = '#0078d4';
+          }
+          gsap.delayedCall(0.5, function(){ gsap.set('.ad-borders',  {css:{zIndex: 100}}); });
+
+          if(adData.introAnimation.toLowerCase() === 'true') {
+            var adWidth = 728, adHeight = 90;
+            var introImage = ad.layers.introImage;
+            var blackPatch = document.createElement('div');
+            gsap.set(blackPatch, {position: 'absolute', backgroundColor: 'black', width: '100%', height: '100%', opacity: 0});
+            var blackPatch1 = blackPatch.cloneNode(true);
+            var blackPatch2 = blackPatch.cloneNode(true);
+            var blackPatch3 = blackPatch.cloneNode(true);
+            var blackPatch4 = blackPatch.cloneNode(true);
+            var image = introImage.querySelector('img');
+            var image1 = image.cloneNode(true);
+            var image2 = image.cloneNode(true);
+            var image3 = image.cloneNode(true);
+            var image4 = image.cloneNode(true);
+            var fold1 = document.createElement('div');
+            var fold2 = document.createElement('div');
+            var fold3 = document.createElement('div');
+            var fold4 = document.createElement('div');
+            var foldWrapper1 = document.createElement('div');
+            var foldWrapper2 = document.createElement('div');
+            var foldWrapper3 = document.createElement('div');
+            var foldWrapper4 = document.createElement('div');
+            var front1 = document.createElement('div');
+            var front2 = document.createElement('div');
+            var front3 = document.createElement('div');
+            var front4 = document.createElement('div');
+            var back1 = document.createElement('div');
+            var back2 = document.createElement('div');
+            var back3 = document.createElement('div');
+            var back4 = document.createElement('div');
+            front1.classList.add('flip-color');
+            front2.classList.add('flip-color');
+            front3.classList.add('flip-color');
+            front4.classList.add('flip-color');
+            back1.classList.add('flip-color');
+            back2.classList.add('flip-color');
+            back3.classList.add('flip-color');
+            back4.classList.add('flip-color');
+            introImage.removeChild(image);
+            gsap.set([fold1, fold2, fold3, fold4], {position: 'absolute', width: adWidth/4, height: adHeight});
+            gsap.set(fold1, {top: 0, left: 0});
+            gsap.set(fold2, {top: 0, left: adWidth/4});
+            gsap.set(fold3, {top: 0, left: adWidth/2});
+            gsap.set(fold4, {top: 0, left: 3*(adWidth/4)});
+            gsap.set([image1, image2, image3, image4], {position: 'absolute', width: adWidth, height: adHeight});
+            gsap.set(image1, {top: 0, left: 0});
+            gsap.set(image2, {top: 0, left: -adWidth/4});
+            gsap.set(image3, {top: 0, right: -adWidth/4});
+            gsap.set(image4, {top: 0, right: 0});
+            gsap.set([foldWrapper1, foldWrapper2, foldWrapper3, foldWrapper4], {css:{position: 'relative', width: '100%', height: '100%', transformStyle: 'preserve-3d'}});
+            gsap.set([foldWrapper1, foldWrapper2, foldWrapper3, foldWrapper4], {css:{transformOrigin: '100% 0%'}});
+            gsap.set([front1, front2, front3, front4, back1, back2, back3, back4], {css:{position: 'absolute', width: '100%', height: '100%', backfaceVisibility: 'hidden', overflow: 'hidden'}});
+            gsap.set([back1, back2, back3, back4], {rotationY: -180});
+            
+            front1.appendChild(image1);
+            front2.appendChild(image2);
+            front3.appendChild(image3);
+            front4.appendChild(image4);
+            back1.appendChild(blackPatch1);
+            back2.appendChild(blackPatch2);
+            back3.appendChild(blackPatch3);
+            back4.appendChild(blackPatch4);
+            foldWrapper1.appendChild(front1);
+            foldWrapper2.appendChild(front2);
+            foldWrapper3.appendChild(front3);
+            foldWrapper4.appendChild(front4);
+            foldWrapper1.appendChild(back1);
+            foldWrapper2.appendChild(back2);
+            foldWrapper3.appendChild(back3);
+            foldWrapper4.appendChild(back4);
+            fold1.appendChild(foldWrapper1);
+            fold2.appendChild(foldWrapper2);
+            fold3.appendChild(foldWrapper3);
+            fold4.appendChild(foldWrapper4);
+            introImage.appendChild(fold4);
+            introImage.appendChild(fold3);
+            introImage.appendChild(fold2);
+            introImage.appendChild(fold1);
+            gsap.set('.flip-color', {backgroundColor: flipColor})
+
+            var changeZIndex = function(element, zIndex){ gsap.set(element, {zIndex: zIndex}); }
+
+            gsap.set([front1, front2, front3, front4, back1, back2, back3, back4], {backgroundImage: 'linear-gradient(90deg, rgba(0, 0, 0, 0.19) 0%, rgba(0, 0, 0, 0))'});
+            gsap.timeline({defaults: {ease: "power2.Out", duration:0.8}})
+            .to(foldWrapper1, {rotationY: -180, delay: 0.5})
+            .to(foldWrapper1, {boxShadow: '-5px 0px 5px 0px #00000080', duration:0.2}, '-=0.8')
+            .to([foldWrapper1] , {boxShadow: '0px 0px 2px 0px #00000080', duration:0.2}, '-=0.6')
+            .to([foldWrapper2] , {boxShadow: '0px 0px 2px 0px #00000080', duration:0.01})
+            .to([image2], {autoAlpha: 0, duration: 0.01, onComplete: changeZIndex, onCompleteParams: [foldWrapper2, 1]})
+            .to([foldWrapper1], {autoAlpha: 0, duration: 0.01})
+            .to(foldWrapper2, {rotationY: -180})
+            .to(foldWrapper2, {boxShadow: '-5px 0px 5px 0px #00000080', duration:0.2}, '-=0.8')
+            .to([foldWrapper2] , {boxShadow: '0px 0px 2px 0px #00000080', duration:0.2}, '-=0.6')
+            .to([foldWrapper3] , {boxShadow: '0px 0px 2px 0px #00000080', duration:0.01})
+            .to([image3], {autoAlpha: 0, duration: 0.01, onComplete: changeZIndex, onCompleteParams: [foldWrapper3, 2]})
+            .to([foldWrapper2], {autoAlpha: 0, duration: 0.01})
+            .to(foldWrapper3, {rotationY: -180})
+            .to(foldWrapper3, {boxShadow: '-5px 0px 5px 0px #00000080', duration:0.2}, '-=0.8')
+            .to([foldWrapper3] , {boxShadow: '0px 0px 2px 0px #00000080', duration:0.2}, '-=0.6')
+            .to([foldWrapper4] , {boxShadow: '0px 0px 2px 0px #00000080', duration:0.01})
+            .to([image4], {autoAlpha: 0, duration: 0.01, onComplete: changeZIndex, onCompleteParams: [foldWrapper4, 3]})
+            .to([foldWrapper3], {autoAlpha: 0, duration: 0.01})
+            .to(foldWrapper4, {rotationY: -180})
+            .to(foldWrapper4, {boxShadow: '-5px 0px 5px 0px #00000080', duration:0.2}, '-=0.8')
+            .to([foldWrapper4] , {boxShadow: '0px 0px 2px 0px #00000080', duration:0.2}, '-=0.6')
+            .to(introImage, {autoAlpha: 0, duration: 0.01})
+          } else {
+            gsap.set(ad.layers.introImage, {autoAlpha: 0})
+          }
+        });
+      }, 100);
+    </script>
+  </body>
+</html>
