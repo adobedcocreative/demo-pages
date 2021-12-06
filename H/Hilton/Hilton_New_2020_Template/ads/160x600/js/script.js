@@ -42,6 +42,9 @@ function textUpdate() {
     var width = element.offsetWidth;
     var span = element.querySelector('span');
     if(span) {
+      console.log(element)
+      console.log(width)
+      console.log(span.offsetWidth)
       if(span.offsetHeight > height || span.offsetWidth > width) {
         for(var i = fontSize - 1; i > 0; i--) {
           element.style.fontSize = i + 'px';

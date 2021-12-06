@@ -156,6 +156,30 @@
           src: url('fonts/TypeTogether - BreeSerifSb.woff') format("woff");
       }
       .TypeTogetherBreeSerifSb { font-family: TypeTogetherBreeSerifSb; }
+
+      @font-face {
+          font-family: BaselClassicRegular;
+          src: url('fonts/Basel-Classic-Regular.woff') format("woff");
+      }
+      .BaselClassicRegular { font-family: BaselClassicRegular; }
+
+      @font-face {
+          font-family: NationalBook;
+          src: url('fonts/National-Book.woff') format("woff");
+      }
+      .NationalBook { font-family: NationalBook; }
+
+      @font-face {
+          font-family: NationalLight;
+          src: url('fonts/National-Light.woff') format("woff");
+      }
+      .NationalLight { font-family: NationalLight; }
+
+      @font-face {
+          font-family: NationalMedium;
+          src: url('fonts/National-Medium.woff') format("woff");
+      }
+      .NationalMedium { font-family: NationalMedium; }
     </style>
     <!--
       Available Classes:-
@@ -436,11 +460,12 @@
 
                     document.querySelector("#ad").style.fontFamily = "ProximaNovaBlack";
                   }else if(tapestryCodes.indexOf(matchingCodes[matchIndex]) != -1){
+                    console.log(content)
                     logoImageName = 'tapestry';
                     document .querySelector("#logoImage").style.top = '407px';
 
-                    document.querySelector("#ad").style.fontFamily = "BrandonGrotesqueBoldItalic";
-                    document.querySelector("#cta").style.fontFamily = "BrandonGrotesqueBlack";
+                    document.querySelector("#ad").style.fontFamily = "NationalMedium";
+                    document.querySelector("#cta").style.fontFamily = "BaselClassicRegular";
                   }else if(hgvCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'hgv';
                    document .querySelector("#logoImage").style.top = '408px'; 
@@ -449,6 +474,8 @@
               }
 
               if(content.ctaBtnColor.split('^')[2].toLowerCase() == 'black'){
+                whitePatchColor = '#000';
+              }else if(content.ctaBtnColor.split('^')[2].toLowerCase() == 'color'){
                 whitePatchColor = '#000';
               }
               document.querySelector("#whitePatch").style.backgroundColor = whitePatchColor;
