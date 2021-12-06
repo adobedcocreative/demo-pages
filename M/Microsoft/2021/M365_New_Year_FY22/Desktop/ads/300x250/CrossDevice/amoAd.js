@@ -1,10 +1,10 @@
 var amoAd = (function(){
   var ctaAlignment = function(position){
     var layers = exportRoot.mainMC;
-    console.log(layers.cta)
     var adWidth = document.querySelector('#animation_container').offsetWidth;
-    var ctaBackgroundColor = layers.cta.children[0].graphics._fill.style;
-    var yPoints = layers.cta.children[0].graphics._activeInstructions.map(function(point){ return(point.y) });
+    var adHeight = document.querySelector('#animation_container').offsetHeight;
+    var ctaBackgroundColor = layers.cta.children[0].shape.graphics._fill.style;
+    var yPoints = layers.cta.children[0].shape.graphics._activeInstructions.map(function(point){ return(point.y) });
     var yTemp = [];
     yPoints.forEach(function(y){
         if(y && (!yTemp.length || !Boolean(Math.abs(yTemp.find(function(z){return y == z}))))) {
@@ -14,20 +14,21 @@ var amoAd = (function(){
     var ctaScaleX = layers.cta.scaleX, ctaScaleY = layers.cta.scaleY;
     var ctaHeight = Math.ceil(Math.abs(yTemp[0]) + Math.abs(yTemp[1]));
     ctaHeight *= ctaScaleY * layers.cta.children[0].scaleY;
-    var ctaWidth = layers.txtCta.children[0].children[0].getBounds().width + 45;
+    var ctaCalculatedWidth = Math.round(layers.txtCta.children[0].children[0].getBounds().width);
+    var ctaWidth =  Math.round(ctaCalculatedWidth * adWidth/ctaCalculatedWidth);
+    //var ctaWidth = layers.txtCta.children[0].children[0].getBounds().width + 45;
     position = position ? position : (layers.cta.x > adWidth/2 ? 'right' : 'left');
     layers.txtCta.regX = 0;
-    layers.scaleX = 1;
-    layers.scaleY = 1;
     layers.txtCta.children[0].x = 0;
-    layers.txtCta.children[0].y = 0;
+    //layers.txtCta.children[0].y -= 4;
     layers.txtCta.scaleX = 1;
     layers.txtCta.scaleY = 1;
     layers.cta.regX = 0;
     layers.cta.regY = 0;
+    layers.cta.y = adHeight - ctaHeight/2;
     layers.cta.scaleX = 1;
     layers.cta.scaleY = 1;
-    layers.cta.arrow.y = 0;
+    layers.cta.arrow.y = 2;
     layers.cta.arrow.arrow_1.x = 0;
     layers.cta.arrow.arrow.x = 0;
     layers.cta.arrow.arrow_1.regX = 0;
@@ -41,31 +42,34 @@ var amoAd = (function(){
     layers.cta.children[0].scaleY = 1;
     layers.cta.children[0].regX = 0;
     layers.cta.children[0].regY = 0;
-    layers.cta.children[0].graphics.clear();
+    layers.cta.children[0].shape.graphics.clear();
     // layers.cta.children[0].graphics.beginFill(ctaBackgroundColor).drawRect(0, -15, ctaWidth, 30);
-    layers.cta.children[0].graphics.beginFill(ctaBackgroundColor).drawRect(0, -ctaHeight/2, ctaWidth, ctaHeight);
+    layers.cta.children[0].shape.graphics.beginFill(ctaBackgroundColor).drawRect(0, -ctaHeight/2, ctaWidth, ctaHeight);
     if(position == 'right') {
     	layers.cta.x = adWidth - ctaWidth;
     	layers.txtCta.x = adWidth - ctaWidth + 15;
     	layers.cta.arrow.x = ctaWidth - 20;
     } else {
-    	layers.cta.x = 0;
-    	layers.txtCta.x = 15;
-    	layers.cta.arrow.x = ctaWidth - 20;
+      layers.cta.x = 0;
+    	// layers.txtCta.y = adHeight - ctaHeight/2 - 8;
+      layers.txtCta.x = (ctaWidth - ctaCalculatedWidth)/2 - 10;
+    	layers.cta.arrow.x = (ctaWidth -  ctaCalculatedWidth)/2 +  (ctaCalculatedWidth);
     }
   }
   var iframe = window.frameElement;
   var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
   var bannerData = parentWindow.getBannerData();
   function init() {
-    bannerData.headline1 = eval(bannerData.textField1);
+    bannerData.headline1 = eval(bannerData.textField1);;
     bannerData.headline2 = eval(bannerData.textField2);
     bannerData.headline3 = eval(bannerData.textField3);
+    //bannerData.headline4 = eval(bannerData.textField3);
+    //bannerData.headline5 = eval(bannerData.textField4);
     bannerData.ctaText = bannerData.ctaText.replace('<br>', '\n');
   	var CTAFont = bannerData.ctaText.split('|').length > 1 ? bannerData.ctaText.split('|')[1] : '0';
-  	CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 12.3) + 'px';
+  	CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 11.3) + 'px';
   	bannerData.ctaText = bannerData.ctaText.split('|')[0];
-  	bannerData.CTA = bannerData.ctaText ? ['<#ffffff>' + bannerData.ctaText,CTAFont,0,0,"50","300", "left", "Segoe Pro"] : '';
+  	bannerData.CTA = bannerData.ctaText ? ['<#ffffff>' + bannerData.ctaText,CTAFont,0,0,"50","300", "left","Segoe Pro"] : '';
     resizeCTA();
     fireImpression();
     window.bannerData = bannerData;
@@ -82,7 +86,7 @@ var amoAd = (function(){
   }
   function resizeCTA() {
     var layers = exportRoot.mainMC;
-  	var yPoints = layers.cta.children[0].graphics._activeInstructions.map(function(point){ return(point.y) });
+  	var yPoints = layers.cta.children[0].shape.graphics._activeInstructions.map(function(point){ return(point.y) });
   	var yTemp = [];
   	yPoints.forEach(function(y){
   	    if(y && (!yTemp.length || !Boolean(Math.abs(yTemp.find(function(z){return y == z}))))) {
@@ -92,7 +96,7 @@ var amoAd = (function(){
   	var ctaScaleX = layers.cta.scaleX, ctaScaleY = layers.cta.scaleY;
   	var ctaHeight = Math.ceil(Math.abs(yTemp[0]) + Math.abs(yTemp[1]));
   	ctaHeight *= ctaScaleY * layers.cta.children[0].scaleY;
-    var ctaMaxWidth = 150, ctaMaxHeight = ctaHeight;
+    var ctaMaxWidth = 180, ctaMaxHeight = ctaHeight;
     var ctaElement = document.createElement('div');
     ctaElement.innerHTML = bannerData.ctaText.replace('\n', '<br>');
     ctaElement.style.display = 'inline-block';
@@ -134,6 +138,6 @@ var amoAd = (function(){
     init: function(){ init(); },
   	click: function(id) { click(id); },
   	ctaAlignment: function(){ ctaAlignment(); },
-  	onInteraction: function(id) { onInteraction(text, id); }
+  	onInteraction: function(text, id) { onInteraction(text, id); }
   };
 })();
