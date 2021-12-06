@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta content="Adobe_Animate_CC" name="authoring-tool">
+    <title>M365_FY22Q3NewYear_USA_300x600_BAN_Excel_EN_NA_Standard_ANI_LEA_NA_1</title>
+    <style>
+        .IIV::-webkit-media-controls-play-button,
+        .IIV::-webkit-media-controls-start-playback-button {
+            opacity: 0;
+            pointer-events: none;
+            width: 5px;
+        }
+
+        body {
+            background-color: #F2F2F2;
+            overflow: hidden;
+        }
+    </style>
+    <!-- <script>var clickTag = "http://www.google.com";</script> -->
+    <script src="iphone-inline-video.min.js"></script>
+    <!-- <script src="copy.js"></script> -->
+    <script src="amoAd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+    <script src="anim.js"></script>
+    <script src="M365_FY22Q3NewYear_USA_300x600_BAN_Excel_EN_NA_Standard_ANI_LEA_NA_1.js?1501171107836"></script>
+    <meta content="width=300,height=600" name="ad.size">
+    <script>
+        var fontToLoad = [
+            ['Segoe Pro', 'url(fonts/SegoePro-Semibold.woff)']
+        ];
+
+        function iOS() {
+            return [
+                    'iPad Simulator',
+                    'iPhone Simulator',
+                    'iPod Simulator',
+                    'iPad',
+                    'iPhone',
+                    'iPod'
+                ].includes(navigator.platform)
+                // iPad on iOS 13 detection
+                || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+        }
+
+        var isIOS = iOS();
+
+        var vis = (function () {
+            var stateKey, eventKey, keys = {
+                hidden: "visibilitychange",
+                webkitHidden: "webkitvisibilitychange",
+                mozHidden: "mozvisibilitychange",
+                msHidden: "msvisibilitychange"
+            };
+            for (stateKey in keys) {
+                if (stateKey in document) {
+                    eventKey = keys[stateKey];
+                    break;
+                }
+            }
+            return function (c) {
+                if (c) document.addEventListener(eventKey, c);
+                return !document[stateKey];
+            }
+        })();
+        vis(function () {
+            var checkState = vis() ? 'Visible' : 'Not visible';
+            if (checkState == 'Visible' && exportRoot.videoState != "reset") {
+                vid.play()
+            } else if (checkState == 'Not visible' && exportRoot.videoState != "reset") {
+                vid.pause()
+            }
+        });
+        var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation, initReady
+        initReady = false
+
+        function init() {
+
+            canvas = document.getElementById("canvas");
+            anim_container = document.getElementById("animation_container");
+            dom_overlay_container = document.getElementById("dom_overlay_container");
+            var comp = AdobeAn.getComposition("90A26FE74B042E4A89CA750D1DA2DF1F");
+
+            var lib = comp.getLibrary();
+            handleComplete({}, comp);
+        }
+
+        function handleComplete(evt, comp) {
+            //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+            var lib = comp.getLibrary();
+            var ss = comp.getSpriteSheet();
+            exportRoot = new lib.M365_FY22Q3NewYear_USA_300x600_BAN_Excel_EN_NA_Standard_ANI_LEA_NA_1();
+            exportRoot.videoState = "reset";
+            stage = new lib.Stage(canvas);
+            //Registers the "tick" event listener.
+            fnStartAnimation = function () {
+                stage.addChild(exportRoot);
+                createjs.Ticker.framerate = lib.properties.fps;
+                createjs.Ticker.addEventListener("tick", stage);
+            }
+            //Code to support hidpi screens and responsive scaling.
+            AdobeAn.makeResponsive(false, 'both', false, 1, [canvas, anim_container, dom_overlay_container]);
+            AdobeAn.compositionLoaded(lib.properties.id);
+            fnStartAnimation();
+            if (!initReady) {
+                muted = true;
+                vid.muted = true;
+                startBanner()
+            }
+            gsap.delayedCall(0.2, function () {
+                vid.pause();
+                vid.style.visibility = "visible";
+                vid.currentTime = 0;
+            })
+            gsap.delayedCall(0.4, function () {
+                exportRoot.videoState = "reset"
+                amoAd.init();
+                exportRoot.initBanner(bannerData)
+                amoAd.ctaAlignment();
+                exportRoot.runBanner()
+                initDiv.style.visibility = 'hidden'
+                initReady = true
+                vid.pause()
+                vid.style.visibility = "visible";
+                vid.currentTime = 0;
+            })
+
+        }
+
+        //FONT loading check
+        var checkForFonts = 0;
+        for (i = 0; i < fontToLoad.length; i++) {
+            (function () {
+                var fontTmp = new FontFace(fontToLoad[i][0], fontToLoad[i][1]);
+                fontTmp.load().then(function (loaded_face) {
+                    document.fonts.add(loaded_face);
+                    checkForFonts++;
+                    if (checkForFonts == fontToLoad.length)
+                        loaded('font');
+                }).catch(function (error) {
+                   // console.log("check font: " + error);
+                });
+            }());
+        }
+        var loadFont = false;
+        var loadBody = false;
+        var loadBanner = false;
+        var loadVideo = false;
+
+        function loaded(type) {
+            if (type == 'font') loadFont = true;
+            if (type == 'body') loadBody = true;
+            if (type == 'banner') loadBanner = true;
+            if (type == 'video') loadVideo = true;
+
+            if (loadFont && loadBody && loadVideo && !loadBanner) init();
+            if (loadVideo) {
+                vid.currentTime = 0;
+                vid.pause();
+                vid.style.visibility = "visible";
+            }
+        }
+
+    </script>
+
+</head>
+<body onload="loaded('body')" style="margin:0px;">
+<div id="rHit"
+     style="display:block; position:absolute; top:0px; left:278px; width:18px; height:25px; z-index:100000 !important; cursor:pointer; "></div>
+<!--<div id="mHit"
+     style="display:block; position:absolute; top:210px; left:260px; width:40px; height:40px; z-index:100000 !important; cursor:pointer; "></div>-->
+<div id="init"
+     style="background-color:#FFFFFF; position: absolute; display: block; z-index:10; width:100%; height:100%; "></div>
+<div id="animation_container" style="background-color:transparent; width:300px; height:600px;">
+    <video autoplay="false" height="600" id="vid" playsinline preload="auto"
+           src="./video/Budget_Excel.mp4" style="position: absolute;  z-index:-5 " type="video/mp4" webkit-playsinline="" width="300"></video>
+    <canvas aria-label="Microsoft 3 6 5. Budget for all of life's, unexpected turns. Track this year's finances in excel. Learn more." height="600" id="canvas"
+            role="img"
+            style="position: absolute; display: block; background-color:transparent; cursor:pointer;"
+            width="300"></canvas>
+
+    <div id="dom_overlay_container"
+         style="pointer-events:none; overflow:hidden; width:300px; height:600px; position: absolute; left: 0px; top: 0px; display: block;">
+        <div style="position: absolute; border: 1px solid #b5b5b5; box-sizing: border-box; background-color:transparent; top: 0; left: 0; width: 100%; bottom: 0;"></div>
+    </div>
+</div>
+
+
+<script>
+
+    var vid = document.getElementById("vid")
+    vid.onended = function () {
+        exportRoot.videoState = "reset"
+    };
+    var video = document.querySelector('video');
+
+    enableInlineVideo(video);
+    video.pause();
+    vid.pause();
+
+    var xhrReq = new XMLHttpRequest();
+    xhrReq.open('GET', './video/Budget_Excel.mp4', true);
+    xhrReq.responseType = 'blob';
+
+    xhrReq.onload = function () {
+        if (this.status === 200) {
+            var vid = URL.createObjectURL(this.response);
+            video.src = vid;
+        }
+    }
+    xhrReq.onerror = function () {
+
+    }
+    xhrReq.onprogress = function (e) {
+        if (e.lengthComputable) {
+            var percentComplete = ((e.loaded / e.total) * 100 | 0) + '%';
+            if (percentComplete == '100%' && !loadVideo) loaded('video')
+        }
+    }
+    xhrReq.send();
+
+
+    var initDiv = document.getElementById("init");
+    var startBanner = function () {
+
+        var muted
+
+        var rHit = document.getElementById("rHit");
+        rHit.addEventListener("mouseover", rHitOver.bind(this));
+
+        function rHitOver() {
+            exportRoot.mainMC.replay_btn.gotoAndStop(1)
+        }
+
+        rHit.addEventListener("mouseout", rHitOut.bind(this));
+
+        function rHitOut() {
+            exportRoot.mainMC.replay_btn.gotoAndStop(0)
+        }
+
+
+
+        function mClick() {
+            if (muted == true) {
+                //exportRoot.myVid[0].muted = false;
+                muted = false
+                exportRoot.mainMC.mute_btn_blk.gotoAndStop(1)
+                exportRoot.mainMC.mute_btn_wht.gotoAndStop(1)
+                vid.muted = true;
+            } else {
+                //exportRoot.myVid[0].muted = true;
+                muted = true
+                exportRoot.mainMC.mute_btn_blk.gotoAndStop(3)
+                exportRoot.mainMC.mute_btn_wht.gotoAndStop(3)
+                vid.muted = false;
+            }
+        }
+
+        var animation_container = document.getElementById("animation_container");
+        animation_container.addEventListener("mouseover", over.bind(this));
+
+        function over() {
+            exportRoot.mainMC.cta.arrow.gotoAndStop(1);
+        }
+
+        animation_container.addEventListener("mouseout", out.bind(this));
+
+        function out() {
+            exportRoot.mainMC.cta.arrow.gotoAndStop(0);
+        }
+
+        animation_container.addEventListener("click", exitHandler.bind(this));
+
+        function exitHandler() {
+           // window.open(clickTag);
+           amoAd.click();
+        }
+
+        rHit.addEventListener("click", replay.bind(this));
+
+        function replay() {
+            if (exportRoot.isReplay == true) {
+				gsap.globalTimeline.getChildren().forEach(t => t.kill());
+                initDiv.style.visibility = 'visible'
+                stage.removeAllChildren();
+                stage.update();
+                var canvas = document.getElementById('canvas');
+                context = canvas.getContext('2d');
+                // Store the current transformation matrix
+                context.save();
+                // Use the identity matrix while clearing the canvas
+                context.setTransform(1, 0, 0, 1, 0, 0);
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                // Restore the transform
+                context.restore(); //CLEARS THE SPECIFIC CANVAS COMPLETELY FOR NEW DRAWING
+                vid.currentTime = 0;
+                vid.pause();
+                gsap.delayedCall(0.5, init);
+            }
+        }
+
+
+    }
+</script>
+</body>
+</html>
