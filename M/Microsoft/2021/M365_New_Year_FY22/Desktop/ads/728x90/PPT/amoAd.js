@@ -1,30 +1,20 @@
 var amoAd = (function(){
   var ctaAlignment = function(position){
     var layers = exportRoot.mainMC;
-    console.log(layers)
     var adWidth = document.querySelector('#animation_container').offsetWidth;
-    var ctaBackgroundColor = layers.cta.children[0].graphics._fill.style;
-    // var ctaBackgroundColorRatios = layers.cta.children[0].shape.graphics._fill.style.props.ratios;
-    // var ctaBackgroundColorGradient = ['#F00', '#000']
-    // var ctaBackgroundColorRatios = [0, 0.51]
-    // var ctaBackgroundX0 = layers.cta.children[0].shape.graphics._fill.style.props.x0;
-    // var ctaBackgroundX1 = layers.cta.children[0].shape.graphics._fill.style.props.x1;
-    // var ctaBackgroundY0 = layers.cta.children[0].shape.graphics._fill.style.props.y0;
-    // var ctaBackgroundY1 = layers.cta.children[0].shape.graphics._fill.style.props.y1;
-    var yPoints = layers.cta.children[0].graphics._activeInstructions.map(function(point){ return(point.y) });
-    console.log(yPoints);
-    var yTemp = [];
-    yPoints.forEach(function(y){
-        if(y && (!yTemp.length || !Boolean(Math.abs(yTemp.find(function(z){return y == z}))))) {
-    				yTemp.push(y);
-        }
-    });
-    console.log(yTemp);
+    //var ctaBackgroundColor = layers.cta.children[0].graphics._fill.style;
+    // var yPoints = layers.cta.children[0].graphics._activeInstructions.map(function(point){ return(point.y) });
+    // var yTemp = [];
+    // yPoints.forEach(function(y){
+    //     if(y && (!yTemp.length || !Boolean(Math.abs(yTemp.find(function(z){return y == z}))))) {
+    // 				yTemp.push(y);
+    //     }
+    // });
     var ctaScaleX = layers.cta.scaleX, ctaScaleY = layers.cta.scaleY;
-    var ctaHeight = Math.ceil(Math.abs(yTemp[0]) + Math.abs(yTemp[1]));
-    ctaHeight *= ctaScaleY * layers.cta.children[0].scaleY;
+    // var ctaHeight = Math.ceil(Math.abs(yTemp[0]) + Math.abs(yTemp[1]));
+    // ctaHeight *= ctaScaleY * layers.cta.children[0].scaleY;
+    var ctaHeight = 30;
     var ctaWidth = layers.txtCta.children[0].children[0].getBounds().width + 45;
-    console.log(ctaWidth)
     position = position ? position : (layers.cta.x > adWidth/2 ? 'right' : 'left');
     layers.txtCta.regX = 0;
     //layers.scaleX = 1;
@@ -45,38 +35,16 @@ var amoAd = (function(){
     layers.cta.arrow.regX = 0;
     layers.cta.arrow.arrow.scaleX = layers.cta.arrow.arrow_1.scaleX = ctaScaleX;
     layers.cta.arrow.arrow.scaleY = layers.cta.arrow.arrow_1.scaleY = ctaScaleY;
-
-    // layers.cta.children[0].shape.x = 0;
-    // layers.cta.children[0].shape.y = 0;
-    // layers.cta.children[0].shape.scaleX = 1;
-    // layers.cta.children[0].shape.scaleY = 1;
-    // layers.cta.children[0].shape.regX = 0;
-    // layers.cta.children[0].shape.regY = 0;
-
-    // layers.cta.children[0].shape_1.x = 0;
-    // layers.cta.children[0].shape_1.y = 0;
-    // layers.cta.children[0].shape_1.scaleX = 1;
-    // layers.cta.children[0].shape_1.scaleY = 1;
-    // layers.cta.children[0].shape_1.regX = 0;
-    // layers.cta.children[0].shape_1.regY = 0;
-
     layers.cta.children[0].x = 0;
     layers.cta.children[0].y = 0;
     layers.cta.children[0].scaleX = 1;
     layers.cta.children[0].scaleY = 1;
     layers.cta.children[0].regX = 0;
     layers.cta.children[0].regY = 0;
-
-    layers.cta.children[0].graphics.clear();
-    // layers.cta.cta_glare.shape.graphics.clear();
-    // layers.cta.children[1].shape.graphics.clear();
-    // layers.cta.cta_glare.shape_1.graphics.clear();
-
+    //layers.cta.children[0].graphics.clear();
     // layers.cta.children[0].graphics.beginFill(ctaBackgroundColor).drawRect(0, -15, ctaWidth, 30);
-    layers.cta.children[0].graphics.beginFill(ctaBackgroundColor).drawRect(0, -ctaHeight/2, ctaWidth, ctaHeight);
-    //layers.cta.cta_glare.shape.graphics.beginLinearGradientFill(ctaBackgroundColorGradient, ctaBackgroundColorRatios, ctaBackgroundX0, ctaBackgroundX1, ctaBackgroundY0, ctaBackgroundY1).drawRect(0, -ctaHeight/2, ctaWidth, ctaHeight);
+    //layers.cta.children[0].graphics.beginFill(ctaBackgroundColor).drawRect(0, -ctaHeight/2, ctaWidth, ctaHeight);
     if(position == 'right') {
-      console.log(layers)
     	layers.cta.x = adWidth - ctaWidth;
     	layers.txtCta.x = adWidth - ctaWidth + 15;
     	layers.cta.arrow.x = ctaWidth - 20;
@@ -113,19 +81,18 @@ var amoAd = (function(){
     }
   }
   function resizeCTA() {
-    var layers = exportRoot.mainMC;
-  	var yPoints = layers.cta.children[0].graphics._activeInstructions.map(function(point){ return(point.y) });
-    console.log(yPoints)
-  	var yTemp = [];
-  	yPoints.forEach(function(y){
-  	    if(y && (!yTemp.length || !Boolean(Math.abs(yTemp.find(function(z){return y == z}))))) {
-  					yTemp.push(y);
-  	    }
-  	});
-    console.log(yTemp)
-  	var ctaScaleX = layers.cta.scaleX, ctaScaleY = layers.cta.scaleY;
-  	var ctaHeight = Math.ceil(Math.abs(yTemp[0]) + Math.abs(yTemp[1]));
-  	ctaHeight *= ctaScaleY * layers.cta.children[0].scaleY;
+    // var layers = exportRoot.mainMC;
+  	// var yPoints = layers.cta.children[0].graphics._activeInstructions.map(function(point){ return(point.y) });
+  	// var yTemp = [];
+  	// yPoints.forEach(function(y){
+  	//     if(y && (!yTemp.length || !Boolean(Math.abs(yTemp.find(function(z){return y == z}))))) {
+  	// 				yTemp.push(y);
+  	//     }
+  	// });
+  	// var ctaScaleX = layers.cta.scaleX, ctaScaleY = layers.cta.scaleY;
+  	// var ctaHeight = Math.ceil(Math.abs(yTemp[0]) + Math.abs(yTemp[1]));
+  	// ctaHeight *= ctaScaleY * layers.cta.children[0].scaleY;
+    var ctaHeight = 30;
     var ctaMaxWidth = 180, ctaMaxHeight = ctaHeight;
     var ctaElement = document.createElement('div');
     ctaElement.innerHTML = bannerData.ctaText.replace('\n', '<br>');
@@ -135,7 +102,6 @@ var amoAd = (function(){
     ctaElement.style.lineHeight = 1.2;
     ctaElement.style.padding = '0px 30px 0px 15px';
     document.body.appendChild(ctaElement);
-    console.log(ctaElement.offsetWidth)
     if(ctaElement.offsetWidth > ctaMaxWidth || ctaElement.offsetHeight > ctaMaxHeight) {
       for(var i = parseFloat(bannerData.CTA[1]); i > 0; i-=0.1) {
         ctaElement.style.fontSize = i + 'px';

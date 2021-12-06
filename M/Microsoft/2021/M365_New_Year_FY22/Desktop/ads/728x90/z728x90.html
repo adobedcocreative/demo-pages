@@ -42,7 +42,7 @@
         // amo.registerVariation("ctaArrowVisibleFlag", "!{passthroughfield2}");
         amo.registerVariation("impressionTracker", "../../../../1x1.png?impressionTracker=" + Math.random());
         amo.registerVariation("clickTracker", "../../../../1x1.png?clickTracker=" + Math.random());
-        amo.registerVariation("clickURL", "https://office.com/#1^https://office.com/#2^https://office.com/#3^https://office.com/#4^https://office.com/#5");
+        amo.registerVariation("clickURL", "https://office.com/#1");
         var content = [], cam = {};
         var cam = {
           layout: amo.variation['layout'],
@@ -109,6 +109,7 @@
         switch(adData.layout){
           case 'CrossDevice' : adURL = 'CrossDevice/M365_FY22Q3NewYear_USA_728x90_BAN_CrossDev_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
           case 'PPT' : adURL = 'PPT/M365_FY22Q3NewYear_USA_728x90_BAN_PPT_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
+          case 'Join50M' : adURL = 'Join50M/M365_FY22Q3NewYear_USA_728x90_BAN_Join50M_EN_NA_Standard_ANI_LEA_NA_1.htm';break;
         }
         var iframe = document.createElement('iframe');
         iframe.src = adURL;
