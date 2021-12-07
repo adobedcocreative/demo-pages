@@ -53,8 +53,8 @@ var amoAd = (function(){
     } else {
       layers.cta.x = 0;
     	// layers.txtCta.y = adHeight - ctaHeight/2 - 8;
-      layers.txtCta.x = (ctaWidth - ctaCalculatedWidth)/2 - 10;
-    	layers.cta.arrow.x = (ctaWidth -  ctaCalculatedWidth)/2 + ctaCalculatedWidth;
+      layers.txtCta.x = (ctaWidth - ctaCalculatedWidth)/2 - 5;
+    	layers.cta.arrow.x = (ctaWidth -  ctaCalculatedWidth)/2 + ctaCalculatedWidth + 5;
     }
   }
   var iframe = window.frameElement;
