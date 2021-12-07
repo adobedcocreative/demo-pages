@@ -29,7 +29,7 @@ var amoAd = (function(){
     layers.cta.y = adHeight - ctaHeight/2;
     layers.cta.scaleX = 1;
     layers.cta.scaleY = 1;
-    layers.cta.arrow.y = 3;
+    layers.cta.arrow.y = 3.25;
     layers.cta.arrow.arrow_1.x = 0;
     layers.cta.arrow.arrow.x = 0;
     layers.cta.arrow.arrow_1.regX = 0;
@@ -37,12 +37,12 @@ var amoAd = (function(){
     layers.cta.arrow.regX = 0;
     layers.cta.arrow.arrow.scaleX = layers.cta.arrow.arrow_1.scaleX = ctaScaleX;
     layers.cta.arrow.arrow.scaleY = layers.cta.arrow.arrow_1.scaleY = ctaScaleY;
-    layers.cta.children[0].x = 0;
-    layers.cta.children[0].y = 0;
-    layers.cta.children[0].scaleX = 1;
-    layers.cta.children[0].scaleY = 1;
-    layers.cta.children[0].regX = 0;
-    layers.cta.children[0].regY = 0;
+    // layers.cta.children[0].x = 0;
+    // layers.cta.children[0].y = 0;
+    // layers.cta.children[0].scaleX = 1;
+    // layers.cta.children[0].scaleY = 1;
+    // layers.cta.children[0].regX = 0;
+    // layers.cta.children[0].regY = 0;
     //layers.cta.children[0].shape.graphics.clear();
     //layers.cta.children[0].graphics.beginFill(ctaBackgroundColor).drawRect(0, -15, ctaWidth, 30);
     //layers.cta.children[0].shape.graphics.beginFill(ctaBackgroundColor).drawRect(0, -ctaHeight/2, ctaWidth, ctaHeight);
