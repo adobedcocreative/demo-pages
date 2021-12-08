@@ -240,12 +240,14 @@
               loadContent(this.dataset.id);
             }
         }
+
         var subsubheaders = document.querySelectorAll('#subsubheader > div');
         for(var i = 0; i < subsubheaders.length; i++) {
             subsubheaders[i].onclick = function() {
               loadContent(this.dataset.id);
             }
         }
+        
         adContents.data.map(function(data){
           var adSize = data['Ad Size'];
           var adWidth = adSize.split('x')[0];
