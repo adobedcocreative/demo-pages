@@ -183,11 +183,9 @@
         // '<div class="frame-wrapper"><iframe src="300x600/300x600.html" width="300" height="600" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>300 x 600 Portrait</div></div>'+
         '<div class="frame-wrapper" id="ad160x600"></div>'+
         '<div class="frame-wrapper" id="ad300x600"></div>'+
-        '<div class="frame-wrapper" id="ad320x480"></div>'+
         // '<div class="frame-wrapper"><iframe src="300x600(OnFigure)/300x600.html" width="300" height="600" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>300 x 600 Full Body</div></div>'+
         '<div style="display:inline-block;max-width:800px;text-align:left;">'+
           // '<div class="frame-wrapper"><iframe src="300x250/300x250.html" width="300" height="250" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>300 x 250</div></div>'+
-          '<div class="frame-wrapper" id="ad250x250"></iframe></div>'+
           '<div class="frame-wrapper" id="ad300x250"></iframe></div>'+
         //   '<div></div>'+
         //   '<div class="frame-wrapper"><iframe src="320x50/320x50.html" width="320" height="50" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe><div>320 x 50</div></div>'+
@@ -278,7 +276,7 @@ this.onAdClick=function(a,c){var b;a?(0==a.indexOf("http://")||0==a.indexOf("htt
           document.querySelector('#ad' + adSize).appendChild(iframe);
           var iframeDoc = iframe.contentWindow ? iframe.contentWindow : iframe.contentDocument && iframe.contentDocument.document ? iframe.contentDocument.document : iframe.contentDocument;
         	iframeDoc.document.open();
-          iframeDoc.document.write('<iframe src="ads/'+adSize+'/z'+adSize+'.html" width="'+adWidth+'" height="'+adHeight+'" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe>');
+          iframeDoc.document.write('<iframe src="../ads/'+adSize+'/z'+adSize+'.html" width="'+adWidth+'" height="'+adHeight+'" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe>');
         	iframeDoc.document.close();
           iframeDoc.document.body.style.margin = 0;
           iframeDoc.document.head.appendChild(scriptTag);

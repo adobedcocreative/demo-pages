@@ -278,7 +278,7 @@ this.onAdClick=function(a,c){var b;a?(0==a.indexOf("http://")||0==a.indexOf("htt
           document.querySelector('#ad' + adSize).appendChild(iframe);
           var iframeDoc = iframe.contentWindow ? iframe.contentWindow : iframe.contentDocument && iframe.contentDocument.document ? iframe.contentDocument.document : iframe.contentDocument;
         	iframeDoc.document.open();
-          iframeDoc.document.write('<iframe src="ads/'+adSize+'/z'+adSize+'.html" width="'+adWidth+'" height="'+adHeight+'" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe>');
+          iframeDoc.document.write('<iframe src="../ads/'+adSize+'/z'+adSize+'.html" width="'+adWidth+'" height="'+adHeight+'" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe>');
         	iframeDoc.document.close();
           iframeDoc.document.body.style.margin = 0;
           iframeDoc.document.head.appendChild(scriptTag);
