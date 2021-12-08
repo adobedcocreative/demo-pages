@@ -62,6 +62,7 @@ var amoAd = (function(){
   function init() {
     bannerData.headline1 = eval(bannerData.textField1);
     bannerData.headline2 = eval(bannerData.textField2);
+    bannerData.headline3 = eval(bannerData.textField3);
     bannerData.ctaText = bannerData.ctaText.replace('<br>', '\n');
   	var CTAFont = bannerData.ctaText.split('|').length > 1 ? bannerData.ctaText.split('|')[1] : '0';
   	CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 9.1) + 'px';
