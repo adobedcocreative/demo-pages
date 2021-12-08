@@ -150,6 +150,11 @@ function frame0() {
         }, "+=0.5");
 		
 		this.tlAnim.from([mc.cta,mc.txtCta], { duration: 0.8, alpha: 0}, ">+2");		
+                 this.tlAnim.to(mc.cta_bg,{
+            duration:0.8,
+            x: "-=200", 
+            ease:Power2.easeOut,
+        }, "-=1.45");
 
 		//f1 copy
         this.tlAnim.from(exportRoot.headline1,{

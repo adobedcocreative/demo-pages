@@ -182,6 +182,29 @@ if (reversed == null) { reversed = false; }
 p.nominalBounds = new cjs.Rectangle(0,0,114.7,30.3);
 
 
+(lib.cta_bg = function(mode,startPosition,loop,reversed) {
+if (loop == null) { loop = true; }
+if (reversed == null) { reversed = false; }
+	var props = new Object();
+	props.mode = mode;
+	props.startPosition = startPosition;
+	props.labels = {};
+	props.loop = loop;
+	props.reversed = reversed;
+	cjs.MovieClip.apply(this,[props]);
+
+	// Layer_1
+	this.shape = new cjs.Shape();
+	this.shape.graphics.f("#B33E14").s().p("AnnCMIAAkXIPPAAIAAEXg");
+	this.shape.setTransform(40.375,14.025);
+
+	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
+
+	this._renderFirstFrame();
+
+}).prototype = getMCSymbolPrototype(lib.cta_bg, new cjs.Rectangle(-8.4,0,97.60000000000001,28.1), null);
+
+
 (lib.arrow = function(mode,startPosition,loop,reversed) {
 if (loop == null) { loop = true; }
 if (reversed == null) { reversed = false; }
@@ -353,13 +376,6 @@ if (reversed == null) { reversed = false; }
 
 	this.timeline.addTween(cjs.Tween.get(this.cta_glare).wait(1));
 
-	// bg
-	this.shape = new cjs.Shape();
-	this.shape.graphics.f("#000000").s().p("AoYB6IAAjyIQxAAIAADyg");
-	this.shape.setTransform(-60.525,2.3);
-
-	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
-
 	this._renderFirstFrame();
 
 }).prototype = getMCSymbolPrototype(lib.CTA_btn, new cjs.Rectangle(92.9,191.7,86.9,24.700000000000017), null);
@@ -404,6 +420,13 @@ if (reversed == null) { reversed = false; }
 
 	this.timeline.addTween(cjs.Tween.get(this.cta).wait(1));
 
+	// bg
+	this.cta_bg = new lib.cta_bg();
+	this.cta_bg.name = "cta_bg";
+	this.cta_bg.setTransform(783,58.3,1,1,0,0,0,43.5,12.3);
+
+	this.timeline.addTween(cjs.Tween.get(this.cta_bg).wait(1));
+
 	// Video
 	this.aVid = new lib.video();
 	this.aVid.name = "aVid";
@@ -412,7 +435,7 @@ if (reversed == null) { reversed = false; }
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.mainMC, new cjs.Rectangle(0.1,-191.9,728,282), null);
+}).prototype = getMCSymbolPrototype(lib.mainMC, new cjs.Rectangle(0.1,-191.9,828.6,282), null);
 
 
 // stage content:
@@ -453,7 +476,7 @@ if (reversed == null) { reversed = false; }
 	this._renderFirstFrame();
 
 }).prototype = p = new lib.AnMovieClip();
-p.nominalBounds = new cjs.Rectangle(364,-146.8,356.70000000000005,210);
+p.nominalBounds = new cjs.Rectangle(364,-146.8,462.1,220.8);
 // library properties:
 lib.properties = {
 	id: '90A26FE74B042E4A89CA750D1DA2DF1F',

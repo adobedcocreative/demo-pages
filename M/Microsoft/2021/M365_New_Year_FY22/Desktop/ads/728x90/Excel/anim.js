@@ -151,6 +151,12 @@ function frame0() {
 
 		//f1 copy
 		this.tlAnim.from([mc.cta,mc.txtCta], { duration: 0.8, alpha: 0}, "+=2");
+                 this.tlAnim.to(mc.cta_bg,{
+            duration:0.8,
+            x: "-=200", 
+            ease:Power2.easeOut,
+        }, "-=1.45");
+
         this.tlAnim.from(exportRoot.headline1,{
             duration:0.8,
             y: "+=20", alpha: 0,
@@ -187,6 +193,7 @@ function frame0() {
 		
 		
       //  this.tlAnim.from([mc.cta,mc.txtCta], { duration: 0.8, alpha: 0}, "<+0.4");
+
         this.tlAnim.from(mc.replay_btn, 1, { alpha: 0, onStart:function(){exportRoot.isReplay = true;}});
         this.tlAnim.to(mc,1,{onComplete:function (){
                 video.pause();
