@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="authoring-tool" content="Adobe_Animate_CC">
+	<title>M365_FY22Q3NewYear_USA_300x600_BAN_INTCarousel_EN_NA_Standard_ANI_LEA_NA_1</title>
+	<style>
+		body {
+			background-color:#909090;
+		}
+	</style>
+	<script>
+		var clickTag1 = "http://www.microsoft.com";
+		var clickTag2 = "http://www.msn.com";
+		var clickTag3 = "http://www.outlook.com";
+		var clickTag4 = "http://www.bing.com";
+		var clickTag5 = "http://www.adobe.com";
+	</script>
+	<script src="copy.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+	<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+	<script src="init.js"></script>
+	<script src="interactivity.js"></script>
+	<script src="anim.js"></script>
+	<script src="M365_FY22Q3NewYear_USA_300x600_BAN_INTCarousel_EN_NA_Standard_ANI_LEA_NA_1.js?1501171107836"></script>
+	<meta name="ad.size" content="width=300,height=600">
+	<script>
+
+		var fontToLoad = [
+			['Segoe Pro', 'url(fonts/SegoePro-Semibold.woff)']
+		];
+
+		var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation, initReady
+		initReady=false
+		function init() {
+			canvas = document.getElementById("canvas");
+			anim_container = document.getElementById("animation_container");
+			dom_overlay_container = document.getElementById("dom_overlay_container");
+			var comp=AdobeAn.getComposition("D0E66AC471084800A5CC2BC376D5D8CF");
+			var lib=comp.getLibrary();
+			var loader = new createjs.LoadQueue(false);
+			loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+			loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+			var lib=comp.getLibrary();
+			loader.loadManifest(lib.properties.manifest);
+		}
+		function handleFileLoad(evt, comp) {
+			var images=comp.getImages();
+			if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }
+		}
+		function handleComplete(evt,comp) {
+			//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+			var lib=comp.getLibrary();
+			var ss=comp.getSpriteSheet();
+			var queue = evt.target;
+			var ssMetadata = lib.ssMetadata;
+			for(i=0; i<ssMetadata.length; i++) {
+				ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+			}
+			exportRoot = new lib.M365_FY22Q3NewYear_USA_300x600_BAN_INTCarousel_EN_NA_Standard_ANI_LEA_NA_1();
+			stage = new lib.Stage(canvas);
+			//Registers the "tick" event listener.
+			fnStartAnimation = function() {
+				stage.addChild(exportRoot);
+				createjs.Ticker.framerate = lib.properties.fps;
+				/*if (navigator.userAgent.indexOf("Firefox") > -1 && navigator.appVersion.includes("Windows")) {
+					createjs.Ticker.framerate = 35;
+				}*/
+				createjs.Ticker.addEventListener("tick", stage);
+			}
+			//Code to support hidpi screens and responsive scaling.
+			AdobeAn.makeResponsive(false,'both',false,2,[canvas,anim_container,dom_overlay_container]);
+			AdobeAn.compositionLoaded(lib.properties.id);
+			fnStartAnimation();
+
+			 if (!initReady) {
+				startBanner()
+			}
+			gsap.delayedCall(0.4,function(){
+				exportRoot.initBanner(bannerData)
+				exportRoot.runBanner()
+				initDiv.style.visibility='hidden'
+			});
+			initReady=true
+		}
+
+		//FONT loading check
+		var checkForFonts = 0;
+		for (i=0; i < fontToLoad.length; i++) {
+			(function (){
+				var fontTmp = new FontFace(fontToLoad[i][0],fontToLoad[i][1]);
+				fontTmp.load().then(function(loaded_face) {
+					document.fonts.add(loaded_face);
+					checkForFonts++;
+					if (checkForFonts==fontToLoad.length)
+						loaded('font');
+				}).catch(function(error) {
+					console.log("check font: "+error);
+				});
+			}());
+		}
+		/*document.fonts.ready.then(function(font_face_set) {
+			loaded('font');
+		});*/
+
+
+		//check loading
+		var loadFont = false
+		var loadBody = false;
+		function loaded(type) {
+			if (type=='font') loadFont=true;
+			if (type=='body') loadBody=true;
+			if (loadFont && loadBody) init();
+		}
+	</script>
+</head>
+<body onload="javascript:loaded('body')" style="margin:0px;">
+	<div id="init" style="background-color:#FFFFFF; position: absolute; display: block; z-index:10; width:100%; height:100%; "></div>
+	<div id="animation_container" style="background-color:#0078D4; width:300px; height:600px">
+		<canvas id="canvas" width="300" height="600" style="position: absolute; display: block; background-color:#FFFFFF; cursor:pointer;" aria-label="Microsoft 3 6 5. Chase your dreams. Achieve the look. Boost your style. Track your goals. Keep private info protected. Learn more." role="img"></canvas>
+		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:300px; height:600px; position: absolute; left: 0px; top: 0px; display: block;">
+			<div style="position: absolute; border: 1px solid black; box-sizing: border-box; background-color:transparent; top: 0; left: 0; width: 100%; bottom: 0;"></div>
+		</div>
+	</div>
+	<script>
+		var initDiv = document.getElementById("init");
+		var startBanner = function() {
+			var animation_container = document.getElementById("animation_container");
+			animation_container.addEventListener("mouseover", over.bind(this));
+			animation_container.addEventListener("mouseout", out.bind(this));
+			function over() {
+				exportRoot.mainMC.cta.arrow.gotoAndStop(1);
+			}
+			function out() {
+				exportRoot.mainMC.cta.arrow.gotoAndStop(0);
+			}
+		}
+	</script>
+</body>	
+</html>

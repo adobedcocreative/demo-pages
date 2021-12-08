@@ -1,6 +1,6 @@
 /// interactivity functions
 
-function navBehavior(nChoose,noAuto, direction, label) {
+function navBehavior(nChoose,noAuto, direction) {
     if(noAuto){
         exportRoot.tlAutoplay.kill();
         exportRoot.noAuto = true;
@@ -23,9 +23,6 @@ function navBehavior(nChoose,noAuto, direction, label) {
             //if(nChoose == exportRoot.nSlide && direction == 0) direction = 1;
 
             changeSlide(direction);
-        }
-        if(noAuto !== undefined) {
-            amoAd.onInteraction(label, exportRoot.selectedSlide - 1);
         }
 }
 

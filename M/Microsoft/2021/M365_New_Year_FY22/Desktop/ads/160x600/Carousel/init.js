@@ -22,8 +22,14 @@ function frame0() {
 
 
     //nav callBack
-    mc.nav_l.on("click", function(){navBehavior(exportRoot.selectedSlide - 1,1,0,'Prev Click'); });
-    mc.nav_r.on("click", function(){navBehavior(exportRoot.selectedSlide + 1,1,1,'Next Click'); });
+    mc.nav_l.on("click", function(){
+        navBehavior(exportRoot.selectedSlide - 1,1,0);
+        amoAd.onInteraction('Prev Click', exportRoot.selectedSlide - 1);
+    });
+    mc.nav_r.on("click", function(){
+        navBehavior(exportRoot.selectedSlide + 1,1,1); 
+        amoAd.onInteraction('Next Click', exportRoot.selectedSlide - 1);
+    });
 
     //click tag
     mc.click_tag.on("click",clickRightTag);
