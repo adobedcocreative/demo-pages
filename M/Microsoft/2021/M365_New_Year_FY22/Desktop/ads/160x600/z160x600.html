@@ -31,19 +31,19 @@
         ];
 
         if(contentD && contentD.length) { contentD.forEach(function(data) { amo.registerContent(data); }); }
-        amo.registerVariation("layout", "CrossDevice");
-        amo.registerVariation("textField1", "['<#505050>Stay connected|on your PC,','18px',80, 120,'20','350', 'center', 'Segoe Pro']");
-        amo.registerVariation("textField2", "['<#505050>Mac, phone,|or tablet','18px',80, 120,'20','350', 'center', 'Segoe Pro']");
-        amo.registerVariation("textField3", "['<#505050>Access what|you need from|any device','18px',80, 120,'20','350', 'center', 'Segoe Pro']");
-        amo.registerVariation("textField4", "na");
-        amo.registerVariation("textField5", "na");
+        amo.registerVariation("layout", "Carousel");
+        amo.registerVariation("textField1", "['Chase your|dreams','18px',80,119,'20','350', 'center', 'Segoe Pro','#505050']");
+        amo.registerVariation("textField2", "['Achieve the|look','18px',80,119,'20','350', 'center', 'Segoe Pro','#505050']");
+        amo.registerVariation("textField3", "['Boost your|style','18px',80,119,'20','350', 'center', 'Segoe Pro','#505050']");
+        amo.registerVariation("textField4", "['Track your|goals','18px',80,119,'20','350', 'center', 'Segoe Pro','#505050']");
+        amo.registerVariation("textField5", "['Keep private|info protected','18px',80,119,'20','350', 'center', 'Segoe Pro','#505050']");
         //amo.registerVariation("textField5", "na");
         // amo.registerVariation("ctaText", "Acheter Maintenant");
         amo.registerVariation("ctaText", "Learn more");
         // amo.registerVariation("ctaArrowVisibleFlag", "!{passthroughfield2}");
         amo.registerVariation("impressionTracker", "../../../../1x1.png?impressionTracker=" + Math.random());
         amo.registerVariation("clickTracker", "../../../../1x1.png?clickTracker=" + Math.random());
-        amo.registerVariation("clickURL", "https://office.com/#1");
+        amo.registerVariation("clickURL", "https://office.com/#1^https://office.com/#2^https://office.com/#3^https://office.com/#4^https://office.com/#5");
         var content = [], cam = {};
         var cam = {
           layout: amo.variation['layout'],
