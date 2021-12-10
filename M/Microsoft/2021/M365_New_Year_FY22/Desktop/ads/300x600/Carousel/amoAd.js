@@ -67,7 +67,7 @@ var amoAd = (function(){
     var ctaTextWidth = layers.txtCta.children[0].children[0].getBounds().width + 15;
     layers.txtCta.x = (adWidth - ctaTextWidth)/2;
     layers.cta.arrow.x = (adWidth - ctaTextWidth)/2 + ctaTextWidth;
-    layers.cta.arrow.y += 1;
+    layers.cta.arrow.y += 1.5;
   }
   var iframe = window.frameElement;
   var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;

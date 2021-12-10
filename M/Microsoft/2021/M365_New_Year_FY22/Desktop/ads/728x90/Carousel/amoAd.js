@@ -2,72 +2,73 @@ var amoAd = (function(){
   var ctaAlignment = function(position){
     var layers = exportRoot.mainMC;
     var adWidth = document.querySelector('#animation_container').offsetWidth;
-    //var adHeight = document.querySelector('#animation_container').offsetHeight;
-    //var ctaBackgroundColor = layers.cta.CTAbg.children[0].graphics._fill.style;
-    // var yPoints = layers.cta.CTAbg.children[0].graphics._activeInstructions.map(function(point){ return(point.y) });
-    // var yTemp = [];
-    // yPoints.forEach(function(y){
-    //     if(y && (!yTemp.length || !Boolean(Math.abs(yTemp.find(function(z){return y == z}))))) {
-    // 				yTemp.push(y);
-    //     }
-    // });
-    //var ctaScaleX = layers.cta.scaleX, ctaScaleY = layers.cta.scaleY;
-    // var ctaHeight = Math.ceil(Math.abs(yTemp[0]) + Math.abs(yTemp[1]));
-    // ctaHeight *= ctaScaleY * layers.cta.children[0].scaleY;
-    // var ctaCalculatedWidth = Math.round(layers.txtCta.children[0].children[0].getBounds().width);
-    // var ctaWidth =  Math.round(ctaCalculatedWidth * adWidth/ctaCalculatedWidth);
-    //console.log(ctaWidth)
-    //position = position ? position : (layers.cta.x > adWidth/2 ? 'right' : 'left');
-    // layers.txtCta.regX = 0;
-    // layers.txtCta.children[0].x = 0;
-    // //layers.txtCta.children[0].y -= 4;
-    // //layers.cta.arrow.children[0].y += 3;
-    // //layers.cta.arrow.arrow_1.y += 3;
-    // layers.txtCta.scaleX = 1;
-    // //layers.txtCta.scaleY = 1;
-    // layers.cta.regX = 0;
-    // //layers.cta.regY = 0;
-    // //layers.cta.y = adHeight - ctaHeight/2;
-    // //layers.cta.scaleX = 1;
-    // //layers.cta.scaleY = 1;
-    // //layers.cta.arrow.y = 0;
-    // layers.cta.arrow.arrow_1.x = 0;
-    // layers.cta.arrow.arrow.x = 0;
-    // layers.cta.arrow.arrow_1.regX = 0;
-    // layers.cta.arrow.arrow.regX = 0;
-    // layers.cta.arrow.regX = 0;
-    // layers.cta.arrow.arrow.scaleX = layers.cta.arrow.arrow_1.scaleX = ctaScaleX;
-    // //layers.cta.arrow.arrow.scaleY = layers.cta.arrow.arrow_1.scaleY = ctaScaleY;
-    // layers.cta.children[0].x = 0;
-    // //layers.cta.children[0].y = 0;
-    // layers.cta.children[0].scaleX = 1;
-    // //layers.cta.children[0].scaleY = 1;
-    // layers.cta.children[0].regX = 0;
-    // //layers.cta.children[0].regY = 0;
-    // layers.cta.CTAbg.children[0].x = 0;
-    //layers.cta.CTAbg.children[0].y = 0;
-
-    //layers.cta.CTAbg.children[0].graphics.clear();
+    var ctaBackgroundColor = layers.cta.CTAbg.children[0].graphics._fill.style;
+    var yPoints = layers.cta.CTAbg.children[0].graphics._activeInstructions.map(function(point){ return(point.y) });
+    var yTemp = [];
+    yPoints.forEach(function(y){
+        if(y && (!yTemp.length || !Boolean(Math.abs(yTemp.find(function(z){return y == z}))))) {
+    				yTemp.push(y);
+        }
+    });
+    var ctaScaleX = layers.cta.scaleX, ctaScaleY = layers.cta.scaleY;
+    var ctaHeight = Math.ceil(Math.abs(yTemp[0]) + Math.abs(yTemp[1]));
+    ctaHeight *= ctaScaleY * layers.cta.children[0].scaleY;
+    var ctaWidth = layers.txtCta.children[0].children[0].getBounds().width + 45;
+    position = position ? position : (layers.cta.x > adWidth/2 ? 'right' : 'left');
+    layers.txtCta.regX = 0;
+    layers.scaleX = 1;
+    layers.scaleY = 1;
+    layers.txtCta.children[0].x = 0;
+    layers.txtCta.children[0].y -= 1;
+    layers.txtCta.scaleX = 1;
+    layers.txtCta.scaleY = 1;
+    layers.cta.regX = 0;
+    layers.cta.regY = 0;
+    layers.cta.scaleX = 1;
+    layers.cta.scaleY = 1;
+    layers.cta.arrow.regY = 0;
+    layers.cta.arrow.y = -3;
+    layers.cta.arrow.arrow.y = 0;
+    layers.cta.arrow.arrow_1.y = 0;
+    // layers.cta.arrow.scaleX = 0.5;
+    // layers.cta.arrow.scaleY = 0.5;
+    layers.cta.arrow.arrow_1.x = 0;
+    layers.cta.arrow.arrow.x = 0;
+    layers.cta.arrow.arrow_1.regX = 0;
+    layers.cta.arrow.arrow.regX = 0;
+    layers.cta.arrow.regX = 0;
+    layers.cta.arrow.arrow.scaleX = layers.cta.arrow.arrow_1.scaleX = ctaScaleX;
+    layers.cta.arrow.arrow.scaleY = layers.cta.arrow.arrow_1.scaleY = ctaScaleY;
+    layers.cta.CTAbg.children[0].x = 0;
+    layers.cta.CTAbg.children[0].y = 0;
+    layers.cta.CTAbg.children[0].scaleX = 1;
+    layers.cta.CTAbg.children[0].scaleY = 1;
+    layers.cta.CTAbg.children[0].regX = 0;
+    layers.cta.CTAbg.children[0].regY = 0;
+    layers.cta.CTAbg.scaleX = 1;
+    layers.cta.CTAbg.scaleY = 1;
+    layers.cta.CTAbg.x = 0;
+    layers.cta.CTAbg.y -= 5;
+    layers.cta.CTAbg.regX = 0;
+    layers.cta.CTAbg.rexY = 0;
+    layers.cta.CTAbg.children[0].graphics.clear();
     //layers.cta.children[0].children[0].graphics.clear();
-    // layers.cta.children[0].graphics.beginFill(ctaBackgroundColor).drawRect(0, -15, ctaWidth, 30);
-    //layers.cta.CTAbg.children[0].graphics.beginFill(ctaBackgroundColor).drawRect(0, -ctaHeight/2, ctaWidth, ctaHeight);
-    // if(position == 'right') {
-    // 	// layers.cta.x = adWidth - ctaWidth;
-    // 	// layers.txtCta.x = adWidth - ctaWidth + 15;
-    // 	// layers.cta.arrow.x = ctaWidth - 20;
-    //   layers.cta.x = 0;
-    // 	//layers.txtCta.y = adHeight - ctaHeight/2;
-    //   layers.txtCta.x = (ctaWidth - ctaCalculatedWidth)/2 - 5;
-    // 	layers.cta.arrow.x = (ctaWidth -  ctaCalculatedWidth)/2 +  ctaCalculatedWidth + 5;
-    // } else {
-    //     layers.cta.x = 0;
-    //     layers.txtCta.x = 15;
-    //     layers.cta.arrow.x = ctaWidth - 20;
-    // }
-    var ctaTextWidth = layers.txtCta.children[0].children[0].getBounds().width + 15;
-    layers.txtCta.x = (adWidth - ctaTextWidth)/2;
-    layers.cta.arrow.x = (adWidth - ctaTextWidth)/2 + ctaTextWidth;
-    layers.cta.arrow.y += 1.5;
+    //layers.cta.children[0].graphics.beginFill(ctaBackgroundColor).drawRect(0, -15, ctaWidth, 30);
+    layers.cta.CTAbg.children[0].graphics.beginFill(ctaBackgroundColor).drawRect(0, -ctaHeight/2, ctaWidth, ctaHeight);
+    if(position == 'right') {
+    	layers.cta.x = adWidth - ctaWidth;
+    	layers.txtCta.x = adWidth - ctaWidth + 15;
+    	layers.cta.arrow.x = ctaWidth - 20;
+    } else {
+        layers.cta.x = 0;
+        layers.txtCta.x = 15;
+        layers.cta.arrow.x = ctaWidth - 20;
+    }
+
+    // var ctaTextWidth = layers.txtCta.children[0].children[0].getBounds().width + 15;
+    // layers.txtCta.x = (adWidth - ctaTextWidth)/2;
+    // layers.cta.arrow.x = (adWidth - ctaTextWidth)/2 + ctaTextWidth;
+    // layers.cta.arrow.y += 1;
   }
   var iframe = window.frameElement;
   var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
@@ -80,9 +81,9 @@ var amoAd = (function(){
     bannerData.headline5 = eval(bannerData.textField5.split('^')[0]);
     bannerData.ctaText = bannerData.ctaText.replace('<br>', '\n');
   	var CTAFont = bannerData.ctaText.split('|').length > 1 ? bannerData.ctaText.split('|')[1] : '0';
-  	CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 14) + 'px';
+  	CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 9) + 'px';
   	bannerData.ctaText = bannerData.ctaText.split('|')[0];
-  	bannerData.CTA = bannerData.ctaText ? [bannerData.ctaText,CTAFont,0,0,"19","300", "left", "Segoe Pro", "#FFFFFF"] : '';
+  	bannerData.CTA = bannerData.ctaText ? [bannerData.ctaText,CTAFont,0,0,"12","300", "left", "Segoe Pro", "#FFFFFF"] : '';
     window.smartNames = [];
     (bannerData.textField1.split('^')[1]) ? window.smartNames.push(bannerData.textField1.split('^')[1]) : [];
     (bannerData.textField2.split('^')[1]) ? window.smartNames.push(bannerData.textField2.split('^')[1]) : [];
@@ -104,18 +105,18 @@ var amoAd = (function(){
     }
   }
   function resizeCTA() {
-    // var layers = exportRoot.mainMC;
-  	// var yPoints = layers.cta.CTAbg.children[0].graphics._activeInstructions.map(function(point){ return(point.y) });
-  	// var yTemp = [];
-  	// yPoints.forEach(function(y){
-  	//     if(y && (!yTemp.length || !Boolean(Math.abs(yTemp.find(function(z){return y == z}))))) {
-  	// 				yTemp.push(y);
-  	//     }
-  	// });
-  	// var ctaScaleX = layers.cta.scaleX, ctaScaleY = layers.cta.scaleY;
-  	// var ctaHeight = Math.ceil(Math.abs(yTemp[0]) + Math.abs(yTemp[1]));
-  	// ctaHeight *= ctaScaleY * layers.cta.children[0].scaleY;
-    var ctaMaxWidth = 180, ctaMaxHeight = 52;
+    var layers = exportRoot.mainMC;
+  	var yPoints = layers.cta.CTAbg.children[0].graphics._activeInstructions.map(function(point){ return(point.y) });
+  	var yTemp = [];
+  	yPoints.forEach(function(y){
+  	    if(y && (!yTemp.length || !Boolean(Math.abs(yTemp.find(function(z){return y == z}))))) {
+  					yTemp.push(y);
+  	    }
+  	});
+  	var ctaScaleX = layers.cta.scaleX, ctaScaleY = layers.cta.scaleY;
+  	var ctaHeight = Math.ceil(Math.abs(yTemp[0]) + Math.abs(yTemp[1]));
+  	ctaHeight *= ctaScaleY * layers.cta.children[0].scaleY;
+    var ctaMaxWidth = 180, ctaMaxHeight = ctaHeight;
     var ctaElement = document.createElement('div');
     ctaElement.innerHTML = bannerData.ctaText.replace('\n', '<br>');
     ctaElement.style.display = 'inline-block';
