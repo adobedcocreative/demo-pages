@@ -398,8 +398,9 @@
         initCarousel(content);
       }
       var getCarouselContent = function(data, id, assets) {
+        var yPosition = data.imagePosition ? data.imagePosition : '0px';
         return ('<div data-id="' + id + '" style="position:relative;display:inline-block;width:' + carouselWidth + 'px;height:' + carouselHeight + 'px;vertical-align:top;">'+
-            '<div class="asset" style="position:absolute;top:0px;left:0px;width:inherit;height:inherit;"><img src="' + data.headlineImage + '" /></div>'+
+            '<div class="asset" style="position:absolute;top:' + yPosition + ';left:0px;width:inherit;height:inherit;"><img src="' + data.headlineImage + '" /></div>'+
             '<div class="text-top-left LOEW_BLACK" style="position:absolute;top: 16px;left: 16px;width: 140px;height: 140px;font-size: 20px;font-weight:bold;color: #fff;line-height: 1;text-shadow: 0 0 1px rgba(0, 0, 0, 0.65);"><span>' + data.headlineText + '</span></div>'+
           '</div>');
           //26, 77
@@ -501,6 +502,7 @@
         var contentD = [
           {
             "name": "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR^DALLAS FROM $80^AUSTIN FROM $90^HOUSTON FROM $100^OKLAHOMA CITY FROM $100",
+            "passthroughfield1": "0^0^0^0",
             "passthroughfield3": "#00a8e1^#2fc4f6^#114d97",
             "image_url1": "assets/300x250_Big_Dreams.jpg^assets/300x250_Dallas.jpg^assets/300x250_AUSTIN.jpg^assets/300x250_HOUSTON.jpg^assets/300x250_OKLAHOMA_CITY.jpg",
             "product_url": "https://www.adobe.com/#Hilton_1^https://www.adobe.com/#Hilton_2^https://www.adobe.com/#Hilton_3^https://www.adobe.com/#Hilton_4^https://www.adobe.com/#Hilton_5",
@@ -532,6 +534,7 @@
       	if(contentD && contentD.length) { contentD.forEach(function(data) { amo.registerContent(data); }); }
         amo.registerVariation("autoplayCarousel", 'disable'); //enable/disable
         amo.registerVariation("logoImage", 'assets/160x600_Hilton_Logo_Image.png');
+        amo.registerVariation("imagePosition", '!{passthroughfield1}');
         amo.registerVariation("headlineImage", '!{image_url1}');
         amo.registerVariation("headlineText", '!{name}');
         amo.registerVariation("frameText", 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod');
@@ -545,6 +548,7 @@
       	var cam = {
           autoplayCarousel: amo.variation['autoplayCarousel'],
       		logoImage: amo.variation['logoImage'],
+          imagePosition: amo.variation['imagePosition'],
           headlineImage: amo.variation['headlineImage'],
           headlineText: amo.variation['headlineText'],
           frameText: amo.variation['frameText'],
@@ -560,6 +564,7 @@
       				feedData: data,
               autoplayCarousel: cam.autoplayCarousel,
       				logoImage: cam.logoImage,
+              imagePosition: cam.imagePosition,
               headlineImage: cam.headlineImage,
               headlineText: cam.headlineText,
               frameText: cam.frameText,
@@ -585,11 +590,13 @@
               for(var i=1; i < length; i++) {
                 var obj = {};
                 for(var j in content[0]) { obj[j] = content[0][j]; }
+                obj.imagePosition = content[0].imagePosition.split('^')[i];
                 obj.headlineText = content[0].headlineText.split('^')[i];
                 obj.headlineImage = content[0].headlineImage.split('^')[i];
                 obj.url = content[0].url.split('^')[i];
                 content.push(obj);
               }
+              content[0].imagePosition = content[0].imagePosition.split('^')[0];
               content[0].headlineText = content[0].headlineText.split('^')[0];
               content[0].headlineImage = content[0].headlineImage.split('^')[0];
               content[0].url = content[0].url.split('^')[0];

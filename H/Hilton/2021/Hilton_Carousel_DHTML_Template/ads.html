@@ -207,6 +207,7 @@
             'Simplified': `var cam = {
               autoplayCarousel: data.autoplayCarousel,
               logoImage: '../../assets/'+data.logoImage,
+              imagePosition: '!{passthroughfield1}',
               headlineImage: '!{image_url1}',
               headlineText: '!{name}',
               frameText: data.frameText,
@@ -224,10 +225,12 @@
         var contentD = [], length = data.headlineImage.split('^').length;
         var getData = function(i) {
           var names = data.headlineText.split('^');
+          var positions = data.imagePosition.split('^');
           var images = data.headlineImage.split('^');
           var urls = data.clickUrl.split('^');
           return {
             "name": names[(i < names.length ? i : (names.length - 1))],
+            "passthroughfield1": positions[(i < positions.length ? i : (positions.length - 1))],
             "image_url1": '../../assets/'+images[(i < images.length ? i : (images.length - 1))],
             "product_url": urls[(i < urls.length ? i : (urls.length - 1))],
           };
