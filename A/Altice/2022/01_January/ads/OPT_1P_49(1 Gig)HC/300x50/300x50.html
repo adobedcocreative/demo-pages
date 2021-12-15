@@ -123,20 +123,20 @@
         font-size: 60%;
       }
       .title {
-        top: 7px;
-        left: 7px;
-        font-size: 13px;
+        top: 10px;
+        left: 8px;
+        font-size: 14px;
         line-height: 0.9;
       }
       .title-center {
         top: 50%;
-        left: 10px;
+        left: 8px;
         font-size: 15px;
         line-height: 1.1;
         transform: translateY(-50%);
       }
       .price-terms {
-        top: 21px;
+        top: 25px;
         left: 8px;
         font-size: 9px;
         line-height: 1.2;
@@ -152,7 +152,7 @@
       .terms-apply {
         font-family: Altice-Regular;
         display:inline-block;
-        font-size: 8px;
+        font-size: 9px;
       }
       .text-white {
         color: #fff;
@@ -165,13 +165,13 @@
 <script type="text/javascript">
 amo.registerClick("clickUrl", "https://www.altice.com");
 amo.registerAttribute("ctaText", "TEXT", "Shop now");
-amo.registerAttribute("frameText1", "TEXT", "<div class='title-center'>Get our best<br>holiday deal ever!</div>");
-amo.registerAttribute("frameText21", "TEXT", "<div class='title' style='top:6px;'>1 Gig Internet $49.99/mo.</div>");
-amo.registerAttribute("frameText22", "TEXT", "<div class='price-terms' style='top:19px;font-size:8px;'>w/Auto Pay & Paperless Bill plus taxes, fees &<br>charges. Wired connection up to 940 Mbps.<br>WiFi speeds may vary.</div>");
-amo.registerAttribute("frameText31", "TEXT", "<div class='title-center' style='font-size:13px;'>$200 Visa<sup>®</sup> Prepaid<br>Card on us! <div class='terms-apply'>Terms apply.</div></div>");
-amo.registerAttribute("frameText41", "TEXT", "<div class='title-center' style='left: 10px;font-size: 12.7px;line-height: 1.15;'>Plus, you can get HBO Max™<br>included for 1 year & a FREE<br>Optimum Stream! <div class='terms-apply'>Terms apply.</div></div>");
+amo.registerAttribute("frameText1", "TEXT", "<div class='title-center' style='left:79px;'>Start fresh with<br>faster Internet!</div>");
+amo.registerAttribute("frameText21", "TEXT", "<div class='title'>1 Gig Internet $49.99/mo.</div>");
+amo.registerAttribute("frameText22", "TEXT", "<div class='price-terms'>w/Auto Pay & Paperless Bill plus taxes & equip.<br>charges. Wired connection up to 940 Mbps.</div>");
+amo.registerAttribute("frameText31", "TEXT", "<div class='title-center' style='font-size:16px;'>$200 Visa<sup>®</sup> Prepaid<br>Card on us! <div class='terms-apply'>Terms apply.</div></div>");
+amo.registerAttribute("frameText41", "TEXT", "<div class='title-center' style='font-size: 11.8px;'>Plus, you can get HBO Max™ for<br>1 yr. & a FREE Optimum Stream. <div class='terms-apply'>Terms apply. Not available in all areas.</div></div>");
 amo.registerAttribute("frameText51", "TEXT", "<div class='title'>1 Gig Internet $49.99/mo.</div>");
-amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pay & Paperless Bill plus taxes,<br>fees & charges. Not available in all areas.</div>");
+amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pay & Paperless Bill plus taxes & equip.<br>charges. Wired connection up to 940 Mbps.</div>");
 </script>
 <!-- End of overrode asset attributes values -->
 <script type="text/javascript">
@@ -180,7 +180,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pa
     {
       name: 'frame1',
       assets: {
-        frameAsset1: "300x50_OPT_HOL_ACQ_INT_1Gig300VC_4999Mo_Img_Bell_Frame_01.png",
+        frameAsset1: "300x50_VR_Girl.mp4",
       },
       style: {
         '#frameAsset1': {y:'-100%'},
@@ -210,7 +210,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pa
     {
       name: 'frame3',
       assets: {
-        frameAsset3: "300x50_OPT_1P_4999_Month_1Gig_Img_F3_200_Visa_Card.png",
+        frameAsset3: "1x1.png",
       },
       style: {
         
@@ -220,7 +220,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pa
         config: {
           // delays: ['', '<', '<', '<0.1', '<0.1'],
           beforeAnimation: function(fn, elements) {
-            
+            fn.changeBG('#0084d6');
           }
         }
       }
@@ -237,7 +237,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pa
         duration: 3.2,
         config: {
           beforeAnimation: function(fn) {
-
+            fn.changeBG('#24d9c3');
           }
         }
       }
@@ -254,6 +254,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pa
         config: {
           beforeAnimation: function(fn, elements) {
             gsap.set(elements[0], {x:0, y:0, autoAlpha:0});
+            fn.changeBG('#0084d6');
           }
         }
       }
@@ -275,7 +276,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pa
 </head>
 <body>
   <div id="ad">
-    <div id="backgroundColor"style="background-color:#87add2;"></div>                
+    <div id="backgroundColor"style="background-color:#24d9c3;"></div>                
     <div id="otherFrames" class="frame"></div>
     <div id="logoBlack" class="asset" data-image="logoBlack"></div>
     <div id="logoWhite" class="asset" data-image="logoWhite"></div>
@@ -293,10 +294,11 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pa
         background-color: #0084d6;
         color: #fff;">
     </div>
-    <div id="frame1" style="background-color:#87add2;">
-      <div id="frameAsset1" class="asset" data-image="frameAsset1"></div>
+    <div id="frame1" style="background-color:#0084d6;">
+      <!-- <div id="frameAsset1" class="asset" data-image="frameAsset1"></div> -->
+      <div id="frameAsset1"><video muted playsinline autoplay></video></div>
       <!-- <div id="videoOverlay" style="background-color:rgba(0,0,0,0.2);"></div> -->
-      <div class="beam-container"></div>
+      <!-- <div class="beam-container"></div> -->
       <div id="frameText1" class="text frameText">!{frameText1}</div>
       <div id="introLogoImage" class="asset" data-image="logoWhite"></div>
       <div id="introCta" class="text AlticeBold ctaWhite"
@@ -377,21 +379,21 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pa
         ad.root.addEventListener("click", function(e) {
           if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
         });
-        // const loadVideo = function(video, path, flag) {
-        //   if(video && path) {
-        //     if(!flag) {
-        //       video.onplay = function() {
-        //         if(!video.flag) {
-        //           this.pause();
-        //           this.currentTime = 0;
-        //         }
-        //       }
-        //       video.src = path;
-        //       video.flag = false;
-        //     } else setTimeout(function(){ video.src = path; }, (flag ? 800 : 500));
-        //   }
-        // }
-        // loadVideo(ad.layers.frameAsset1.querySelector('video'), adData.frameAsset1, true);
+        const loadVideo = function(video, path, flag) {
+          if(video && path) {
+            if(!flag) {
+              video.onplay = function() {
+                if(!video.flag) {
+                  this.pause();
+                  this.currentTime = 0;
+                }
+              }
+              video.src = path;
+              video.flag = false;
+            } else setTimeout(function(){ video.src = path; }, (flag ? 800 : 500));
+          }
+        }
+        loadVideo(ad.layers.frameAsset1.querySelector('video'), adData.frameAsset1, true);
         // loadVideo(ad.layers.frameAsset3.querySelector('video'), adData.frameAsset3);
 
         textUpdate();
