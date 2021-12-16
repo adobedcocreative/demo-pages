@@ -37,7 +37,7 @@
         width: 728px;
         height: 90px;
         font-family: Altice-Bold, Arial, Helvetica;
-        color: #000;
+        color: #fff;
       }
       #ad > div, #frame1 > div, .frame-container, .frame-container > div, .frame, .frameText {
         position: absolute;
@@ -57,7 +57,7 @@
         position: relative;
         padding-left: 15px;
         font-size: 18px;
-        line-height: 1.15;
+        line-height: 1.05;
         margin-bottom: 2px;
       }
       .bulletedText::before {
@@ -66,7 +66,7 @@
         top: 1px;
         left: 0px;
         font-size: 17px;
-        color: #0084d6;
+        color: #fff;
       }
       .beam, .shape {
         position: absolute;
@@ -110,29 +110,36 @@
 
       /* Text alignment classes */
       .title {
-        top: 27px;
-        left: 25px;
-        font-size: 24px;
+        top: 18px;
+        left: 23px;
+        font-size: 25px;
         line-height: 1;
       }
       .monthly {
         font-size: 72%;
       }
       .price-text {
-        top: 11px;
-        left: 22px;
-        font-size: 24px;
+        top: 7px;
+        left: 20px;
+        font-size: 23.5px;
         line-height: 1.05;
       }
+      .eyebrow-text {
+        position: absolute;
+        bottom: 100%;
+        font-size: 14px;
+        padding-bottom: 0px;
+      }
       .price-terms {
-        font-size: 8px;
-        margin-top: 1px;
+        font-size: 9.6px;
+        margin-top: 6px;
+        margin-left: 1px;
         font-family: Altice-Regular;
       }
       .disclaimer {
-        top: 53px;
-        left: 25px;
-        font-size: 10px;
+        bottom: 12px;
+        left: 138px;
+        font-size: 9.55px;
         line-height: 1;
         font-family: Altice-Regular;
       }
@@ -147,15 +154,16 @@
 <script type="text/javascript">
 amo.registerClick("clickUrl", "https://www.altice.com");
 amo.registerAttribute("ctaText", "TEXT", "Shop now");
-amo.registerAttribute("frameText1", "TEXT", "<div style='top: 20px;left: 185px;font-size: 23.4px;line-height: 1;'>Fiber is fast.</div>");
-amo.registerAttribute("frameText12", "TEXT", "<div style='top: 20px;left: 185px;font-size: 23.4px;line-height: 1;'><font style='color:transparent;'>Fiber is fast.</font> And now, it’s flexible.</div>");
-amo.registerAttribute("frameText21", "TEXT", "<div class='price-text text-white' style='top: 47px;left: 25px;font-size: 18px;'>Pick the Fiber speed that’s right for you – up to 1 Gig Internet</div>");
-amo.registerAttribute("frameText22", "TEXT", "<div class='disclaimer text-white' style='top: 68px;left: 25px;'>Wired connection up to 940 Mbps. WiFi speeds may vary.</div>");
-amo.registerAttribute("frameText31", "TEXT", "<div class='title text-white'>Get 300 Mbps Fiber Internet for $29.99<small class='monthly'>/mo.</small></div>");
-amo.registerAttribute("frameText32", "TEXT", "<div class='disclaimer text-white'>w/Auto Pay & Paperless Bill plus taxes, fees & charges. Wired connection. WiFi speeds may vary.</div>");
-amo.registerAttribute("frameText41", "TEXT", "<div class='title text-white' style='top:34px;'>Uploads as fast as downloads</div>");
-amo.registerAttribute("frameText51", "TEXT", "<div class='price-text'>Get 300 Mbps Fiber<br>Internet for <font class='coloredText'>$29.99</font><small class='monthly'>/mo.</small><div class='price-terms' style='font-size:10px;'>w/Auto Pay & Paperless Bill plus taxes, fees & charges</div></div>");
-amo.registerAttribute("frameText52", "TEXT", "<div style='top: 12px;left: 325px;width: 360px;transform: scale(0.8);transform-origin: top left;'><div class='bulletedText'>$200 Visa<sup style='vertical-align: top;font-size: 75%;'>®</sup> Prepaid Card</div><div class='bulletedText'>HBO Max™ included for 3 mos.</div><div class='bulletedText'>Free WiFi extender<div class='AlticeRegular' style='margin-top: 2px;margin-left: -14px;font-size: 66%;'>Not available in all areas. Terms apply.</div></div></div>");
+amo.registerAttribute("frameText1", "TEXT", "<div class='title' style='top: 32px;left: 136px;'>Get a fresh start with new savings!</div>");
+amo.registerAttribute("frameText21", "TEXT", "<div style='top: 15px;left: 137px;font-size: 26px;line-height: 0.92;'>300 Mbps<br>Internet</div>");
+amo.registerAttribute("frameText22", "TEXT", "<div style='top: 9px;left: 268px;width: 500px;line-height: 1;'><font style='font-size: 59px;letter-spacing: 0px;padding-right: 2px;'>$29</font><font style='margin-left: 1px;font-size: 10px;display: inline-block;vertical-align: 24px;line-height: 1;'>99/<br>mo.</font></div>");
+amo.registerAttribute("frameText23", "TEXT", "<div class='disclaimer'>w/Auto Pay & Paperless Bill plus taxes & equip. charges.</div>");
+amo.registerAttribute("frameText31", "TEXT", "<div class='title' style='top: 26px;left: 138px;font-size: 24.2px;line-height: 1;'>$200 Visa<sup style='vertical-align: top;font-size: 60%;'>®</sup> Prepaid Card on us!</div>");
+amo.registerAttribute("frameText32", "TEXT", "<div class='disclaimer' style='top: 52px;'>Terms apply.</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div class='title' style='top: 31px;left: 138px;font-size: 25px;'>HBO Max™ included on us!</div>");
+amo.registerAttribute("frameText42", "TEXT", "<div class='disclaimer'>Get 3 mos. included, then only $14.99/mo.</div>");
+amo.registerAttribute("frameText51", "TEXT", "<div class='price-text'>300 Mbps Internet<br>for $29.99/mo.<div class='price-terms'>w/Auto Pay & Paperless Bill plus taxes & equip. charges. Wired connection.<br>WiFi speeds may vary. Not available in all areas. Terms apply.</div></div>");
+amo.registerAttribute("frameText52", "TEXT", "<div style='top: 8px;left: 278px;width: 360px;transform: scale(0.78);transform-origin: top left;'><div class='bulletedText'>$200 Visa<sup style='vertical-align: top;font-size: 52%;'>®</sup> Prepaid Card</div><div class='bulletedText'>HBO Max™ included on us</div><div class='bulletedText'>Free WiFi extender</div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
 <script type="text/javascript">
@@ -167,29 +175,27 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 12px;left: 325px;
         frameAsset1: "728x90_OPT_1P_Fiber_29_99_100Mbps_Background_Image_Frame_01.png",
       },
       style: {
-        '#frameAsset1': {x:'-100%'},
-        '#frameText1, #frameText12': {x:0, y:0, autoAlpha:0, color: '#fff'},
+        
       },
       animate: {
-        duration: 3
+        duration: 4.5
       }
     },
     {
       name: 'frame2',
       assets: {
-        frameAsset2: "728x90_OPT_1P_Fiber_29_99_100Mbps_Logo_Flexibility_Frame_02.png",
+        frameAsset2: "728x90_OPT_1P_2999_Month_300Mbps_Img_F2_Hole_People.png",
       },
       style: {
         '#frameAsset2': {x:'-100%', y:0},
+        '#frameText21': {x:0, y:'100%'},
       },
       animate: {
-        duration: 2.9,
+        duration: 2.5,
         config: {
           // delays: ['', '<', '<', '<0.1', '<0.1'],
           beforeAnimation: function(fn, elements) {
-            fn.changeCTA('white');
-            fn.changeLogo('white');
-            fn.changeBG('#0084d6');
+            
           }
         }
       }
@@ -197,18 +203,17 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 12px;left: 325px;
     {
       name: 'frame3',
       assets: {
-        frameAsset3: "1x1.png",
+        frameAsset3: "728x90_ACQ_JAN_BANNER_300MBPS.mp4",
       },
       style: {
-        
+        '#frameAsset3': {x:'-100%', y:0},
+        '#frameText31': {x:0, y:'100%'},
       },
       animate: {
-        duration: 2.9,
+        duration: 2.5,
         config: {
           // delays: ['', '<', '<', '<0.1', '<0.1'],
           beforeAnimation: function(fn, elements) {
-            fn.changeCTA();
-            fn.changeLogo('white');
             fn.changeBG('#24d9c3');
           }
         }
@@ -217,20 +222,20 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 12px;left: 325px;
     {
       name: 'frame4',
       assets: {
-        frameAsset4: "728x90_OPT_1P_Fiber_29_99_100Mbps_Background_Image_Frame_04.png",
+        frameAsset4: "728x90_OPT_1P_2999_Month_300Mbps_Img_F4_iPad.png",
       },
       style: {
-
+        '#frameAsset4': {x:'-100%', y:0},
+        '#frameText41': {x:0, y:'100%'},
       },
       animate: {
-        duration: 2.9,
+        duration: 2.5,
         config: {
-          beforeAnimation: function(fn, elements) {
+          beforeAnimation: function(fn) {
+            // gsap.set('#beam1',{autoAlpha:1,top:53,left:728,width:45,height:5,x:-773});gsap.set('#beam1 div',{width:5});
             // fn.beams.animate();
-            fn.changeCTA('white');
-            fn.changeLogo('white');
-            fn.changeBG('#81cbfb');
-            gsap.set(elements[0], {x:0, y:0, autoAlpha:0});
+            // gsap.to('#beam1', 0.2, {autoAlpha: 0, delay: 1.6});
+            fn.changeBG('#0084d6');
           }
         }
       }
@@ -244,12 +249,11 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 12px;left: 325px;
 
       },
       animate: {
+        duration: 0.5,
         config: {
           beforeAnimation: function(fn, elements) {
-            fn.changeCTA();
-            fn.changeLogo();
-            fn.changeBG('#ebebeb');
             gsap.set(elements[0], {x:0, y:0, autoAlpha:0});
+            fn.changeBG('#24d9c3');
           }
         }
       }
@@ -260,7 +264,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 12px;left: 325px;
     if(location.hash && +location.hash.replace('#', '')) adFrameId = +location.hash.replace('#', '');
     else {
       window.parent.addFrames(frames.length);
-      const framesDuration = frames.map(function(frame, i){ return i !== frames.length - 1 ? frame.animate.duration : 0.5 });
+      const framesDuration = frames.map(function(frame, i){ return i !== frames.length - 1 || ('animate' in  frame && 'duration' in  frame.animate) ? frame.animate.duration : 0.5 });
       framesDuration[0] += 0.8;
       const totalDuration = framesDuration.reduce(function(acc, x) { return acc + x; }, 0);
       console.log('Frame Timimgs - %c' + framesDuration.map(function(duration, i) { return 'F'+ (i+1)+'(' + duration + 's)' }).join(' -> ') + ' => ' + totalDuration + 's','color:#0084d6;font-weight:bold;');
@@ -271,14 +275,15 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 12px;left: 325px;
 </head>
 <body>
   <div id="ad">
-    <div id="backgroundColor"style="background-color:#0084d6;"></div>                
+    <div id="backgroundColor"style="background-color:#0084d6;"></div>  
+    <!-- <div id="beamContainer"></div>               -->
     <div id="otherFrames" class="frame"></div>
     <div id="logoBlack" class="asset" data-image="logoBlack"></div>
     <div id="logoWhite" class="asset" data-image="logoWhite"></div>
     <div id="cta" class="text AlticeBold ctaWhite"
       data-text="ctaText"
       style="top: 13px;
-        left: 583px;
+        left: 586px;
         width: 106px;
         height: 25px;
         font-size: 16px;
@@ -288,16 +293,18 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 12px;left: 325px;
         background-color: #0084d6;
         color: #fff;">
     </div>
-    <div id="frame1" style="background-color:#0084d6;">
-      <div id="frameAsset1" class="asset" data-image="frameAsset1"></div>
+    <div id="frame1" style="background-color:#24d9c3;">
+      <!-- <div id="frameAsset1" class="asset" data-image="frameAsset1"></div> -->
+      <div id="frameAsset1"><video muted playsinline autoplay></video></div>
+      <!-- <div id="frameAsset12" class="asset" data-image="frameAsset12"></div> -->
       <!-- <div id="videoOverlay" style="background-color:rgba(0,0,0,0.2);"></div> -->
       <div id="frameText1" class="text frameText">!{frameText1}</div>
-      <div id="frameText12" class="text frameText">!{frameText12}</div>
+      <!-- <div id="frameText12" class="text frameText">!{frameText12}</div> -->
       <div id="introLogoImage" class="asset" data-image="logoWhite"></div>
       <div id="introCta" class="text AlticeBold ctaWhite"
         data-text="ctaText"
         style="top: 13px;
-          left: 583px;
+          left: 586px;
           width: 106px;
           height: 25px;
           font-size: 16px;
@@ -371,22 +378,22 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 12px;left: 325px;
         ad.root.addEventListener("click", function(e) {
           if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
         });
-        // const loadVideo = function(video, path, flag) {
-        //   if(video && path) {
-        //     if(!flag) {
-        //       video.onplay = function() {
-        //         if(!video.flag) {
-        //           this.pause();
-        //           this.currentTime = 0;
-        //         }
-        //       }
-        //       video.src = path;
-        //       video.flag = false;
-        //     } else setTimeout(function(){ video.src = path; }, (flag ? 800 : 500));
-        //   }
-        // }
-        // loadVideo(ad.layers.frameAsset1.querySelector('video'), adData.frameAsset1, true);
-        // loadVideo(ad.layers.frameAsset3.querySelector('video'), adData.frameAsset3);
+        const loadVideo = function(video, path, flag) {
+          if(video && path) {
+            if(!flag) {
+              video.onplay = function() {
+                if(!video.flag) {
+                  this.pause();
+                  this.currentTime = 0;
+                }
+              }
+              video.src = path;
+              video.flag = false;
+            } else setTimeout(function(){ video.src = path; }, (flag ? 800 : 500));
+          }
+        }
+        loadVideo(ad.layers.frameAsset1.querySelector('video'), adData.frameAsset1, true);
+        loadVideo(ad.layers.frameAsset3.querySelector('video'), adData.frameAsset3);
 
         textUpdate();
         const fn = { }
@@ -402,7 +409,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 12px;left: 325px;
             }
             beams.innerHTML = htmlContent;
             parentElement.appendChild(beams);
-            gsap.set('#beam1',{top:49,left:728,width:45,height:5,x:-773});gsap.set('#beam1 div',{width:5});
+            gsap.set('#beam1',{top:60,left:728,width:45,height:5,x:-773});gsap.set('#beam1 div',{width:5});
             // gsap.set('#beam2',{top:7,left:728,width:240,height:17,x:-968});gsap.set('#beam2 div',{width:18});
             // gsap.set('#beam3',{top:78,left:728,width:160,height:16,x:-888});gsap.set('#beam3 div',{width:16});
             // gsap.set('#beam4',{top:45,left:728,width:190,height:14,x:-918});gsap.set('#beam4 div',{width:14});
@@ -450,8 +457,9 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 12px;left: 325px;
             animate: function() { return animate() }
           }
         })();
-        fn.beams.load('#otherFrames');
+        // fn.beams.load('#otherFrames');
         // fn.shapes.load('#frame1');
+        // fn.beams.load('#beamContainer');
 
         gsap.set('#otherFrames .asset', {y:'100%'});
         gsap.set('.frame-container .text, .frameText', {y:'100%'});
@@ -522,9 +530,11 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 12px;left: 325px;
         })();
         const animateFrame1 = function(frame, properties, flag) {
           const duration = properties && 'duration' in properties ? properties.duration : 3;
+          // fn.beams.animate();
+          // gsap.to('#beam1', 0.2, {autoAlpha: 0, delay: 1.4})
           gsap.timeline(timelineProps)
             .to('#frameAsset1, #frameText1', destinationValues)
-            .to('#frameText12', destinationValues, 1)
+            // .to('#frameText12', destinationValues)
             gsap.timeline(timelineProps)
             .to(frame, (flag==true?{}:{delay: (duration - timelineProps.defaults.duration), autoAlpha:0, onComplete: animate.nextFrame}));
         }

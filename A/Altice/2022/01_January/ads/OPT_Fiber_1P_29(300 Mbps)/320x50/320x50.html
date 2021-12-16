@@ -37,7 +37,7 @@
         width: 320px;
         height: 50px;
         font-family: Altice-Bold, Arial, Helvetica;
-        color: #000;
+        color: #fff;
       }
       #ad > div, #frame1 > div, .frame-container, .frame-container > div, .frame, .frameText {
         position: absolute;
@@ -92,7 +92,7 @@
         border-radius: 50%;
       }
       .beam-container {
-        width: 260px !important;
+        width: 240px !important;
         overflow: hidden;   
       }
       .beam-gradient:last-child {
@@ -123,29 +123,36 @@
         font-size: 60%;
       }
       .title {
-        top: 5px;
-        left: 7px;
-        font-size: 12px;
-        line-height: 1;
-      }
-      .title-large {
-        top: 4px;
-        left: 7px;
+        top: 10px;
+        left: 8px;
         font-size: 14px;
+        line-height: 0.9;
+      }
+      .title-center {
+        top: 50%;
+        left: 8px;
+        font-size: 15px;
         line-height: 1.1;
+        transform: translateY(-50%);
       }
       .price-terms {
-        top: 21px;
+        top: 25px;
         left: 8px;
         font-size: 9px;
         line-height: 1.2;
         font-family: Altice-Regular;
       }
       .disclaimer {
-        display: inline-block;
-        font-size: 9px;
+        top: 30px;
+        left: 9px;
+        font-size: 7.8px;
         line-height: 1.15;
         font-family: Altice-Regular;
+      }
+      .terms-apply {
+        font-family: Altice-Regular;
+        display:inline-block;
+        font-size: 9px;
       }
       .text-white {
         color: #fff;
@@ -158,13 +165,13 @@
 <script type="text/javascript">
 amo.registerClick("clickUrl", "https://www.altice.com");
 amo.registerAttribute("ctaText", "TEXT", "Shop now");
-amo.registerAttribute("frameText1", "TEXT", "<div style='top: 6px;left: 8px;width: 280px;font-size: 14px;line-height: 1;'>Fiber is fast.<br>And now, it’s flexible.</div>");
-amo.registerAttribute("frameText12", "TEXT", "<div style='top: 102px;left: 10px;width: 280px;font-size: 24.5px;line-height: 1;text-align: center;'>And now, it’s flexible.</div>");
-amo.registerAttribute("frameText21", "TEXT", "&nbsp;");
-amo.registerAttribute("frameText31", "TEXT", "<div class='title-large text-white' style='top:10px;'>Pick the fiber speed<br>that’s right for you</div>");
-amo.registerAttribute("frameText41", "TEXT", "<div class='title-large' style='top:6px;font-size:12px;'>You can get a $200 Prepaid<br>Card, HBO Max™️ included<br>for 3 mos. & more! <div class='disclaimer'>Terms apply.</div></div>");
-amo.registerAttribute("frameText51", "TEXT", "<div class='title'>300 Mbps Fiber Internet <font class='text-blue'>$29.99</font>/mo.</div>");
-amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms' style='top: 19px;font-size: 8px;'>w/Auto Pay & Paperless Bill plus taxes, fees<br>& charges. Wired connection. WiFi speeds<br>may vary. Not available in all area.</div>");
+amo.registerAttribute("frameText1", "TEXT", "<div class='title-center' style='left:79px;'>Get a fresh start<br>with new savings!</div>");
+amo.registerAttribute("frameText21", "TEXT", "<div class='title'>300 Mbps Internet $29.99/mo.</div>");
+amo.registerAttribute("frameText22", "TEXT", "<div class='price-terms'>w/Auto Pay & Paperless Bill plus taxes & equip.<br>charges. Wired connection.</div>");
+amo.registerAttribute("frameText31", "TEXT", "<div class='title-center' style='font-size:16px;'>$200 Visa<sup>®</sup> Prepaid<br>Card on us! <div class='terms-apply'>Terms apply.</div></div>");
+amo.registerAttribute("frameText41", "TEXT", "<div class='title-center' style='font-size: 11.8px;'>Plus, you can get HBO Max™ for<br>3 mos. & a Free WiFi extender. <div class='terms-apply'>Terms apply. Not available in all areas.</div></div>");
+amo.registerAttribute("frameText51", "TEXT", "<div class='title'>300 Mbps Internet $29.99/mo.</div>");
+amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms'>w/Auto Pay & Paperless Bill plus taxes & equip.<br>charges. Wired connection.</div>");
 </script>
 <!-- End of overrode asset attributes values -->
 <script type="text/javascript">
@@ -176,31 +183,26 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms' style='to
         frameAsset1: "320x50_OPT_1P_Fiber_29_99_100Mbps_Background_Image_Frame_01.png",
       },
       style: {
-        '#frameText1': {css:{color: '#fff'}},
+        '#frameAsset1': {y:'-100%'},
       },
       animate: {
-        duration: 3
+        duration: 2.5
       }
     },
     {
       name: 'frame2',
       assets: {
-        frameAsset2: "320x50_OPT_1P_Fiber_29_99_100Mbps_Logo_Flexibility_Frame_02.png",        
+        frameAsset2: "1x1.png",
       },
       style: {
-        '#frameAsset2': {x:'-100%', y:0},
+
       },
       animate: {
-        duration: 2.9,
+        duration: 2.5,
         config: {
           // delays: ['', '<', '<', '<0.1', '<0.1'],
           beforeAnimation: function(fn, elements) {
-            fn.beams.animate();
-            fn.changeCTA('white');
-            fn.changeLogo('white');
-            fn.changeBG('#0084d6');
-            gsap.set('.beam-container', {autoAlpha:1});
-            gsap.delayedCall(2.4, function(){ gsap.set('.beam-container', {autoAlpha:0}); });
+            
           }
         }
       }
@@ -214,13 +216,11 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms' style='to
         
       },
       animate: {
-        duration: 2.9,
+        duration: 2.5,
         config: {
           // delays: ['', '<', '<', '<0.1', '<0.1'],
           beforeAnimation: function(fn, elements) {
-            fn.changeCTA();
-            fn.changeLogo('white');
-            fn.changeBG('#24d9c3');            
+            fn.changeBG('#24d9c3');
           }
         }
       }
@@ -231,15 +231,13 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms' style='to
         frameAsset4: "1x1.png",
       },
       style: {
-
+        
       },
       animate: {
-        duration: 2.9,
+        duration: 3.2,
         config: {
           beforeAnimation: function(fn) {
-            fn.changeCTA();
-            fn.changeLogo();
-            fn.changeBG('#ebebeb');
+            fn.changeBG('#0084d6');
           }
         }
       }
@@ -255,10 +253,8 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms' style='to
       animate: {
         config: {
           beforeAnimation: function(fn, elements) {
-            fn.changeCTA();
-            fn.changeLogo();
-            fn.changeBG('#ebebeb');
             gsap.set(elements[0], {x:0, y:0, autoAlpha:0});
+            fn.changeBG('#24d9c3');
           }
         }
       }
@@ -269,7 +265,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms' style='to
     if(location.hash && +location.hash.replace('#', '')) adFrameId = +location.hash.replace('#', '');
     else {
       window.parent.addFrames(frames.length);
-      const framesDuration = frames.map(function(frame, i){ return i !== frames.length - 1 ? frame.animate.duration : 0.5 });
+      const framesDuration = frames.map(function(frame, i){ return i !== frames.length - 1 || ('animate' in  frame && 'duration' in  frame.animate) ? frame.animate.duration : 0.5 });
       framesDuration[0] += 0.8;
       const totalDuration = framesDuration.reduce(function(acc, x) { return acc + x; }, 0);
       console.log('Frame Timimgs - %c' + framesDuration.map(function(duration, i) { return 'F'+ (i+1)+'(' + duration + 's)' }).join(' -> ') + ' => ' + totalDuration + 's','color:#0084d6;font-weight:bold;');
@@ -282,7 +278,6 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms' style='to
   <div id="ad">
     <div id="backgroundColor"style="background-color:#0084d6;"></div>                
     <div id="otherFrames" class="frame"></div>
-    <div class="beam-container"></div>
     <div id="logoBlack" class="asset" data-image="logoBlack"></div>
     <div id="logoWhite" class="asset" data-image="logoWhite"></div>
     <div id="cta" class="text AlticeBold ctaWhite"
@@ -299,9 +294,11 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms' style='to
         background-color: #0084d6;
         color: #fff;">
     </div>
-    <div id="frame1" style="background-color:#0084d6;">
-      <div id="frameAsset1" class="asset" data-image="frameAsset1"></div>
+    <div id="frame1" style="background-color:#24d9c3;">
+      <!-- <div id="frameAsset1" class="asset" data-image="frameAsset1"></div> -->
+      <div id="frameAsset1"><video muted playsinline autoplay></video></div>
       <!-- <div id="videoOverlay" style="background-color:rgba(0,0,0,0.2);"></div> -->
+      <!-- <div class="beam-container"></div> -->
       <div id="frameText1" class="text frameText">!{frameText1}</div>
       <div id="introLogoImage" class="asset" data-image="logoWhite"></div>
       <div id="introCta" class="text AlticeBold ctaWhite"
@@ -382,22 +379,22 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms' style='to
         ad.root.addEventListener("click", function(e) {
           if('button' in e.target.dataset) { } else { amo.onAdClick('clickUrl'); } //amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
         });
-        // const loadVideo = function(video, path, flag) {
-        //   if(video && path) {
-        //     if(!flag) {
-        //       video.onplay = function() {
-        //         if(!video.flag) {
-        //           this.pause();
-        //           this.currentTime = 0;
-        //         }
-        //       }
-        //       video.src = path;
-        //       video.flag = false;
-        //     } else setTimeout(function(){ video.src = path; }, (flag ? 800 : 500));
-        //   }
-        // }
-        // loadVideo(ad.layers.frameAsset1.querySelector('video'), adData.frameAsset1, true);
-        // loadVideo(ad.layers.frameAsset3.querySelector('video'), adData.frameAsset3);
+        const loadVideo = function(video, path, flag) {
+          if(video && path) {
+            if(!flag) {
+              video.onplay = function() {
+                if(!video.flag) {
+                  this.pause();
+                  this.currentTime = 0;
+                }
+              }
+              video.src = path;
+              video.flag = false;
+            } else setTimeout(function(){ video.src = path; }, (flag ? 800 : 500));
+          }
+        }
+        loadVideo(ad.layers.frameAsset1.querySelector('video'), adData.frameAsset1, true);
+        loadVideo(ad.layers.frameAsset3.querySelector('video'), adData.frameAsset3);
 
         textUpdate();
         const fn = { }
@@ -461,12 +458,11 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms' style='to
             animate: function() { return animate() }
           }
         })();
-        fn.beams.load('.beam-container');
+        // fn.beams.load('.beam-container');
         // fn.shapes.load('#frame1');
-        const beamGradient = document.createElement('div');
-        beamGradient.className = 'beam-gradient';
-        document.querySelector('.beam-container').appendChild(beamGradient);
-        gsap.set('.beam-container', {autoAlpha:0});
+        // const beamGradient = document.createElement('div');
+        // beamGradient.className = 'beam-gradient';
+        // document.querySelector('.beam-container').appendChild(beamGradient);
 
         gsap.set('#otherFrames .asset', {y:'100%'});
         gsap.set('.frame-container .text, .frameText', {y:'100%'});
@@ -536,7 +532,8 @@ amo.registerAttribute("frameText52", "TEXT", "<div class='price-terms' style='to
           }
         })();
         const animateFrame1 = function(frame, properties, flag) {
-          const duration = properties && 'duration' in properties ? properties.duration : 3;          
+          const duration = properties && 'duration' in properties ? properties.duration : 3;
+          // fn.beams.animate();
           gsap.timeline(timelineProps)
             .to('#frameAsset1, #frameText1', destinationValues)
             gsap.timeline(timelineProps)
