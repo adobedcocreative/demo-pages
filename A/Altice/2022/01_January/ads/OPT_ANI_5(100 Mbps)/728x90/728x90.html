@@ -155,13 +155,13 @@
 amo.registerClick("clickUrl", "https://www.altice.com");
 amo.registerAttribute("ctaText", "TEXT", "Upgrade now");
 amo.registerAttribute("frameText1", "TEXT", "<div class='title' style='top: 32px;left: 136px;'>Get a fresh start with fresh choices</div>");
-amo.registerAttribute("frameText21", "TEXT", "<div style='top: 7px;left: 138px;font-size: 26.2px;line-height: 0.92;'>Add 200 Mbps Internet<br>for $39.99/mo.</div>");
+amo.registerAttribute("frameText21", "TEXT", "<div style='top: 7px;left: 138px;font-size: 26.2px;line-height: 0.92;'>Add 100 Mbps Internet<br>for $5/mo.</div>");
 amo.registerAttribute("frameText22", "TEXT", "<div class='disclaimer'>w/Auto Pay & Paperless Bill plus taxes & equip. charges. Wired connection.<br>WiFi speeds may vary.</div>");
 amo.registerAttribute("frameText31", "TEXT", "<div class='title' style='top: 30px;left: 138px;font-size: 24.2px;line-height: 1;'>$100 Visa<sup style='vertical-align: top;font-size: 60%;'>®</sup> Prepaid Card on us!</div>");
-amo.registerAttribute("frameText32", "TEXT", "<div class='disclaimer'>Available w/200 Mbps & above + TV. Terms apply.</div>");
-amo.registerAttribute("frameText41", "TEXT", "<div class='title' style='top: 31px;left: 138px;font-size: 24px;'>Includes built-in Internet security</div>");
+amo.registerAttribute("frameText32", "TEXT", "<div class='disclaimer'>Available w/100 Mbps & above + TV. Terms apply.</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div class='title' style='top: 31px;left: 138px;font-size: 24px;'>Plus built-in Internet security</div>");
 amo.registerAttribute("frameText42", "TEXT", "<div class='disclaimer'>Not available in all areas.</div>");
-amo.registerAttribute("frameText51", "TEXT", "<div class='price-text'>Add 200 Mbps Internet<br>for $39.99/mo.<div class='price-terms'>w/Auto Pay & Paperless Bill plus taxes & equip. charges. Not available in all areas. Terms apply.</div></div>");
+amo.registerAttribute("frameText51", "TEXT", "<div class='price-text'>Add 100 Mbps Internet<br>for $5/mo.<div class='price-terms'>w/Auto Pay & Paperless Bill plus taxes & equip. charges. Not available in all areas. Terms apply.</div></div>");
 amo.registerAttribute("frameText52", "TEXT", "<div style='top: 11px;left: 299px;width: 360px;transform: scale(0.78);transform-origin: top left;'><div class='bulletedText'>$100 Visa<sup style='vertical-align: top;font-size: 52%;'>®</sup> Prepaid Card</div><div class='bulletedText'>Built-in Internet security</div><div class='bulletedText'>Reliable in-home WiFi</div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
@@ -202,7 +202,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 11px;left: 299px;
     {
       name: 'frame3',
       assets: {
-        frameAsset3: "728x90_Card_100_Green.mp4",
+        frameAsset3: "728x90_OPT_ANI_Add_100Mbps_Video_ONLY_Img_F3_Pedestal_Teal.png",
       },
       style: {
         '#frameAsset3': {x:'-100%', y:0},
@@ -392,7 +392,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 11px;left: 299px;
           }
         }
         loadVideo(ad.layers.frameAsset1.querySelector('video'), adData.frameAsset1, true);
-        loadVideo(ad.layers.frameAsset3.querySelector('video'), adData.frameAsset3);
+        // loadVideo(ad.layers.frameAsset3.querySelector('video'), adData.frameAsset3);
 
         textUpdate();
         const fn = { }
