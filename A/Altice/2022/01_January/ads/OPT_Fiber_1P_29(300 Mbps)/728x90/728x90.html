@@ -175,7 +175,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 8px;left: 316px;w
         frameAsset1: "728x90_OPT_1P_Fiber_29_99_100Mbps_Background_Image_Frame_01.png",
       },
       style: {
-        
+        '#frameText1': {x:0, y:0, autoAlpha:0},
       },
       animate: {
         duration: 3
@@ -533,7 +533,8 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 8px;left: 316px;w
           // fn.beams.animate();
           // gsap.to('#beam1', 0.2, {autoAlpha: 0, delay: 1.4})
           gsap.timeline(timelineProps)
-            .to('#frameAsset1, #frameText1', destinationValues)
+            .to('#frameAsset1', destinationValues)
+            .to('#frameText1', {autoAlpha:1, delay:0.5})
             // .to('#frameText12', destinationValues)
             gsap.timeline(timelineProps)
             .to(frame, (flag==true?{}:{delay: (duration - timelineProps.defaults.duration), autoAlpha:0, onComplete: animate.nextFrame}));
