@@ -175,6 +175,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 8px;left: 316px;w
         frameAsset1: "728x90_OPT_1P_Fiber_29_99_100Mbps_Background_Image_Frame_01.png",
       },
       style: {
+        '#frameAsset1': {x:'-100%', y:0},
         '#frameText1': {x:0, y:0, autoAlpha:0},
       },
       animate: {
@@ -293,7 +294,7 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 8px;left: 316px;w
         background-color: #0084d6;
         color: #fff;">
     </div>
-    <div id="frame1" style="background-color:#24d9c3;">
+    <div id="frame1" style="background-color:#000;">
       <div id="frameAsset1" class="asset" data-image="frameAsset1"></div>
       <!-- <div id="frameAsset1"><video muted playsinline autoplay></video></div> -->
       <!-- <div id="frameAsset12" class="asset" data-image="frameAsset12"></div> -->
@@ -533,7 +534,8 @@ amo.registerAttribute("frameText52", "TEXT", "<div style='top: 8px;left: 316px;w
           // fn.beams.animate();
           // gsap.to('#beam1', 0.2, {autoAlpha: 0, delay: 1.4})
           gsap.timeline(timelineProps)
-            .to('#frameAsset1, #frameText1', destinationValues)
+            .to('#frameAsset1', {x:0, y:0, autoAlpha:1, delay: 0.5})
+            .to('#frameText1', destinationValues)
             // .to('#frameText12', destinationValues)
             gsap.timeline(timelineProps)
             .to(frame, (flag==true?{}:{delay: (duration - timelineProps.defaults.duration), autoAlpha:0, onComplete: animate.nextFrame}));
