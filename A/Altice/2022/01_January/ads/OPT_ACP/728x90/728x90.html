@@ -57,7 +57,7 @@
         position: relative;
         padding-left: 15px;
         font-size: 18px;
-        line-height: 1.15;
+        line-height: 1;
         margin-bottom: 2px;
       }
       .bulletedText::before {
@@ -110,9 +110,9 @@
 
       /* Text alignment classes */
       .title {
-        top: 21px;
-        left: 23px;
-        font-size: 24px;
+        top: 35px;
+        left: 18px;
+        font-size: 23.5px;
         line-height: 1;
       }
       .monthly {
@@ -137,8 +137,8 @@
         font-family: Altice-Regular;
       }
       .disclaimer {
-        top: 55px;
-        left: 336px;
+        bottom: 11px;
+        left: 18px;
         font-size: 10px;
         line-height: 1.1;
         font-family: Altice-Regular;
@@ -154,11 +154,12 @@
 <script type="text/javascript">
 amo.registerClick("clickUrl", "https://www.altice.com");
 amo.registerAttribute("ctaText", "TEXT", "Learn more");
-amo.registerAttribute("frameText1", "TEXT", "<div class='title' style='left:230px;'>We’ll help you<br>stay connected</div>");
-amo.registerAttribute("frameText12", "TEXT", "<div class='title' style='left:230px;'>With the FCC Emergency<br>Broadband Benefit Program</div>");
-amo.registerAttribute("frameText21", "TEXT", "<div class='title' style='top:33px;'>Save up to <font class='coloredText'>$30/mo.</font> on your Internet</div>");
-amo.registerAttribute("frameText31", "TEXT", "<div style='top: 26px;left: 58px;font-size: 22px;line-height: 1.1;'>Find out<br>how to get</div>");
-amo.registerAttribute("frameText32", "TEXT", "<div style='top: 16px;left: 336px;width: 360px;transform: scale(1);transform-origin: top left;'><div class='bulletedText'>Save up to $30/mo.!</div></div><div class='disclaimer' style='top: auto;bottom: 13px;'>Plus taxes, fees & charges<br>Must meet eligibility criteria.<br>Restrictions apply.</div>");
+amo.registerAttribute("frameText1", "TEXT", "<div style='top: 21px;left: 230px;font-size: 24px;line-height: 1;'>We’ll help you<br>stay connected</div>");
+amo.registerAttribute("frameText12", "TEXT", "<div style='top: 21px;left: 230px;font-size: 24px;line-height: 1;'>With the new Affordable<br>Connectivity Program</div>");
+amo.registerAttribute("frameText21", "TEXT", "<div class='title'>Save up to <font class='coloredText'>$30/mo.</font> on your Internet</div>");
+amo.registerAttribute("frameText31", "TEXT", "<div style='top: 12px;left: 18px;font-size: 24px;line-height: 1;'>Get <font class='coloredText'>FREE Internet</font> with the<br>Affordable Connectivity Program</div>");
+amo.registerAttribute("frameText32", "TEXT", "<div style='top: 19px;left: 424px;width: 360px;transform: scale(1.125);transform-origin: top left;'><div class='bulletedText'>Save up to<br>$30/mo.!</div></div>");
+amo.registerAttribute("frameText33", "TEXT", "<div class='disclaimer'>Plus taxes and other charges. Must meet eligibility criteria. Restrictions apply.</div>");
 </script>
 <!-- End of overrode asset attributes values -->
 <script type="text/javascript">
@@ -238,7 +239,8 @@ amo.registerAttribute("frameText32", "TEXT", "<div style='top: 16px;left: 336px;
     <div id="cta" class="text AlticeBold ctaWhite"
       data-text="ctaText"
       style="top: 13px;
-        left: 583px;
+        left: auto;
+        right: 18px;
         width: 106px;
         height: 25px;
         font-size: 16px;
@@ -258,7 +260,8 @@ amo.registerAttribute("frameText32", "TEXT", "<div style='top: 16px;left: 336px;
       <div id="introCta" class="text AlticeBold"
         data-text="ctaText"
         style="top: 13px;
-          left: 583px;
+          left: auto;
+          right: 18px;
           width: 106px;
           height: 25px;
           font-size: 16px;
@@ -389,15 +392,15 @@ amo.registerAttribute("frameText32", "TEXT", "<div style='top: 16px;left: 336px;
             const parentElement = document.querySelector(selector);
             const shapes = document.createElement('div');            
             shapes.id = 'shapes';
-            shapes.style.width = '210px';
+            shapes.style.width = '212px';
             shapes.style.overflow = 'hidden';
             for(let i = 1; i <= x; i++) {
               htmlContent += '<div id="shape' + i + '" class="shape"></div>';
             }
             shapes.innerHTML = htmlContent;
             parentElement.appendChild(shapes);
-            gsap.set('#shape1',{top:18,left:210,width:80,height:17,x:-290});
-            gsap.set('#shape2',{top:64,left:-62,width:62,height:17,x:272});
+            gsap.set('#shape1',{top:18,left:212,width:80,height:17,x:-292});
+            gsap.set('#shape2',{top:64,left:-62,width:62,height:17,x:274});
             // gsap.set('#shape3',{top:-160,left:370,width:36,height:160,y:250});
             // gsap.set('#shape4',{top:-160,left:40,width:32,height:160,y:250});
           }
