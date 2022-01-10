@@ -5,7 +5,7 @@ var loadTemplateFlag1 = false;
 var getFeed1 = function(){
   var xmlhttp = new XMLHttpRequest();
   const API_KEY = "AIzaSyA9UwsLAgEsktyccelGlG_AV37qUCL-Gqo";
-  const sheetLocation = "1LS1wYu51UbVpU7NLk_zAXJGGz0iOjv5fAKFBIggdfo8/January";
+  const sheetLocation = "1LS1wYu51UbVpU7NLk_zAXJGGz0iOjv5fAKFBIggdfo8/January(Speed&PriceChanges)";
   const searchId = location.search.split('?')[1];
   const sheetId = searchId && searchId.length >= 44 && searchId.indexOf('/') > 1 ? searchId : sheetLocation;
   const spreadsheetId = sheetId.split('/')[0];
