@@ -1,7 +1,7 @@
 var amoAd = (function(){
   var ctaAlignment = function(position){
     var layers = exportRoot.mainMC;
-    layers.instance.x = layers.txtCta.children[0].x + layers.txtCta.children[0].children[0].getBounds().width + 8;
+    layers.instance_1.x = layers.txtCta.children[0].x + layers.txtCta.children[0].children[0].getBounds().width + 8;
   }
   var ctaAlignment1 = function(position){
     var layers = exportRoot.mainMC;

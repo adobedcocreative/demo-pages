@@ -71,6 +71,7 @@
             gsap.delayedCall(0.4,function(){
                 amoAd.init();
                 exportRoot.initBanner(bannerData)
+                amoAd.ctaAlignment();
                 exportRoot.runBanner()
                 var initDiv = document.getElementById("init");
                 initDiv.style.visibility='hidden'
