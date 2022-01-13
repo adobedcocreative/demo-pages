@@ -60,7 +60,7 @@ var amoAd = (function(){
   	CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 12) + 'px';
   	bannerData.ctaText = bannerData.ctaText.split('|')[0];
   	// bannerData.CTA = bannerData.ctaText ? ['<#ffffff>' + bannerData.ctaText,CTAFont,0,0,"50","300", "left", "Segoe Pro"] : '';
-    bannerData.CTA = bannerData.ctaText ? [bannerData.ctaText,CTAFont,701,48,'14','300', 'right', 'SegoeSemi', '#0078d3'] : '';
+    bannerData.CTA = bannerData.ctaText ? [bannerData.ctaText,CTAFont,700,48,'14','300', 'right', 'SegoeSemi', '#0078d3'] : '';
     // resizeCTA();
     fireImpression();
     window.bannerData = bannerData;
