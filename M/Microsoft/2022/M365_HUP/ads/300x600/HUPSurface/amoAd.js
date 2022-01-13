@@ -55,10 +55,10 @@ var amoAd = (function(){
     bannerData.headline2 = eval(bannerData.textField2);
     bannerData.ctaText = bannerData.ctaText.replace('<br>', '\n');
   	var CTAFont = bannerData.ctaText.split('|').length > 1 ? bannerData.ctaText.split('|')[1] : '0';
-  	CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 12) + 'px';
+  	CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 14.5) + 'px';
   	bannerData.ctaText = bannerData.ctaText.split('|')[0];
   	// bannerData.CTA = bannerData.ctaText ? ['<#ffffff>' + bannerData.ctaText,CTAFont,0,0,"50","300", "left", "Segoe Pro"] : '';
-    bannerData.CTA = bannerData.ctaText ? [bannerData.ctaText, CTAFont,14,227,'50','300', 'left', 'SegoeSemi', '#0078d3'] : '';
+    bannerData.CTA = bannerData.ctaText ? [bannerData.ctaText,CTAFont,30,610,'50','300', 'left', 'SegoeSemi', '#0078d3'] : '';
     // resizeCTA();
     fireImpression();
     window.bannerData = bannerData;

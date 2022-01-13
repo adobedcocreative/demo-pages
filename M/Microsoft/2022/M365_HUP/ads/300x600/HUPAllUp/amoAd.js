@@ -51,15 +51,16 @@ var amoAd = (function(){
   var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
   var bannerData = parentWindow.getBannerData();
   function init() {
-    bannerData.headline1 = eval(bannerData.textField1);
+    bannerData.headline1 = eval(bannerData.textField1.split('^')[0]);
+    bannerData.headline1a = eval(bannerData.textField1.split('^')[1]);
     bannerData.headline2 = eval(bannerData.textField2);
     bannerData.headline3 = eval(bannerData.textField3);
     bannerData.ctaText = bannerData.ctaText.replace('<br>', '\n');
   	var CTAFont = bannerData.ctaText.split('|').length > 1 ? bannerData.ctaText.split('|')[1] : '0';
-  	CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 12) + 'px';
+  	CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 16) + 'px';
   	bannerData.ctaText = bannerData.ctaText.split('|')[0];
   	// bannerData.CTA = bannerData.ctaText ? ['<#ffffff>' + bannerData.ctaText,CTAFont,0,0,"50","300", "left", "Segoe Pro"] : '';
-    bannerData.CTA = bannerData.ctaText ? [bannerData.ctaText, CTAFont,16,194,'14','300', 'left', 'SegoeSemi', '#0078d3'] : '';
+    bannerData.CTA = bannerData.ctaText ? [bannerData.ctaText,CTAFont,32,540,'17','300', 'left', 'SegoeSemi', '#0078d3'] : '';
     // resizeCTA();
     fireImpression();
     window.bannerData = bannerData;

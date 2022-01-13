@@ -3,7 +3,7 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"M365_FY22Q3HUP_USA_300x250_BAN_HUPSurface_EN_NA_Standard_SBAN_NA_NA_1_atlas_1", frames: [[0,0,300,250]]}
+		{name:"M365_FY22Q3HUP_USA_300x600_BAN_HUPSurface_EN_NA_Standard_SBAN_NA_NA_1_atlas_1", frames: [[0,0,300,600]]}
 ];
 
 
@@ -27,8 +27,8 @@ lib.ssMetadata = [
 
 
 
-(lib._img = function() {
-	this.initialize(ss["M365_FY22Q3HUP_USA_300x250_BAN_HUPSurface_EN_NA_Standard_SBAN_NA_NA_1_atlas_1"]);
+(lib._300x600_img = function() {
+	this.initialize(ss["M365_FY22Q3HUP_USA_300x600_BAN_HUPSurface_EN_NA_Standard_SBAN_NA_NA_1_atlas_1"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 // helper functions:
@@ -159,14 +159,14 @@ if (reversed == null) { reversed = false; }
 
 	// Layer_1
 	this.shape = new cjs.Shape();
-	this.shape.graphics.f("#FFFFFF").s().p("A3bTiMAAAgnDMAu3AAAMAAAAnDg");
-	this.shape.setTransform(150,125);
+	this.shape.graphics.f("#FFFFFF").s().p("EgXbAu4MAAAhdvMAu3AAAMAAABdvg");
+	this.shape.setTransform(150,300);
 
 	this.timeline.addTween(cjs.Tween.get(this.shape).wait(1));
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.bg_c, new cjs.Rectangle(0,0,300,250), null);
+}).prototype = getMCSymbolPrototype(lib.bg_c, new cjs.Rectangle(0,0,300,600), null);
 
 
 (lib.MSFT_Logo_anim = function(mode,startPosition,loop,reversed) {
@@ -265,7 +265,7 @@ if (reversed == null) { reversed = false; }
 		if(this.totalFrames == 1) {
 			this.isSingleFrame = true;
 		}
-		this.bg.cache(-300,-250,600,500,2)
+		this.bg.cache(-300,-600,600,1200,2)
 	}
 
 	// actions tween:
@@ -274,13 +274,13 @@ if (reversed == null) { reversed = false; }
 	// Layer_1
 	this.bg = new lib.bg_c();
 	this.bg.name = "bg";
-	this.bg.setTransform(150,125,1,1,0,0,0,150,125);
+	this.bg.setTransform(141,296.9,1,1,0,0,0,141,296.9);
 
 	this.timeline.addTween(cjs.Tween.get(this.bg).wait(1));
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.bg, new cjs.Rectangle(0,0,300,250), null);
+}).prototype = getMCSymbolPrototype(lib.bg, new cjs.Rectangle(0,0,300,600), null);
 
 
 (lib.mainMC = function(mode,startPosition,loop,reversed) {
@@ -302,13 +302,13 @@ if (reversed == null) { reversed = false; }
 
 	// Logo
 	this.instance = new lib.MSFT_Logo_anim();
-	this.instance.setTransform(47.05,21.6,0.6158,0.6158,0,0,0,0.5,0.9);
+	this.instance.setTransform(62.8,37.9,0.6158,0.6158,0,0,0,0.5,0.9);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 	// CTA_BG
 	this.instance_1 = new lib.CTA_BG();
-	this.instance_1.setTransform(107.15,203.85,1,1,0,0,0,2.4,3.9);
+	this.instance_1.setTransform(143.1,547.95,1.3291,1.3291,0,0,0,2.4,4);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(1));
 
@@ -320,7 +320,7 @@ if (reversed == null) { reversed = false; }
 	this.timeline.addTween(cjs.Tween.get(this.txtCta).wait(1));
 
 	// BG_Img
-	this.instance_2 = new lib._img();
+	this.instance_2 = new lib._300x600_img();
 
 	this.timeline.addTween(cjs.Tween.get(this.instance_2).wait(1));
 
@@ -332,11 +332,11 @@ if (reversed == null) { reversed = false; }
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.mainMC, new cjs.Rectangle(0,0,300,250.5), null);
+}).prototype = getMCSymbolPrototype(lib.mainMC, new cjs.Rectangle(0,0,300,600), null);
 
 
 // stage content:
-(lib.M365_FY22Q3HUP_USA_300x250_BAN_HUPSurface_EN_NA_Standard_SBAN_NA_NA_1 = function(mode,startPosition,loop,reversed) {
+(lib.M365_FY22Q3HUP_USA_300x600_BAN_HUPSurface_EN_NA_Standard_SBAN_NA_NA_1 = function(mode,startPosition,loop,reversed) {
 if (loop == null) { loop = true; }
 if (reversed == null) { reversed = false; }
 	var props = new Object();
@@ -373,17 +373,17 @@ if (reversed == null) { reversed = false; }
 	this._renderFirstFrame();
 
 }).prototype = p = new lib.AnMovieClip();
-p.nominalBounds = new cjs.Rectangle(150,125,150,125);
+p.nominalBounds = new cjs.Rectangle(150,300,150,300);
 // library properties:
 lib.properties = {
 	id: '90A26FE74B042E4A89CA750D1DA2DF1F',
 	width: 300,
-	height: 250,
+	height: 600,
 	fps: 30,
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/M365_FY22Q3HUP_USA_300x250_BAN_HUPSurface_EN_NA_Standard_SBAN_NA_NA_1_atlas_1.png?1640780296560", id:"M365_FY22Q3HUP_USA_300x250_BAN_HUPSurface_EN_NA_Standard_SBAN_NA_NA_1_atlas_1"}
+		{src:"images/M365_FY22Q3HUP_USA_300x600_BAN_HUPSurface_EN_NA_Standard_SBAN_NA_NA_1_atlas_1.png?1640793229554", id:"M365_FY22Q3HUP_USA_300x600_BAN_HUPSurface_EN_NA_Standard_SBAN_NA_NA_1_atlas_1"}
 	],
 	preloads: []
 };

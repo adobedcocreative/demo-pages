@@ -5,7 +5,7 @@
 	// lineWidth is no longer needed.
 	var bannerData = {}
 		
-	bannerData.headline1 = ['Enjoy a 30%','17px',16,53,'18','350', 'left', 'SegoeSemi','#0078d3']	['savings on|Microsoft 365|Family or|Personal','17px',16,71,'18','350', 'left', 'SegoeSemi','#2f2f2f']	['Offer valid to employees of eligible|companies only. Terms and conditions apply.','7px',16,224,'8','350', 'left', 'SegoeSemi','#2f2f2f']
+	bannerData.headline1 = ['Enjoy a 30%','17px',335,20,'18','350', 'left', 'SegoeSemi','#0078d3']^['savings','17px',433,20,'18','350', 'left', 'SegoeSemi','#2f2f2f']	['on Microsoft 365|Family or Personal','17px',335,38,'18','350', 'left', 'SegoeSemi','#2f2f2f']	['Offer valid to employees of eligible|companies only. Terms and conditions apply.','7px',712,69,'8','350', 'right', 'SegoeSemi','#2f2f2f']
 
-	bannerData.CTA = ['Check eligibility','12px',16,194,'14','300', 'left', 'SegoeSemi', '#0078d3']
+	bannerData.CTA = ['Check eligibility','12px',701,48,'14','300', 'right', 'SegoeSemi', '#0078d3']
  

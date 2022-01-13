@@ -107,13 +107,13 @@
         }
         var adUrl = '';
         switch(adData.layout){
-           case 'HUPAllUp' : adURL = 'HUPAllUp/M365_FY22Q3HUP_USA_300x250_BAN_HUPAllUp_EN_NA_Standard_SBAN_NA_NA_1.htm'; break;
-           case 'HUPSurface' : adURL = 'HUPSurface/M365_FY22Q3HUP_USA_300x250_BAN_HUPSurface_EN_NA_Standard_SBAN_NA_NA_1.htm'; break;
+           case 'HUPAllUp' : adURL = 'HUPAllUp/M365_FY22Q3HUP_USA_728x90_BAN_HUPAllUp_EN_NA_Standard_SBAN_NA_NA_1.htm'; break;
+           case 'HUPSurface' : adURL = 'HUPSurface/M365_FY22Q3HUP_USA_728x90_BAN_HUPSurface_EN_NA_Standard_SBAN_NA_NA_1.htm'; break;
         }
         var iframe = document.createElement('iframe');
         iframe.src = adURL;
-        iframe.width = '300';
-        iframe.height = '250';
+        iframe.width = '728';
+        iframe.height = '90';
         document.body.appendChild(iframe);
         var bannerData = {
           textField1: textField1,
