@@ -135,14 +135,6 @@
       }
       checkFooter();
       window.onresize = checkFooter;
-      var bannerData = [];
-      window.getBannerData = function(k){
-        var obj = {};
-        for(var j in bannerData) {
-          if(bannerData[j].adSize == k) { for(var i in bannerData[j]) { obj[i] = bannerData[j][i]; } }
-        }
-        return obj;
-      }
     </script>
   </body>
 </html>
