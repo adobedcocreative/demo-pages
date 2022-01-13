@@ -1,14 +1,11 @@
-var feedTemplate1 = [] = [];
-var feedContent = [], feedData = {}, getData, feedInfo = [];
-var adData = [];
-var loadTemplateFlag1 = false;
+var feedTemplate = [], feedInfo = [];
 var filters = {
   L1: 'Language',
   L2: 'Market',
   L3: 'Version',
   L4: 'Smart Names'
 };
-const getFeed1 = function(){
+const getFeed = function(){
   const xmlhttp = new XMLHttpRequest();
   const API_KEY = "AIzaSyA9UwsLAgEsktyccelGlG_AV37qUCL-Gqo";
   const sheetLocation = "1R3EZiVM_YN5QPKA8XqE0gANPl6eVW8uZAy2tqSL6E-s/Azure_Static_Background_Refresh";
@@ -24,87 +21,18 @@ const getFeed1 = function(){
           const headers = responseData[0], rows = responseData.slice(1);
           rows.every(row => {
             if(row.every(cell => cell === '')) return false; //isEmptyRow
-            feedTemplate1.push(row.reduce((obj, cell, i) => { obj[headers[i]] = cell; return obj; }, {}));
+            feedTemplate.push(row.reduce((obj, cell, i) => { obj[headers[i]] = cell; return obj; }, {}));
             return true;
           });
-          loadTemplateFlag1 = true;
-          // loadData();
           loadPage();
       }
   };
   xmlhttp.open("GET", url, true);
   xmlhttp.send();
 }
-getFeed1();
-
-// var loadData = function(){
-//   if(loadTemplateFlag1) {
-//     feedContent = [
-//       {
-//         name: 'Simplified',
-//         feed: feedTemplate1,
-//       },
-//     ]
-//     feedContent.map(function(feed){
-//     	var feedContent1 = [];
-//     	feed.feed.map(function(data){
-//         data.template = feed.name;
-//     		if(data.Country.indexOf('/') != -1){
-//                 data.Country.split('/').map(function(country){
-//                     var obj = {};
-//                     for(var i in data) { obj[i] = data[i] }
-//                     obj['Country'] = country;
-//                     feedContent1.push(obj);
-//                 });
-//             } else {
-//                 feedContent1.push(data);
-//             }
-//     	});
-//     	feed.data = feedContent1;
-
-//       feed.data.map(function(data){
-//         if(!(data.Country in feedData)) { feedData[data.Country] = []; }
-//         feedData[data.Country].push(data);
-//       });
-//     });
-//     for(var i in feedData) {
-//       var obj = {};
-//       obj.name = i;
-//       obj.data = [];
-//       var smartNames = [];
-//       feedData[i].map(function(data){smartNames.push(data['Smart Names']);});
-//       smartNames = smartNames.filter(function(value, index, self){ return self.indexOf(value) === index; })
-//       smartNames.map(function(smartName){
-//         var smartObject = {};
-//         smartObject.name = smartName;
-//         smartObject.data = feedData[i].filter(function(data){ return data['Smart Names'] == smartName });
-//         obj.data.push(smartObject);
-//       });
-//       adData.push(obj);
-//     }
-//     getData = function(queryString) {
-//       var searchData;
-//       if(queryString) {
-//         if(queryString.indexOf('|') != -1) {
-//           var country = queryString.split('|')[0];
-//           var smartName = queryString.split('|')[1];
-//           var data = adData.find(function(data){ return data.name == country })
-//           if(data) {
-//             data = data.data.find(function(data){ return data.name == smartName })
-//             if(data) { searchData = data }
-//           }
-//         } else {
-//           var data = adData.find(function(data){ return data.name == queryString});
-//           if(data) { searchData = data.data[0] } else { searchData = adData[0].data[0] }
-//         }
-//       }
-//       return searchData ? searchData : adData[0].data[0];
-//     }
-//     loadPage();
-//   }
-// }
-var loadData1 = function() {
-  var feedInfo = JSON.parse(JSON.stringify(feedTemplate1));
+getFeed();
+var loadData = function() {
+  var feedInfo = JSON.parse(JSON.stringify(feedTemplate));
   feedInfo.map(function(data){
     var query = [];
     for(var level in filters) {
@@ -183,7 +111,6 @@ var loadAd = function(data) {
     var adSize = data['Ad Size'];
     var adWidth = adSize.split('x')[0];
     var adHeight = adSize.split('x')[1];
-    // var cam = getCAMData(data);
     var adScript = `
     -1==navigator.userAgent.indexOf("MSIE")&&-1==navigator.userAgent.indexOf("Trident")||Object.keys||(Object.keys=function(d){var f=[],e;for(e in d)d.hasOwnProperty(e)&&f.push(e);return f});var amo;
   amo=new function(){var d={};this.variation={};this.attributes={};this.content=[];var f={name:"1",description:"1",provider:"1",brand:"1",display_advertiser_category_name:"1",price:"1",discount_price:"1",picture_url:"1",product_url:"1",passthroughfield1:"1",passthroughfield2:"1",passthroughfield3:"1",passthroughfield4:"1",passthroughfield5:"1",image_url1:"1",image_url2:"1",image_url3:"1",image_url4:"1",image_url5:"1"},e=0;this.registerClick=function(a,c){d[a]=c};this.registerVariation=function(a,c){a&&
@@ -227,9 +154,8 @@ var loadPage = function(){
     var selector = location.hash.split('#')[1];
     queryString = selector ? atob(selector) : '';
   }
-  feedInfo = loadData1();
+  feedInfo = loadData();
   var data = bindFilters(queryString);
   if(!data || !data.length) bindFilters('');
   loadAd(data);
-  // adjustFilters();
 }
