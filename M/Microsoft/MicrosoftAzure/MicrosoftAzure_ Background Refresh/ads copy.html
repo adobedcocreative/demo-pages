@@ -8,8 +8,7 @@
     <style media="screen">
       body {
         min-width: 1024px;
-        margin-bottom: 0px;
-        font-family: Arial;
+         margin-bottom: 0px;
       }
       .ad-wrapper {
         /* max-width: 970px; */
@@ -108,67 +107,11 @@
       }
       .frame-wrapper {
         display: inline-block;
-        color: #333;
       }
       .frame-wrapper div {
         font-family: Arial;
         text-align: left;
         margin-left: 10px;
-      }
-      #filterContainer {
-        width: 1000px;
-        margin: 0 auto;
-        font-size: 14px;
-      }
-      #filterContainer > div {
-        display: flex;
-        align-items: center;
-      }
-      #filterContainer > div > div:first-child {
-        min-width: 150px;
-        max-width: 240px;
-        padding: 4px 10px;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        /* flex-shrink: 0; */
-        word-break: break-all;
-      }
-      #filterContainer > div > div ,
-      #filterContainer > div > ul {
-        border: 1px solid;
-        width: 100%;
-        margin-bottom: -1px;
-        box-sizing: border-box;
-      }
-      #filterContainer > div > div {
-        margin-right: -1px;
-        background-color: #333;
-        color: #ccc;
-        /* border-color: #333; */
-      }
-      #filterContainer > div:first-child div {
-        border-top-color: #333;
-      }
-      #filterContainer > div:last-child div {
-        border-bottom-color: #333;
-      }
-      #filterContainer ul {
-        display: flex;
-        flex-wrap: wrap;
-        list-style: none;
-        margin: 0;
-        padding-left: 0px;
-      }
-      #filterContainer li {
-        cursor: pointer;
-        padding: 4px 10px;
-      }
-      #filterContainer li:hover {
-        color:#D83B01;
-      }
-      #filterContainer li.selected {
-        color:#D83B01;
       }
       iframe {
         border: none;
@@ -201,7 +144,6 @@
     <script src="js/content.js" charset="utf-8"></script>
   </head>
   <body onload="init()">
-    <div id="filterContainer"></div>
     <div id="headerContainer">
       <div id="header" class=""></div>
       <div id="subheader" class=""></div>
@@ -231,7 +173,7 @@
       checkFooter();
       window.onresize = checkFooter;
       var bannerData = [], bannerData1 = [], feedData2 = [];
-      var getCAMData1 = function(data) {
+      var getCAMData = function(data) {
           var templates = {
             'Simplified': `var cam = {
               backgroundImage: "../../assets/" + data.backgroundImage,
@@ -335,6 +277,13 @@ this.onAdClick=function(a,c){var b;a?(0==a.indexOf("http://")||0==a.indexOf("htt
           // }
         });
 
+      }
+      var loadPage = function(){
+        var searchFlag = false;
+        if(location.hash && location.hash.length) {
+          var selector = location.hash.split('#')[1];
+          loadContent(selector ? atob(selector) : 'Australia');
+        } else { loadContent('Australia'); }
       }
       window.getBannerData = function(k){
         var obj = {};
