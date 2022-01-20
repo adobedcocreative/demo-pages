@@ -55,7 +55,8 @@ var amoAd = (function(){
   var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
   var bannerData = parentWindow.getBannerData();
   function init() {
-    bannerData.headline1 = eval(bannerData.textField1);
+    bannerData.headline1 = eval(bannerData.textField1.split('^')[0]);
+    if(bannerData.textField1.split('^').length > 1) bannerData.headline1a = eval(bannerData.textField1.split('^')[1]);
     bannerData.headline2 = eval(bannerData.textField2);
     bannerData.headline3 = eval(bannerData.textField3);
     bannerData.ctaText = bannerData.ctaText.replace('<br>', '\n');

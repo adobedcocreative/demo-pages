@@ -2,6 +2,8 @@ var amoAd = (function(){
   var ctaAlignment = function(position){
     var layers = exportRoot.mainMC;
     layers.instance.x = layers.txtCta.children[0].x + layers.txtCta.children[0].children[0].getBounds().width + 8;
+    if(layers.txtCta.children[0].children[0].getBounds().height > 20) layers.instance.y += layers.txtCta.children[0].children[0].getBounds().height/4;
+    if(layers.txtCta.children[0].children[0].getBounds().height > 30) layers.instance.y += layers.txtCta.children[0].children[0].getBounds().height/8;
   }
   var ctaAlignment1 = function(position){
     var layers = exportRoot.mainMC;
@@ -55,10 +57,11 @@ var amoAd = (function(){
   var parentWindow = iframe.contentWindow.parent ? iframe.contentWindow.parent  : iframe.contentWindow;
   var bannerData = parentWindow.getBannerData();
   function init() {
-    bannerData.headline1 = eval(bannerData.textField1);
+    bannerData.headline1 = eval(bannerData.textField1.split('^')[0]);
+    if(bannerData.textField1.split('^').length > 1) bannerData.headline1a = eval(bannerData.textField1.split('^')[1]);
     bannerData.headline2 = eval(bannerData.textField2);
     bannerData.headline3 = eval(bannerData.textField3);
-    bannerData.ctaText = bannerData.ctaText.replace('<br>', '\n');
+    bannerData.ctaText = bannerData.ctaText.replaceAll('<br>', '\n');
   	var CTAFont = bannerData.ctaText.split('|').length > 1 ? bannerData.ctaText.split('|')[1] : '0';
   	CTAFont = (Boolean(parseFloat(CTAFont)) ? parseFloat(CTAFont) : 12) + 'px';
   	bannerData.ctaText = bannerData.ctaText.split('|')[0];
