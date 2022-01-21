@@ -162,14 +162,11 @@ amo.registerAttribute("frameText1", "TEXT", "<div class='title' style='top: 170p
 amo.registerAttribute("frameText21", "TEXT", "<div style='top: 81px;left: 19px;font-size: 19px;line-height: 0.9;'>1 Gig<br>Fiber Internet</div>");
 amo.registerAttribute("frameText22", "TEXT", "<div style='top: 115px;left: 14px;width: 140px;line-height: 1;'><font style='font-size: 62px;letter-spacing: -1.5px;padding-right: 2px;'>$49</font><font style='margin-left: 3px;font-size: 10px;display: inline-block;vertical-align: 25px;'>99/<br>mo.</font></div>");
 amo.registerAttribute("frameText23", "TEXT", "<div class='disclaimer'>w/Auto Pay & Paperless Bill Plus taxes & equip. charges.</div>");
-amo.registerAttribute("frameText31", "TEXT", "<div style='top: 232px;left: 10px;width: 140px;font-size: 31px;text-align: center;line-height: 1;'>$200</div>");
-amo.registerAttribute("frameText32", "TEXT", "<div style='top: 265px;left: 10px;width: 140px;font-size: 20px;text-align: center;line-height: 1.05;'>Visa<sup style='vertical-align: top;font-size: 60%;'>®</sup> Prepaid<br>Card on us!</div>");
-amo.registerAttribute("frameText33", "TEXT", "<div class='AlticeRegular' style='position: absolute;top: 310px;left: 10px;width: 140px;text-align: center;font-size: 10px;'>Terms apply.</div>");
-amo.registerAttribute("frameText41", "TEXT", "<div class='title'>HBO Max™ included<br>on us!</div>");
-amo.registerAttribute("frameText42", "TEXT", "<div class='disclaimer'>Get 3 mos. included,<br>then only $14.99/mo.</div>");
-amo.registerAttribute("frameText51", "TEXT", "<div class='price-text'>1 Gig Fiber Internet for <font style='display: inline-block;'>$49.99</font><small>/mo.</small></div>");
-amo.registerAttribute("frameText52", "TEXT", "<div style='top: 165px;left: 12px;width: 150px;transform: scale(0.9);transform-origin: top left;'><div class='bulletedText'>$200 Visa<sup style='vertical-align: top;font-size: 75%;'>®</sup> Prepaid Card</div><div class='bulletedText'>HBO Max™ included on us</div><div class='bulletedText'>Free Optimum Stream</div></div>");
-amo.registerAttribute("frameText53", "TEXT", "<div class='disclaimer'>w/Auto Pay & Paperless Bill Plus taxes & equip. charges.<br>Wired connection. WiFi speeds may vary. Not available in all areas.<br>Terms apply.</div>");
+amo.registerAttribute("frameText31", "TEXT", "<div class='price-text'>Switch to Optimum<br>& save over 40% vs. Verizon Fios<sup style='vertical-align: 84%;font-size: 50%;'>®</sup>!</div>");
+amo.registerAttribute("frameText32", "TEXT", "<div class='disclaimer'>Based on Verizon Fios<sup style='vertical-align: top;font-size: 50%;'>®</sup> online Fios Gigabit Connection $89.99<br>Internet offer as of 1.10.22.</div>");
+amo.registerAttribute("frameText41", "TEXT", "<div class='price-text'>1 Gig Fiber Internet for <font style='display: inline-block;'>$49.99</font><small>/mo.</small></div>");
+amo.registerAttribute("frameText42", "TEXT", "<div style='top: 165px;left: 12px;width: 150px;transform: scale(0.9);transform-origin: top left;'><div class='bulletedText'>$200 Visa<sup style='vertical-align: top;font-size: 75%;'>®</sup> Prepaid Card</div><div class='bulletedText'>HBO Max™ included on us</div><div class='bulletedText'>Free Optimum Stream</div></div>");
+amo.registerAttribute("frameText43", "TEXT", "<div class='disclaimer'>w/Auto Pay & Paperless Bill Plus taxes & equip. charges. Wired connection up to 940 Mbps. WiFi speeds may vary. Terms apply. HBO Max: After 1 yr., only $14.99/mo. Not available in all areas.</div>");
 </script>
 <!-- End of overrode asset attributes values -->
 <script type="text/javascript">
@@ -208,7 +205,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div class='disclaimer'>w/Auto Pay
     {
       name: 'frame3',
       assets: {
-        frameAsset3: "160x600_Card_200_Green.mp4",
+        frameAsset3: "1x1.png",
       },
       style: {
         
@@ -226,7 +223,7 @@ amo.registerAttribute("frameText53", "TEXT", "<div class='disclaimer'>w/Auto Pay
     {
       name: 'frame4',
       assets: {
-        frameAsset4: "160x600_OPT_1P_2999_Month_300Mbps_Img_F4_iPad.png",
+        frameAsset4: "1x1.png",
       },
       style: {
         
@@ -238,24 +235,6 @@ amo.registerAttribute("frameText53", "TEXT", "<div class='disclaimer'>w/Auto Pay
             // gsap.set('#beam1',{top:242,left:160,width:40,height:4,x:-340});gsap.set('#beam1 div',{width:4});
             // fn.beams.animate();
             fn.changeBG('#0084d6');
-          }
-        }
-      }
-    },
-    {
-      name: 'frame5',
-      assets: {
-        frameAsset5: "1x1.png",
-      },
-      style: {
-
-      },
-      animate: {
-        duration: 0.5,
-        config: {
-          beforeAnimation: function(fn, elements) {
-            gsap.set(elements[0], {x:0, y:0, autoAlpha:0});
-            fn.changeBG('#24d9c3');
           }
         }
       }
