@@ -52,7 +52,7 @@
           letter-spacing:-0.2px;
           color:#000;">
           <span>
-            <font style="display:inline-block;min-height:24px;padding-bottom:5px;">!{headline}</font><br>
+            <font style="display:inline-block;min-height:24px;padding-bottom:5px;">!{headline}</font><br class="breakline">
             <font style="display:inline-block;font-size:68%;">!{subHeadline}</font>
           </span>
       </div>
@@ -156,9 +156,12 @@
             if(trackingCode.length){ impressionTrackerAAM = impressionTrackerAAM.replace('$(t_qp_TC_5)', trackingCode); }
             ad.loadAssets(impressionTrackerAAM, function(assets){ });
           }
-
+          if(adData['subHeadline'].toLowerCase() == 'na' || adData['headline'].toLowerCase() == 'na') {
+            var breakline = ad.layers.headline.querySelector('.breakline');
+            if(breakline) { ad.layers.headline.querySelector('span').removeChild(breakline);}
+          }
           if(adData['subHeadline'].toLowerCase() == 'na' || adData['subHeadline'].toLowerCase() == '&#32;') {
-            ad.layers.headline.querySelector('span font:nth-child(2)').style.visibility = 'hide';
+            ad.layers.headline.querySelector('span font:nth-child(2)').style.display = 'none';
             ad.layers.headline.style.top = ((ad.layers.headline.querySelector('span').offsetHeight - ad.layers.headline.querySelector('font').offsetHeight)/2) + 'px';
           }
           // ad.layers.cta.style.backgroundColor = '#ff0000';

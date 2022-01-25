@@ -161,9 +161,9 @@
 amo.registerClick("clickUrl", "https://www.altice.com");
 amo.registerAttribute("ctaText", "TEXT", "Add now");
 amo.registerAttribute("frameText1", "TEXT", "<div style='top: 460px;left: 15px;width: 270px;height: 80px;font-size: 22px;line-height: 1.05;text-align:center;'>With Optimum FlexAbility<sup style='vertical-align: 75%;font-size: 44%;'>SM</sup> get the entertainment you want</div>");
-amo.registerAttribute("frameText21", "TEXT", "<div style='top: 105px;left: 20px;width: 260px;font-size: 39px;text-align: center;line-height: 1.05;'>HBO Max<sup style='vertical-align: 75%;font-size: 50%;'>™</sup> gives<br>you more</div>");
-amo.registerAttribute("frameText31", "TEXT", "<div style='top: 68px;left: 49px;font-size: 23px;line-height: 1.05;'>Add<br>HBO Max<sup style='vertical-align: 75%;font-size: 50%;'>™</sup></div>");
-amo.registerAttribute("frameText32", "TEXT", "<div style='top: 112px;left: 41px;width: 260px;line-height: 1;'><font style='font-size: 100px;letter-spacing: -5px;' class='coloredText'>$14</font><font style='margin-left: 3px;font-size: 16px;display: inline-block;vertical-align: 41px;line-height: 0.95;'>99/<br>mo.</font><div class='AlticeRegular' style='margin: 2px 0 0 8px;font-size: 10px;'>Plus taxes and fees.</div></div>");
+amo.registerAttribute("frameText21", "TEXT", "<div style='top: 105px;left: 20px;width: 260px;font-size: 39px;text-align: center;line-height: 1.05;'>HBO Max<sup style='vertical-align: 75%;font-size: 50%;'>™</sup> App gives<br>you more</div>");
+amo.registerAttribute("frameText31", "TEXT", "<div style='top: 68px;left: 49px;font-size: 23px;line-height: 1.05;'>Add<br>HBO Max<sup style='vertical-align: 75%;font-size: 50%;'>™</sup> App</div>");
+amo.registerAttribute("frameText32", "TEXT", "<div style='top: 112px;left: 41px;width: 260px;line-height: 1;'><font style='font-size: 100px;letter-spacing: -5px;' class='coloredText'>$14</font><font style='margin-left: 3px;font-size: 16px;display: inline-block;vertical-align: 41px;line-height: 0.95;'>99/<br>mo.</font><div class='AlticeRegular' style='margin: 2px 0 0 8px;font-size: 10px;'>Plus taxes.</div></div>");
 amo.registerAttribute("frameText33", "TEXT", "<div style='top: 235px;left: 49px;transform: scale(0.74);transform-origin: top left;'><div style='font-size: 23px;line-height: 1;margin-bottom: 4px;'>Included with<br>this subscription:</div><div class='bulletedText AlticeRegular' style='line-height: 1;'>Live HBO Channels</div><div class='bulletedText AlticeRegular' style='line-height: 1;'>On Demand</div><div class='bulletedText AlticeRegular'>HBO Max App</div></div>");
 </script>
 <!-- End of overrode asset attributes values -->
@@ -181,7 +181,7 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top: 235px;left: 49px;
         // '#frameText1': {css:{color: '#fff'}},
       },
       animate: {
-        duration: 3
+        duration: 4.5
       }
     },
     {
@@ -193,7 +193,7 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top: 235px;left: 49px;
         '#frameAsset2': {x:'-100%'},
       },
       animate: {
-        duration: 2.9,
+        duration: 3.2,
         config: {
           // delays: ['', '<', '<', '<0.1', '<0.1'],
           beforeAnimation: function(fn, elements) {
@@ -214,7 +214,7 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top: 235px;left: 49px;
         
       },
       animate: {
-        duration: 2.9,
+        duration: 0.5,
         config: {
           // delays: ['', '<', '<', '<0.1', '<0.1'],
           beforeAnimation: function(fn, elements) {
@@ -492,7 +492,7 @@ amo.registerAttribute("frameText33", "TEXT", "<div style='top: 235px;left: 49px;
           const duration = properties && 'duration' in properties ? properties.duration : 3;
           gsap.timeline(timelineProps)
           .to('#frameAsset1, #frameAsset12', destinationValues)
-          .to('#frameAsset12', {x:'100%', delay: 0.8})
+          .to('#frameAsset12', {x:'100%', delay: 1.2})
           .to('#frameText1', destinationValues)
           gsap.timeline(timelineProps)
           .to(frame, (flag==true?{}:{delay: (duration - timelineProps.defaults.duration), autoAlpha:0, onComplete: animate.nextFrame}));
