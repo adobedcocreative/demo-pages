@@ -156,9 +156,11 @@
             if(trackingCode.length){ impressionTrackerAAM = impressionTrackerAAM.replace('$(t_qp_TC_5)', trackingCode); }
             ad.loadAssets(impressionTrackerAAM, function(assets){ });
           }
-
+          if(adData['subHeadline'].toLowerCase() == 'na' || adData['headline'].toLowerCase() == 'na') {
+            ad.layers.headline.querySelector('span br').remove();
+          }
           if(adData['subHeadline'].toLowerCase() == 'na' || adData['subHeadline'].toLowerCase() == '&#32;') {
-            ad.layers.headline.querySelector('span font:nth-child(2)').style.visibility = 'hide';
+            ad.layers.headline.querySelector('span font:nth-child(2)').style.display = 'none';
             ad.layers.headline.style.top = ((ad.layers.headline.querySelector('span').offsetHeight - ad.layers.headline.querySelector('font').offsetHeight)/2) + 'px';
           }
           // ad.layers.cta.style.backgroundColor = '#ff0000';
