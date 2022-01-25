@@ -52,7 +52,7 @@
           letter-spacing:-0.2px;
           color:#000;">
           <span>
-            <font style="display:inline-block;min-height:24px;padding-bottom:5px;">!{headline}</font><br>
+            <font style="display:inline-block;min-height:24px;padding-bottom:5px;">!{headline}</font><br class="breakline">
             <font style="display:inline-block;font-size:68%;">!{subHeadline}</font>
           </span>
       </div>
@@ -157,7 +157,8 @@
             ad.loadAssets(impressionTrackerAAM, function(assets){ });
           }
           if(adData['subHeadline'].toLowerCase() == 'na' || adData['headline'].toLowerCase() == 'na') {
-            ad.layers.headline.querySelector('span br').remove();
+            var breakline = ad.layers.headline.querySelector('.breakline');
+            if(breakline) { ad.layers.headline.querySelector('span').removeChild(breakline);}
           }
           if(adData['subHeadline'].toLowerCase() == 'na' || adData['subHeadline'].toLowerCase() == '&#32;') {
             ad.layers.headline.querySelector('span font:nth-child(2)').style.display = 'none';
