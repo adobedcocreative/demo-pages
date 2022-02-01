@@ -155,6 +155,7 @@
             if(trackingCode.length){ impressionTrackerAAM = impressionTrackerAAM.replace('$(t_qp_TC_5)', trackingCode); }
             ad.loadAssets(impressionTrackerAAM, function(assets){ });
           }
+          
           if(adData['subHeadline'].toLowerCase() == 'na' || adData['subHeadline'].toLowerCase() == '&#32;') {
             ad.layers.headline.querySelector('span font:nth-child(2)').style.display = 'none';
           }
