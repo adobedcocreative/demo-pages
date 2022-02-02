@@ -182,7 +182,7 @@
       var getCAMData = function(data) {
           var templates = {
             'Desktop': `var cam = {
-              endFrameImage: "../../assets/" + data.endFrameImage,
+              endFrameImage: "../assets/" + data.endFrameImage,
               frameText1: data.textField1,
               frameText2: data.textField2,
               frameText3: data.textField3,
@@ -217,7 +217,7 @@
         var adWidth = adSize.split('x')[0];
         var adHeight = adSize.split('x')[1];
         amo.attributes = {};
-        var creativePath = 'ads/' + adContent.data[0]['Variation'] + '/' + adSize + '/' + adSize + '.html';
+        var creativePath = 'ads/' + adSize + '/' + adSize + '.html';
         var creativeFrames = frames[creativePath];
         var framesHTML = '';
         if(Object.keys(creativeFrames).length > 1) {
