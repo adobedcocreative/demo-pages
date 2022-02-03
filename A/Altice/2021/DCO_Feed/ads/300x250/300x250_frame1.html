@@ -358,8 +358,8 @@
             content.frameText12 = content.frameText1.split('^').length > 1 ? content.frameText1.split('^')[1] : '&nbsp;';
             content.frameText1 = frameText1;
 
-            content.frameText21 = content.frameText2.split('^')[0];
-            content.frameText22 = content.frameText2.split('^').length > 1 ? content.frameText2.split('^')[1] : '&nbsp;';
+            content.frameText21 = "<div style='top: 55px;left: 20px;width: 260px;font-size: 28px;line-height: 1;text-align: center;'>" + content.frameText2.split('^')[0] + "</div>";
+            content.frameText22 = content.frameText2.split('^').length > 1 ? "<div class='AlticeRegular' style='top:178px;left:30px;font-size:8.6px;top:178px;left:30px;font-size:8.6px;line-height:1.2;'>" + content.frameText2.split('^')[1] + "</div>" : '&nbsp;';
             content.frameText23 = content.frameText2.split('^').length > 2 ? content.frameText2.split('^')[2] : '&nbsp;';
 
             content.frameText31 = content.frameText3.split('^')[0];

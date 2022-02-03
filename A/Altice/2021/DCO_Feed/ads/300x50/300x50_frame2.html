@@ -219,12 +219,13 @@
         },
         beforeLoad: function(data){
           data.map(function(content){
-            content.frameText21 = content.frameText2.split('^')[0];
+
+            content.frameText21 = "<div style='top: 11px;left: 9px;font-size: 13.5px;line-height: 1.1;'>" + content.frameText2.split('^')[0] + "</div>";
             content.frameText22 = content.frameText2.split('^').length > 1 ? content.frameText2.split('^')[1] : '&nbsp;';
             content.frameText23 = content.frameText2.split('^').length > 2 ? content.frameText2.split('^')[2] : '&nbsp;';
 
-            content.frameText31 = content.frameText3.split('^')[0];
-            content.frameText32 = content.frameText3.split('^').length > 1 ? content.frameText3.split('^')[1] : '&nbsp;';
+            content.frameText31 = "<div style='top: 8px;left: 9px;font-size: 13.6px;'>" + content.frameText3.split('^')[0] + "</div>";
+            content.frameText32 = content.frameText3.split('^').length > 1 ? "<div style='top:25px;left:9px;font-size:9px;' class='AlticeRegular'>" + content.frameText3.split('^')[1] + "</div>" : '&nbsp;';
             content.frameText33 = content.frameText3.split('^').length > 2 ? content.frameText3.split('^')[2] : '&nbsp;';
 
             content.frameText41 = content.frameText4.split('^')[0];
@@ -307,7 +308,7 @@
         var animateFrame3 = function(flag){
           var frameId = 3;
           gsap.timeline({defaults:{ease: "power2.Out", duration:0.3}})
-          .to('#frameImage'+frameId, {duration:0, onComplete: videoFrameAnimation, onCompleteParams:[3]})
+          .to('#frameImage'+frameId, {duration:0, onComplete: generalFrameAnimation, onCompleteParams:[3]})
           .to('#frameImage'+frameId+', div[id^="frameText'+frameId+'"]', (flag==true?{}:{delay: 2.8, opacity:0, onComplete: animateFrame4}));
         }
         var animateFrame2 = function(flag){
