@@ -250,12 +250,12 @@
           }
 
 
-          var timeline = gsap.timeline({defaults: {ease: "power2.Out", duration:0.5}})
+          var timeline = gsap.timeline({defaults: {ease: "power2.Out", duration:1}})
           timeline.add(gsap.to(document.querySelectorAll('t'), { autoAlpha: 0, delay: 0.5 }));
           for(var i = 1; i <= lines; i++) {
-            timeline.add(gsap.to(document.querySelectorAll('.line' + i), { autoAlpha: 1, y: 0 }), '-=0.3');
+            timeline.add(gsap.to(document.querySelectorAll('.line' + i), { autoAlpha: 1, y: 0 }), '-=0.2');
             if(i === lines) {
-              timeline.add(gsap.to('#cta', { y: 0, duration: 0.8 }), '-=0.5');
+              timeline.add(gsap.to('#cta', { y: 0, duration: 1 }), '-=0.5');
               timeline.add(function(){ gsap.delayedCall(1, resetHTML); });
             }
           }
