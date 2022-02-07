@@ -190,7 +190,9 @@
                   lines++; 
                   lastX = word.offsetTop 
                 }
+                word.classList.add('line');
                 word.classList.add('line' + lines);
+                word.line = lines;
               });
               lastX = -10000;
             });
@@ -230,6 +232,7 @@
           blockToWords(headline);
           blockToWords(subheadline);
           var lines = levelWords([headline, subheadline]);
+          var headlineLines = ad.root.querySelectorAll('#headlineText .line:last-child')[0].line;
           var resetHTML = function() {
             headline.querySelectorAll('t').forEach(function(t){
               t.removeAttribute('class');
@@ -245,15 +248,15 @@
 
           gsap.set('#cta', {y: '100%'})
           for(var i = 1; i <= lines; i++) {
-            var line = document.querySelectorAll('.line' + i);
+            var line = ad.root.querySelectorAll('.line' + i);
             gsap.set(line, {autoAlpha: 0, y: line[0].offsetHeight * 1.2, display:'inline-block'})
           }
 
 
           var timeline = gsap.timeline({defaults: {ease: "power2.Out", duration:1}})
-          timeline.add(gsap.to(document.querySelectorAll('t'), { autoAlpha: 0, delay: 0.5 }));
+          timeline.add(gsap.to(ad.root.querySelectorAll('t'), { autoAlpha: 0, delay: 0.5 }));
           for(var i = 1; i <= lines; i++) {
-            timeline.add(gsap.to(document.querySelectorAll('.line' + i), { autoAlpha: 1, y: 0 }), '-=0.2');
+            timeline.add(gsap.to(ad.root.querySelectorAll('.line' + i), { autoAlpha: 1, y: 0, delay: ((i - 1) == headlineLines ? 1 : 0) }), '-=0.2');
             if(i === lines) {
               timeline.add(gsap.to('#cta', { y: 0, duration: 1 }), '-=0.5');
               timeline.add(function(){ gsap.delayedCall(1, resetHTML); });
