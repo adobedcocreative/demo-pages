@@ -259,7 +259,7 @@
           for(var i = 1; i <= lines; i++) {
             timeline.add(gsap.to(ad.root.querySelectorAll('.line' + i), { autoAlpha: 1, y: 0, delay: ((i - 1) == headlineLines ? 1 : 0) }), '-=0.2');
             if(i === lines) {
-              timeline.add(gsap.to('#cta', { y: 0, duration: 1 }), '-=0.5');
+              timeline.add(gsap.to('#cta, #ctaArrow', { x: 0, duration: 0.5 }), '-=0.5');
               timeline.add(function(){ gsap.delayedCall(1, resetHTML); });
             }
           }
