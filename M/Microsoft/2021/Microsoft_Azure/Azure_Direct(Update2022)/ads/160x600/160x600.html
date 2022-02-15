@@ -173,7 +173,7 @@
           ad.layers.cta.style.transform = '';
           ad.layers.textfields.style.color = adData['color'].split('|')[0];
           document.querySelector('#ad').style.backgroundColor = adData['color'].split('|')[1];
-          var flipColor = adData['color'].split('|')[2];
+          var flipColor = adData['color'].split('|').length > 2 ? adData['color'].split('|')[2].toLowerCase() : 'white';
           if(flipColor === 'white' || flipColor === '#fff' || flipColor === '#ffffff') {
             
           } else {
