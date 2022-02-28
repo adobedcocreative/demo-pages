@@ -6,7 +6,7 @@ var sheetID = '';
 const getFeed1 = function(){
   const xmlhttp = new XMLHttpRequest();
   const API_KEY = "AIzaSyA9UwsLAgEsktyccelGlG_AV37qUCL-Gqo";
-  const sheetLocation = "1uVGXQ0uRQ4j9k3HqF5JzacZhPiNUdMyRCdmhm11f0PA/Sheet1";
+  const sheetLocation = "1fgTB9t9HWZz5epnJ4_nu1fSBbsDFVS8QukMXQc63Pb4/Template_15";
   const searchId = location.search.split('?')[1];
   const sheetId = searchId && searchId.length >= 44 && searchId.indexOf('/') > 1 ? searchId : sheetLocation;
   const spreadsheetId = sheetId.split('/')[0];
