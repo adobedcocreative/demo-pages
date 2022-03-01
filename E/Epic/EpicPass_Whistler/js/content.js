@@ -36,7 +36,7 @@ var loadTemplateFlag1 = false;
 const getFeed1 = function(){
   const xmlhttp = new XMLHttpRequest();
   const API_KEY = "AIzaSyA9UwsLAgEsktyccelGlG_AV37qUCL-Gqo";
-  const sheetLocation = "1fgTB9t9HWZz5epnJ4_nu1fSBbsDFVS8QukMXQc63Pb4/Template_6_Whistler_EP_RT";
+  const sheetLocation = "1jeHHmS6rXEzWdqp7C3IENdGrZsFPxCGbESE1Yq3c83Y/Template_6_Whistler_EP_RT";
   const searchId = location.search.split('?')[1];
   const sheetId = searchId && searchId.length >= 44 && searchId.indexOf('/') > 1 ? searchId : sheetLocation;
   const spreadsheetId = sheetId.split('/')[0];
