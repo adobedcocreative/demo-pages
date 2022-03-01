@@ -5,7 +5,7 @@ var loadTemplateFlag1 = false;
 const getFeed1 = function(){
   const xmlhttp = new XMLHttpRequest();
   const API_KEY = "AIzaSyA9UwsLAgEsktyccelGlG_AV37qUCL-Gqo";
-  const sheetLocation = "1fgTB9t9HWZz5epnJ4_nu1fSBbsDFVS8QukMXQc63Pb4/ContentTemplate10_11_CDN_Assets";
+  const sheetLocation = "1fgTB9t9HWZz5epnJ4_nu1fSBbsDFVS8QukMXQc63Pb4/Template_10_11_CDN";
   const searchId = location.search.split('?')[1];
   const sheetId = searchId && searchId.length >= 44 && searchId.indexOf('/') > 1 ? searchId : sheetLocation;
   const spreadsheetId = sheetId.split('/')[0];
