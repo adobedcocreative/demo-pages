@@ -156,6 +156,16 @@
           src: url('fonts/TypeTogether - BreeSerifSb.woff') format("woff");
       }
       .TypeTogetherBreeSerifSb { font-family: TypeTogetherBreeSerifSb; }
+      @font-face {
+        font-family: OpenSansSemiBold;
+        src: url('fonts/OpenSans-Semibold.woff') format('woff');
+      }
+      .OpenSansSemiBold {font-family: OpenSansSemiBold;}
+      @font-face {
+        font-family: OpenSansBold;
+        src: url('fonts/OpenSans-Bold.woff') format('woff');
+      }
+      .OpenSansBold {font-family: OpenSansBold;}
     </style>
     <!--
       Available Classes:-
@@ -356,16 +366,20 @@
                     document.querySelector("#ad").style.fontFamily = "LoewBlack";
                   }else if(hiltonHotelResortCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'hhr';
-                    document.querySelector("#logoImage").style.top = '16px';
-                    document.querySelector("#logoImage").style.height = '60px';
+                    document.querySelector("#logoImage").style.top = '13px';
+                    document.querySelector("#logoImage").style.left = '507px';
+                    document.querySelector("#logoImage").style.height = '65px';
 
                     document.querySelector("#ad").style.fontFamily = "LoewBlack";
                   }else if(signiaHiltonOrlandoCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'sh';
-                    document.querySelector("#logoImage").style.top = '10px';
-                    document.querySelector("#logoImage").style.height = '70px';
+                    document.querySelector("#logoImage").style.top = '5px';
+                    document.querySelector("#logoImage").style.left = '470px';
+                    document.querySelector("#logoImage").style.height = '80px';
+                    document.querySelector("#logoImage").style.width= '95px';
 
-                    document.querySelector("#ad").style.fontFamily = "LoewBlack"; 
+                    document.querySelector("#ad").style.fontFamily = "OpenSansSemiBold"; 
+                    document.querySelector("#cta").style.fontFamily = "OpenSansBold"; 
                   }else if(waldorfCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'waldorf';
                     document.querySelector("#logoImage").style.top = '-3px';
@@ -380,10 +394,10 @@
                     document.querySelector("#ad").style.fontFamily = "AvenirBlack";
                   }else if(doubleTreeCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'doubletree';
-                    document.querySelector("#logoImage").style.top = '-8px';
-                    document.querySelector("#logoImage").style.left = '476px';
-                    document.querySelector("#logoImage").style.width = '107px';
-                    document.querySelector("#logoImage").style.height = '107px';
+                    document.querySelector("#logoImage").style.top = '-14px';
+                    document.querySelector("#logoImage").style.left = '442px';
+                    document.querySelector("#logoImage").style.width = '130px';
+                    document.querySelector("#logoImage").style.height = '120px';
 
                     document.querySelector("#ad").style.fontFamily = "StagLCGBold";
                   }else if(conradCodes.indexOf(matchingCodes[matchIndex]) != -1){

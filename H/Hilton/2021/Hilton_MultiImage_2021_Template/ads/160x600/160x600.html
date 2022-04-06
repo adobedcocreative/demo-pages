@@ -156,6 +156,16 @@
           src: url('fonts/TypeTogether - BreeSerifSb.woff') format("woff");
       }
       .TypeTogetherBreeSerifSb { font-family: TypeTogetherBreeSerifSb; }
+      @font-face {
+        font-family: OpenSansSemiBold;
+        src: url('fonts/OpenSans-Semibold.woff') format('woff');
+      }
+      .OpenSansSemiBold {font-family: OpenSansSemiBold;}
+      @font-face {
+        font-family: OpenSansBold;
+        src: url('fonts/OpenSans-Bold.woff') format('woff');
+      }
+      .OpenSansBold {font-family: OpenSansBold;}
     </style>
     <!--
       Available Classes:-
@@ -363,9 +373,11 @@
                     document.querySelector("#ad").style.fontFamily = "LoewBlack";
                   }else if(signiaHiltonOrlandoCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'sh';
-                    document.querySelector("#logoImage").style.top = '405px';
+                    document.querySelector("#logoImage").style.top = '396px';
 
-                    document.querySelector("#ad").style.fontFamily = "LoewBlack";  
+                    document.querySelector("#ad").style.fontFamily = "OpenSansSemiBold";  
+                    document.querySelector("#cta").style.fontFamily = "OpenSansBold"; 
+                    //document.querySelector('#ad').classList.add('OpenSansSemiBold');
                   }else if(waldorfCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'waldorf';
 
@@ -378,8 +390,8 @@
                     document.querySelector("#ad").style.fontFamily = "AvenirBlack";
                   }else if(doubleTreeCodes.indexOf(matchingCodes[matchIndex]) != -1){
                     logoImageName = 'doubletree';
-                    document.querySelector("#logoImage").style.top = '413px';
-                    document.querySelector("#logoImage").style.height = '130px';
+                    document.querySelector("#logoImage").style.top = '401px';
+                    document.querySelector("#logoImage").style.height = '135px';
 
                     document.querySelector("#ad").style.fontFamily = "StagLCGBold";
                   }else if(conradCodes.indexOf(matchingCodes[matchIndex]) != -1){
