@@ -105,24 +105,24 @@ var resetAds = function() {
       '<div class="frame-wrapper" id="ad728x90"></div>'+
     '</div>';
 }
-var createIframe = function(data) {
-  var attributes = {
-    scrolling: "no",
-    frameborder: "0",
-    allowtransparency: "true",
-    hspace: "0",
-    vspace: "0",
-    marginwidth: "0",
-    marginheight: "0",
-  }
-  var iframe = document.createElement('iframe');
-  iframe.src = data.url;
-  iframe.width = data.width;
-  iframe.height = data.height;
-  iframe.style.display = 'block';
-  for(var key in attributes) { iframe.setAttribute(key, attributes[key]); }
-  return iframe;
-}
+// var createIframe = function(data) {
+//   var attributes = {
+//     scrolling: "no",
+//     frameborder: "0",
+//     allowtransparency: "true",
+//     hspace: "0",
+//     vspace: "0",
+//     marginwidth: "0",
+//     marginheight: "0",
+//   }
+//   var iframe = document.createElement('iframe');
+//   iframe.src = data.url;
+//   iframe.width = data.width;
+//   iframe.height = data.height;
+//   iframe.style.display = 'block';
+//   for(var key in attributes) { iframe.setAttribute(key, attributes[key]); }
+//   return iframe;
+// }
 var loadAd = function(data) {
   resetAds();
   data.map(function(data){
@@ -157,16 +157,16 @@ var loadAd = function(data) {
     document.querySelector('#ad' + adSize).innerHTML = '';
     document.querySelector('#ad' + adSize).appendChild(iframe);
     var iframeDoc = iframe.contentWindow ? iframe.contentWindow : iframe.contentDocument && iframe.contentDocument.document ? iframe.contentDocument.document : iframe.contentDocument;
-    // iframeDoc.document.open();
-    // iframeDoc.document.write('<iframe src="ads/'+adSize+'/'+adSize+'.html" width="'+adWidth+'" height="'+adHeight+'" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe>');
-    // iframeDoc.document.close();
+    iframeDoc.document.open();
+    iframeDoc.document.write('<iframe src="ads/'+adSize+'/'+adSize+'.html" width="'+adWidth+'" height="'+adHeight+'" style="display:block;" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginwidth="0" marginheight="0"></iframe>');
+    iframeDoc.document.close();
     iframeDoc.document.body.style.margin = 0;
     iframeDoc.document.head.appendChild(scriptTag);
-    iframeDoc.document.body.appendChild(createIframe({
-      url: 'ads/'+adSize+'/'+adSize+'.html',
-      width: adWidth,
-      height: adHeight
-    }));
+    // iframeDoc.document.body.appendChild(createIframe({
+    //   url: 'ads/'+adSize+'/'+adSize+'.html',
+    //   width: adWidth,
+    //   height: adHeight
+    // }));
   });
 
 }
