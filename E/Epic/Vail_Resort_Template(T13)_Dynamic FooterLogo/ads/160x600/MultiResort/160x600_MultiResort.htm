@@ -47,7 +47,7 @@
       <div id="logoImage" class="asset frame" data-image="logoImage" style="width:160px;height:45px;"></div>
       <div id="productLableLogo" class="asset frame" data-image="productLableLogo" style="display:none;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
-      <div id="frameText1" class="text AvenirNextRegular"
+      <div id="frameText1" class="text-left AvenirNextRegular"
         data-text="frameText1"
         style="top: 457px;
           left: 15px;
@@ -57,7 +57,7 @@
           letter-spacing: 0.05em;
           line-height: 1.3;">
       </div>
-      <div id="frameText2" class="text AvenirNextRegular"
+      <div id="frameText2" class="text-left AvenirNextRegular"
         data-text="frameText2"
         style="top: 457px;
           left: 15px;
@@ -67,7 +67,7 @@
           letter-spacing: 0.05em;
           line-height: 1.3;">
       </div>
-      <div id="frameText3" class="text AvenirNextRegular"
+      <div id="frameText3" class="text-left AvenirNextRegular"
         data-text="frameText3"
         style="top: 457px;
           left: 15px;
@@ -171,7 +171,7 @@
                 }
                 var frameText = document.querySelectorAll("div[id^=frameText]");
                 for (var i = 0; i < frameText.length; i++){
-                  frameText[i].style.textAlign = 'left';
+                  frameText[i].style.textAlign = 'center';
                 }
               }
               // else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {
