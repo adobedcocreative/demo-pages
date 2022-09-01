@@ -160,6 +160,7 @@
               }
               if(layout == 'multipleimages') {
                 content.styleProperties = "{'#cta': {x:'-50%',y:10}}";
+                var cta = document.querySelector("#cta");
                 cta.style.width = "140px";
                 cta.style.left = "50%";
                 cta.innerHTML = '<span style="' + cta.dataset.style + '">' + content.ctaText + '</span>';
@@ -167,6 +168,7 @@
 
               } else if(layout == 'multipleimagesoffer') {
                 content.styleProperties = "{'#cta': {x:'-50%',y:-15}, '#productLableLogo': {css:{display:'block'}}}";
+                var cta = document.querySelector("#cta");
                 cta.style.width = "140px";
                 cta.style.left = "50%";
                 cta.innerHTML = '<span style="' + cta.dataset.style + '">' + content.ctaText + '</span>';
