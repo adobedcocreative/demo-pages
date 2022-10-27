@@ -44,8 +44,8 @@
     <div class="ad" id="ad">
       <div id="backgroundImage" class="asset frame" data-image="backgroundImage"></div>
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
-      <div id="textfields" dir="auto" class="text-top-left segoeProSemibold"
-        style="top:14px;
+      <div id="textfields" dir="auto" class="text-left segoeProSemibold"
+        style="top:10px;
           left:176px;
           width:280px;
           height:70px;
@@ -153,6 +153,10 @@
                 gsap.set(i, styleProperties[i]);
               }
             } catch(e) {  }
+          }
+          if(adData['subheadlineText'].toLowerCase() == 'na' ||  adData['subheadlineText'].toLowerCase() == '&#32;' || ad.root.querySelector('#subheadlineText').textContent === '' ||  adData['subheadlineText'].toLowerCase() == ' ') {
+              ad.root.querySelector('#subheadlineText').style.display = 'none';
+              ad.root.querySelector('#headlineText').style.paddingBottom = '0';
           }
           if(adData.impressionTracker.toLowerCase() != 'na'){
             var impressionTracker = adData.impressionTracker.split('|')[0];
