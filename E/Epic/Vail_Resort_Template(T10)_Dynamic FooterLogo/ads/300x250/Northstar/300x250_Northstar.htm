@@ -237,7 +237,7 @@
           var adWidth = 300,adHeight = 250;
           if(layout == 'singleimage') { gsap.set('.multiframe', { autoAlpha :0}) }
             gsap.timeline({defaults:{ease: Power2.easeInOut, duration: 0.7}})
-            .from('#bottomWhitePatch', { y:adHeight, delay:0.5 })
+            //.from('#bottomWhitePatch', { y:adHeight, delay:0.5 })
             .from('#frameText1, #cta, #productLableLogo', { autoAlpha:0 })
             .to('#frameText1', { autoAlpha:0, delay:3 })
             .from('#frameText2, #backgroundImage2', { autoAlpha:0 })
