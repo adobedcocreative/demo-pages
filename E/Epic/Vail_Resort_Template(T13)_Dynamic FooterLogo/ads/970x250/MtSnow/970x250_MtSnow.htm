@@ -46,8 +46,8 @@
       <div id="backgroundImage1" class="asset frame" data-image="backgroundImage1"></div>
       <div id="backgroundImage2" class="asset frame multiframe" data-image="backgroundImage2"></div>
       <div id="backgroundImage3" class="asset frame multiframe" data-image="backgroundImage3"></div>
-      <div id="topWhitePatch" class="frame" style="top:-1198px;left:-636px;background-color:rgba(255, 255, 255, 0.85);"></div>
-      <div id="bottomWhitePatch" class="frame" style="left:596px;background-color:rgba(255, 255, 255, 0.9);"></div>
+      <div id="topWhitePatch" class="frame" style="top:-1198px;left:-636px;background-color:rgba(255, 255, 255, 1.0);"></div>
+      <div id="bottomWhitePatch" class="frame" style="left:596px;background-color:rgba(255, 255, 255, 1.0);"></div>
       <div id="productLableLogoBg" class="asset frame" data-image="productLableLogoBg"></div>
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="productLableLogo" class="asset frame" data-image="productLableLogo" style="display:none;"></div>
@@ -217,7 +217,7 @@
           var adWidth = 970,adHeight = 250;
           if(layout == 'singleimage') { gsap.set('.multiframe', { autoAlpha :0}) }
             gsap.timeline({defaults:{ease: Power2.easeInOut, duration: 0.7}})
-            .from('#bottomWhitePatch', { x:adWidth/2, delay:0.5 })
+            //.from('#bottomWhitePatch', { x:adWidth/2, delay:0.5 })
             .from('#frameText1, #cta, #logoImage, #productLableLogo, #productLableLogoBg', { autoAlpha:0 })
             .to('#frameText1', { autoAlpha:0, delay:3 })
             .from('#frameText2, #backgroundImage2', { autoAlpha:0 })

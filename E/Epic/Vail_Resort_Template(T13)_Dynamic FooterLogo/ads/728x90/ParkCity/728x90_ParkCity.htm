@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/script.min.js"></script>
     <style media="screen">
-      .JosefinSansBold{
+      /* .JosefinSansBold{
         font-family: josefin-sans,sans-serif;
         font-weight: 700;
         font-style: normal;
@@ -18,7 +18,12 @@
           font-family: BROTB;
           src: url('fonts/BROTB.woff') format("woff");
       }
-      .BROTB { font-family: BROTB; }
+      .BROTB { font-family: BROTB; } */
+      @font-face {
+          font-family: FuturaBold;
+          src: url('fonts/Futura-Bold.woff') format("woff");
+      }
+      .FuturaBold { font-family: FuturaBold; }
     </style>
     <style media="screen" data-dynamic="style">
       #ad {
@@ -27,7 +32,7 @@
         font-family: arial,sans-serif;
         font-weight: 900;
         font-style: normal;
-        color: #fff;
+        color: #971b1f;
         background-color: #fff;
       }
       .frame {
@@ -46,13 +51,13 @@
       <div id="backgroundImage1" class="asset frame" data-image="backgroundImage1"></div>
       <div id="backgroundImage2" class="asset frame multiframe" data-image="backgroundImage2"></div>
       <div id="backgroundImage3" class="asset frame multiframe" data-image="backgroundImage3"></div>
-      <div id="topWhitePatch" class="frame" style="left:-615px;background-color:rgba(255, 255, 255, 0.85);"></div>
-      <div id="bottomWhitePatch" class="frame" style="left:424px;background-color:rgba(151, 27, 31, 0.9);"></div>
+      <div id="topWhitePatch" class="frame" style="left:-615px;background-color:rgba(255, 255, 255, 1.0);"></div>
+      <div id="bottomWhitePatch" class="frame" style="left:424px;background-color:rgba(255, 255, 255, 1.0);"></div>
       <div id="productLableLogoBg" class="asset frame" data-image="productLableLogoBg"></div>
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="productLableLogo" class="asset frame" data-image="productLableLogo" style="display:none;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
-      <div id="frameText1" class="text-left BROTB"
+      <div id="frameText1" class="text-left FuturaBold"
         data-text="frameText1"
         style="top: 4px;
           left: 442px;
@@ -62,7 +67,7 @@
           letter-spacing: 2.2px;
           line-height: 1.1;">
       </div>
-      <div id="frameText2" class="text-left BROTB"
+      <div id="frameText2" class="text-left FuturaBold"
         data-text="frameText2"
         style="top: 4px;
           left: 442px;
@@ -72,7 +77,7 @@
           letter-spacing: 2.2px;
           line-height: 1.1;">
       </div>
-      <div id="frameText3" class="text-left BROTB"
+      <div id="frameText3" class="text-left FuturaBold"
         data-text="frameText3"
         style="top: 4px;
           left: 442px;
@@ -82,7 +87,7 @@
           letter-spacing: 2.2px;
           line-height: 1.1;">
       </div>
-      <div id="cta" class="text JosefinSansBold"
+      <div id="cta" class="text FuturaBold"
         data-text="ctaText"
         data-style="padding:0 10px 0px;"
         style="top: 29px;
@@ -97,8 +102,8 @@
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
     <div id="loadFont" style="width:0;height:0;overflow:hidden;">
-      <div class="JosefinSansBold">JosefinSansBold</div>
-      <div class="BROTB">BROTB</div>
+      <div class="FuturaBold">FuturaBold</div>
+      <!-- <div class="BROTB">BROTB</div> -->
     </div>
     <script type="text/javascript">
       var layout = 'standard';
@@ -136,7 +141,7 @@
             // ref: 'ref.png'
             logoImage: './../images/728x90_ParkCity_LogoImage.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
-            ctaBtnColor: '#00758c^#aaacb0',
+            ctaBtnColor: '#971b1f^#ef060e',
           },
           beforeLoad: function(data){
             data.map(function(content){
@@ -250,7 +255,7 @@
           var adWidth = 728,adHeight = 90;
           if(layout == 'singleimage') { gsap.set('.multiframe', { autoAlpha :0}) }
             gsap.timeline({defaults:{ease: Power2.easeInOut, duration: 0.7}})
-            .from('#bottomWhitePatch', { x:adWidth/2, delay:0.5 })
+            //.from('#bottomWhitePatch', { x:adWidth/2, delay:0.5 })
             .from('#frameText1, #cta, #productLableLogo, #productLableLogoBg', { autoAlpha:0 })
             .to('#frameText1', { autoAlpha:0, delay:3 })
             .from('#frameText2, #backgroundImage2', { autoAlpha:0 })
