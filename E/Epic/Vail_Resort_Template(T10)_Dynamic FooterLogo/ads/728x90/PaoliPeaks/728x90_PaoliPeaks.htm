@@ -38,9 +38,9 @@
   </head>
   <body>
     <div class="" id="ad">
-      <div id="backgroundImage1" class="asset frame" data-image="backgroundImage1"></div>
-      <div id="backgroundImage2" class="asset frame multiframe" data-image="backgroundImage2"></div>
-      <div id="backgroundImage3" class="asset frame multiframe" data-image="backgroundImage3"></div>
+      <div id="backgroundImage1" style="left: 113px;height: 90px;width: auto;" class="asset-left frame" data-image="backgroundImage1"></div>
+      <div id="backgroundImage2" style="left: 113px;height: 90px;width: auto;" class="asset-left frame multiframe" data-image="backgroundImage2"></div>
+      <div id="backgroundImage3" style="left: 113px;height: 90px;width: auto;" class="asset-left frame multiframe" data-image="backgroundImage3"></div>
       <div id="topWhitePatch" class="frame" style="left:-615px;background-color:rgba(207, 215, 222, 1.0);"></div>
       <div id="bottomWhitePatch" class="frame" style="left:424px;background-color:rgba(207, 215, 222, 1.0);"></div>
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
@@ -230,7 +230,7 @@
             });
             return data;
           }
-        }, function(data){
+        }, function(data, assets){
           var adData = data[0], adClickUrl = adData['clickURL'];
 
           var image = new Image();
@@ -250,6 +250,36 @@
             document.body.removeChild(canvas);
           }
           image.src = adData['productLableLogo'];
+
+          //Condition for Image Size Check
+          var bg1ImageSrc = document.querySelector('#backgroundImage1 img').src;
+            var bg2ImageSrc = document.querySelector('#backgroundImage2 img').src;
+            var bg3ImageSrc = document.querySelector('#backgroundImage3 img').src;
+            if(adData.frameText4.toLowerCase() != 'na') {
+              var bg4ImageSrc = document.querySelector('#backgroundImage4 img').src;
+            }
+            assets.forEach(element => {
+                if(element.src === bg1ImageSrc) {
+                  if(element.naturalWidth === 728 || element.naturalWidth === 1456) {
+                    gsap.set('#backgroundImage1', { left:0 })
+                  }
+                }
+                if(element.src === bg2ImageSrc) {
+                  if(element.naturalWidth === 728 || element.naturalWidth === 1456) {
+                    gsap.set('#backgroundImage2', { left:0 })
+                  }
+                }
+                if(element.src === bg3ImageSrc) {
+                  if(element.naturalWidth === 728 || element.naturalWidth === 1456) {
+                    gsap.set('#backgroundImage3', { left:0 })
+                  }
+                }
+                if(element.src === bg4ImageSrc) {
+                  if(element.naturalWidth === 728 || element.naturalWidth === 1456) {
+                    gsap.set('#backgroundImage4', { left:0 })
+                  }
+                }
+            });
 
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
