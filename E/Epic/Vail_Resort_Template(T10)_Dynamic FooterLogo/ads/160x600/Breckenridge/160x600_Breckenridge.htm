@@ -46,8 +46,9 @@
       <div id="backgroundImage1" style="top: 44px;width: 160px;height: auto;" class="asset-top frame" data-image="backgroundImage1"></div>
       <div id="backgroundImage2" style="top: 44px;width: 160px;height: auto;" class="asset-top frame multiframe" data-image="backgroundImage2"></div>
       <div id="backgroundImage3" style="top: 44px;width: 160px;height: auto;" class="asset-top frame multiframe" data-image="backgroundImage3"></div>
-      <div id="topWhitePatch" class="frame" style="top:-556px;background-color:rgba(0, 76, 128, 1.0);"></div>
-      <div id="bottomWhitePatch" class="frame" style="top:453px;background-color:rgba(0, 76, 128, 1.0);"></div>
+      <div id="topWhitePatch" class="frame" style="top:-556px;background-color:rgba(215, 25, 32, 1.0);"></div>
+      <!-- <div id="bottomWhitePatch" class="frame" style="top:453px;background-color:rgba(0, 76, 128, 1.0);"></div> -->
+      <div id="bottomWhitePatch" class="asset-top frame" style="top:453px;" data-image="bottomWhitePatch"></div>
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="productLableLogo" class="asset frame" data-image="productLableLogo" style="display:none;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
@@ -140,6 +141,7 @@
             logoImage: './../images/160x600_Breckenridge_LogoImage.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
             ctaBtnColor: '#d71920^#960c11',
+            bottomWhitePatch: './../images/Breck_HighFiveCampaign_TextBox_DisplayBackground_160x600.jpg',
           },
           beforeLoad: function(data){
             data.map(function(content){
