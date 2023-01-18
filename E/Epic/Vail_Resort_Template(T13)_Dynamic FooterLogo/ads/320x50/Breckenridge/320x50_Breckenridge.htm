@@ -46,8 +46,9 @@
       <div id="backgroundImage1" style="left: 28px; height: 50px;width: auto;" class="asset-left frame" data-image="backgroundImage1"></div>
       <div id="backgroundImage2" style="left: 28px; height: 50px;width: auto;" class="asset-left frame multiframe" data-image="backgroundImage2"></div>
       <div id="backgroundImage3" style="left: 28px; height: 50px;width: auto;" class="asset-left frame multiframe" data-image="backgroundImage3"></div>
-      <div id="topWhitePatch" class="frame" style="left:-292px;background-color:rgba(0, 76, 128, 1.0);"></div>
-      <div id="bottomWhitePatch" class="frame" style="left:160px;background-color:rgba(0, 76, 128, 1.0);"></div>
+      <div id="topWhitePatch" class="frame" style="left:-292px;background-color:rgba(215, 25, 32, 1.0);"></div>
+      <!-- <div id="bottomWhitePatch" class="frame" style="left:160px;background-color:rgba(0, 76, 128, 1.0);"></div> -->
+      <div id="bottomWhitePatch" class="asset-left frame" style="left:160px;" data-image="bottomWhitePatch"></div>
       <div id="productLableLogoBg" class="asset frame" data-image="productLableLogoBg"></div>
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="productLableLogo" class="asset frame" data-image="productLableLogo" style="display:none;"></div>
@@ -92,7 +93,7 @@
           font-size: 8px;
           line-height: 10px;
           letter-spacing: 0.5px;
-          /* border-radius: 12px; */
+          border-radius: 12px;
           color: #fff;">
       </div>
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
@@ -139,6 +140,7 @@
             logoImage: './../images/320x50_Breckenridge_LogoImage.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
             ctaBtnColor: '#d71920^#960c11',
+            bottomWhitePatch: './../images/Breck_HighFiveCampaign_TextBox_DisplayBackground_320x50.jpg'
           },
           beforeLoad: function(data){
             data.map(function(content){
