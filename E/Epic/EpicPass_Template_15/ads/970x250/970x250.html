@@ -309,6 +309,7 @@
               ad.layers.cta.classList.remove('shine');
             });
           }
+          gsap.set('#introLogoImage', {transformOrigin: '43.5% 33%'});
           gsap.set('#cta, #frameVideo2, #logoImage, #frameText2, #frameVideo3, #frameText3, #frameText4', {autoAlpha:0});
           gsap.set('#logoImage, #cta', {y: 20});
           gsap.set('#frameText2 v, #frameText3 v, #frameText4 v', {y: '100%'});
