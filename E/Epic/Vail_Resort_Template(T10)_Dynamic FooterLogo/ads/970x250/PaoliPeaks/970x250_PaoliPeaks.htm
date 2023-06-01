@@ -423,6 +423,13 @@
           }
           image.src = adData['productLableLogo'];
 
+          /*CTA Text Padding Change*/
+          let ctaElementSpan = document.querySelector('#cta span');
+            if(adData['brandName'].replace(/ /g,'').toLowerCase() == 'jfbb'){
+              ctaElementSpan.style.paddingTop = '3px';
+            }
+          /**********/
+
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });
