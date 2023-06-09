@@ -45,6 +45,11 @@
         font-weight: 700;
         font-style: normal;
       }
+      .JosefinSansRegular {
+        font-family: josefin-sans, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
       .InterstateBold {
         font-family: "interstate", sans-serif;
         font-weight: 700;
@@ -204,7 +209,7 @@
                  document.querySelector('#cta').classList.add('PromptBold');
 
               }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'attitash'){
-                 document.querySelector('#loadFont').innerHTML = '<div class="JosefinSansBold"style="color: transparent">JosefinSansBold</div>';
+                 document.querySelector('#loadFont').innerHTML = '<div class="JosefinSansRegular"style="color: transparent">JosefinSansRegular</div>';
 
                  content.ctaBtnColor = '#FDB714^#f89f04';
                  document.querySelector('#topWhitePatch').style.backgroundColor = '#F0EFEB';
@@ -213,8 +218,9 @@
                  document.querySelector('#cta').style.color = '#00539C';
 
                  let frameTexts = document.querySelectorAll('.frameText');
-                 frameTexts.forEach(function(elem) { elem.classList.add('JosefinSansBold') })
-                 document.querySelector('#cta').classList.add('JosefinSansBold');
+                 frameTexts.forEach(function(elem) { elem.classList.add('JosefinSansRegular'); elem.style.letterSpacing = 0; })
+                 document.querySelector('#cta').classList.add('JosefinSansRegular');
+                 document.querySelector('#cta').style.letterSpacing = 0;
 
               }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'bostonmills'){
                 document.querySelector('#loadFont').innerHTML = '<div class="InterstateBold"style="color: transparent">InterstateBold</div>';
@@ -226,8 +232,9 @@
                  document.querySelector('#cta').style.color = '#000000';
 
                  let frameTexts = document.querySelectorAll('.frameText');
-                 frameTexts.forEach(function(elem) { elem.classList.add('InterstateBold') })
+                 frameTexts.forEach(function(elem) { elem.classList.add('InterstateBold'); elem.style.letterSpacing = 0; })
                  document.querySelector('#cta').classList.add('InterstateBold');
+                 document.querySelector('#cta').style.letterSpacing = 0;
 
               }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'crotched'){
                 document.querySelector('#loadFont').innerHTML = '<div class="EurostileHeavy"style="color: transparent">EurostileHeavy</div>';
