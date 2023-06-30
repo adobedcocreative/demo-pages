@@ -22,7 +22,7 @@
         font-family: arial,sans-serif;
         font-weight: 900;
         font-style: normal;
-        color: #ac2226;
+        color: #1a1a1a;
         background-color: #fff;
       }
       .frame {
@@ -86,7 +86,7 @@
           font-size: 12px;
           line-height: 20px;
           letter-spacing: 0.08em;
-          border-radius: 20px;
+          /* border-radius: 20px; */
           color: #fff;">
       </div>
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
@@ -129,7 +129,7 @@
             // ref: 'ref.png'
             logoImage: './../images/728x90_CrestedButte_LogoImage.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
-            ctaBtnColor: '#ac2226^#791013',
+            ctaBtnColor: '#A5192E^#1a1a1a',
           },
           beforeLoad: function(data){
             data.map(function(content){
@@ -209,7 +209,7 @@
             canvas.width = this.width;
             canvas.height = this.height;
             document.body.appendChild(canvas);
-            ctx.fillStyle = "#b4272e";
+            ctx.fillStyle = "#A5192E";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.globalCompositeOperation = 'destination-in';
             ctx.drawImage(this, 0, 0);

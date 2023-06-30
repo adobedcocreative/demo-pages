@@ -14,19 +14,9 @@
         font-weight: 700;
         font-style: normal;
       } */
-      .TradeGothicNextLTProCondensed {
-        font-family: trade-gothic-next-condensed,sans-serif;
-        font-weight: 400;
-        font-style: normal;
-      }
-      .OpenSansCondensedBold {
-        font-family: open-sans-condensed,sans-serif;
-        font-weight: 700;
-        font-style: normal;
-      }
-      .GillSansNovaBook{
-        font-family: gill-sans-nova,sans-serif;
-        font-weight: 400;
+      .TerminaBlack {
+        font-family: "termina", sans-serif;
+        font-weight: 900;
         font-style: normal;
       }
     </style>
@@ -37,7 +27,7 @@
         font-family: arial,sans-serif;
         font-weight: 900;
         font-style: normal;
-        color: #000000;
+        color: #3968B1;
         background-color: #fff;
       }
       .frame {
@@ -56,12 +46,12 @@
       <div id="backgroundImage1" style="left: 53px;height: 50px;width: auto;" class="asset-left frame" data-image="backgroundImage1"></div>
       <div id="backgroundImage2" style="left: 53px;height: 50px;width: auto;" class="asset-left frame multiframe" data-image="backgroundImage2"></div>
       <div id="backgroundImage3" style="left: 53px;height: 50px;width: auto;" class="asset-left frame multiframe" data-image="backgroundImage3"></div>
-      <div id="topWhitePatch" class="frame" style="left:-267px;background-color:rgba(255, 255, 255, 1);"></div>
+      <div id="topWhitePatch" class="frame" style="left:-293px;background-color:rgba(255, 255, 255, 1);"></div>
       <div id="bottomWhitePatch" class="frame" style="left:160px;background-color:rgba(255, 255, 255, 1);"></div>
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="productLableLogo" class="asset frame" data-image="productLableLogo" style="display:none;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
-      <div id="frameText1" class="text-left OpenSansCondensedBold"
+      <div id="frameText1" class="text-left TerminaBlack"
         data-text="frameText1"
         style="top: 3px;
           left: 170px;
@@ -71,7 +61,7 @@
           letter-spacing: 0.02em;
           line-height: 1.1;">
       </div>
-      <div id="frameText2" class="text-left OpenSansCondensedBold"
+      <div id="frameText2" class="text-left TerminaBlack"
         data-text="frameText2"
         style="top: 3px;
           left: 170px;
@@ -81,7 +71,7 @@
           letter-spacing: 0.02em;
           line-height: 1.1;">
       </div>
-      <div id="frameText3" class="text-left OpenSansCondensedBold"
+      <div id="frameText3" class="text-left TerminaBlack"
         data-text="frameText3"
         style="top: 3px;
           left: 170px;
@@ -91,9 +81,9 @@
           letter-spacing: 0.02em;
           line-height: 1.1;">
       </div>
-      <div id="cta" class="text OpenSansCondensedBold"
+      <div id="cta" class="text TerminaBlack"
         data-text="ctaText"
-        data-style="padding:0 6px 0px;"
+        data-style="padding:1px 6px 0px;"
         style="top: 17px;
           left: 256px;
           width: 55px;
@@ -101,15 +91,13 @@
           font-size: 8px;
           line-height: 10px;
           letter-spacing: 0.05em;
+          border-radius: 15px;
           color: #fff;">
       </div>
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
     <div id="loadFont" style="width:0;height:0;overflow:hidden;">
-      <!-- <div class="TradeGothicNextLTProCondensed">TradeGothicNextLTProCondensed</div> -->
-      <!-- <div class="TradeGothicNextLTProBoldCondensed">TradeGothicNextLTProBoldCondensed</div> -->
-      <div class="OpenSansCondensedBold">OpenSansCondensedBold</div>
-      <div class="GillSansNovaBook">GillSansNovaBook</div>
+      <div class="TerminaBlack">TerminaBlack</div>
     </div>
     <script type="text/javascript">
       var layout = 'standard';
@@ -146,7 +134,7 @@
             // ref: 'ref.png'
             logoImage: './../images/320x50_Vail_Resort_LogoImage.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
-            ctaBtnColor: '#3968b1^#000000',
+            ctaBtnColor: '#3968B1^#009ADA',
           },
           beforeLoad: function(data){
             data.map(function(content){
@@ -220,7 +208,7 @@
             canvas.width = this.width;
             canvas.height = this.height;
             document.body.appendChild(canvas);
-            ctx.fillStyle = "#939598";
+            ctx.fillStyle = "#3968B1";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.globalCompositeOperation = 'destination-in';
             ctx.drawImage(this, 0, 0);
