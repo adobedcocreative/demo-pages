@@ -27,7 +27,7 @@
         font-family: arial,sans-serif;
         font-weight: 900;
         font-style: normal;
-        color: #D7941D;
+        color: #7d1c25;
         background-color: #fff;
       }
       .frame {
@@ -37,7 +37,6 @@
         width:inherit;
         height:inherit;
       }
-      #cta { color: #D7941D; }
       #cta { background-color: !{ctaBtn};  }
       #ad:hover #cta { background-color: !{ctaBtnHover}; }
       #ad:hover #cta { color: !{ctaBtn};  }
@@ -61,7 +60,7 @@
           width: 320px;
           height: 130px;
           font-size: 30px;
-          letter-spacing: 0.05em;
+          /* letter-spacing: 0.05em; */
           line-height: 1.13;">
       </div>
       <div id="frameText2" class="text DashiellFineBold"
@@ -72,7 +71,7 @@
           width: 320px;
           height: 130px;
           font-size: 30px;
-          letter-spacing: 0.05em;
+          /* letter-spacing: 0.05em; */
           line-height: 1.13;">
       </div>
       <div id="frameText3" class="text DashiellFineBold"
@@ -83,12 +82,12 @@
           width: 320px;
           height: 130px;
           font-size: 30px;
-          letter-spacing: 0.05em;
+          /* letter-spacing: 0.05em; */
           line-height: 1.13;">
       </div>
       <div id="cta" class="text DashiellFineBold"
         data-text="ctaText"
-        data-style="padding:4px 20px 0px;"
+        data-style="padding:0 20px 0px;"
         style="top: 193px;
           left: 705px;
           min-width: 156px;
@@ -96,9 +95,9 @@
           height: 40px;
           font-size: 16px;
           line-height: 22px;
-          letter-spacing: 0.05em;
-          border-radius: 15px;
-          border: 1px solid #D7941D;">
+          /* letter-spacing: 0.05em; */
+          border-radius: 20px;
+          color: #fff;">
       </div>
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
@@ -140,7 +139,7 @@
             // ref: 'ref.png'
             logoImage: './../images/970x250_Northstar_LogoImage.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
-            ctaBtnColor: '#ffffff^#D7941D',
+            ctaBtnColor: '#7d1c25^#D7941D',
           },
           beforeLoad: function(data){
             data.map(function(content){
@@ -187,7 +186,7 @@
             canvas.width = this.width;
             canvas.height = this.height;
             document.body.appendChild(canvas);
-            ctx.fillStyle = "#D7941D";
+            ctx.fillStyle = "#7d1c25";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.globalCompositeOperation = 'destination-in';
             ctx.drawImage(this, 0, 0);

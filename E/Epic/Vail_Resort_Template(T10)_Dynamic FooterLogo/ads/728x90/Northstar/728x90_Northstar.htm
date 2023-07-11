@@ -27,7 +27,7 @@
         font-family: arial,sans-serif;
         font-weight: 900;
         font-style: normal;
-        color: #D7941D;
+        color: #7d1c25;
         background-color: #fff;
       }
       .frame {
@@ -37,7 +37,6 @@
         width:inherit;
         height:inherit;
       }
-      #cta { color: #D7941D; }
       #cta { background-color: !{ctaBtn};  }
       #ad:hover #cta { background-color: !{ctaBtnHover}; }
       #ad:hover #cta { color: !{ctaBtn};  }
@@ -60,7 +59,7 @@
           width: 170px;
           height: 80px;
           font-size: 21px;
-          letter-spacing: 0.05em;
+          /* letter-spacing: 0.05em; */
           line-height: 1.1;">
       </div>
       <div id="frameText2" class="text-left DashiellFineBold"
@@ -70,7 +69,7 @@
           width: 170px;
           height: 80px;
           font-size: 21px;
-          letter-spacing: 0.05em;
+          /* letter-spacing: 0.05em; */
           line-height: 1.1;">
       </div>
       <div id="frameText3" class="text-left DashiellFineBold"
@@ -80,21 +79,21 @@
           width: 170px;
           height: 80px;
           font-size: 21px;
-          letter-spacing: 0.05em;
+          /* letter-spacing: 0.05em; */
           line-height: 1.1;">
       </div>
       <div id="cta" class="text DashiellFineBold"
         data-text="ctaText"
-        data-style="padding:2px 10px 0px;"
+        data-style="padding:0 10px 0px;"
         style="top: 29px;
           left: 623px;
           width: 94px;
           height: 30px;
           font-size: 12px;
           line-height: 20px;
-          letter-spacing: 0.05em;
+          /* letter-spacing: 0.05em; */
           border-radius: 15px;
-          border: 1px solid #D7941D;">
+          color: #fff;">
       </div>
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
@@ -136,7 +135,7 @@
             // ref: 'ref.png'
             logoImage: './../images/728x90_Northstar_LogoImage.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
-            ctaBtnColor: '#ffffff^#D7941D',
+            ctaBtnColor: '#7d1c25^#D7941D',
           },
           beforeLoad: function(data){
             data.map(function(content){
@@ -216,7 +215,7 @@
             canvas.width = this.width;
             canvas.height = this.height;
             document.body.appendChild(canvas);
-            ctx.fillStyle = "#D7941D";
+            ctx.fillStyle = "#7d1c25";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.globalCompositeOperation = 'destination-in';
             ctx.drawImage(this, 0, 0);
