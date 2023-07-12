@@ -19,6 +19,11 @@
         font-weight: 900;
         font-style: normal;
       }
+      @font-face {
+          font-family: AvenirBlack;
+          src: url('fonts/Avenir-Black.woff') format("woff");
+      }
+      .AvenirBlack { font-family: AvenirBlack; }
     </style>
     <style media="screen" data-dynamic="style">
       #ad {
@@ -84,7 +89,7 @@
           letter-spacing: 0.02em;
           line-height: 1;">
       </div>
-      <div id="cta" class="text TerminaBlack"
+      <div id="cta" class="text AvenirBlack"
         data-text="ctaText"
         data-style="padding:3px 12px 2px;"
         style="top: 542px;
@@ -93,7 +98,7 @@
           height: 34px;
           font-size: 14px;
           line-height: 20px;
-          letter-spacing: 0.05em;
+          /* letter-spacing: 0.05em; */
           border-radius: 20px;
           color: #fff;">
       </div>
@@ -101,6 +106,7 @@
     </div>
     <div id="loadFont" style="width:0;height:0;overflow:hidden;">
       <div class="TerminaBlack">TerminaBlack</div>
+      <div class="AvenirBlack">AvenirBlack</div>
     </div>
     <script type="text/javascript">
       var layout = 'standard';
