@@ -161,8 +161,8 @@
             'Simplified': `var cam = {
               introAnimation: data.introAnimation,
               introImage: "../../assets/" + data.introImage,
-              backgroundImage: "../../assets/" + data.backgroundImage,
-              logoImage: "../../assets/" + data.logoImage,
+              backgroundImage: (data.backgroundImage.startsWith("http") ? "" : "../../assets/") + data.backgroundImage,
+              logoImage: (data.logoImage.startsWith("http") ? "" : "../../assets/") + data.logoImage,
               headlineText: data.headlineText,
               subheadlineText: data.subheadlineText,
               color: data.color,
