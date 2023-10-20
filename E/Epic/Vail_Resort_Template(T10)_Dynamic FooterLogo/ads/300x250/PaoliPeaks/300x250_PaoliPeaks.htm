@@ -65,6 +65,21 @@
         font-weight: 700;
         font-style: normal;
       }
+      .RobotoBold {
+        font-family: "roboto", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+      }
+      .RobotoBlack {
+        font-family: "roboto", sans-serif;
+        font-weight: 900;
+        font-style: normal;
+      }
+      .SofiaProBold {
+        font-family: sofia-pro, sans-serif;
+        font-weight: 700;
+        font-style: normal;
+      }
     </style>
     <style media="screen" data-dynamic="style">
       #ad {
@@ -209,17 +224,17 @@
                  document.querySelector('#cta').classList.add('PromptBold');
 
               }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'attitash'){
-                 document.querySelector('#loadFont').innerHTML = '<div class="JosefinSansRegular"style="color: transparent">JosefinSansRegular</div>';
+                 document.querySelector('#loadFont').innerHTML = '<div class="SofiaProBold"style="color: transparent">SofiaProBold</div>';
 
-                 content.ctaBtnColor = '#FDB714^#f89f04';
-                 document.querySelector('#topWhitePatch').style.backgroundColor = '#F0EFEB';
-                 document.querySelector('#bottomWhitePatch').style.backgroundColor = '#F0EFEB';
-                 document.querySelector('#ad').style.color = '#00539C';
-                 document.querySelector('#cta').style.color = '#00539C';
+                 content.ctaBtnColor = '#FFC629^#f89f04';
+                 document.querySelector('#topWhitePatch').style.backgroundColor = '#FFFFFF';
+                 document.querySelector('#bottomWhitePatch').style.backgroundColor = '#FFFFFF';
+                 document.querySelector('#ad').style.color = '#2A51A3';
+                 document.querySelector('#cta').style.color = '#2A51A3';
 
                  let frameTexts = document.querySelectorAll('.frameText');
-                 frameTexts.forEach(function(elem) { elem.classList.add('JosefinSansRegular'); elem.style.letterSpacing = 0; })
-                 document.querySelector('#cta').classList.add('JosefinSansRegular');
+                 frameTexts.forEach(function(elem) { elem.classList.add('SofiaProBold'); elem.style.letterSpacing = 0; })
+                 document.querySelector('#cta').classList.add('SofiaProBold');
                  document.querySelector('#cta').style.letterSpacing = 0;
 
               }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'bostonmills'){
@@ -261,6 +276,19 @@
                  frameTexts.forEach(function(elem) { elem.classList.add('PromptBold') })
                  document.querySelector('#cta').classList.add('PromptBold');
 
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'hiddenvalleypa'){
+                document.querySelector('#loadFont').innerHTML = '<div class="RobotoBlack"style="color: transparent">RobotoBlack</div>';
+
+                content.ctaBtnColor = '#8A724E^#715c3d';
+                document.querySelector('#topWhitePatch').style.backgroundColor = '#FFFFFF';
+                document.querySelector('#bottomWhitePatch').style.backgroundColor = '#FFFFFF';
+                document.querySelector('#ad').style.color = '#00447C';
+
+                 let frameTexts = document.querySelectorAll('.frameText');
+                 frameTexts.forEach(function(elem) { elem.classList.add('RobotoBlack'); elem.style.letterSpacing = 0; })
+                 document.querySelector('#cta').classList.add('RobotoBlack');
+                 document.querySelector('#cta').style.letterSpacing = 0;
+
               }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'jfbb'){
                 document.querySelector('#loadFont').innerHTML = '<div class="FuturaBold"style="color: transparent">FuturaBold</div>';
 
@@ -272,6 +300,19 @@
                 let frameTexts = document.querySelectorAll('.frameText');
                  frameTexts.forEach(function(elem) { elem.classList.add('FuturaBold') })
                  document.querySelector('#cta').classList.add('FuturaBold');
+
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'laurelmountain'){
+                document.querySelector('#loadFont').innerHTML = '<div class="RobotoBold"style="color: transparent">RobotoBold</div>';
+
+                content.ctaBtnColor = '#363745^#484b42';
+                document.querySelector('#topWhitePatch').style.backgroundColor = '#FFFFFF';
+                document.querySelector('#bottomWhitePatch').style.backgroundColor = '#FFFFFF';
+                document.querySelector('#ad').style.color = '#363745';
+
+                 let frameTexts = document.querySelectorAll('.frameText');
+                 frameTexts.forEach(function(elem) { elem.classList.add('RobotoBold'); elem.style.letterSpacing = 0; })
+                 document.querySelector('#cta').classList.add('RobotoBold');
+                 document.querySelector('#cta').style.letterSpacing = 0;
 
               }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'madriver'){
                  document.querySelector('#loadFont').innerHTML = '<div class="PromptBold"style="color: transparent">PromptBold</div>';
@@ -494,6 +535,8 @@
                   ctaElementSpan.style.paddingTop = '0';
             } else if(adData['brandName'].replace(/ /g,'').toLowerCase() == 'attitash') {
               ctaElementSpan.style.padding = '0 10px 2px';
+            } else if(adData['brandName'].replace(/ /g,'').toLowerCase() == 'hiddenvalleypa' || adData['brandName'].replace(/ /g,'').toLowerCase() == 'laurelmountain') {
+              ctaElementSpan.style.padding = '2px 10px 2px';
             }
             /**********/
 
