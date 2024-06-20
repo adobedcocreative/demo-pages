@@ -101,6 +101,7 @@
             subHeadline: "Get 25+ always-free products",
             ctaText: 'Finish signing up for Azure &amp;#x276F;',//"Your $200 credit awaits",
             clickURL: 'https://www.adobe.com/#MS',
+            colorCopyCta: '#FF0000',
             impressionTracker: 'images/1x1.png'
           },
           feed: [
@@ -162,6 +163,12 @@
           ad.layers.cta.style.webkitTransform = '';
           ad.layers.cta.style.transform = '';
           // ad.layers.cta.style.backgroundColor = '#ff0000';
+          if(adData.colorCopyCta.indexOf('|') != -1){
+            ad.layers.headline.style.color = adData['colorCopyCta'].split('|')[0];
+            ad.layers.cta.style.color = adData['colorCopyCta'].split('|')[1];
+          }else{
+            ad.layers.headline.style.color = ad.layers.cta.style.color = adData['colorCopyCta'];
+          }
         });
       }, 1000);
     </script>

@@ -139,6 +139,7 @@ var loadAd = function(data) {
       backgroundImage: "../../assets/${data.backgroundImage}",
       headline: "${data.headline}",
       subHeadline: "${data.subHeadline}",
+      colorCopyCta: "${data.colorCopyCta}",
       ctaText: "${data.ctaText}",
       impressionTracker: "na",
       clickUrl: "https://microsoft.com/",
