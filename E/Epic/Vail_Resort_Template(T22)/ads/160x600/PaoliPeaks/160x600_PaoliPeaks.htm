@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ad</title>
+    <script type="text/javascript" src="https://ads.everesttech.net/ads/static/local/AMOLibrary.js"></script>
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="https://use.typekit.net/vup7kbj.css">
+    <link rel="stylesheet" href="https://use.typekit.net/bik0yeg.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/script.min.js"></script>
+    <style media="screen">
+      @font-face {
+          font-family: PromptRegular;
+          src: url('fonts/Prompt-Regular.woff') format("woff");
+      }
+      .PromptRegular { font-family: PromptRegular; }
+      @font-face {
+          font-family: PromptBold;
+          src: url('fonts/Prompt-Bold.woff') format("woff");
+      }
+      .PromptBold { font-family: PromptBold; }
+      @font-face {
+          font-family: PromptExtraBold;
+          src: url('fonts/Prompt-ExtraBold.woff') format("woff");
+      }
+      .PromptExtraBold { font-family: PromptExtraBold; }
+      @font-face {
+          font-family: FuturaBold;
+          src: url('fonts/Futura-Bold.woff') format("woff");
+      }
+      .FuturaBold { font-family: FuturaBold; }
+      .MuseoSlab900 {
+        font-family: museo-slab, sans-serif;
+        font-weight: 800;
+        font-style: normal;
+      }
+      .MuseoSlab700 {
+        font-family: museo-slab, sans-serif;
+        font-weight: 700;
+        font-style: normal;
+      }
+      .JosefinSansBold {
+        font-family: josefin-sans, sans-serif;
+        font-weight: 700;
+        font-style: normal;
+      }
+      .JosefinSansRegular {
+        font-family: josefin-sans, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+      .InterstateBold {
+        font-family: "interstate", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+      }
+      .EurostileHeavy {
+        font-family: "eurostile", sans-serif;
+        font-weight: 800;
+        font-style: normal;
+      }
+      .RockwellNovaBold {
+        font-family: rockwell-nova, sans-serif;
+        font-weight: 700;
+        font-style: normal;
+      }
+      .RobotoBold {
+        font-family: "roboto", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+      }
+      .RobotoBlack {
+        font-family: "roboto", sans-serif;
+        font-weight: 900;
+        font-style: normal;
+      }
+      .SofiaProBold {
+        font-family: sofia-pro, sans-serif;
+        font-weight: 700;
+        font-style: normal;
+      }
+    </style>
+    <style media="screen" data-dynamic="style">
+      #ad {
+        width: 160px;
+        height: 600px;
+        font-family: arial,sans-serif;
+        font-weight: 900;
+        font-style: normal;
+        color: #474E52;
+        background-color: #CFD7DE;
+      }
+      .frame {
+        position: absolute;
+        top:0px;
+        left:0px;
+        width:inherit;
+        height:inherit;
+      }
+      #cta { background-color: !{ctaBtn}; }
+      #ad:hover #cta { background-color: !{ctaBtnHover}; }
+    </style>
+  </head>
+  <body>
+    <div class="" id="ad">
+      <div id="backgroundImage1" style="top: 44px;width: 160px;height: auto;" class="asset-top frame" data-image="backgroundImage1"></div>
+      <div id="backgroundImage2" style="top: 44px;width: 160px;height: auto;" class="asset-top frame multiframe" data-image="backgroundImage2"></div>
+      <div id="backgroundImage3" style="top: 44px;width: 160px;height: auto;" class="asset-top frame multiframe" data-image="backgroundImage3"></div>
+      <div id="topWhitePatch" class="frame" style="top:-556px;background-color:rgba(207, 215, 222, 1.0);"></div>
+      <div id="bottomWhitePatch" class="frame" style="top:453px;background-color:rgba(207, 215, 222, 1.0);"></div>
+      <div id="logoImage" class="asset frame" data-image="logoImage"></div>
+      <div id="productLableLogo" class="asset frame" data-image="productLableLogo" style="display:none;"></div>
+      <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
+      <div id="frameText1" class="text frameText"
+        data-text="frameText1"
+        data-style="text-align:center;"
+        style="top: 457px;
+          left: 15px;
+          width: 130px;
+          height: 70px;
+          font-size: 15px;
+          /* letter-spacing: 1.6px; */
+          letter-spacing: 0.05em;
+          line-height: 1.3;">
+      </div>
+      <div id="frameText2" class="text frameText"
+        data-text="frameText2"
+        data-style="text-align:center;"
+        style="top: 457px;
+          left: 15px;
+          width: 130px;
+          height: 70px;
+          font-size: 15px;
+          /* letter-spacing: 1.6px; */
+          letter-spacing: 0.05em;
+          line-height: 1.3;">
+      </div>
+      <div id="frameText3" class="text frameText"
+        data-text="frameText3"
+        data-style="text-align:center;"
+        style="top: 457px;
+          left: 15px;
+          width: 130px;
+          height: 70px;
+          font-size: 15px;
+          /* letter-spacing: 1.6px; */
+          letter-spacing: 0.05em;
+          line-height: 1.3;">
+      </div>
+      <div id="cta" class="text"
+        data-text="ctaText"
+        data-style="text-align:center;padding:2px 8px 0px;"
+        style="top: 545px;
+          left: 32px;
+          width: 96px;
+          height: 28px;
+          font-size: 14px;
+          line-height: 20px;
+          /* letter-spacing: 1.1px; */
+          letter-spacing: 0.05em;
+          border-radius: 15px;
+          color: #FFF;">
+      </div>
+      <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
+    </div>
+    <div id="loadFont" style="width:0;height:0;overflow:hidden;"></div>
+    <script type="text/javascript">
+      var layout = 'standard';
+      var ad = new Ad({
+        root: document.querySelector('#ad'),
+        width: 160,
+        height: 600,
+        borderWidth: 1,
+        borderColor: '#999'
+      });
+      setTimeout(function() {
+        ad.contentSetup({
+          cam: {
+            layout: 'singleImage', //singleImage|multipleImages
+            backgroundImage1: 'assets/160x600_Vail_Resort_BackgroundImage1.png',
+            backgroundImage2: 'assets/160x600_Vail_Resort_BackgroundImage2.png',
+            backgroundImage3: 'assets/160x600_Vail_Resort_BackgroundImage3.png',
+            backgroundImage4: 'assets/160x600_Vail_Resort_BackgroundImage4.png',
+            backgroundImage4: 'assets/1x1.png',
+            frameText1: 'Return to the mountain you love',
+            frameText2: 'Ski & ride from 1 day to every day',
+            frameText3: 'Get Your Pass By 9/7',
+            frameText4: 'na',
+            ctaText: "Buy Now",
+            clickURL: "https://www.vail.com/",
+            productLableLogo: 'assets/160x600_EPIC_PASS.png',
+          },
+          feed: [
+            {
+              name: 'Vail',
+            }
+          ],
+          staticData: {
+            // ref: 'ref.png'
+            // logoImage: './../images/160x600_BeaverCreek_LogoImage.png',
+            logoImage: './../images/160x600_PaoliPeaks_LogoImage.png',
+            styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
+            ctaBtnColor: '#b4cbd4^#b4cbd4',
+          },
+          beforeLoad: function(data){
+            data.map(function(content){
+              if(content['brandName'].replace(/ /g,'').toLowerCase() == 'aftonalps'){
+                document.querySelector('#loadFont').innerHTML = '<div class="MuseoSlab900"style="color: transparent;">MuseoSlab900</div>';
+
+                content.ctaBtnColor = '#58595B^#6e7174';
+                document.querySelector('#topWhitePatch').style.backgroundColor = '#FFFFFF';
+                document.querySelector('#bottomWhitePatch').style.backgroundColor = '#FFFFFF';
+                document.querySelector('#ad').style.color = '#FBB034';
+
+                let frameTexts = document.querySelectorAll('.frameText');
+                frameTexts.forEach(function(elem) { elem.classList.add('MuseoSlab900') })
+                document.querySelector('#cta').classList.add('MuseoSlab900');
+
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'alpinevalley'){
+                 document.querySelector('#loadFont').innerHTML = '<div class="PromptBold"style="color: transparent">PromptBold</div>';
+
+                 content.ctaBtnColor = '#B0C6CE^#b5ccd4';
+                 document.querySelector('#topWhitePatch').style.backgroundColor = '#000000';
+                 document.querySelector('#bottomWhitePatch').style.backgroundColor = '#000000';
+                 document.querySelector('#ad').style.color = '#FFFFFF';
+                 document.querySelector('#cta').style.color = '#000000';
+                 document.querySelector('#cta').style.borderRadius = 0;
+
+                 let frameTexts = document.querySelectorAll('.frameText');
+                 frameTexts.forEach(function(elem) { elem.classList.add('PromptBold') })
+                 document.querySelector('#cta').classList.add('PromptBold');
+
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'attitash'){
+                 document.querySelector('#loadFont').innerHTML = '<div class="SofiaProBold"style="color: transparent">SofiaProBold</div>';
+
+                 content.ctaBtnColor = '#FFC629^#f89f04';
+                 document.querySelector('#topWhitePatch').style.backgroundColor = '#FFFFFF';
+                 document.querySelector('#bottomWhitePatch').style.backgroundColor = '#FFFFFF';
+                 document.querySelector('#ad').style.color = '#2A51A3';
+                 document.querySelector('#cta').style.color = '#2A51A3';
+
+                 let frameTexts = document.querySelectorAll('.frameText');
+                 frameTexts.forEach(function(elem) { elem.classList.add('SofiaProBold'); elem.style.letterSpacing = 0; })
+                 document.querySelector('#cta').classList.add('SofiaProBold');
+                 document.querySelector('#cta').style.letterSpacing = 0;
+
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'bostonmills'){
+                document.querySelector('#loadFont').innerHTML = '<div class="InterstateBold"style="color: transparent">InterstateBold</div>';
+
+                 content.ctaBtnColor = '#FFFFFF^#FFFFFF';
+                 document.querySelector('#topWhitePatch').style.backgroundColor = '#000000';
+                 document.querySelector('#bottomWhitePatch').style.backgroundColor = '#000000';
+                 document.querySelector('#ad').style.color = '#FFFFFF';
+                 document.querySelector('#cta').style.color = '#000000';
+
+                 let frameTexts = document.querySelectorAll('.frameText');
+                 frameTexts.forEach(function(elem) { elem.classList.add('InterstateBold'); elem.style.letterSpacing = 0; })
+                 document.querySelector('#cta').classList.add('InterstateBold');
+                 document.querySelector('#cta').style.letterSpacing = 0;
+
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'crotched'){
+                document.querySelector('#loadFont').innerHTML = '<div class="EurostileHeavy"style="color: transparent">EurostileHeavy</div>';
+                
+                 content.ctaBtnColor = '#763C70^#61195a';
+                 document.querySelector('#topWhitePatch').style.backgroundColor = '#FFFFFF';
+                 document.querySelector('#bottomWhitePatch').style.backgroundColor = '#b2db44';
+                 document.querySelector('#ad').style.color = '#413C37';
+                 document.querySelector('#cta').style.borderRadius = 0;
+
+                 let frameTexts = document.querySelectorAll('.frameText');
+                 frameTexts.forEach(function(elem) { elem.classList.add('EurostileHeavy') })
+                 document.querySelector('#cta').classList.add('EurostileHeavy');
+
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'hiddenvalley'){
+                document.querySelector('#loadFont').innerHTML = '<div class="PromptBold"style="color: transparent">PromptBold</div>';
+
+                content.ctaBtnColor = '#51544a^#484b42';
+                document.querySelector('#topWhitePatch').style.backgroundColor = '#FFFFFF';
+                document.querySelector('#bottomWhitePatch').style.backgroundColor = '#FFFFFF';
+                document.querySelector('#ad').style.color = '#0E9FB4';
+
+                 let frameTexts = document.querySelectorAll('.frameText');
+                 frameTexts.forEach(function(elem) { elem.classList.add('PromptBold') })
+                 document.querySelector('#cta').classList.add('PromptBold');
+
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'hiddenvalleypa'){
+                document.querySelector('#loadFont').innerHTML = '<div class="RobotoBlack"style="color: transparent">RobotoBlack</div>';
+
+                content.ctaBtnColor = '#8A724E^#715c3d';
+                document.querySelector('#topWhitePatch').style.backgroundColor = '#FFFFFF';
+                document.querySelector('#bottomWhitePatch').style.backgroundColor = '#FFFFFF';
+                document.querySelector('#ad').style.color = '#00447C';
+
+                 let frameTexts = document.querySelectorAll('.frameText');
+                 frameTexts.forEach(function(elem) { elem.classList.add('RobotoBlack'); elem.style.letterSpacing = 0; })
+                 document.querySelector('#cta').classList.add('RobotoBlack');
+                 document.querySelector('#cta').style.letterSpacing = 0;
+
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'jfbb'){
+                document.querySelector('#loadFont').innerHTML = '<div class="FuturaBold"style="color: transparent">FuturaBold</div>';
+
+                content.ctaBtnColor = '#FF8200^#da7207';
+                document.querySelector('#topWhitePatch').style.backgroundColor = '#FFFFFF';
+                document.querySelector('#bottomWhitePatch').style.backgroundColor = '#FFFFFF';
+                document.querySelector('#ad').style.color = '#00AFD7';
+
+                let frameTexts = document.querySelectorAll('.frameText');
+                 frameTexts.forEach(function(elem) { elem.classList.add('FuturaBold') })
+                 document.querySelector('#cta').classList.add('FuturaBold');
+
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'laurelmountain'){
+                document.querySelector('#loadFont').innerHTML = '<div class="RobotoBold"style="color: transparent">RobotoBold</div>';
+
+                content.ctaBtnColor = '#363745^#484b42';
+                document.querySelector('#topWhitePatch').style.backgroundColor = '#FFFFFF';
+                document.querySelector('#bottomWhitePatch').style.backgroundColor = '#FFFFFF';
+                document.querySelector('#ad').style.color = '#363745';
+
+                 let frameTexts = document.querySelectorAll('.frameText');
+                 frameTexts.forEach(function(elem) { elem.classList.add('RobotoBold'); elem.style.letterSpacing = 0; })
+                 document.querySelector('#cta').classList.add('RobotoBold');
+                 document.querySelector('#cta').style.letterSpacing = 0;
+
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'madriver'){
+                 document.querySelector('#loadFont').innerHTML = '<div class="PromptBold"style="color: transparent">PromptBold</div>';
+                 
+                 content.ctaBtnColor = '#231F20^#231F20';
+                 document.querySelector('#topWhitePatch').style.backgroundColor = '#014E37';
+                 document.querySelector('#bottomWhitePatch').style.backgroundColor = '#014E37';
+                 document.querySelector('#ad').style.color = '#FFFFFF';
+                 document.querySelector('#cta').style.borderRadius = 0;
+
+                 let frameTexts = document.querySelectorAll('.frameText');
+                 frameTexts.forEach(function(elem) { elem.classList.add('PromptBold') })
+                 document.querySelector('#cta').classList.add('PromptBold');
+
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'mtbrighton'){
+                 document.querySelector('#loadFont').innerHTML = '<div class="MuseoSlab900"style="color: transparent">MuseoSlab900</div>';
+
+                 content.ctaBtnColor = '#4F2683^#6e47ac';
+                 document.querySelector('#topWhitePatch').style.backgroundColor = '#4F2683';
+                 document.querySelector('#bottomWhitePatch').style.backgroundColor = '#FFFFFF';
+                 document.querySelector('#ad').style.color = '#4F2683';
+
+                 let frameTexts = document.querySelectorAll('.frameText');
+                 frameTexts.forEach(function(elem) { elem.classList.add('MuseoSlab900') })
+                 document.querySelector('#cta').classList.add('MuseoSlab900');
+
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'paolipeaks'){
+                document.querySelector('#loadFont').innerHTML = '<div class="RockwellNovaBold"style="color: transparent">RockwellNovaBold</div>';
+
+                 content.ctaBtnColor = '#67A2B9^#5a8da0';
+                 document.querySelector('#topWhitePatch').style.backgroundColor = '#192957';
+                 document.querySelector('#bottomWhitePatch').style.backgroundColor = '#192957';
+                 document.querySelector('#ad').style.color = '#FFFFFF';
+
+                 let frameTexts = document.querySelectorAll('.frameText');
+                 frameTexts.forEach(function(elem) { elem.classList.add('RockwellNovaBold') })
+                 document.querySelector('#cta').classList.add('RockwellNovaBold');
+
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'roundtop'){
+                document.querySelector('#loadFont').innerHTML = '<div class="PromptBold"style="color: transparent">PromptBold</div>';
+
+                 content.ctaBtnColor = '#007FAD^#0695c9';
+                 document.querySelector('#topWhitePatch').style.backgroundColor = '#75c045';
+                 document.querySelector('#bottomWhitePatch').style.backgroundColor = '#75c045';
+                 document.querySelector('#ad').style.color = '#FFFFFF';
+
+                 let frameTexts = document.querySelectorAll('.frameText');
+                 frameTexts.forEach(function(elem) { elem.classList.add('PromptBold') })
+                 document.querySelector('#cta').classList.add('PromptBold');
+
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'snowcreek'){
+                 document.querySelector('#loadFont').innerHTML = '<div class="PromptExtraBold"style="color: transparent">PromptExtraBold</div>';
+                
+                 content.ctaBtnColor = '#FFFFFF^#FFFFFF';
+                 document.querySelector('#topWhitePatch').style.backgroundColor = '#FFFFFF';
+                 document.querySelector('#bottomWhitePatch').style.backgroundColor = '#dbae27';
+                 document.querySelector('#ad').style.color = '#FFFFFF';
+                 document.querySelector('#cta').style.color = '#00303e';
+                 document.querySelector('#cta').style.borderRadius = 0;
+
+                 let frameTexts = document.querySelectorAll('.frameText');
+                 frameTexts.forEach(function(elem) { elem.classList.add('PromptExtraBold') })
+                 document.querySelector('#cta').classList.add('PromptExtraBold');
+
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'whitetail'){
+                document.querySelector('#loadFont').innerHTML = '<div class="PromptBold"style="color: transparent">PromptBold</div>';
+
+                content.ctaBtnColor = '#233D34^#397359';
+                document.querySelector('#topWhitePatch').style.backgroundColor = '#FFFFFF';
+                document.querySelector('#bottomWhitePatch').style.backgroundColor = '#FFFFFF';
+                document.querySelector('#ad').style.color = '#233D34';
+
+                 let frameTexts = document.querySelectorAll('.frameText');
+                 frameTexts.forEach(function(elem) { elem.classList.add('PromptBold') })
+                 document.querySelector('#cta').classList.add('PromptBold');
+
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'wildcat'){
+                document.querySelector('#loadFont').innerHTML = '<div class="PromptBold"style="color: transparent">PromptBold</div>';
+
+                content.ctaBtnColor = '#007067^#088d82';
+                document.querySelector('#topWhitePatch').style.backgroundColor = '#FFFFFF';
+                document.querySelector('#bottomWhitePatch').style.backgroundColor = '#FFFFFF';
+                document.querySelector('#ad').style.color = '#007067';
+                document.querySelector('#cta').style.borderRadius = 0;
+
+                 let frameTexts = document.querySelectorAll('.frameText');
+                 frameTexts.forEach(function(elem) { elem.classList.add('PromptBold') })
+                 document.querySelector('#cta').classList.add('PromptBold');
+
+              }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'wilmot'){
+                document.querySelector('#loadFont').innerHTML = '<div class="MuseoSlab700"style="color: transparent">MuseoSlab700</div>';
+                content.ctaBtnColor = '#FFFFFF^#FFFFFF';
+                document.querySelector('#topWhitePatch').style.backgroundColor = '#FFFFFF';
+                document.querySelector('#bottomWhitePatch').style.backgroundColor = '#A32136';
+                document.querySelector('#ad').style.color = '#FFFFFF';
+                document.querySelector('#cta').style.color = '#A32136';
+
+                 let frameTexts = document.querySelectorAll('.frameText');
+                 frameTexts.forEach(function(elem) { elem.classList.add('MuseoSlab700') })
+                 document.querySelector('#cta').classList.add('MuseoSlab700');
+
+              }
+              content.ctaBtn = content.ctaBtnColor.split('^')[0];
+              content.ctaBtnHover = content.ctaBtnColor.split('^')[1];
+              content['logoImage'] = './../images/160x600_' + content['brandName'].replace(/ /g,'') + '_LogoImage.png';
+              layout = content.layout.toLowerCase();
+              if(content.frameText4.toLowerCase() != 'na' && !document.querySelector("#backgroundImage4")) {
+                var imageElement = document.querySelector("#backgroundImage3");
+                var newImageElement = imageElement.cloneNode(true);
+                newImageElement.id = 'backgroundImage4';
+                newImageElement.dataset.image = 'backgroundImage4';
+                imageElement.parentNode.insertBefore(newImageElement, imageElement.nextElementSibling);
+                var textElement = document.querySelector("#frameText3");
+                var newTextElement = textElement.cloneNode(true);
+                newTextElement.id = 'frameText4';
+                newTextElement.dataset.text = 'frameText4';
+                textElement.parentNode.insertBefore(newTextElement, textElement.nextElementSibling);
+              }
+              if(layout == 'multipleimages') {
+                content.styleProperties = "{'#cta': {x:'-50%',y:10}}";
+                var cta = document.querySelector("#cta");
+                cta.style.width = "140px";
+                cta.style.left = "50%";
+                cta.innerHTML = '<span style="' + cta.dataset.style + '">' + content.ctaText + '</span>';
+                cta.style.width = cta.offsetWidth + 'px'
+
+              } else if(layout == 'multipleimagesoffer') {
+                content.styleProperties = "{'#cta': {x:'-50%',y:-15}, '#productLableLogo': {css:{display:'block'}}}";
+                var cta = document.querySelector("#cta");
+                cta.style.width = "140px";
+                cta.style.left = "50%";
+                cta.innerHTML = '<span style="' + cta.dataset.style + '">' + content.ctaText + '</span>';
+                cta.style.width = cta.offsetWidth + 'px';
+              }
+              // else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {
+              //   content.styleProperties = "{'#frameText': {x:-3, y:-11}, '#frameText span': {css:{textAlign:'left'}}, '#cta': {y:-20}, '#productLableLogo': {css:{display:'block'}}}";
+              //   var cta = document.querySelector("#cta");
+              //   cta.style.left = "10px";
+              //   cta.style.width = "70px";
+              //   cta.innerHTML = '<span style="' + cta.dataset.style + '">' + content.ctaText + '</span>';
+              //   if(cta.querySelector('span').offsetHeight > 20) {
+              //     cta.style.lineHeight = 1.2;
+              //     cta.style.height = "40px";
+              //   }
+              //   var frameText = document.querySelectorAll("div[id^=frameText]");
+              //   for (var i = 0; i < frameText.length; i++){
+              //    frameText[i].classList.remove('text');
+              //    frameText[i].classList.add('text-left');
+              //   }
+              // }
+            });
+            return data;
+          }
+        }, function(data, assets){
+          var adData = data[0], adClickUrl = adData['clickURL'];
+
+          var image = new Image();
+          image.crossOrigin = 'Anonymous';
+          image.onload = function() {
+            var canvas = document.createElement('canvas');
+            var ctx = canvas.getContext('2d');
+            canvas.width = this.width;
+            canvas.height = this.height;
+            document.body.appendChild(canvas);
+            ctx.fillStyle = adData['brandName'].replace(/ /g,'').toLowerCase() == 'madriver' ? '#ffffff' : adData['ctaBtnColor'].split('^')[0];
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.globalCompositeOperation = 'destination-in';
+            ctx.drawImage(this, 0, 0);
+            var imageURL = canvas.toDataURL();
+            ad.layers.productLableLogo.querySelector('img').src = imageURL;
+            document.body.removeChild(canvas);
+          }
+          image.src = adData['productLableLogo'];
+
+          //Condition for Image Size Check
+          var bg1ImageSrc = document.querySelector('#backgroundImage1 img').src;
+            var bg2ImageSrc = document.querySelector('#backgroundImage2 img').src;
+            var bg3ImageSrc = document.querySelector('#backgroundImage3 img').src;
+            if(adData.frameText4.toLowerCase() != 'na') {
+              var bg4ImageSrc = document.querySelector('#backgroundImage4 img').src;
+            }
+            assets.forEach(element => {
+                if(element.src === bg1ImageSrc) {
+                  if(element.naturalHeight === 600 || element.naturalHeight === 1200) {
+                    gsap.set('#backgroundImage1', { top:0 })
+                  }
+                }
+                if(element.src === bg2ImageSrc) {
+                  if(element.naturalHeight === 600 || element.naturalHeight === 1200) {
+                    gsap.set('#backgroundImage2', { top:0 })
+                  }
+                }
+                if(element.src === bg3ImageSrc) {
+                  if(element.naturalHeight === 600 || element.naturalHeight === 1200) {
+                    gsap.set('#backgroundImage3', { top:0 })
+                  }
+                }
+                if(element.src === bg4ImageSrc) {
+                  if(element.naturalHeight === 600 || element.naturalHeight === 1200) {
+                    gsap.set('#backgroundImage4', { top:0 })
+                  }
+                }
+            });
+
+            /*CTA Text Padding Change*/
+            let ctaElementSpan = document.querySelector('#cta span');
+            if(adData['brandName'].replace(/ /g,'').toLowerCase() == 'crotched'){
+                  ctaElementSpan.style.paddingTop = '0';
+            } else if(adData['brandName'].replace(/ /g,'').toLowerCase() == 'attitash') {
+              ctaElementSpan.style.padding = '0 8px 2px';
+            } else if(adData['brandName'].replace(/ /g,'').toLowerCase() == 'hiddenvalleypa' || adData['brandName'].replace(/ /g,'').toLowerCase() == 'laurelmountain') {
+              ctaElementSpan.style.padding = '2px 8px 2px';
+            }
+            /**********/
+            
+          ad.root.addEventListener("click", function(e) {
+            if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
+          });
+          // if(adData.impressionTracker.toLowerCase() != 'na'){ ad.loadAssets(adData.impressionTracker, function(assets){ }); }
+          if(adData.styleProperties && adData.styleProperties.toLowerCase() != 'na') {
+            try {
+              eval('var styleProperties = ' + adData.styleProperties);
+              if(styleProperties && typeof styleProperties == 'object')
+              for(var i in styleProperties) {
+                gsap.set(i, styleProperties[i]);
+              }
+            } catch(e) {  }
+          }
+          gsap.set('#frameText4, #backgroundImage4', { autoAlpha:0 })
+          var lastFrameAnimation = function() {
+            if(adData.frameText4.toLowerCase() != 'na') {
+              gsap.timeline({defaults:{ease: Power2.easeInOut, duration: 0.7}})
+              .to('#frameText3', { autoAlpha:0, delay:3 })
+              .to('#frameText4, #backgroundImage4', { autoAlpha:1 })
+            }
+          }
+          var adWidth = 160,adHeight = 600;
+          if(layout == 'singleimage') { gsap.set('.multiframe', { autoAlpha :0}) }
+            gsap.timeline({defaults:{ease: Power2.easeInOut, duration: 0.7}})
+            //.from('#bottomWhitePatch', { y:adHeight, delay:0.5 })
+            .from('#frameText1, #cta, #productLableLogo', { autoAlpha:0 })
+            .to('#frameText1', { autoAlpha:0, delay:3 })
+            .from('#frameText2, #backgroundImage2', { autoAlpha:0 })
+            .to('#frameText2', { autoAlpha:0, delay:3 })
+            .from('#frameText3, #backgroundImage3', { autoAlpha:0, onComplete: lastFrameAnimation })
+        });
+      }, 2000);
+    </script>
+  </body>
+</html>
