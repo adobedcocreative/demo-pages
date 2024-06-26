@@ -39,6 +39,8 @@
       }
       #cta { background-color: !{ctaBtn}; }
       #ad:hover #cta { background-color: !{ctaBtnHover}; }
+      #frameText2 > span {width: 100%;height: 100%;}
+      #frameText3 > span {width: 100%;height: 100%;}
     </style>
   </head>
   <body>
@@ -82,13 +84,20 @@
           letter-spacing: 0.05em;
           line-height: 1.15;">
       </div>
+      <div id="disclaimerText" class="text-right AlternateGothicATFMedium"
+        data-text="disclaimerText"
+        style="top: 173px;
+          right: 5px;
+          font-size: 8px;
+          letter-spacing: -0.1px;">
+      </div>
       <div id="cta" class="text PoppinsBold"
         data-text="ctaText"
         data-style="padding:3px 10px 0px;"
-        style="top: 194px;
+        style="top: 197px;
           left: 201px;
           width: 87px;
-          height: 28px;
+          height: 25px;
           font-size: 12px;
           line-height: 20px;
           letter-spacing: 0.05em;
@@ -138,6 +147,7 @@
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
             ctaBtnColor: '#d71920^#960c11',
             bottomWhitePatch: './../images/Breck_HighFiveCampaign_TextBox_DisplayBackground_300x250.jpg',
+            disclaimerText: '<sup>*</sup>TERMS APPLY',
           },
           beforeLoad: function(data){
             data.map(function(content){
@@ -281,11 +291,11 @@
             //.from('#bottomWhitePatch', { y:adHeight, delay:0.5 })
             .from('#frameText1, #cta, #productLableLogo', { autoAlpha:0 })
             .to('#frameText1', { autoAlpha:0, delay:3 })
-            .from('#frameText2, #backgroundImage2', { autoAlpha:0 })
-            .to('#frameText2', { autoAlpha:0, delay:3 })
+            .from('#frameText2, #backgroundImage2, #disclaimerText', { autoAlpha:0 })
+            .to('#frameText2, #disclaimerText', { autoAlpha:0, delay:3 })
             .from('#frameText3, #backgroundImage3', { autoAlpha:0, onComplete: lastFrameAnimation })
         });
-      }, 2000);
+      }, 500);
     </script>
   </body>
 </html>

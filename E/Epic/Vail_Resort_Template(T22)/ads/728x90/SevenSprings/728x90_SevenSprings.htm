@@ -39,6 +39,8 @@
       }
       #cta { background-color: !{ctaBtn}; }
       #ad:hover #cta { background-color: !{ctaBtnHover}; }
+      #frameText2 > span {width: 100%;height: 100%;}
+      #frameText3 > span {width: 100%;height: 100%;}
     </style>
   </head>
   <body>
@@ -53,6 +55,7 @@
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
       <div id="frameText1" class="text-left MontserratExtraBold"
         data-text="frameText1"
+        data-style="text-align:center;"
         style="top: 4px;
           left: 442px;
           width: 170px;
@@ -63,6 +66,7 @@
       </div>
       <div id="frameText2" class="text-left MontserratExtraBold"
         data-text="frameText2"
+        data-style="text-align:center;"
         style="top: 4px;
           left: 442px;
           width: 170px;
@@ -73,6 +77,7 @@
       </div>
       <div id="frameText3" class="text-left MontserratExtraBold"
         data-text="frameText3"
+        data-style="text-align:center;"
         style="top: 4px;
           left: 442px;
           width: 170px;
@@ -81,10 +86,17 @@
           letter-spacing: 0.02em;
           line-height: 1.1;">
       </div>
+      <div id="disclaimerText" class="text-right AlternateGothicATFMedium"
+        data-text="disclaimerText"
+        style="bottom: -2px;
+          right: 20px;
+          font-size: 8px;
+          letter-spacing: -0.1px;">
+      </div>
       <div id="cta" class="text MontserratExtraBold"
         data-text="ctaText"
         data-style="padding:1px 10px 0px;"
-        style="top: 29px;
+        style="top: -6px;
           left: 623px;
           width: 94px;
           height: 30px;
@@ -135,6 +147,7 @@
             logoImage: './../images/728x90_SevenSprings_LogoImage.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
             ctaBtnColor: '#F99A00^#faba52',
+            disclaimerText: '<sup>*</sup>TERMS APPLY',
           },
           beforeLoad: function(data){
             data.map(function(content){
@@ -156,30 +169,30 @@
               if(layout == 'multipleimages') {
                 content.styleProperties = "{'#cta': {y:25}}";
                 var cta = document.querySelector("#cta");
-                cta.style.left = "443px";
+                cta.style.right = "20px";
                 cta.style.width = "auto";
                 cta.style.minWidth = "80px";
                 cta.style.maxWidth = "120px";
                 cta.style.height = "27px";
                 var frameText = document.querySelectorAll("div[id^=frameText]");
                 for (var i = 0; i < frameText.length; i++){
-                 frameText[i].style.width = '275px';
-                 frameText[i].style.height = '46px';
+                 frameText[i].style.width = '165px';
+                 frameText[i].style.height = '86px';
                  frameText[i].style.fontSize = '18.2px';
                  frameText[i].style.lineHeight = '1.2';
                 }
               } else if(layout == 'multipleimagesoffer') {
                 content.styleProperties = "{'#cta': {y:25}, '#productLableLogo': {css:{display:'block'}}}";
                 var cta = document.querySelector("#cta");
-                cta.style.left = "443px";
+                cta.style.right = "20px";
                 cta.style.width = "auto";
                 cta.style.minWidth = "80px";
                 cta.style.maxWidth = "120px";
                 cta.style.height = "27px";
                 var frameText = document.querySelectorAll("div[id^=frameText]");
                 for (var i = 0; i < frameText.length; i++){
-                 frameText[i].style.width = '275px';
-                 frameText[i].style.height = '46px';
+                 frameText[i].style.width = '165px';
+                 frameText[i].style.height = '86px';
                  frameText[i].style.fontSize = '18.2px';
                  frameText[i].style.lineHeight = '1.2';
                 }
@@ -281,11 +294,11 @@
             //.from('#bottomWhitePatch', { x:adWidth/2, delay:0.5 })
             .from('#frameText1, #cta, #productLableLogo', { autoAlpha:0 })
             .to('#frameText1', { autoAlpha:0, delay:3 })
-            .from('#frameText2, #backgroundImage2', { autoAlpha:0 })
-            .to('#frameText2', { autoAlpha:0, delay:3 })
+            .from('#frameText2, #backgroundImage2, #disclaimerText', { autoAlpha:0 })
+            .to('#frameText2, #disclaimerText', { autoAlpha:0, delay:3 })
             .from('#frameText3, #backgroundImage3', { autoAlpha:0, onComplete: lastFrameAnimation })
         });
-      }, 2000);
+      }, 500);
     </script>
   </body>
 </html>

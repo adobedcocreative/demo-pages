@@ -39,6 +39,8 @@
       }
       #cta { background: !{ctaBtn}; }
       #ad:hover #cta { background: !{ctaBtnHover}; }
+      #frameText2 > span {width: 100%;height: 100%;}
+      #frameText3 > span {width: 100%;height: 100%;}
     </style>
   </head>
   <body>
@@ -53,6 +55,7 @@
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
       <div id="frameText1" class="text-left FuturaPTBold"
         data-text="frameText1"
+        data-style="text-align:center;"
         style="top: 3px;
           left: 170px;
           width: 82px;
@@ -63,6 +66,7 @@
       </div>
       <div id="frameText2" class="text-left FuturaPTBold"
         data-text="frameText2"
+        data-style="text-align:center;"
         style="top: 3px;
           left: 170px;
           width: 82px;
@@ -73,6 +77,8 @@
       </div>
       <div id="frameText3" class="text-left FuturaPTBold"
         data-text="frameText3"
+        data-style="text-align:center;"
+        data-style="text-align:center;"
         style="top: 3px;
           left: 170px;
           width: 82px;
@@ -81,10 +87,17 @@
           letter-spacing: 0.03em;
           line-height: 1.1;">
       </div>
+      <div id="disclaimerText" class="text-right AlternateGothicATFMedium"
+        data-text="disclaimerText"
+        style="bottom: 0px;
+          right: 4px;
+          font-size: 5px;
+          letter-spacing: -0.1px;">
+      </div>
       <div id="cta" class="text TradeGothicNextLTProBoldCondensed"
         data-text="ctaText"
         data-style="padding:0 6px 1px;"
-        style="top: 17px;
+        style="top: -6px;
           left: 256px;
           width: 55px;
           height: 18px;
@@ -136,6 +149,7 @@
             logoImage: './../images/320x50_Kirkwood_LogoImage.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
             ctaBtnColor: 'linear-gradient(to bottom,#0f758b 0,#0f758b 50%,#0f758b 50%,#0f758b 100%)^linear-gradient(to bottom,#1188a2 0,#1188a2 50%,#1188a2 50%,#1188a2 100%)',
+            disclaimerText: '<sup>*</sup>TERMS APPLY',
           },
           beforeLoad: function(data){
             data.map(function(content){
@@ -157,28 +171,28 @@
               if(layout == 'multipleimages') {
                 content.styleProperties = "{'#cta': {y:13}}";
                 var cta = document.querySelector("#cta");
-                cta.style.left = "166px";
+                cta.style.right = "4px";
                 cta.style.width = "auto";
                 cta.style.minWidth = "55px";
                 cta.style.maxWidth = "90px";
                 cta.style.height = "16px";
                 var frameText = document.querySelectorAll("div[id^=frameText]");
                 for (var i = 0; i < frameText.length; i++){
-                 frameText[i].style.width = '144px';
-                 frameText[i].style.height = '24px';
+                 frameText[i].style.width = '70px';
+                 frameText[i].style.height = '44px';
                 }
               } else if(layout == 'multipleimagesoffer') {
                 content.styleProperties = "{'#cta': {y:13}, '#productLableLogo': {css:{display:'block'}}}";
                 var cta = document.querySelector("#cta");
-                cta.style.left = "166px";
+                cta.style.right = "4px";
                 cta.style.width = "auto";
                 cta.style.minWidth = "55px";
                 cta.style.maxWidth = "90px";
                 cta.style.height = "16px";
                 var frameText = document.querySelectorAll("div[id^=frameText]");
                 for (var i = 0; i < frameText.length; i++){
-                 frameText[i].style.width = '144px';
-                 frameText[i].style.height = '24px';
+                 frameText[i].style.width = '70px';
+                 frameText[i].style.height = '44px';
                 }
               }
               // else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {
@@ -277,11 +291,11 @@
             //.from('#bottomWhitePatch', { x:adWidth/2, delay:0.5 })
             .from('#frameText1, #cta, #productLableLogo', { autoAlpha:0 })
             .to('#frameText1', { autoAlpha:0, delay:3 })
-            .from('#frameText2, #backgroundImage2', { autoAlpha:0 })
-            .to('#frameText2', { autoAlpha:0, delay:3 })
+            .from('#frameText2, #backgroundImage2, #disclaimerText', { autoAlpha:0 })
+            .to('#frameText2, #disclaimerText', { autoAlpha:0, delay:3 })
             .from('#frameText3, #backgroundImage3', { autoAlpha:0, onComplete: lastFrameAnimation })
         });
-      }, 2000);
+      }, 500);
     </script>
   </body>
 </html>

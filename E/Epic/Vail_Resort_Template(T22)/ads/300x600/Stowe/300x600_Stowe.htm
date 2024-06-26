@@ -40,6 +40,8 @@
       }
       #cta { background-color: !{ctaBtn}; }
       #ad:hover #cta { background-color: !{ctaBtnHover}; }
+      #frameText2 > span {width: 100%;height: 100%;}
+      #frameText3 > span {width: 100%;height: 100%;}
     </style>
   </head>
   <body>
@@ -84,6 +86,13 @@
           font-size: 25px;
           font-weight: bold;
           line-height: 1.15;">
+      </div>
+      <div id="disclaimerText" class="text-right AlternateGothicATFMedium"
+        data-text="disclaimerText"
+        style="bottom: -5px;
+          right: 4px;
+          font-size: 8px;
+          letter-spacing: -0.1px;">
       </div>
       <div id="cta" class="text AvenirLTStdBook"
         data-text="ctaText"
@@ -140,6 +149,7 @@
             logoImage: './../images/300x600_Stowe_LogoImage.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
             ctaBtnColor: '#c4272f^#384851',
+            disclaimerText: '<sup>*</sup>TERMS APPLY',
           },
           beforeLoad: function(data){
             data.map(function(content){
@@ -271,11 +281,11 @@
             //.from('#bottomWhitePatch', { y:adHeight, delay:0.5 })
             .from('#frameText1, #cta, #productLableLogo', { autoAlpha:0 })
             .to('#frameText1', { autoAlpha:0, delay:3 })
-            .from('#frameText2, #backgroundImage2', { autoAlpha:0 })
-            .to('#frameText2', { autoAlpha:0, delay:3 })
+            .from('#frameText2, #backgroundImage2, #disclaimerText', { autoAlpha:0 })
+            .to('#frameText2, #disclaimerText', { autoAlpha:0, delay:3 })
             .from('#frameText3, #backgroundImage3', { autoAlpha:0, onComplete: lastFrameAnimation })
         });
-      }, 2000);
+      }, 500);
     </script>
   </body>
 </html>
