@@ -5,6 +5,7 @@
     <title>Ad</title>
     <link rel="stylesheet" href="css/style.min.css">
     <script type="text/javascript" src="https://ads.everesttech.net/ads/static/local/AMOLibrary.js"></script>
+    <script src="js/gsap.min.js" charset="utf-8"></script>
     <script src="js/script.min.js" charset="utf-8"></script>
     <style media="screen">
       @font-face {
@@ -137,6 +138,17 @@
           }
         }, function(data){
           var adData = data[0], adClickUrl = adData['clickUrl'];
+
+          if(adData['passthroughfield4'] && adData['passthroughfield4'].toLowerCase() != 'na') {
+            try {
+              eval('var styleProperties = ' + adData['passthroughfield4']);
+              if(styleProperties && typeof styleProperties == 'object')
+              for(var i in styleProperties) {
+                gsap.set(i, styleProperties[i]);
+              }
+            } catch(e) {  }
+          }
+
           ad.root.addEventListener("click", function(e) {
             if('button' in e.target.dataset) { } else { amo.onDynAdClick(adData.feedData, "CLICK", adClickUrl); }
           });
@@ -162,15 +174,8 @@
           }
           ad.layers.cta.style.webkitTransform = '';
           ad.layers.cta.style.transform = '';
-          // ad.layers.cta.style.backgroundColor = '#ff0000';
-          if(adData.passthroughfield4.indexOf('|') != -1){
-            ad.layers.headline.style.color = adData['passthroughfield4'].split('|')[0];
-            ad.layers.cta.style.color = adData['passthroughfield4'].split('|')[1];
-          }else{
-            ad.layers.headline.style.color = ad.layers.cta.style.color = adData['passthroughfield4'];
-          }
         });
-      }, 1000);
+      }, 500);
     </script>
   </body>
 </html>
