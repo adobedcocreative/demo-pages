@@ -162,6 +162,11 @@
                 cta.innerHTML = '<span style="' + cta.dataset.style + '">' + content.ctaText + '</span>';
                 cta.style.width = cta.offsetWidth + 'px'
 
+              var frameText = document.querySelectorAll("div[id^=frameText]");
+                for (var i = 0; i < frameText.length; i++){
+                  frameText[i].style.height = '90px';
+                }
+
               } else if(layout == 'multipleimagesoffer') {
                 // content.styleProperties = "{'#cta': {x:'-50%',y:-15}, '#productLableLogo': {css:{display:'block'}}}";
                 content.styleProperties = "{'#productLableLogo': {css:{display:'block'}}}";
