@@ -9,11 +9,16 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/script.min.js"></script>
     <style media="screen">
-      .RobotoSlabBold{
-        font-family: roboto-slab,serif;
-        font-weight: 700;
-        font-style: normal;
+      @font-face {
+          font-family: GalanoGrotesqueMedium;
+          src: url('fonts/GalanoGrotesqueMedium.woff') format("woff");
       }
+      .GalanoGrotesqueMedium { font-family: GalanoGrotesqueMedium; }
+      @font-face {
+          font-family: GalanoGrotesqueBold;
+          src: url('fonts/GalanoGrotesqueBold.woff') format("woff");
+      }
+      .GalanoGrotesqueBold { font-family: GalanoGrotesqueBold; }
     </style>
     <style media="screen" data-dynamic="style">
       #ad {
@@ -22,7 +27,7 @@
         font-family: arial,sans-serif;
         font-weight: 900;
         font-style: normal;
-        color: #373e56;
+        color: #EA3410;
         background-color: #fff;
       }
       .frame {
@@ -43,12 +48,12 @@
       <div id="backgroundImage1" style="left: 28px; height: 50px;width: auto;" class="asset-left frame" data-image="backgroundImage1"></div>
       <div id="backgroundImage2" style="left: 28px; height: 50px;width: auto;" class="asset-left frame multiframe" data-image="backgroundImage2"></div>
       <div id="backgroundImage3" style="left: 28px; height: 50px;width: auto;" class="asset-left frame multiframe" data-image="backgroundImage3"></div>
-      <div id="topWhitePatch" class="frame" style="left:-292px;background-color:rgba(255, 255, 255, 1.0);"></div>
-      <div id="bottomWhitePatch" class="frame" style="left:160px;background-color:rgba(255, 255, 255, 1.0);"></div>
+      <div id="topWhitePatch" class="frame" style="left:-292px;background-color:rgba(250, 249, 243, 1.0);"></div>
+      <div id="bottomWhitePatch" class="frame" style="left:160px;background-color:rgba(250, 249, 243, 1.0);"></div>
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="productLableLogo" class="asset frame" data-image="productLableLogo" style="display:none;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
-      <div id="frameText1" class="text-left RobotoSlabBold"
+      <div id="frameText1" class="text-left GalanoGrotesqueBold"
         data-text="frameText1"
         data-style="text-align:left;"
         style="top: 3px;
@@ -59,7 +64,7 @@
           letter-spacing: 0.02em;
           line-height: 1.1;">
       </div>
-      <div id="frameText2" class="text-left RobotoSlabBold"
+      <div id="frameText2" class="text-left GalanoGrotesqueBold"
         data-text="frameText2"
         data-style="text-align:left;"
         style="top: 3px;
@@ -70,7 +75,7 @@
           letter-spacing: 0.02em;
           line-height: 1.1;">
       </div>
-      <div id="frameText3" class="text-left RobotoSlabBold"
+      <div id="frameText3" class="text-left GalanoGrotesqueBold"
         data-text="frameText3"
         data-style="text-align:left;"
         style="top: 3px;
@@ -89,7 +94,7 @@
           color: #909090;
           letter-spacing: -0.1px;">
       </div>
-      <div id="cta" class="text RobotoSlabBold"
+      <div id="cta" class="text GalanoGrotesqueMedium"
         data-text="ctaText"
         data-style="padding:0 6px 0px;"
         style="top: -6px;
@@ -99,13 +104,14 @@
           font-size: 8px;
           line-height: 10px;
           letter-spacing: 0.5px;
-          /*border-radius: 12px;*/
-          color: #fff;">
+          border-radius: 12px;
+          color: #FAF9F3;>
       </div>
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
     <div id="loadFont" style="width:0;height:0;overflow:hidden;">
-      <div class="RobotoSlabBold">RobotoSlabBold</div>
+      <div class="GalanoGrotesqueBold">GalanoGrotesqueBold</div>
+      <div class="GalanoGrotesqueMedium">GalanoGrotesqueMedium</div>
     </div>
     <script type="text/javascript">
       var layout = 'standard';
@@ -142,7 +148,7 @@
             // ref: 'ref.png'
             logoImage: './../images/320x50_Hunter_LogoImage.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
-            ctaBtnColor: '#eea54a^#9c6827',
+            ctaBtnColor: '#EA3410^#222233',
             disclaimerText: '<sup>*</sup>TERMS APPLY',
           },
           beforeLoad: function(data){
