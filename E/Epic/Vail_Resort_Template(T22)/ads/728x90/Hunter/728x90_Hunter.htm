@@ -105,7 +105,7 @@
           line-height: 20px;
           letter-spacing: 0.05em;
           border-radius: 12px;
-          color: #FAF9F3;>
+          color: #FAF9F3;">
       </div>
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
@@ -174,7 +174,7 @@
                 cta.style.right = "20px";
                 cta.style.width = "auto";
                 cta.style.minWidth = "80px";
-                cta.style.maxWidth = "120px";
+                cta.style.maxWidth = "100px";
                 cta.style.height = "27px";
                 var frameText = document.querySelectorAll("div[id^=frameText]");
                 for (var i = 0; i < frameText.length; i++){
@@ -186,10 +186,11 @@
               } else if(layout == 'multipleimagesoffer') {
                 content.styleProperties = "{'#cta': {y:25}, '#productLableLogo': {css:{display:'block'}}}";
                 var cta = document.querySelector("#cta");
+                cta.style.left = "auto";
                 cta.style.right = "20px";
                 cta.style.width = "auto";
                 cta.style.minWidth = "80px";
-                cta.style.maxWidth = "120px";
+                cta.style.maxWidth = "100px";
                 cta.style.height = "27px";
                 var frameText = document.querySelectorAll("div[id^=frameText]");
                 for (var i = 0; i < frameText.length; i++){

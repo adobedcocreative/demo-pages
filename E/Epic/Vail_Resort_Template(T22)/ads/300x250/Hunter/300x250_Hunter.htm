@@ -60,7 +60,7 @@
           width: 180px;
           height: 70px;
           font-size: 17px;
-          letter-spacing: 1.7px;
+          letter-spacing: 0.02em;
           line-height: 1.15;">
       </div>
       <div id="frameText2" class="text-left GalanoGrotesqueBold"
@@ -70,7 +70,7 @@
           width: 180px;
           height: 70px;
           font-size: 17px;
-          letter-spacing: 1.7px;
+          letter-spacing: 0.02em;
           line-height: 1.15;">
       </div>
       <div id="frameText3" class="text-left GalanoGrotesqueBold"
@@ -80,7 +80,7 @@
           width: 180px;
           height: 70px;
           font-size: 17px;
-          letter-spacing: 1.7px;
+          letter-spacing: 0.02em;
           line-height: 1.15;">
       </div>
       <div id="disclaimerText" class="text-right AlternateGothicATFMedium"
@@ -102,7 +102,7 @@
           line-height: 20px;
           letter-spacing: 0.05em;
           border-radius: 15px;
-          color: #FAF9F3;>
+          color: #FAF9F3;">
       </div>
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
@@ -175,25 +175,25 @@
                 cta.dataset.style = 'padding:0px 10px 0px;';
                 var frameText = document.querySelectorAll("div[id^=frameText]");
                 for (var i = 0; i < frameText.length; i++){
-                  frameText[i].style.left = '15px';
+                  frameText[i].style.left = '11px';
                   frameText[i].style.width = '270px';
                   frameText[i].style.height = '38px';
-                  frameText[i].style.textAlign = 'center';
+                  //frameText[i].style.textAlign = 'center';
                 }
               } else if(layout == 'multipleimagesoffer') {
                 content.styleProperties = "{'#cta': {x:0,y:21},'#productLableLogo': {css:{display:'block'}}}";
                 var cta = document.querySelector("#cta");
-                cta.style.left = "15px";
+                cta.style.left = "11px";
                 cta.style.width = "auto";
                 cta.style.minWidth = "90px";
                 cta.style.maxWidth = "140px";
                 cta.dataset.style = 'padding:0px 10px 0px;';
                 var frameText = document.querySelectorAll("div[id^=frameText]");
                 for (var i = 0; i < frameText.length; i++){
-                  frameText[i].style.left = '15px';
+                  frameText[i].style.left = '11px';
                   frameText[i].style.width = '270px';
                   frameText[i].style.height = '38px';
-                  frameText[i].style.textAlign = 'center';
+                  //frameText[i].style.textAlign = 'center';
                 }
               }
               // else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {

@@ -73,7 +73,7 @@
           width: 82px;
           height: 44px;
           font-size: 10px;
-          letter-spacing: 0
+          letter-spacing: 0.9pt;
           line-height: 1.1;">
       </div>
       <div id="frameText2" class="text-left ivypresto-display"
@@ -84,7 +84,7 @@
           width: 82px;
           height: 44px;
           font-size: 10px;
-          letter-spacing: 0
+          letter-spacing: 0.9pt;
           line-height: 1.1;">
       </div>
       <div id="frameText3" class="text-left ivypresto-display"
@@ -95,7 +95,7 @@
           width: 82px;
           height: 44px;
           font-size: 10px;
-          letter-spacing: 0
+          letter-spacing: 0.9pt;
           line-height: 1.1;">
       </div>
       <div id="disclaimerText" class="text-right ivypresto-display"
@@ -115,7 +115,7 @@
           height: 18px;
           font-size: 8px;
           line-height: 10px;
-          letter-spacing: 0
+          letter-spacing: 0.8pt;
           border: 1px solid #fff;
           /* border-radius: 12px; */">
       </div>
@@ -195,6 +195,7 @@
               } else if(layout == 'multipleimagesoffer') {
                 content.styleProperties = "{'#cta': {y:13}, '#productLableLogo': {css:{display:'block'}}}";
                 var cta = document.querySelector("#cta");
+                cta.style.left = "auto";
                 cta.style.right = "4px";
                 cta.style.width = "auto";
                 cta.style.minWidth = "50px";

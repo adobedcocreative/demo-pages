@@ -73,7 +73,7 @@
           width: 170px;
           height: 80px;
           font-size: 21px;
-          letter-spacing: 0
+          letter-spacing: 0.9pt;
           line-height: 1.1;">
       </div>
       <div id="frameText2" class="text-left ivypresto-display"
@@ -84,7 +84,7 @@
           width: 170px;
           height: 80px;
           font-size: 21px;
-          letter-spacing: 0
+          letter-spacing: 0.9pt;
           line-height: 1.1;">
       </div>
       <div id="frameText3" class="text-left ivypresto-display"
@@ -95,7 +95,7 @@
           width: 170px;
           height: 80px;
           font-size: 21px;
-          letter-spacing: 0
+          letter-spacing: 0.9pt;
           line-height: 1.1;">
       </div>
       <div id="disclaimerText" class="text-right ivypresto-display"
@@ -108,14 +108,14 @@
       </div>
       <div id="cta" class="text vinila-variable"
         data-text="ctaText"
-        data-style="padding:1px 10px 1px;"
+        data-style="padding:3px 10px 1px;"
         style="top: -6px;
           left: 623px;
           width: 94px;
           height: 30px;
           font-size: 13px;
           line-height: 20px;
-          letter-spacing: 0
+          letter-spacing: 0.8pt;
           border: 1px solid #fff;
           /*border-radius: 12px;*/">
       </div>
@@ -185,7 +185,7 @@
                 cta.style.left = "443px";
                 cta.style.width = "auto";
                 cta.style.minWidth = "80px";
-                cta.style.maxWidth = "120px";
+                cta.style.maxWidth = "100px";
                 cta.style.height = "27px";
                 var frameText = document.querySelectorAll("div[id^=frameText]");
                 for (var i = 0; i < frameText.length; i++){
@@ -197,10 +197,11 @@
               } else if(layout == 'multipleimagesoffer') {
                 content.styleProperties = "{'#cta': {y:25}, '#productLableLogo': {css:{display:'block'}}}";
                 var cta = document.querySelector("#cta");
+                cta.style.left = "auto";
                 cta.style.right = "20px";
                 cta.style.width = "auto";
                 cta.style.minWidth = "80px";
-                cta.style.maxWidth = "120px";
+                cta.style.maxWidth = "100px";
                 cta.style.height = "27px";
                 var frameText = document.querySelectorAll("div[id^=frameText]");
                 for (var i = 0; i < frameText.length; i++){
