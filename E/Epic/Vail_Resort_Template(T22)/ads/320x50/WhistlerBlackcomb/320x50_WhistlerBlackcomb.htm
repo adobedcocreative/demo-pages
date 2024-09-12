@@ -56,7 +56,7 @@
       <div id="frameText1" class="text-left MontserratBold"
         data-text="frameText1"
         data-style="text-align:left;"
-        style="top: 3px;
+        style="top: 5px;
           left: 180px;
           width: 82px;
           height: 44px;
@@ -67,7 +67,7 @@
       <div id="frameText2" class="text-left MontserratBold"
         data-text="frameText2"
         data-style="text-align:left;"
-        style="top: 3px;
+        style="top: 5px;
           left: 180px;
           width: 82px;
           height: 44px;
@@ -78,7 +78,7 @@
       <div id="frameText3" class="text-left MontserratBold"
         data-text="frameText3"
         data-style="text-align:left;"
-        style="top: 3px;
+        style="top: 5px;
           left: 180px;
           width: 82px;
           height: 44px;
@@ -168,8 +168,9 @@
                 textElement.parentNode.insertBefore(newTextElement, textElement.nextElementSibling);
               }
               if(layout == 'multipleimages') {
-                content.styleProperties = "{'#cta': {y:13}}";
+                content.styleProperties = "{'#cta': {y:17}}";
                 var cta = document.querySelector("#cta");
+                cta.style.top = 0;
                 cta.style.right = "4px";
                 cta.style.width = "auto";
                 cta.style.minWidth = "50px";

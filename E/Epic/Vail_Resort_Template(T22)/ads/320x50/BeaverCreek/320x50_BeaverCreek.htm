@@ -180,17 +180,19 @@
                 textElement.parentNode.insertBefore(newTextElement, textElement.nextElementSibling);
               }
               if(layout == 'multipleimages') {
-                content.styleProperties = "{'#cta': {y:13}}";
+                content.styleProperties = "{'#cta': {y:16}}";
                 var cta = document.querySelector("#cta");
-                cta.style.left = "178px";
+                cta.style.top = 0;
+                cta.style.left = "auto";
+                cta.style.right = "4px";
                 cta.style.width = "auto";
                 cta.style.minWidth = "50px";
                 cta.style.maxWidth = "70px";
                 cta.style.height = "16px";
                 var frameText = document.querySelectorAll("div[id^=frameText]");
                 for (var i = 0; i < frameText.length; i++){
-                 frameText[i].style.width = '138px';
-                 frameText[i].style.height = '24px';
+                 frameText[i].style.width = '70px';
+                 frameText[i].style.height = '44px';
                 }
               } else if(layout == 'multipleimagesoffer') {
                 content.styleProperties = "{'#cta': {y:13}, '#productLableLogo': {css:{display:'block'}}}";
