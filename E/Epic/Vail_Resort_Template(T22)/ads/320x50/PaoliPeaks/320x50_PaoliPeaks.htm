@@ -222,6 +222,7 @@
                 let frameTexts = document.querySelectorAll('.frameText');
                 frameTexts.forEach(function(elem) { elem.classList.add('MuseoSlab900') })
                 document.querySelector('#cta').classList.add('MuseoSlab900');
+                document.querySelector('#cta').style.fontSize = '7px';
 
               }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'alpinevalley'){
                  document.querySelector('#loadFont').innerHTML = '<div class="PromptBold"style="color: transparent">PromptBold</div>';
@@ -316,6 +317,7 @@
                 let frameTexts = document.querySelectorAll('.frameText');
                  frameTexts.forEach(function(elem) { elem.classList.add('FuturaBold') })
                  document.querySelector('#cta').classList.add('FuturaBold');
+                 document.querySelector('#cta').style.fontSize = '7px';
 
               }else if(content['brandName'].replace(/ /g,'').toLowerCase() == 'laurelmountain'){
                 document.querySelector('#loadFont').innerHTML = '<div class="RobotoBold"style="color: transparent">RobotoBold</div>';
@@ -432,6 +434,7 @@
                  let frameTexts = document.querySelectorAll('.frameText');
                  frameTexts.forEach(function(elem) { elem.classList.add('MuseoSlab700') })
                  document.querySelector('#cta').classList.add('MuseoSlab700');
+                 document.querySelector('#cta').style.fontSize = '7px';
 
               }
               content.ctaBtn = content.ctaBtnColor.split('^')[0];
@@ -461,6 +464,9 @@
                 cta.style.height = "16px";
                 var frameText = document.querySelectorAll("div[id^=frameText]");
                 for (var i = 0; i < frameText.length; i++){
+                if(frameText[i].id !== 'frameText2') {
+                  frameText[i].style.top = '5px';
+                 }
                  frameText[i].style.width = '70px';
                  frameText[i].style.height = '40px';
                 }
@@ -474,6 +480,9 @@
                 cta.style.height = "16px";
                 var frameText = document.querySelectorAll("div[id^=frameText]");
                 for (var i = 0; i < frameText.length; i++){
+                 if(frameText[i].id !== 'frameText2') {
+                  frameText[i].style.top = '5px';
+                 }
                  frameText[i].style.width = '80px';
                  frameText[i].style.height = '40px';
                 }
