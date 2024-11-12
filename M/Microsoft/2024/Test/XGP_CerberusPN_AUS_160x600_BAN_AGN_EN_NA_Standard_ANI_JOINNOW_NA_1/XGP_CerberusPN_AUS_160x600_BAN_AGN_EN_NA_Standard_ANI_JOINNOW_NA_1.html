@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="tBannerV" content="2.51b">
+	<title>XGP_CerberusPN_AUS_160x600_BAN_AGN_EN_NA_Standard_ANI_JOINNOW_NA_1</title>
+	<script src="js/tools/iphone-inline-video.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/createjs@1.0.1/builds/1.0.0/createjs.min.js"></script>
+	<meta name="ad.size" content="width=160,height=600">
+	<script>
+		var clickTag = "https://www.google.com";
+		const fontToLoad = [
+			['Segoe UI Black', 'url(fonts/SegoeUI-Black.woff)'],
+			['Segoe Pro Cond', 'url(fonts/SegoePro-Cond.woff)'],
+			['SegoeUI-Bold', 'url(fonts/SegoeUI-Bold.woff)']
+		],
+		videoSrc = ['./video/CoD.mp4', './video/finalFrame.mp4'];
+	</script>
+	<link rel="stylesheet" href="css/main.css">
+</head>
+
+<body onload="loaded('body')">
+	<div id="aria-text" style="opacity: 0;">
+		<div style="top: 17px; left: 17px; width: 32px; height: 32px; opacity: 0;">XBOX Game Pass</div>
+		<div style="top: 264px; left: 35px; width: 91px; height: 23px; opacity: 0;">Play it now with PC Game Pass.</div>
+		<div style="top: 102px; left: 17px; width: 126px; height: 32px; opacity: 0;">Call of Duty Black Ops 6.</div>
+		<div style="top: 145px; left: 16px; width: 127px; height: 22px; opacity: 0;">Play now.</div>
+		<div style="top:435px; left: 35px; width: 90px; height: 8px; opacity: 0;">Game availability varies by plan.</div>
+		<div style="top:532px; left: 17px; width: 131px; height: 54px; opacity: 0;">ESRB Rating: MATURE 17+ with Blood and Gore, Intense Violence, Suggestive Themes, Strong Language, Use of Drugs
+		</div>
+		<div id="aria-button" role="button" style="opacity: 0;">JOIN GAME PASS</div>
+	</div>
+
+	<div id="init" aria-hidden="true"></div>
+	<div id="rHit" class="replay-color alpha copy" aria-hidden="true">
+		<i class="fas fa-redo fa-xs"></i>
+	</div>
+
+	<div id="outline" aria-hidden="true">
+		<div id="border"></div>
+		<div id="maingreadient"><img id="mg" src="images/gradient.svg" style="opacity: 0;"></div>
+		<div id="endframegr"><img id="efg" src="images/gradient_ff.svg" style="opacity: 0;"></div>
+		<div id="logo_intro"><img id="logo" src="images/xbox_logo.svg"></div>
+		<div id="cod_logo"><img id="cod" src="images/cod_logo.svg"></div>
+
+		<div id="intro" class="copy unselectable"
+			style="font-family:'SegoeUI-Bold', Arial, Helvetica, sans-serif; font-size: 12px; line-height: 14px; top: 262px; left: 35px; text-align: center; color: #FFFFFF;">
+			Play it now with<br>Game Pass.
+		</div>
+
+		<div id="disclaimerintro" class="copy unselectable"
+			style="font-family:'Segoe Pro Cond', Arial, Helvetica, sans-serif; font-size: 8px; line-height: 14px; top: 501px; left: 35px; color: #FFFFFF">
+			Game availability varies by plan.
+		</div>
+
+		<div id="headline1" class="copy unselectable"
+			style="opacity:0; font-family:'Segoe UI Black', Arial, Helvetica, sans-serif; font-size: 24px; line-height: 19px; letter-spacing: -0.025em; width: 100%; top: 144px; left: 15px; text-align:left;  color: #FFFFFF;">
+			PLAY NOW
+		</div>
+
+		<svg id="green_shape" class="copy unselectable" width="21.56" viewBox="0 0 47.062 7.512" style="opacity: 0;">
+			<path id="path1" data-name="path1" d="M5.321,0,0,7.512H41.741L47.062,0Z" transform="translate(0 0)"
+				fill="#9bf00b" />
+		</svg>
+		
+		<div id="disclaimer" class="copy unselectable"
+			style= "opacity:0; font-family:'Segoe Pro Cond', Arial, Helvetica, sans-serif; font-size: 8px; line-height: 12px; top: 432px; left: 35px; color: #FFFFFF">
+			Game availability varies by plan.
+		</div>
+
+		<div id="esrbtxt" class="copy unselectable"
+			style="font-family:'Segoe Pro Cond', Arial, Helvetica, sans-serif; font-size: 12px; line-height: 14px; top: 529px; left: 17px; color: #FFFFFF;">
+			MA 15+
+		</div>
+
+
+		<div id="cta" class="copy unselectable" style="opacity: 0;">
+			<div id="txtCta" style="font-family: 'Segoe UI Black', Arial, Helvetica, sans-serif; font-size: 10px;">
+				JOIN GAME PASS&nbsp;<span>
+					<svg id="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.52 54.05">
+						<path d="M35.52,27.04l-16.16,27.01H0S16.26,27.04,16.26,27.04L0,0H19.36s16.16,27.04,16.16,27.04Z" />
+					</svg></span>
+			</div>
+			<svg id="bg_arrow" viewBox="0 0 402.49 62.53">
+				<polygon fill="#107c10" points="376.24 0 0 0 26.25 31.65 0 62.53 376.24 62.53 402.49 31.65 376.24 0" />
+			</svg>
+		</div>
+
+		<video id="vid1" autoplay playsinline preload="auto" webkit-playsinline="" muted></video>
+
+		<video id="vid2" autoplay playsinline preload="auto" webkit-playsinline="" muted
+			style="position: absolute; left: 0;top: 0; opacity: 0;"></video>
+	</div>
+	<script src="js/tools/tools.js"></script>
+	<script src="js/tools/ctaAnimation.js"></script>
+	<script src="js/tools/videoTools.js"></script>
+	<script src="js/anim.js"></script>
+	<script src="js/init.js"></script>
+</body>
+
+</html>

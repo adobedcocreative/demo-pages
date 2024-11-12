@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 160 600">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-2 {
+        fill: url(#radial-gradient);
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="1.8" y1="598.2" x2="2" y2="598.2" gradientTransform="translate(95788 769) rotate(-90) scale(169 -160)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#080704"/>
+      <stop offset="1" stop-color="#14191c" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="-.1" y1="600.8" x2=".2" y2="600.8" gradientTransform="translate(-96052 169) rotate(90) scale(212 -160)" xlink:href="#linear-gradient"/>
+    <radialGradient id="radial-gradient" cx="1.4" cy="601" fx="1.4" fy="601" r=".5" gradientTransform="translate(-246 69836) scale(228 -116)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity=".8"/>
+      <stop offset=".5" stop-color="#000" stop-opacity=".3"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Generator: Adobe Illustrator 28.6.0, SVG Export Plug-In . SVG Version: 1.2.0 Build 709)  -->
+  <g>
+    <g id="Layer_1">
+      <g id="Adjustments">
+        <rect id="Bottom_gradient" class="cls-3" y="431" width="160" height="169"/>
+        <rect id="Top_gradient" class="cls-1" width="160" height="212"/>
+        <ellipse id="Ellipse_7" class="cls-2" cx="80" cy="125" rx="114" ry="58"/>
+      </g>
+    </g>
+  </g>
+</svg>

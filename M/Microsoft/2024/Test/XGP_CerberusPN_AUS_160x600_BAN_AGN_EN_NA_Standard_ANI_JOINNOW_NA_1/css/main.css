@@ -1,0 +1,194 @@
+/* Main CSS */
+body {
+    background-color: #909090;
+    margin: 0
+}
+
+.alpha {
+    opacity: 50%
+}
+
+.solid {
+    opacity: 100% !important;
+}
+
+.fa,
+.fas {
+    font-family: 'Font Awesome 5 Free', sans-serif;
+    font-weight: 900;
+}
+
+.copy {
+    position: absolute;
+    z-index: 1000;
+    visibility: hidden;
+}
+
+.unselectable {
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#aria-text {
+    opacity: 0;
+    position: absolute;
+    z-index: -1
+}
+
+#aria-text div {
+    position: absolute
+}
+
+#aria-button {
+    top: 451px;
+    left: 15px;
+    width: 131px;
+    height: 21px;
+}
+
+#init {
+    background-color: #FFFFFF;
+    position: absolute;
+    display: block;
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+}
+
+#outline {
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    background: #000000;
+}
+
+#mg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 160px;
+    z-index: 50;
+}
+#efg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 160px;
+    z-index: 50;
+}
+
+#cod_logo {
+    position: absolute;
+    left: 17px;
+    top: 101px;
+    width: 126px;
+    z-index: 1001;
+}
+
+#logo {
+    position: absolute;
+    left: 17px;
+    top: 17px;
+    height: 32px;
+	z-index: 1001;
+
+}
+
+#logo img {
+    width: 100%
+}
+
+#outline #border {
+    position: absolute;
+    border: 1px solid #B5B5B5;
+    box-sizing: border-box;
+    background-color: transparent;
+    top: 0;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    z-index: 1001;
+}
+
+#rHit {
+    color: #FFFFFF;
+    top: 0;
+    margin-top: 4px;
+    width: 16px;
+    height: 22px;
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    z-index: 1002;
+    line-height: 0;
+    opacity: 0;
+}
+
+#green_shape {
+    top: 167px;
+    left: 68px;
+}
+
+
+#cta {
+    will-change: transform;
+    top: 451px;
+    left: 15px;
+    width: 131px;
+    height: 21px;
+    background: #9BF00B;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#txtCta {
+    color: #054B16;
+    padding: 0 11px 0.1em 16px;
+    display: flex;
+    max-width: 130px;
+    text-align: center;
+}
+
+#txtCta span {
+    overflow: hidden;
+    margin-left: 8px;
+    width: 12px;
+    height: 10px;
+    position: relative;
+    display: inline-table;
+}
+
+#arrow {
+    fill: #054B16;
+    height: 7px;
+    transform: translateX(0);
+    enable-background: new 0 0 45.8 25.9;
+}
+
+.cta_color_1 {
+    color: #054B16;
+    fill: #054B16;
+}
+
+.cta_color_2 {
+    color: #FFFFFF;
+    fill: #FFFFFF;
+}
+
+#bg_arrow {
+    height: 30px;
+    width: 205px;
+    position: absolute;
+    z-index: -1;
+    top: -6;
+    left: -220px;
+    fill: #0043d4;
+}
