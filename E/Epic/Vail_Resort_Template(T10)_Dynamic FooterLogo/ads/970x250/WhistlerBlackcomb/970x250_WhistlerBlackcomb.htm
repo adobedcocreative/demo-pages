@@ -9,7 +9,12 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/script.min.js"></script>
     <style media="screen">
-      .MontserratBlack{
+      @font-face {
+          font-family: ProximaNovaBlack;
+          src: url('fonts/ProximaNova-Black.woff') format("woff");
+      }
+      .ProximaNovaBlack { font-family: ProximaNovaBlack; }
+      /* .MontserratBlack{
         font-family: montserrat, sans-serif;
         font-weight: 900;
         font-style: normal;
@@ -18,7 +23,7 @@
         font-family: "montserrat", sans-serif;
         font-weight: 700;
         font-style: normal;
-      }
+      } */
     </style>
     <style media="screen" data-dynamic="style">
       #ad {
@@ -39,6 +44,11 @@
       }
       #cta { background-color: !{ctaBtn}; }
       #ad:hover #cta { background-color: !{ctaBtnHover}; }
+      #logoImage img {
+        width: 250px;
+        top: 17%;
+        left: 77%;
+      }
     </style>
   </head>
   <body>
@@ -46,12 +56,12 @@
       <div id="backgroundImage1" style="width: auto; height: 250px;" class="asset-left frame" data-image="backgroundImage1"></div>
       <div id="backgroundImage2" style="width: auto; height: 250px;" class="asset-left frame multiframe" data-image="backgroundImage2"></div>
       <div id="backgroundImage3" style="width: auto; height: 250px;" class="asset-left frame multiframe" data-image="backgroundImage3"></div>
-      <div id="topWhitePatch" class="frame" style="top:-1198px;left:-636px;background-color:rgba(0, 0, 0, 1.0);"></div>
-      <div id="bottomWhitePatch" class="frame" style="left:596px;background-color:rgba(0, 0, 0, 1.0);"></div>
+      <div id="topWhitePatch" class="frame" style="top:-1198px;left:-636px;background-color: #CC0000;"></div>
+      <div id="bottomWhitePatch" class="frame" style="left:596px;background-color: #CC0000;"></div>
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="productLableLogo" class="asset frame" data-image="productLableLogo" style="display:none;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
-      <div id="frameText1" class="text-left MontserratBold"
+      <div id="frameText1" class="text-left ProximaNovaBlack"
         data-text="frameText1"
         style="top: 70px;
           left: 623px;
@@ -61,7 +71,7 @@
           /* letter-spacing: 2.65px; */
           line-height: 1.13;">
       </div>
-      <div id="frameText2" class="text-left MontserratBold"
+      <div id="frameText2" class="text-left ProximaNovaBlack"
         data-text="frameText2"
         style="top: 70px;
           left: 623px;
@@ -71,7 +81,7 @@
           /* letter-spacing: 2.65px; */
           line-height: 1.13;">
       </div>
-      <div id="frameText3" class="text-left MontserratBold"
+      <div id="frameText3" class="text-left ProximaNovaBlack"
         data-text="frameText3"
         style="top: 70px;
           left: 623px;
@@ -81,7 +91,7 @@
           /* letter-spacing: 2.65px; */
           line-height: 1.13;">
       </div>
-      <div id="cta" class="text MontserratBold"
+      <div id="cta" class="text ProximaNovaBlack"
         data-text="ctaText"
         data-style="padding:2px 20px 0px;"
         style="top: 193px;
@@ -98,7 +108,7 @@
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
     <div id="loadFont" style="width:0;height:0;overflow:hidden;">
-      <div class="MontserratBold">MontserratBold</div>
+      <div class="ProximaNovaBlack">ProximaNovaBlack</div>
     </div>
     <script type="text/javascript">
       var layout = 'standard';
@@ -134,9 +144,9 @@
           ],
           staticData: {
             // ref: 'ref.png'
-            logoImage: './../images/970x250_WhistlerBlackcomb_LogoImage.png',
+            logoImage: './../images/WB_GOBEYOND_LOGO_FNL_White.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
-            ctaBtnColor: '#CC0000^#db1f1f',
+            ctaBtnColor: '#000000^#4d4d4f',
           },
           beforeLoad: function(data){
             data.map(function(content){

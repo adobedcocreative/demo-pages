@@ -14,11 +14,12 @@
           src: url('fonts/NeutraDisplay-Bold.woff') format("woff");
       }
       .NeutraDisplayBold { font-family: NeutraDisplayBold; } */
-      .DashiellFineBold {
+      .NewOrder-Medium { font-family: "new-order"; }
+      /* .DashiellFineBold {
         font-family: "dashiell-fine", serif;
         font-weight: 700;
         font-style: normal;
-      }
+      } */
     </style>
     <style media="screen" data-dynamic="style">
       #ad {
@@ -27,7 +28,7 @@
         font-family: arial,sans-serif;
         font-weight: 900;
         font-style: normal;
-        color: #7d1c25;
+        color: #FFFFFF;
         background-color: #fff;
       }
       .frame {
@@ -40,6 +41,11 @@
       #cta { background-color: !{ctaBtn};  }
       #ad:hover #cta { background-color: !{ctaBtnHover}; }
       #ad:hover #cta { color: !{ctaBtn};  }
+      #logoImage img {
+        width: 125px;
+        top: 18%;
+        left: 81%;
+      }
     </style>
   </head>
   <body>
@@ -47,14 +53,14 @@
       <div id="backgroundImage1" style="width: auto; height: 250px;" class="asset-left frame" data-image="backgroundImage1"></div>
       <div id="backgroundImage2" style="width: auto; height: 250px;" class="asset-left frame multiframe" data-image="backgroundImage2"></div>
       <div id="backgroundImage3" style="width: auto; height: 250px;" class="asset-left frame multiframe" data-image="backgroundImage3"></div>
-      <div id="topWhitePatch" class="frame" style="top:-1198px;left:-636px;background-color:white;"></div>
-      <div id="bottomWhitePatch" class="frame" style="left:596px;background-color:white;"></div>
+      <div id="topWhitePatch" class="frame" style="top:-1198px;left:-636px;background-color:#7D1C25;"></div>
+      <div id="bottomWhitePatch" class="frame" style="left:596px;background-color:#7D1C25;"></div>
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="productLableLogo" class="asset frame" data-image="productLableLogo" style="display:none;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
-      <div id="frameText1" class="text DashiellFineBold"
+      <div id="frameText1" class="text NewOrder-Medium"
         data-text="frameText1"
-        data-style="text-align:center;"
+        data-style="text-align:left;"
         style="top: 58px;
           left: 625px;
           width: 320px;
@@ -63,9 +69,9 @@
           /* letter-spacing: 0.05em; */
           line-height: 1.13;">
       </div>
-      <div id="frameText2" class="text DashiellFineBold"
+      <div id="frameText2" class="text NewOrder-Medium"
         data-text="frameText2"
-        data-style="text-align:center;"
+        data-style="text-align:left;"
         style="top: 58px;
           left: 625px;
           width: 320px;
@@ -74,9 +80,9 @@
           /* letter-spacing: 0.05em; */
           line-height: 1.13;">
       </div>
-      <div id="frameText3" class="text DashiellFineBold"
+      <div id="frameText3" class="text NewOrder-Medium"
         data-text="frameText3"
-        data-style="text-align:center;"
+        data-style="text-align:left;"
         style="top: 58px;
           left: 625px;
           width: 320px;
@@ -85,7 +91,7 @@
           /* letter-spacing: 0.05em; */
           line-height: 1.13;">
       </div>
-      <div id="cta" class="text DashiellFineBold"
+      <div id="cta" class="text NewOrder-Medium"
         data-text="ctaText"
         data-style="padding:0 20px 0px;"
         style="top: 193px;
@@ -102,7 +108,7 @@
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
     <div id="loadFont" style="width:0;height:0;overflow:hidden;">
-      <div class="DashiellFineBold">DashiellFineBold</div>
+      <div class="NewOrder-Medium">NewOrder-Medium</div>
     </div>
     <script type="text/javascript">
       var layout = 'standard';
@@ -137,9 +143,9 @@
           ],
           staticData: {
             // ref: 'ref.png'
-            logoImage: './../images/970x250_Northstar_LogoImage.png',
+            logoImage: './../images/2020_NS_NorthstarCalifornia_Stacked_RGB_White.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
-            ctaBtnColor: '#7d1c25^#D7941D',
+            ctaBtnColor: '#D7941D^#ffb832',
           },
           beforeLoad: function(data){
             data.map(function(content){

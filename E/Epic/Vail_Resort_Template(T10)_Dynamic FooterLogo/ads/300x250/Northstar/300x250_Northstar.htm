@@ -14,11 +14,12 @@
           src: url('fonts/NeutraDisplay-Bold.woff') format("woff");
       }
       .NeutraDisplayBold { font-family: NeutraDisplayBold; } */
-      .DashiellFineBold {
+      .NewOrder-Medium { font-family: "new-order"; }
+      /* .DashiellFineBold {
         font-family: "dashiell-fine", serif;
         font-weight: 700;
         font-style: normal;
-      }
+      } */
     </style>
     <style media="screen" data-dynamic="style">
       #ad {
@@ -27,7 +28,7 @@
         font-family: arial,sans-serif;
         font-weight: 900;
         font-style: normal;
-        color: #7d1c25;
+        color: #FFFFFF;
         background-color: #fff;
       }
       .frame {
@@ -40,6 +41,10 @@
       #cta { background-color: !{ctaBtn};  }
       #ad:hover #cta { background-color: !{ctaBtnHover}; }
       #ad:hover #cta { color: !{ctaBtn};  }
+      #logoImage img {
+        top: 7%;
+        width: 72px;
+      }
     </style>
   </head>
   <body>
@@ -47,12 +52,12 @@
       <div id="backgroundImage1" style="top: 37px;width: 300px; height: auto;" class="asset-top frame" data-image="backgroundImage1"></div>
       <div id="backgroundImage2" style="top: 37px;width: 300px; height: auto;" class="asset-top frame multiframe" data-image="backgroundImage2"></div>
       <div id="backgroundImage3" style="top: 37px;width: 300px; height: auto;" class="asset-top frame multiframe" data-image="backgroundImage3"></div>
-      <div id="topWhitePatch" class="frame" style="top:-213px;background-color:white;"></div>
-      <div id="bottomWhitePatch" class="frame" style="top:165px;background-color:white;"></div>
+      <div id="topWhitePatch" class="frame" style="top:-213px;background-color:#7D1C25;"></div>
+      <div id="bottomWhitePatch" class="frame" style="top:165px;background-color:#7D1C25;"></div>
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="productLableLogo" class="asset frame" data-image="productLableLogo" style="display:none;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
-      <div id="frameText1" class="text-left DashiellFineBold"
+      <div id="frameText1" class="text-left NewOrder-Medium"
         data-text="frameText1"
         style="top: 171px;
           left: 11px;
@@ -62,7 +67,7 @@
           /* letter-spacing: 0.05em; */
           line-height: 1.15;">
       </div>
-      <div id="frameText2" class="text-left DashiellFineBold"
+      <div id="frameText2" class="text-left NewOrder-Medium"
         data-text="frameText2"
         style="top: 171px;
           left: 11px;
@@ -72,7 +77,7 @@
           /* letter-spacing: 0.05em; */
           line-height: 1.15;">
       </div>
-      <div id="frameText3" class="text-left DashiellFineBold"
+      <div id="frameText3" class="text-left NewOrder-Medium"
         data-text="frameText3"
         style="top: 171px;
           left: 11px;
@@ -82,7 +87,7 @@
           /* letter-spacing: 0.05em; */
           line-height: 1.15;">
       </div>
-      <div id="cta" class="text DashiellFineBold"
+      <div id="cta" class="text NewOrder-Medium"
         data-text="ctaText"
         data-style="padding:1px 10px 1px;"
         style="top: 194px;
@@ -98,7 +103,7 @@
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
     <div id="loadFont" style="width:0;height:0;overflow:hidden;">
-      <div class="DashiellFineBold">DashiellFineBold</div>
+      <div class="NewOrder-Medium">NewOrder-Medium</div>
     </div>
     <script type="text/javascript">
       var layout = 'standard';
@@ -133,9 +138,9 @@
           ],
           staticData: {
             // ref: 'ref.png'
-            logoImage: './../images/300x250_Northstar_LogoImage.png',
+            logoImage: './../images/2020_NS_NorthstarCalifornia_Stacked_RGB_White.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
-            ctaBtnColor: '#7d1c25^#D7941D',
+            ctaBtnColor: '#D7941D^#ffb832',
           },
           beforeLoad: function(data){
             data.map(function(content){
@@ -166,7 +171,7 @@
                   frameText[i].style.left = '15px';
                   frameText[i].style.width = '270px';
                   frameText[i].style.height = '38px';
-                  frameText[i].style.textAlign = 'center';
+                  frameText[i].style.textAlign = 'left';
                 }
               } else if(layout == 'multipleimagesoffer') {
                 content.styleProperties = "{'#cta': {x:0,y:21},'#productLableLogo': {css:{display:'block'}}}";
@@ -180,7 +185,7 @@
                   frameText[i].style.left = '15px';
                   frameText[i].style.width = '270px';
                   frameText[i].style.height = '38px';
-                  frameText[i].style.textAlign = 'center';
+                  frameText[i].style.textAlign = 'left';
                 }
               }
               // else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {
