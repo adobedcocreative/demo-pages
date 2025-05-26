@@ -39,6 +39,9 @@
       }
       #cta { background-color: !{ctaBtn}; }
       #ad:hover #cta { background-color: !{ctaBtnHover}; }
+      #logoImage img{
+        left: 53.5%;
+      }
     </style>
   </head>
   <body>
@@ -209,7 +212,7 @@
             canvas.width = this.width;
             canvas.height = this.height;
             document.body.appendChild(canvas);
-            ctx.fillStyle = "#113451";
+            ctx.fillStyle = "#89EBAD";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.globalCompositeOperation = 'destination-in';
             ctx.drawImage(this, 0, 0);
