@@ -176,7 +176,7 @@
                  frameText[i].style.lineHeight = '1.2';
                 }
               } else if(layout == 'multipleimagesoffer') {
-                content.styleProperties = "{'#cta': {y:25}, '#productLableLogo': {css:{display:'block'}}}";
+                content.styleProperties = "{'#cta': {y:25}, '#productLableLogo': {css:{display:'block', left:'-5px'}}}";
                 var cta = document.querySelector("#cta");
                 cta.style.left = "443px";
                 cta.style.width = "auto";
@@ -221,7 +221,7 @@
             canvas.width = this.width;
             canvas.height = this.height;
             document.body.appendChild(canvas);
-            ctx.fillStyle = "#006691";
+            ctx.fillStyle = "#EF700C";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.globalCompositeOperation = 'destination-in';
             ctx.drawImage(this, 0, 0);

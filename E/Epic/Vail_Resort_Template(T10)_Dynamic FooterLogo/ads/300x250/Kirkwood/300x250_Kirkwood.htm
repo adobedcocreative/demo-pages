@@ -170,7 +170,7 @@
                   frameText[i].style.textAlign = 'center';
                 }
               } else if(layout == 'multipleimagesoffer') {
-                content.styleProperties = "{'#cta': {x:0,y:21},'#productLableLogo': {css:{display:'block'}}}";
+                content.styleProperties = "{'#cta': {x:0,y:21},'#productLableLogo': {css:{display:'block', left:'-5px'}}}";
                 var cta = document.querySelector("#cta");
                 cta.style.left = "15px";
                 cta.style.width = "auto";
@@ -211,7 +211,7 @@
             canvas.width = this.width;
             canvas.height = this.height;
             document.body.appendChild(canvas);
-            ctx.fillStyle = "#F8951F";
+            ctx.fillStyle = "#EF700C";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.globalCompositeOperation = 'destination-in';
             ctx.drawImage(this, 0, 0);
