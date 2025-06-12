@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/script.min.js"></script>
     <style media="screen">
-      .SabonLTProBold {
+      /* .SabonLTProBold {
         font-family: linotype-sabon,sans-serif;
         font-weight: 700;
         font-style: normal;
@@ -18,7 +18,12 @@
           font-family: CocoGothicBold;
           src: url('fonts/Zetafonts - Coco Gothic Bold.woff') format("woff");
       }
-      .CocoGothicBold { font-family: CocoGothicBold; }
+      .CocoGothicBold { font-family: CocoGothicBold; } */
+      .poppins {
+        font-family: "poppins";
+        font-weight: 600;
+        font-style: normal;
+      }
     </style>
     <style media="screen" data-dynamic="style">
       #ad {
@@ -27,7 +32,7 @@
         font-family: arial,sans-serif;
         font-weight: 900;
         font-style: normal;
-        color: #323232;
+        color: #FAFFFF;
         background-color: #fff;
       }
       .frame {
@@ -48,14 +53,15 @@
       <div id="backgroundImage1" style="top: 37px;width: 300px; height: auto;" class="asset-top frame" data-image="backgroundImage1"></div>
       <div id="backgroundImage2" style="top: 37px;width: 300px; height: auto;" class="asset-top frame multiframe" data-image="backgroundImage2"></div>
       <div id="backgroundImage3" style="top: 37px;width: 300px; height: auto;" class="asset-top frame multiframe" data-image="backgroundImage3"></div>
-      <div id="topWhitePatch" class="frame" style="top:-213px;background-color:rgba(255, 255, 255, 1.0);"></div>
-      <div id="bottomWhitePatch" class="frame" style="top:165px;background-color:rgba(255, 255, 255, 1.0);"></div>
+      <div id="topWhitePatch" class="frame" style="top:-213px;background-color:#04A9DB;"></div>
+      <div id="bottomWhitePatch" class="frame" style="top:165px;background-color:#006CAB;"></div>
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
-      <div id="productLableLogo" class="asset frame" data-image="productLableLogo" style="display:none;"></div>
+      <div id="productLableLogo" class="asset frame" data-image="productLableLogo" style="display:none; left: -5px;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
-      <div id="frameText1" class="text-left CocoGothicBold"
+      <div id="frameText1" class="text-left poppins"
         data-text="frameText1"
-        style="top: 171px;
+        data-style="text-align:left;"
+        style="top: 173px;
           left: 11px;
           width: 180px;
           height: 70px;
@@ -63,9 +69,10 @@
           letter-spacing: 0px;
           line-height: 1.15;">
       </div>
-      <div id="frameText2" class="text-left CocoGothicBold"
+      <div id="frameText2" class="text-left poppins"
         data-text="frameText2"
-        style="top: 171px;
+        data-style="text-align:left;"
+        style="top: 173px;
           left: 11px;
           width: 180px;
           height: 70px;
@@ -73,9 +80,10 @@
           letter-spacing: 0px;
           line-height: 1.15;">
       </div>
-      <div id="frameText3" class="text-left CocoGothicBold"
+      <div id="frameText3" class="text-left poppins"
         data-text="frameText3"
-        style="top: 171px;
+        data-style="text-align:left;"
+        style="top: 173px;
           left: 11px;
           width: 180px;
           height: 70px;
@@ -83,7 +91,7 @@
           letter-spacing: 0px;
           line-height: 1.15;">
       </div>
-      <div id="disclaimerText" class="text-right AlternateGothicATFMedium"
+      <div id="disclaimerText" class="text-right poppins"
         data-text="disclaimerText"
         style="top: 173px;
           right: 5px;
@@ -91,9 +99,9 @@
           color: #919195;
           letter-spacing: -0.1px;">
       </div>
-      <div id="cta" class="text CocoGothicBold"
+      <div id="cta" class="text poppins"
         data-text="ctaText"
-        data-style="padding:0 10px 0px;"
+        data-style="padding:2px 10px 0px;"
         style="top: 197px;
           left: 201px;
           width: 87px;
@@ -101,13 +109,12 @@
           font-size: 12px;
           line-height: 20px;
           border-radius: 15px;
-          color: #fff;">
+          color: #FAFFFF;">
       </div>
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
     <div id="loadFont" style="width:0;height:0;overflow:hidden;">
-      <div class="SabonLTProBold">SabonLTProBold</div>
-      <div class="CocoGothicBold">CocoGothicBold</div>
+      <div class="poppins">poppins</div>
     </div>
     <script type="text/javascript">
       var layout = 'standard';
@@ -144,7 +151,7 @@
             // ref: 'ref.png'
             logoImage: './../images/300x250_MtSnow_LogoImage.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
-            ctaBtnColor: '#E31837^#000000',
+            ctaBtnColor: '#04A9DB^#00468C',
            disclaimerText: '<sup>*</sup>TERMS APPLY',
           },
           beforeLoad: function(data){
@@ -171,13 +178,13 @@
                 cta.style.width = "auto";
                 cta.style.minWidth = "90px";
                 cta.style.maxWidth = "140px";
-                cta.dataset.style = 'padding:0px 10px 0px;';
+                cta.dataset.style = 'padding:2px 10px 0px;';
                 var frameText = document.querySelectorAll("div[id^=frameText]");
                 for (var i = 0; i < frameText.length; i++){
                   frameText[i].style.left = '15px';
                   frameText[i].style.width = '270px';
                   frameText[i].style.height = '38px';
-                  frameText[i].style.textAlign = 'center';
+                  frameText[i].style.textAlign = 'left';
                 }
               } else if(layout == 'multipleimagesoffer') {
                 content.styleProperties = "{'#cta': {x:0,y:21},'#productLableLogo': {css:{display:'block'}}}";
@@ -192,7 +199,7 @@
                   frameText[i].style.left = '15px';
                   frameText[i].style.width = '270px';
                   frameText[i].style.height = '38px';
-                  frameText[i].style.textAlign = 'center';
+                  frameText[i].style.textAlign = 'left';
                 }
               }
               // else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {
@@ -221,7 +228,7 @@
             canvas.width = this.width;
             canvas.height = this.height;
             document.body.appendChild(canvas);
-            ctx.fillStyle = "#E31837";
+            ctx.fillStyle = "#FFFFFF";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.globalCompositeOperation = 'destination-in';
             ctx.drawImage(this, 0, 0);

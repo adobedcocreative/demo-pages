@@ -9,13 +9,23 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/script.min.js"></script>
     <style media="screen">
-      .RobotoSlabBold{
+      /* .RobotoSlabBold{
         font-family: roboto-slab,serif;
         font-weight: 700;
         font-style: normal;
       }
       .MontserratExtraBold {
         font-family: montserrat, sans-serif;
+        font-weight: 800;
+        font-style: normal;
+      } */
+       .hoss-sharp-black {
+        font-family: "hoss-sharp";
+        font-weight: 700;
+        font-style: normal;
+      }
+      .hoss-sharp-heavy {
+        font-family: "hoss-sharp";
         font-weight: 800;
         font-style: normal;
       }
@@ -27,8 +37,8 @@
         font-family: arial,sans-serif;
         font-weight: 900;
         font-style: normal;
-        color: #113451;
-        background-color: #fff;
+        color: #F6FFF7;
+        background-color: #008D55;
       }
       .frame {
         position: absolute;
@@ -48,14 +58,14 @@
       <div id="backgroundImage1" style="top: 65px;width: 160px;height: auto;" class="asset-top frame" data-image="backgroundImage1"></div>
       <div id="backgroundImage2" style="top: 65px;width: 160px;height: auto;" class="asset-top frame multiframe" data-image="backgroundImage2"></div>
       <div id="backgroundImage3" style="top: 65px;width: 160px;height: auto;" class="asset-top frame multiframe" data-image="backgroundImage3"></div>
-      <div id="topWhitePatch" class="frame" style="top:-535px;background-color:rgba(255, 255, 255, 1.0);"></div>
-      <div id="bottomWhitePatch" class="frame" style="top:453px;background-color:rgba(255, 255, 255, 1.0);"></div>
+      <div id="topWhitePatch" class="frame" style="top:-556px;background-color:#008D55;"></div>
+      <div id="bottomWhitePatch" class="frame" style="top:453px;background-color:#008D55;"></div>
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="productLableLogo" class="asset frame" data-image="productLableLogo" style="display:none;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
-      <div id="frameText1" class="text MontserratExtraBold"
+      <div id="frameText1" class="text hoss-sharp-black"
         data-text="frameText1"
-        data-style="text-align:center;"
+        data-style="text-align:left;"
         style="top: 457px;
           left: 15px;
           width: 130px;
@@ -64,9 +74,9 @@
           letter-spacing: 0.02em;
           line-height: 1.3;">
       </div>
-      <div id="frameText2" class="text MontserratExtraBold"
+      <div id="frameText2" class="text hoss-sharp-black"
         data-text="frameText2"
-        data-style="text-align:center;"
+        data-style="text-align:left;"
         style="top: 457px;
           left: 15px;
           width: 130px;
@@ -75,9 +85,9 @@
           letter-spacing: 0.02em;
           line-height: 1.3;">
       </div>
-      <div id="frameText3" class="text MontserratExtraBold"
+      <div id="frameText3" class="text-left hoss-sharp-black"
         data-text="frameText3"
-        data-style="text-align:center;"
+        data-style="text-align:left;"
         style="top: 457px;
           left: 15px;
           width: 130px;
@@ -86,7 +96,7 @@
           letter-spacing: 0.02em;
           line-height: 1.3;">
       </div>
-      <div id="disclaimerText" class="text-right AlternateGothicATFMedium"
+      <div id="disclaimerText" class="text-right hoss-sharp-heavy"
         data-text="disclaimerText"
         style="bottom: -5px;
           right: 4px;
@@ -94,7 +104,7 @@
           color: #909090;
           letter-spacing: -0.1px;">
       </div>
-      <div id="cta" class="text MontserratExtraBold"
+      <div id="cta" class="text hoss-sharp-heavy"
         data-text="ctaText"
         data-style="text-align:center;padding:1px 8px 0px;"
         style="top: 545px;
@@ -104,13 +114,14 @@
           font-size: 12px;
           line-height: 20px;
           letter-spacing: 0.05em;
-          /*border-radius: 15px;*/
-          color: #113451;">
+          border-radius: 7px;
+          color: #141418;">
       </div>
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
     <div id="loadFont" style="width:0;height:0;overflow:hidden;">
-      <div class="MontserratExtraBold">MontserratExtraBold</div>
+      <div class="hoss-sharp-black">hoss-sharp-black</div>
+      <div class="hoss-sharp-heavy">hoss-sharp-heavy</div>
     </div>
     <script type="text/javascript">
       var layout = 'standard';
@@ -147,7 +158,7 @@
             // ref: 'ref.png'
             logoImage: './../images/160x600_SevenSprings_LogoImage.png',
             styleProperties: "na", //{'#cta': {y:10},'#logoImage': {y:10}}
-            ctaBtnColor: '#F99A00^#faba52',
+            ctaBtnColor: '#F6FFF7^#89EBAD',
             disclaimerText: '<sup>*</sup>TERMS APPLY',
           },
           beforeLoad: function(data){
@@ -213,7 +224,7 @@
             canvas.width = this.width;
             canvas.height = this.height;
             document.body.appendChild(canvas);
-            ctx.fillStyle = "#113451"//"#F8951F";
+            ctx.fillStyle = "#FFFFFF"//"#F8951F";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.globalCompositeOperation = 'destination-in';
             ctx.drawImage(this, 0, 0);
