@@ -56,7 +56,7 @@
       <div id="topWhitePatch" class="frame" style="top:-213px;background-color:#04A9DB;"></div>
       <div id="bottomWhitePatch" class="frame" style="top:165px;background-color:#006CAB;"></div>
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
-      <div id="productLableLogo" class="asset frame" data-image="productLableLogo" style="display:none; left: -5px;"></div>
+      <div id="productLableLogo" class="asset frame" data-image="productLableLogo" style="display:none;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
       <div id="frameText1" class="text-left poppins"
         data-text="frameText1"
@@ -187,7 +187,7 @@
                   frameText[i].style.textAlign = 'left';
                 }
               } else if(layout == 'multipleimagesoffer') {
-                content.styleProperties = "{'#cta': {x:0,y:21},'#productLableLogo': {css:{display:'block'}}}";
+                content.styleProperties = "{'#cta': {x:0,y:21},'#productLableLogo': {css:{display:'block', left:'-5px'}}}";
                 var cta = document.querySelector("#cta");
                 cta.style.left = "15px";
                 cta.style.width = "auto";
