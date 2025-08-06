@@ -14,11 +14,7 @@
           src: url('fonts/NeutraDisplay-Bold.woff') format("woff");
       }
       .NeutraDisplayBold { font-family: NeutraDisplayBold; } */
-      .DashiellFineBold {
-        font-family: "dashiell-fine", serif;
-        font-weight: 700;
-        font-style: normal;
-      }
+      .NewOrder-Medium { font-family: "new-order"; font-weight: 500; }
     </style>
     <style media="screen" data-dynamic="style">
       #ad {
@@ -58,7 +54,7 @@
       <div id="logoImage" class="asset frame" data-image="logoImage"></div>
       <div id="productLableLogo" class="asset frame" data-image="productLableLogo" style="display:none;"></div>
       <!-- <div id="ref" class="asset frame" data-image="ref"></div> -->
-      <div id="frameText1" class="text-left DashiellFineBold"
+      <div id="frameText1" class="text-left NewOrder-Medium"
         data-text="frameText1"
         style="top: 171px;
           left: 11px;
@@ -68,7 +64,7 @@
           /* letter-spacing: 0.05em; */
           line-height: 1.15;">
       </div>
-      <div id="frameText2" class="text-left DashiellFineBold"
+      <div id="frameText2" class="text-left NewOrder-Medium"
         data-text="frameText2"
         style="top: 171px;
           left: 11px;
@@ -78,7 +74,7 @@
           /* letter-spacing: 0.05em; */
           line-height: 1.15;">
       </div>
-      <div id="frameText3" class="text-left DashiellFineBold"
+      <div id="frameText3" class="text-left NewOrder-Medium"
         data-text="frameText3"
         style="top: 171px;
           left: 11px;
@@ -96,7 +92,7 @@
           color: #b5b6b6;
           letter-spacing: -0.1px;">
       </div>
-      <div id="cta" class="text DashiellFineBold"
+      <div id="cta" class="text NewOrder-Medium"
         data-text="ctaText"
         data-style="padding:1px 10px 1px;"
         style="top: 197px;
@@ -107,12 +103,12 @@
           line-height: 20px;
           color: #fff;
           /* letter-spacing: 0.05em; */
-          border-radius: 15px;">
+          border-radius: 5px;">
       </div>
       <div id="overlay" style="top:0px;left:0px;width:inherit;height:inherit;background-color:#fff;opacity:1;-webkit-transition:all ease .5s;transition:all ease .5s;"></div>
     </div>
     <div id="loadFont" style="width:0;height:0;overflow:hidden;">
-      <div class="DashiellFineBold">DashiellFineBold</div>
+      <div class="NewOrder-Medium">NewOrder-Medium</div>
     </div>
     <script type="text/javascript">
       var layout = 'standard';
@@ -181,7 +177,7 @@
                   frameText[i].style.left = '15px';
                   frameText[i].style.width = '270px';
                   frameText[i].style.height = '38px';
-                  frameText[i].style.textAlign = 'center';
+                  frameText[i].style.textAlign = 'left';
                 }
               } else if(layout == 'multipleimagesoffer') {
                 content.styleProperties = "{'#cta': {x:0,y:21},'#productLableLogo': {css:{display:'block', left:'-5px'}}}";
@@ -195,7 +191,7 @@
                   frameText[i].style.left = '15px';
                   frameText[i].style.width = '270px';
                   frameText[i].style.height = '38px';
-                  frameText[i].style.textAlign = 'center';
+                  frameText[i].style.textAlign = 'left';
                 }
               }
               // else if(layout == 'multipleimages' && !document.querySelector("#backgroundImage4")) {
